@@ -64,7 +64,7 @@
           "collapsed": true,
           "items": [
             "getting-started/actions",
-            "getting-started/create-custom-view"
+            "getting-started/create-dashboard"
           ]
         },
         {
@@ -1100,6 +1100,10 @@
             },
             {
               "type": "doc",
+              "id": "version-24.10/migrate/migrate-from-debian-to-debian"
+            },
+            {
+              "type": "doc",
               "id": "version-24.10/migrate/migrate-from-3-4"
             },
             {
@@ -1252,10 +1256,6 @@
             {
               "type": "doc",
               "id": "version-24.10/integrations/itsm/ot-itop"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/integrations/itsm/ot-iws-isilog"
             },
             {
               "type": "doc",
@@ -1433,47 +1433,8 @@
       ]
     },
     {
-      "type": "category",
-      "label": "Centreon HA",
-      "link": {
-        "type": "doc",
-        "id": "version-24.10/installation/installation-of-centreon-ha/overview"
-      },
-      "items": [
-        {
-          "type": "category",
-          "label": "Upgrading Centreon HA",
-          "link": {
-            "type": "generated-index"
-          },
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-24.10/upgrade/centreon-ha/upgrade-centreon-ha-from-23-10"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
-            },
-        {
-          "type": "doc",
-          "id": "version-24.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
-        }
-          ]
-        }
-      ]
+      "type": "doc",
+      "id": "version-24.10/installation/installation-of-centreon-ha/overview"
     },
     {
       "type": "category",

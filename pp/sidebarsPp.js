@@ -1234,6 +1234,10 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-video-appeartv-snmp'
         },
+       {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-avigilon-snmp'
+        },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-kvm-avocent-acs-6000-snmp'
@@ -1249,10 +1253,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-barco-cs-restapi'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-avigilon-snmp'
         },
         {
           type: 'doc',
@@ -1803,6 +1803,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-huawei-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-ibm-bladecenter-snmp'
         },
         {
           type: 'doc',

@@ -64,7 +64,7 @@
           "collapsed": true,
           "items": [
             "getting-started/actions",
-            "getting-started/create-custom-view"
+            "getting-started/create-dashboard"
           ]
         },
         {
@@ -740,6 +740,10 @@
                 },
                 {
                   "type": "doc",
+                  "id": "version-24.04/graph-views/map-web-migrate"
+                },
+                {
+                  "type": "doc",
                   "id": "version-24.04/graph-views/import-into-map-web"
                 },
                 {
@@ -1296,10 +1300,6 @@
             {
               "type": "doc",
               "id": "version-24.04/integrations/itsm/ot-itop"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/integrations/itsm/ot-iws-isilog"
             },
             {
               "type": "doc",

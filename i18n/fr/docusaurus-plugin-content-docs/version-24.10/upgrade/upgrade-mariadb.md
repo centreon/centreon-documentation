@@ -108,17 +108,31 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 2. Désinstallez la version actuelle :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
 ```shell
 rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="RHEL 8" label="RHEL 8">
+
+```shell
+rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
+```
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
 
 ```shell
 rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+```
+
+</TabItem>
+<TabItem value="RHEL 9" label="RHEL 9">
+
+```shell
+rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
 ```
 
 </TabItem>
@@ -156,17 +170,31 @@ dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-co
 3. Installez la version 10.11 :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
 ```shell
 dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-compat-10.11\* MariaDB-common-10.11\*
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="RHEL 8" label="RHEL 8">
+
+```shell
+dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-common-10.11\*
+```
+
+</TabItem>
+<TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
 
 ```shell
 dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-compat-10.11\* MariaDB-common-10.11\*
+```
+
+</TabItem>
+<TabItem value="RHEL 9" label="RHEL 9">
+
+```shell
+dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-common-10.11\*
 ```
 
 </TabItem>
