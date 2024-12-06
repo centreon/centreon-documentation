@@ -359,16 +359,20 @@ systemctl restart centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. [Download the CMA installer](https://github.com/centreon/centreon-collect/releases/download/centreon-collect-24.04.6/centreon-monitoring-agent-24.10.0.exe) on every server you want to monitor.
+[Download the CMA installer](https://github.com/centreon/centreon-collect/releases/download/centreon-collect-24.04.6/centreon-monitoring-agent-24.10.0.exe) on every server you want to monitor.
 
-2. Start the installer (during the configuration, you can click on the (i) icons for help).
+
+<Tabs groupId="sync">
+<TabItem value="Interactive mode" label="Interactive mode">
+
+1. Start the installer (during the configuration, you can click on the (i) icons for help).
    
-3. Configure the endpoint and the connection:
+2. Configure the endpoint and the connection:
    * **Host name in Centreon**. This must be the host name you have defined in the Centreon interface.
    * In most cases (the agent connects to the poller), you have to enter the poller's endpoint. The correct format is  \<poller IP or DNS name\>:port (OpenTelemetry listening port on the poller, usually 4317), for example 192.168.45.32:4317.
    * In case of a poller-initiated connection (the poller connects to the agent), you have to choose a host interface (0.0.0.0 for all interfaces) and the listening port on which poller will connect, usually 4317.
 
-4. Configure logging options. You can configure two kinds of log output:
+3. Configure logging options. You can configure two kinds of log output:
 * File: the CMA logs into a file
 * EventLog: the CMA logs in the [event logs page](/docs/alerts-notifications/event-log).
 
@@ -382,8 +386,35 @@ Allowed log levels are:
 * debug: more information about connections
 * trace: the most verbose trace level showing messages sent and received to the poller
 
-5. Configure encryption
+4. Configure encryption
 Encryption is activated by default. In case of a poller-initiated connection, the private key file and certificate file are mandatory.
+
+</TabItem>
+
+<TabItem value="Silent mode" label="Silent mode (console)">
+
+In this mode no UI is started. As this installer is not a console program, it returns immediately despite he hasn't finished. You have to wait for message telling that all is finished.
+If you need to have exit status, you can launch it in a powershell session and wait for exit code. Exit code will be 0 if all isright
+| flag                | description                                                                                                                                                                                                                                                               |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --install_cma       | Set this flag if you want to install centreon monitoring agent                                                                                                                                                                                                            |
+| --install_plugins   | Set this flag if you want to install centreon plugins                                                                                                                                                                                                                     |
+| --hostname          | The name of the host as defined in the Centreon interface.                                                                                                                                                                                                                |
+| --endpoint          | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode, it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) |
+| --reverse           | Add this flag for Poller-initiated connection mode.                                                                                                                                                                                                                       |
+| --log_type          | event_log or file. In case of logging in a file, log_file param is mandatory                                                                                                                                                                                              |
+| --log_level         | can be off, critical, error, warning, debug or trace                                                                                                                                                                                                                      |
+| --log_file          | log files path.                                                                                                                                                                                                                                                           |
+| --log_max_file_size | max file in Mo before rotate.                                                                                                                                                                                                                                             |
+| --log_max_files     | max number of log files before delete. For the rotation of logs to be active, it is necessary that both parameters 'Max File Size' and 'Max number of files' are set.                                                                                                     |
+| --encryption        | Add this flag for encrypt connection with poller.                                                                                                                                                                                                                         |
+| --private_key       | Private key file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                                |
+| --public_cert       | Public certificate file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                         |
+| --ca                | Trusted CA's certificate file path.                                                                                                                                                                                                                                       |
+| --ca_name           | Expected TLS certificate common name (CN). Don't use it if unsure.                                                                                                                                                                                                        |
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>

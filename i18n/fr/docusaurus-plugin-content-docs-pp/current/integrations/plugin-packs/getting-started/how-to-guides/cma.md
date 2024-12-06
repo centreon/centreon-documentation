@@ -355,19 +355,65 @@ Les niveaux de logs possibles sont:
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. [Téléchargez l'installer de l'agent] (https://github.com/centreon/centreon-collect/releases/download/centreon-collect-24.04.6/centreon-monitoring-agent-24.10.0.exe) sur tous les serveurs que vous voulez superviser.
+[Téléchargez l'installer de l'agent] (https://github.com/centreon/centreon-collect/releases/download/centreon-collect-24.04.6/centreon-monitoring-agent-24.10.0.exe) sur tous les serveurs que vous voulez superviser.
 
-2. Lancez l'installer (durant la configuration, vous pourrez cliquer sur les (i) pour avoir de l'aide).
 
-3. Configurez l'endpoint et le type de connexion :
+Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
+
+<Tabs groupId="sync">
+<TabItem value="Mode interactif" label="Mode interactif">
+
+1. Lancez l'installer (durant la configuration, vous pourrez cliquer sur les (i) pour avoir de l'aide).
+
+2. Configurez l'endpoint et le type de connexion :
    * Dans le champ **Host name in Centreon**, entrez le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon.
    * Dans le cas le plus courant (l'agent se connecte au poller), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le poller, sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317.
    * Si vous activez l'option **Poller-initiated connection** (le collecteur se connecte à l'agent), vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du collecteur.
 
-4. Configurez les options de log. Deux types de log sont disponibles :
+3. Configurez les options de log. Deux types de log sont disponibles :
    * **File** : les logs sont écrits dans un fichier
    * **EventLog** : les logs sont envoyés vers les [journaux d'évènements](/docs/alerts-notifications/event-log).
   Si vous choisissez de logger dans un fichier, vous pouvez configurer la rotation de logs en renseignant **Max File Size** et **Max number of files**.
+
+4. Configurez les paramètres de chiffrement.
+Le chiffrement est activé par défaut. Dans le cas où l'option **Poller-initiated connection** est activée, renseignez **Max File Size** et **Max number of files**.
+
+</TabItem>
+
+<TabItem value="Mode silencieux" label="Silent mode (console)">
+
+Dans ce mode, aucune Ihm est lancée. Comme cet installer n'est pas un programme console, il rend immédiatement la main même s'il n'a pas encore fini. Vous devez attendre de voir apparaitre dans la console le message indiquant qu'il a terminé. 
+Si vous devez tester le succès de l'installation, vous devez récupérer l'exit status. Vous pouvez le lancer dans un powershell et attendre la fin du processus. L'exit status vaudra 0 si tout s'est bien passé.
+
+Pour le lancer en mode silencieux, vous devez mettre en premier argument /S.
+Vous pouvez avoir une liste des arguments avec la ligne de commande:
+```shell
+centreon-monitoring-agent.exe /S --help
+```
+
+Les différents arguments sont:
+
+| flag                | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --install_cma       | Si ce flag est présent, l'agent sera installé                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --install_plugins   | Si ce flag est présent, les plugins seront installés                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --hostname          | Le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --endpoint          | Dans le cas le plus courant (l'agent se connecte au poller), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le poller, sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317. Si vous activez l'option **--reverse** (le collecteur se connecte à l'agent), vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du collecteur. |
+| --reverse           | Si ce flag est présent, l'agent accepte les connections venant du collecteur                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --log_type          | event_log ou file. Si vous choisissez fichier, le paramètre log_file est obligatoire                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --log_level         | Choisir parmi: off, critical, error, warning, debug ou trace                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --log_file          | Chemin du fichier de log                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --log_max_file_size | Taille maximale du fichier de log en Mo avant rotation.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --log_max_files     | Nombre maximal de fichiers de log. Pour que la rotation des logs soit activée, ces deux paramètres sont nécessaires.                                                                                                                                                                                                                                                                                                                                                                        |
+| --encryption        | Si ce flag est présent le chiffrement est activé.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --private_key       | Chemin du fichier contenant la clé privée. Obligatoire si le chiffrement et le mode reverse sont activés.                                                                                                                                                                                                                                                                                                                                                                                   |
+| --public_cert       | Chemin du fichier contenant la clé publique. Obligatoire si le chiffrement et le mode reverse sont activés.                                                                                                                                                                                                                                                                                                                                                                                 |
+| --ca                | Chemin du fichier contenant le certificat de confiance.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --ca_name           | TLS certificate common name (CN). Ne pas utiliser en cas de doute.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+
+</TabItem>
+</Tabs>
+
   Les niveaux de logs possibles sont:
    * off: aucun log
    * critical: erreurs critiques
@@ -375,9 +421,6 @@ Les niveaux de logs possibles sont:
    * info: quelques informations supplémentaires
    * debug: quelques informations sur les connections en plus
    * trace: le niveau de trace le plus bavard qui permet de voir les messages envoyés et reçus vers le poller
-
-5. Configurez les paramètres de chiffrement.
-Le chiffrement est activé par défaut. Dans le cas où l'option **Poller-initiated connection** est activée, renseignez **Max File Size** et **Max number of files**.
 
 </TabItem>
 </Tabs>
