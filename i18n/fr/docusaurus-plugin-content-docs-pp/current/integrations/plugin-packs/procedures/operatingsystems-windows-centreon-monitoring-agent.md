@@ -367,10 +367,10 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 
 | Macro             | Description                                                                                                                                                                                                                                                                                    | Valeur par défaut | Obligatoire |
 |:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING           | Thresholds                                                                                                                                                                                                                                                                                     |                   |             |
-| CRITICAL          | Thresholds                                                                                                                                                                                                                                                                                     |                   |             |
-| FILTERSTORAGETYPE | Case insensitive regex to filter storage type it includes drive type (fixed, network...). Types recognized by agent: hrunknown, hrstoragefixeddisk, hrstorageremovabledisk, hrstoragecompactdisc, hrstorageramdisk, hrstoragenetworkdisk, hrfsunknown, hrfsfat, hrfsntfs, hrfsfat32, hrfsexfat |                   |             |
-| FILTERFS          | Case insensitive regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                               |                   |             |
+| WARNING           | Thresholds                                                                                                                                                                                                                                                                                     | 80            |           |
+| CRITICAL          | Thresholds                                                                                                                                                                                                                                                                                     | 90            |           |
+| FILTERSTORAGETYPE | Case insensitive regex to filter storage type it includes drive type (fixed, network...). Types recognized by agent: hrunknown, hrstoragefixeddisk, hrstorageremovabledisk, hrstoragecompactdisc, hrstorageramdisk, hrstoragenetworkdisk, hrfsunknown, hrfsfat, hrfsntfs, hrfsfat32, hrfsexfat | .*            |           |
+| FILTERFS          | Case insensitive regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                               | .*            |           |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -401,8 +401,8 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 
 | Macro           | Description                                                                                                                              | Valeur par défaut | Obligatoire |
 |:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUPTIME   | Warning threshold, if computer has been up for less than this time, service will be in warning state                                     |                   |             |
-| CRITICALUPTIME  | Critical threshold                                                                                                                       |                   |             |
+| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state                                      | 3600              |             |
+| CRITICALUPTIME | Critical threshold                                                                                                                        |                   | 600         |
 
 </TabItem>
 </Tabs>
