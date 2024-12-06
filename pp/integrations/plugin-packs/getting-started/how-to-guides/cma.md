@@ -395,6 +395,7 @@ Encryption is activated by default. In case of a poller-initiated connection, th
 
 In this mode no UI is started. As this installer is not a console program, it returns immediately despite he hasn't finished. You have to wait for message telling that all is finished.
 If you need to have exit status, you can launch it in a powershell session and wait for exit code. Exit code will be 0 if all isright
+
 | flag                | description                                                                                                                                                                                                                                                               |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | --install_cma       | Set this flag if you want to install centreon monitoring agent                                                                                                                                                                                                            |
