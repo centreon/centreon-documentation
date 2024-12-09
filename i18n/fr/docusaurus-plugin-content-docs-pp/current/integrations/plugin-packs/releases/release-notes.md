@@ -8,6 +8,41 @@ import TabItem from '@theme/TabItem';
 
 ## 2024
 
+### Décembre
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**AppearTV SNMP**](../procedures/hardware-devices-video-appeartv-snmp.md) - Initial release of AppearTV SNMP.
+- [**JMeter**](../procedures/applications-jmeter.md) - Initial release of JMeter.
+- [**Skyhigh Web Gateway SNMP**](../procedures/applications-antivirus-skyhigh-webgateway-snmp.md) - Replaces the McAfee Gateaway connector following the MacAfee Webgateway OID [end-of-life announcement](https://success.skyhighsecurity.com/Skyhigh_Secure_Web_Gateway_(On_Prem)/Secure_Web_Gateway_Overview/End-of-life_(EOL)_Dates_for_Secure_Web_Gateway).
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**AIX SSH**](../procedures/operatingsystems-aix-ssh.md) - Added `--warning-usage-prct` and `--critical-usage-prct` to the `OS-AIX-SSH-Storage` command.
+- [**AWS Transit Gateway**](../procedures/cloud-aws-transitgateway.md) - Added default value `awscli` for host template custom mode.
+- [**AWS VPN**](../procedures/cloud-aws-vpn.md) - Added default value `awscli` for host template custom mode.
+- [**Fortinet Fortimanager SNMP**](../procedures/network-fortinet-fortimanager-snmp.md) - Added `device-policy-package-status thresholds` to the `Net-Fortinet-Fortimanager-SNMP-Device-Status` command (from an idea on [TheWatch](https://thewatch.centreon.com/ideas/fortimanager-monitoring-connector-device-status-integrate-policy-package-in-monitoring-connector-4022)).
+- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Added new mode **stack** from community contribution [PR 5082](https://github.com/centreon/centreon-plugins/pull/5082).
+- [**Keysight NVOS Rest API**](../procedures/network-keysight-nvos-restapi.md) - Enhanced **ports** mode and added **license** mode.
+- [**Nokia TiMos SNMP**](../procedures/network-nokia-timos-snmp.md) - Added new **sas-alarm** mode from community contribution [PR 5083](https://github.com/centreon/centreon-plugins/pull/5083).
+- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added native checks for CPU, Cpu-detailed, Memory, Storage, Swap and Uptime (these native checks will be available with the upcoming Collect 24.10.3 release).
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed an issue with the **process** mode that wasn't returning the process in some cases. We added a column size limit to avoid filter issues.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Azure Elastic Pool**](../procedures/cloud-azure-database-elasticpool.md) - Fixed an issue with **storage** mode where thresholds weren't taken into account.
+- [**Commvault Commserve Rest API**](../procedures/applications-commvault-commserve-restapi.md) - Fixed **storagepools** mode to avoid division by 0, from community feedback [PR 5141](https://github.com/centreon/centreon-plugins/pull/5141).
+
+</TabItem>
+</Tabs>
+
 ### Novembre
 
 <Tabs groupId="sync">

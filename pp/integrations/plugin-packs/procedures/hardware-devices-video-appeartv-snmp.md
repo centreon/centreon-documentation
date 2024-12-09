@@ -1,13 +1,13 @@
 ---
-id: network-fortinet-fortimanager-snmp
-title: Fortinet Fortimanager SNMP
+id: hardware-devices-video-appeartv-snmp
+title: Appear TV SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Fortinet Fortimanager SNMP** connector through the
+The following monitoring connectors will be installed when you install the **Appear TV SNMP** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,31 +15,20 @@ The following monitoring connectors will be installed when you install the **For
 
 ### Templates
 
-The Monitoring Connector **Fortinet Fortimanager SNMP** brings a host template:
+The Monitoring Connector **Appear TV SNMP** brings a host template:
 
-* **Net-Fortinet-Fortimanager-SNMP-custom**
+* **HW-Devices-Video-Appeartv-SNMP-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Net-Fortinet-Fortimanager-SNMP-custom" label="Net-Fortinet-Fortimanager-SNMP-custom">
+<TabItem value="HW-Devices-Video-Appeartv-SNMP-custom" label="HW-Devices-Video-Appeartv-SNMP-custom">
 
-| Service Alias | Service Template                             | Service Description                                  |
-|:--------------|:---------------------------------------------|:-----------------------------------------------------|
-| Cpu           | Net-Fortinet-Fortimanager-Cpu-SNMP-custom    | Check the rate of CPU utilization for the machine |
-| Disk          | Net-Fortinet-Fortimanager-Disk-SNMP-custom   | Check disk usage                                     |
-| Memory        | Net-Fortinet-Fortimanager-Memory-SNMP-custom | Check memory usage                                   |
+| Service Alias | Service Template                             | Service Description |
+|:--------------|:---------------------------------------------|:--------------------|
+| Alarms        | HW-Devices-Video-Appeartv-Alarms-SNMP-custom | Check alarms        |
 
-> The services listed above are created automatically when the **Net-Fortinet-Fortimanager-SNMP-custom** host template is used.
-
-</TabItem>
-<TabItem value="Not attached to a host template" label="Not attached to a host template">
-
-| Service Alias | Service Template                                    | Service Description          |
-|:--------------|:----------------------------------------------------|:-----------------------------|
-| Device-Status | Net-Fortinet-Fortimanager-Device-Status-SNMP-custom | Check Fortinet device status |
-
-> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+> The services listed above are created automatically when the **HW-Devices-Video-Appeartv-SNMP-custom** host template is used.
 
 </TabItem>
 </Tabs>
@@ -50,7 +39,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name       | Description                                                                                                                                                                                                                                                    |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Fortinet-Fortimanager-SNMP-custom** host template. |
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Devices-Video-Appeartv-SNMP-custom** host template. |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -59,40 +48,11 @@ More information about discovering hosts automatically is available on the [dedi
 Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Alarms" label="Alarms">
 
-| Name | Unit  |
-|:-----|:------|
-| cpu  | %     |
-
-</TabItem>
-<TabItem value="Device-Status" label="Device-Status">
-
-| Name                         | Unit  |
-|:-----------------------------|:------|
-| device-status                | N/A   |
-| device-con-status            | N/A   |
-| device-db-status             | N/A   |
-| device-config-status         | N/A   |
-| device-policy-package-status | N/A   |
-
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
-</TabItem>
-<TabItem value="Disk" label="Disk">
-
-| Name | Unit  |
-|:-----|:------|
-| used | B     |
-
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
-</TabItem>
-<TabItem value="Memory" label="Memory">
-
-| Name | Unit  |
-|:-----|:------|
-| used | B     |
+| Name   | Unit  |
+|:-------|:------|
+| status | N/A   |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -103,7 +63,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/editor.
+The SNMP agent must be enabled and configured on the resource. Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -124,34 +86,34 @@ with the command corresponding to the operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-network-fortinet-fortimanager-snmp
+dnf install centreon-pack-hardware-devices-video-appeartv-snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-network-fortinet-fortimanager-snmp
+dnf install centreon-pack-hardware-devices-video-appeartv-snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-network-fortinet-fortimanager-snmp
+apt install centreon-pack-hardware-devices-video-appeartv-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-network-fortinet-fortimanager-snmp
+yum install centreon-pack-hardware-devices-video-appeartv-snmp
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Fortinet Fortimanager SNMP** connector through
+2. Whatever the license type (*online* or *offline*), install the **Appear TV SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -171,28 +133,28 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Network-Fortinet-Fortimanager-Snmp
+dnf install centreon-plugin-Hardware-Devices-Video-Appeartv-Snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Network-Fortinet-Fortimanager-Snmp
+dnf install centreon-plugin-Hardware-Devices-Video-Appeartv-Snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-plugin-network-fortinet-fortimanager-snmp
+apt install centreon-plugin-hardware-devices-video-appeartv-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Network-Fortinet-Fortimanager-Snmp
+yum install centreon-plugin-Hardware-Devices-Video-Appeartv-Snmp
 ```
 
 </TabItem>
@@ -204,13 +166,13 @@ yum install centreon-plugin-Network-Fortinet-Fortimanager-Snmp
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **Net-Fortinet-Fortimanager-SNMP-custom** template to the host. 
+3. Apply the **HW-Devices-Video-Appeartv-SNMP-custom** template to the host. 
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                                                              | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                          | Default value     | Mandatory   |
+|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -221,49 +183,14 @@ yum install centreon-plugin-Network-Fortinet-Fortimanager-Snmp
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Alarms" label="Alarms">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                                                      |                   |             |
-| CRITICAL     | Critical threshold                                                                                                                     |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
-
-</TabItem>
-<TabItem value="Device-Status" label="Device-Status">
-
-| Macro                      | Description                                                                                                                            | Default value        | Mandatory   |
-|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
-| FILTERNAME                 | Filter by device name (can be a regexp)                                                                                                |                      |             |
-| WARNINGDEVICECONFIGSTATUS  | Set warning threshold for device configuration status. You can use the following variables: %{status}, %{name}                         |                      |             |
-| CRITICALDEVICECONFIGSTATUS | Set critical threshold for device configuration status. You can use the following variables: %{status}, %{name}                        |                      |             |
-| CRITICALDEVICECONSTATUS    | Set critical threshold for device connection status. You can use the following variables: %{status}, %{name}                           | %{status} =~ /down/i |             |
-| WARNINGDEVICECONSTATUS     | Set warning threshold for device connection status. You can use the following variables: %{status}, %{name}                            |                      |             |
-| WARNINGDEVICEDBSTATUS      | Set warning threshold for device DB status. You can use the following variables: %{status}, %{name}                                    |                      |             |
-| CRITICALDEVICEDBSTATUS     | Set critical threshold for device DB status. You can use the following variables: %{status}, %{name}                                   |                      |             |
-| WARNINGDEVICEPOLICYSTATUS  | Set warning threshold for device policy package status. You can use the following variables: %{status}, %{package\_name}               |                      |             |
-| CRITICALDEVICEPOLICYSTATUS | Set critical threshold for device policy package status. You can use the following variables: %{status}, %{package\_name}              |                      |             |
-| WARNINGDEVICESTATUS        | Set warning threshold for device status. You can use the following variables: %{status}, %{name}                                       |                      |             |
-| CRITICALDEVICESTATUS       | Set critical threshold for device status You can use the following variables: %{status}, %{name}                                       |                      |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose            |             |
-
-</TabItem>
-<TabItem value="Disk" label="Disk">
-
-| Macro         | Description                                                                                                                            | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGE  | Warning threshold (in percent)                                                                                                         |                   |             |
-| CRITICALUSAGE | Critical threshold (in percent)                                                                                                        |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
-
-</TabItem>
-<TabItem value="Memory" label="Memory">
-
-| Macro         | Description                                                                                                                            | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGE  | Warning threshold (in percent)                                                                                                         |                   |             |
-| CRITICALUSAGE | Critical threshold (in percent)                                                                                                        |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro         | Description                                                                                                                                                                                 | Default value                    | Mandatory   |
+|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
+| CRITICSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{severity} =~ /critical\|major/i'). You can use the following variables: %{severity}, %{text}, %{source}, %{since} | %{severity} =~ /critical\|major/ |             |
+| FILTERMSG     | Filter by message (can be a regexp)                                                                                                                                                         |                                  |             |
+| WARNINGSTATUS | Define the conditions to match for the status to be WARNING (default: '%{severity} =~ /minor\|warning/i') You can use the following variables: %{severity}, %{text}, %{source}, %{since}    | %{severity} =~ /minor\|warning/i |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                          |                                  |             |
 
 </TabItem>
 </Tabs>
@@ -277,35 +204,22 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_fortinet_fortimanager_snmp.pl \
-	--plugin=network::fortinet::fortimanager::snmp::plugin \
-	--mode=device-status \
-	--hostname=10.0.0.1 \
+/usr/lib/centreon/plugins/centreon_video_appeartv_snmp.pl  \
+	--plugin=hardware::devices::video::appeartv::snmp::plugin \
+	--mode=alarms \
+	--hostname='10.0.0.1' \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--filter-name='' \
-	--warning-device-status='' \
-	--critical-device-status='' \
-	--warning-device-con-status='' \
-	--critical-device-con-status='%{status} =~ /down/i' \
-	--warning-device-db-status='' \
-	--critical-device-db-status='' \
-	--warning-device-config-status='' \
-	--critical-device-config-status='' \
-	--warning-device-policy-package-status='' \
-	--critical-device-policy-package-status='' \
-	--verbose
+	--filter-msg='' \
+	--warning-status='%{severity} =~ /minor|warning/i' \
+	--critical-status='%{severity} =~ /critical|major/' 
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: Device 'Device Ent Name' status: installed - connection status: up - db status: modified - configuration status: in-sync 
-checking device 'Device Ent Name'
-    status: installed
-    connection status: up
-    db status: modified
-    configuration status: in-sync
+OK: 0 problem(s) detected | 'alerts'=0;;;0;
+
 ```
 
 ### Troubleshooting
@@ -324,28 +238,45 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_fortinet_fortimanager_snmp.pl \
-	--plugin=network::fortinet::fortimanager::snmp::plugin \
+/usr/lib/centreon/plugins/centreon_video_appeartv_snmp.pl  \
+	--plugin=hardware::devices::video::appeartv::snmp::plugin \
 	--list-mode
 ```
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                                          | Linked service template                             |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortimanager/snmp/mode/cpu.pm)]                    | Net-Fortinet-Fortimanager-Cpu-SNMP-custom           |
-| device-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortimanager/snmp/mode/devicestatus.pm)] | Net-Fortinet-Fortimanager-Device-Status-SNMP-custom |
-| disk [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortimanager/snmp/mode/disk.pm)]                  | Net-Fortinet-Fortimanager-Disk-SNMP-custom          |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortimanager/snmp/mode/memory.pm)]              | Net-Fortinet-Fortimanager-Memory-SNMP-custom        |
+| Mode                                                                                                                               | Linked service template                      |
+|:-----------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|
+| alarms [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/video/appeartv/snmp/mode/alarms.pm)] | HW-Devices-Video-Appeartv-Alarms-SNMP-custom |
 
 ### Available options
 
-#### Generic options
+#### Modes options
 
-All generic options are listed here:
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Alarms" label="Alarms">
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --memcached                                |   Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --redis-server                             |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --redis-attribute                          |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --redis-db                                 |   Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --failback-file                            |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --memexpiration                            |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-dir                            |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --statefile-suffix                         |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-concat-cwd                     |   If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --statefile-format                         |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --statefile-key                            |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --statefile-cipher                         |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --filter-msg                               |   Filter by message (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --warning-status                           |   Define the conditions to match for the status to be WARNING (default: '%{severity} =~ /minor\|warning/i') You can use the following variables: %{severity}, %{text}, %{source}, %{since}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --critical-status                          |   Define the conditions to match for the status to be CRITICAL (default: '%{severity} =~ /critical\|major/i'). You can use the following variables: %{severity}, %{text}, %{source}, %{since}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --memory                                   |   Only check new alarms.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -383,12 +314,8 @@ All generic options are listed here:
 | --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
-| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
-| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
 | --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[newuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
 | --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -404,54 +331,6 @@ All generic options are listed here:
 | --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
-#### Modes options
-
-All available options for each service template are listed below:
-
-<Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
-
-| Option     | Description                  |
-|:-----------|:-----------------------------|
-| --warning  |   Warning threshold.         |
-| --critical |   Critical threshold.        |
-
-</TabItem>
-<TabItem value="Device-Status" label="Device-Status">
-
-| Option                                  | Description                                                                                                                                        |
-|:----------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters                       |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                        |
-| --filter-name                           |   Filter by device name (can be a regexp).                                                                                                         |
-| --warning-device-status                 |   Set warning threshold for device status. You can use the following variables: %{status}, %{name}                                                 |
-| --critical-device-status                |   Set critical threshold for device status You can use the following variables: %{status}, %{name}                                                 |
-| --warning-device-con-status             |   Set warning threshold for device connection status. You can use the following variables: %{status}, %{name}                                      |
-| --critical-device-con-status            |   Set critical threshold for device connection status (default: '%{status} =~ /down/i'). You can use the following variables: %{status}, %{name}   |
-| --warning-device-db-status              |   Set warning threshold for device DB status. You can use the following variables: %{status}, %{name}                                              |
-| --critical-device-db-status             |   Set critical threshold for device DB status. You can use the following variables: %{status}, %{name}                                             |
-| --warning-device-config-status          |   Set warning threshold for device configuration status. You can use the following variables: %{status}, %{name}                                   |
-| --critical-device-config-status         |   Set critical threshold for device configuration status. You can use the following variables: %{status}, %{name}                                  |
-| --warning-device-policy-package-status  |   Set warning threshold for device policy package status. You can use the following variables: %{status}, %{package\_name}                         |
-| --critical-device-policy-package-status |   Set critical threshold for device policy package status. You can use the following variables: %{status}, %{package\_name}                        |
-
-</TabItem>
-<TabItem value="Disk" label="Disk">
-
-| Option            | Description                                                                                                                   |
-|:------------------|:------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
-| --warning-usage   |   Warning threshold (in percent).                                                                                             |
-| --critical-usage  |   Critical threshold (in percent).                                                                                            |
-
-</TabItem>
-<TabItem value="Memory" label="Memory">
-
-| Option            | Description                                                                                                                   |
-|:------------------|:------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
-| --warning-usage   |   Warning threshold (in percent).                                                                                             |
-| --critical-usage  |   Critical threshold (in percent).                                                                                            |
-
 </TabItem>
 </Tabs>
 
@@ -459,8 +338,8 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_fortinet_fortimanager_snmp.pl \
-	--plugin=network::fortinet::fortimanager::snmp::plugin \
-	--mode=device-status \
+/usr/lib/centreon/plugins/centreon_video_appeartv_snmp.pl  \
+	--plugin=hardware::devices::video::appeartv::snmp::plugin \
+	--mode=alarms \
 	--help
 ```
