@@ -515,13 +515,35 @@
               "id": "version-24.10/alerts-notifications/notif-concept"
             },
             {
+              "type": "category",
+              "label": "Email notifications",
+              "link": {
+                "type": "generated-index"
+          },    
+          "items": [        
+            {
               "type": "doc",
               "id": "version-24.10/alerts-notifications/notif-configuration"
-            },
+            }
+          ]
+        },
+          {
+            "type": "category",
+            "label": "Other notifications",
+            "link": {
+              "type": "generated-index"
+        },    
+        "items": [ 
             {
               "type": "doc",
               "id": "version-24.10/alerts-notifications/notif-config-for-teams"
             },
+            {
+              "type": "doc",
+              "id": "version-24.10/integrations/notifications/slack-notifications"
+            }
+          ]
+        },
             {
               "type": "doc",
               "id": "version-24.10/alerts-notifications/notif-dependencies"
