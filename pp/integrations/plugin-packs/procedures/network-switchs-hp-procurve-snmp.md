@@ -284,8 +284,8 @@ yum install centreon-plugin-Network-Switchs-Hp-Procurve-Snmp
 |:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
 | CRITICALMEMBERSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{role\}, %\{roleLast\}, %\{state\}, %\{stateLast\}  | %\{role\} ne %\{roleLast\}                                |             |
 | WARNINGMEMBERSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{role\}, %\{roleLast\}, %\{state\}, %\{stateLast\}   |                                                       |             |
-| CRITICALPORTSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{admin\_status}, %{oper\_status}, %\{display\} | %{admin\_status} eq "up"  and %{oper\_status} ne "up" |             |
-| WARNINGPORTSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admin\_status}, %{oper\_status}, %\{display\}  |                                                       |             |
+| CRITICALPORTSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admin_status\}, %\{oper_status\}, %\{display\} | %\{admin_status\} eq "up"  and %\{oper_status\} ne "up" |             |
+| WARNINGPORTSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admin_status\}, %\{oper_status\}, %\{display\}  |                                                       |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose                                             |             |
 
 </TabItem>
@@ -333,8 +333,8 @@ yum install centreon-plugin-Network-Switchs-Hp-Procurve-Snmp
 | FILTERMEMBERSERIAL      | Filter members by serial (can be a regexp)                                                                                             |                                                                                   |             |
 | WARNINGCPUUTILIZATION   | Threshold                                                                                                                              |                                                                                   |             |
 | CRITICALCPUUTILIZATION  | Threshold                                                                                                                              |                                                                                   |             |
-| CRITICALLINKSTATUS      | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{link\_status}, %\{display\}         | %{link\_status} eq "down"                                                         |             |
-| WARNINGLINKSTATUS       | Define the conditions to match for the status to be WARNING. You can use the following variables: %{link\_status}, %\{display\}          |                                                                                   |             |
+| CRITICALLINKSTATUS      | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{link_status\}, %\{display\}         | %\{link_status\} eq "down"                                                         |             |
+| WARNINGLINKSTATUS       | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{link_status\}, %\{display\}          |                                                                                   |             |
 | CRITICALMEMBERSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{stateLast\}              | %\{state\} ne %\{stateLast\} \|\| %\{state\} =~ /communicationFailure\|incompatibleOS/i |             |
 | WARNINGMEMBERSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{stateLast\}               |                                                                                   |             |
 | WARNINGMEMBERSTOTAL     | Threshold                                                                                                                              |                                                                                   |             |
@@ -383,7 +383,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--warning-members-total='' \
 	--critical-members-total='' \
 	--warning-link-status='' \
-	--critical-link-status='%{link\_status} eq "down"' \
+	--critical-link-status='%\{link_status\} eq "down"' \
 	--verbose
 ```
 
@@ -536,9 +536,9 @@ All available options for each service template are listed below:
 | --unknown-member-status  | Define the conditions to match for the status to be UNKNOWN (Default: ''). You can use the following variables: %\{role\}, %\{roleLast\}, %\{state\}, %\{stateLast\}                                                             |
 | --warning-member-status  | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %\{role\}, %\{roleLast\}, %\{state\}, %\{stateLast\}                                                             |
 | --critical-member-status | Define the conditions to match for the status to be CRITICAL (Default: '%{role} ne %\{roleLast\}'). You can use the following variables: %\{role\}, %\{roleLast\}, %\{state\}, %\{stateLast\}                                      |
-| --unknown-port-status    | Define the conditions to match for the status to be UNKNOWN (Default: ''). You can use the following variables: %{admin\_status}, %{oper\_status}, %\{display\}                                                            |
-| --warning-port-status    | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{admin\_status}, %{oper\_status}, %\{display\}                                                            |
-| --critical-port-status   | Define the conditions to match for the status to be CRITICAL (Default: '%{admin\_status} eq "up"  and %{oper\_status} ne "up"'). You can use the following variables: %{admin\_status}, %{oper\_status}, %\{display\}      |
+| --unknown-port-status    | Define the conditions to match for the status to be UNKNOWN (Default: ''). You can use the following variables: %\{admin_status\}, %\{oper_status\}, %\{display\}                                                            |
+| --warning-port-status    | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %\{admin_status\}, %\{oper_status\}, %\{display\}                                                            |
+| --critical-port-status   | Define the conditions to match for the status to be CRITICAL (Default: '%\{admin_status\} eq "up"  and %\{oper_status\} ne "up"'). You can use the following variables: %\{admin_status\}, %\{oper_status\}, %\{display\}      |
 
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
@@ -607,9 +607,9 @@ All available options for each service template are listed below:
 | --unknown-member-status  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{stateLast\}                                                                                                   |
 | --warning-member-status  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{stateLast\}                                                                                                   |
 | --critical-member-status |   Define the conditions to match for the status to be CRITICAL (default: '%{state} ne %\{stateLast\} \|\| %\{state\} =~ /communicationFailure\|incompatibleOS/i'). You can use the following variables: %\{state\}, %\{stateLast\}   |
-| --unknown-link-status    |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{link\_status}, %\{display\}                                                                                              |
-| --warning-link-status    |   Define the conditions to match for the status to be WARNING. You can use the following variables: %{link\_status}, %\{display\}                                                                                              |
-| --critical-link-status   |   Define the conditions to match for the status to be CRITICAL (default: '%{link\_status} eq "down"'). You can use the following variables: %{link\_status}, %\{display\}                                                      |
+| --unknown-link-status    |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{link_status\}, %\{display\}                                                                                              |
+| --warning-link-status    |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{link_status\}, %\{display\}                                                                                              |
+| --critical-link-status   |   Define the conditions to match for the status to be CRITICAL (default: '%\{link_status\} eq "down"'). You can use the following variables: %\{link_status\}, %\{display\}                                                      |
 | --warning-* --critical-* |   Thresholds. Can be: 'members-total', 'memory-usage-prct', 'memory-usage', 'memory-usage-free', 'cpu-utilization'.                                                                                                          |
 
 </TabItem>

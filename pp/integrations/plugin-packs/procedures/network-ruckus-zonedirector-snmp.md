@@ -232,8 +232,8 @@ yum install centreon-plugin-Network-Ruckus-Zonedirector-Snmp
 | CRITICALCPUUTILIZATION                    | Thresholds                                                                                                                   |                   |             |
 | WARNINGMEMORYUSAGE                        | Thresholds                                                                                                                   |                   |             |
 | CRITICALMEMORYUSAGE                       | Thresholds                                                                                                                   |                   |             |
-| WARNINGSTATUS                             | Define the conditions to match for the status to be WARNING. You can use the following variables: %{zd\_connection\_status}  |                   |             |
-| CRITICALSTATUS                            | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{zd\_connection\_status} |                   |             |
+| WARNINGSTATUS                             | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{zd_connection_status\}  |                   |             |
+| CRITICALSTATUS                            | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{zd_connection_status\} |                   |             |
 | WARNINGTRAFFICOUT                         | Thresholds                                                                                                                   |                   |             |
 | CRITICALTRAFFICOUT                        | Thresholds                                                                                                                   |                   |             |
 | WARNINGUSAGEFREE                          | Thresholds                                                                                                                   |                   |             |
@@ -405,9 +405,9 @@ All available options for each service template are listed below:
 | Option                   | Description                                                                                                                                                                                                                     |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-name            | Filter by access point name (can be a regexp).                                                                                                                                                                                  |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{zd\_connection\_status}                                                                                                     |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{zd\_connection\_status}                                                                                                     |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{zd\_connection\_status}                                                                                                    |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{zd_connection_status\}                                                                                                     |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{zd_connection_status\}                                                                                                     |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{zd_connection_status\}                                                                                                    |
 | --warning-* --critical-* | Thresholds. Can be: 'memory-usage', 'memory-usage-free', 'memory-usage-prct', 'traffic-in', 'traffic-out', 'cpu-utilization', 'connection-accesspoints', 'connection-client-devices-authorized', 'connection-rogue-devices'.    |
 
 </TabItem>
@@ -415,9 +415,9 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                                                                       |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %{system\_status}, %{peer\_connected\_status}                                                     |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{system\_status}, %{peer\_connected\_status}                                                     |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{system\_status}, %{peer\_connected\_status}                                                                  |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{system_status\}, %\{peer_connected_status\}                                                     |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{system_status\}, %\{peer_connected_status\}                                                     |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{system_status\}, %\{peer_connected_status\}                                                                  |
 | --warning-* --critical-* | Thresholds. Can be: 'memory-usage', 'usage-free', 'usage-prct', 'traffic-in', 'traffic-out', 'cpu-utilization', 'connection-accesspoints', 'connection-client-devices-authorized', 'connection-rogue-devices'.    |
 
 </TabItem>
