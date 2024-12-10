@@ -486,7 +486,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-mount    |   Filter storage mount point (regexp can be used).                                                                                                                            |
 | --unknown-status  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{lv\}, %\{mount\}, %\{type\}.                                       |
 | --warning-status  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{lv\}, %\{mount\}, %\{type\}.                                       |
-| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /stale/i'). You can use the following variables: %\{state\}, %\{lv\}, %\{mount\}, %\{type\}.    |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /stale/i'). You can use the following variables: %\{state\}, %\{lv\}, %\{mount\}, %\{type\}.    |
 
 </TabItem>
 <TabItem value="Process" label="Process">

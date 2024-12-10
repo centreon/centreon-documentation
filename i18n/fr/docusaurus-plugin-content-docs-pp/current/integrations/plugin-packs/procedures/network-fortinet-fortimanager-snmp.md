@@ -240,8 +240,8 @@ yum install centreon-plugin-Network-Fortinet-Fortimanager-Snmp
 | WARNINGDEVICECONSTATUS     | Set warning threshold for device connection status. You can use the following variables: %\{status\}, %\{name\}                                      |                      |             |
 | WARNINGDEVICEDBSTATUS      | Set warning threshold for device DB status. You can use the following variables: %\{status\}, %\{name\}                                              |                      |             |
 | CRITICALDEVICEDBSTATUS     | Set critical threshold for device DB status. You can use the following variables: %\{status\}, %\{name\}                                             |                      |             |
-| WARNINGDEVICEPOLICYSTATUS  | Set warning threshold for device policy package status. You can use the following variables: %\{status\}, %{package\_name}                         |                      |             |
-| CRITICALDEVICEPOLICYSTATUS | Set critical threshold for device policy package status. You can use the following variables: %\{status\}, %{package\_name}                        |                      |             |
+| WARNINGDEVICEPOLICYSTATUS  | Set warning threshold for device policy package status. You can use the following variables: %\{status\}, %\{package_name\}                         |                      |             |
+| CRITICALDEVICEPOLICYSTATUS | Set critical threshold for device policy package status. You can use the following variables: %\{status\}, %\{package_name\}                        |                      |             |
 | WARNINGDEVICESTATUS        | Set warning threshold for device status. You can use the following variables: %\{status\}, %\{name\}                                                 |                      |             |
 | CRITICALDEVICESTATUS       | Set critical threshold for device status You can use the following variables: %\{status\}, %\{name\}                                                 |                      |             |
 | EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose            |             |
@@ -427,13 +427,13 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-device-status                 |   Set warning threshold for device status. You can use the following variables: %\{status\}, %\{name\}                                                 |
 | --critical-device-status                |   Set critical threshold for device status You can use the following variables: %\{status\}, %\{name\}                                                 |
 | --warning-device-con-status             |   Set warning threshold for device connection status. You can use the following variables: %\{status\}, %\{name\}                                      |
-| --critical-device-con-status            |   Set critical threshold for device connection status (default: '%{status} =~ /down/i'). You can use the following variables: %\{status\}, %\{name\}   |
+| --critical-device-con-status            |   Set critical threshold for device connection status (default: '%\{status\} =~ /down/i'). You can use the following variables: %\{status\}, %\{name\}   |
 | --warning-device-db-status              |   Set warning threshold for device DB status. You can use the following variables: %\{status\}, %\{name\}                                              |
 | --critical-device-db-status             |   Set critical threshold for device DB status. You can use the following variables: %\{status\}, %\{name\}                                             |
 | --warning-device-config-status          |   Set warning threshold for device configuration status. You can use the following variables: %\{status\}, %\{name\}                                   |
 | --critical-device-config-status         |   Set critical threshold for device configuration status. You can use the following variables: %\{status\}, %\{name\}                                  |
-| --warning-device-policy-package-status  |   Set warning threshold for device policy package status. You can use the following variables: %\{status\}, %{package\_name}                         |
-| --critical-device-policy-package-status |   Set critical threshold for device policy package status. You can use the following variables: %\{status\}, %{package\_name}                        |
+| --warning-device-policy-package-status  |   Set warning threshold for device policy package status. You can use the following variables: %\{status\}, %\{package_name\}                         |
+| --critical-device-policy-package-status |   Set critical threshold for device policy package status. You can use the following variables: %\{status\}, %\{package_name\}                        |
 
 </TabItem>
 <TabItem value="Disk" label="Disk">

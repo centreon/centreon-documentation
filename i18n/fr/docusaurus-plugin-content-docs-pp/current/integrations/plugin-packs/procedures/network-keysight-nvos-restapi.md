@@ -365,15 +365,15 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--port='8000' \
 	--api-username='username' \
 	--api-password='*****'  \
-	--unknown-temperature-status='%{status} eq "unknown"' \
-	--warning-temperature-status='%{status} eq "warn"' \
-	--critical-temperature-status='%{status} eq "hot"' \
+	--unknown-temperature-status='%\{status\} eq "unknown"' \
+	--warning-temperature-status='%\{status\} eq "warn"' \
+	--critical-temperature-status='%\{status\} eq "hot"' \
 	--warning-temperature='' \
 	--critical-temperature='' \
 	--warning-fans-failed='' \
 	--critical-fans-failed='' \
 	--warning-psu-status='' \
-	--critical-psu-status='%{status} eq "bad"' \
+	--critical-psu-status='%\{status\} eq "bad"' \
 	--verbose
 ```
 
@@ -493,12 +493,12 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                        | Description                                                                                                                                                    |
 |:------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-temperature-status  |   Define the conditions to match for the status to be UNKNOWN (default : '%{status} eq "unknown"'). You can use the following variables: %\{status\}, %\{class\}   |
-| --warning-temperature-status  |   Define the conditions to match for the status to be WARNING (default : '%{status} eq "warn"'). You can use the following variables: %\{status\}, %\{class\}      |
-| --critical-temperature-status |   Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "hot"'); You can use the following variables: %\{status\}, %\{class\}       |
+| --unknown-temperature-status  |   Define the conditions to match for the status to be UNKNOWN (default : '%\{status\} eq "unknown"'). You can use the following variables: %\{status\}, %\{class\}   |
+| --warning-temperature-status  |   Define the conditions to match for the status to be WARNING (default : '%\{status\} eq "warn"'). You can use the following variables: %\{status\}, %\{class\}      |
+| --critical-temperature-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} eq "hot"'); You can use the following variables: %\{status\}, %\{class\}       |
 | --unknown-psu-status          |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                                         |
 | --warning-psu-status          |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                         |
-| --critical-status             |   Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "bad"'); You can use the following variables: %\{status\}, %\{name\}        |
+| --critical-status             |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} eq "bad"'); You can use the following variables: %\{status\}, %\{name\}        |
 | --warning-* --critical-*      |   Thresholds. Can be: 'temperature', 'fans-failed'.                                                                                                            |
 
 </TabItem>
@@ -507,8 +507,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                                                                                   |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --unknown-status  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}                                                 |
-| --warning-status  |   Define the conditions to match for the status to be WARNING (default: '%{status} =~ /MINOR/i'). You can use the following variables: %\{status\}              |
-| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /MAJOR\|CRITICAL/i'). You can use the following variables: %\{status\}   |
+| --warning-status  |   Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /MINOR/i'). You can use the following variables: %\{status\}              |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /MAJOR\|CRITICAL/i'). You can use the following variables: %\{status\}   |
 
 </TabItem>
 <TabItem value="Ports" label="Ports">
@@ -518,11 +518,11 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name             |   Filter ports by name (can be a regexp).                                                                                                                                                                                      |
 | --filter-type             |   Filter ports by type (can be a regexp). You can use the following types: 'Network Port', 'Port Group' and 'Tool Port'                                                                                                        |
 | --unknown-license-status  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                                                                                                         |
-| --warning-license-status  |   Define the conditions to match for the status to be WARNING (default: '%{status} =~ /invalid\_software\_version/'). You can use the following variables: %\{status\}, %\{name\}                                                  |
+| --warning-license-status  |   Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /invalid\_software\_version/'). You can use the following variables: %\{status\}, %\{name\}                                                  |
 | --critical-license-status |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                                                                                                        |
 | --unknown-link-status     |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{adminStatus\}, %\{operationalStatus\}, %\{name\}                                                                              |
 | --warning-link-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{adminStatus\}, %\{operationalStatus\}, %\{name\}                                                                              |
-| --critical-link-status    |   Define the conditions to match for the status to be CRITICAL (default: '%{adminStatus} eq "enabled" and %\{operationalStatus\} ne "up"'). You can use the following variables: %\{adminStatus\}, %\{operationalStatus\}, %\{name\}   |
+| --critical-link-status    |   Define the conditions to match for the status to be CRITICAL (default: '%\{adminStatus\} eq "enabled" and %\{operationalStatus\} ne "up"'). You can use the following variables: %\{adminStatus\}, %\{operationalStatus\}, %\{name\}   |
 | --warning-* --critical-*  |   Thresholds. Can be: 'traffic-out-prct', 'traffic-out', 'packets-out', 'packets-dropped', 'packets-pass', 'packets-insp'.                                                                                                     |
 
 </TabItem>
@@ -532,7 +532,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --unknown-ntp-status  |   Define the conditions to match for the status to be UNKNOWN.                                                                                                   |
 | --warning-ntp-status  |   Define the conditions to match for the status to be WARNING.                                                                                                   |
-| --critical-ntp-status |   Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /in\_reach\|in\_sync/i') You can use the following variables: %\{status\}   |
+| --critical-ntp-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /in\_reach\|in\_sync/i') You can use the following variables: %\{status\}   |
 | --warning-offset      |   Define the time offset (in seconds) that will trigger a WARNING status.                                                                                        |
 | --critical-offset     |   Define the time offset (in seconds) that will trigger a CRITICAL status.                                                                                       |
 | --ntp-hostname        |   Set the NTP hostname (if not set, localtime is used).                                                                                                          |
