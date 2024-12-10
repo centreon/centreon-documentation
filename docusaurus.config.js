@@ -222,7 +222,14 @@ const config = {
           contextualSearch: true,
         },
 
-      zoomSelector: '.markdown :not(.authority-availability) > img',
+      zoom: {
+        selector: '.markdown > img',
+        background: {
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(50, 50, 50)'
+        },
+        config: {}
+      },
 
       prism: {
         theme: lightCodeTheme,
