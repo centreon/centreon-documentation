@@ -1,13 +1,13 @@
 ---
-id: hardware-storage-dell-compellent-api
-title: Dell Compellent API
+id: applications-jmeter
+title: JMeter
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Dell Compellent API** connector through the
+The following monitoring connectors will be installed when you install the **JMeter** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,21 +15,20 @@ The following monitoring connectors will be installed when you install the **Del
 
 ### Templates
 
-The Monitoring Connector **Dell Compellent API** brings a host template:
+The Monitoring Connector **JMeter** brings a host template:
 
-* **HW-Storage-Dell-Compellent-NRPE-custom**
+* **App-Jmeter-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="HW-Storage-Dell-Compellent-NRPE-custom" label="HW-Storage-Dell-Compellent-NRPE-custom">
+<TabItem value="App-Jmeter-custom" label="App-Jmeter-custom">
 
-| Service Alias | Service Template                                    | Service Description |
-|:--------------|:----------------------------------------------------|:--------------------|
-| Hba-Usage     | HW-Storage-Dell-Compellent-Hba-Usage-NRPE-custom    | Check hba usage    |
-| Volume-Usage  | HW-Storage-Dell-Compellent-Volume-Usage-NRPE-custom | Check volume usage |
+| Service Alias | Service Template           | Service Description      |
+|:--------------|:---------------------------|:-------------------------|
+| Scenario      | App-Jmeter-Scenario-custom | Check scenario execution |
 
-> The services listed above are created automatically when the **HW-Storage-Dell-Compellent-NRPE-custom** host template is used.
+> The services listed above are created automatically when the **App-Jmeter-custom** host template is used.
 
 </TabItem>
 </Tabs>
@@ -39,32 +38,13 @@ The connector brings the following service templates (sorted by the host templat
 Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Hba-Usage" label="Hba-Usage">
+<TabItem value="Scenario" label="Scenario">
 
-| Name                | Unit  |
-|:--------------------|:------|
-| *hba*#read-iops     | iops  |
-| *hba*#read-usage    | b/s   |
-| *hba*#read-latency  | ms    |
-| *hba*#write-iops    | iops  |
-| *hba*#write-usage   | b/s   |
-| *hba*#write-latency | ms    |
-
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
-</TabItem>
-<TabItem value="Volume-Usage" label="Volume-Usage">
-
-| Name                      | Unit  |
-|:--------------------------|:------|
-| *sc1*#_used               | B     |
-| *sc2*#_used               | B     |
-| *volume1*#_used           | B     |
-| *volume2*#_used           | B     |
-| *volume1*#volume-overhead | B     |
-| *volume2*#volume-overhead | B     |
-| *volume1*#volume-replay   | B     |
-| *volume2*#volume-replay   | B     |
+| Name                             | Unit  |
+|:---------------------------------|:------|
+| scenario.time.seconds            | s     |
+| scenario.steps.count             | count |
+| scenario.availability.percentage | %     |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -73,35 +53,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-This Monitoring Connector requires the use of:
-
-  - the Dell Storage Enterprise Manager provided
-    [here](https://www.dell.com/support/home/fr-fr/drivers/driversdetails?driverid=xcrx8)
-  - NSClient++ package provided by Centreon, installed and configured on your
-    target server as described [here](../getting-started/how-to-guides/centreon-nsclient-tutorial.md).
-
-Powershell and `DellStorage.ApiCommandSet.dll` have to be installed on
-Windows Server. You'll need to add the file `powershell.exe.config` in directory
-`C:WindowsSystem32WindowsPowerShellv1.0`:
-
-    \<?xml version="1.0"?\>
-    <configuration>
-        <startup useLegacyV2RuntimeActivationPolicy="true">
-            <supportedRuntime version="v4.0.30319"/>
-            <supportedRuntime version="v2.0.50727"/>
-        </startup> 
-    </configuration>
-
-If you use the NSClient++ installer provided by Centreon, the plugin is
-already included in centreon\_plugins.exe configured in NSClient++
-
-The plugin uses the Compellent Entreprise Manager. So you need information
-to connect.
-
-> Set host macro `CEMUSER`, `CEMPASSWORD`, `CEMADDRESS`,
-`DELLSTORAGESDKDLL` (the complete path of `DellStorage.ApiCommandSet.dll` file)
-
-> Do not use the '!' character in when configuring Centreon macros.
+[Install the JMeter software](https://jmeter.apache.org/usermanual/get-started.html#install) on the poller(s) that will run the plugin. The plugin uses the `jmeter` command to execute the scenarios.
 
 ## Installing the monitoring connector
 
@@ -117,34 +69,34 @@ with the command corresponding to the operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-hardware-storage-dell-compellent-api
+dnf install centreon-pack-applications-jmeter
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-hardware-storage-dell-compellent-api
+dnf install centreon-pack-applications-jmeter
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-hardware-storage-dell-compellent-api
+apt install centreon-pack-applications-jmeter
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-hardware-storage-dell-compellent-api
+yum install centreon-pack-applications-jmeter
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Dell Compellent API** connector through
+2. Whatever the license type (*online* or *offline*), install the **JMeter** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -164,28 +116,28 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install 
+dnf install centreon-plugin-Applications-Jmeter
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install 
+dnf install centreon-plugin-Applications-Jmeter
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install 
+apt install centreon-plugin-applications-jmeter
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install 
+yum install centreon-plugin-Applications-Jmeter
 ```
 
 </TabItem>
@@ -197,16 +149,12 @@ yum install
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **HW-Storage-Dell-Compellent-NRPE-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+3. Apply the **App-Jmeter-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro            | Description                                                                                                                              | Default value         | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| CEMPORT          | Compellent Entreprise Manager port                                                                                                       | 3033                  |             |
-| NRPEPORT         | Port used to reach the NRPE server                                                                                                       | 5666                  |             |
-| NRPECLIENT       | NRPE Binary used to perform the check                                                                                                    | check\_centreon\_nrpe |             |
-| NRPETIMEOUT      | Timeout to connect to the NRPE Server                                                                                                    | 50                    |             |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                       |             |
+| Macro              | Description                                                                                          | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| JMETEREXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -216,38 +164,13 @@ yum install
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Hba-Usage" label="Hba-Usage">
+<TabItem value="Scenario" label="Scenario">
 
-| Macro                | Description                                                                                                                            | Default value     | Mandatory   |
-|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGREADIOPS      | Threshold                                                                                                                              |                   |             |
-| CRITICALREADIOPS     | Threshold                                                                                                                              |                   |             |
-| WARNINGREADLATENCY   | Threshold                                                                                                                              |                   |             |
-| CRITICALREADLATENCY  | Threshold                                                                                                                              |                   |             |
-| WARNINGREADUSAGE     | Threshold                                                                                                                              |                   |             |
-| CRITICALREADUSAGE    | Threshold                                                                                                                              |                   |             |
-| WARNINGWRITEIOPS     | Threshold                                                                                                                              |                   |             |
-| CRITICALWRITEIOPS    | Threshold                                                                                                                              |                   |             |
-| WARNINGWRITELATENCY  | Threshold                                                                                                                              |                   |             |
-| CRITICALWRITELATENCY | Threshold                                                                                                                              |                   |             |
-| WARNINGWRITEUSAGE    | Threshold                                                                                                                              |                   |             |
-| CRITICALWRITEUSAGE   | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
-
-</TabItem>
-<TabItem value="Volume-Usage" label="Volume-Usage">
-
-| Macro                  | Description                                                                                                                            | Default value     | Mandatory   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGSCTOTAL         | Threshold                                                                                                                              |                   |             |
-| CRITICALSCTOTAL        | Threshold                                                                                                                              |                   |             |
-| WARNINGVOLUMEOVERHEAD  | Threshold                                                                                                                              |                   |             |
-| CRITICALVOLUMEOVERHEAD | Threshold                                                                                                                              |                   |             |
-| WARNINGVOLUMEREPLAY    | Threshold                                                                                                                              |                   |             |
-| CRITICALVOLUMEREPLAY   | Threshold                                                                                                                              |                   |             |
-| WARNINGVOLUMEUSAGE     | Threshold                                                                                                                              |                   |             |
-| CRITICALVOLUMEUSAGE    | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| DIRECTORY    | Directory where scenarios are stored                                                                |                   |             |
+| SCENARIO     | Scenario used by JMeter (without extension)                                                        |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 </Tabs>
@@ -261,34 +184,23 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H  -p 5666 -t 50  -c check_centreon_plugins -a 'storage::dell::compellent::local::plugin' 'volume-usage'  '  \
-	--cem-user="XXXX" \
-	--cem-password="XXXX" \
-	--cem-host="XXXX" \
-	--cem-port="3033" \
-	--sdk-path-dll="XXXX" \
-	--ps-sc-filter="" \
-	--warning-sc-total="" \
-	--critical-sc-total=""  \
-	--warning-volume-usage="" \
-	--critical-volume-usage=""  \
-	--warning-volume-overhead="" \
-	--critical-volume-overhead=""  \
-	--warning-volume-replay="" \
-	--critical-volume-replay="" \
-	--verbose'
+/usr/lib/centreon/plugins/centreon_jmeter.pl \
+	--plugin=apps::jmeter::pluginrn\
+	--mode=scenario  \
+	--directory='/jmeter/scenarii/directory' \
+	--scenario='scenario_name'
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: All storage centers are ok All volumes are ok | 'sc1#_used'=17373B;;;; 'sc2#_used'=48167B;;;; 'volume1#_used'=88552B;;;; 'volume2#_used'=5841B;;;; 'volume1#volume-overhead'=37923B;;;0; 'volume2#volume-overhead'=99645B;;;0; 'volume1#volume-replay'=2485B;;;0; 'volume2#volume-replay'=72788B;;;0; 
+OK: Elapsed Time: 1.690s, Steps: 4/4, Availability: 100% | 'time'=1.690s;;;0; 'steps'=4;;;0;4 'availability'=100%;;;0;100
 ```
 
 ### Troubleshooting
 
-Please find the troubleshooting documentation for the API-based plugins in
-this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
 
 ### Available modes
 
@@ -301,31 +213,42 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H  -p 5666 -t 50  -c check_centreon_plugins -a 'storage::dell::compellent::local::plugin' 'volume-usage'  '  \
-	--cem-user="" \
+/usr/lib/centreon/plugins/centreon_jmeter.pl \
+	--plugin=apps::jmeter::pluginrn\
 	--list-mode
 ```
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                                   | Linked service template                             |
-|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|
-| hba-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/dell/compellent/local/mode/hbausage.pm)]       | HW-Storage-Dell-Compellent-Hba-Usage-NRPE-custom    |
-| volume-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/dell/compellent/local/mode/volumeusage.pm)] | HW-Storage-Dell-Compellent-Volume-Usage-NRPE-custom |
+| Mode                                                                                                          | Linked service template    |
+|:--------------------------------------------------------------------------------------------------------------|:---------------------------|
+| scenario [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/jmeter/mode/scenario.pm)] | App-Jmeter-Scenario-custom |
 
 ### Available options
 
-#### Generic options
+#### Modes options
 
-All generic options are listed here:
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Scenario" label="Scenario">
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --command-extra-options                    |   JMeter command extra options.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --directory                                |   Directory where scenarii are stored.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --scenario                                 |   Scenario used by JMeter (without extension).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --warning-time                             |   Warning threshold in seconds (scenario execution time).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --critical-time                            |   Critical threshold in seconds (scenario execution time).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -333,12 +256,8 @@ All generic options are listed here:
 | --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
-| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
-| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
 | --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[newuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
 | --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -353,61 +272,17 @@ All generic options are listed here:
 | --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-
-#### Modes options
-
-All available options for each service template are listed below:
-
-<Tabs groupId="sync">
-<TabItem value="Hba-Usage" label="Hba-Usage">
-
-| Option            | Description                                                                                                                                |
-|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
-| --cem-host        |   Compellent Entreprise Manager hostname (required).                                                                                       |
-| --cem-user        |   Compellent Entreprise Manager username (required).                                                                                       |
-| --cem-password    |   Compellent Entreprise Manager password (required).                                                                                       |
-| --cem-port        |   Compellent Entreprise Manager port (default: 3033).                                                                                      |
-| --sdk-path-dll    |   Path to 'DellStorage.ApiCommandSet.dll' (required).                                                                                      |
-| --timeout         |   Set timeout time for command execution (default: 50 sec)                                                                                 |
-| --no-ps           |   Don't encode powershell. To be used with --command and 'type' command.                                                                   |
-| --command         |   Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!   |
-| --command-path    |   Command path (default: none).                                                                                                            |
-| --command-options |   Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                  |
-| --ps-display      |   Display powershell script.                                                                                                               |
-| --ps-exec-only    |   Print powershell output.                                                                                                                 |
-| --ps-sc-filter    |   Filter Storage Center (only wilcard '*' can be used. In Powershell).                                                                     |
-| --start-time      |   Begin time for counters sampling. If not set, 30 minutes before the end-time option or current time Format: 2016-05-25T10:30:00          |
-| --end-time        |   End time for counters sampling. If not set, the current execution time. Format: 2016-05-25T15:30:00                                      |
-| --timezone        |   Timezone of time options. Default is 'GMT'.                                                                                              |
-| --filter-counters |   Only display some counters (regexp can be used). Example: --filter-counters='^read-iops$'                                                |
-| --warning-*       |   Warning threshold. Can be: 'read-iops', 'read-usage', 'read-latency',  'write-iops', 'write-usage', 'write-latency'.                     |
-| --critical-*      |   Critical threshold. Can be: 'read-iops', 'read-usage', 'read-latency',  'write-iops', 'write-usage', 'write-latency'.                    |
-
-</TabItem>
-<TabItem value="Volume-Usage" label="Volume-Usage">
-
-| Option            | Description                                                                                                                                |
-|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
-| --cem-host        |   Compellent Entreprise Manager hostname (required).                                                                                       |
-| --cem-user        |   Compellent Entreprise Manager username (required).                                                                                       |
-| --cem-password    |   Compellent Entreprise Manager password (required).                                                                                       |
-| --cem-port        |   Compellent Entreprise Manager port (default: 3033).                                                                                      |
-| --sdk-path-dll    |   Path to 'DellStorage.ApiCommandSet.dll' (required).                                                                                      |
-| --timeout         |   Set timeout time for command execution (default: 50 sec)                                                                                 |
-| --no-ps           |   Don't encode powershell. To be used with --command and 'type' command.                                                                   |
-| --command         |   Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!   |
-| --command-path    |   Command path (default: none).                                                                                                            |
-| --command-options |   Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                  |
-| --ps-display      |   Display powershell script.                                                                                                               |
-| --ps-exec-only    |   Print powershell output.                                                                                                                 |
-| --ps-sc-filter    |   Filter Storage Center (only wilcard '*' can be used. In Powershell).                                                                     |
-| --ps-sc-volume    |   Filter Volume Name to display.                                                                                                           |
-| --units           |   Units of thresholds (default: '%') ('%', 'B').                                                                                           |
-| --free            |   Thresholds are on free space left.                                                                                                       |
-| --filter-counters |   Only display some counters (regexp can be used). Example: --filter-counters='^sc-total$'                                                 |
-| --warning-*       |   Warning threshold. Can be: 'sc-total', 'volume-usage', 'volume-overhead', 'volume-replay'.                                               |
-| --critical-*      |   Critical threshold. Can be: 'sc-total', 'volume-usage', 'volume-overhead', 'volume-replay'.                                              |
+| --ssh-backend                              |   Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --ssh-username                             |   Define the user name to log in to the host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --ssh-password                             |   Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --ssh-port                                 |   Define the TCP port on which SSH is listening.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --ssh-priv-key                             |   Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --hostname                                 |   Hostname to query in ssh.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --timeout                                  |   Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --command                                  |   Command to get information. Used it you have output in a file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --command-path                             |   Command path.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --command-options                          |   Command options.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --sudo                                     |   sudo command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 </TabItem>
 </Tabs>
@@ -416,8 +291,8 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H  -p 5666 -t 50  -c check_centreon_plugins -a 'storage::dell::compellent::local::plugin' 'volume-usage'  '  \
-	--cem-user="" \
-	--cem-password="" \
+/usr/lib/centreon/plugins/centreon_jmeter.pl \
+	--plugin=apps::jmeter::pluginrn\
+	--mode=scenario  \
 	--help
 ```

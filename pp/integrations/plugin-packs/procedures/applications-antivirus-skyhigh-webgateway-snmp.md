@@ -1,13 +1,13 @@
 ---
-id: network-fortinet-fortimanager-snmp
-title: Fortinet Fortimanager SNMP
+id: applications-antivirus-skyhigh-webgateway-snmp
+title: Skyhigh Security Web Gateway SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Fortinet Fortimanager SNMP** connector through the
+The following monitoring connectors will be installed when you install the **Skyhigh Web Gateway SNMP** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,29 +15,32 @@ The following monitoring connectors will be installed when you install the **For
 
 ### Templates
 
-The Monitoring Connector **Fortinet Fortimanager SNMP** brings a host template:
+The Monitoring Connector **Skyhigh Web Gateway SNMP** brings a host template:
 
-* **Net-Fortinet-Fortimanager-SNMP-custom**
+* **App-Antivirus-Skyhigh-Webgateway-SNMP-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Net-Fortinet-Fortimanager-SNMP-custom" label="Net-Fortinet-Fortimanager-SNMP-custom">
+<TabItem value="App-Antivirus-Skyhigh-Webgateway-SNMP-custom" label="App-Antivirus-Skyhigh-Webgateway-SNMP-custom">
 
-| Service Alias | Service Template                             | Service Description                                  |
-|:--------------|:---------------------------------------------|:-----------------------------------------------------|
-| Cpu           | Net-Fortinet-Fortimanager-Cpu-SNMP-custom    | Check the rate of CPU utilization for the machine |
-| Disk          | Net-Fortinet-Fortimanager-Disk-SNMP-custom   | Check disk usage                                     |
-| Memory        | Net-Fortinet-Fortimanager-Memory-SNMP-custom | Check memory usage                                   |
+| Service Alias    | Service Template                                              | Service Description                                                                                      |
+|:-----------------|:--------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------|
+| Clients          | App-Antivirus-Skyhigh-Webgateway-Clients-SNMP-custom          | Check the number of connected clients and the number of open network sockets                                                |
+| Connections      | App-Antivirus-Skyhigh-Webgateway-Connections-SNMP-custom      | Check legitimate and blocked connections                                                                 |
+| Detections       | App-Antivirus-Skyhigh-Webgateway-Detections-SNMP-custom       | Check the number of detected malware, by categories                                                             |
+| Http-Statistics  | App-Antivirus-Skyhigh-Webgateway-Http-Statistics-SNMP-custom  | Check client/proxy, server/proxy, proxy/client and proxy/server HTTP network traffic and the number of requests  |
+| Https-Statistics | App-Antivirus-Skyhigh-Webgateway-Https-Statistics-SNMP-custom | Check client/proxy, server/proxy, proxy/client and proxy/server HTTPS network traffic and the number of requests |
+| Versions         | App-Antivirus-Skyhigh-Webgateway-Versions-SNMP-custom         | Check the version of virus definition databases                                                                 |
 
-> The services listed above are created automatically when the **Net-Fortinet-Fortimanager-SNMP-custom** host template is used.
+> The services listed above are created automatically when the **App-Antivirus-Skyhigh-Webgateway-SNMP-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                                    | Service Description          |
-|:--------------|:----------------------------------------------------|:-----------------------------|
-| Device-Status | Net-Fortinet-Fortimanager-Device-Status-SNMP-custom | Check Fortinet device status |
+| Service Alias  | Service Template                                            | Service Description                                                                 |
+|:---------------|:------------------------------------------------------------|:------------------------------------------------------------------------------------|
+| Ftp-Statistics | App-Antivirus-Skyhigh-Webgateway-Ftp-Statistics-SNMP-custom | Check client/proxy, server/proxy, proxy/client and proxy/server FTP network traffic |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -48,9 +51,9 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Host discovery
 
-| Rule name       | Description                                                                                                                                                                                                                                                    |
-|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Fortinet-Fortimanager-SNMP-custom** host template. |
+| Rule name       | Description                                                                                                                                                                                                                                                           |
+|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **App-Antivirus-Skyhigh-Webgateway-SNMP-custom** host template. |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -59,40 +62,84 @@ More information about discovering hosts automatically is available on the [dedi
 Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Clients" label="Clients">
 
-| Name | Unit  |
-|:-----|:------|
-| cpu  | %     |
-
-</TabItem>
-<TabItem value="Device-Status" label="Device-Status">
-
-| Name                         | Unit  |
-|:-----------------------------|:------|
-| device-status                | N/A   |
-| device-con-status            | N/A   |
-| device-db-status             | N/A   |
-| device-config-status         | N/A   |
-| device-policy-package-status | N/A   |
+| Name                    | Unit    |
+|:------------------------|:--------|
+| clients.connected.count | clients |
+| sockets.connected.count | sockets |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
-<TabItem value="Disk" label="Disk">
+<TabItem value="Connections" label="Connections">
 
-| Name | Unit  |
-|:-----|:------|
-| used | B     |
+| Name                                      | Unit          |
+|:------------------------------------------|:--------------|
+| connections.legitimate.persecond          | connections/s |
+| connections.blocked.persecond             | connections/s |
+| connections.antimalware.blocked.persecond | connections/s |
+| connections.mediafilter.blocked.persecond | connections/s |
+| connections.urlfilter.blocked.persecond   | connections/s |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Detections" label="Detections">
 
-| Name | Unit  |
-|:-----|:------|
-| used | B     |
+| Name                                              | Unit         |
+|:--------------------------------------------------|:-------------|
+| malwares.detected.persecond                       | detections/s |
+| *categories*#category.malwares.detected.persecond | detections/s |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</TabItem>
+<TabItem value="Ftp-Statistics" label="Ftp-Statistics">
+
+| Name                                   | Unit  |
+|:---------------------------------------|:------|
+| ftp.traffic.client2proxy.bitspersecond | b/s   |
+| ftp.traffic.server2proxy.bitspersecond | b/s   |
+| ftp.traffic.proxy2client.bitspersecond | b/s   |
+| ftp.traffic.proxy2server.bitspersecond | b/s   |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</TabItem>
+<TabItem value="Http-Statistics" label="Http-Statistics">
+
+| Name                                    | Unit       |
+|:----------------------------------------|:-----------|
+| http.requests.persecond                 | requests/s |
+| http.traffic.client2proxy.bitspersecond | b/s        |
+| http.traffic.server2proxy.bitspersecond | b/s        |
+| http.traffic.proxy2client.bitspersecond | b/s        |
+| http.traffic.proxy2server.bitspersecond | b/s        |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</TabItem>
+<TabItem value="Https-Statistics" label="Https-Statistics">
+
+| Name                                     | Unit       |
+|:-----------------------------------------|:-----------|
+| https.requests.persecond                 | requests/s |
+| https.traffic.client2proxy.bitspersecond | b/s        |
+| https.traffic.server2proxy.bitspersecond | b/s        |
+| https.traffic.proxy2client.bitspersecond | b/s        |
+| https.traffic.proxy2server.bitspersecond | b/s        |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</TabItem>
+<TabItem value="Versions" label="Versions">
+
+| Name              | Unit  |
+|:------------------|:------|
+| dat-version       | N/A   |
+| tsdb-version      | N/A   |
+| proactive-version | N/A   |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -103,7 +150,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/editor.
+The SNMP agent must be enabled and configured on the resource. Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -124,34 +173,34 @@ with the command corresponding to the operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-network-fortinet-fortimanager-snmp
+dnf install centreon-pack-applications-antivirus-skyhigh-webgateway-snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-network-fortinet-fortimanager-snmp
+dnf install centreon-pack-applications-antivirus-skyhigh-webgateway-snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-network-fortinet-fortimanager-snmp
+apt install centreon-pack-applications-antivirus-skyhigh-webgateway-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-network-fortinet-fortimanager-snmp
+yum install centreon-pack-applications-antivirus-skyhigh-webgateway-snmp
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Fortinet Fortimanager SNMP** connector through
+2. Whatever the license type (*online* or *offline*), install the **Skyhigh Web Gateway SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -171,28 +220,28 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Network-Fortinet-Fortimanager-Snmp
+dnf install centreon-plugin-Applications-Antivirus-Skyhigh-Webgateway-Snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Network-Fortinet-Fortimanager-Snmp
+dnf install centreon-plugin-Applications-Antivirus-Skyhigh-Webgateway-Snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-plugin-network-fortinet-fortimanager-snmp
+apt install centreon-plugin-applications-antivirus-skyhigh-webgateway-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Network-Fortinet-Fortimanager-Snmp
+yum install centreon-plugin-Applications-Antivirus-Skyhigh-Webgateway-Snmp
 ```
 
 </TabItem>
@@ -204,7 +253,7 @@ yum install centreon-plugin-Network-Fortinet-Fortimanager-Snmp
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **Net-Fortinet-Fortimanager-SNMP-custom** template to the host. 
+3. Apply the **App-Antivirus-Skyhigh-Webgateway-SNMP-custom** template to the host. 
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
@@ -221,49 +270,112 @@ yum install centreon-plugin-Network-Fortinet-Fortimanager-Snmp
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Clients" label="Clients">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                                                      |                   |             |
-| CRITICAL     | Critical threshold                                                                                                                     |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
-
-</TabItem>
-<TabItem value="Device-Status" label="Device-Status">
-
-| Macro                      | Description                                                                                                                            | Default value        | Mandatory   |
-|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
-| FILTERNAME                 | Filter by device name (can be a regexp)                                                                                                |                      |             |
-| WARNINGDEVICECONFIGSTATUS  | Set warning threshold for device configuration status. You can use the following variables: %{status}, %{name}                         |                      |             |
-| CRITICALDEVICECONFIGSTATUS | Set critical threshold for device configuration status. You can use the following variables: %{status}, %{name}                        |                      |             |
-| CRITICALDEVICECONSTATUS    | Set critical threshold for device connection status. You can use the following variables: %{status}, %{name}                           | %{status} =~ /down/i |             |
-| WARNINGDEVICECONSTATUS     | Set warning threshold for device connection status. You can use the following variables: %{status}, %{name}                            |                      |             |
-| WARNINGDEVICEDBSTATUS      | Set warning threshold for device DB status. You can use the following variables: %{status}, %{name}                                    |                      |             |
-| CRITICALDEVICEDBSTATUS     | Set critical threshold for device DB status. You can use the following variables: %{status}, %{name}                                   |                      |             |
-| WARNINGDEVICEPOLICYSTATUS  | Set warning threshold for device policy package status. You can use the following variables: %{status}, %{package\_name}               |                      |             |
-| CRITICALDEVICEPOLICYSTATUS | Set critical threshold for device policy package status. You can use the following variables: %{status}, %{package\_name}              |                      |             |
-| WARNINGDEVICESTATUS        | Set warning threshold for device status. You can use the following variables: %{status}, %{name}                                       |                      |             |
-| CRITICALDEVICESTATUS       | Set critical threshold for device status You can use the following variables: %{status}, %{name}                                       |                      |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose            |             |
+| Macro           | Description                                                                                                                            | Default value     | Mandatory   |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCOUNTERS  | Only display some counters (regexp can be used). (example: --filter-counters='clients')                                                |                   |             |
+| WARNINGCLIENTS  | Threshold                                                                                                                              |                   |             |
+| CRITICALCLIENTS | Threshold                                                                                                                              |                   |             |
+| WARNINGSOCKETS  | Threshold                                                                                                                              |                   |             |
+| CRITICALSOCKETS | Threshold                                                                                                                              |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
-<TabItem value="Disk" label="Disk">
+<TabItem value="Connections" label="Connections">
 
-| Macro         | Description                                                                                                                            | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGE  | Warning threshold (in percent)                                                                                                         |                   |             |
-| CRITICALUSAGE | Critical threshold (in percent)                                                                                                        |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro               | Description                                                                                                                            | Default value     | Mandatory   |
+|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCOUNTERS      | Only display some counters (regexp can be used). (example: --filter-counters='blocked')                                                |                   |             |
+| WARNINGBLOCKED      | Threshold                                                                                                                              |                   |             |
+| CRITICALBLOCKED     | Threshold                                                                                                                              |                   |             |
+| WARNINGBLOCKEDBYAM  | Threshold                                                                                                                              |                   |             |
+| CRITICALBLOCKEDBYAM | Threshold                                                                                                                              |                   |             |
+| WARNINGBLOCKEDBYMF  | Threshold                                                                                                                              |                   |             |
+| CRITICALBLOCKEDBYMF | Threshold                                                                                                                              |                   |             |
+| WARNINGBLOCKEDBYUF  | Threshold                                                                                                                              |                   |             |
+| CRITICALBLOCKEDBYUF | Threshold                                                                                                                              |                   |             |
+| WARNINGLEGITIMATE   | Threshold                                                                                                                              |                   |             |
+| CRITICALLEGITIMATE  | Threshold                                                                                                                              |                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Detections" label="Detections">
 
-| Macro         | Description                                                                                                                            | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGE  | Warning threshold (in percent)                                                                                                         |                   |             |
-| CRITICALUSAGE | Critical threshold (in percent)                                                                                                        |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                   | Description                                                                                                                            | Default value     | Mandatory   |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCOUNTERS          | Only display some counters (regexp can be used). (example: --filter-counters='^(?!(category)$)')                                       |                   |             |
+| WARNINGCATEGORY         | Threshold                                                                                                                              |                   |             |
+| CRITICALCATEGORY        | Threshold                                                                                                                              |                   |             |
+| WARNINGMALWAREDETECTED  | Threshold                                                                                                                              |                   |             |
+| CRITICALMALWAREDETECTED | Threshold                                                                                                                              |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Ftp-Statistics" label="Ftp-Statistics">
+
+| Macro                 | Description                                                                                                                            | Default value     | Mandatory   |
+|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCOUNTERS        | Only display some counters (regexp can be used). (example: --filter-counters='^proxy')                                                 |                   |             |
+| WARNINGCLIENTTOPROXY  | Threshold                                                                                                                              |                   |             |
+| CRITICALCLIENTTOPROXY | Threshold                                                                                                                              |                   |             |
+| WARNINGPROXYTOCLIENT  | Threshold                                                                                                                              |                   |             |
+| CRITICALPROXYTOCLIENT | Threshold                                                                                                                              |                   |             |
+| WARNINGPROXYTOSERVER  | Threshold                                                                                                                              |                   |             |
+| CRITICALPROXYTOSERVER | Threshold                                                                                                                              |                   |             |
+| WARNINGSERVERTOPROXY  | Threshold                                                                                                                              |                   |             |
+| CRITICALSERVERTOPROXY | Threshold                                                                                                                              |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Http-Statistics" label="Http-Statistics">
+
+| Macro                 | Description                                                                                                                            | Default value     | Mandatory   |
+|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCOUNTERS        | Only display some counters (regexp can be used). (example: --filter-counters='^proxy')                                                 |                   |             |
+| WARNINGCLIENTTOPROXY  | Threshold                                                                                                                              |                   |             |
+| CRITICALCLIENTTOPROXY | Threshold                                                                                                                              |                   |             |
+| WARNINGPROXYTOCLIENT  | Threshold                                                                                                                              |                   |             |
+| CRITICALPROXYTOCLIENT | Threshold                                                                                                                              |                   |             |
+| WARNINGPROXYTOSERVER  | Threshold                                                                                                                              |                   |             |
+| CRITICALPROXYTOSERVER | Threshold                                                                                                                              |                   |             |
+| WARNINGREQUESTS       | Threshold                                                                                                                              |                   |             |
+| CRITICALREQUESTS      | Threshold                                                                                                                              |                   |             |
+| WARNINGSERVERTOPROXY  | Threshold                                                                                                                              |                   |             |
+| CRITICALSERVERTOPROXY | Threshold                                                                                                                              |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Https-Statistics" label="Https-Statistics">
+
+| Macro                 | Description                                                                                                                            | Default value     | Mandatory   |
+|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCOUNTERS        | Only display some counters (regexp can be used). (example: --filter-counters='^proxy')                                                 |                   |             |
+| WARNINGCLIENTTOPROXY  | Threshold                                                                                                                              |                   |             |
+| CRITICALCLIENTTOPROXY | Threshold                                                                                                                              |                   |             |
+| WARNINGPROXYTOCLIENT  | Threshold                                                                                                                              |                   |             |
+| CRITICALPROXYTOCLIENT | Threshold                                                                                                                              |                   |             |
+| WARNINGPROXYTOSERVER  | Threshold                                                                                                                              |                   |             |
+| CRITICALPROXYTOSERVER | Threshold                                                                                                                              |                   |             |
+| WARNINGREQUESTS       | Threshold                                                                                                                              |                   |             |
+| CRITICALREQUESTS      | Threshold                                                                                                                              |                   |             |
+| WARNINGSERVERTOPROXY  | Threshold                                                                                                                              |                   |             |
+| CRITICALSERVERTOPROXY | Threshold                                                                                                                              |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Versions" label="Versions">
+
+| Macro                    | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCOUNTERS           | Only display some counters (regexp can be used). (example: --filter-counters='dat')                                                    |                   |             |
+| WARNINGDATVERSION        | Threshold                                                                                                                              |                   |             |
+| CRITICALDATVERSION       | Threshold                                                                                                                              |                   |             |
+| WARNINGPROACTIVEVERSION  | Threshold                                                                                                                              |                   |             |
+| CRITICALPROACTIVEVERSION | Threshold                                                                                                                              |                   |             |
+| WARNINGTSDBVERSION       | Threshold                                                                                                                              |                   |             |
+| CRITICALTSDBVERSION      | Threshold                                                                                                                              |                   |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 </Tabs>
@@ -277,35 +389,29 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_fortinet_fortimanager_snmp.pl \
-	--plugin=network::fortinet::fortimanager::snmp::plugin \
-	--mode=device-status \
+/usr/lib/centreon/plugins/centreon_skyhigh_webgateway_snmp.pl \
+	--plugin=apps::antivirus::skyhigh::webgateway::snmp::plugin \
+	--mode=https-statistics \
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--filter-name='' \
-	--warning-device-status='' \
-	--critical-device-status='' \
-	--warning-device-con-status='' \
-	--critical-device-con-status='%{status} =~ /down/i' \
-	--warning-device-db-status='' \
-	--critical-device-db-status='' \
-	--warning-device-config-status='' \
-	--critical-device-config-status='' \
-	--warning-device-policy-package-status='' \
-	--critical-device-policy-package-status='' \
-	--verbose
+	--filter-counters='' \
+	--warning-requests='' \
+	--critical-requests='' \
+	--warning-client-to-proxy='' \
+	--critical-client-to-proxy='' \
+	--warning-server-to-proxy='' \
+	--critical-server-to-proxy='' \
+	--warning-proxy-to-client='' \
+	--critical-proxy-to-client='' \
+	--warning-proxy-to-server='' \
+	--critical-proxy-to-server='' 
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: Device 'Device Ent Name' status: installed - connection status: up - db status: modified - configuration status: in-sync 
-checking device 'Device Ent Name'
-    status: installed
-    connection status: up
-    db status: modified
-    configuration status: in-sync
+OK: HTTPS Requests (per sec): 93911 from client to proxy: 32679 32679/s from server to proxy: 88873 88873/s from proxy to client: 73178 73178/s from proxy to server: 38824 38824/s | 'https.requests.persecond'=93911requests/s;;;0; 'https.traffic.client2proxy.bitspersecond'=32679b/s;;;0; 'https.traffic.server2proxy.bitspersecond'=88873b/s;;;0; 'https.traffic.proxy2client.bitspersecond'=73178b/s;;;0; 'https.traffic.proxy2server.bitspersecond'=38824b/s;;;0; 
 ```
 
 ### Troubleshooting
@@ -324,19 +430,23 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_fortinet_fortimanager_snmp.pl \
-	--plugin=network::fortinet::fortimanager::snmp::plugin \
+/usr/lib/centreon/plugins/centreon_skyhigh_webgateway_snmp.pl \
+	--plugin=apps::antivirus::skyhigh::webgateway::snmp::plugin \
 	--list-mode
 ```
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                                          | Linked service template                             |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortimanager/snmp/mode/cpu.pm)]                    | Net-Fortinet-Fortimanager-Cpu-SNMP-custom           |
-| device-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortimanager/snmp/mode/devicestatus.pm)] | Net-Fortinet-Fortimanager-Device-Status-SNMP-custom |
-| disk [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortimanager/snmp/mode/disk.pm)]                  | Net-Fortinet-Fortimanager-Disk-SNMP-custom          |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortimanager/snmp/mode/memory.pm)]              | Net-Fortinet-Fortimanager-Memory-SNMP-custom        |
+| Mode                                                                                                                                                    | Linked service template                                       |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------|
+| clients [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/skyhigh/webgateway/snmp/mode/clients.pm)]                  | App-Antivirus-Skyhigh-Webgateway-Clients-SNMP-custom          |
+| connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/skyhigh/webgateway/snmp/mode/connections.pm)]          | App-Antivirus-Skyhigh-Webgateway-Connections-SNMP-custom      |
+| detections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/skyhigh/webgateway/snmp/mode/detections.pm)]            | App-Antivirus-Skyhigh-Webgateway-Detections-SNMP-custom       |
+| ftp-statistics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/skyhigh/webgateway/snmp/mode/ftpstatistics.pm)]     | App-Antivirus-Skyhigh-Webgateway-Ftp-Statistics-SNMP-custom   |
+| http-statistics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/skyhigh/webgateway/snmp/mode/httpstatistics.pm)]   | App-Antivirus-Skyhigh-Webgateway-Http-Statistics-SNMP-custom  |
+| https-statistics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/skyhigh/webgateway/snmp/mode/httpsstatistics.pm)] | App-Antivirus-Skyhigh-Webgateway-Https-Statistics-SNMP-custom |
+| system [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/skyhigh/webgateway/snmp/mode/system.pm)]                    | Not used in this Monitoring Connector                         |
+| versions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/skyhigh/webgateway/snmp/mode/versions.pm)]                | App-Antivirus-Skyhigh-Webgateway-Versions-SNMP-custom         |
 
 ### Available options
 
@@ -403,54 +513,87 @@ All generic options are listed here:
 | --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 #### Modes options
 
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Clients" label="Clients">
 
-| Option     | Description                  |
-|:-----------|:-----------------------------|
-| --warning  |   Warning threshold.         |
-| --critical |   Critical threshold.        |
-
-</TabItem>
-<TabItem value="Device-Status" label="Device-Status">
-
-| Option                                  | Description                                                                                                                                        |
-|:----------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters                       |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                        |
-| --filter-name                           |   Filter by device name (can be a regexp).                                                                                                         |
-| --warning-device-status                 |   Set warning threshold for device status. You can use the following variables: %{status}, %{name}                                                 |
-| --critical-device-status                |   Set critical threshold for device status You can use the following variables: %{status}, %{name}                                                 |
-| --warning-device-con-status             |   Set warning threshold for device connection status. You can use the following variables: %{status}, %{name}                                      |
-| --critical-device-con-status            |   Set critical threshold for device connection status (default: '%{status} =~ /down/i'). You can use the following variables: %{status}, %{name}   |
-| --warning-device-db-status              |   Set warning threshold for device DB status. You can use the following variables: %{status}, %{name}                                              |
-| --critical-device-db-status             |   Set critical threshold for device DB status. You can use the following variables: %{status}, %{name}                                             |
-| --warning-device-config-status          |   Set warning threshold for device configuration status. You can use the following variables: %{status}, %{name}                                   |
-| --critical-device-config-status         |   Set critical threshold for device configuration status. You can use the following variables: %{status}, %{name}                                  |
-| --warning-device-policy-package-status  |   Set warning threshold for device policy package status. You can use the following variables: %{status}, %{package\_name}                         |
-| --critical-device-policy-package-status |   Set critical threshold for device policy package status. You can use the following variables: %{status}, %{package\_name}                        |
+| Option            | Description                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). (example: --filter-counters='clients')   |
+| --warning-*       |   Warning threshold. Can be: 'clients', 'sockets'.                                          |
+| --critical-*      |   Critical threshold. Can be: 'clients', 'sockets'.                                         |
 
 </TabItem>
-<TabItem value="Disk" label="Disk">
+<TabItem value="Connections" label="Connections">
 
-| Option            | Description                                                                                                                   |
-|:------------------|:------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
-| --warning-usage   |   Warning threshold (in percent).                                                                                             |
-| --critical-usage  |   Critical threshold (in percent).                                                                                            |
+| Option            | Description                                                                                                                                                                                     |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). (example: --filter-counters='blocked')                                                                                                       |
+| --warning-*       |   Warning threshold. Can be: 'legitimate', 'blocked', 'blocked-by-am' for blocked by anti malware , 'blocked-by-mf' for blocked by media Filter, 'blocked-by-uf' for blocked by URL filter.     |
+| --critical-*      |   Critical threshold. Can be: 'legitimate', 'blocked', 'blocked-by-am' for blocked by anti malware , 'blocked-by-mf' for blocked by media Filter, 'blocked-by-uf' for blocked by URL filter.    |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Detections" label="Detections">
 
-| Option            | Description                                                                                                                   |
-|:------------------|:------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
-| --warning-usage   |   Warning threshold (in percent).                                                                                             |
-| --critical-usage  |   Critical threshold (in percent).                                                                                            |
+| Option            | Description                                                                                          |
+|:------------------|:-----------------------------------------------------------------------------------------------------|
+| --filter-name     |   Filter category name (can be a regexp).                                                            |
+| --filter-counters |   Only display some counters (regexp can be used). (example: --filter-counters='^(?!(category)$)')   |
+| --warning-*       |   Warning threshold. Can be: 'malware-detected', 'category'                                          |
+| --critical-*      |   Critical threshold. Can be: 'malware-detected', 'category'                                         |
+
+</TabItem>
+<TabItem value="Ftp-Statistics" label="Ftp-Statistics">
+
+| Option            | Description                                                                                                  |
+|:------------------|:-------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). (example: --filter-counters='^proxy')                     |
+| --warning-*       |   Warning threshold. Can be: 'client-to-proxy', 'server-to-proxy', 'proxy-to-client', 'proxy-to-server'.     |
+| --critical-*      |   Critical threshold. Can be: 'client-to-proxy', 'server-to-proxy', 'proxy-to-client', 'proxy-to-server'.    |
+
+</TabItem>
+<TabItem value="Http-Statistics" label="Http-Statistics">
+
+| Option            | Description                                                                                                             |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). (example: --filter-counters='^proxy')                                |
+| --warning-*       |   Warning threshold. Can be: 'request', 'client-to-proxy', 'server-to-proxy', 'proxy-to-client', 'proxy-to-server'.     |
+| --critical-*      |   Critical threshold. Can be: 'request', 'client-to-proxy', 'server-to-proxy', 'proxy-to-client', 'proxy-to-server'.    |
+
+</TabItem>
+<TabItem value="Https-Statistics" label="Https-Statistics">
+
+| Option            | Description                                                                                                             |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). (example: --filter-counters='^proxy')                                |
+| --warning-*       |   Warning threshold. Can be: 'request', 'client-to-proxy', 'server-to-proxy', 'proxy-to-client', 'proxy-to-server'.     |
+| --critical-*      |   Critical threshold. Can be: 'request', 'client-to-proxy', 'server-to-proxy', 'proxy-to-client', 'proxy-to-server'.    |
+
+</TabItem>
+<TabItem value="Versions" label="Versions">
+
+| Option                 | Description                                                                                                                                                                                                                                     |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            |   Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             |   Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                          |
+| --memexpiration        |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd |   If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --filter-counters      |   Only display some counters (regexp can be used). (example: --filter-counters='dat')                                                                                                                                                           |
+| --warning-*            |   Warning threshold on last update. Can be: 'dat-version', 'tsdb-version' for TrustedSource Database Version, 'proactive-version' for ProActive Database Version.                                                                               |
+| --critical-*           |   Critical threshold on last update. Can be: 'dat-version', 'tsdb-version' for TrustedSource Database Version, 'proactive-version' for ProActive Database Version.                                                                              |
 
 </TabItem>
 </Tabs>
@@ -459,8 +602,8 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_fortinet_fortimanager_snmp.pl \
-	--plugin=network::fortinet::fortimanager::snmp::plugin \
-	--mode=device-status \
+/usr/lib/centreon/plugins/centreon_skyhigh_webgateway_snmp.pl \
+	--plugin=apps::antivirus::skyhigh::webgateway::snmp::plugin \
+	--mode=https-statistics \
 	--help
 ```

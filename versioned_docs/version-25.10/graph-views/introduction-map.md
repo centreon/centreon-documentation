@@ -5,6 +5,8 @@ title: Introduction to Centreon MAP
 
 Centreon MAP is a solution fully available in the Centreon web interface while offering you the best possible experience in creating, visualizing and sharing graphical representations of your monitored infrastructure.
 
+> Centreon MAP is a Centreon extension that requires a valid [license](../administration/licenses.md). To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
+
 > From Centreon 24.10, MAP Legacy is no longer available. Whether you were still using MAP Legacy or not, see [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
 > See how to manage views using the Centreon MAP REST API [here](https://docs-api.centreon.com/api/centreon-map/24.10/).

@@ -1433,47 +1433,8 @@
       ]
     },
     {
-      "type": "category",
-      "label": "Centreon HA",
-      "link": {
-        "type": "doc",
-        "id": "installation/installation-of-centreon-ha/overview"
-      },
-      "items": [
-        {
-          "type": "category",
-          "label": "Upgrading Centreon HA",
-          "link": {
-            "type": "generated-index"
-          },
-          "items": [
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-23-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
-            },
-        {
-          "type": "doc",
-          "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
-        }
-          ]
-        }
-      ]
+      "type": "doc",
+      "id": "installation/installation-of-centreon-ha/overview"
     },
     {
       "type": "category",
