@@ -111,10 +111,7 @@ dnf module enable php:8.2
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-```shell
-systemctl stop php8.1-fpm
-systemctl disable php8.1-fpm
-```
+Rien à faire.
 
 </TabItem>
 </Tabs>
@@ -330,7 +327,8 @@ systemctl reload php-fpm httpd
 ```shell
 apt autoremove
 systemctl daemon-reload
-systemctl stop php8.0-fpm.service
+systemctl stop php8.1-fpm
+systemctl disable php8.1-fpm
 systemctl enable php8.2-fpm
 systemctl start php8.2-fpm
 systemctl restart apache2
