@@ -83,9 +83,10 @@ The shell will output this message including an authentication code:
 ```bash
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 and enter the code CWT4WQZAD to authenticate.*
+```
 
 Go to <https://microsoft.com/devicelogin> and enter the code, then log in with the dedicated monitoring service account.
-```
+
 
 As a result, the shell should prompt the information below:
 
