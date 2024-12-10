@@ -262,4 +262,4 @@ Si toutes ces étapes de dépannage ont échoué, contactez [notre équipe suppo
 |--------------------|---------|------|----------|
 | Installation du collecteur |   | {scriptdir}/logs/register-poller.log | |
 | Centreon Engine | centengine | /var/log/centreon-engine/centengine.log | <ul><li>Les contrôles ne sont pas effectués</li><li>Les objets supprimés sont toujours supervisés</li></ul> |
-| Gorgone | gorgoned | /var/log/centreon-gorgone/gorgoned.log | Les actions ne se déclenchent pas : aquittements, plages de maintenance, contrôles forcés, autodiscovery |
+| Gorgone | gorgoned | /var/log/centreon-gorgone/gorgoned.log | Les actions ne se déclenchent pas : acquittements, plages de maintenance, contrôles forcés, autodiscovery |
