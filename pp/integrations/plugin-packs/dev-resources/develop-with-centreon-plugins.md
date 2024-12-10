@@ -507,7 +507,7 @@ sub new {
          'port:s'               => { name => 'port', default => 443 },
          'timeout:s'            => { name => 'timeout' },
         # These options are here to defined conditions about which status the plugin will return regarding HTTP response code
-         'unknown-status:s'     => { name => 'unknown_status', default => '%{http_code} < 200 or %{http_code} >= 300' },
+         'unknown-status:s'     => { name => 'unknown_status', default => '%{http_code} < 200 or %\{http_code\} >= 300' },
          'warning-status:s'     => { name => 'warning_status' },
          'critical-status:s'    => { name => 'critical_status', default => '' }
     });
