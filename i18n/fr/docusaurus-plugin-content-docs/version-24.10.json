@@ -307,7 +307,7 @@
     "message": "Informations pour les utilisateurs de MAP Legacy",
     "description": "The label for category Information for MAP Legacy users in sidebar docs"
   },
-  "sidebar.docs.category.The graphical view capabilities in Centreon rely on the Centreon MAP module.link.generated-index.description": {
+  "sidebar.docs.category.Graphical views (maps).link.generated-index.description": {
     "message": "Les vues graphiques dans Centreon sont fournies par le module Centreon MAP.",
     "description": "The generated-index page description for category Graphical views (maps). in sidebar docs"
   }
