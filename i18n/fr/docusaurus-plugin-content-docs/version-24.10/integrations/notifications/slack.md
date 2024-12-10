@@ -12,7 +12,7 @@ Vous pouvez poster des notifications directement dans un canal Slack en utilisan
 Suivez la documentation officielle de Slack pour [créer un webhook Slack](https://api.slack.com/messaging/webhooks) dans le canal de votre choix. Voici un résumé de la procédure :
 
 1. Connectez-vous à Slack et accédez à l'espace de travail et au canal où vous souhaitez poster les notifications.
-2. Cliquez sur les 3 points verticaaux dans le coin supérieur droit, puis sélectionnez **Modifier les paramètres**.
+2. Cliquez sur les 3 points verticaux dans le coin supérieur droit, puis sélectionnez **Modifier les paramètres**.
 3. Dans l'onglet **Intégrations**, cliquez sur **Ajouter une application**.
 4. Dans la liste **Applications préapprouvées pour \<votre organisation\>**, trouvez **Webooks entrants** puis cliquez sur **Installer**. Une nouvelle page apparaît dans votre navigateur.
 5. Cliquez sur **Demander une configuration** et replissez le formulaire correspondant. Lorsque vous validez votre demande, Slack vous notifie que votre demande a été envoyée à vos administrateurs pour qu'ils l'approuvent.
