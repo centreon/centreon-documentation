@@ -259,7 +259,7 @@ Nothing to do for this OS.
 Nothing to do for this OS.
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
   ```shell
   pt-mark unhold centreon-plugin*
