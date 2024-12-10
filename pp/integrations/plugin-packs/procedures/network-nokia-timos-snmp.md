@@ -499,7 +499,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--add-traffic \
 	--add-errors \
 	--warning-status='' \
-	--critical-status='%{admstatus} eq "up" and %\{opstatus\} !~ /up|dormant/' \
+	--critical-status='%\{admstatus\} eq "up" and %\{opstatus\} !~ /up|dormant/' \
 	--warning-in-traffic='' \
 	--critical-in-traffic='' \
 	--warning-out-traffic='' \
@@ -646,7 +646,7 @@ All available options for each service template are listed below:
 | --warning-*       |   Warning threshold. Can be: 'active-prefixes', 'sent-prefixes', 'received-prefixes'.                                                                               |
 | --critical-*      |   Critical threshold. Can be: 'active-prefixes', 'sent-prefixes', 'received-prefixes'.                                                                              |
 | --warning-status  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{state\}                                            |
-| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /outOfService/') You can use the following variables:  %\{display\}, %\{state\}   |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /outOfService/') You can use the following variables:  %\{display\}, %\{state\}   |
 | --filter-name     |   Filter by BGP name (can be a regexp). Syntax: VrtrName:peeraddr:peerAS:description                                                                                |
 
 </TabItem>
@@ -699,9 +699,9 @@ All available options for each service template are listed below:
 | --add-cast                                      |   Check interface cast.                                                                                                                                                                                                                                                                      |
 | --add-speed                                     |   Check interface speed.                                                                                                                                                                                                                                                                     |
 | --add-volume                                    |   Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      |
-| --check-metrics                                 |   If the expression is true, metrics are checked (default: '%{opstatus} eq "up"').                                                                                                                                                                                                           |
+| --check-metrics                                 |   If the expression is true, metrics are checked (default: '%\{opstatus\} eq "up"').                                                                                                                                                                                                           |
 | --warning-status                                |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                                   |
-| --critical-status                               |   Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                        |
+| --critical-status                               |   Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                        |
 | --warning-* --critical-*                        |   Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
 | --units-traffic                                 |   Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
 | --units-errors                                  |   Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |

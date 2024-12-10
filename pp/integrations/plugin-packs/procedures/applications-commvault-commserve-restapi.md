@@ -313,7 +313,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--proto='https'  \
 	--filter-name='' \
 	--warning-status='' \
-	--critical-status='%{status} !~ /online/i' \
+	--critical-status='%\{status\} !~ /online/i' \
 	--warning-usage='' \
 	--critical-usage='' \
 	--warning-usage-free='' \
@@ -445,8 +445,8 @@ All available options for each service template are listed below:
 |:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-alert-name |   Filter alerts by name (can be a regexp).                                                                                                                                                       |
 | --filter-alert-type |   Filter alerts by type (can be a regexp).                                                                                                                                                       |
-| --warning-status    |   Define the conditions to match for the status to be WARNING (default: '%{severity} =~ /warning/') You can use the following variables: %\{severity\}, %\{status\}, %\{type\}, %\{name\}, %\{since\}      |
-| --critical-status   |   Define the conditions to match for the status to be CRITICAL (default: '%{severity} =~ /critical/'). You can use the following variables: %\{severity\}, %\{status\}, %\{type\}, %\{name\}, %\{since\}   |
+| --warning-status    |   Define the conditions to match for the status to be WARNING (default: '%\{severity\} =~ /warning/') You can use the following variables: %\{severity\}, %\{status\}, %\{type\}, %\{name\}, %\{since\}      |
+| --critical-status   |   Define the conditions to match for the status to be CRITICAL (default: '%\{severity\} =~ /critical/'). You can use the following variables: %\{severity\}, %\{status\}, %\{type\}, %\{name\}, %\{since\}   |
 | --memory            |   Only check new alerts.                                                                                                                                                                         |
 
 </TabItem>
@@ -460,8 +460,8 @@ All available options for each service template are listed below:
 | --filter-client-name     |   Filter jobs by client name (can be a regexp).                                                                                                                                   |
 | --filter-client-group    |   Filter jobs by client groups (can be a regexp).                                                                                                                                 |
 | --timeframe              |   Set timeframe in seconds (E.g '3600' to check last 60 minutes).                                                                                                                 |
-| --warning-status         |   Define the conditions to match for the status to be WARNING (default: '%{status} =~ /abnormal/i') You can use the following variables: %\{display\}, %\{status\}, %\{type\}           |
-| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /errors\|failed/i'). You can use the following variables: %\{display\}, %\{status\}, %\{type\}   |
+| --warning-status         |   Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /abnormal/i') You can use the following variables: %\{display\}, %\{status\}, %\{type\}           |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /errors\|failed/i'). You can use the following variables: %\{display\}, %\{status\}, %\{type\}   |
 | --warning-long           |   Set warning threshold for long jobs. You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{type\}                                                            |
 | --critical-long          |   Set critical threshold for long jobs. You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{type\}                                                           |
 | --warning-* --critical-* |   Thresholds. Can be: 'jobs-total'.                                                                                                                                               |
@@ -487,7 +487,7 @@ All available options for each service template are listed below:
 | --filter-name            |   Filter storage pools by name (can be a regexp).                                                                                                                |
 | --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{display\}                                        |
 | --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                        |
-| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /online/i'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /online/i'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-* --critical-* |   Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%).                                                                                           |
 
 </TabItem>

@@ -287,7 +287,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--warning-device-status='' \
 	--critical-device-status='' \
 	--warning-device-con-status='' \
-	--critical-device-con-status='%{status} =~ /down/i' \
+	--critical-device-con-status='%\{status\} =~ /down/i' \
 	--warning-device-db-status='' \
 	--critical-device-db-status='' \
 	--warning-device-config-status='' \
@@ -426,7 +426,7 @@ All available options for each service template are listed below:
 | --warning-device-status                 |   Set warning threshold for device status. You can use the following variables: %\{status\}, %\{name\}                                                 |
 | --critical-device-status                |   Set critical threshold for device status You can use the following variables: %\{status\}, %\{name\}                                                 |
 | --warning-device-con-status             |   Set warning threshold for device connection status. You can use the following variables: %\{status\}, %\{name\}                                      |
-| --critical-device-con-status            |   Set critical threshold for device connection status (default: '%{status} =~ /down/i'). You can use the following variables: %\{status\}, %\{name\}   |
+| --critical-device-con-status            |   Set critical threshold for device connection status (default: '%\{status\} =~ /down/i'). You can use the following variables: %\{status\}, %\{name\}   |
 | --warning-device-db-status              |   Set warning threshold for device DB status. You can use the following variables: %\{status\}, %\{name\}                                              |
 | --critical-device-db-status             |   Set critical threshold for device DB status. You can use the following variables: %\{status\}, %\{name\}                                             |
 | --warning-device-config-status          |   Set warning threshold for device configuration status. You can use the following variables: %\{status\}, %\{name\}                                   |
