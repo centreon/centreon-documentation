@@ -62,23 +62,19 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+* Votre collecteur Centreon doit disposer d'un compte d'accès à IBM Softlayer. 
+* Assurez-vous d'avoir un compte IBM SoftLayer actif avec des privilèges suffisants pour accéder aux ressources via l'API.
+* Le collecteur Centreon doit pouvoir se connecter à l'API IBM SoftLayer. L'URL principale de l'API est : `https://api.softlayer.com/rest/v3.1/`
+* Si un pare-feu ou un proxy est configuré, assurez-vous que les connexions sortantes vers l'API SoftLayer sont autorisées.
+* Vous pouvez tester la connexion à l'API en utilisant la commande curl suivante : 
+```
+curl -u "NOM_UTILISATEUR:API_KEY" https://api.softlayer.com/rest/v3.1/SoftLayer_Account/getAccount
+```
+* Pour plus d'informations, consultez la [documentation officielle Softlayer](https://sldn.softlayer.com/reference/softlayerapi/).
 
 ## Installer le connecteur de supervision
 
 ### Pack
-
-Votre collecteur Centreon doit disposer d'un compte d'accès à IBM Softlayer. 
-Assurez-vous d'avoir un compte IBM SoftLayer actif avec des privilèges suffisants pour accéder aux ressources via l'API.
-Le collecteur Centreon doit pouvoir se connecter à l'API IBM SoftLayer. L'URL principale de l'API est : `https://api.softlayer.com/rest/v3.1/`
-Si un pare-feu ou un proxy est configuré, assurez-vous que les connexions sortantes vers l'API SoftLayer sont autorisées.
-Vous pouvez tester la connexion à l'API en utilisant la commande curl suivante : 
-```
-curl -u "NOM_UTILISATEUR:API_KEY" https://api.softlayer.com/rest/v3.1/SoftLayer_Account/getAccount
-```
-Pour plus d'informations, consultez la [documentation officielle](https://sldn.softlayer.com/reference/softlayerapi/).
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
