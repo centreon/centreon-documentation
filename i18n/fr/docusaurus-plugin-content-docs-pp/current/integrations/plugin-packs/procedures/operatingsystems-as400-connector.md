@@ -157,9 +157,9 @@ yum install centreon-plugin-Operatingsystems-AS400-daemon
 
 Un même connecteur peut servir de relais entre plusieurs hôtes et plusieurs systèmes AS400. 
 
-> Attention une mise à jour récente de la version java (8 -> 17) dans le daemon (versions 2.0.3 et supérieures)
+> Attention, une mise à jour récente de la version java (8 -> 17) dans le daemon (versions 2.0.3 et supérieures)
 > implique que si java 8 était déjà installé sur votre système, vous devez forcer le passage en java 17 pour que le daemon fonctionne.
-> Faites la commande suivante : 
+> Exécutez la commande suivante : 
 
 ```shell
 update-alternatives --config java
