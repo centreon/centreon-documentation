@@ -167,3 +167,4 @@ Le menu d'action à trois points situé à la fin de la ligne de la liste de dif
 | Graphique de statut     | Affiche la répartition des statuts actuels sur des ressources sélectionnées, sous forme de graphique.      |
 | Grille de statut    | Affiche le statut actuel des ressources sélectionnées, sous forme de grille.   |
 | Top/bottom              | Affiche le top ou le bottom x des hôtes, pour une métrique sélectionnée.   |
+| Page web          | Affiche un site web dans une trame, en utilisant son URL.   |
