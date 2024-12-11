@@ -40,7 +40,7 @@ chown -R centreon-engine. /usr/lib/centreon/git-plugins
 ### Étape 3 : Créer des commandes de notification
 
 1. Allez à la page **Configuration > Commandes > Notifications**, puis cliquez sur **Ajouter**.
-2. Créez une commande qui postera des notifications pour les hôtes et une pour les services :
+2. Créez une commande qui postera des notifications pour les hôtes et une pour les services (remplacez les valeurs d'exemple par les vôtres) :
 
    * Exemple pour un hôte :
 
@@ -54,7 +54,7 @@ chown -R centreon-engine. /usr/lib/centreon/git-plugins
    $CENTREONPLUGINS$/centreon_plugins.pl --plugin=notification::slack::plugin --mode alert --slack-url='https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX' --slack-channel='#votre_canal_slack' --slack-username='Notifications Centreon' --slack-emoji=':ghost:' --host-name='$HOSTNAME$' --service-description='$SERVICEDESC$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --priority='$_SERCVICECRITICALITY_LEVEL$'
    ```
 
-* **$CENTREONPLUGINS$** doit spécifier le chemin complet vers le script **centreon_plugins.pl**. Si vous avez cloné le dépôt comme décrit à l'étape 2, le chemin sera sans doute **/usr/lib/centreon/git-plugins/centreon-plugins/src**.
+* **$CENTREONPLUGINS$** doit spécifier le chemin complet vers le script **centreon_plugins.pl** (celui-ci varie en fontion de l'emplacement où vous avez cloné le dépôt). Si vous avez cloné le dépôt comme décrit à l'étape 2, le chemin sera sans doute **/usr/lib/centreon/git-plugins/centreon-plugins/src**.
 * **--slack-url**: l'URL du webhook que vous avez récupérée à la fin de l'étape 1.
 * **--slack-channel**: le nom du canal où vous voulez que les notifications soient postées.
 * **--slack-username**: le nom qui sera affiché dans Slack en tant qu'auteur des posts. Il s'agit d'un simple libellé et non d'un vrai nom d'utilisateur Slack.

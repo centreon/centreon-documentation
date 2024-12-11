@@ -541,6 +541,10 @@
             {
               "type": "doc",
               "id": "version-24.10/integrations/notifications/slack-notifications"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/integrations/notifications/plugin-telegram"
             }
           ]
         },
@@ -1302,20 +1306,6 @@
             {
               "type": "doc",
               "id": "version-24.10/integrations/itsm/ot-servicenow"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Notifications",
-          "link": {
-            "type": "doc",
-            "id": "version-24.10/integrations/notifications/notifications-overview"
-          },
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-24.10/integrations/notifications/plugin-telegram"
             }
           ]
         },
