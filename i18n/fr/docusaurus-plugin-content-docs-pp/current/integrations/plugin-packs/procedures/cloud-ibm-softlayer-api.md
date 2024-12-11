@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **IBM Softlayer** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **IBM Softlayer API** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **IBM Softlayer** apporte un modèle d'hôte :
+Le connecteur de supervision **IBM Softlayer API** apporte un modèle d'hôte :
 
 * **Cloud-Ibm-Softlayer-Api-custom**
 
@@ -219,8 +219,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 /usr/lib/centreon/plugins/centreon_ibm_softlayer_api.pl \
 	--plugin=cloud::ibm::softlayer::plugin \
 	--mode=events \
-	--api-username=''  \
-	--api-key=''  \
+	--api-username='XXXX'  \
+	--api-key='XXXX'  \
 	--filter-status='Active' \
 	--warning-active='' \
 	--critical-active='' \

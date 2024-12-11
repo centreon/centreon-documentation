@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **IBM Softlayer** connector through the
+The following monitoring connectors will be installed when you install the **IBM Softlayer API** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **IBM
 
 ### Templates
 
-The Monitoring Connector **IBM Softlayer** brings a host template:
+The Monitoring Connector **IBM Softlayer API** brings a host template:
 
 * **Cloud-Ibm-Softlayer-Api-custom**
 
@@ -26,8 +26,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                            | Service Description                                   |
 |:--------------|:--------------------------------------------|:------------------------------------------------------|
-| Events        | Cloud-Ibm-Softlayer-Events-Api-custom       | Check events status and number of impacted ressources |
-| Open-Tickets  | Cloud-Ibm-Softlayer-Open-Tickets-Api-custom | Check if there is open tickets                        |
+| Events        | Cloud-Ibm-Softlayer-Events-Api-custom       | Check the status of events and the number of impacted resources |
+| Open-Tickets  | Cloud-Ibm-Softlayer-Open-Tickets-Api-custom | Check if there are open tickets                        |
 
 > The services listed above are created automatically when the **Cloud-Ibm-Softlayer-Api-custom** host template is used.
 
@@ -224,8 +224,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 /usr/lib/centreon/plugins/centreon_ibm_softlayer_api.pl \
 	--plugin=cloud::ibm::softlayer::plugin \
 	--mode=events \
-	--api-username=''  \
-	--api-key=''  \
+	--api-username='XXXX'  \
+	--api-key='XXXX'  \
 	--filter-status='Active' \
 	--warning-active='' \
 	--critical-active='' \
