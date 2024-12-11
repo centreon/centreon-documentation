@@ -113,6 +113,7 @@ dnf module enable php:8.2
 
 ```shell
 systemctl stop php8.1-fpm
+systemctl disable php8.1-fpm
 ```
 
 </TabItem>
@@ -329,7 +330,6 @@ systemctl reload php-fpm httpd
 ```shell
 apt autoremove
 systemctl daemon-reload
-systemctl disable php8.1-fpm
 systemctl enable php8.2-fpm
 systemctl start php8.2-fpm
 systemctl restart apache2
