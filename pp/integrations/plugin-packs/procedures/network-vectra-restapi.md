@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                 | Service Description                                  |
 |:--------------|:---------------------------------|:-----------------------------------------------------|
-| Cpu           | Net-Vectra-Cpu-Restapi-custom    | Check the rate of utilization of CPU for the machine |
+| Cpu           | Net-Vectra-Cpu-Restapi-custom    | Check the rate of CPU utilization for the machine |
 | Disk          | Net-Vectra-Disk-Restapi-custom   | Check disk usage                                     |
 | Memory        | Net-Vectra-Memory-Restapi-custom | Check memory usage                                   |
 | Uptime        | Net-Vectra-Uptime-Restapi-custom | Time since the server has been working and available |
@@ -124,7 +124,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The Pack uses the following API endpoints which must be requestable by the Centreon poller:
+The connector uses the following API endpoints, which must be queriable by the Centreon poller:
 * /health/connectivity
 * /health/cpu
 * /health/disk

@@ -56,7 +56,7 @@ Le connecteur apporte les modèles de service suivants
 | Nom de la règle                   | Description                                                                                       |
 |:----------------------------------|:--------------------------------------------------------------------------------------------------|
 | Net-Vectra-Restapi-Interface-Name | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
-| Net-Vectra-Restapi-Sensor-Name    | Découvre les sondes réseau et supervise l'utilisation                                             |
+| Net-Vectra-Restapi-Sensor-Name    | Découvre les sondes réseau et en supervise l'utilisation                                             |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -125,7 +125,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Le Pack utilise les endpoints d'API suivants qui doivent être requêtables par le collecteur Centreon :
+Le connecteur utilise les endpoints d'API suivants, qui doivent être requêtables par le collecteur Centreon :
 * /health/connectivity
 * /health/cpu
 * /health/disk
