@@ -123,7 +123,7 @@ Please ensure that the addresses of the Centreon pollers are included in this li
 
 ### Network flow
 
-The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
+The target resource must be reachable from the Centreon poller on the UDP 161 port.
 
 ## Installing the monitoring connector
 
@@ -335,12 +335,12 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-    --warning-1m='' \
-    --critical-1m='' \
-    --warning-5m='' \
-    --critical-5m='' \
-    --warning-5s='' \
-    --critical-5s='' \
+        --warning-1m='' \
+        --critical-1m='' \
+        --warning-5m='' \
+        --critical-5m='' \
+        --warning-5s='' \
+        --critical-5s='' \
 ```
 
 The expected command output is shown below:

@@ -336,12 +336,12 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-    --warning-1m='' \
-    --critical-1m='' \
-    --warning-5m='' \
-    --critical-5m='' \
-    --warning-5s='' \
-    --critical-5s='' \
+        --warning-1m='' \
+        --critical-1m='' \
+        --warning-5m='' \
+        --critical-5m='' \
+        --warning-5s='' \
+        --critical-5s='' \
 ```
 
 La commande devrait retourner un message de sortie similaire à :
