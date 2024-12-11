@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                         | Service Description  | Discovery  |
 |:--------------|:-----------------------------------------|:---------------------|:----------:|
-| Vserver-Usage | Net-Oracle-Otd-Vserver-Usage-SNMP-custom | Check vservers usage | X          |
+| Vserver-Usage | Net-Oracle-Otd-Vserver-Usage-SNMP-custom | Check vserver usage | X          |
 
 > The services listed above are created automatically when the **Net-Oracle-Otd-SNMP-custom** host template is used.
 
