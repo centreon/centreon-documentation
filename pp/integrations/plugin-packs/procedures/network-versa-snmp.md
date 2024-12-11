@@ -165,7 +165,7 @@ Please ensure that the addresses of the Centreon pollers are included in this li
 
 ### Network flows
 
-The Centreon Poller must be able to reach the UDP/161 SNMP port of the Versa Networks device.
+The Centreon Poller must be able to reach the UDP 161 port of the Versa Networks device.
 
 ## Installing the monitoring connector
 
