@@ -26,10 +26,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                 | Service Description                                  |
 |:--------------|:---------------------------------|:-----------------------------------------------------|
-| Cpu           | Net-Viptela-Cpu-SNMP-custom      | Check the rate of utilization of CPU for the machine |
+| Cpu           | Net-Viptela-Cpu-SNMP-custom      | Check the rate of CPU utilization for the machine |
 | Disk          | Net-Viptela-Disk-SNMP-custom     | Check system disk usage                              |
 | Hardware      | Net-Viptela-Hardware-SNMP-custom | Check hardware                                       |
-| Memory        | Net-Viptela-Memory-SNMP-custom   | Check the rate of the utilization of memory          |
+| Memory        | Net-Viptela-Memory-SNMP-custom   | Check the rate of memory utilization         |
 | Uptime        | Net-Viptela-Uptime-SNMP-custom   | Time since the server has been working and available |
 
 > The services listed above are created automatically when the **Net-Viptela-SNMP-custom** host template is used.
@@ -64,7 +64,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                        | Description                                                   |
 |:---------------------------------|:--------------------------------------------------------------|
-| Net-Viptela-SNMP-Gre-Tunnel-Name | Discover GRE tunnels and monitor utilization                  |
+| Net-Viptela-SNMP-Gre-Tunnel-Name | Discover GRE tunnels and monitor their utilization                  |
 | Net-Viptela-SNMP-Interface-Name  | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)

@@ -65,7 +65,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                  | Description                                                                                       |
 |:---------------------------------|:--------------------------------------------------------------------------------------------------|
-| Net-Viptela-SNMP-Gre-Tunnel-Name | Découvre les tunnels GRE et supervise le statut et l'utilisation                                  |
+| Net-Viptela-SNMP-Gre-Tunnel-Name | Découvre les tunnels GRE et en supervise le statut et l'utilisation                                  |
 | Net-Viptela-SNMP-Interface-Name  | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
