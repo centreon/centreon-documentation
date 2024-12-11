@@ -5,19 +5,25 @@ title: Datadog Metrics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Hello community! We're looking for a contributor to help us translate this page into French. If it's you, let us know and ping us on [our community platform The Watch](https://thewatch.centreon.com/).
+Le stream connector Datadog Metrics vous permet d'envoyer des données depuis Centreon vers Datadog.
 
-## Before starting
+## Avant de commencer
 
-- You can send events from a central server, a remote server or a poller.
-- By default, this stream connector sends **metrics** from **host_status** and **service_status** events. The event format is shown **[there](#event-format)**.
-- Aformentioned events are fired each time a host or a service is checked. Various parameters let you filter out events.
+- Dans la plupart des cas, vous enverrez les données depuis le serveur central. Il est également possible de les envoyer 
+depuis un serveur distant ou un collecteur (par exemple si vous voulez éviter que le serveur central ne représente un point 
+de défaillance unique, ou bien si vous êtes un MSP et vous installez le stream connector sur un collecteur ou un serveur distant dans l'infratructure de votre client).
+- Par défaut, le stream connector Datadog Metrics envoie des métriques des évènements Broker [**host_status**](../../developer/developer-broker-mapping.md#host-status) 
+et [**service_status**](../../developer/developer-broker-mapping.md#service-status). Ces métriques sont contenues dans le champ **perf_data** des évènements. 
+Le format des évènements est décrit **[ici](#format-des-évènements)**.
+- Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres dédiés vous permettent de [ne pas envoyer certains évènements](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-datadog).
 
 ## Installation
 
-Connectez vous en tant que `root` sur le serveur Centreon central en utilisant votre client SSH préféré.
+Faites l'installation sur le serveur qui enverra les données à Datadog (serveur central, serveur distant, collecteur).
 
-Lancer la commande adaptée à votre système :
+1. Connectez-vous en tant que `root` en utilisant votre client SSH préféré.
+
+2. Exécutez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -45,72 +51,94 @@ apt install centreon-stream-connector-datadog
 </TabItem>
 </Tabs>
 
-## Configuration
+## Configurer votre équipement Datadog
 
-To configure your stream connector, you must **head over** the **Configuration --> Poller --> Broker configuration** menu. **Select** the **central-broker-master** configuration (or the appropriate broker configuration if it is a poller or a remote server that will send events) and **click** the **Output tab** when the broker form is displayed.
+Vous devrez paramétrer votre équipement Datadog pour qu'il puisse recevoir des données de la part de Centreon. Reportez-vous à la documentation Datadog.
+Assurez-vous que Datadog puisse recevoir les données envoyées par Centreon : les flux ne doivent pas être bloqués par la configuration de Datadog ou par un équipement de sécurité.
 
-**Add** a new **generic - stream connector** output and **set** the following fields as follow:
+## Configurer le stream connector dans Centreon
 
-| Field           | Value                                                    |
+1. Sur votre serveur central, allez à la page **Configuration > Collecteurs > Configuration de Centreon Broker**.
+2. Cliquez sur **central-broker-master** (ou sur la configuration du Broker correspondant si les évènements seront envoyés par un serveur distant ou un collecteur).
+3. Dans l'onglet **Output**, sélectionnez **Generic - Stream connector** dans la liste, puis cliquez sur **Ajouter**. Un nouvel output apparaît dans la liste.
+4. Remplissez les champs de la manière suivante :
+
+| Champ           | Valeur                                                   |
 | --------------- | -------------------------------------------------------- |
 | Name            | Datadog metrics                                          |
 | Path            | /usr/share/centreon-broker/lua/datadog-metrics-apiv2.lua |
 | Filter category | Neb                                                      |
 
-### Add Datadog mandatory parameters
+5. Pour permettre à Centreon de se connecter à votre équipement Datadog, remplissez les paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre.
 
-Each stream connector has a set of mandatory parameters. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
+| Type   | Nom        | Explication            | Exemple de valeur                |
+| ------ |------------|------------------------|----------------------------------|
+| string | api_key    | The datadog api key    | OGwOM8nse3FHjxyGw5ODLWWXS1oEpcPs |
 
-| Type   | Name    | Value explanation   | Value exemple |
-| ------ | ------- | ------------------- | ------------- |
-| string | api_key | the datadog api key |               |
+6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
-### Add Datadog optional parameters
+| Type   | Nom       | Explication                                | Valeur par défaut                            |
+| ------ |-----------|--------------------------------------------|----------------------------------------------|
+| string | logfile   | The file in which logs are written         | /var/log/centreon-broker/datadog-metrics.log |
+| number | log_level | Logging level from 1 (errors) to 3 (debug) | 1                                            |
 
-Some stream connectors have a set of optional parameters dedicated to the Software that are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
+7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à Datadog](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-datadog).
 
-| Type   | Name                    | Value explanation                                  | default value                                |
-| ------ | ----------------------- | -------------------------------------------------- | -------------------------------------------- |
-| string | datadog_centreon_url    | your centreon server address                       | `http://yourcentreonaddress.local`           |
-| string | datadog_metric_endpoint | the API endpoint that must be used to send metrics | /api/v1/series                               |
-| string | http_server_url         | The Datadog API hosting server address             | https://api.datadoghq.com                    |
-| string | logfile                 | the file in which logs are written                 | /var/log/centreon-broker/datadog-metrics.log |
-| number | log_level               | logging level from 1 (errors) to 3 (debug)         | 1                                            |
+8. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-### Standard parameters
+9. Redémarrez **centengine** sur tous les collecteurs :
 
-All stream connectors can use a set of optional parameters that are made available through Centreon stream connectors lua modules.
+   ```shell
+   systemctl restart centengine
+   ```
 
-All those parameters are documented **[here](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters)**
+   Datadog reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector).
 
-Some of them are overridden by this stream connector.
+### Filtrer ou adapter les données que vous voulez envoyer à Datadog
 
-| Type   | Name                         | Default value for the stream connector |
-| ------ | ---------------------------- | -------------------------------------- |
-| string | accepted_categories          | neb                                    |
-| string | accepted_elements            | host_status,service_status             |
-| number | max_buffer_size              | 30                                     |
-| number | hard_only                    | 0                                      |
-| number | enable_service_status_dedup  | 0                                      |
-| number | enable_host_status_dedup     | 0                                      |
-| string | metric_name_regex            | `[^a-zA-Z0-9_%.]`                      |
-| string | metric_replacement_character | _                                      |
+Tous les stream connectors ont un jeu de [paramètres optionnels](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters) qui vous permettent de filtrer les données que vous enverrez à votre équipement Datadog, de reformater les données, de définir un proxy...
+
+Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la documentation correspondante.
+
+* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à Datadog que les évènements traités par un collecteur nommé "poller-1", entrez :
+
+   ```text
+   type = string
+   name = accepted_pollers
+   value = poller-1
+   ```
+
+* Pour le stream connector Datadog Metrics, les données suivantes surchargent toujours les valeurs par défaut (il n'est pas nécessaire de les redéfinir dans l'interface).
+
+| Type   | Nom                          | Valeur par défaut pour le stream connector  |
+| ------ |------------------------------|---------------------------------------------|
+| string | datadog_centreon_url         | `http://yourcentreonaddress.local`          |
+| string | datadog_metric_endpoint      | /api/v1/series                              |
+| string | http_server_url              | https://api.datadoghq.com                   |
+| string | accepted_categories          | neb                                         |
+| string | accepted_elements            | host_status,service_status                  |
+| number | max_buffer_size              | 30                                          |
+| number | hard_only                    | 0                                           |
+| number | enable_service_status_dedup  | 0                                           |
+| number | enable_host_status_dedup     | 0                                           |
+| string | metric_name_regex            | `[^a-zA-Z0-9_%.]`                           |
+| string | metric_replacement_character | _                                           |
 
 ## Event bulking
 
-This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the Datadog REST API.
+Ce stream connector est compatible avec l'event bulking. Cela signifie qu'il est capable d'envoyer plus d'un évènement lors de chaque appel à l'API REST Spunk.
 
-> The default value for this stream connector is 30. A small value is more likely to slow down the Centreon broker thus generating retention.
+Pour utiliser cette fonctionnalité, vous devez ajouter le paramètre suivant à la configuration de votre stream connector.
 
-| Type   | Name            | Value           |
+| Type   | Nom             | Valeur          |
 | ------ | --------------- | --------------- |
 | number | max_buffer_size | `more than one` |
 
-## Event format
+## Format des évènements
 
-This stream connector will send event with the following format.
+Ce stream connector envoie des évènements au format suivant :
 
-### service_status event
+### Évènement service_status
 
 ```json
 {
@@ -126,7 +154,7 @@ This stream connector will send event with the following format.
 }
 ```
 
-### host_status event
+### Évènement host_status
 
 ```json
 {
@@ -141,18 +169,23 @@ This stream connector will send event with the following format.
 }
 ```
 
-### Custom event format
+### Format d'évènement personnalisé
 
-You can"t change the format of the event for metrics oriented stream connectors.
+Ce stream connector n'est pas compatible avec le format d'événements personnalisé. Vous ne pouvez pas modifier le format de l'événement pour les stream connectors dédié aux métriques.
 
-## Curl commands
+## Commandes Curl : tester le stream connector
 
-Here is the list of all the curl commands that are used by the stream connector.
+### Envoyer des évènements
 
-### Send events
+Si vous voulez tester que les évènements sont envoyés correctement à Datadog :
+
+1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à Datadog (le serveur central, un serveur distant ou un collecteur)
+2. Exécutez la commande suivante :
 
 ```shell
 curl -X POST -H "content-type: application/json" -H "DD-API-KEY: <api_key>" '<http_server_url><datadog_metric_endpoint>' -d '{"host":"my_host","metric":"database.used.percent","points":[[1630590530,80]],"tags":["service:my_service","instance:my_instance","subinstance:sub_1","subinstance:sub_2"]}'
 ```
 
-You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<http_server_url>* may become *https://api.datadoghq.com*.
+Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. *<http_server_url>* pourra être remplacé par *https://api.datadoghq.com*.
+
+3. Vérifiez que l'évènement a bien été reçu par Datadog.
