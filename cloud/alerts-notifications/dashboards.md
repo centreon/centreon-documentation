@@ -171,3 +171,4 @@ The three dots action menu at the end of a playlist row allows you to edit prope
 | Status chart     | Displays the distribution of current statuses on selected resources, as a chart.      |
 | Status grid     | Displays the current status of selected resources, as a grid.      |
 | Top/bottom              | Displays the top or bottom x hosts, for a selected metric.   |
+| Web page             | Displays a web page.   |
