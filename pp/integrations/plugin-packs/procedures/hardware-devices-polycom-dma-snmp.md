@@ -198,8 +198,8 @@ This command would trigger a WARNING alarm if the current amount of active calls
 authorized by the license (```--warning-cluster-license-usage-prct='80'```) and a CRITICAL alarm over 90% (```--critical-cluster-license-usage-prct='90'```).
 
 A CRITICAL alarm would also be triggered in the following situations:
-* if the cluster reports a *Out of Service* status (```--critical-cluster-status='%\{cluster_status\} =~ /outOfService/i'```)
-* if the DMA device reports an *invalid* license for the cluster (```--critical-license-status='%\{license_status\} =~ /notinstalled/i'```)
+* if the cluster reports a *Out of Service* status (```--critical-cluster-status='%{cluster_status} =~ /outOfService/i'```)
+* if the DMA device reports an *invalid* license for the cluster (```--critical-license-status='%{license_status} =~ /notinstalled/i'```)
 
 All the options as well as all the available thresholds can be displayed by adding the  ```--help```
 parameter to the command:

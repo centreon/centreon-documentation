@@ -51,9 +51,9 @@ With the `root` user, install the following package and its dependencies:
 
 1.  Open the file */etc/snmp/snmpd.conf* with your favorite text editor
 
-2.  Modify the following lines (Replace the `\<SNMPCOMMUNITY\>`):
+2.  Modify the following lines (Replace the `<SNMPCOMMUNITY>`):
     
-    com2sec notConfigUser default `\<SNMPCOMMUNITY\>`
+    com2sec notConfigUser default `<SNMPCOMMUNITY>`
 
 3.  Comment all the lines which begin by `view`:
     

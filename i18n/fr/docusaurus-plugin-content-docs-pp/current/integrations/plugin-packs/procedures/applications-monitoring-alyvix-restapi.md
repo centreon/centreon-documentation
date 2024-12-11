@@ -181,8 +181,8 @@ Une alarme WARNING sera ainsi déclenchée si la durée d'éxecution d'un *testc
 
 Une alarme CRITICAL sera quant à elle déclenchée dans les cas suivants:
 * la durée d'éxecution d'un *testcase* est supérieure à 60s -60000ms- (```--critical-testcase-duration='60000'```)
-* le statut général d'un *testcase* exécuté est renvoyé comme "FAILED" (```--critical-testcase-state='%\{state\} eq "FAILED"'```)
-* le statut d'au moins une *transaction* du *testcase* exécuté est renvoyé comme "FAILED" (```--critical-transaction-state='%\{state\} eq "FAILED"'```)
+* le statut général d'un *testcase* exécuté est renvoyé comme "FAILED" (```--critical-testcase-state='%{state} eq "FAILED"'```)
+* le statut d'au moins une *transaction* du *testcase* exécuté est renvoyé comme "FAILED" (```--critical-transaction-state='%{state} eq "FAILED"'```)
 
 La liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
 en ajoutant le paramètre ```--help``` à la commande:

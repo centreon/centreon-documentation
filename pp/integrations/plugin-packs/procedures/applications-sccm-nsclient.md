@@ -168,7 +168,7 @@ The command above connects to a *centreon-nsclient* agent using the NRPE protoco
 the related connections settings defined in the Host Macros (```-p 5666 -t 30 -u -m 8192```).
 The *centreon-nsclient* agent is requested to locally execute the *site-status* mode of the *SCCM* Plugin
 (```-c check_centreon_plugins -a 'apps::sccm::local::plugin' 'site-status'```).
-This command would trigger a CRITICAL alarm if the reported status of the *SCCM site* is *FAILED* (```--critical-status="%\{status\} eq FAILED"```).
+This command would trigger a CRITICAL alarm if the reported status of the *SCCM site* is *FAILED* (```--critical-status="%{status} eq FAILED"```).
 
 All the available thresholds and options of the mode can be displayed by adding the  ```--help``` 
 parameter to the command:
@@ -204,7 +204,7 @@ The command above connects to a *centreon-nsclient* agent using the RestAPI meth
 along with the related connections settings defined in the Host Macros (```--port='8443' --proto='https' --legacy-password='centreon'```).
 The *centreon-nsclient* agent is requested to locally execute the *site-status* mode of the *SCCM* Plugin
 (```--command=check_centreon_plugins --arg='apps::sccm::local::plugin' --arg='site-status'```).
-This command would trigger a CRITICAL alarm if the reported status of the *SCCM site* is *FAILED* (```--arg='--critical-status="%\{status\} eq FAILED"'```).
+This command would trigger a CRITICAL alarm if the reported status of the *SCCM site* is *FAILED* (```--arg='--critical-status="%{status} eq FAILED"'```).
 
 All the available thresholds and options of the mode can be displayed by adding the  ```--help``` 
 parameter to the command:

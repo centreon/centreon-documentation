@@ -140,7 +140,7 @@ OK : All frontends are ok | 'frontend.sessions.current.count'=9000;;;; 'frontend
  ```
 
 Dans cet exemple, une alarme est déclenchée si le status du *frontend* est
-différent de 'OPEN' (```--critical-status='%\{status\} !~ /OPEN/i'```).
+différent de 'OPEN' (```--critical-status='%{status} !~ /OPEN/i'```).
 
  La liste de toutes les options complémentaires et leur signification peut être 
  affichée en ajoutant le paramètre ```--help``` à la commande:

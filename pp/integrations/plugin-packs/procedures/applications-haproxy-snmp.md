@@ -140,7 +140,7 @@ OK : All frontends are ok | 'frontend.sessions.current.count'=9000;;;; 'frontend
  ```
 
 This command would trigger a CRITICAL alarm if the status of the *frontend* is 
-different than 'OPEN' (```--critical-status='%\{status\} !~ /OPEN/i'```).
+different than 'OPEN' (```--critical-status='%{status} !~ /OPEN/i'```).
 
  All available options for a given mode can be displayed by adding the 
 ```--help``` parameter to the command:

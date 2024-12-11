@@ -127,8 +127,8 @@ It uses api-username (```--api-username='myapiusername'```), an api-password (``
 and it connects to the host _mypexipinfnitapi.com_ (```--hostname='mypexipinfnitapi.com'```) 
 on the port 443 (```--port='443'```) using https (```--proto='https'```).
 
-This command would trigger a WARNING alert if the returned status of the alarms level is equal to */warning|minor/i* (```--warning-status='%\{level\} =~ /warning|minor/i'```)
-and a CRITICAL alert if the returned status is equal to */critical|major|error/i* (```--critical-status='%\{level\} =~ /critical|major|error/i'```).
+This command would trigger a WARNING alert if the returned status of the alarms level is equal to */warning|minor/i* (```--warning-status='%{level} =~ /warning|minor/i'```)
+and a CRITICAL alert if the returned status is equal to */critical|major|error/i* (```--critical-status='%{level} =~ /critical|major|error/i'```).
 
 All the options that can be used with this plugin can be found over the ```--help``` command:
 

@@ -123,7 +123,7 @@ réponse de l'identification est supérieure à 2 secondes
 (```--warning-time='2'```); l'alarme sera de type CRITICAL au-delà de 3 secondes
 (```--warning-time='3'```) ou si le status de l'identification est différent 
 de "authentification succeeded" 
-(```--critical-status='%\{message\} !~ /authentification succeeded/i'```).
+(```--critical-status='%{message} !~ /authentification succeeded/i'```).
 
 ```bash
 /usr/lib/centreon/plugins//centreon_protocol_ssh.pl  \

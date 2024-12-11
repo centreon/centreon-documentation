@@ -250,8 +250,8 @@ Les options d'output permettent de personnaliser les messages de sortie dans les
 - Check retournant une erreur 
 
 Les valeurs peuvent être spécifiées via les macros correspondantes. Dans l'exemple ci-dessus la macro
-`OUTPUT` vaudrait `"%\{instance\} CPU Requests: %\{cpu_requests\}%"`. Notez que le label Centreon défini dans l'option
-`--query` est utilisée pour afficher la valeur obtenue. La variable `%\{instance\}` est aussi utilisée pour afficher le nom
+`OUTPUT` vaudrait `"%{instance} CPU Requests: %{cpu_requests}%"`. Notez que le label Centreon défini dans l'option
+`--query` est utilisée pour afficher la valeur obtenue. La variable `%{instance}` est aussi utilisée pour afficher le nom
 du node.
 
 La macro `MULTIOUTPUT` vaudrait `Nodes CPU Requests within bounds`.
@@ -263,8 +263,8 @@ Les options `--warning-status` et `--critical-status` permettent de définir les
 Toujours dans l'exemple ci-dessus, l'alerte **WARNING** sera déclenchée quand la valeur de `cpu_requests`
 dépassera `60` et **CRITICAL** quand elle dépassera `70`.
 
-La macro `WARNINGSTATUS` vaudrait `'%\{cpu_requests\} > 60'`.
-La macro `CRITICALSTATUS` vaudrait `'%\{cpu_requests\} > 70'`.
+La macro `WARNINGSTATUS` vaudrait `'%{cpu_requests} > 60'`.
+La macro `CRITICALSTATUS` vaudrait `'%{cpu_requests} > 70'`.
 
 Notez que le label Centreon spécifié dans l'option `--query` est utilisé à nouveau pour comparer les valeurs 
 aux seuils. 

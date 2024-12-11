@@ -82,7 +82,7 @@ You have to authorize the client and generate an app_id and a token to monitor y
 
 - Call the API endpoint to authorize an application, replacing the values with the desired ones:
 
-`curl http://\<freebox_ip\>/api/v4/login/authorize -d '{"app_id":"centreon","app_name":"centreon","app_version":"3.0","device_name":"Freebox"}'`
+`curl http://<freebox_ip>/api/v4/login/authorize -d '{"app_id":"centreon","app_name":"centreon","app_version":"3.0","device_name":"Freebox"}'`
 
 - Validate within the Freebox UI and keep the token safe
 - Navigate to http://\<freebox_ip\>/api/v4/login/authorize/\<app_id\>

@@ -174,8 +174,8 @@ The command above gets the status of a Mulesoft application (```--mode=applicati
 Cette application appartient à l'environnement *1234abc-56de-78fg-90hi-1234abcdefg* de l'organisation *234abcd-56ef-78fg-90hi-1234abcdefg* 
 ```---environment-id='1234abc-56de-78fg-90hi-1234abcdefg' --organization-id='1234abcd-56ef-78fg-90hi-1234abcdefg'```). 
 
-Cette commande déclenchera une alarme WARNING si le statut de l'application contient le mot *STOPPED* (```--warning-status='%\{status\} =~ /STOPPED/'```) 
-et une alarme CRITICAL s'il contient le mot *FAILED* (```--critical-status='%\{status\} =~ /FAILED/'```).
+Cette commande déclenchera une alarme WARNING si le statut de l'application contient le mot *STOPPED* (```--warning-status='%{status} =~ /STOPPED/'```) 
+et une alarme CRITICAL s'il contient le mot *FAILED* (```--critical-status='%{status} =~ /FAILED/'```).
 
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
 

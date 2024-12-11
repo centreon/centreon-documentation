@@ -140,8 +140,8 @@ Dans cet exemple, le Plugin récupère les statuts des services Google Workspace
 depuis le site dédié (--hostname='www.google.com'). On choisit ci-desus de n'afficher que le statut des applications *gmail*, *drive* et *meet*
 (```--filter-name='gmail|drive|meet'```).
 
-Une alarme WARNING sera ainsi déclenchée si le statut d'un de ces services est signalée comme dégradée (```--warning-status='%\{status\} eq "disruption"'```);
-l'alarme sera de type CRITICAL pour un service inaccessible (```--critical-status='%\{status\} eq "outage"'```).
+Une alarme WARNING sera ainsi déclenchée si le statut d'un de ces services est signalée comme dégradée (```--warning-status='%{status} eq "disruption"'```);
+l'alarme sera de type CRITICAL pour un service inaccessible (```--critical-status='%{status} eq "outage"'```).
 
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
 en ajoutant le paramètre ```--help``` à la commande:

@@ -208,7 +208,7 @@ It connects to the Versa Director host **10.0.0.1** (```--hostname=10.0.01```) u
 and its password (```--api-username='jdoe' --api-password='6fbadZEJbsLG'```).
 The device can be under several organizations, so we use a wildcard (```--organization='.*'```).
 
-This command will trigger a CRITICAL alarm (```--critical-status='%\{ping_status\} ne "reachable" or %\{services_status\} ne "good"'```) if:
+This command will trigger a CRITICAL alarm (```--critical-status='%{ping_status} ne "reachable" or %{services_status} ne "good"'```) if:
 
 * the 'ping status' of the device is not **reachable**
 * the 'service_status' of the device is not **good**

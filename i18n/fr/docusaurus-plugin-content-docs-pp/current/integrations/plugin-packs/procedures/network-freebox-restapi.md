@@ -83,7 +83,7 @@ Il est nécessaire au préalable d'autoriser le client, de choisir un _app\_id_ 
 
 - Appelez la terminaison API permettant d'autoriser une application, remplacez les valeurs par celles souhaitées:
 
-`curl http://\<freebox_ip\>/api/v4/login/authorize -d '{"app_id":"centreon","app_name":"centreon","app_version":"3.0","device_name":"Freebox"}'`
+`curl http://<freebox_ip>/api/v4/login/authorize -d '{"app_id":"centreon","app_name":"centreon","app_version":"3.0","device_name":"Freebox"}'`
 
 - Validez depuis l'écran de la Freebox et récupérez le token
 - Ouvrez la page suivante http://\<freebox_ip\>/api/v4/login/authorize/\<app_id\>

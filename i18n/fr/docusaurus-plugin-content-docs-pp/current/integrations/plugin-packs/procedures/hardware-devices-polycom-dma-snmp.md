@@ -189,8 +189,8 @@ Une alarme WARNING sera ainsi déclenchée si le nombre d'appels en cours au tra
 autorisé par la licence (```--warning-cluster-license-usage-prct='80'```) et une alarme CRITICAL au delà de 90% (```--critical-cluster-license-usage-prct='90'```).
 
 Cette commande déclenchera également une alarme CRITICAL dans les cas suivants:
-* Si le noeud du *Cluster* remonte un état *Out of Service* (```--critical-cluster-status='%\{cluster_status\} =~ /outOfService/i'```)
-* Si la licence présente sur le noeud du *Cluster* est invalide (```--critical-license-status='%\{license_status\} =~ /notinstalled/i'```)
+* Si le noeud du *Cluster* remonte un état *Out of Service* (```--critical-cluster-status='%{cluster_status} =~ /outOfService/i'```)
+* Si la licence présente sur le noeud du *Cluster* est invalide (```--critical-license-status='%{license_status} =~ /notinstalled/i'```)
 
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
 en ajoutant le paramètre ```--help``` à la commande:

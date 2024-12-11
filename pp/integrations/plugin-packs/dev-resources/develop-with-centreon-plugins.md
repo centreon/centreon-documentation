@@ -1006,7 +1006,7 @@ behind the scenes.
 Execute this command to see how it evolved since the last execution. We modify the command with some
 additional parameters:
 
-- `--warning-health='%\{health\} eq "care"'` to avoid getting a WARNING, put any value that will not match yellow. Providing it
+- `--warning-health='%{health} eq "care"'` to avoid getting a WARNING, put any value that will not match yellow. Providing it
 as a parameter will automatically override the hardcoded default code value
 - `--verbose` will display the long output and the details for each `type => 1` counters
 

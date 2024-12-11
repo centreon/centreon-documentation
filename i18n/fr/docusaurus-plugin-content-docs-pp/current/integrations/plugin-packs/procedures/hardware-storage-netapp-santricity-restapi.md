@@ -169,8 +169,8 @@ checking storage system 'SAN-XXXX'
 Cette commande vérifie le statut des volumes NetApp (```--mode=storage-volumes```) en requêtant l'API SANtricity du serveur *santricity.int.centreon.com* (```--hostname=sancitricy.int.centreon.com```).
 L'authentification à l'API s'effectue avec un utilisateur *admin* (```--api-user=admin```) et un mot de passe *xxxx* associé (```api-password='xxxx'```).
 
-Cette commande déclenchera une alarme WARNING si l'un des volumes est en statut *degraded* (```--warning-volume-status='%\{status\} =~ /degraded/i'```)
-et une alarme de type CRITICAL pour un statut *failed* (```--critical-volume-status='%\{status\} =~ /failed/i'```).
+Cette commande déclenchera une alarme WARNING si l'un des volumes est en statut *degraded* (```--warning-volume-status='%{status} =~ /degraded/i'```)
+et une alarme de type CRITICAL pour un statut *failed* (```--critical-volume-status='%{status} =~ /failed/i'```).
 
 Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option ```--help``` à la commande:
 

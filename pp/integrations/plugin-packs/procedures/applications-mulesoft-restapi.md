@@ -169,7 +169,7 @@ Application 'myapplication1' Id: 123456, Status: STARTED
 The command above gets the status of a Mulesoft application (```--mode=applications```) named *myapplication1* (```--filter-name='myapplication1'```). 
 This application stands within the *1234abc-56de-78fg-90hi-1234abcdefg* environment and the *234abcd-56ef-78fg-90hi-1234abcdefg* organization (```---environment-id='1234abc-56de-78fg-90hi-1234abcdefg' --organization-id='1234abcd-56ef-78fg-90hi-1234abcdefg'```). 
 
-This command would trigger a WARNING alert if the returned status of the application contains the word *STOPPED* (```--warning-status='%\{status\} =~ /STOPPED/'```) and a CRITICAL alert if it contains the word *FAILED* (```--critical-status='%\{status\} =~ /FAILED/'```).
+This command would trigger a WARNING alert if the returned status of the application contains the word *STOPPED* (```--warning-status='%{status} =~ /STOPPED/'```) and a CRITICAL alert if it contains the word *FAILED* (```--critical-status='%{status} =~ /FAILED/'```).
 
 All the options that can be used with this plugin can be found over the ```--help``` command:
 

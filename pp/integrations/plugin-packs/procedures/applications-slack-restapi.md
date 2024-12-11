@@ -140,8 +140,8 @@ Service 'Messaging' status is ok
 In this example, the Plugin gets the status Slack services (```--plugin='apps::slack::restapi::plugin' --mode=services```)
 by requesting the official Slack API. Only the status of the *Connections* and *Messaging* services will be displayed (```--filter-name='Connections|Messaging'```).
 
-This command would trigger a WARNING alert if one of the service is reported as *degraded* (```--warning-status='%\{status\} eq "active" and %\{type\} eq "incident"'```)
-and a CRITICAL alert for a total outage on an service (```--critical-status='%\{status\} eq "active" and %\{type\} eq "outage"'```).
+This command would trigger a WARNING alert if one of the service is reported as *degraded* (```--warning-status='%{status} eq "active" and %{type} eq "incident"'```)
+and a CRITICAL alert for a total outage on an service (```--critical-status='%{status} eq "active" and %{type} eq "outage"'```).
 
 All the filters that can be used as well as all the available thresholds parameters can be displayed by adding the  ```--help``` 
 parameter to the command:

@@ -535,7 +535,7 @@ Exemple:
 > Le compte **\<API_ACCOUNT\>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
 
 > Pour changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
-> `HTTPS://\<IP_TARGET_NODE\>:PORT`
+> `HTTPS://<IP_TARGET_NODE>:PORT`
 
 Suivre ensuite les instructions
 

@@ -179,8 +179,8 @@ This command would trigger a WARNING alarm if the execution duration of one of t
 
 A CRITICAL alarm would however be triggered in the following cases:
 * the execution duration of one of the *testcases* is greater than 60s -60000ms- (```--critical-testcase-duration='60000'```)
-* the reported status of a *testcase* is "FAILED" (```--critical-testcase-state='%\{state\} eq "FAILED"'```)
-* the reported status of at least one of a *testcase*'s *transaction* is "FAILED" (```--critical-transaction-state='%\{state\} eq "FAILED"'```)
+* the reported status of a *testcase* is "FAILED" (```--critical-testcase-state='%{state} eq "FAILED"'```)
+* the reported status of at least one of a *testcase*'s *transaction* is "FAILED" (```--critical-transaction-state='%{state} eq "FAILED"'```)
 
 All the filters that can be used as well as all the available thresholds parameters can be displayed by adding the  ```--help``` 
 parameter to the command:

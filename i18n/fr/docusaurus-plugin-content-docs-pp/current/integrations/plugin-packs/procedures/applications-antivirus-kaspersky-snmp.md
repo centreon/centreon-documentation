@@ -173,7 +173,7 @@ protocole SNMP
 (```--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='kaseprsky_ro'```).
 
 Dans cet exemple, une alarme est déclenchée si le statut global de la protection est différent de 'OK' 
-(```--warning-status='%\{status\} =~ /Warning/i'``` et ```--critical-status='%\{status\} =~ /Critical/i'```) 
+(```--warning-status='%{status} =~ /Warning/i'``` et ```--critical-status='%{status} =~ /Critical/i'```) 
 ou alors que le nombre de PC sans protection ou avec une protection insuffisante est supérieur à 0 (```--warning-no-antivirus='0'```).
 
 La liste de toutes les options complémentaires et leur signification

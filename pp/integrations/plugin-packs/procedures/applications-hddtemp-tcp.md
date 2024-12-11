@@ -117,7 +117,7 @@ This command would trigger a WARNING alarm if the disk's temperature was reporte
 30° (`---warning-temperature='30'`). 
 
 A CRITICAL alarm would be triggered if the temperature was reported as over 50° or the status 
-wasn't equal to 'ok' (`--critical-temperature='50' --critical-status='%\{status\} !~ /ok/i'`).
+wasn't equal to 'ok' (`--critical-temperature='50' --critical-status='%{status} !~ /ok/i'`).
 
 All available options for a given mode can be displayed by adding the 
 `--help` parameter to the command:

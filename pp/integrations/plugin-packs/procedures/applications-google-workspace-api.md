@@ -139,8 +139,8 @@ In this example, the Plugin gets the status and availability of Google workspace
 by requesting the official Google status server API (```--hostname='www.google.com' --proto='https' --port='443'```). Only the status of
 the *gmail*, *drive* and *meet* applications will be displayed (```--filter-name='gmail|drive|meet'```).
 
-This command would trigger a WARNING alert if one of the service is reported as *degraded* (```--warning-status='%\{status\} eq "disruption"'```)
-and a CRITICAL alert for a total outage on an service (```--critical-status='%\{status\} eq "outage"'```).
+This command would trigger a WARNING alert if one of the service is reported as *degraded* (```--warning-status='%{status} eq "disruption"'```)
+and a CRITICAL alert for a total outage on an service (```--critical-status='%{status} eq "outage"'```).
 
 All the filters that can be used as well as all the available thresholds parameters can be displayed by adding the  ```--help``` 
 parameter to the command:

@@ -168,8 +168,8 @@ The calculated status would be based on the worst status collected of a 900 seco
 where a status would be fetched every 5 minutes (```--interval='PT5M'```).
 
 This command would trigger a CRITICAL alarm in the following cases:
-* The operational status of the resource is *Failed* (```--critical-provisioning-state='%\{state\} =~ /Failed/i'```)
-* a DDOS attack on the Public IP is ongoing (```--critical-ddos-status='%\{status\} =~ /DDOS Attack ongoing/i'```)
+* The operational status of the resource is *Failed* (```--critical-provisioning-state='%{state} =~ /Failed/i'```)
+* a DDOS attack on the Public IP is ongoing (```--critical-ddos-status='%{status} =~ /DDOS Attack ongoing/i'```)
 
 All the available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
 
