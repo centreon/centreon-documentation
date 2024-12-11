@@ -16,7 +16,6 @@ a remote server within your customer's infrastructure).
 and [**service_status**](../../developer/developer-broker-mapping.md#service-status) Broker events. These metrics are contained in the **perf_data** 
 field of the events. The event format is shown **[here](#event-format)**.
 - These events are sent each time a host or a service is checked. Various parameters let you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-datadog).
-- Aformentioned events are fired each time a host or a service is checked. Various parameters let you filter out events.
 
 ## Installation
 
@@ -43,7 +42,7 @@ dnf install centreon-stream-connector-datadog
 
 </TabItem>
 
-<TabItem value="Debian 11 & 12" label="Debian_11_&_12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install centreon-stream-connector-datadog
@@ -54,7 +53,7 @@ apt install centreon-stream-connector-datadog
 
 ## Configuring your Datadog equipment
 
-You may need to configure your Datadog equipment so that it can receive data from Centreon. Please refer to the documentation of Datadog.
+You may need to configure your Datadog equipment so that it can receive data from Centreon. Please refer to Datadog's documentation.
 Make sure Datadog is able to receive data sent by Centreon: flows must not be blocked by the configuration of Datadog or by a security equipment.
 
 ## Configuring the stream connector in Centreon
@@ -188,6 +187,6 @@ If you want to test that events are sent to Datadog correctly:
 curl -X POST -H "content-type: application/json" -H "DD-API-KEY: <api_key>" '<http_server_url><datadog_metric_endpoint>' -d '{"host":"my_host","metric":"database.used.percent","points":[[1630590530,80]],"tags":["service:my_service","instance:my_instance","subinstance:sub_1","subinstance:sub_2"]}'
 ```
 
-You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<http_server_url>* may become *https://api.datadoghq.com*.
+You must replace all the *`<xxxx>`* inside the above command with the correct value. *<http_server_url>* may become *https://api.datadoghq.com*.
 
 3. Check that the event has been received by Datadog.

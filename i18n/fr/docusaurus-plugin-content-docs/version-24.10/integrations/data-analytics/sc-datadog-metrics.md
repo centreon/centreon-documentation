@@ -16,7 +16,6 @@ de défaillance unique, ou bien si vous êtes un MSP et vous installez le stream
 et [**service_status**](../../developer/developer-broker-mapping.md#service-status). Ces métriques sont contenues dans le champ **perf_data** des évènements. 
 Le format des évènements est décrit **[ici](#format-des-évènements)**.
 - Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres dédiés vous permettent de [ne pas envoyer certains évènements](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-datadog).
-- Les événements mentionnés ci-dessus sont déclenchés chaque fois qu'un hôte ou un service est contrôlé. Divers paramètres permettent de filtrer les événements.
 
 ## Installation
 
@@ -43,7 +42,7 @@ dnf install centreon-stream-connector-datadog
 
 </TabItem>
 
-<TabItem value="Debian 11 & 12" label="Debian_11_&_12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install centreon-stream-connector-datadog
