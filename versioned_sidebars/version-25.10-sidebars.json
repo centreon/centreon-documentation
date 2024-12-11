@@ -708,7 +708,7 @@
       "label": "Graphical views (maps)",
       "link": {
         "type": "generated-index",
-        "description": "The graphical view capabilities in Centreon relies on the Centreon MAP module."
+        "description": "The graphical view capabilities in Centreon rely on the Centreon MAP module."
       },
         "items": [
             {
