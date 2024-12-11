@@ -50,11 +50,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Les informations sur les **receive locations** sont stockées dans la table `adm_ReceiveLocation` de 
+* Les informations sur les **receive locations** sont stockées dans la table `adm_ReceiveLocation` de 
 la base BizTalk Management Database (BizTalkMgmtDb). Vous devez donc disposer d'un compte SQL avec 
-les autorisations nécessaires soit au moins du rôle **db_datareader** sur la base BizTalkMgmtDb. 
-Vous devez également vous assurer que le collecteur Centreon a accès au serveur SQL où la base 
-BizTalkMgmtDb est hébergée. Vérifiez les règles de pare-feu pour permettre les connexions au port 
+les autorisations nécessaires, c'est-à-dire au moins du rôle **db_datareader** sur la base BizTalkMgmtDb. 
+* Vous devez également vous assurer que le collecteur Centreon a accès au serveur SQL où la base 
+BizTalkMgmtDb est hébergée.
+* Vérifiez les règles de pare-feu pour permettre les connexions au port 
 SQL Server par défaut (1433 ou personnalisé).
 
 ## Installer le connecteur de supervision

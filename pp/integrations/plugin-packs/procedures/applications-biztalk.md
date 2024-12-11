@@ -26,7 +26,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias               | Service Template                               | Service Description                                       |
 |:----------------------------|:-----------------------------------------------|:----------------------------------------------------------|
-| Received-Locations-Disabled | App-Biztalk-Received-Locations-Disabled-custom | Check the number of "biztalk received locations" disabled |
+| Received-Locations-Disabled | App-Biztalk-Received-Locations-Disabled-custom | Check the number of disabled 
+ "biztalk received locations" |
 
 > The services listed above are created automatically when the **App-Biztalk-custom** host template is used.
 
@@ -49,10 +50,12 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-Information about the **receive locations** are stored in the `adm_ReceiveLocation` table within 
-the BizTalk Management Database (BizTalkMgmtDb). Therefore, you need a SQL account with the necessary 
-permissions, at least the db_datareader role on the BizTalkMgmtDb database. You must also ensure that 
-the Centreon poller has access to the SQL server hosting the BizTalkMgmtDb database. Verify the 
+* Information about the **receive locations** are stored in the `adm_ReceiveLocation` table within 
+the BizTalk Management Database (BizTalkMgmtDb). Therefore, you need an SQL account with the necessary 
+permissions, at least the db_datareader role on the BizTalkMgmtDb database.
+* You must also ensure that 
+the Centreon poller has access to the SQL server hosting the BizTalkMgmtDb database.
+* Check that the 
 firewall rules to allow connections to the default SQL Server port (1433 or a custom port).
 
 ## Installing the monitoring connector
