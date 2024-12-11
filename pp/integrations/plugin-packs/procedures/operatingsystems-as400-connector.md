@@ -151,9 +151,36 @@ It requires a connector to communicate with the AS400/iSeries system.
 
 You can install the connector using this command: 
 
-```shell
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Operatingsystems-AS400-daemon
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Operatingsystems-AS400-daemon
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-Operatingsystems-AS400-daemon
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
 yum install centreon-plugin-Operatingsystems-AS400-daemon
 ```
+
+</TabItem>
+</Tabs>
 
 A connector can act as a relay between several Hosts and several AS400 systems. 
 
