@@ -113,7 +113,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 ### API
 
 l'API doit être activée et démarrée sur le Versa Director.
-Référencez-vous à la documentation officielle de Versa Networks pour l'activation de l'API.
+Référez-vous à la documentation officielle de Versa Networks pour l'activation de l'API.
 
 ### Flux réseaux
 
