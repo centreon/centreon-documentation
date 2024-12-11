@@ -363,11 +363,11 @@ is able to monitor a resource using a command like this one (replace the sample 
 /usr/lib/centreon/plugins/centreon_versa_director_restapi.pl \
 	--plugin network::versa::director::restapi::plugin \
 	--mode=paths \
-	--hostname='' \
+	--hostname='10.0.0.1' \
 	--port='9182' \
 	--proto='https' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
 	--proxyurl=''  \
 	--organization='.*' \
 	--filter-org-name='' \

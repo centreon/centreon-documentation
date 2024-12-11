@@ -36,7 +36,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias | Modèle de service                       | Description                  | Découverte |
 |:------|:----------------------------------------|:-----------------------------|:----------:|
-| Paths | Net-Versa-Director-Paths-Restapi-custom | Contrôle le statut des paths | X          |
+| Paths | Net-Versa-Director-Paths-Restapi-custom | Contrôle le statut des chemins | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -364,11 +364,11 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 /usr/lib/centreon/plugins/centreon_versa_director_restapi.pl \
 	--plugin network::versa::director::restapi::plugin \
 	--mode=paths \
-	--hostname='' \
+	--hostname='10.0.0.1' \
 	--port='9182' \
 	--proto='https' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
 	--proxyurl=''  \
 	--organization='.*' \
 	--filter-org-name='' \
