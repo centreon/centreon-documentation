@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Cloud Foundry** connector through the
+The following monitoring connectors will be installed when you install the **Cloud Foundry API** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Clo
 
 ### Templates
 
-The Monitoring Connector **Cloud Foundry** brings a host template:
+The Monitoring Connector **Cloud Foundry API** brings a host template:
 
 * **Cloud-Cloudfoundry-Api-custom**
 
@@ -26,8 +26,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                              | Service Description      |
 |:----------------|:----------------------------------------------|:-------------------------|
-| Apps-State      | Cloud-Cloudfoundry-Apps-State-Api-custom      | Check applications state |
-| Instances-State | Cloud-Cloudfoundry-Instances-State-Api-custom | Check instances state    |
+| Apps-State      | Cloud-Cloudfoundry-Apps-State-Api-custom      | Check the state of applications |
+| Instances-State | Cloud-Cloudfoundry-Instances-State-Api-custom | Check the state of instances |
 
 > The services listed above are created automatically when the **Cloud-Cloudfoundry-Api-custom** host template is used.
 
@@ -68,12 +68,12 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-Your Centreon poller must be able to access your Cloud Foundry instance (have its hosting URL).
-You must have a Cloud Foundry user account with the necessary permissions to access the data monitored via the API (applications, etc.).
-Ensure that the Centreon server can communicate with the Cloud Foundry API over the network.
-Allow outbound access to the API URL (https://api./<domain/>) through the required ports (typically 443 for HTTPS).
-Verify that the Cloud Foundry API's SSL certificate is valid and, if necessary, add it to the trusted certificates of the Centreon poller.
-For more informations, refers to the [official documentation](https://docs.cloudfoundry.org/)
+* Your Centreon poller must be able to access your Cloud Foundry instance (have its hosting URL ready).
+* You must have a Cloud Foundry user account with the necessary permissions to access the data monitored via the API (applications, etc.).
+* Ensure that the Centreon server can communicate with the Cloud Foundry API over the network.
+* Allow outbound access to the API URL (https://api./<domain/>) through the required ports (typically 443 for HTTPS).
+* Check that the Cloud Foundry API's SSL certificate is valid and, if necessary, add it to the trusted certificates of the Centreon poller.
+* For more information, refer to the [official Cloud Foundry documentation](https://docs.cloudfoundry.org/)
 
 ## Installing the monitoring connector
 
@@ -239,10 +239,10 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=cloud::cloudfoundry::restapi::plugin \
 	--mode=apps-state \
 	--custommode='restapi' \
-	--hostname='' \
+	--hostname='10.0.0.1' \
 	--api-path='/v2' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
 	--port='443' \
 	--proto='https' \
 	--organization-guid='.*' \

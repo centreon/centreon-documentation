@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Cloud Foundry** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Cloud Foundry API** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Cloud Foundry** apporte un modèle d'hôte :
+Le connecteur de supervision **Cloud Foundry API** apporte un modèle d'hôte :
 
 * **Cloud-Cloudfoundry-Api-custom**
 
@@ -69,12 +69,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Votre collecteur Centreon doit être en mesure d'accéder à votre instance Cloud Foundry (disposer de son url d'hébergement).
-Vous devez disposer d'un compte utilisateur Cloud Foundry ayant les permissions nécessaires pour accéder aux données supervisées via l'API (applications, etc.). 
-Assurez-vous que le serveur Centreon peut communiquer avec l’API Cloud Foundry via le réseau. 
-Autorisez l'accès sortant vers l'URL de l'API (https://api./<domain/>) via les ports nécessaires (généralement 443 pour HTTPS).
-Vérifiez que le certificat SSL de l’API Cloud Foundry est valide et, si nécessaire, ajoutez-le aux certificats approuvés du collecteur Centreon.
-Pour plus d'information, référez-vous à la [documentation officielle](https://docs.cloudfoundry.org/)
+* Votre collecteur Centreon doit être en mesure d'accéder à votre instance Cloud Foundry (vous devez disposer de son URL d'hébergement).
+* Vous devez également disposer d'un compte utilisateur Cloud Foundry ayant les permissions nécessaires pour accéder aux données supervisées via l'API (applications, etc.). 
+* Assurez-vous que le serveur Centreon peut communiquer avec l’API Cloud Foundry via le réseau. 
+* Autorisez l'accès sortant vers l'URL de l'API (https://api./<domain/>) via les ports nécessaires (généralement 443 pour HTTPS).
+* Vérifiez que le certificat SSL de l’API Cloud Foundry est valide et, si nécessaire, ajoutez-le aux certificats approuvés du collecteur Centreon.
+* Pour plus d'information, référez-vous à la [documentation officielle Cloud Foundry](https://docs.cloudfoundry.org/).
 
 ## Installer le connecteur de supervision
 
@@ -240,10 +240,10 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=cloud::cloudfoundry::restapi::plugin \
 	--mode=apps-state \
 	--custommode='restapi' \
-	--hostname='' \
+	--hostname='10.0.0.1' \
 	--api-path='/v2' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
 	--port='443' \
 	--proto='https' \
 	--organization-guid='.*' \
