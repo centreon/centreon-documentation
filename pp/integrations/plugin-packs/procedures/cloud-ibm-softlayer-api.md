@@ -61,15 +61,15 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-Your Centreon poller must have an access account for IBM SoftLayer.
-Ensure that you have an active IBM SoftLayer account with sufficient privileges to access resources via the API.
-The Centreon poller must be able to connect to the IBM SoftLayer API. The main API URL is: https://api.softlayer.com/rest/v3.1/
-If a firewall or proxy is configured, ensure that outbound connections to the SoftLayer API are allowed.
-You can test the connection to the API using the following curl command:
+* Your Centreon poller must have an access account for IBM SoftLayer.
+* Ensure that you have an active IBM SoftLayer account with sufficient privileges to access resources via the API.
+* The Centreon poller must be able to connect to the IBM SoftLayer API. The main API URL is: https://api.softlayer.com/rest/v3.1/
+* If a firewall or proxy is configured, ensure that outbound connections to the SoftLayer API are allowed.
+* You can test the connection to the API using the following curl command:
 ```
 curl -u "USERNAME:API_KEY" https://api.softlayer.com/rest/v3.1/SoftLayer_Account/getAccount
 ```
-For more information, refer to the [official documentation](https://sldn.softlayer.com/reference/softlayerapi/).
+* For more information, refer to the [Softlayer official documentation](https://sldn.softlayer.com/reference/softlayerapi/).
 
 ## Installing the monitoring connector
 
