@@ -15,7 +15,6 @@ If you want to retrieve all the data for the events, use the Datadog Events stre
 
 - By default, the Datadog Events stream connector sends data from [**host_status**](../../developer/developer-broker-mapping.md#host-status) and [**service_status**](../../developer/developer-broker-mapping.md#service-status) Broker events. The event format is shown **[here](#event-format)**.
 - These events are sent each time a host or a service is checked. Various parameters let you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-datadog).
-- Aformentioned events are fired each time a host or a service is checked. Various parameters let you filter out events.
 
 ## Installation
 
@@ -189,6 +188,6 @@ If you want to test that events are sent to Datadog correctly:
 curl -X POST -H "content-type: application/json" -H "DD-API-KEY: <api_key>" '<http_server_url><datadog_event_endpoint>' -d '{"title":"CRITICAL my_host my_service","text":"my service is not working","aggregation_key":"service_27_12","alert_type":"error","host":"my_host","date_happened":1630590530}'
 ```
 
-You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<http_server_url>* may become *https://api.datadoghq.com*.
+You must replace all the *`<xxxx>`* inside the above command with the correct value. *<http_server_url>* may become *https://api.datadoghq.com*.
 
 3. Check that the event has been received by Datadog.

@@ -14,7 +14,6 @@ Si vous voulez récupérer toutes les données des évènements, utilisez le str
 - Dans la plupart des cas, vous enverrez les données depuis le serveur central. Il est également possible de les envoyer depuis un serveur distant ou un collecteur (par exemple si vous voulez éviter que le serveur central ne représente un point de défaillance unique, ou bien si vous êtes un MSP et vous installez le stream connector sur un collecteur ou un serveur distant dans l'infratructure de votre client).
 - Par défaut, le stream connector Datadog Events envoie des évènements Broker [**host_status**](../../developer/developer-broker-mapping.md#host-status) et [**service_status**](../../developer/developer-broker-mapping.md#service-status). Le format des évènements est décrit **[ici](#format-des-évènements)**.
 - Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres dédiés vous permettent de [ne pas envoyer certains évènements](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-datadog).
-- - Les événements mentionnés ci-dessus sont déclenchés chaque fois qu'un hôte ou un service est contrôlé. Divers paramètres permettent de filtrer les événements.
 
 ## Installation
 
