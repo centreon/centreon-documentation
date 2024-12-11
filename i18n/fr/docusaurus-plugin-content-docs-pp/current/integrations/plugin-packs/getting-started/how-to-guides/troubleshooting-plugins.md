@@ -159,7 +159,7 @@ run into this error.
 For interfaces and storage checks, options exist to ask the probe to use 
 an other OID (e.g. `--oid-filter='ifDesc' --oid-display='ifDesc'`).
 
-### Uptime issue
+### Problème d'uptime
 
 ### Contexte sur le sysUpTime dans SNMP
 
@@ -168,15 +168,15 @@ manière dont l'uptime est représenté dans le format TimeTicks utilisé par SN
 dans SNMP est un nombre exprimé en TimeTicks, qui représente le nombre de centi-secondes 
 écoulées depuis le dernier démarrage du système. Ce nombre est stocké dans un format de 
 32 bits, ce qui signifie qu'il peut stocker des valeurs comprises  entre 0 et 4 294 967 295. 
-Ainsi l'uptime atteint sa valeur maximale après environ 497 jours d'uptime 
+Ainsi l'uptime atteint sa valeur maximale après environ 497 jours 
 (environ 4 294 967 295 centi-secondes). Lorsque cette limite est dépassée, un débordement 
 (overflow) se produit, ce qui signifie que le compteur recommence à zéro. 
 
 ### Comment identifier le problème ?
 
-Vous pouvez identifier que l'uptime a dépassé la limite de 497 en vérifiant directement 
-sur l'équipement (si c'est possible) son uptime (sans intérroger via SNMP). Par exemple
-pour Linux la commande suivante :
+Vous pouvez identifier que l'uptime a dépassé la limite de 497 jours en vérifiant directement 
+sur l'équipement (si c'est possible) son uptime (sans interroger via SNMP). Par exemple
+pour Linux, utilisez la commande suivante :
 
 ```commandline
 uptime
@@ -188,15 +188,15 @@ Ce qui indique que le système est en fonctionnement depuis 500 jours, 3 heures 
 ### Solution proposée en amont : l'option --check-overload
 
 La majorité des modèles de services associés à l'uptime via SNMP utilisent l'option ` --check-overload`
-qui va permettre de gérer le débordement de l'uptime après 497 jours. Pour cela il va utiliser le cache
+qui va permettre de gérer le débordement de l'uptime après 497 jours. Pour cela ils vont utiliser le cache
 du plugin pour déterminer l'ancien uptime et calculer le dépassement qui a eu lieu afin d'ajuster la 
 valeur d'uptime retournée par le plugin. Ainsi le débordement est transparent et ne génère pas de 
-fausse alerte vis à vis de l'uptime et l'utilisateur n'a rien à faire de particulier.
+fausse alerte vis-à-vis de l'uptime et l'utilisateur n'a rien à faire de particulier.
 
-### Si le dépassement a eu lieu mais l'option --check-overload n'était pas dans la commande du plugin
+### Si le dépassement a eu lieu mais l'option --check-overload n'était pas présente dans la commande du plugin
 
-Dans le cas où l'option ` --check-overload` n'était pas dans la commande du plugin avant que le 
-dépassement ait lieu, il est possible de corriger la situation avec la démarche suivante : 
+Dans le cas où l'option ` --check-overload` n'était pas présente dans la commande du plugin avant que le 
+dépassement ait lieu, il est possible de corriger la situation de la façon suivante : 
 
 Lancez la commande du plugin en ajoutant l'option ` --check-overload`:
 
@@ -220,7 +220,7 @@ cat /var/lib/centreon/centplugins/cache_<hostname>_uptime
 {"last_time":170905862051,"overload":1,"uptime":"4131920"}
 ```
 
-Vous pouvez ensuite relancer la commande du plugin avec l'option ` --check-overload` et le 
+Vous pouvez ensuite relancer la commande du plugin avec l'option ` --check-overload` : le 
 résultat devrait tenir compte du dépassement et correspondre aux informations d'uptime du
 système que vous avez pu vérifier manuellement :
 
