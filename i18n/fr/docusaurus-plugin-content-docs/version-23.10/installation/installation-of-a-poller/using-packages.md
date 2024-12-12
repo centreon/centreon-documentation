@@ -375,8 +375,8 @@ systemctl restart centengine
 Pour transformer le serveur en collecteur et l'enregistrer sur le serveur central ou un serveur distant, exécutez la commande suivante sur le futur collecteur :
 
 ``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u \<API_ACCOUNT\> \
--t poller -h \<IP_TARGET_NODE\> -n <POLLER_NAME>
+/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
+-t poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
 ```
 
 Exemple:

@@ -326,8 +326,8 @@ systemctl restart centengine
 To turn the server into a poller and to register it to the Central server or to a Remote server, execute the following command on the future poller:
 
 ``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u\<API_ACCOUNT\> \
--t poller -h\<IP_TARGET_NODE\> -n <POLLER_NAME>
+/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
+-t poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
 ```
 
 Example:

@@ -48,8 +48,8 @@ installez le module **centreon-license-manager**.
 Pour l'enregistrer sur le serveur Centreon Central, exécutez la commande suivante :
 
 ``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u \<API_ACCOUNT\> \
--t remote -h \<IP_TARGET_NODE\> -n \<REMOTE_SERVER_NAME\>
+/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
+-t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
 ```
 
 Exemple:

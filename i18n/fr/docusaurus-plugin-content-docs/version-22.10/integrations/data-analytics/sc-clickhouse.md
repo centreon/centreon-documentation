@@ -266,7 +266,7 @@ Si vous voulez tester que les évènements sont envoyés correctement à Clickho
 2. Exécutez la commande suivante :
 
 ```shell
-curl -X POST -H 'X-ClickHouse-User: <user>' -H 'X-ClickHouse-Key: <password>' '\<http_server_url\>' -d 'INSERT INTO <clickhouse_database>.<clickhouse_table> (host, timestamp, metric_name, metric_value, service, hostgroups, metric_id, metric_unit, metric_min, metric_max) VALUES ('central_2',1702910872,'rtmin',0.0,'Ping',['hg'],'11-9-rtmin','ms',,),('central_2',1702910872,'rta',0.0,'Ping',['hg'],'11-9-rta','ms',0.0,),('central_2',1702910872,'pl',100.0,'Ping',['hg'],'11-9-pl','%',0.0,100.0)'
+curl -X POST -H 'X-ClickHouse-User: <user>' -H 'X-ClickHouse-Key: <password>' '<http_server_url>' -d 'INSERT INTO <clickhouse_database>.<clickhouse_table> (host, timestamp, metric_name, metric_value, service, hostgroups, metric_id, metric_unit, metric_min, metric_max) VALUES ('central_2',1702910872,'rtmin',0.0,'Ping',['hg'],'11-9-rtmin','ms',,),('central_2',1702910872,'rta',0.0,'Ping',['hg'],'11-9-rta','ms',0.0,),('central_2',1702910872,'pl',100.0,'Ping',['hg'],'11-9-pl','%',0.0,100.0)'
 ```
 
 > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. Par exemple, *`<clickhouse_database>`* pourra être remplacé par *centreon_stream*.

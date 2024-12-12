@@ -46,8 +46,8 @@ Refer to the [migration procedure](../migrate/migrate-from-3-4.md).
 To transform the server into a Remote Server and register it to the Centreon Central server, execute the following command:
 
 ``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u\<API_ACCOUNT\> \
--t remote -h\<IP_TARGET_NODE\> -n\<REMOTE_SERVER_NAME\>
+/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
+-t remote -h <IP_TARGET_NODE> -n<REMOTE_SERVER_NAME>
 ```
 
 Example:

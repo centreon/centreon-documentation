@@ -175,7 +175,7 @@ Si vous voulez tester que les évènements sont envoyés correctement à Logstas
 2. Exécutez la commande suivante :
 
 ```shell
-curl -X PUT -H "accept: application/json" curl -X PUT 'http://<logstash_address>:\<logstash_port\>' -d '{"event_timestamp": 1653434348,"hostname": "my-host","output": "[DOWN] server is down","state": "DOWN","title": "DOWN: my-host"}'
+curl -X PUT -H "accept: application/json" curl -X PUT 'http://<logstash_address>:<logstash_port>' -d '{"event_timestamp": 1653434348,"hostname": "my-host","output": "[DOWN] server is down","state": "DOWN","title": "DOWN: my-host"}'
 ```
 
 > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. *\<logstash_port\>* pourra devenir *8080*.

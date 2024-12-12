@@ -573,13 +573,13 @@ Let's assume that you would like to grant full access to the \[Monitoring\] menu
 centreon -u admin -p 'centreon' -o ACLMENU -a grantrw -v "ACL Menu test;1;Monitoring"
 ```
 
-Then you would like to grant access to the \[Home\] \> \[Poller statistics\] menu:
+Then you would like to grant access to the \[Home\] > \[Poller statistics\] menu:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLMENU -a grantrw -v "ACL Menu test;1;Home;Poller statistics"
 ```
 
-Then you would like to grant read-only access to the \[Configuration\] \> \[Hosts\] menu:
+Then you would like to grant read-only access to the \[Configuration\] > \[Hosts\] menu:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ACLMENU -a grantro -v "ACL Menu test;1;Configuration;Hosts"

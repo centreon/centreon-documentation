@@ -753,8 +753,8 @@ systemctl start apache2
 To transform the server into a Remote Server and to register it to the Central server or to another Remote server, execute the following command on the future remote server:
 
 ``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u\<API_ACCOUNT\> \
--t remote -h\<IP_TARGET_NODE\> -n\<REMOTE_SERVER_NAME\>
+/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
+-t remote -h <IP_TARGET_NODE> -n<REMOTE_SERVER_NAME>
 ```
 
 Example:

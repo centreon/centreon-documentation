@@ -407,7 +407,7 @@ winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@\{Hostname=".$FQD
 * Copiez ce script à l'emplacement suivant pour pouvoir le déployer massivement :
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 Dans notre cas, voilà le résultat :
@@ -620,7 +620,7 @@ $RootSecurity.PsBase.InvokeMethod("SetSd",$SdList)
 * Copiez ce script à l'emplacement suivant pour pouvoir déployer massivement ce script.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 Dans notre cas, le résultat est le suivant :
@@ -721,7 +721,7 @@ Invoke-Expression -Command:$SetPermissionsCommand
 * Copiez ce script à l'emplacement suivant pour pouvoir le déployer massivement.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 * Retournez dans votre politique **Enable WinRM**.
@@ -823,7 +823,7 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 * Copiez ce script à l'emplacement suivant pour pouvoir le déployer massivement.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 * Retournez dans votre politique **Enable WinRM**.

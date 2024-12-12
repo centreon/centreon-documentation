@@ -191,7 +191,7 @@ If you want to test that events are sent to Splunk correctly:
 2. Run the following command:
 
    ```shell
-   curl -X POST -H "content-type: application/json" -H "authorization: Splunk <splunk_token>" \<http_server_url\>' -d '{"sourcetype": \<splunk_sourcetype\>","source": "<splunk_source>","index": "<splunk_index>","host": "<splunk_host>","time": <epoch_timestamp>,"event": {"event_type": "host","state": 1,"state_type": 1,"hostname":"my_host","ctime": 1675865364,"metric: pl": 0,"metric: rta": 10,"metric: rtmin": 5,"metric: rtmax": 15}}'
+   curl -X POST -H "content-type: application/json" -H "authorization: Splunk <splunk_token>" <http_server_url>' -d '{"sourcetype": <splunk_sourcetype>","source": "<splunk_source>","index": "<splunk_index>","host": "<splunk_host>","time": <epoch_timestamp>,"event": {"event_type": "host","state": 1,"state_type": 1,"hostname":"my_host","ctime": 1675865364,"metric: pl": 0,"metric: rta": 10,"metric: rtmin": 5,"metric: rtmax": 15}}'
    ```
 
    > Replace all the *`<xxxx>`* inside the above command with the correct value. For instance, \<splunk_sourcetype\>* may become *_json*.

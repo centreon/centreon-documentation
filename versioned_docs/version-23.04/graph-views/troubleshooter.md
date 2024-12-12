@@ -285,7 +285,7 @@ specify a new one to your desktop client. To do so, edit the file:
 <TabItem value="Windows" label="Windows">
 
 ```shell
-C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
+C:\Users<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 ```
 
 </TabItem>
@@ -371,7 +371,7 @@ is working hard, your desktop client requires more memory.
  <TabItem value="Windows" label="Windows">
  
  ```shell
- C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
+ C:\Users<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
  ```
  
  </TabItem>

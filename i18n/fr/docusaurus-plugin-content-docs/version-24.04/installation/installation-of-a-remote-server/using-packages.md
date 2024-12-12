@@ -584,8 +584,8 @@ Terminez l'installation en réalisant les
 Pour transformer le serveur en serveur distant et l'enregistrer sur le serveur Central, exécutez la commande suivante sur le futur serveur distant :
 
 ``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u \<API_ACCOUNT\> \
--t remote -h \<IP_TARGET_NODE\> -n \<REMOTE_SERVER_NAME\>
+/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
+-t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
 ```
 
 Exemple:
