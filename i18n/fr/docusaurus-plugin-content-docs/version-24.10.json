@@ -311,8 +311,8 @@
     "message": "Notifications par email",
     "description": "The label for category Email notifications in sidebar docs"
   },
-  "sidebar.docs.category.Other notifications": {
-    "message": "Autres types de notifications",
-    "description": "The label for category Other notifications in sidebar docs"
+  "sidebar.docs.category.Types of notifications": {
+    "message": "Types de notifications",
+    "description": "The label for category Types of notifications in sidebar docs"
   }
 }
