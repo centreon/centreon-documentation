@@ -35,7 +35,7 @@ Body {
 }
 ```
 
-- In the result, retrieve the \{jwtToken\}. You will need to use it for all your API calls. The headers will look like this:
+- In the result, retrieve the {jwtToken}. You will need to use it for all your API calls. The headers will look like this:
 
 ```
 Headers {

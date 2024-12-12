@@ -28,7 +28,7 @@ winrm quickconfig
 Enable basic authentication:
 
 ``` bash
-winrm s winrm/config/service/auth '@\{Basic="true"\}'
+winrm s winrm/config/service/auth '@{Basic="true"}'
 ```
 
 ### Firewall configuration
@@ -73,7 +73,7 @@ Copy the **Thumbprint** for the next step:
 Create the WinRM HTTPS listener by replacing the values @HOSTNAME@ and @THUMBPRINT@ with the correct values.
 
 ``` bash
-winrm create winrm/config/Listener?Address=*+Transport=HTTPS  '@\{Hostname="@HOSTNAME@";CertificateThumbprint="@THUMBPRINT@"\}'
+winrm create winrm/config/Listener?Address=*+Transport=HTTPS  '@{Hostname="@HOSTNAME@";CertificateThumbprint="@THUMBPRINT@"}'
 ```
 
 From here, you can monitor your Windows server by using the local administrator account.

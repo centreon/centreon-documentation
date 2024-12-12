@@ -1011,7 +1011,7 @@ as a parameter will automatically override the hardcoded default code value
 - `--verbose` will display the long output and the details for each `type => 1` counters
 
 ```bash
-perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io --warning-health='%\{health\} eq "care"' --verbose
+perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io --warning-health='%{health} eq "care"' --verbose
 ```
 
 Here is the expected output:

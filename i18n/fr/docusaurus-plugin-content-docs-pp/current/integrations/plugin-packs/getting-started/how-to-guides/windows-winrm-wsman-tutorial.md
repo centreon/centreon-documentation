@@ -28,7 +28,7 @@ winrm quickconfig
 Activez la méthode d'authentification "Basic" :
 
 ``` bash
-winrm s winrm/config/service/auth '@\{Basic="true"\}'
+winrm s winrm/config/service/auth '@{Basic="true"}'
 ```
 
 ### Configuration du firewall
@@ -73,7 +73,7 @@ Copiez le **Thumbprint** pour l'étape suivante :
 Créez le port WinRM HTTPS en remplaçant les valeurs @HOSTNAME@ et @THUMBPRINT@ par les valeurs correctes.
 
 ``` bash
-winrm create winrm/config/Listener?Address=*+Transport=HTTPS  '@\{Hostname="@HOSTNAME@";CertificateThumbprint="@THUMBPRINT@"\}'
+winrm create winrm/config/Listener?Address=*+Transport=HTTPS  '@{Hostname="@HOSTNAME@";CertificateThumbprint="@THUMBPRINT@"}'
 ```
 
 À partir d'ici, vous pouvez superviser votre serveur Windows en utilisant le compte administrateur local.

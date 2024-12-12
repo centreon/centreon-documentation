@@ -88,7 +88,7 @@ $3, ...). Pour cela, utilisez l’OID complet de l’argument.
 Voici un exemple :
 
 ```shell
-Link down on interface: @\{.1.3.6.1.2.1.2.2.1.2\} (index: @\{.1.3.6.1.2.1.2.2.1.1\}). Operational state: @\{.1.3.6.1.2.1.2.2.1.8\}, Administration state: @\{.1.3.6.1.2.1.2.2.1.7\}
+Link down on interface: @{.1.3.6.1.2.1.2.2.1.2} (index: @{.1.3.6.1.2.1.2.2.1.1}). Operational state: @{.1.3.6.1.2.1.2.2.1.8}, Administration state: @{.1.3.6.1.2.1.2.2.1.7}
 ```
 
 #### Utiliser une variable externe
