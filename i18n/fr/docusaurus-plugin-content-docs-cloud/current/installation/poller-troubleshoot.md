@@ -152,10 +152,10 @@ Si le fichier ne contient pas les lignes ci-dessus, vérifiez les autres message
 
 ### Étape 1 : Tester la connectivité réseau
 
-Vérifiez que le collecteur peut envoyer des données temps-réel à la plateforme Centreon Cloud. Exécutez la commande suivante (remplacez **{org-code}** par le code de votre organisation) :
+Vérifiez que le collecteur peut envoyer des données temps-réel à la plateforme Centreon Cloud. Exécutez la commande suivante (remplacez **\<org-code\>** par le code de votre organisation) :
 
 ```shell
-nc -zv -w 5 broker-{org-code}.euwest1.centreon.cloud 443
+nc -zv -w 5 broker-<org-code>.euwest1.centreon.cloud 443
 ```
 
 La commande devrait retourner un message similaire à celui-ci :
@@ -228,10 +228,10 @@ Modifiez les niveaux de log pour obtenir plus d'informations sur ce que Engine f
 
 ### Étape 5 : Activer et inspecter les logs cbmod
 
-1. Éditez la configuration de Centreon Broker module (remplacez **{hostname}** par la valeur correcte) :
+1. Éditez la configuration de Centreon Broker module (remplacez **\<hostname\>** par la valeur correcte) :
 
    ```shell
-   vi /etc/centreon-broker/{hostname}-module.json
+   vi /etc/centreon-broker/<hostname>-module.json
    ```
 
 2. Ajustez l'objet **centreonBroker.log.loggers** au niveau de log désiré.
@@ -260,6 +260,6 @@ Si toutes ces étapes de dépannage ont échoué, contactez [notre équipe suppo
 
 | Utiliser pour débugguer quoi? | Process | Fichier | Symptômes |
 |--------------------|---------|------|----------|
-| Installation du collecteur |   | {scriptdir}/logs/register-poller.log | |
+| Installation du collecteur |   | \<scriptdir\>/logs/register-poller.log | |
 | Centreon Engine | centengine | /var/log/centreon-engine/centengine.log | <ul><li>Les contrôles ne sont pas effectués</li><li>Les objets supprimés sont toujours supervisés</li></ul> |
 | Gorgone | gorgoned | /var/log/centreon-gorgone/gorgoned.log | Les actions ne se déclenchent pas : acquittements, plages de maintenance, contrôles forcés, autodiscovery |
