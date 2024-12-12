@@ -134,9 +134,9 @@ tail -f /var/log/centreon-engine/centengine.log
 * If you have selected the **reload** method, the log file should contain:
 
 ```shell
-[process] [info] [646] Starting to reload configuration.
+[process] [info] [xxx] Starting to reload configuration.
 (...)
-[process] [info] [646] Reload configuration finished.
+[process] [info] [xxx] Reload configuration finished.
 ```
 
 * If you have selected the **restart** method, the log file should contain:

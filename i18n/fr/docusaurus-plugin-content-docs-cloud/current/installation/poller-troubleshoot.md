@@ -135,9 +135,9 @@ tail -f /var/log/centreon-engine/centengine.log
 * Si vous avez sélectionné la méthode **Recharger**, le fichier de log devrait contenir :
 
 ```shell
-[process] [info] [646] Starting to reload configuration.
+[process] [info] [xxx] Starting to reload configuration.
 (...)
-[process] [info] [646] Reload configuration finished.
+[process] [info] [xxx] Reload configuration finished.
 ```
 
 * Si vous avez sélectionné la méthode **Redémarrer**, le fichier de log devrait contenir :
