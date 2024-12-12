@@ -32,7 +32,7 @@ Typically, checks are not executed. Perform the following checks: if a step has 
 
 ### Step 1: Test Gorgone's Connection to the platform
 
-Check that Gorgone can connect to your Centreon Cloud platform.
+Check that Gorgone can connect to your Centreon Cloud platform (you may have to install the `nc` command: on EL, use `dnf install nc` and on Debian use `apt install netcat-traditional`).
 
 ```shell
 nc -zv -w 5 gorgone-<organization_code>.euwest1.centreon.cloud 443
