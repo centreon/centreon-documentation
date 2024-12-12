@@ -110,7 +110,7 @@ GET http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views/_viewId_
 <TabItem value="HTTPS" label="HTTPS">
 
 ```
-GET https://serverURL:9443/centreon-map/api/beta/maps/_mapId>/views/_viewId_
+GET https://serverURL:9443/centreon-map/api/beta/maps/_mapId_/views/_viewId_
 ```
 
 </TabItem>
