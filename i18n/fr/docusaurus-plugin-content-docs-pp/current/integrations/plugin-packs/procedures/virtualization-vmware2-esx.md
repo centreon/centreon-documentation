@@ -74,7 +74,7 @@ Le connecteur apporte les modèles de service suivants
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
-#### Découverte de service
+#### Découverte de services
 
 | Nom de la règle                          | Description                                                   |
 |:-----------------------------------------|:--------------------------------------------------------------|
@@ -349,15 +349,23 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration du connecteur Centreon VMWare
 
-Pour la supervision VMWare, centreon utilise un daemon pour se connecter et requêter le vCenter.
+Pour la supervision VMWare, Centreon utilise un daemon pour se connecter et requêter le vCenter.
 
-Installer le daemon sur tous les pollers :
+Installer le daemon sur tous les collecteurs :
 
-```
+```shell
 yum install centreon-plugin-Virtualization-VMWare-daemon
 ```
 
-Pour configurer les accès à votre infrastructure, éditer le fichier
+<Tabs groupId="sync">
+<TabItem value="Centreon Cloud et OnPrem à partir de la 24.10" label="Centreon Cloud et OnPrem à partir de la 24.10">
+
+Allez à la page [**Configuration > Configurations supplémentaires de connecteurs**](../getting-started/how-to-guides/acc.md) pour configurer la connexion à votre vCenter.
+
+</TabItem>
+<TabItem value="Versions de Centreon OnPrem antérieures à la 24.10" label="Versions de Centreon OnPrem antérieures à la 24.10">
+
+Pour configurer les accès à votre infrastructure, éditez le fichier
 "/etc/centreon/centreon\_vmware.pm" :
 
 ``` perl
@@ -374,7 +382,7 @@ Pour configurer les accès à votre infrastructure, éditer le fichier
 1;
 ```
 
-Assurez vous d'avoir remplacé toutes les variables avec les informations nécessaires :
+Assurez-vous d'avoir remplacé toutes les variables avec les informations nécessaires :
 
 - _ip\_hostname_: Adresse IP ou nom d'hôte du vCenter ou de l'ESX (s'il est en mode standalone),
 - _username_: utilisateur avec un accès "lecture seule" au vCenter ou à l'ESX (vous pouvez utiliser un utilisateur du domaine),
@@ -405,6 +413,9 @@ en utilisant cette structure:
 
 Chaque entrée est un **container**.
 
+</TabItem>
+</Tabs>
+
 Pour démarrer le daemon et l'activer au démarrage :
 
 ``` bash
@@ -416,7 +427,7 @@ Vous pouvez vérifiez que votre configuration est fonctionelle en consultant les
 
 ### Balises et Attributs personnalisés
 
-> Pour découvrir les balises et les attributs personnalisés, vous devez utiliser la version 3.2.5 de **centreon-vmware-daemon** et ajouter **--tags** dans les options supplémentaires de découverte.             
+> Pour découvrir les balises et les attributs personnalisés, vous devez utiliser la version 3.2.5 de **centreon-vmware-daemon** et ajouter **--tags** dans les options supplémentaires de découverte.
 >Allez à la page **Configuration > Hôtes > Découverte**, et à la 3ème étape (**Définir les paramètres de découverte**), dans la section **Paramètres supplémentaires**, dans le champ **Options supplémentaires**, saisissez **--tags**.
 
 ### Flux réseau

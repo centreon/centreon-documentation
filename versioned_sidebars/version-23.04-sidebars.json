@@ -696,7 +696,7 @@
       "label": "Graphical views",
       "link": {
         "type": "generated-index",
-        "description": "The graphical view capabilities in Centreon relies on the Centreon MAP module."
+        "description": "The graphical view capabilities in Centreon rely on the Centreon MAP module."
       },
       "collapsed": true,
       "items": [
@@ -726,6 +726,10 @@
             {
               "type": "doc",
               "id": "version-23.04/graph-views/map-web-upgrade"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/graph-views/map-web-migrate"
             },
             {
               "type": "doc",
@@ -1193,6 +1197,10 @@
             },
             {
               "type": "doc",
+              "id": "version-23.04/integrations/data-analytics/sc-influxdb2-metrics"
+            },
+            {
+              "type": "doc",
               "id": "version-23.04/integrations/data-analytics/sc-kafka-events"
             },
             {
@@ -1264,10 +1272,6 @@
             {
               "type": "doc",
               "id": "version-23.04/integrations/itsm/ot-itop"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/integrations/itsm/ot-iws-isilog"
             },
             {
               "type": "doc",

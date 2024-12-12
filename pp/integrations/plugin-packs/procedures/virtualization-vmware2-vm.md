@@ -196,6 +196,13 @@ yum install centreon-plugin-Virtualization-VMWare-daemon
 </TabItem>
 </Tabs>
 
+<Tabs groupId="sync">
+<TabItem value="Centreon Cloud and OnPrem from version 24.10" label="Centreon Cloud and OnPrem from version 24.10">
+
+Go to [**Configuration > Additional connector configuration**](../getting-started/how-to-guides/acc.md) to configure the connection to your vCenter.
+
+</TabItem>
+<TabItem value="Versions of Centreon OnPrem older than 24.10" label="Versions of Centreon OnPrem older than 24.10">
 
 To configure the access to your infrastructure, edit the
 "/etc/centreon/centreon\_vmware.pm" configuration file:
@@ -246,6 +253,9 @@ structure:
 Each entry is called a **container** (it corresponds to the `$_HOSTCENTREONVMWARECONTAINER$` host macro).
 
 > You can also define the "port" attribute to change the listening port.
+
+</TabItem>
+</Tabs>
 
 Then start the daemon and make sure it is configured to start at server boot:
 

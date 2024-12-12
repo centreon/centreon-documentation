@@ -5,58 +5,68 @@ title: AWS Transit Gateway
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
 
-## Overview
+The following monitoring connectors will be installed when you install the **AWS Transit Gateway** connector through the
+**Configuration > Monitoring Connector Manager** menu:
+* [Base Pack](./base-generic.md)
 
-AWS Transit Gateway connects VPCs and on-premises networks through a central hub. This simplifies your network and puts an end to
-complex peering relationships. It acts as a cloud router – each new connection is only made once.
+## Pack assets
 
-Because of its central position, AWS Transit Gateway Network Manager has a unique view over your entire network, even connecting
-to Software-Defined Wide Area Network (SD-WAN) devices.
+### Templates
 
-The *AWS Transit Gateway* Centreon Monitoring Connector uses the Amazon Cloudwatch APIs to collect the
-related metrics and status.
+The Monitoring Connector **AWS Transit Gateway** brings a host template:
 
-## Monitoring Connector assets
+* **Cloud-Aws-Transitgateway-custom**
 
-### Monitored objects
-
-* AWS Transit Gateways
-
-### Discovery rules
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Gateways" label="Gateways">
+<TabItem value="Cloud-Aws-Transitgateway-custom" label="Cloud-Aws-Transitgateway-custom">
 
-| Rule name                           | Description                                                        |
-| :---------------------------------- | :----------------------------------------------------------------- |
-| Cloud-Aws-Transitgateways-Gateways  | Discover the Transit Gateways within an AWS infrastructure         |
+| Service Alias           | Service Template                                            | Service Description                                   | Discovery  |
+|:------------------------|:------------------------------------------------------------|:------------------------------------------------------|:----------:|
+| Gateways-Traffic-Global | Cloud-Aws-Transitgateway-Gateways-Traffic-Global-Api-custom | Check the state and traffic of an AWS Transit Gateway | X          |
+
+> The services listed above are created automatically when the **Cloud-Aws-Transitgateway-custom** host template is used.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
 </TabItem>
 </Tabs>
 
-### Collected metrics 
+### Discovery rules
 
-More information about collected metrics is available in the official Amazon documentation:
-https://docs.aws.amazon.com/fr_fr/vpc/latest/tgw/transit-gateway-cloudwatch-metrics
+#### Service discovery
+
+| Rule name                          | Description                                                     |
+|:-----------------------------------|:----------------------------------------------------------------|
+| Cloud-Aws-Transitgateways-Gateways | Discover an AWS Transit Gateway and check its state and traffic |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Gateways-Traffic-*" label="Gateways-Traffic-*">
+<TabItem value="Gateways-Traffic-Global" label="Gateways-Traffic-Global">
 
-| Metric name                            | Description                                                           | Unit |
-|:---------------------------------------|:----------------------------------------------------------------------|:-----|
-| gateway.traffic.in.bytes               | The number of bytes received by the transit gateway.                  | B    |
-| gateway.traffic.out.bytes              | The number of bytes sent from the transit gateway.                    | B    |
-| gateway.packets.in.count               | The number of packets received by the transit gateway.                |      |
-| gateway.packets.out.count              | The number of packets sent by the transit gateway.                    |      |
-| gateway.packets.blackholedropped.count | The number of packets dropped because they matched a blackhole route. |      |
-| gateway.packets.noroutedropped.count   | The number of packets dropped because they did not match a route.     |      |
-
-All these metrics can be calculated on a *per-second* time reference rather than displaying the absolute value. To do so,
-simply add the setting ```--per-sec``` to the command and/or the Service Macros
-
-> By default, the *Gateways-Traffic-Global* Service will monitor all of the Transit Gateways of the AWS infrastructure.
-> To get one Service per Gateway, use the **Service Autodiscovery module** with the rule described above.
+| Name                                            | Unit  |
+|:------------------------------------------------|:------|
+| gateway.traffic.in.bytes                        | B     |
+| gateway.traffic.in.bytespersecond               | B/s   |
+| gateway.traffic.out.bytes                       | B     |
+| gateway.traffic.out.bytespersecond              | B/s   |
+| gateway.packets.in.count                        | count |
+| gateway.packets.in.countpersecond               | /s    |
+| gateway.packets.out.count                       | count |
+| gateway.packets.out.countpersecond              | /s    |
+| gateway.packets.blackholedropped.count          | count |
+| gateway.packets.blackholedropped.countpersecond | /s    |
+| gateway.packets.noroutedropped.count            | count |
+| gateway.packets.noroutedropped.countpersecond   | /s    |
 
 </TabItem>
 </Tabs>
@@ -65,17 +75,14 @@ simply add the setting ```--per-sec``` to the command and/or the Service Macros
 
 ### AWS Configuration
 
-Configure a service account (*access/secret keys* combo) for which the following privileges have to be granted:
-
-| AWS Privilege                  | Description                                                        |
-|:-------------------------------|:------------------------------------------------------------------ |
-| cloudwatch:getMetricStatistics | Get metrics values from Cloudwatch AWS/TransitGateway namespace    |
+Configure a service account (access/secret key combo) for which the following privileges have to be granted:
+* cloudwatch:getMetricStatistics
 
 ### Plugin dependencies
 
-To interact with Amazon APIs, you can use either use the *awscli* binary
-provided by Amazon or *paws*, a Perl AWS SDK (recommended). 
-You must install it on every Centreon poller expected to monitor AWS resources: 
+To interact with the Amazon APIs, you can use either use the *awscli* binary provided by Amazon or *paws*, a Perl AWS SDK (recommended). You must install it on every poller expected to monitor AWS resources.
+
+> For now, it is not possible to use *paws* if you are using a proxy to reach the AWS Cloudwatch APIs.
 
 <Tabs groupId="sync">
 <TabItem value="perl-Paws-installation" label="perl-Paws-installation">
@@ -88,93 +95,192 @@ yum install perl-Paws
 <TabItem value="aws-cli-installation" label="aws-cli-installation">
 
 ```bash
-yum install awscli
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 ```
 
 </TabItem>
 </Tabs>
 
-> For now, it is not possible to use *paws* if you are using a proxy to reach AWS Cloudwatch APIs. 
+## Installing the monitoring connector
 
-## Setup 
+### Pack
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connector Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor AWS Transit Gateway resources:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Cloud-Aws-Transitgateway-Api
+dnf install centreon-pack-cloud-aws-transitgateway
 ```
-
-2. On the Centreon Web interface, install the *AWS Transit Gateway* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor AWS Transit Gateway resources:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Cloud-Aws-Transitgateway-Api
+dnf install centreon-pack-cloud-aws-transitgateway
 ```
 
-2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-yum install centreon-pack-cloud-aws-transitgateway.noarch
+apt install centreon-pack-cloud-aws-transitgateway
 ```
 
-3. On the Centreon Web interface, install the *AWS Transit Gateway* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-cloud-aws-transitgateway
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+2. Whatever the license type (*online* or *offline*), install the **AWS Transit Gateway** connector through
+the **Configuration > Monitoring Connector Manager** menu.
 
-### Host
+### Plugin
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
-* In the *IP Address/FQDN* field, set the following IP address: '127.0.0.1'
-* Select the *Cloud-Aws-Transitgateway-custom* template to apply to the Host.
-* Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured:
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
 
-| Mandatory   | Nom             | Description                                                                                 |
-| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
-| X           | AWSSECRETKEY    | AWS Secret key of your IAM role. Password checkbox must be checked                          |
-| X           | AWSACESSKEY     | AWS Access key of your IAM role. Password checkbox must be checked                          |
-| X           | AWSREGION       | Region where the instance is running                                                        |
-| X           | AWSCUSTOMMODE   | Custom mode to get metrics, 'awscli' is the default, you can also use 'paws' perl library   |
-|             | PROXYURL        | Configure proxy URL                                                                         |
-|             | EXTRAOPTIONS    | Any extra option you may want to add to every command\_line (eg. a --verbose flag)          |
-|             | DUMMYSTATUS     | Host state. Default is OK, do not modify it unless you know what you are doing              |
-|             | DUMMYOUTPUT     | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed |
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-## FAQ
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
 
-### How to check in the CLI that the configuration is OK and what are the main options for ?
+Use the commands below according to your operating system's package manager:
 
-Once the Plugin installed, log into your Centreon Poller CLI using the
-*centreon-engine* user account and test the Plugin by running the following
-command (Some of the parameters such as ```--proxyurl``` have to be adjusted):
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Cloud-Aws-Transitgateway-Api
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Cloud-Aws-Transitgateway-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-cloud-aws-transitgateway-api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Cloud-Aws-Transitgateway-Api
+```
+
+</TabItem>
+</Tabs>
+
+## Using the monitoring connector
+
+### Using a host template provided by the connector
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **Cloud-Aws-Transitgateway-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro         | Description                                                                                                                              | Default value     | Mandatory |
+|:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:---------:|
+| AWSACCESSKEY  | Set AWS access key                                                                                                                       |                   |     X     |
+| AWSASSUMEROLE | Set Amazon Resource Name of the role to be assumed                                                                                       |                   |           |
+| AWSCUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option               |                   | X          |
+| AWSREGION     | Set the region name                                                                                                                      |                   |     X     |
+| AWSSECRETKEY  | Set AWS secret key                                                                                                                       |                   |     X     |
+| PROXYURL      | Proxy URL if any                                                                                                                         |                   |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |           |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Gateways-Traffic-Global" label="Gateways-Traffic-Global">
+
+| Macro                        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERGATEWAY                | Filter on a specific TransitGateway ID. This filter is based on the "TransitGatewayId" attribute of the gateway                        | .*                |             |
+| FILTERMETRIC                 | Filter on a specific metric. Can be: BytesIn, BytesOut, PacketsIn, PacketsOut, PacketDropCountBlackhole, PacketDropCountNoRoute        |                   |             |
+| TIMEFRAME                    | Set timeframe in seconds                                                                                                               |                   |             |
+| PERIOD                       | Set period in seconds                                                                                                                  |                   |             |
+| WARNINGBYTESIN               | Threshold                                                                                                                              |                   |             |
+| CRITICALBYTESIN              | Threshold                                                                                                                              |                   |             |
+| WARNINGBYTESOUT              | Threshold                                                                                                                              |                   |             |
+| CRITICALBYTESOUT             | Threshold                                                                                                                              |                   |             |
+| WARNINGPACKETSDROPBLACKHOLE  | Threshold                                                                                                                              |                   |             |
+| CRITICALPACKETSDROPBLACKHOLE | Threshold                                                                                                                              |                   |             |
+| WARNINGPACKETSDROPNOROUTE    | Threshold                                                                                                                              |                   |             |
+| CRITICALPACKETSDROPNOROUTE   | Threshold                                                                                                                              |                   |             |
+| WARNINGPACKETSIN             | Threshold                                                                                                                              |                   |             |
+| CRITICALPACKETSIN            | Threshold                                                                                                                              |                   |             |
+| WARNINGPACKETSOUT            | Threshold                                                                                                                              |                   |             |
+| CRITICALPACKETSOUT           | Threshold                                                                                                                              |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor an AWS Instance using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_transitgateway_api.pl \
-    --plugin=cloud::aws::transitgateway::plugin \
-    --mode=traffic \
-    --custommode=awscli \
-    --aws-secret-key='*******************' \
-    --aws-access-key='**********' \
-    --region='eu-west-1' \
-    --proxyurl='http://myproxy.mycompany.org:8080' \
-    --timeframe='600' \
-    --period='60' \
-    --filter-gateway='tgw-01234567890abcd' \
-    --warning-packets-drop-blackhole='500' \
-    --critical-packets-drop-blackhole='1000' \
-    --verbose
+	--plugin=cloud::aws::transitgateway::plugin \
+	--mode=traffic \
+	--custommode='awscli' \
+	--aws-secret-key='XXXX' \
+	--aws-access-key='XXXX' \
+	--aws-role-arn='' \
+	--region='us-east-1' \
+	--proxyurl=''  \
+	--filter-gateway='.*' \
+	--filter-metric='' \
+	--timeframe='' \
+	--period='' \
+	--warning-bytes-in='' \
+	--critical-bytes-in='' \
+	--warning-bytes-out='' \
+	--critical-bytes-out='' \
+	--warning-packets-in='' \
+	--critical-packets-in='' \
+	--warning-packets-drop-blackhole='' \
+	--critical-packets-drop-blackhole='' \
+	--warning-packets-out='' \
+	--critical-packets-out='' \
+	--warning-packets-drop-noroute='' \
+	--critical-packets-drop-noroute='' \
+	--verbose
 ```
 
-Expected command output is shown below: 
+The expected command output is shown below:
 
 ```bash
 OK: 'tgw-01234567890abcd' Statistic 'Average' Metrics Bytes In: 2.89 MB, Bytes Out: 2.78 MB, Packets Received (In): 3844.04 ,
@@ -184,44 +290,120 @@ Packets Drop Blackhole: 0.00 , Packets Sent (Out): 3677.79 , Packets Drop No Rou
 'tgw-01234567890abcd~average#gateway.packets.out.count'=3677.79;;;; 'tgw-01234567890abcd~average#gateway.packets.noroutedropped.count'=0.01;;;;
 ```
 
-The command above monitors the traffic statistics of the Transit Gateway service (```--plugin=cloud::aws::transitgateway::plugin --mode=traffic```)
-within an AWS infrastructure. AWS account credentials are used to authenticate against and to connect to the API
-(```--aws-secret-key='****' --aws-access-key='****'```). The calculated metrics are an average of values on a 600 secondes / 10 min 
-period (```--timeframe='600'```) with one sample per 60s / 1 minute (```--period='60'```).
+### Troubleshooting
 
-This command would trigger a 'WARNING' alert if the number of the packets dropped by a *blackhole* rule during the sample period is over 500 
-(```--warning-packets-drop-blackhole='500'```). The alert would be 'CRITICAL' over 1000 dropped packets (```--critical-packets-drop-blackhole='1000'```).
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
 
-All the available thresholds parameters can be displayed by adding the  
-```--help``` parameter to the command:
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_transitgateway_api.pl \
-    --plugin=cloud::aws::transitgateway::plugin \
-    --mode=traffic \
-    --help
+	--plugin=cloud::aws::transitgateway::plugin \
+	--list-mode
 ```
 
-### Why do I get the following result: 
+The plugin brings the following modes:
 
-#### ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values``` ?
+| Mode                                                                                                                                | Linked service template                                     |
+|:------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|
+| list-gateways [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/transitgateway/mode/listgateways.pm)] | Used for service discovery                                  |
+| region [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/eu.pm)]                                                | Not used in this Monitoring Connector                       |
+| traffic [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/transitgateway/mode/traffic.pm)]            | Cloud-Aws-Transitgateway-Gateways-Traffic-Global-Api-custom |
 
-This command result means that Amazon Cloudwatch does not have any value for the
-requested period.
+### Available options
 
-This result can be overriden by adding the ```--zeroed``` option in the command.
-This will force a value of 0 when no metric has been collected and will prevent
-the UNKNOWN error message. 
+#### Generic options
 
-#### ```UNKNOWN: Command error:  - An error occurred (AuthFailure) [...]``` ? 
+All generic options are listed here:
 
-This command result means that the credentials provided don't have enough
-privileges to perform the underlying AWS Operation.
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[newuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --output-file                              |   Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --aws-secret-key                           |   Set AWS secret key.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --aws-access-key                           |   Set AWS access key.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --aws-session-token                        |   Set AWS session token.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --aws-role-arn                             |   Set Amazon Resource Name of the role to be assumed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --region                                   |   Set the region name (required).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --period                                   |   Set period in seconds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --timeframe                                |   Set timeframe in seconds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --statistic                                |   Set CloudWatch statistics (can be: 'minimum', 'maximum', 'average', 'sum').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --zeroed                                   |   Set metrics value to 0 if none. Useful when CloudWatch does not return value when not defined.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --proxyurl                                 |   Proxy URL if any                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --aws-profile                              |   Set AWS profile.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --endpoint-url                             |   Override AWS service endpoint URL if necessary.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --timeout                                  |   Set timeout in seconds (default: 50).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --sudo                                     |   Use 'sudo' to execute the command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --command                                  |   Command to get information (default: 'aws'). Can be changed if you have output in a file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --command-path                             |   Command path (default: none).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --command-options                          |   Command options (default: none). Only use for testing purpose, when you want to set ALL parameters of a command by yourself.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --skip-ssl-check                           |   Avoid certificate issuer verification. Useful when AWS resources are hosted by a third party.   Note that it strips all stderr from the command result. Debug will only display CLI instead of everything.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-#### ```UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |```
+#### Modes options
 
-This error message means that the Centreon Plugin couldn't successfully connect 
-to the AWS Cloudwatch API. Check that no third party device (such as a firewall)
-is blocking the request. A proxy connection may also be necessary to connect to
-the API. This can be done by using this option in the command: 
-```--proxyurl='http://proxy.mycompany:8080'```.
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Gateways-Traffic-Global" label="Gateways-Traffic-Global">
+
+| Option              | Description                                                                                                                                    |
+|:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-gateway    | Filter on a specific TransitGateway ID. This filter is based on the "TransitGatewayId" attribute of the gateway.                               |
+| --filter-metric     | Filter on a specific metric. Can be: BytesIn, BytesOut, PacketsIn, PacketsOut, PacketDropCountBlackhole, PacketDropCountNoRoute                |
+| --warning-$metric$  | Warning thresholds ($metric$ can be: 'bytes-in', 'bytes-out', 'packets-in', 'packets-out', 'packets-drop-blackhole', 'packets-drop-noroute').  |
+| --critical-$metric$ | Critical thresholds ($metric$ can be: 'bytes-in', 'bytes-out', 'packets-in', 'packets-out', 'packets-drop-blackhole', 'packets-drop-noroute'). |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_aws_transitgateway_api.pl \
+	--plugin=cloud::aws::transitgateway::plugin \
+	--mode=traffic \
+	--help
+```

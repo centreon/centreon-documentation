@@ -547,8 +547,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 | *cluster*#cluster.vsan.backend.outstanding.io.count            | count |
 | *cluster*#cluster.vsan.backend.throughput.read.bytespersecond  | B/s   |
 | *cluster*#cluster.vsan.backend.throughput.write.bytespersecond | B/s   |
-| *cluster*#cluster.vsan.backend.latency.read.milliseconds       | ms    |
-| *cluster*#cluster.vsan.backend.latency.write.milliseconds      | ms    |
+| *cluster*#cluster.vsan.backend.latency.read.microseconds       | µs    |
+| *cluster*#cluster.vsan.backend.latency.write.microseconds      | µs    |
 
 </TabItem>
 <TabItem value="Vsan-Cluster-Usage-Global" label="Vsan-Cluster-Usage-Global">
@@ -561,8 +561,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 | *cluster*#cluster.vsan.backend.outstanding.io.count            | count |
 | *cluster*#cluster.vsan.backend.throughput.read.bytespersecond  | B/s   |
 | *cluster*#cluster.vsan.backend.throughput.write.bytespersecond | B/s   |
-| *cluster*#cluster.vsan.backend.latency.read.milliseconds       | ms    |
-| *cluster*#cluster.vsan.backend.latency.write.milliseconds      | ms    |
+| *cluster*#ccluster.vsan.backend.latency.read.microseconds      | µs    |
+| *cluster*#cluster.vsan.backend.latency.write.microseconds      | µs    |
 
 </TabItem>
 </Tabs>
@@ -575,9 +575,17 @@ For the VMWare monitoring, Centreon use daemon to connect and request the vCente
 
 Install this daemon on each needed poller:
 
-```
+```shell
 yum install centreon-plugin-Virtualization-VMWare-daemon
 ```
+
+<Tabs groupId="sync">
+<TabItem value="Centreon Cloud and OnPrem from version 24.10" label="Centreon Cloud and OnPrem from version 24.10">
+
+Go to [**Configuration > Additional connector configuration**](../getting-started/how-to-guides/acc.md) to configure the connection to your vCenter.
+
+</TabItem>
+<TabItem value="Versions of Centreon OnPrem older than 24.10" label="Versions of Centreon OnPrem older than 24.10">
 
 To configure the access to your infrastructure, edit the
 "/etc/centreon/centreon\_vmware.pm" configuration file:
@@ -627,7 +635,10 @@ structure:
 
 Each entry is called a **container**.
 
-> You can also define the "port" attribute to change listening port.
+> You can also define the "port" attribute to change the listening port.
+
+</TabItem>
+</Tabs>
 
 Then start the daemon and make sure it is configured to start at server boot:
 
@@ -742,12 +753,12 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 3. Apply the **Virt-VMWare2-VCenter-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                      | Description                                                                                           | Default value     | Mandatory   |
-|:---------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CENTREONVMWAREPORT         | Connector port (default: 5700)                                                                        | 5700              |             |
-| CENTREONVMWARECONTAINER    | Container to use (it depends on the connector's configuration)                                          | default           |             |
-| CENTREONVMWAREHOST         | Connector hostname (required)                                                                         | localhost         |             |
-| CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro                      | Description                                                                                                                      | Default value     | Mandatory |
+|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------|:------------------|:---------:|
+| CENTREONVMWAREPORT         | Connector port                                                                                                                   | 5700              |           |
+| CENTREONVMWARECONTAINER    | Container to use (it depends on the connector's configuration)                                                                   | default           |           |
+| CENTREONVMWAREHOST         | Connector hostname                                                                                                               | localhost         |     x     |
+| CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -759,290 +770,290 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 <Tabs groupId="sync">
 <TabItem value="Cluster-Cpu" label="Cluster-Cpu">
 
-| Macro               | Description                                                                                         | Default value     | Mandatory   |
-|:--------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGTOTALCPU     | Thresholds                                                                                          |                   |             |
-| CRITICALTOTALCPU    | Thresholds                                                                                          |                   |             |
-| WARNINGTOTALCPUMHZ  | Thresholds                                                                                          |                   |             |
-| CRITICALTOTALCPUMHZ | Thresholds                                                                                          |                   |             |
+| Macro               | Description                                                                                                                    | Default value     | Mandatory   |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGTOTALCPU     | Thresholds                                                                                                                     |                   |             |
+| CRITICALTOTALCPU    | Thresholds                                                                                                                     |                   |             |
+| WARNINGTOTALCPUMHZ  | Thresholds                                                                                                                     |                   |             |
+| CRITICALTOTALCPUMHZ | Thresholds                                                                                                                     |                   |             |
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Cluster-Cpu-Global" label="Cluster-Cpu-Global">
 
-| Macro               | Description                                                                                         | Default value     | Mandatory   |
-|:--------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME          | cluster to check. If not set, we check all clusters                                                 | .*                |             |
-| WARNINGTOTALCPU     | Thresholds                                                                                          |                   |             |
-| CRITICALTOTALCPU    | Thresholds                                                                                          |                   |             |
-| WARNINGTOTALCPUMHZ  | Thresholds                                                                                          |                   |             |
-| CRITICALTOTALCPUMHZ | Thresholds                                                                                          |                   |             |
+| Macro               | Description                                                                                                                    | Default value     | Mandatory   |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME          | cluster to check. If not set, we check all clusters                                                                            | .*                |             |
+| WARNINGTOTALCPU     | Thresholds                                                                                                                     |                   |             |
+| CRITICALTOTALCPU    | Thresholds                                                                                                                     |                   |             |
+| WARNINGTOTALCPUMHZ  | Thresholds                                                                                                                     |                   |             |
+| CRITICALTOTALCPUMHZ | Thresholds                                                                                                                     |                   |             |
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Cluster-Status" label="Cluster-Status">
 
-| Macro          | Description                                                                                                                                                                                                                                           | Default value                                                     | Mandatory   |
-|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|:-----------:|
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (Default: '%{overall\_status} =~ /gray/i \|\| %{vsan\_status} =~ /gray/i'). You can use the following variables: %{overall\_status}, %{vsan\_status}, %{drs\_enabled}, %{ha\_enabled}     | %{overall\_status} =~ /gray/i \|\| %{vsan\_status} =~ /gray/i     |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%{overall\_status} =~ /yellow/i \|\| %{vsan\_status} =~ /yellow/i'). You can use the following variables: %{overall\_status}, %{vsan\_status}, %{drs\_enabled}, %{ha\_enabled} | %{overall\_status} =~ /yellow/i \|\| %{vsan\_status} =~ /yellow/i |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{overall\_status} =~ /red/i \|\| %{vsan\_status} =~ /red/i'). You can use the following variables: %{overall\_status}, %{vsan\_status}, %{drs\_enabled}, %{ha\_enabled}      | %{overall\_status} =~ /red/i \|\| %{vsan\_status} =~ /red/i       |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                   | --verbose                                                         |             |
+| Macro          | Description                                                                                                                                                             | Default value                                                     | Mandatory   |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|:-----------:|
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{overall\_status}, %{vsan\_status}, %{drs\_enabled}, %{ha\_enabled}  | %{overall\_status} =~ /gray/i \|\| %{vsan\_status} =~ /gray/i     |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{overall\_status}, %{vsan\_status}, %{drs\_enabled}, %{ha\_enabled}  | %{overall\_status} =~ /yellow/i \|\| %{vsan\_status} =~ /yellow/i |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{overall\_status}, %{vsan\_status}, %{drs\_enabled}, %{ha\_enabled} | %{overall\_status} =~ /red/i \|\| %{vsan\_status} =~ /red/i       |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                          | --verbose                                                         |             |
 
 </TabItem>
 <TabItem value="Cluster-Status-Global" label="Cluster-Status-Global">
 
-| Macro          | Description                                                                                                                                                                                                                                           | Default value                                                     | Mandatory   |
-|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|:-----------:|
-| FILTERNAME     | cluster to check. If not set, we check all clusters                                                                                                                                                                                                   | .*                                                                |             |
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (Default: '%{overall\_status} =~ /gray/i \|\| %{vsan\_status} =~ /gray/i'). You can use the following variables: %{overall\_status}, %{vsan\_status}, %{drs\_enabled}, %{ha\_enabled}     | %{overall\_status} =~ /gray/i \|\| %{vsan\_status} =~ /gray/i     |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%{overall\_status} =~ /yellow/i \|\| %{vsan\_status} =~ /yellow/i'). You can use the following variables: %{overall\_status}, %{vsan\_status}, %{drs\_enabled}, %{ha\_enabled} | %{overall\_status} =~ /yellow/i \|\| %{vsan\_status} =~ /yellow/i |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{overall\_status} =~ /red/i \|\| %{vsan\_status} =~ /red/i'). You can use the following variables: %{overall\_status}, %{vsan\_status}, %{drs\_enabled}, %{ha\_enabled}      | %{overall\_status} =~ /red/i \|\| %{vsan\_status} =~ /red/i       |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                   | --verbose                                                         |             |
+| Macro          | Description                                                                                                                                                             | Default value                                                     | Mandatory   |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|:-----------:|
+| FILTERNAME     | cluster to check. If not set, we check all clusters                                                                                                                     | .*                                                                |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{overall\_status}, %{vsan\_status}, %{drs\_enabled}, %{ha\_enabled}  | %{overall\_status} =~ /gray/i \|\| %{vsan\_status} =~ /gray/i     |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{overall\_status}, %{vsan\_status}, %{drs\_enabled}, %{ha\_enabled}  | %{overall\_status} =~ /yellow/i \|\| %{vsan\_status} =~ /yellow/i |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{overall\_status}, %{vsan\_status}, %{drs\_enabled}, %{ha\_enabled} | %{overall\_status} =~ /red/i \|\| %{vsan\_status} =~ /red/i       |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                          | --verbose                                                         |             |
 
 </TabItem>
 <TabItem value="Datacenter-Alarms" label="Datacenter-Alarms">
 
-| Macro                      | Description                                                                                                                                                                 | Default value               | Mandatory   |
-|:---------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
-| FILTERTIME                 | Do not check alarms older than specified time (value in seconds)                                                                                                            | 3600                        |             |
-| WARNINGSTATUS              | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /yellow/i). You can use the following variables: %{status}, %{name}, %{entity}, %{type} | %{status} =~ /yellow/i      |             |
-| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /red/i'). You can use the following variables: %{status}, %{name}, %{entity}, %{type}  | %{status} =~ /red/i         |             |
-| WARNINGTOTALALARMWARNING   | Warning threshold                                                                                                                                                           |                             |             |
-| CRITICALTOTALALARMWARNING  | Critical threshold                                                                                                                                                          |                             |             |
-| WARNINGTOTALALARMCRITICAL  | Warning threshold                                                                                                                                                           |                             |             |
-| CRITICALTOTALALARMCRITICAL | Critical threshold                                                                                                                                                          |                             |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                         | --verbose --ignore-warn-msg |             |
+| Macro                      | Description                                                                                                                               | Default value               | Mandatory   |
+|:---------------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
+| FILTERTIME                 | Do not check alarms older than specified time (value in seconds)                                                                          | 3600                        |             |
+| WARNINGSTATUS              | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}, %{entity}, %{type}  | %{status} =~ /yellow/i      |             |
+| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}, %{entity}, %{type} | %{status} =~ /red/i         |             |
+| WARNINGTOTALALARMWARNING   | Warning threshold                                                                                                                         |                             |             |
+| CRITICALTOTALALARMWARNING  | Critical threshold                                                                                                                        |                             |             |
+| WARNINGTOTALALARMCRITICAL  | Warning threshold                                                                                                                         |                             |             |
+| CRITICALTOTALALARMCRITICAL | Critical threshold                                                                                                                        |                             |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)            | --verbose --ignore-warn-msg |             |
 
 </TabItem>
 <TabItem value="Datacenter-Alarms-Global" label="Datacenter-Alarms-Global">
 
-| Macro                      | Description                                                                                                                                                                 | Default value               | Mandatory   |
-|:---------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
-| FILTER                     | Datacenter to check. If not set, we check all datacenters                                                                                                                   | .*                          |             |
-| FILTERTIME                 | Do not check alarms older than specified time (value in seconds)                                                                                                            | 3600                        |             |
-| WARNINGSTATUS              | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /yellow/i). You can use the following variables: %{status}, %{name}, %{entity}, %{type} | %{status} =~ /yellow/i      |             |
-| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /red/i'). You can use the following variables: %{status}, %{name}, %{entity}, %{type}  | %{status} =~ /red/i         |             |
-| WARNINGTOTALALARMWARNING   | Warning threshold                                                                                                                                                           |                             |             |
-| CRITICALTOTALALARMWARNING  | Critical threshold                                                                                                                                                          |                             |             |
-| WARNINGTOTALALARMCRITICAL  | Warning threshold                                                                                                                                                           |                             |             |
-| CRITICALTOTALALARMCRITICAL | Critical threshold                                                                                                                                                          |                             |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                         | --verbose --ignore-warn-msg |             |
+| Macro                      | Description                                                                                                                               | Default value               | Mandatory   |
+|:---------------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
+| FILTER                     | Datacenter to check. If not set, we check all datacenters                                                                                 | .*                          |             |
+| FILTERTIME                 | Do not check alarms older than specified time (value in seconds)                                                                          | 3600                        |             |
+| WARNINGSTATUS              | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}, %{entity}, %{type}  | %{status} =~ /yellow/i      |             |
+| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}, %{entity}, %{type} | %{status} =~ /red/i         |             |
+| WARNINGTOTALALARMWARNING   | Warning threshold                                                                                                                         |                             |             |
+| CRITICALTOTALALARMWARNING  | Critical threshold                                                                                                                        |                             |             |
+| WARNINGTOTALALARMCRITICAL  | Warning threshold                                                                                                                         |                             |             |
+| CRITICALTOTALALARMCRITICAL | Critical threshold                                                                                                                        |                             |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)            | --verbose --ignore-warn-msg |             |
 
 </TabItem>
 <TabItem value="Datastore-Io-Global" label="Datastore-Io-Global">
 
-| Macro              | Description                                                                                                                                                | Default value     | Mandatory   |
-|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                      | .*                |             |
-| UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
-| WARNINGREAD        | Warning threshold                                                                                                                                          |                   |             |
-| CRITICALREAD       | Critical threshold                                                                                                                                         |                   |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{accessible}                              |                   |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{accessible}                             |                   |             |
-| WARNINGTOTALREAD   | Warning threshold                                                                                                                                          |                   |             |
-| CRITICALTOTALREAD  | Critical threshold                                                                                                                                         |                   |             |
-| WARNINGTOTALWRITE  | Warning threshold                                                                                                                                          |                   |             |
-| CRITICALTOTALWRITE | Critical threshold                                                                                                                                         |                   |             |
-| WARNINGWRITE       | Warning threshold                                                                                                                                          |                   |             |
-| CRITICALWRITE      | Critical threshold                                                                                                                                         |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                        | --verbose         |             |
+| Macro              | Description                                                                                                                                               | Default value     | Mandatory   |
+|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER             | The connector will only take into account alerts coming from the datastores listed here                                                                   | .*                |             |
+| UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\1$/i'). You can use the following variables: %{accessible} |                   |             |
+| WARNINGREAD        | Warning threshold                                                                                                                                         |                   |             |
+| CRITICALREAD       | Critical threshold                                                                                                                                        |                   |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{accessible}                                           |                   |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{accessible}                                          |                   |             |
+| WARNINGTOTALREAD   | Warning threshold                                                                                                                                         |                   |             |
+| CRITICALTOTALREAD  | Critical threshold                                                                                                                                        |                   |             |
+| WARNINGTOTALWRITE  | Warning threshold                                                                                                                                         |                   |             |
+| CRITICALTOTALWRITE | Critical threshold                                                                                                                                        |                   |             |
+| WARNINGWRITE       | Warning threshold                                                                                                                                         |                   |             |
+| CRITICALWRITE      | Critical threshold                                                                                                                                        |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                            | --verbose         |             |
 
 </TabItem>
 <TabItem value="Datastore-Iops-Global" label="Datastore-Iops-Global">
 
-| Macro              | Description                                                                                                                                                | Default value     | Mandatory   |
-|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                     | .*                |             |
-| UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
-| WARNINGREAD        | Thresholds                                                                                                                                                 |                   |             |
-| CRITICALREAD       | Thresholds                                                                                                                                                 |                   |             |
-| WARNINGREADTOTAL   | Thresholds                                                                                                                                                 |                   |             |
-| CRITICALREADTOTAL  | Thresholds                                                                                                                                                 |                   |             |
-| WARNINGREADVM      | Thresholds                                                                                                                                                 |                   |             |
-| CRITICALREADVM     | Thresholds                                                                                                                                                 |                   |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{accessible}                              |                   |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{accessible}                             |                   |             |
-| WARNINGWRITE       | Thresholds                                                                                                                                                 |                   |             |
-| CRITICALWRITE      | Thresholds                                                                                                                                                 |                   |             |
-| WARNINGWRITETOTAL  | Thresholds                                                                                                                                                 |                   |             |
-| CRITICALWRITETOTAL | Thresholds                                                                                                                                                 |                   |             |
-| WARNINGWRITEVM     | Thresholds                                                                                                                                                 |                   |             |
-| CRITICALWRITEVM    | Thresholds                                                                                                                                                 |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                        | --verbose         |             |
+| Macro              | Description                                                                                                                    | Default value                                              | Mandatory   |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|:-----------:|
+| FILTER             | The connector will only take into account alerts coming from the datastores listed here                                        | .*                                                         |             |
+| UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\| 1$/i'). You can use the following variables: %{accessible} |                   |             |
+| WARNINGREAD        | Thresholds                                                                                                                     |                                                            |             |
+| CRITICALREAD       | Thresholds                                                                                                                     |                                                            |             |
+| WARNINGREADTOTAL   | Thresholds                                                                                                                     |                                                            |             |
+| CRITICALREADTOTAL  | Thresholds                                                                                                                     |                                                            |             |
+| WARNINGREADVM      | Thresholds                                                                                                                     |                                                            |             |
+| CRITICALREADVM     | Thresholds                                                                                                                     |                                                            |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{accessible}                |                                                            |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{accessible}               |                                                            |             |
+| WARNINGWRITE       | Thresholds                                                                                                                     |                                                            |             |
+| CRITICALWRITE      | Thresholds                                                                                                                     |                                                            |             |
+| WARNINGWRITETOTAL  | Thresholds                                                                                                                     |                                                            |             |
+| CRITICALWRITETOTAL | Thresholds                                                                                                                     |                                                            |             |
+| WARNINGWRITEVM     | Thresholds                                                                                                                     |                                                            |             |
+| CRITICALWRITEVM    | Thresholds                                                                                                                     |                                                            |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --verbose                                                  |             |
 
 </TabItem>
 <TabItem value="Datastore-Snapshots-Global" label="Datastore-Snapshots-Global">
 
-| Macro            | Description                                                                                                                                                | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER           | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                   | .*                |             |
+| Macro            | Description                                                                                                                    | Default value     | Mandatory   |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER           | The connector will only take into account alerts coming from the datastores listed here                                        | .*                |             |
 | UNKNOWNSTATUS    | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
-| WARNINGSNAPSHOT  | Warning threshold                                                                                                                                          |                   |             |
-| CRITICALSNAPSHOT | Critical threshold                                                                                                                                         |                   |             |
-| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{accessible}                              |                   |             |
-| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{accessible}                             |                   |             |
-| WARNINGTOTAL     | Warning threshold                                                                                                                                          |                   |             |
-| CRITICALTOTAL    | Critical threshold                                                                                                                                         |                   |             |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                        | --verbose         |             |
+| WARNINGSNAPSHOT  | Warning threshold                                                                                                              |                   |             |
+| CRITICALSNAPSHOT | Critical threshold                                                                                                             |                   |             |
+| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{accessible}                |                   |             |
+| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{accessible}               |                   |             |
+| WARNINGTOTAL     | Warning threshold                                                                                                              |                   |             |
+| CRITICALTOTAL    | Critical threshold                                                                                                             |                   |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Datastore-Usage-Global" label="Datastore-Usage-Global">
 
-| Macro               | Description                                                                                                                                                | Default value     | Mandatory   |
-|:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER              | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                     | .*                |             |
-| UNIT                |                                                                                                                                                            | %                 |             |
+| Macro               | Description                                                                                                                    | Default value     | Mandatory   |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER              | The connector will only take into account alerts coming from the datastores listed here                                        | .*                |             |
+| UNIT                | Set this option to '%' if you want the thresholds to be interpreted as a percentage of the maximum possible value instead of as an absolute threshold.  | %                 |             |
 | UNKNOWNSTATUS       | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
-| WARNINGPROVISIONED  | Thresholds. : 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'provisioned'                                                                               |                   |             |
-| CRITICALPROVISIONED | Thresholds. : 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'provisioned'                                                                               |                   |             |
-| WARNINGSTATUS       | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{accessible}                              |                   |             |
-| CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{accessible}                             |                   |             |
-| WARNINGUSAGE        | Thresholds. : 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'provisioned'                                                                               | 80                |             |
-| CRITICALUSAGE       | Thresholds. : 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'provisioned'                                                                               | 90                |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                        | --verbose         |             |
+| WARNINGPROVISIONED  | Thresholds. : 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'provisioned'                                                   |                   |             |
+| CRITICALPROVISIONED | Thresholds. : 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'provisioned'                                                   |                   |             |
+| WARNINGSTATUS       | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{accessible}  |                   |             |
+| CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{accessible} |                   |             |
+| WARNINGUSAGE        | Thresholds. : 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'provisioned'                                                   | 80                |             |
+| CRITICALUSAGE       | Thresholds. : 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'provisioned'                                                   | 90                |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Datastore-Vm-Count-Global" label="Datastore-Vm-Count-Global">
 
-| Macro                  | Description                                                                                                                                                | Default value     | Mandatory   |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER                 | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                   | .*                |             |
-| UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
-| WARNINGOFF             | Warning threshold                                                                                                                                          |                   |             |
-| CRITICALOFF            | Critical threshold                                                                                                                                         |                   |             |
-| WARNINGON              | Warning threshold                                                                                                                                          |                   |             |
-| CRITICALON             | Critical threshold                                                                                                                                         |                   |             |
-| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{accessible}                              |                   |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{accessible}                             |                   |             |
-| WARNINGSUSPENDED       | Warning threshold                                                                                                                                          |                   |             |
-| CRITICALSUSPENDED      | Critical threshold                                                                                                                                         |                   |             |
-| WARNINGTOTALOFF        | Warning threshold                                                                                                                                          |                   |             |
-| CRITICALTOTALOFF       | Critical threshold                                                                                                                                         |                   |             |
-| WARNINGTOTALON         | Warning threshold                                                                                                                                          |                   |             |
-| CRITICALTOTALON        | Critical threshold                                                                                                                                         |                   |             |
-| WARNINGTOTALSUSPENDED  | Warning threshold                                                                                                                                          |                   |             |
-| CRITICALTOTALSUSPENDED | Critical threshold                                                                                                                                         |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                        | --verbose         |             |
+| Macro                  | Description                                                                                                                    | Default value     | Mandatory   |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER                 | The connector will only take into account alerts coming from the datastores listed here                                        | .*                |             |
+| UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\ |1$/i'). You can use the following variables: %{accessible} |                   |             |
+| WARNINGOFF             | Warning threshold                                                                                                              |                   |             |
+| CRITICALOFF            | Critical threshold                                                                                                             |                   |             |
+| WARNINGON              | Warning threshold                                                                                                              |                   |             |
+| CRITICALON             | Critical threshold                                                                                                             |                   |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{accessible}  |                   |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{accessible} |                   |             |
+| WARNINGSUSPENDED       | Warning threshold                                                                                                              |                   |             |
+| CRITICALSUSPENDED      | Critical threshold                                                                                                             |                   |             |
+| WARNINGTOTALOFF        | Warning threshold                                                                                                              |                   |             |
+| CRITICALTOTALOFF       | Critical threshold                                                                                                             |                   |             |
+| WARNINGTOTALON         | Warning threshold                                                                                                              |                   |             |
+| CRITICALTOTALON        | Critical threshold                                                                                                             |                   |             |
+| WARNINGTOTALSUSPENDED  | Warning threshold                                                                                                              |                   |             |
+| CRITICALTOTALSUSPENDED | Critical threshold                                                                                                             |                   |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
 <TabItem value="ESX-Alarms-Global" label="ESX-Alarms-Global">
 
-| Macro                      | Description                                                                                                                                                                 | Default value               | Mandatory   |
-|:---------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
-| FILTER                     | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                                         | .*                          |             |
-| FILTERTIME                 | The connector will ignore any alert older than the time period specified here (in seconds).                                                                                                                                 | 3600                        |             |
-| WARNINGSTATUS              | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /yellow/i). You can use the following variables: %{status}, %{name}, %{entity}, %{type} | %{status} =~ /yellow/i      |             |
-| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /red/i'). You can use the following variables: %{status}, %{name}, %{entity}, %{type}  | %{status} =~ /red/i         |             |
-| WARNINGTOTALALARMWARNING   | Warning threshold                                                                                                                                                           |                             |             |
-| CRITICALTOTALALARMWARNING  | Critical threshold                                                                                                                                                          |                             |             |
-| WARNINGTOTALALARMCRITICAL  | Warning threshold                                                                                                                                                           |                             |             |
-| CRITICALTOTALALARMCRITICAL | Critical threshold                                                                                                                                                          |                             |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                         | --verbose --ignore-warn-msg |             |
+| Macro                      | Description                                                                                                                                | Default value               | Mandatory   |
+|:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
+| FILTER                     | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                              | .*                          |             |
+| FILTERTIME                 | The connector will ignore any alert older than the time period specified here (in seconds).                                                | 3600                        |             |
+| WARNINGSTATUS              | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}, %{entity}, %{type}   | %{status} =~ /yellow/i      |             |
+| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}, %{entity}, %{type}  | %{status} =~ /red/i         |             |
+| WARNINGTOTALALARMWARNING   | Warning threshold                                                                                                                          |                             |             |
+| CRITICALTOTALALARMWARNING  | Critical threshold                                                                                                                         |                             |             |
+| WARNINGTOTALALARMCRITICAL  | Warning threshold                                                                                                                          |                             |             |
+| CRITICALTOTALALARMCRITICAL | Critical threshold                                                                                                                         |                             |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)             | --verbose --ignore-warn-msg |             |
 
 </TabItem>
 <TabItem value="Esx-Cpu-Global" label="Esx-Cpu-Global">
 
 | Macro               | Description                                                                                                                                          | Default value     | Mandatory   |
 |:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER              | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                |             |
+| FILTER              | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                        | .*                |             |
 | UNKNOWNSTATUS       | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
 | WARNING             | Warning threshold                                                                                                                                    |                   |             |
 | CRITICAL            | Critical threshold                                                                                                                                   |                   |             |
 | WARNINGCPU          | Warning threshold                                                                                                                                    |                   |             |
 | CRITICALCPU         | Critical threshold                                                                                                                                   |                   |             |
-| WARNINGSTATUS       | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                            |                   |             |
-| CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                           |                   |             |
+| WARNINGSTATUS       | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                          |                   |             |
+| CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                         |                   |             |
 | WARNINGTOTALCPUMHZ  | Warning threshold                                                                                                                                    |                   |             |
 | CRITICALTOTALCPUMHZ | Critical threshold                                                                                                                                   |                   |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                  | --verbose         |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                       | --verbose         |             |
 
 </TabItem>
 <TabItem value="Esx-Datastores-Latency-Global" label="Esx-Datastores-Latency-Global">
 
 | Macro                | Description                                                                                                                                          | Default value     | Mandatory   |
 |:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERESXNAME        | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                |             |
+| FILTERESXNAME        | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                        | .*                |             |
 | FILTERDATASTORENAME  | Datastore to check. If not set, we check all datastores                                                                                              | .*                |             |
 | UNKNOWNSTATUS        | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
 | WARNINGREADLATENCY   | Warning threshold                                                                                                                                    |                   |             |
 | CRITICALREADLATENCY  | Critical threshold                                                                                                                                   |                   |             |
-| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                            |                   |             |
-| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                           |                   |             |
+| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                          |                   |             |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                         |                   |             |
 | WARNINGWRITELATENCY  | Warning threshold                                                                                                                                    |                   |             |
 | CRITICALWRITELATENCY | Critical threshold                                                                                                                                   |                   |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                  | --verbose         |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                       | --verbose         |             |
 
 </TabItem>
 <TabItem value="Esx-Health-Global" label="Esx-Health-Global">
 
-| Macro                  | Description                                                                                                                                          | Default value               | Mandatory   |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
-| FILTER                 | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                          |             |
-| UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} | %{status} !~ /^connected$/i |             |
-| WARNINGPROBLEMS        | Thresholds                                                                                                                                           |                             |             |
-| CRITICALPROBLEMS       | Thresholds                                                                                                                                           |                             |             |
-| WARNINGPROBLEMSRED     | Thresholds                                                                                                                                           |                             |             |
-| CRITICALPROBLEMSRED    | Thresholds                                                                                                                                           |                             |             |
-| WARNINGPROBLEMSYELLOW  | Thresholds                                                                                                                                           |                             |             |
-| CRITICALPROBLEMSYELLOW | Thresholds                                                                                                                                           |                             |             |
-| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                            |                             |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                           |                             |             |
-| WARNINGTOTALPROBLEMS   | Thresholds                                                                                                                                           |                             |             |
-| CRITICALTOTALPROBLEMS  | Thresholds                                                                                                                                           |                             |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                  | --verbose                   |             |
+| Macro                  | Description                                                                                                                    | Default value               | Mandatory   |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
+| FILTER                 | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                  | .*                          |             |
+| UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}                    | %{status} !~ /^connected$/i |             |
+| WARNINGPROBLEMS        | Thresholds                                                                                                                     |                             |             |
+| CRITICALPROBLEMS       | Thresholds                                                                                                                     |                             |             |
+| WARNINGPROBLEMSRED     | Thresholds                                                                                                                     |                             |             |
+| CRITICALPROBLEMSRED    | Thresholds                                                                                                                     |                             |             |
+| WARNINGPROBLEMSYELLOW  | Thresholds                                                                                                                     |                             |             |
+| CRITICALPROBLEMSYELLOW | Thresholds                                                                                                                     |                             |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                    |                             |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                   |                             |             |
+| WARNINGTOTALPROBLEMS   | Thresholds                                                                                                                     |                             |             |
+| CRITICALTOTALPROBLEMS  | Thresholds                                                                                                                     |                             |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --verbose                   |             |
 
 </TabItem>
 <TabItem value="Esx-Memory-Global" label="Esx-Memory-Global">
 
 | Macro                  | Description                                                                                                                                          | Default value     | Mandatory   |
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER                 | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                |             |
+| FILTER                 | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                        | .*                |             |
 | UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
 | WARNING                | Warning threshold (can use unit option)                                                                                                              |                   |             |
 | CRITICAL               | Critical threshold (can use unit option)                                                                                                             |                   |             |
-| WARNINGOVERHEADMEMORY  | Overhead threshold                                                                                                                                  |                   |             |
+| WARNINGOVERHEADMEMORY  | Overhead threshold                                                                                                                                   |                   |             |
 | CRITICALOVERHEADMEMORY | Critical threshold                                                                                                                                   |                   |             |
 | WARNINGSTATEMEMORY     | Warning threshold. For state != 'high': --warning-state=0                                                                                            |                   |             |
 | CRITICALSTATEMEMORY    | Critical threshold. For state != 'high': --warning-state=0                                                                                           |                   |             |
 | WARNINGSTATUS          | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                            |                   |             |
 | CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                           |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                  | --verbose         |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                       | --verbose         |             |
 
 </TabItem>
 <TabItem value="Esx-Service-Global" label="Esx-Service-Global">
 
-| Macro                 | Description                                                                                                                                                                                   | Default value                                 | Mandatory   |
-|:----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| FILTER                | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                                                           | .*                                            |             |
-| FILTERSERVICES        | Filter services you want to check (can be a regexp)                                                                                                                                           | ^(?!(snmpd\|xorg)$)                           |             |
-| UNKNOWNSTATUS         | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i && %{maintenance} =~ /false/i'). You can use the following variables: %{status}            |                                               |             |
-| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{policy} =~ /^on\|automatic/i && !%{running}'). You can use the following variables: %{running}, %{label}, %{policy} | %{policy} =~ /^on\|automatic/i && !%{running} |             |
-| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{running}, %{label}, %{policy}                                               |                                               |             |
-| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                                                                     |                                               |             |
-| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                                                                    |                                               |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                           | --verbose                                     |             |
+| Macro                 | Description                                                                                                                                                                        | Default value                                 | Mandatory   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
+| FILTER                | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                                      | .*                                            |             |
+| FILTERSERVICES        | Filter services you want to check (can be a regexp)                                                                                                                                | ^(?!(snmpd\|xorg)$)                           |             |
+| UNKNOWNSTATUS         | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i && %{maintenance} =~ /false/i'). You can use the following variables: %{status} |                                               |             |
+| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{running}, %{label}, %{policy}                                                 | %{policy} =~ /^on\|automatic/i && !%{running} |             |
+| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{running}, %{label}, %{policy}                                                  |                                               |             |
+| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                                                        |                                               |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                                                       |                                               |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                     | --verbose                                     |             |
 
 </TabItem>
 <TabItem value="Esx-Status-Global" label="Esx-Status-Global">
 
-| Macro                 | Description                                                                                                                                                       | Default value                   | Mandatory   |
-|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
-| FILTER                | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                               | .*                              |             |
-| UNKNOWNOVERALLSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%{overall\_status} =~ /gray/i'). You can use the following variables: %{overall\_status}   | %{overall\_status} =~ /gray/i   |             |
-| UNKNOWNSTATUS         | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status}              |                                 |             |
-| WARNINGOVERALLSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%{overall\_status} =~ /yellow/i'). You can use the following variables: %{overall\_status} | %{overall\_status} =~ /yellow/i |             |
-| CRITICALOVERALLSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{overall\_status} =~ /red/i'). You can use the following variables: %{overall\_status}   | %{overall\_status} =~ /red/i    |             |
-| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                                         |                                 |             |
-| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                                        |                                 |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                               | --verbose                       |             |
+| Macro                 | Description                                                                                                                                          | Default value                   | Mandatory   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
+| FILTER                | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                        | .*                              |             |
+| UNKNOWNOVERALLSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{overall\_status}                                 | %{overall\_status} =~ /gray/i   |             |
+| UNKNOWNSTATUS         | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                                 |             |
+| WARNINGOVERALLSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{overall\_status}                                 | %{overall\_status} =~ /yellow/i |             |
+| CRITICALOVERALLSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{overall\_status}                                | %{overall\_status} =~ /red/i    |             |
+| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                          |                                 |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                         |                                 |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                       | --verbose                       |             |
 
 </TabItem>
 <TabItem value="Esx-Storage-Global" label="Esx-Storage-Global">
 
 | Macro                   | Description                                                                                                                                                                                        | Default value                           | Mandatory   |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|:-----------:|
-| FILTER                  | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                                                                | .*                                      |             |
+| FILTER                  | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                                                      | .*                                      |             |
 | FILTERADAPTERNAME       | Filter adapters by name (can be a regexp)                                                                                                                                                          |                                         |             |
 | FILTERLUNNAME           | Filter luns by name (can be a regexp)                                                                                                                                                              |                                         |             |
 | FILTERPATHNAME          | Filter paths by name (can be a regexp)                                                                                                                                                             |                                         |             |
@@ -1053,80 +1064,80 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | CRITICALADAPTERSOFFLINE | Thresholds                                                                                                                                                                                         |                                         |             |
 | WARNINGADAPTERSONLINE   | Thresholds                                                                                                                                                                                         |                                         |             |
 | CRITICALADAPTERSONLINE  | Thresholds                                                                                                                                                                                         |                                         |             |
-| CRITICALADAPTERSTATUS   | Set critical threshold for adapter status (Default: '%{status} =~ /fault/'). You can use the following variables: %{name}, %{host}, %{status}                                                      | %{status} =~ /fault/                    |             |
+| CRITICALADAPTERSTATUS   | Set critical threshold for adapter status. You can use the following variables: %{name}, %{host}, %{status}                                                                                        | %{status} =~ /fault/                    |             |
 | WARNINGADAPTERSTATUS    | Set warning threshold for adapter status. You can use the following variables: %{name}, %{host}, %{status}                                                                                         |                                         |             |
 | WARNINGADAPTERSTOTAL    | Thresholds                                                                                                                                                                                         |                                         |             |
 | CRITICALADAPTERSTOTAL   | Thresholds                                                                                                                                                                                         |                                         |             |
 | WARNINGADAPTERSUNKNOWN  | Thresholds                                                                                                                                                                                         |                                         |             |
 | CRITICALADAPTERSUNKNOWN | Thresholds                                                                                                                                                                                         |                                         |             |
-| WARNINGLUNSDEGRADED     | Set warning threshold for the count of LUNs in a degraded state.                                                                                                                                                                                                   |                                         |             |
-| CRITICALLUNSDEGRADED    | Set critical threshold for the count of LUNs in a degraded state.                                                                                                                                                                                                   |                                         |             |
-| WARNINGLUNSERROR        | Set warning threshold for the count of LUNs in an error state.                                                                                                                                                                                                   |                                         |             |
-| CRITICALLUNSERROR       | Set critical threshold for the count of LUNs in an error state.                                                                                                                                                                                                   |                                         |             |
-| WARNINGLUNSOFF          | Set warning threshold for the count of LUNs that are offline.                                                                                                                                                                                                   |                                         |             |
-| CRITICALLUNSOFF         | Set critical threshold for the count of LUNs that are offline.                                                                                                                                                                                                   |                                         |             |
-| WARNINGLUNSOK           | Set warning threshold for the count of LUNs that are operational.                                                                                                                                                                                                   |                                         |             |
-| CRITICALLUNSOK          | Set critical threshold for the count of LUNs that are operational.                                                                                                                                                                                                   |                                         |             |
-| WARNINGLUNSQUIESCED     | Set warning threshold for the count of LUNs that are in a quiesced state.                                                                                                                                                                                                   |                                         |             |
-| CRITICALLUNSQUIESCED    | Set critical threshold for the count of LUNs that are in a quiesced state.                                                                                                                                                                                                   |                                         |             |
-| WARNINGLUNSTATUS        | Set warning threshold for lun status (Default: '%{status} =~ /degraded\|quiesced/'). You can use the following variables: %{name}, %{host}, %{status}                                              | %{status} =~ /degraded\|quiesced/       |             |
-| CRITICALLUNSTATUS       | Set critical threshold for lun status (Default: '%{status} =~ /lostcommunication\|error/'). You can use the following variables: %{name}, %{host}, %{status}                                       | %{status} =~ /lostcommunication\|error/ |             |
-| WARNINGLUNSTOTAL        |  Set warning threshold for the total count of LUNs.                                                                                                                                                                                                  |                                         |             |
-| CRITICALLUNSTOTAL       | Set critical threshold for the total count of LUNs.                                                                                                                                                                                                   |                                         |             |
-| WARNINGLUNSUNKNOWN      | Set warning threshold for the count of LUNs with an unknown status.                                                                                                                                                                                                   |                                         |             |
-| CRITICALLUNSUNKNOWN     | Set critical threshold for the count of LUNs with an unknown status.                                                                                                                                                                                                   |                                         |             |
-| WARNINGPATHSACTIVE      | Set warning threshold for the count of active storage paths.                                                                                                                                                                                                   |                                         |             |
-| CRITICALPATHSACTIVE     | Set critical threshold for the count of active storage paths.                                                                                                                                                                                                   |                                         |             |
-| WARNINGPATHSDEAD        | Set warning threshold for the count of dead storage paths.                                                                                                                                                                                                   |                                         |             |
-| CRITICALPATHSDEAD       | Set critical threshold for the count of dead storage paths.                                                                                                                                                                                                   |                                         |             |
-| WARNINGPATHSDISABLED    | Set warning threshold for the count of disabled storage paths.                                                                                                                                                                                                   |                                         |             |
-| CRITICALPATHSDISABLED   | Set critical threshold for the count of disabled storage paths.                                                                                                                                                                                                   |                                         |             |
-| WARNINGPATHSSTANDBY     | Set warning threshold for the count of storage paths in standby mode.                                                                                                                                                                                                   |                                         |             |
-| CRITICALPATHSSTANDBY    | Set critical threshold for the count of storage paths in standby mode.                                                                                                                                                                                                   |                                         |             |
-| CRITICALPATHSTATUS      | Set critical threshold for path status (Default: '%{status} =~ /dead/'). You can use the following variables: %{name}, %{host}, %{status}                                                          | %{status} =~ /dead/                     |             |
+| WARNINGLUNSDEGRADED     | Set warning threshold for the count of LUNs in a degraded state.                                                                                                                                   |                                         |             |
+| CRITICALLUNSDEGRADED    | Set critical threshold for the count of LUNs in a degraded state.                                                                                                                                  |                                         |             |
+| WARNINGLUNSERROR        | Set warning threshold for the count of LUNs in an error state.                                                                                                                                     |                                         |             |
+| CRITICALLUNSERROR       | Set critical threshold for the count of LUNs in an error state.                                                                                                                                    |                                         |             |
+| WARNINGLUNSOFF          | Set warning threshold for the count of LUNs that are offline.                                                                                                                                      |                                         |             |
+| CRITICALLUNSOFF         | Set critical threshold for the count of LUNs that are offline.                                                                                                                                     |                                         |             |
+| WARNINGLUNSOK           | Set warning threshold for the count of LUNs that are operational.                                                                                                                                  |                                         |             |
+| CRITICALLUNSOK          | Set critical threshold for the count of LUNs that are operational.                                                                                                                                 |                                         |             |
+| WARNINGLUNSQUIESCED     | Set warning threshold for the count of LUNs that are in a quiesced state.                                                                                                                          |                                         |             |
+| CRITICALLUNSQUIESCED    | Set critical threshold for the count of LUNs that are in a quiesced state.                                                                                                                         |                                         |             |
+| WARNINGLUNSTATUS        | Set warning threshold for lun status. You can use the following variables: %{name}, %{host}, %{status}                                                                                             | %{status} =~ /degraded\|quiesced/       |             |
+| CRITICALLUNSTATUS       | Set critical threshold for lun status. You can use the following variables: %{name}, %{host}, %{status}                                                                                            | %{status} =~ /lostcommunication\|error/ |             |
+| WARNINGLUNSTOTAL        | Set warning threshold for the total count of LUNs.                                                                                                                                                 |                                         |             |
+| CRITICALLUNSTOTAL       | Set critical threshold for the total count of LUNs.                                                                                                                                                |                                         |             |
+| WARNINGLUNSUNKNOWN      | Set warning threshold for the count of LUNs with an unknown status.                                                                                                                                |                                         |             |
+| CRITICALLUNSUNKNOWN     | Set critical threshold for the count of LUNs with an unknown status.                                                                                                                               |                                         |             |
+| WARNINGPATHSACTIVE      | Set warning threshold for the count of active storage paths.                                                                                                                                       |                                         |             |
+| CRITICALPATHSACTIVE     | Set critical threshold for the count of active storage paths.                                                                                                                                      |                                         |             |
+| WARNINGPATHSDEAD        | Set warning threshold for the count of dead storage paths.                                                                                                                                         |                                         |             |
+| CRITICALPATHSDEAD       | Set critical threshold for the count of dead storage paths.                                                                                                                                        |                                         |             |
+| WARNINGPATHSDISABLED    | Set warning threshold for the count of disabled storage paths.                                                                                                                                     |                                         |             |
+| CRITICALPATHSDISABLED   | Set critical threshold for the count of disabled storage paths.                                                                                                                                    |                                         |             |
+| WARNINGPATHSSTANDBY     | Set warning threshold for the count of storage paths in standby mode.                                                                                                                              |                                         |             |
+| CRITICALPATHSSTANDBY    | Set critical threshold for the count of storage paths in standby mode.                                                                                                                             |                                         |             |
+| CRITICALPATHSTATUS      | Set critical threshold for path status. You can use the following variables: %{name}, %{host}, %{status}                                                                                           | %{status} =~ /dead/                     |             |
 | WARNINGPATHSTATUS       | Set warning threshold for path status. You can use the following variables: %{name}, %{host}, %{status}                                                                                            |                                         |             |
-| WARNINGPATHSTOTAL       | Set warning threshold for the total count of storage paths.                                                                                                                                                                                                   |                                         |             |
-| CRITICALPATHSTOTAL      | Set critical threshold for the total count of storage paths.                                                                                                                                                                                                   |                                         |             |
-| WARNINGPATHSUNKNOWN     | Set warning threshold for the count of storage paths with an unknown status.                                                                                                                                                                                                   |                                         |             |
-| CRITICALPATHSUNKNOWN    | Set critical threshold for the count of storage paths with an unknown status.                                                                                                                                                                                                   |                                         |             |
+| WARNINGPATHSTOTAL       | Set warning threshold for the total count of storage paths.                                                                                                                                        |                                         |             |
+| CRITICALPATHSTOTAL      | Set critical threshold for the total count of storage paths.                                                                                                                                       |                                         |             |
+| WARNINGPATHSUNKNOWN     | Set warning threshold for the count of storage paths with an unknown status.                                                                                                                       |                                         |             |
+| CRITICALPATHSUNKNOWN    | Set critical threshold for the count of storage paths with an unknown status.                                                                                                                      |                                         |             |
 | WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{maintenance}                                                                        |                                         |             |
 | CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{maintenance}                                                                       |                                         |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                | --verbose                               |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                     | --verbose                               |             |
 
 </TabItem>
 <TabItem value="Esx-Swap-Global" label="Esx-Swap-Global">
 
 | Macro           | Description                                                                                                                                          | Default value     | Mandatory   |
 |:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER          | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                |             |
+| FILTER          | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                        | .*                |             |
 | UNKNOWNSTATUS   | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                            |                   |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                           |                   |             |
+| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                          |                   |             |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                         |                   |             |
 | WARNINGSWAPIN   | Warning threshold                                                                                                                                    |                   |             |
 | CRITICALSWAPIN  | Critical threshold                                                                                                                                   |                   |             |
 | WARNINGSWAPOUT  | Warning threshold                                                                                                                                    |                   |             |
 | CRITICALSWAPOUT | Critical threshold                                                                                                                                   |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                  | --verbose         |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                       | --verbose         |             |
 
 </TabItem>
 <TabItem value="Esx-Time-Global" label="Esx-Time-Global">
 
 | Macro          | Description                                                                                                                                          | Default value     | Mandatory   |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                |             |
+| FILTER         | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                        | .*                |             |
 | UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                            |                   |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                           |                   |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                          |                   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                         |                   |             |
 | WARNINGTIME    | Warning threshold in seconds                                                                                                                         | -2:2              |             |
 | CRITICALTIME   | Critical threshold in seconds                                                                                                                        | -5:5              |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                  | --verbose         |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                       | --verbose         |             |
 
 </TabItem>
 <TabItem value="Esx-Traffic-Global" label="Esx-Traffic-Global">
 
 | Macro                  | Description                                                                                                                                                         | Default value     | Mandatory   |
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERESXNAME          | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                                 | .*                |             |
+| FILTERESXNAME          | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                       | .*                |             |
 | FILTERNICNAME          | ESX nic to check. If not set, we check all nics                                                                                                                     | .*                |             |
 | UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status}                |                   |             |
 | UNKNOWNLINKSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{link\_status}, %{display}                                       |                   |             |
@@ -1144,36 +1155,36 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | CRITICALLINKSTATUS     | Define the conditions to match for the status to be CRITICAL (Default: '%{link\_status} !~ /up/'). You can use the following variables: %{link\_status}, %{display} |                   |             |
 | WARNINGOUT             | Thresholds                                                                                                                                                          | 80                |             |
 | CRITICALOUT            | Thresholds                                                                                                                                                          | 90                |             |
-| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                                           |                   |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                                          |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                 | --verbose         |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                                         |                   |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                                        |                   |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                      | --verbose         |             |
 
 </TabItem>
 <TabItem value="Esx-Uptime-Global" label="Esx-Uptime-Global">
 
 | Macro          | Description                                                                                                                                          | Default value     | Mandatory   |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                |             |
+| FILTER         | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                        | .*                |             |
 | UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                            |                   |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                           |                   |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                          |                   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                         |                   |             |
 | WARNINGTIME    | Warning threshold in seconds                                                                                                                         |                   |             |
 | CRITICALTIME   | Critical threshold in seconds                                                                                                                        |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                  | --verbose         |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                       | --verbose         |             |
 
 </TabItem>
 <TabItem value="Esx-Vm-Count-Global" label="Esx-Vm-Count-Global">
 
 | Macro                  | Description                                                                                                                                          | Default value     | Mandatory   |
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER                 | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                |             |
+| FILTER                 | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                        | .*                |             |
 | UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
 | WARNINGOFF             | Warning threshold                                                                                                                                    |                   |             |
 | CRITICALOFF            | Critical threshold                                                                                                                                   |                   |             |
 | WARNINGON              | Warning threshold                                                                                                                                    |                   |             |
 | CRITICALON             | Critical threshold                                                                                                                                   |                   |             |
-| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                            |                   |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                           |                   |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                          |                   |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                         |                   |             |
 | WARNINGSUSPENDED       | Warning threshold                                                                                                                                    |                   |             |
 | CRITICALSUSPENDED      | Critical threshold                                                                                                                                   |                   |             |
 | WARNINGTOTALOFF        | Warning threshold                                                                                                                                    |                   |             |
@@ -1182,117 +1193,117 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | CRITICALTOTALON        | Critical threshold                                                                                                                                   |                   |             |
 | WARNINGTOTALSUSPENDED  | Warning threshold                                                                                                                                    |                   |             |
 | CRITICALTOTALSUSPENDED | Critical threshold                                                                                                                                   |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                  | --verbose         |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                       | --verbose         |             |
 
 </TabItem>
 <TabItem value="Esx-is-Maintenance-Global" label="Esx-is-Maintenance-Global">
 
-| Macro                     | Description                                                                                                                                              | Default value             | Mandatory   |
-|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
-| FILTER                    | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                      | .*                        |             |
-| UNKNOWNSTATUS             | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status}     |                           |             |
-| CRITICALMAINTENANCESTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{maintenance} !~ /false/'). You can use the following variables: %{maintenance} | %{maintenance} !~ /false/ |             |
-| WARNINGMAINTENANCESTATUS  | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{maintenance}                           |                           |             |
-| WARNINGSTATUS             | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                                |                           |             |
-| CRITICALSTATUS            | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                               |                           |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                      | --verbose                 |             |
+| Macro                     | Description                                                                                                                                          | Default value             | Mandatory   |
+|:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
+| FILTER                    | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                        | .*                        |             |
+| UNKNOWNSTATUS             | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                           |             |
+| CRITICALMAINTENANCESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{maintenance}                                    | %{maintenance} !~ /false/ |             |
+| WARNINGMAINTENANCESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{maintenance}                                     |                           |             |
+| WARNINGSTATUS             | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                          |                           |             |
+| CRITICALSTATUS            | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                         |                           |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                       | --verbose                 |             |
 
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
 
-| Macro                 | Description                                                                                                                                | Default value     | Mandatory   |
-|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| UNIT                  | Select the unit for performance data and thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is days | d                 | X           |
-| FILTERNAME            | Filter licenses by name (can be a regexp)                                                                                                  |                   |             |
-| FILTEREDITION         | Filter licenses by edition name (can be a regexp)                                                                                          |                   |             |
-| WARNINGEXPIRES        | Thresholds                                                                                                                                 |                   |             |
-| CRITICALEXPIRES       | Thresholds                                                                                                                                 |                   |             |
-| WARNINGTOTALLICENSES  | Thresholds                                                                                                                                 |                   |             |
-| CRITICALTOTALLICENSES | Thresholds                                                                                                                                 |                   |             |
-| WARNINGUSAGE          | Thresholds                                                                                                                                 |                   |             |
-| CRITICALUSAGE         | Thresholds                                                                                                                                 |                   |             |
-| WARNINGUSAGEFREE      | Thresholds                                                                                                                                 |                   |             |
-| CRITICALUSAGEFREE     | Thresholds                                                                                                                                 |                   |             |
-| WARNINGUSAGEPRCT      | Thresholds                                                                                                                                 |                   |             |
-| CRITICALUSAGEPRCT     | Thresholds                                                                                                                                 |                   |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                        | --verbose         |             |
+| Macro                 | Description                                                                                                                              | Default value     | Mandatory   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| UNIT                  | Select the unit for performance data and thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. | d                 | X           |
+| FILTERNAME            | Filter licenses by name (can be a regexp)                                                                                                |                   |             |
+| FILTEREDITION         | Filter licenses by edition name (can be a regexp)                                                                                        |                   |             |
+| WARNINGEXPIRES        | Thresholds                                                                                                                               |                   |             |
+| CRITICALEXPIRES       | Thresholds                                                                                                                               |                   |             |
+| WARNINGTOTALLICENSES  | Thresholds                                                                                                                               |                   |             |
+| CRITICALTOTALLICENSES | Thresholds                                                                                                                               |                   |             |
+| WARNINGUSAGE          | Thresholds                                                                                                                               |                   |             |
+| CRITICALUSAGE         | Thresholds                                                                                                                               |                   |             |
+| WARNINGUSAGEFREE      | Thresholds                                                                                                                               |                   |             |
+| CRITICALUSAGEFREE     | Thresholds                                                                                                                               |                   |             |
+| WARNINGUSAGEPRCT      | Thresholds                                                                                                                               |                   |             |
+| CRITICALUSAGEPRCT     | Thresholds                                                                                                                               |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)           | --verbose         |             |
 
 </TabItem>
 <TabItem value="Vm-Cpu-Global" label="Vm-Cpu-Global">
 
 | Macro            | Description                                                                                                                                                                                                                      | Default value     | Mandatory   |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER           | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                                                               | .*                |             |
+| FILTER           | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                                                    | .*                |             |
 | VMUUID           |                                                                                                                                                                                                                                  |                   |             |
 | UNKNOWNSTATUS    | Define the conditions to match for the status to be UNKNOWN (Default: '%{connection\_state} !~ /^connected$/i or %{power\_state} !~ /^poweredOn$/i'). You can use the following variables: %{connection\_state}, %{power\_state} |                   |             |
 | WARNINGCPU       | Warning threshold                                                                                                                                                                                                                |                   |             |
 | CRITICALCPU      | Critical threshold                                                                                                                                                                                                               |                   |             |
 | WARNINGREADY     | Warning threshold                                                                                                                                                                                                                | 5                 |             |
 | CRITICALREADY    | Critical threshold                                                                                                                                                                                                               | 10                |             |
-| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{connection\_state}, %{power\_state}                                                                            |                   |             |
-| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{connection\_state}, %{power\_state}                                                                           |                   |             |
+| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_state}, %{power\_state}                                                                                          |                   |             |
+| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{connection\_state}, %{power\_state}                                                                                         |                   |             |
 | WARNINGUSAGE     | Warning threshold                                                                                                                                                                                                                | 80                |             |
 | CRITICALUSAGE    | Critical threshold                                                                                                                                                                                                               | 90                |             |
 | WARNINGUSAGEMHZ  | Warning threshold                                                                                                                                                                                                                |                   |             |
 | CRITICALUSAGEMHZ | Critical threshold                                                                                                                                                                                                               |                   |             |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                              | --verbose         |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                   | --verbose         |             |
 
 </TabItem>
 <TabItem value="Vm-Datastores-Iops-Global" label="Vm-Datastores-Iops-Global">
 
 | Macro                   | Description                                                                                                                                                                                                                      | Default value     | Mandatory   |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER                  | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                                                               | .*                |             |
+| FILTER                  | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                                                    | .*                |             |
 | FILTERDATASTORENAME     | Datastore to check. If not set, we check all datastores                                                                                                                                                                          | .*                |             |
-| VMUUID                  |                                                                                                                                                                                                                                  |                   |             |
+| VMUUID                  | Filter by UUID                                                                                                                                                                                                                   |                   |             |
 | UNKNOWNSTATUS           | Define the conditions to match for the status to be UNKNOWN (Default: '%{connection\_state} !~ /^connected$/i or %{power\_state} !~ /^poweredOn$/i'). You can use the following variables: %{connection\_state}, %{power\_state} |                   |             |
 | WARNINGMAXTOTALLATENCY  | Thresholds                                                                                                                                                                                                                       |                   |             |
 | CRITICALMAXTOTALLATENCY | Thresholds                                                                                                                                                                                                                       |                   |             |
 | WARNINGREAD             | Thresholds                                                                                                                                                                                                                       |                   |             |
 | CRITICALREAD            | Thresholds                                                                                                                                                                                                                       |                   |             |
-| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{connection\_state}, %{power\_state}                                                                            |                   |             |
-| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{connection\_state}, %{power\_state}                                                                           |                   |             |
+| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_state}, %{power\_state}                                                                                          |                   |             |
+| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{connection\_state}, %{power\_state}                                                                                         |                   |             |
 | WARNINGWRITE            | Thresholds                                                                                                                                                                                                                       |                   |             |
 | CRITICALWRITE           | Thresholds                                                                                                                                                                                                                       |                   |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                              | --verbose         |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                   | --verbose         |             |
 
 </TabItem>
 <TabItem value="Vm-Device-Global" label="Vm-Device-Global">
 
 | Macro                        | Description                                                                                                                                                                | Default value     | Mandatory   |
 |:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER                       | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                         | .*                |             |
-| VMUUID                       |                                                                                                                                                                            |                   |             |
+| FILTER                       | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                              | .*                |             |
+| VMUUID                       | Filter by UUID                                                                                                                                                             |                   |             |
 | FILTERDEVICE                 | Device to check (Required) (Example: --device='VirtualCdrom')                                                                                                              |                   | X           |
 | UNKNOWNSTATUS                | Define the conditions to match for the status to be UNKNOWN (Default: '%{connection\_state} !~ /^connected$/i'). You can use the following variables: %{connection\_state} |                   |             |
-| WARNINGSTATUS                | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{connection\_state}                                       |                   |             |
-| CRITICALSTATUS               | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{connection\_state}                                      |                   |             |
+| WARNINGSTATUS                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_state}                                                     |                   |             |
+| CRITICALSTATUS               | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{connection\_state}                                                    |                   |             |
 | WARNINGTOTALDEVICECONNECTED  | Warning threshold                                                                                                                                                          |                   |             |
 | CRITICALTOTALDEVICECONNECTED | Critical threshold                                                                                                                                                         |                   |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                        | --verbose         |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                             | --verbose         |             |
 
 </TabItem>
 <TabItem value="Vm-Limit-Global" label="Vm-Limit-Global">
 
-| Macro                | Description                                                                                                                                                                                                                | Default value     | Mandatory   |
-|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER               | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                                                         | .*                |             |
-| VMUUID               |                                                                                                                                                                                                                            |                   |             |
-| CRITICALCPUSTATUS    | Define the conditions to match for the status to be CRITICAL (Default: '%{connection\_state} !~ /^connected$/i \|\| %{limit} != -1'). You can use the following variables: %{connection\_state}, %{power\_state}, %{limit} | %{limit} != -1    |             |
-| WARNINGCPUSTATUS     | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{connection\_state}, %{power\_state}, %{limit}                                                            |                   |             |
-| CRITICALDISKSTATUS   | Define the conditions to match for the status to be CRITICAL (Default: '%{connection\_state} !~ /^connected$/i \|\| %{limit} != -1'). You can use the following variables: %{connection\_state}, %{power\_state}, %{limit} | %{limit} != -1    |             |
-| WARNINGDISKSTATUS    | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{connection\_state}, %{power\_state}, %{limit}                                                            |                   |             |
-| CRITICALMEMORYSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{connection\_state} !~ /^connected$/i \|\| %{limit} != -1'). You can use the following variables: %{connection\_state}, %{power\_state}, %{limit} | %{limit} != -1    |             |
-| WARNINGMEMORYSTATUS  | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{connection\_state}, %{power\_state}, %{limit}                                                            |                   |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                        | --verbose         |             |
+| Macro                | Description                                                                                                                                        | Default value     | Mandatory   |
+|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER               | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                      | .*                |             |
+| VMUUID               | Filter by UUID                                                                                                                                     |                   |             |
+| CRITICALCPUSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{connection\_state}, %{power\_state}, %{limit} | %{limit} != -1    |             |
+| WARNINGCPUSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_state}, %{power\_state}, %{limit}  |                   |             |
+| CRITICALDISKSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{connection\_state}, %{power\_state}, %{limit} | %{limit} != -1    |             |
+| WARNINGDISKSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_state}, %{power\_state}, %{limit}  |                   |             |
+| CRITICALMEMORYSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{connection\_state}, %{power\_state}, %{limit} | %{limit} != -1    |             |
+| WARNINGMEMORYSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_state}, %{power\_state}, %{limit}  |                   |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                     | --verbose         |             |
 
 </TabItem>
 <TabItem value="Vm-Memory-Global" label="Vm-Memory-Global">
 
 | Macro              | Description                                                                                                                                                                                                                      | Default value     | Mandatory   |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                                                               | .*                |             |
-| VMUUID             |                                                                                                                                                                                                                                  |                   |             |
+| FILTER             | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                                                    | .*                |             |
+| VMUUID             | Filter by UUID                                                                                                                                                                                                                   |                   |             |
 | UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN (Default: '%{connection\_state} !~ /^connected$/i or %{power\_state} !~ /^poweredOn$/i'). You can use the following variables: %{connection\_state}, %{power\_state} |                   |             |
 | WARNING            | Warning threshold                                                                                                                                                                                                                |                   |             |
 | CRITICAL           | Critical threshold                                                                                                                                                                                                               |                   |             |
@@ -1304,119 +1315,119 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | CRITICALOVERHEAD   | Critical threshold                                                                                                                                                                                                               |                   |             |
 | WARNINGSHARED      | Warning threshold                                                                                                                                                                                                                |                   |             |
 | CRITICALSHARED     | Critical threshold                                                                                                                                                                                                               |                   |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{connection\_state}, %{power\_state}                                                                            |                   |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{connection\_state}, %{power\_state}                                                                           |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                              | --verbose         |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_state}, %{power\_state}                                                                                          |                   |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{connection\_state}, %{power\_state}                                                                                         |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                   | --verbose         |             |
 
 </TabItem>
 <TabItem value="Vm-Snapshot-Global" label="Vm-Snapshot-Global">
 
-| Macro        | Description                                                                                         | Default value                                         | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| FILTER       | Hostnames of the VMs to monitor. If not set, we check all VMs                                                  | .*                                                    |             |
-| VMUUID       |                                                                                                     |                                                       |             |
-| WARNING      | Warning threshold for snapshot's age                                                                | 259200                                                |             |
-| CRITICAL     | Critical threshold for snapshot's age                                                               | 432000                                                |             |
+| Macro        | Description                                                                                                                    | Default value                                         | Mandatory   |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+| FILTER       | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                  | .*                                                    |             |
+| VMUUID       | Filter by UUID                                                                                                                 |                                                       |             |
+| WARNING      | Warning threshold for snapshot's age                                                                                           | 259200                                                |             |
+| CRITICAL     | Critical threshold for snapshot's age                                                                                          | 432000                                                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --disconnect-status='ok' --nopoweredon-skip --verbose |             |
 
 </TabItem>
 <TabItem value="Vm-Status-Global" label="Vm-Status-Global">
 
-| Macro                 | Description                                                                                                                                                                                 | Default value                   | Mandatory   |
-|:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
-| FILTER                | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                          | .*                              |             |
-| UNKNOWNOVERALLSTATUS  | Define the conditions to match for the status to be UNKNOWN (Default: '%{overall\_status} =~ /gray/i'). You can use the following variables: %{overall\_status}                             | %{overall\_status} =~ /gray/i   |             |
-| VMUUID                |                                                                                                                                                                                             |                                 |             |
-| UNKNOWNSTATUS         | Define the conditions to match for the status to be UNKNOWN (Default: '%{connection\_state} !~ /^connected$/i'). You can use the following variables: %{connection\_state}, %{power\_state} |                                 |             |
-| WARNINGOVERALLSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%{overall\_status} =~ /yellow/i'). You can use the following variables: %{overall\_status}                           | %{overall\_status} =~ /yellow/i |             |
-| CRITICALOVERALLSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{overall\_status} =~ /red/i'). You can use the following variables: %{overall\_status}                             | %{overall\_status} =~ /red/i    |             |
-| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_state}                                                                      |                                 |             |
-| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{connection\_state}, %{power\_state}                                                    |                                 |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                         | --verbose                       |             |
+| Macro                 | Description                                                                                                                              | Default value                   | Mandatory   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
+| FILTER                | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                            | .*                              |             |
+| UNKNOWNOVERALLSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{overall\_status}                     | %{overall\_status} =~ /gray/i   |             |
+| VMUUID                | Filter by UUID                                                                                                                           |                                 |             |
+| UNKNOWNSTATUS         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{connection\_state}, %{power\_state}  |                                 |             |
+| WARNINGOVERALLSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{overall\_status}                     | %{overall\_status} =~ /yellow/i |             |
+| CRITICALOVERALLSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{overall\_status}                    | %{overall\_status} =~ /red/i    |             |
+| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_state}                   |                                 |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{connection\_state}, %{power\_state} |                                 |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)           | --verbose                       |             |
 
 </TabItem>
 <TabItem value="Vm-Swap-Global" label="Vm-Swap-Global">
 
 | Macro           | Description                                                                                                                                                                                                                      | Default value     | Mandatory   |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER          | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                                                               | .*                |             |
-| VMUUID          |                                                                                                                                                                                                                                  |                   |             |
+| FILTER          | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                                                    | .*                |             |
+| VMUUID          | Filter by UUID                                                                                                                                                                                                                   |                   |             |
 | UNKNOWNSTATUS   | Define the conditions to match for the status to be UNKNOWN (Default: '%{connection\_state} !~ /^connected$/i or %{power\_state} !~ /^poweredOn$/i'). You can use the following variables: %{connection\_state}, %{power\_state} |                   |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{connection\_state}, %{power\_state}                                                                            |                   |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{connection\_state}, %{power\_state}                                                                           |                   |             |
+| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_state}, %{power\_state}                                                                                          |                   |             |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{connection\_state}, %{power\_state}                                                                                         |                   |             |
 | WARNINGSWAPIN   | Warning threshold                                                                                                                                                                                                                |                   |             |
 | CRITICALSWAPIN  | Critical threshold                                                                                                                                                                                                               |                   |             |
 | WARNINGSWAPOUT  | Warning threshold                                                                                                                                                                                                                |                   |             |
 | CRITICALSWAPOUT | Critical threshold                                                                                                                                                                                                               |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                              | --verbose         |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                   | --verbose         |             |
 
 </TabItem>
 <TabItem value="Vm-Thinprovisioning-Global" label="Vm-Thinprovisioning-Global">
 
-| Macro        | Description                                                                                         | Default value                                         | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| FILTER       | Hostnames of the VMs to monitor. If not set, we check all VMs                                                  | .*                                                    |             |
-| STATUS       | Thinprovisioning status (default: none) Example: 'active,CRITICAL' or 'notactive,WARNING'           | active,WARNING                                        | X           |
-| VMUUID       |                                                                                                     |                                                       |             |
+| Macro        | Description                                                                                                                    | Default value                                         | Mandatory   |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+| FILTER       | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                  | .*                                                    |             |
+| STATUS       | Thinprovisioning status (default: none) Example: 'active,CRITICAL' or 'notactive,WARNING'                                      | active,WARNING                                        | X           |
+| VMUUID       | Filter by UUID                                                                                                                 |                                                       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --disconnect-status='ok' --nopoweredon-skip --verbose |             |
 
 </TabItem>
 <TabItem value="Vm-Tools-Global" label="Vm-Tools-Global">
 
-| Macro              | Description                                                                                         | Default value                                         | Mandatory   |
-|:-------------------|:----------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| FILTER             | Hostnames of the VMs to monitor. If not set, we check all VMs                                                  | .*                                                    |             |
-| NOTINSTALLEDSTATUS | Status if vmtools is not installed (default: critical)                                              | critical                                              | X           |
-| NOTRUNNINGSTATUS   | Status if vmtools is not running (default: critical)                                                | critical                                              | X           |
-| NOTUP2DATESTATUS   | Status if vmtools is not up to date (default: warning)                                                | warning                                               |             |
-| VMUUID             |                                                                                                     |                                                       |             |
+| Macro              | Description                                                                                                                    | Default value                                         | Mandatory   |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+| FILTER             | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                  | .*                                                    |             |
+| NOTINSTALLEDSTATUS | Status if vmtools is not installed (default: critical)                                                                         | critical                                              | X           |
+| NOTRUNNINGSTATUS   | Status if vmtools is not running (default: critical)                                                                           | critical                                              | X           |
+| NOTUP2DATESTATUS   | Status if vmtools is not up to date (default: warning)                                                                         | warning                                               |             |
+| VMUUID             | Filter by UUID                                                                                                                 |                                                       |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --disconnect-status='ok' --nopoweredon-skip --verbose |             |
 
 </TabItem>
 <TabItem value="Vsan-Cluster-Usage" label="Vsan-Cluster-Usage">
 
-| Macro                          | Description                                                                                         | Default value     | Mandatory   |
-|:-------------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGBACKENDCONGESTIONS      | Thresholds                                                                                          |                   |             |
-| CRITICALBACKENDCONGESTIONS     | Thresholds                                                                                          |                   |             |
-| WARNINGBACKENDLATENCYREAD      |                                                                                                     |                   |             |
-| CRITICALBACKENDLATENCYREAD     |                                                                                                     |                   |             |
-| WARNINGBACKENDLATENCYWRITE     |                                                                                                     |                   |             |
-| CRITICALBACKENDLATENCYWRITE    |                                                                                                     |                   |             |
-| WARNINGBACKENDOUTSTANDINGIO    | Thresholds                                                                                          |                   |             |
-| CRITICALBACKENDOUTSTANDINGIO   | Thresholds                                                                                          |                   |             |
-| WARNINGBACKENDREADUSAGE        | Thresholds                                                                                          |                   |             |
-| CRITICALBACKENDREADUSAGE       | Thresholds                                                                                          |                   |             |
-| WARNINGBACKENDTHROUGHPUTREAD   | Thresholds                                                                                          |                   |             |
-| CRITICALBACKENDTHROUGHPUTREAD  | Thresholds                                                                                          |                   |             |
-| WARNINGBACKENDTHROUGHPUTWRITE  | Thresholds                                                                                          |                   |             |
-| CRITICALBACKENDTHROUGHPUTWRITE | Thresholds                                                                                          |                   |             |
-| WARNINGBACKENDWRITEUSAGE       | Thresholds                                                                                          |                   |             |
-| CRITICALBACKENDWRITEUSAGE      | Thresholds                                                                                          |                   |             |
+| Macro                          | Description                                                                                                                    | Default value     | Mandatory   |
+|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGBACKENDCONGESTIONS      | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDCONGESTIONS     | Thresholds                                                                                                                     |                   |             |
+| WARNINGBACKENDLATENCYREAD      | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDLATENCYREAD     | Thresholds                                                                                                                     |                   |             |
+| WARNINGBACKENDLATENCYWRITE     | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDLATENCYWRITE    | Thresholds                                                                                                                     |                   |             |
+| WARNINGBACKENDOUTSTANDINGIO    | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDOUTSTANDINGIO   | Thresholds                                                                                                                     |                   |             |
+| WARNINGBACKENDREADUSAGE        | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDREADUSAGE       | Thresholds                                                                                                                     |                   |             |
+| WARNINGBACKENDTHROUGHPUTREAD   | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDTHROUGHPUTREAD  | Thresholds                                                                                                                     |                   |             |
+| WARNINGBACKENDTHROUGHPUTWRITE  | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDTHROUGHPUTWRITE | Thresholds                                                                                                                     |                   |             |
+| WARNINGBACKENDWRITEUSAGE       | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDWRITEUSAGE      | Thresholds                                                                                                                     |                   |             |
 | EXTRAOPTIONS                   | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Vsan-Cluster-Usage-Global" label="Vsan-Cluster-Usage-Global">
 
-| Macro                          | Description                                                                                         | Default value     | Mandatory   |
-|:-------------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME                     | cluster to check. If not set, we check all clusters                                                 | .*                |             |
-| WARNINGBACKENDCONGESTIONS      | Thresholds                                                                                          |                   |             |
-| CRITICALBACKENDCONGESTIONS     | Thresholds                                                                                          |                   |             |
-| WARNINGBACKENDLATENCYREAD      |                                                                                                     |                   |             |
-| CRITICALBACKENDLATENCYREAD     |                                                                                                     |                   |             |
-| WARNINGBACKENDLATENCYWRITE     |                                                                                                     |                   |             |
-| CRITICALBACKENDLATENCYWRITE    |                                                                                                     |                   |             |
-| WARNINGBACKENDOUTSTANDINGIO    | Thresholds                                                                                          |                   |             |
-| CRITICALBACKENDOUTSTANDINGIO   | Thresholds                                                                                          |                   |             |
-| WARNINGBACKENDREADUSAGE        | Thresholds                                                                                          |                   |             |
-| CRITICALBACKENDREADUSAGE       | Thresholds                                                                                          |                   |             |
-| WARNINGBACKENDTHROUGHPUTREAD   | Thresholds                                                                                          |                   |             |
-| CRITICALBACKENDTHROUGHPUTREAD  | Thresholds                                                                                          |                   |             |
-| WARNINGBACKENDTHROUGHPUTWRITE  | Thresholds                                                                                          |                   |             |
-| CRITICALBACKENDTHROUGHPUTWRITE | Thresholds                                                                                          |                   |             |
-| WARNINGBACKENDWRITEUSAGE       | Thresholds                                                                                          |                   |             |
-| CRITICALBACKENDWRITEUSAGE      | Thresholds                                                                                          |                   |             |
+| Macro                          | Description                                                                                                                    | Default value     | Mandatory   |
+|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME                     | Cluster to check. If not set, we check all clusters                                                                            | .*                |             |
+| WARNINGBACKENDCONGESTIONS      | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDCONGESTIONS     | Thresholds                                                                                                                     |                   |             |
+| WARNINGBACKENDLATENCYREAD      | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDLATENCYREAD     | Thresholds                                                                                                                     |                   |             |
+| WARNINGBACKENDLATENCYWRITE     | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDLATENCYWRITE    | Thresholds                                                                                                                     |                   |             |
+| WARNINGBACKENDOUTSTANDINGIO    | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDOUTSTANDINGIO   | Thresholds                                                                                                                     |                   |             |
+| WARNINGBACKENDREADUSAGE        | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDREADUSAGE       | Thresholds                                                                                                                     |                   |             |
+| WARNINGBACKENDTHROUGHPUTREAD   | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDTHROUGHPUTREAD  | Thresholds                                                                                                                     |                   |             |
+| WARNINGBACKENDTHROUGHPUTWRITE  | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDTHROUGHPUTWRITE | Thresholds                                                                                                                     |                   |             |
+| WARNINGBACKENDWRITEUSAGE       | Thresholds                                                                                                                     |                   |             |
+| CRITICALBACKENDWRITEUSAGE      | Thresholds                                                                                                                     |                   |             |
 | EXTRAOPTIONS                   | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
@@ -1611,8 +1622,8 @@ All generic options are listed here:
 | --time-shift                               | Can shift the time. We the following option you can average X counters values (default: 0).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --case-insensitive                         | Searchs are case insensitive.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --unknown-connector-status                 | Set unknown threshold for connector status (Default: '%{code} \< 0 \|\| (%{code} \> 0 && %{code} \< 200)'). You can use the following variables: %{code}, %{short\_message}, %{extra\_message}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --warning-connector-status                 | Set warning threshold for connector status (Default: ''). You can use the following variables: %{code}, %{short\_message}, %{extra\_message}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --critical-connector-status                | Set critical threshold for connector status (Default: ''). You can use the following variables: %{code}, %{short\_message}, %{extra\_message}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --warning-connector-status                 | Set warning threshold for connector status. You can use the following variables: %{code}, %{short\_message}, %{extra\_message}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --critical-connector-status                | Set critical threshold for connector status. You can use the following variables: %{code}, %{short\_message}, %{extra\_message}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 #### Modes options
 
@@ -1674,7 +1685,7 @@ All available options for each service template are listed below:
 | --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
 | --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
 | --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
+| --statefile-suffix     | Define a suffix to customize the statefile name.                                                                                                                                                                                |
 | --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
 | --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |

@@ -65,7 +65,7 @@ Videz le cache :
 Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt install --only-upgrade centreon
+  apt install --only-upgrade centreon*
   ```
 
 </TabItem>
@@ -179,7 +179,7 @@ toutes les extensions, en commençant par les suivantes :
 - Gestionnaire de connecteurs de supervision,
 - Auto Discovery.
 
-Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+Vous pouvez alors mettre à jour toutes les autres extensions commerciales (telles que [MBI](../reporting/update.md) et [MAP](../graph-views/map-web-update.md)).
 
 ## Mise à jour des Remote Servers
 
@@ -233,7 +233,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt-get update && apt-mark hold centreon-pack* && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*' 
+  apt-get update && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*'
   ```
 
 </TabItem>
@@ -267,7 +267,7 @@ Rien à faire pour cet OS.
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
   ```shell
-  apt-mark unhold centreon-pack* && apt-mark unhold centreon-plugin*
+  apt-mark unhold centreon-plugin*
   ```
 
 </TabItem>

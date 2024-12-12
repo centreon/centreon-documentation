@@ -133,7 +133,7 @@ The control banner allows you to:
 
 ### Share the playlist with users of your platform
 
-You can share your playlist with contacts who have access to your Centreon platform.
+You can share your playlist with contacts who have access to your Centreon platform and are authorized Dashboards viewers.
 
 - Click the **Share with contacts** button from the line of your playlist.
 The **Playlist access rights** window is displayed.
@@ -145,7 +145,8 @@ The **Playlist access rights** window is displayed.
 
 You can send a public link to non-Centreon users, giving them access to a full-screen view of their IT infrastructure.
 
-> The link you share will display the playlist content based on access rights. Anyone with this link can view the playlist. Be cautious when you share it.
+> - The link you share will display the playlist content based on the access rights of the user activating the link. Anyone with this link can view the playlist. Be cautious when you share it.
+> - The language used is the one set by the current browser, even if the initial language of the playlist is different.
 
 - In the **Playlist access rights** window, click the **Activated** button in the **Public link** section.
 - You can now copy the URL link to the playlist.
@@ -160,6 +161,7 @@ The three dots action menu at the end of a playlist row allows you to edit prope
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Business Activity Diagram           | Displays graphically a business activity hierarchy of KPIs and lets you navigate through it.   |
+| Clock/Timer           | Displays the time according to the selected time zone, or a timer.   |
 | Generic text           | Allows you to add free text to your dashboards (section titles, information, etc.).   |
 | Group monitoring	|  Displays the distribution of current statuses on selected groups of resources, as a table.   |
 | MAP - Display a view            |  Allows you to select and visualize a map created from the MAP module.  |

@@ -5,7 +5,9 @@ title: Installer l'extension MAP de Centreon
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Dans la mesure où MAP (Legacy) n'évoluera plus, nous vous suggérons de le remplacer par [Centreon MAP](introduction-map.md). MAP présente des avantages considérables par rapport à MAP (Legacy), notamment :
+> **À partir de Centreon 24.10, MAP Legacy ne sera plus disponible.** Si vous utilisez encore MAP Legacy, consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/).
+
+MAP présente des avantages considérables par rapport à MAP (Legacy), notamment :
 - L'éditeur web : créez et modifiez vos vues directement à partir de votre navigateur web.
 - Un nouveau serveur : un tout nouveau serveur et modèle de données offrant de meilleures performances.
 
@@ -318,6 +320,8 @@ apt install centreon-map-server
 </Tabs>
 
 Lors de l'installation du serveur Centreon MAP, java (OpenJDK 11) sera automatiquement installé, si nécessaire.
+
+> Suivez cette procédure de dépannage si OpenJDK 17 cause un incident [empêchant l'installation de centreon-map-server](./troubleshooter.md#centreon-map-server-et-toutes-ses-dépendances-ne-peuvent-pas-être-installés-sur-alma-linux-8).
 
 > Vous devez disposer d'une base de données MariaDB pour stocker les données de Centreon MAP, qu'elle soit sur localhost ou ailleurs.
 

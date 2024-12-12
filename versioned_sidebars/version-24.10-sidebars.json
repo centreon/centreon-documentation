@@ -64,7 +64,7 @@
           "collapsed": true,
           "items": [
             "getting-started/actions",
-            "getting-started/create-custom-view"
+            "getting-started/create-dashboard"
           ]
         },
         {
@@ -100,6 +100,10 @@
         {
           "type": "doc",
           "id": "version-24.10/installation/architectures"
+        },
+        {
+          "type": "doc",
+          "id": "version-24.10/installation/inside-centreon"
         },
         {
           "type": "doc",
@@ -704,20 +708,33 @@
       "label": "Graphical views (maps)",
       "link": {
         "type": "generated-index",
-        "description": "The graphical view capabilities in Centreon relies on the Centreon MAP module."
+        "description": "The graphical view capabilities in Centreon rely on the Centreon MAP module."
       },
-      "collapsed": true,
-      "items": [
-        {
-          "type": "category",
-          "label": "Centreon MAP",
-          "link": {
-            "type": "generated-index"
-          },
-          "items": [
+        "items": [
             {
               "type": "doc",
               "id": "version-24.10/graph-views/introduction-map"
+            },
+            {
+              "type": "category",
+              "label": "Information for MAP Legacy users",
+              "link": {
+                "type": "generated-index"
+              },
+                    "items":[
+                      {
+                        "type": "doc",
+                        "id": "version-24.10/graph-views/map-legacy-eol"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "version-24.10/graph-views/upgrading-map-legacy"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "version-24.10/graph-views/import-into-map-web"
+                      }
+                    ]
             },
             {
               "type": "doc",
@@ -737,10 +754,6 @@
             },
             {
               "type": "doc",
-              "id": "version-24.10/graph-views/import-into-map-web"
-            },
-            {
-              "type": "doc",
               "id": "version-24.10/graph-views/map-web-access"
             },
             {
@@ -754,6 +767,14 @@
             {
               "type": "doc",
               "id": "version-24.10/graph-views/map-web-create-geoview"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/graph-views/map-web-migrate"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/graph-views/map-web-advanced-configuration"
             },
             {
               "type": "doc",
@@ -776,74 +797,6 @@
             }
           ,
             {
-        "type": "category",
-      "label": "Centreon MAP (legacy)",
-      "items": [
-        {
-          "type": "doc",
-              "id": "version-24.10/graph-views/introduction"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/graph-views/install"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/graph-views/remote-server"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/graph-views/update"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/graph-views/upgrade"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/graph-views/migrate"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/graph-views/configuration"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/graph-views/advanced-configuration"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/graph-views/create-standard-view"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/graph-views/create-geo-view"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/graph-views/display-view"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/graph-views/share-view"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/graph-views/known-issues"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/graph-views/troubleshooter"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/api/graph-views-api"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "type": "doc",
       "id": "version-24.10/alerts-notifications/custom-views"
     }
@@ -1090,6 +1043,10 @@
             },
             {
               "type": "doc",
+              "id": "version-24.10/upgrade/upgrade-from-24-04"
+            },
+            {
+              "type": "doc",
               "id": "version-24.10/upgrade/upgrade-from-23-10"
             },
             {
@@ -1140,6 +1097,10 @@
             {
               "type": "doc",
               "id": "version-24.10/migrate/migrate-from-el-to-debian"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/migrate/migrate-from-debian-to-debian"
             },
             {
               "type": "doc",
@@ -1213,6 +1174,10 @@
             {
               "type": "doc",
               "id": "version-24.10/integrations/event-management/sc-hp-omi"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/integrations/data-analytics/sc-influxdb2-metrics"
             },
             {
               "type": "doc",
@@ -1291,10 +1256,6 @@
             {
               "type": "doc",
               "id": "version-24.10/integrations/itsm/ot-itop"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/integrations/itsm/ot-iws-isilog"
             },
             {
               "type": "doc",
@@ -1398,10 +1359,6 @@
         },
         {
           "type": "doc",
-          "id": "version-24.10/api/graph-views-api"
-        },
-        {
-          "type": "doc",
           "id": "version-24.10/api/api-tokens"
         }
       ]
@@ -1433,7 +1390,8 @@
           "type": "category",
           "label": "Centreon Broker",
           "link": {
-            "type": "generated-index"
+            "type": "doc",
+            "id": "developer/centreon-broker"
           },
           "items": [
             {
@@ -1454,7 +1412,8 @@
           "type": "category",
           "label": "Centreon Gorgone",
           "link": {
-            "type": "generated-index"
+            "type": "doc",
+            "id": "developer/centreon-gorgone"
           },
           "items": [
             {
@@ -1474,47 +1433,8 @@
       ]
     },
     {
-      "type": "category",
-      "label": "Centreon HA",
-      "link": {
-        "type": "doc",
-        "id": "version-24.10/installation/installation-of-centreon-ha/overview"
-      },
-      "items": [
-        {
-          "type": "category",
-          "label": "Upgrading Centreon HA",
-          "link": {
-            "type": "generated-index"
-          },
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-24.10/upgrade/centreon-ha/upgrade-centreon-ha-from-23-10"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
-            },
-        {
-          "type": "doc",
-          "id": "version-24.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
-        }
-          ]
-        }
-      ]
+      "type": "doc",
+      "id": "version-24.10/installation/installation-of-centreon-ha/overview"
     },
     {
       "type": "category",

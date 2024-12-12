@@ -22,6 +22,41 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon MAP
 
+### 23.04.20
+
+Release date: `November 28, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Server] Fixed a synchronization issue that could cause resources to disappear from a map.
+- [Server] Fixed concurrent access issues causing exceptions in the viewer.
+- [Server] Fixed Servicegroup status when configured using Service Templates or Hostgroup Services.
+- [Server] Improved logs related to Broker event processing and made event queue size configurable.
+- [Server] Optimized the propagation of a resource status change.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed issue with the "centreon-map/api/beta/actuator/metrics" endpoint.
+- [Legacy server] Fixed an issue preventing the states of resources (acknowledged, in downtime, etc.) from being up to date on maps.
+
+</details>
+
+### 23.04.19
+
+Release date: `October 2, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Resource status] Fixed an issue where the status of BAs in maps was not aligned with their status in Resource status.
+- [Viewer] Fixed an issue that prevented disaknowledgments from being up-to-date.
+
+</details>
+
 ### 23.04.18
 
 Release date: `July 29, 2024`
@@ -444,6 +479,17 @@ Release date: `September 27, 2023`
 
 ## Centreon BAM
 
+### 23.04.9
+
+Release date: `November 28, 2024`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in the user settings form, only accessible to authenticated users with high privilege access. (CVE-2024-45757)
+
+</details>
+
 ### 23.04.8
 
 Release date: `April 16, 2024`
@@ -579,6 +625,46 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon MBI
+
+### 23.04.12
+
+Release date: `November 28, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed the SFTP Connection with configuration key as it was causing an error on job publication.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed file permission in purgeArchive cron file, only accessible to authenticated users with high privilege access.
+- [Security] Removed obsolete parameters when accessing reporting forms.
+- [Security] Upgraded Apache commons dependency.
+- [Security] Updated the version of dom4j dependency.
+- [Security] Upgraded XmlBeans dependency.
+
+</details>
+
+### 23.04.11
+
+Release date: `October 2, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dependencies] Upgraded Spring framework.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in configuration pages, only accessible to authenticated users with high privilege access (CVE-2024-45754).
+
+</details>
 
 ### 23.04.10
 
@@ -1039,6 +1125,12 @@ Release date: `April 26, 2023`
 </details>
 
 ## Centreon IT Edition Extensions
+
+### 23.04.5
+
+Release date: `November 28, 2024`
+
+- No changes for this module in this version.
 
 ### 23.04.4
 

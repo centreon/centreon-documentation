@@ -64,7 +64,7 @@
           "collapsed": true,
           "items": [
             "getting-started/actions",
-            "getting-started/create-custom-view"
+            "getting-started/create-dashboard"
           ]
         },
         {
@@ -100,6 +100,10 @@
         {
           "type": "doc",
           "id": "version-24.04/installation/architectures"
+        },
+        {
+          "type": "doc",
+          "id": "version-24.04/installation/inside-centreon"
         },
         {
           "type": "doc",
@@ -471,8 +475,7 @@
               "type": "doc",
               "id": "version-24.04/alerts-notifications/event-log"
             }
-           
-            ]
+          ]
         },
         {
           "type": "category",
@@ -628,7 +631,7 @@
             }
           ]
         },
-                {
+        {
           "type": "category",
           "label": "Administrate",
           "link": {
@@ -659,7 +662,7 @@
         }
       ]
     },
-        {
+    {
       "type": "category",
       "label": "Data Visualization",
       "link": {
@@ -699,157 +702,159 @@
             }
           ]
         },
-    {
-      "type": "category",
-      "label": "Graphical views (maps)",
-      "link": {
-        "type": "generated-index",
-        "description": "The graphical view capabilities in Centreon relies on the Centreon MAP module."
-      },
-      "collapsed": true,
-      "items": [
         {
           "type": "category",
-          "label": "Centreon MAP",
+          "label": "Graphical views (maps)",
           "link": {
-            "type": "generated-index"
+            "type": "generated-index",
+            "description": "The graphical view capabilities in Centreon rely on the Centreon MAP module."
           },
+          "collapsed": true,
           "items": [
             {
-              "type": "doc",
-              "id": "version-24.04/graph-views/introduction-map"
+              "type": "category",
+              "label": "Centreon MAP",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/introduction-map"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/map-web-install"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/map-web-install-remote"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/map-web-update"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/map-web-upgrade"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/map-web-migrate"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/import-into-map-web"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/map-web-access"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/map-web-manage"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/map-web-create-standard-map"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/map-web-create-geoview"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/map-web-advanced"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/map-web-known-issues"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/map-web-troubleshooting"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/api/map-api"
+                }
+              ]
             },
             {
-              "type": "doc",
-              "id": "version-24.04/graph-views/map-web-install"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/map-web-install-remote"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/map-web-update"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/map-web-upgrade"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/import-into-map-web"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/map-web-access"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/map-web-manage"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/map-web-create-standard-map"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/map-web-create-geoview"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/map-web-advanced"
-            },
-            {
-              "type": "doc",
-              
-              "id": "version-24.04/graph-views/map-web-known-issues"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/map-web-troubleshooting"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/api/map-api"
-                  }
+              "type": "category",
+              "label": "Centreon MAP (legacy)",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/introduction"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/install"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/remote-server"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/update"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/upgrade"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/migrate"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/configuration"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/advanced-configuration"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/create-standard-view"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/create-geo-view"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/display-view"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/share-view"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/known-issues"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/graph-views/troubleshooter"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-24.04/api/graph-views-api"
+                }
               ]
             }
-          ,
-            {
-        "type": "category",
-      "label": "Centreon MAP (legacy)",
-      "items": [
+          ]
+        },
         {
           "type": "doc",
-              "id": "version-24.04/graph-views/introduction"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/install"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/remote-server"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/update"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/upgrade"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/migrate"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/configuration"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/advanced-configuration"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/create-standard-view"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/create-geo-view"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/display-view"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/share-view"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/known-issues"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/graph-views/troubleshooter"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/api/graph-views-api"
-            }
-          ]
+          "id": "version-24.04/alerts-notifications/custom-views"
         }
       ]
     },
     {
-      "type": "doc",
-      "id": "version-24.04/alerts-notifications/custom-views"
-    }
-    ]
-    },
-        {
       "type": "category",
       "label": "Reporting",
       "link": {
@@ -1216,6 +1221,10 @@
             },
             {
               "type": "doc",
+              "id": "version-24.04/integrations/data-analytics/sc-influxdb2-metrics"
+            },
+            {
+              "type": "doc",
               "id": "version-24.04/integrations/data-analytics/sc-kafka-events"
             },
             {
@@ -1291,10 +1300,6 @@
             {
               "type": "doc",
               "id": "version-24.04/integrations/itsm/ot-itop"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/integrations/itsm/ot-iws-isilog"
             },
             {
               "type": "doc",
@@ -1433,7 +1438,8 @@
           "type": "category",
           "label": "Centreon Broker",
           "link": {
-            "type": "generated-index"
+            "type": "doc",
+            "id": "developer/centreon-broker"
           },
           "items": [
             {
@@ -1454,7 +1460,8 @@
           "type": "category",
           "label": "Centreon Gorgone",
           "link": {
-            "type": "generated-index"
+            "type": "doc",
+            "id": "developer/centreon-gorgone"
           },
           "items": [
             {
@@ -1508,10 +1515,10 @@
               "type": "doc",
               "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
             },
-        {
-          "type": "doc",
-          "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
-        }
+            {
+              "type": "doc",
+              "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
+            }
           ]
         }
       ]
