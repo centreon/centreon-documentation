@@ -484,6 +484,16 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.12
+
+Release date: `November 25, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- The Stream Connector cache behavior with host groups and service groups has been improved. When a host group or service group is deleted, it is also correctly removed from the Stream Connector caches.
+
 ### 22.10.11
 
 Release date: `September 16, 2024`
@@ -806,6 +816,14 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Open Tickets
+
+### 22.10.5
+
+Release date: `December 5, 2024`
+
+#### Bug fixes
+
+- [Open Ticket widget] Fixed an issue preventing non admin users from opening tickets.
 
 ### 22.10.4
 

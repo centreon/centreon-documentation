@@ -22,6 +22,32 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 23.10.15
+
+Release date: `November 28, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Server] Adapted Protobuf to handle the new event "AdaptiveServiceStatus" from Broker.
+- [Server] Fixed a synchronization issue that could cause resources to disappear from a map.
+- [Server] Fixed concurrent access issues causing exceptions in the viewer.
+- [Server] Improved logs related to Broker event processing and made event queue size configurable.
+- [Server] Optimized the propagation of a resource status change.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed issue with the "centreon-map/api/beta/actuator/metrics" endpoint.
+- [Legacy server] Fixed an issue preventing the states of resources (acknowledged, in downtime, etc.) from being up to date on maps.
+- [Server] Fixed boot failure that may occur when using service templates.
+- [Server] Fixed Servicegroup status when configured using Service Templates or Hostgroup Services.
+- [Server] Improved the parsing of Broker events on creation and deletion of resources.
+
+</details>
+
 ### 23.10.14
 
 Release date: `October 24, 2024`
@@ -333,6 +359,17 @@ Release date: `November 22, 2023`
 
 ## Centreon BAM
 
+### 23.10.9
+
+Release date: `November 28, 2024`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in the user settings form, only accessible to authenticated users with high privilege access. (CVE-2024-45757)
+
+</details>
+
 ### 23.10.8
 
 Release date: `July 4, 2024`
@@ -426,6 +463,28 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon MBI
+
+### 23.10.9
+
+Release date: `November 28, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed the SFTP Connection with configuration key as it was causing an error on job publication.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed file permission in purgeArchive cron file, only accessible to authenticated users with high privilege access.
+- [Security] Removed obsolete parameters when accessing reporting forms.
+- [Security] Upgraded Apache commons dependency.
+- [Security] Updated the version of dom4j dependency.
+- [Security] Upgraded XmlBeans dependency.
+
+</details>
 
 ### 23.10.8
 
@@ -539,6 +598,17 @@ Release date: `October 30, 2023`
 
 ## Centreon Auto Discovery
 
+### 23.10.5
+
+Release date: `November 28, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Discovery] Fixed overlapping action icons in the Credentials field.
+
+</details>
+
 ### 23.10.4
 
 Release date: `October 2, 2024`
@@ -596,6 +666,17 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
+
+### 23.10.4
+
+Release date: `November 28, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- It is now possible to install a connector whose name is similar to another connector's.
+
+</details>
 
 ### 23.10.3
 
@@ -815,6 +896,12 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon IT Edition Extensions
+
+### 23.10.5
+
+Release date: `November 28, 2024`
+
+- No changes for this module in this version.
 
 ### 23.10.4
 

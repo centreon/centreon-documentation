@@ -591,7 +591,6 @@ scénario choisi), le nom du StatefulSet sera ajouté au nom de la métrique :
 
 ## Prérequis
 
-
 Comme mentionné dans l'introduction, deux modes de communication sont
 disponibles:
 
@@ -661,6 +660,12 @@ Se référer à la documentation officielle pour la
 [création de compte de service](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#service-account-tokens)
 ou pour des informations sur le
 [concept de secret](https://kubernetes.io/docs/concepts/configuration/secret/).
+
+##### Kubectl version 1.24 et supérieures
+
+Dans les versions antérieures à Kubernetes 1.24, chaque compte de service créé obtenait automatiquement un jeton secret 
+de type JWT (JSON Web Token) monté dans les pods associés. À partir de Kubernetes 1.24 : Ces jetons automatiques ne sont plus générés par défaut
+Pour créer manuellement le token référez-vous à la documentation officielle de kubernetes [Manually create a long-lived API token for a ServiceAccount](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#manually-create-a-long-lived-api-token-for-a-serviceaccount).
 
 #### Utilisation de l'API Rest
 
