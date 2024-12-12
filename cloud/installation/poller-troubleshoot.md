@@ -259,6 +259,6 @@ If all troubleshooting steps have failed, contact [our support team](https://sup
 
 | Use to debug what? | Process | File | Symptoms |
 |--------------------|---------|------|----------|
-| Installation of the poller |   | {scriptdir}/logs/register-poller.log | |
+| Installation of the poller |   | \<scriptdir\>/logs/register-poller.log | |
 | Centreon Engine | centengine | /var/log/centreon-engine/centengine.log | <ul><li>Checks are not performed</li><li>Objects that have been deleted are still monitored</li></ul> |
 | Gorgone | gorgoned | /var/log/centreon-gorgone/gorgoned.log | Actions are not triggered: acknowledgements, downtimes, force checks, autodiscovery |
