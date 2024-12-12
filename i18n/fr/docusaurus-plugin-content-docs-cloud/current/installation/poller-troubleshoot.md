@@ -32,7 +32,7 @@ Typiquement, les contrôles ne sont pas exécutés. Faites les vérifications su
 
 ### Étape 1 : Tester la connexion de Gorgone à la plateforme
 
-Vérifiez que Gorgone peut se connecter à votre plateforme Centreon Cloud.
+Vérifiez que Gorgone peut se connecter à votre plateforme Centreon Cloud (installez la commande `nc` si nécessaire : sous EL, utilisez la commande `dnf install nc` et sous Debian `apt install netcat-traditional`).
 
 ```shell
 nc -zv -w 5 gorgone-<organization_code>.euwest1.centreon.cloud 443
