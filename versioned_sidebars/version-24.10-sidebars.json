@@ -524,7 +524,11 @@
             "link": {
               "type": "generated-index"
         },    
-        "items": [ 
+        "items": [
+            {
+              "type": "doc",
+              "id": "version-24.10/alerts-notifications/notif-email"
+            }, 
             {
               "type": "doc",
               "id": "version-24.10/alerts-notifications/notif-config-for-teams"
