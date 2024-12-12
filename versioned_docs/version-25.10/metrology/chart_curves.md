@@ -19,7 +19,7 @@ Go to the **Monitoring \> Performances \> Curves** menu
 * The **Hosts/Service Data Source** lists defines the host/service for which this curve will be used. If this information
   is not filled in, this curve definition will be applied to all services in which this metric appears.
 * The **Data Source Name** field can be used to select the metric which will use this definition. The **List of known metrics**
-  list can be used to choose the existing metrics already used by the services. If you wish to reuse a definition for other curves, you can use the wildcard "." to apply it to many curves with a similar name. For example, if you have DataSource-Name1 and DataSource-Name2, writing DataSource-. here will apply the settings to all curves with a name that starts with "DataSource-".
+  list can be used to choose the existing metrics already used by the services. If you wish to reuse a definition for other curves, you can use the wildcard "." to apply it to several curves with a similar name. For example, if you have DataSource-Name1 and DataSource-Name2, writing DataSource-. here will apply the settings to all curves with a name that starts with "DataSource-".
 * If the **Stack** box is checked, this curve will be stacked on the others (useful to see the proportion of one metric in
   relation to another).
 * If the **Stack** box is checked, the **Order** list can be used to define the order display / stacking of the curve (the
