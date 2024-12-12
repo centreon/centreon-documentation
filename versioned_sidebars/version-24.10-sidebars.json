@@ -515,21 +515,12 @@
               "id": "version-24.10/alerts-notifications/notif-concept"
             },
             {
-              "type": "category",
-              "label": "Email notifications",
-              "link": {
-                "type": "generated-index"
-          },    
-          "items": [        
-            {
               "type": "doc",
               "id": "version-24.10/alerts-notifications/notif-configuration"
-            }
-          ]
-        },
+            },
           {
             "type": "category",
-            "label": "Other notifications",
+            "label": "Types of notifications",
             "link": {
               "type": "generated-index"
         },    
