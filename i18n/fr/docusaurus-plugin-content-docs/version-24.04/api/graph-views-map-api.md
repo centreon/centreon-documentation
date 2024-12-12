@@ -99,7 +99,7 @@ Body {
 
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
-    
+
 ```
 GET http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views/_viewId_
 ```
@@ -121,7 +121,7 @@ Dans ce scénario, l'élément "shape" est un rectangle.
 
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
-    
+
 ```
 PUT http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views
 ```
