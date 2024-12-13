@@ -153,8 +153,8 @@ Once the Centreon plugin installed, you can test it directly from the CLI by log
 	--api-password='xxxx' \
 	--mode='storage-volumes' \
 	--verbose \
-	--warning-volume-status='%{status} =~ /degraded/i'
-	--critical-volume-status='%{status} =~ /failed/i'
+	--warning-volume-status='%\{status\} =~ /degraded/i'
+	--critical-volume-status='%\{status\} =~ /failed/i'
 ```
 
 Expected command output is shown below:

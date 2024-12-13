@@ -124,8 +124,8 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     --mode=services \
     --proxyurl='http://myproxy.mycompany.org:8080' \
     --filter-name='Connections|Messaging' \
-    --warning-status='%{status} eq "active" and %{type} eq "incident"' \
-    --critical-status='%{status} eq "active" and %{type} eq "outage"' \
+    --warning-status='%\{status\} eq "active" and %\{type\} eq "incident"' \
+    --critical-status='%\{status\} eq "active" and %\{type\} eq "outage"' \
     --verbose
 ```
 

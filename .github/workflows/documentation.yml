@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Get changes
         uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
@@ -169,34 +169,60 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
+
+      - uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
+        with:
+          version: 9
+          run_install: false
 
       - name: Set up Node
         uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
         with:
-          node-version: 20
-          cache: yarn
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install dependencies
-        uses: borales/actions-yarn@3766bb1335b98fb13c60eaf358fe20811b730a88 # v5.0.0
+        run: pnpm install --frozen-lockfile
+        shell: bash
+
+      - name: Restore docusaurus build from cache
+        uses: actions/cache/restore@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
         with:
-          cmd: install --frozen-lockfile
+          path: |
+            .docusaurus
+            build
+          key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+          restore-keys: |
+            docusaurus-build-${{ matrix.environment }}-staging
 
       - name: Build documentation
-        run: yarn build
+        run: pnpm build
         env:
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 
-      - name: Store build in cache
-        uses: actions/cache/save@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+      - name: Clear previous docker image from cache
+        run: |
+          curl \
+            -X DELETE \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/centreon/centreon-documentation/actions/caches?key=docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+        shell: bash
+
+      - name: Store docusaurus build cache in cache
+        uses: actions/cache/save@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
         with:
-          path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
+          path: |
+            .docusaurus
+            build
+          key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
 
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
@@ -212,13 +238,15 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Restore build from cache
-        uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        uses: actions/cache/restore@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
         with:
-          path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
+          path: |
+            .docusaurus
+            build
+          key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
           fail-on-cache-miss: true
 
       - name: Setup awscli
@@ -292,10 +320,10 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Restore build from cache
-        uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        uses: actions/cache/restore@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-staging"
@@ -324,10 +352,10 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Restore build from cache
-        uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        uses: actions/cache/restore@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-next"

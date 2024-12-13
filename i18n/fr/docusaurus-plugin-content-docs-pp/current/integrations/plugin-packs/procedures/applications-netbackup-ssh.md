@@ -196,7 +196,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
     --ssh-username=centreon \
     --ssh-password='centreon-password' \
     --ssh-backend=sshcli \
-    --critical-status='%{status} !~ /up/i' \ 
+    --critical-status='%\{status\} !~ /up/i' \ 
     --verbose
 ```
 

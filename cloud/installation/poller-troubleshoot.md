@@ -151,10 +151,10 @@ If it doesn't, check the logs for errors.
 
 ### Step 1: Test network connectivity
 
-Check that the poller can send real-time data to the Centreon Cloud platform. Execute the following command (replace **{org-code}** by your organization code):
+Check that the poller can send real-time data to the Centreon Cloud platform. Execute the following command (replace **\<org-code\>** by your organization code):
 
 ```shell
-nc -zv -w 5 broker-{org-code}.euwest1.centreon.cloud 443
+nc -zv -w 5 broker-<org-code>.euwest1.centreon.cloud 443
 ```
 
 The command should print a message like this one:
@@ -227,10 +227,10 @@ Modify log levels to get more information about what Engine is doing.
 
 ### Step 5: Enable and review cbmod logs
 
-1. Edit the Centreon Broker module configuration (replace **{hostname}** by the correct value):
+1. Edit the Centreon Broker module configuration (replace **\<hostname\>** by the correct value):
 
    ```shell
-   vi /etc/centreon-broker/{hostname}-module.json
+   vi /etc/centreon-broker/<hostname>-module.json
    ```
 
 2. Adjust the **centreonBroker.log.loggers** object to the desired log level.
@@ -259,6 +259,6 @@ If all troubleshooting steps have failed, contact [our support team](https://sup
 
 | Use to debug what? | Process | File | Symptoms |
 |--------------------|---------|------|----------|
-| Installation of the poller |   | {scriptdir}/logs/register-poller.log | |
+| Installation of the poller |   | \<scriptdir\>/logs/register-poller.log | |
 | Centreon Engine | centengine | /var/log/centreon-engine/centengine.log | <ul><li>Checks are not performed</li><li>Objects that have been deleted are still monitored</li></ul> |
 | Gorgone | gorgoned | /var/log/centreon-gorgone/gorgoned.log | Actions are not triggered: acknowledgements, downtimes, force checks, autodiscovery |

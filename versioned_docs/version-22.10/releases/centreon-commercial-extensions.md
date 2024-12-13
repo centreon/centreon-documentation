@@ -653,7 +653,7 @@ Release date: `July 4, 2024`
 #### Bug fixes
 
 - [Packaging] Added missing dependencies on anomaly detection.
-- [Packaging] Various anomaly detection perl installation scripts are now deployed on **/usr/share/perl5/centreon/anomalydetection** instead of **/%{perl_vendorlib}/centreon**.
+- [Packaging] Various anomaly detection perl installation scripts are now deployed on **/usr/share/perl5/centreon/anomalydetection** instead of **/%\{perl_vendorlib\}/centreon**.
 
 ### 22.10.5
 

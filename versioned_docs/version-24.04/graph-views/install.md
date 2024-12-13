@@ -151,7 +151,7 @@ default value. Modify the following file:
 <TabItem value="Windows" label="Windows">
 
 ```shell
-C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
+C:\Users<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 ```
 
 </TabItem>
