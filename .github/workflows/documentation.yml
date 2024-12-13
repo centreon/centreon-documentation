@@ -325,8 +325,10 @@ jobs:
       - name: Restore build from cache
         uses: actions/cache/restore@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
         with:
-          path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-staging"
+          path: |
+            .docusaurus
+            build
+          key: docusaurus-build-staging-${{ github.head_ref || github.ref_name }}
           fail-on-cache-miss: true
 
       - name: Deploy to https://docs-staging.int.centreon.com
@@ -357,8 +359,10 @@ jobs:
       - name: Restore build from cache
         uses: actions/cache/restore@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
         with:
-          path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-next"
+          path: |
+            .docusaurus
+            build
+          key: docusaurus-build-next-${{ github.head_ref || github.ref_name }}
           fail-on-cache-miss: true
 
       - name: Setup awscli
