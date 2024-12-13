@@ -3,7 +3,7 @@ id: known-issues
 title: Centreon Cloud known issues
 ---
 
-The following paragraphs detail issues which are known to Centreon and will be fixed in coming releases.
+The following paragraphs detail issues which are known to Centreon and will be fixed in coming releases. 
 
 ## User groups
 
