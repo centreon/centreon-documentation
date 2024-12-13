@@ -175,6 +175,6 @@ Si vous voulez tester que les évènements sont envoyés correctement à InfluxD
     curl -X POST -H 'content-type: text/plain; charset=utf-8' -H 'accept: application/json' -H 'Authorization: Token <bucket_api_key>' 'http://<http_server_url>/api/v2/write?bucket=<bucket_id>&org=<org_name>&precision=s' -d
    ```
 
-   > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. Par exemple, *<bucket_id>* pourra être remplacé par *65f5f748e28c92f0*.
+   > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. Par exemple, *\<bucket_id\>* pourra être remplacé par *65f5f748e28c92f0*.
 
 3. Vérifiez que l'évènement a bien été reçu par InfluxDB 2.

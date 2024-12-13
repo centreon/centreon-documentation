@@ -65,7 +65,7 @@ y a quatre méthodes de calcul disponible afin de rendre compte de l'état d'une
 - **Worst Status**: Lorsque vous souhaitez savoir dès qu'un indicateur ne fonctionne plus
 - **Ratio**: Lorsque vous souhaitez modéliser des concepts de **Cluster** en spécifiant un pourcentage ou un nombre
  de resources maximum en statut Critique que vous ne voulez pas dépassez
-- **Impact**: Lorsque vous souhaitez définir finement l'impact de chaque indicateur en fonction de leurs poids (<=> sévérité)
+- **Impact**: Lorsque vous souhaitez définir finement l'impact de chaque indicateur en fonction de leurs poids (\<=\> sévérité)
 
 Pour plus d'information sur les méthodes de calcul, consulter [ce chapitre](../service-mapping/ba-management.md#méthodes-de-calcul)
 
