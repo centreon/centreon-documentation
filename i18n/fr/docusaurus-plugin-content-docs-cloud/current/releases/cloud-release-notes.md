@@ -5,93 +5,13 @@ title: Centreon Cloud - notes de release
 
 ## December 16th, 2024
 
-## Centreon Awie
+### Centreon IT Edition
 
-<details>
-  <summary>Security fixes</summary>
-  
-- [Security] Updated Symfony Security-Http component.
+**Data Collection**
 
-</details>
+- Thanks to Additional Connector Configurations feature, you can now define the credentials to access a monitored resource through the Centreon interface rather than having to connect to your pollers manually.
+- It is also now possible to duplicate and then customize commands coming from official Centreon Monitoring Connectors.
 
-## Centreon Open tickets 
-
-<details>
-  <summary>Security fixes</summary>
-  
-- [Security] Updated Symfony Security-Http component.
-
-</details>
-
-## Centreon Collect
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Broker] Broker is now Vault compatible, if its passwords to access databases are encrypted, it is able to ask the vault for the decrypted password.
-- [gRPC API] GetHostgroups function return information about hostgroups.
-- [gRPC API] GetService function have been improved to return more information.
-- [gRPC API] The GetHost function has been improved to return more information.
-- [CMA] Added a silent mode (CLI) on Windows installer.
-- [CMA] Centreon Monitoring Agent & installer are now signed.
-- [CMA] Centreon Monitoring Agent is now available with a Windows installer, which installs the service and deploys Centreon plugins on the host.
-- [CMA] Made Telegraf and Centreon Monitoring Agent commands compliant with Engine whitelists. 
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Collect] Delivered the correct libraries for Collect, so as to avoid issues with template inheritance or Engine crashes.
-- [Engine] Fixed an issue with the inheritance of configuration objects in Engine.
-- [Engine] Fixed errors in RRD logs that appeared following the upgrade to the new log engine in collect.
-- [Engine] The host's name instead of the template's name as the alias when the alias is empty.
-
-</details>
-
-security
-- [Security] Updated Symfony Security-Http component.
-
-</details>
-
-## Centreon Map
-
-<details>
-  <summary>Bug fixes</summary>
-  
-- [Server] Fixed boot failure that may occur when using service templates.
-- [UI] Fixed an issue where long resource names were not managed correctly.
-
-</details>
-
-Security:
-- [Security] Updated Symfony Security-Http component.
-
-</details>
-
-## Centreon Web
-
-<details open>
-  <summary>Enhancements</summary>
-  
-- Added telemetry for Additional Connector Configuration.
-- A new feature is available to manage agents configuration, including Centreon Monitoring Agent and Telegraf.
-- Manage time period for notifications.
-- [Install] add 24.10 support to unattended script.
-- [Web Page widget] Implemented new widget to display a web page, using its URL.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-  
-- [API] Fixed ACLs allowing access to a resource (host or service) upon its creation via the APIs by a non-administrator user. 
-- [API] Fixed an issue where hosts and services remained invisible for a while after they were created with the v2 API.
-- [Notification] Options in the notifications panel are now saved correctly. 
-- [Packaging] Fix an issue that prevented centreontrapd from starting properly due to perl dependencies.
-- [Packaging] Fixed invalid permissions on oudated token cron.
-
-</details>
 
 ## October 10th, 2024
 
