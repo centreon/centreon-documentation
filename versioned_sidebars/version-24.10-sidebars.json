@@ -526,7 +526,7 @@
               "items": [
                 {
                   "type": "doc",
-                  "id": "version-24.10/alerts-notifications/notif-email"
+                  "id": "alerts-notifications/notif-email"
                 },
                 {
                   "type": "doc",
@@ -534,19 +534,16 @@
                 },
                 {
                   "type": "doc",
-                  "id": "version-24.10/integrations/notifications/slack-notifications"
+                  "id": "integrations/notifications/slack-notifications"
                 },
                 {
                   "type": "doc",
-                  "id": "version-24.10/integrations/notifications/plugin-telegram"
+                  "id": "integrations/notifications/plugin-telegram"
                 }
               ]
             },
             {
               "type": "doc",
-              "id": "version-24.10/alerts-notifications/notif-dependencies"
-            },
-            {
               "id": "alerts-notifications/notif-dependencies"
             },
             {
