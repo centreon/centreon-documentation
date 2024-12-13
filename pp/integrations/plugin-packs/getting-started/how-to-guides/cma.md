@@ -25,9 +25,7 @@ The CMA can be installed on and monitor the following OSs:
 
 * Alma 8
 * Alma 9
-* Debian 11
 * Debian 12
-* Ubuntu 22.04 LTS
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
@@ -217,7 +215,55 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-* Install the **centreon-monitoring-agent** package.
+#### Centreon repository and agent install
+
+Install the Centreon repository and agent using the following commands:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+dnf install  centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
+dnf install  compat-openssl11 centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt-get update
+apt-get -y install lsb-release gpg wget
+echo "deb https://packages.centreon.com/apt-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+```
+
+Then, import repository key :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Then, install agent :
+
+```shell
+apt-get update
+apt install centreon-monitoring-agent
+```
+
+</TabItem>
+</Tabs>
+
+* Configure **centreon-monitoring-agent**.
 
 1. Modify the **/etc/centreon-monitoring-agent/centagent.json** file (4 cases):
 
@@ -227,7 +273,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 
 ```json
 {
-    "log_level":"trace",
+    "log_level":"info",
     "endpoint":"<IP POLLER>:4317",
     "host":"host_1",
     "log_type":"file",
@@ -240,7 +286,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 
 ```json
 {
-    "log_level":"trace",
+    "log_level":"info",
     "endpoint":"<IP POLLER>:4317",
     "host":"host_1",
     "log_type":"file",
@@ -255,7 +301,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 
 ```json
 {
-    "log_level":"trace",
+    "log_level":"info",
     "endpoint":"0.0.0.0:4317",
     "host":"host_1",
     "log_type":"file",
@@ -269,7 +315,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 
 ```json
 {
-    "log_level":"trace",
+    "log_level":"info",
     "endpoint":"0.0.0.0:4317",
     "host":"host_1",
     "log_type":"file",
@@ -286,6 +332,8 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 </TabItem>
 </Tabs>
 
+In the **host** field, enter the name of the host to be monitored as you have entered it in the Centreon interface. If absent, the agent will use the machine's hostname.
+
 #### Log configuration
 
 You can configure two kinds of log output:
@@ -294,7 +342,13 @@ You can configure two kinds of log output:
 
 If you choose to log into a file, log rotation can be customized using the **log_max_file_size** and **log_max_files** options.
 
-Allowed log levels are: trace, debug, info, warning, error, critical and off.
+Allowed log levels are:
+* off: no logs
+* critical: critical errors
+* error: all errors
+* info: additional information
+* debug: more information about connections
+* trace: the most verbose trace level showing messages sent and received to the poller
 
 2. Restart the CMA:
 
@@ -305,25 +359,63 @@ systemctl restart centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. [Download the CMA installer](https://github.com/centreon/centreon-collect/releases/download/centreon-collect-24.04.6/centreon-monitoring-agent-24.10.0.exe) on every server you want to monitor.
+[Download the CMA installer](https://github.com/centreon/centreon-collect/releases/download/centreon-collect-24.04.6/centreon-monitoring-agent-24.10.0.exe) on every server you want to monitor.
 
-2. Start the installer (during the configuration, you can click on the (i) icons for help).
+
+<Tabs groupId="sync">
+<TabItem value="Interactive mode" label="Interactive mode">
+
+1. Start the installer (during the configuration, you can click on the (i) icons for help).
    
-3. Configure the endpoint and the connection:
+2. Configure the endpoint and the connection:
    * **Host name in Centreon**. This must be the host name you have defined in the Centreon interface.
    * In most cases (the agent connects to the poller), you have to enter the poller's endpoint. The correct format is  \<poller IP or DNS name\>:port (OpenTelemetry listening port on the poller, usually 4317), for example 192.168.45.32:4317.
    * In case of a poller-initiated connection (the poller connects to the agent), you have to choose a host interface (0.0.0.0 for all interfaces) and the listening port on which poller will connect, usually 4317.
 
-4. Configure logging options. You can configure two kinds of log output:
+3. Configure logging options. You can configure two kinds of log output:
 * File: the CMA logs into a file
 * EventLog: the CMA logs in the [event logs page](/docs/alerts-notifications/event-log).
 
 If you choose to log into a file, log rotation can be customized using the **Max File Size** and **Max number of files** options.
 
-Allowed log levels are: trace, debug, info, warning, error, critical and off.
+Allowed log levels are:
+* off: no logs
+* critical: critical errors
+* error: all errors
+* info: additional information
+* debug: more information about connections
+* trace: the most verbose trace level showing messages sent and received to the poller
 
-5. Configure encryption
+4. Configure encryption
 Encryption is activated by default. In case of a poller-initiated connection, the private key file and certificate file are mandatory.
+
+</TabItem>
+
+<TabItem value="Silent mode" label="Silent mode (console)">
+
+In this mode no UI is started. As this installer is not a console program, it returns immediately despite he hasn't finished. You have to wait for message telling that all is finished.
+If you need to have exit status, you can launch it in a powershell session and wait for exit code. Exit code will be 0 if all isright
+
+| flag                | description                                                                                                                                                                                                                                                               |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --install_cma       | Set this flag if you want to install centreon monitoring agent                                                                                                                                                                                                            |
+| --install_plugins   | Set this flag if you want to install centreon plugins                                                                                                                                                                                                                     |
+| --hostname          | The name of the host as defined in the Centreon interface.                                                                                                                                                                                                                |
+| --endpoint          | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode, it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) |
+| --reverse           | Add this flag for Poller-initiated connection mode.                                                                                                                                                                                                                       |
+| --log_type          | event_log or file. In case of logging in a file, log_file param is mandatory                                                                                                                                                                                              |
+| --log_level         | can be off, critical, error, warning, debug or trace                                                                                                                                                                                                                      |
+| --log_file          | log files path.                                                                                                                                                                                                                                                           |
+| --log_max_file_size | max file in Mo before rotate.                                                                                                                                                                                                                                             |
+| --log_max_files     | max number of log files before delete. For the rotation of logs to be active, it is necessary that both parameters 'Max File Size' and 'Max number of files' are set.                                                                                                     |
+| --encryption        | Add this flag for encrypt connection with poller.                                                                                                                                                                                                                         |
+| --private_key       | Private key file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                                |
+| --public_cert       | Public certificate file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                         |
+| --ca                | Trusted CA's certificate file path.                                                                                                                                                                                                                                       |
+| --ca_name           | Expected TLS certificate common name (CN). Don't use it if unsure.                                                                                                                                                                                                        |
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>
@@ -344,6 +436,9 @@ standard distribution repositories**.
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
+dnf -y install dnf-plugins-core oracle-epel-release-el8
+dnf config-manager --set-enabled ol8_codeready_builder
+
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
 [centreon-plugins-stable]
 name=Centreon plugins repository.
@@ -405,6 +500,10 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
+dnf install dnf-plugins-core
+dnf install epel-release
+dnf config-manager --set-enabled crb
+
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
 [centreon-plugins-stable]
 name=Centreon plugins repository.
@@ -466,6 +565,8 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 apt-get update
