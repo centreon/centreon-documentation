@@ -66,9 +66,9 @@ To benefit from the plugin's capabilities, you need to create the following Cent
 1. To facilitate the creation of these objects, you can copy the following content from a CLAPI file, and paste it into a file on your Central server’s /tmp directory (for instance /tmp/clapi-teams.import).
  
  > Before loading the file, replace these values with yours:
-   - **<SET_CENTREON_URL>** with the URL you use to access Centreon web UI.
-   - **<SET_TEAMSWORKFLOW_URL>** with the Teams workflow URL obtained previously.
-   - **<SET_CONTACT_PASSWORD>** with the password you want for the new contact.
+   - **\<SET_CENTREON_URL\>** with the URL you use to access Centreon web UI.
+   - **\<SET_TEAMSWORKFLOW_URL\>** with the Teams workflow URL obtained previously.
+   - **\<SET_CONTACT_PASSWORD\>** with the password you want for the new contact.
  
  ``` shell
  CMD;ADD;bam-notify-by-microsoft-teams;1;$CENTREONPLUGINS$/centreon_notification_teams.pl --plugin=notification::microsoft::office365::teams::plugin --mode=alert --custommode=workflowapi --teams-workflow='$CONTACTPAGER$' --bam --service-description='$SERVICEDISPLAYNAME$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --date='$DATE$ $TIME$' --centreonurl='$CONTACTADDRESS1$'

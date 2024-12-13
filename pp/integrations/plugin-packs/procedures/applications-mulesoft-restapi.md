@@ -155,8 +155,8 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
 	--api-username='myapiuser' \
 	--api-password='myapipassword' \
 	--filter-name='myapplication1' \
-	--warning-status='%{status} =~ /STOPPED/' \
-	--critical-status='%{status} =~ /FAILED/' \
+	--warning-status='%\{status\} =~ /STOPPED/' \
+	--critical-status='%\{status\} =~ /FAILED/' \
 	--verbose
 	
 

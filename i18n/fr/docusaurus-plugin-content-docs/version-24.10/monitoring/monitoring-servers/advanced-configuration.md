@@ -92,19 +92,6 @@ Régénérez la configuration des pollers affectés par ces changements
 (**Configuration > Pollers > Pollers**) et la mise en place de l'authentification est
 terminée.
 
-## Centreontrapd Configuration
-
-### Collecteur
-
-Il est nécessaire de modifier la configuration du processus Centreontrapd afin
-d'utiliser la base de données locale SQLite. Référez-vous au chapitre
-[Supervision Passive](../passive-monitoring/enable-snmp-traps.md)..
-
-### Remote Server
-
-La configuration du processus Centreontrapd est identique à celle d'un serveur
-Centreon Central.
-
 ## Pour aller plus loin avec Centreon Broker
 
 > Cette section est uniquement disponible en langue anglaise.
@@ -115,7 +102,7 @@ various options used by Centreon Broker.
 
 ### General Overview
 
-Centreon Broker is at is core a simple multiplexing engine. It takes events from
+Centreon Broker is at its core a simple multiplexing engine. It takes events from
 *Inputs* and send them to various *Outputs*. *Inputs* are typically other
 instances of Centreon Broker over TCP/IP, while *Outputs* can be a SQL database,
 other brokers, a BI/BAM engine, Centreon Map, etc.
@@ -275,7 +262,9 @@ file in */var/lib/centreon-broker/name.stats*.
 This section lists all the inputs activated for this instance of Centreon
 Broker. Centreon Broker can have as many inputs as needed.
 
-Inputs read events from a TCP connection. All inputs have the following
+#### TCP - IPV4
+
+This type of input is deprecated. Inputs read events from a TCP connection. All inputs have the following
 parameters:
 
   - Name  
@@ -336,6 +325,72 @@ parameters:
 To reiterate, TCP *Input* can either listen on a given port or can attempt to
 initiate a connection if a host is given. This allow flexible network topology.
 
+#### BBDO Server
+
+BBDO Server inputs receive events from a remote endpoint. They listen on a given port for a connection by a BBDO Client.
+
+*BBDO Server*-type inputs have the following parameters:
+
+  - Listening address
+    Only with TCP transport protocol, if empty or if 0.0.0.0 the server listens for every connection.
+    Otherwise, the server only listens on the interface behind the given address.
+
+  - Listening port
+    Port used for the connection. Mandatory.
+
+  - Transport protocol
+    Two choices are available: gRPC (based on http2) or TCP (a little faster).
+
+  - Authorization token
+    Only used with the gRPC transport protocol. This can be used to filter the BBDO flow.
+    A BBDO client will be able to send data to this server only if their authorization tokens match.
+    
+  - Enable TLS encryption  
+    Enables the encryption of the flow. For the encryption to work, the private
+    key file, *Public certificate* and *Trusted CA's certificate* need to be set
+    on both ends. Default is *auto*, i.e., *no* unless TCP negotiation has been
+    activated and the remote endpoint has activated encryption.
+
+  - Private key path  
+    The private key file used for the encryption.
+
+  - Certificate path
+    The public certificate used for the encryption.
+
+#### BBDO Client
+
+BBDO Client inputs receive events from a remote endpoint. They establish a connection on a given port to a BBDO Server.
+
+*BBDO Client*-type inputs have the following parameters:
+
+  - Server address
+    The address to connect to.
+
+  - Server port  
+    The server port.
+
+  - Retry interval
+    On failure, the client waits for this value (given in seconds) before retrying to connect.
+    
+  - Transport protocol
+    Two choices are available: gRPC (based on http2) or TCP (a little faster).
+
+  - Authorization token
+    Only used with the gRPC transport protocol. This can be used to filter the BBDO flow.
+    A BBDO client will be able to send data to this server only if their authorization tokens match.
+    
+  - Enable TLS encryption  
+    Enables the encryption of the flow. For the encryption to work, the private
+    key file, *Public certificate* and *Trusted CA's certificate* need to be set
+    on both ends. Default is *auto*, i.e., *no* unless TCP negotiation has been
+    activated and the remote endpoint has activated encryption.
+
+  - Trusted CA's certificate path
+    The Trusted CA's certificate file.
+
+  - Certificate Common Name
+    The certificate Common Name.
+
 ### Broker Output Configuration Page
 
 This section lists all the *Outputs* activated for this instance of Centreon
@@ -347,24 +402,28 @@ For each *Outputs*, the parameters are:
     There are several types of outputs managed by the Centreon Broker:
 
     1.  **TCP - IPV4** and **TCP - IPV6**: This output forwards data to another
-        server, another Centreon Broker or Centreon Map.
-    2.  **File**: Writes data into a file.
-    3.  **RRD**: Generates RRD data from performance data.
-    4.  **Storage**: Writes metrics into the database and generates performance
+        server, another Centreon Broker or Centreon Map. Currently, it doesn't work
+        with IPV6. This output is also deprecated because we now have two outputs to
+        replace it that are **BBDO Server** and **BBDO Client**.
+    2.  **BBDO Server**: This output forwards data to a BBDO client, another Centreon Broker or Centreon Map.
+    3.  **BBDO Client**: This output forwards data to a BBDO server, another Centreon Broker or Centreon Map.
+    4.  **File**: Writes data into a file. This output is deprecated.
+    5.  **RRD**: Generates RRD data from performance data.
+    6.  **Storage**: Writes metrics into the database and generates performance
         data (deprecated).
-    5.  **SQL**: Writes the real-time status into Centreon's database
+    7.  **SQL**: Writes the real-time status into Centreon's database
         (deprecated).
-    6.  **unified-sql**: Writes the real-time status into Centreon's database.
-        One such output replaces **Storage** and **SQL** outputs in the same
+    8.  **unified-sql**: Writes the real-time status into Centreon's database.
+        One such output replaces **Storage** and **SQL** outputs at the same
         time.
-    7.  **Dumper Reader**: Reads from a database when Broker is asked to synchronize
-        databases.
-    8.  **Dumper Writer**: Writes into a database when Broker is asked to
-        synchronize databases.
-    9.  **BAM Monitoring**: Generates BAM data from raw events and updates real-time
+    9.  **Dumper Reader**: Reads from a database when Broker is asked to synchronize
+        databases (obsolete).
+    10.  **Dumper Writer**: Writes into a database when Broker is asked to
+        synchronize databases (obsolete).
+    11.  **BAM Monitoring**: Generates BAM data from raw events and updates real-time
         BAM status.
-    10. **BAM Reporting**: Writes long-term BAM logs that can then be used by BI.
-    11. **Generic - Stream connector**: This is a generic output. You need to
+    12. **BAM Reporting**: Writes long-term BAM logs that can then be used by MBI.
+    13. **Generic - Stream connector**: This is a generic output. You need to
         write a Lua script to explain what you want.
 
   - Failover
@@ -493,6 +552,79 @@ parameter is given. This allows for flexible network topology.
     The size of the compression buffer that should be used. Best practice is *0*
     or nothing.
 
+#### BBDO Server
+
+BBDO Server outputs forward events to a remote endpoint. They listen on a given port for a connection by a BBDO Client.
+
+*BBDO Server*-type outputs have the following parameters:
+
+  - Listening address
+    Only with TCP transport protocol, if empty or if 0.0.0.0 the server listens for every connection.
+    Otherwise, the server only listens on the interface behind the given address.
+
+  - Listening port  
+    Port used for the connection. Mandatory.
+
+  - Transport protocol
+    Two choices are available: gRPC (based on http2) or TCP (a little faster).
+
+  - Authorization token
+    Only used with the gRPC transport protocol. This can be used to filter the BBDO flow.
+    A BBDO client will be able to send data to this server only if their authorization tokens match.
+    
+  - Enable TLS encryption  
+    Enables the encryption of the flow. For the encryption to work, the private
+    key file, *Public certificate* and *Trusted CA's certificate* need to be set
+    on both ends. Default is *auto*, i.e., *no* unless TCP negotiation has been
+    activated and the remote endpoint has activated encryption.
+
+  - Private key path  
+    The private key file used for the encryption.
+
+  - Certificate path
+    The public certificate used for the encryption.
+
+  - Compression  
+    With this option, data is compressed.
+    
+  - Enable retention
+    With this option, data cannot be lost. If the peer doesn't read sent data, the data is stacked until the peer succeeds to read it.
+
+BBDO Client outputs forward events to a remote endpoint. They establish a connection on a given port to a BBDO Server.
+
+*BBDO Client*-type outputs have the following parameters:
+
+  - Server address
+    The address to connect to.
+
+  - Server port  
+    The server port.
+
+  - Retry interval
+    On failure, the client waits for this value (given in seconds) before retrying to connect.
+    
+  - Transport protocol
+    Two choices are available: gRPC (based on http2) or TCP (a little faster).
+
+  - Authorization token
+    Only used with the gRPC transport protocol. This can be used to filter the BBDO flow.
+    A BBDO client will be able to send data to this server only if their authorization tokens match.
+    
+  - Enable TLS encryption  
+    Enables the encryption of the flow. For the encryption to work, the private
+    key file, *Public certificate* and *Trusted CA's certificate* need to be set
+    on both ends. Default is *auto*, i.e., *no* unless TCP negotiation has been
+    activated and the remote endpoint has activated encryption.
+
+  - Trusted CA's certificate path
+    The Trusted CA's certificate file.
+
+  - Certificate Common Name
+    The certificate Common Name.
+
+  - Compression
+    With this option, data is compressed.
+    
 #### File outputs
 
 File *outputs* send events into a file on the disk. Additionally, they have the

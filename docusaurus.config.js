@@ -1,11 +1,7 @@
-// @ts-nocheck
-// Note: type annotations allow type checking and IDEs autocompletion
+import { themes as prismThemes } from 'prism-react-renderer';
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
-const availableVersions = require('./versions.json');
-const archivedVersions = require('./archivedVersions.json');
+import availableVersions from './versions.json';
+import archivedVersions from './archivedVersions.json';
 
 const archivedVersion = process.env.ARCHIVED_VERSION ?? null;
 
@@ -53,6 +49,10 @@ if (versions.length == 0 && !pp && !cloud) {
 const config = {
   customFields: {
     version: archivedVersion ?? null,
+  },
+
+  future: {
+    experimental_faster: true,
   },
 
   title: 'Centreon Documentation',
@@ -108,7 +108,7 @@ const config = {
               (accumulator, currentValue) => {
                 accumulator[currentValue] = {
                   label: Object.keys(accumulator).length === 0 ? `⭐ ${currentValue}` : currentValue,
-                  banner: 'none',
+                  banner: currentValue === '22.10' ? 'unmaintained' : 'none',
                 }
 
                 return accumulator;
@@ -119,7 +119,7 @@ const config = {
         },
         blog: false,
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: ['./src/css/custom.css'],
         },
         gtag: {
           trackingID: 'G-BGL69N5GPJ',
@@ -148,14 +148,14 @@ const config = {
           disableInDev: true,
         },
       ],
-      'plugin-image-zoom',
+      'docusaurus-plugin-image-zoom',
     ];
 
     if (archivedVersion) {
       plugins = [
         ...plugins,
         [
-          require.resolve("@cmfcmf/docusaurus-search-local"),
+          '@cmfcmf/docusaurus-search-local',
           {
             indexBlog: false,
             language: ["en", "fr"],
@@ -173,7 +173,7 @@ const config = {
             id: 'cloud',
             path: 'cloud',
             routeBasePath: 'cloud',
-            sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
+            sidebarPath: './cloud/sidebarsCloud.js',
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
@@ -192,7 +192,7 @@ const config = {
             id: 'pp',
             path: 'pp',
             routeBasePath: 'pp',
-            sidebarPath: require.resolve('./pp/sidebarsPp.js'),
+            sidebarPath: './pp/sidebarsPp.js',
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
@@ -217,13 +217,21 @@ const config = {
           contextualSearch: true,
         },
 
-      zoomSelector: '.markdown :not(.authority-availability) > img',
+      zoom: {
+        selector: '.markdown img',
+        background: {
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(0, 0, 61)'
+        },
+        config: {}
+      },
 
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
         defaultLanguage: 'shell',
         additionalLanguages: [
+          'diff',
           'java',
           'json',
           'cpp',
@@ -387,23 +395,6 @@ const config = {
         copyright: `Copyright © 2005 - 2024 Centreon`,
       },
     }),
-  webpack: {
-    jsLoader: (isServer) => ({
-      loader: require.resolve('swc-loader'),
-      options: {
-        jsc: {
-          "parser": {
-            "syntax": "typescript",
-            "tsx": true
-          },
-          target: 'es2017',
-        },
-        module: {
-          type: isServer ? 'commonjs' : 'es6',
-        }
-      },
-    }),
-  }
 };
 
-module.exports = config;
+export default config;

@@ -51,7 +51,7 @@ Install the Open Telemetry processor for Telegraf on your central server:
 2. Create a new connector with the following values:
 
 | Parameter             | Value                                                                                                                                                                                                                            |
-|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Connector Name        | Telegraf                                                                                                                                                                                                                         |
 | Connector Description | Telegraf                                                                                                                                                                                                                         |
 | Command Line          | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resource_metrics.scope_metrics.data.data_points.attributes.host --service_path=resource_metrics.scope_metrics.data.data_points.attributes.service` |
@@ -83,13 +83,11 @@ Install the Open Telemetry processor for Telegraf on your central server:
    },
    "telegraf_conf": {
      "interval": "60s",
-     "service_address": "xxx.xxx.xxx.xxx:4317"
    }
  }
 }
 ```
 
-* Enter the IP address of the poller in the **service_address** field.
 * The **interval** field is the frequency of checks performed by Telegraf, and should be set to 60 seconds as it is the frequency of Engine checks.
 
 > For the sake of simplicity, this page only covers the configuration of Telegraf **without encryption**. You may find how to secure the communications in the [Linux Telegraf Agent](../../procedures/operatingsystems-linux-telegraf-agent.md) and [Windows Telegraf Agent](../../procedures/operatingsystems-windows-telegraf-agent.md) pages.
@@ -145,6 +143,39 @@ EOF
 dnf install -y telegraf
 ```
 
+Then:
+
+1. Stop the Telegraf service 
+
+```shell
+systemctl stop telegraf
+```
+
+2. Edit the **telegraf.service** file. 
+
+```shell
+vi /etc/systemd/system/telegraf.service
+```
+
+3. Replace:
+
+```shell
+/usr/bin/telegraf -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d $TELEGRAF_OPTS
+```
+
+By (replace the placeholders by your values):
+
+```shell
+/usr/bin/telegraf -config http(s)://<ip poller>:<port poller>/engine?host=<host to monitor>
+```
+
+4. Start the Telegraf service:
+
+
+```shell
+systemctl start telegraf
+```
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -170,6 +201,39 @@ EOF
 dnf install -y telegraf
 ```
 
+Then:
+
+1. Stop the Telegraf service 
+
+```shell
+systemctl stop telegraf
+```
+
+2. Edit the **telegraf.service** file. 
+
+```shell
+vi /etc/systemd/system/telegraf.service
+```
+
+3. Replace:
+
+```shell
+/usr/bin/telegraf -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d $TELEGRAF_OPTS
+```
+
+By (replace the placeholders by your values):
+
+```shell
+/usr/bin/telegraf -config http(s)://<ip poller>:<port poller>/engine?host=<host to monitor>
+```
+
+4. Start the Telegraf service:
+
+
+```shell
+systemctl start telegraf
+```
+
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
@@ -186,6 +250,49 @@ apt-get update
 apt-get -y install telegraf
 ```
 
+You must then configure the Telegraf OpenTelemetry output.
+You must uncomment this paragraph or recreate a configuration file with just the following lines:
+
+```
+# [[outputs.opentelemetry]]
+#   ## Override the default (localhost:4317) OpenTelemetry gRPC service
+#   ## address:port
+#   # service_address = "localhost:4317"
+#
+#   ## Override the default (5s) request timeout
+#   # timeout = "5s"
+#
+#   ## Optional TLS Config.
+#   ##
+#   ## Root certificates for verifying server certificates encoded in PEM format.
+#   # tls_ca = "/etc/telegraf/ca.pem"
+#   ## The public and private keypairs for the client encoded in PEM format.
+#   ## May contain intermediate certificates.
+#   # tls_cert = "/etc/telegraf/cert.pem"
+#   # tls_key = "/etc/telegraf/key.pem"
+#   ## Use TLS, but skip TLS chain and host verification.
+#   # insecure_skip_verify = false
+#   ## Send the specified TLS server name via SNI.
+#   # tls_server_name = "foo.example.com"
+```
+
+If the communication between Telegraf and the poller is not encrypted, you just have to enter the IP address and port of the poller in the **service_address** option (port entered in the **otel_server** field in the poller’s configuration). If not, you will also need to provide a value for at least **tls_ca**.
+
+Now you need to add the Telegraf configuration server provided by the poller.
+You must create the ***/etc/default/telegraf file** and add the following line:
+
+```
+TELEGRAF_OPTS=-config https://<ip poller>:<http_server port>/engine? host=<host_to_monitor>
+```
+
+The arguments of this command will allow Telegraf to know where to get the configuration of the resources it must monitor (that is to say on the poller or on the central server following the IP address defined in the command). The parameter `<host_to_monitor>` is the name of the host as entered in the **Name** field of its configuration.
+
+You now have to restart Telegraf:
+
+```
+systemctl restart telegraf
+```
+
 </TabItem>
 </Tabs>
 
@@ -194,10 +301,36 @@ apt-get -y install telegraf
 
 1. [Download the agent](https://docs.influxdata.com/telegraf/v1/install/) on all the servers you want to monitor.
 
-2. Install the agent on the servers using the following command (replace the placeholders by your values):
+2. You must then configure the Telegraf OpenTelemetry output.
+You must uncomment this paragraph or recreate a configuration file with just the following lines:
+
+```
+# [[outputs.opentelemetry]]
+#   ## Override the default (localhost:4317) OpenTelemetry gRPC service
+#   ## address:port
+#   # service_address = "localhost:4317"
+#
+#   ## Override the default (5s) request timeout
+#   # timeout = "5s"
+#
+#   ## Optional TLS Config.
+#   ##
+#   ## Root certificates for verifying server certificates encoded in PEM format.
+#   # tls_ca = "/etc/telegraf/ca.pem"
+#   ## The public and private keypairs for the client encoded in PEM format.
+#   ## May contain intermediate certificates.
+#   # tls_cert = "/etc/telegraf/cert.pem"
+#   # tls_key = "/etc/telegraf/key.pem"
+#   ## Use TLS, but skip TLS chain and host verification.
+#   # insecure_skip_verify = false
+#   ## Send the specified TLS server name via SNI.
+#   # tls_server_name = "foo.example.com"
+```
+
+3. Install the agent on the servers using the following command (replace the placeholders by your values):
 
 ```shell
-.\telegraf.exe --service install --config "http(s)://<ip_poller>:<port poller>/engine?host=<host_to_monitor>"
+.\telegraf.exe --service install --config <previous conf file path> --config "http(s)://<ip_poller>:<port poller>/engine?host=<host_to_monitor>"
 ```
 
 The arguments in this command will allow Telegraf to know where to fetch the configuration of the resources that it must monitor (i.e on the poller or the central, according to the IP address you have entered in the command). The `<host_to_monitor>` parameter is the name of the host as you entered it in the **Name** field in its configuration.

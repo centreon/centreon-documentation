@@ -165,8 +165,8 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     --hostname=10.0.0.1 \
     --snmp-version='2c'
     --snmp-community='mysnmpcommunity' \
-    --critical-cluster-status='%{cluster_status} =~ /outOfService/i' \
-    --critical-license-status='%{license_status} =~ /notinstalled/i' \
+    --critical-cluster-status='%\{cluster_status\} =~ /outOfService/i' \
+    --critical-license-status='%\{license_status\} =~ /notinstalled/i' \
     --warning-cluster-license-usage-prct='80' \
     --critical-cluster-license-usage-prct='90' \
     --verbose

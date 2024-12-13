@@ -318,8 +318,30 @@ yum install centreon-bi-server
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+Installez **gpg**:
+
 ```shell
-apt update && apt install centreon-bi-server
+apt install gpg
+```
+
+Importez la clé du dépôt :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Ajoutez le dépôt externe suivant (pour Java 8):
+
+```shell
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+```
+
+Puis installez Centreon MBI:
+
+```shell
+apt update
+apt install centreon-bi-server
 ```
 
 </TabItem>
@@ -361,7 +383,7 @@ Lancez la commande ci-dessous pour autoriser le serveur de reporting à se conne
 aux bases de données du serveur de supervision. Utilisez l'option suivante :
 
 ```shell
-/usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 ```
 
 **@ROOTPWD@** : Mot de passe root de la base MariaDB de supervision.
@@ -589,7 +611,6 @@ Ajouter le dépôt externe suivant (pour Java 8):
 ```shell
 wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
 add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la

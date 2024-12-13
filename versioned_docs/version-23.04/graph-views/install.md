@@ -5,6 +5,11 @@ title: Install Centreon MAP extension
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **From Centreon 24.10, MAP Legacy will no longer be available.** We recommend you [install the new MAP module](map-web-install.md) instead.
+
+MAP has significant advantages compared to MAP (Legacy), including:
+- Web editor: Create and edit your views directly from your web browser.
+- New server: Brand new server and data model providing better performance.
 
 > Centreon MAP requires a valid license key. To purchase one and retrieve the
 > necessary repositories, contact [Centreon](mailto:sales@centreon.com).
@@ -147,7 +152,7 @@ default value. Modify the following file:
 <TabItem value="Windows" label="Windows">
 
 ```shell
-C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
+C:\Users<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 ```
 
 </TabItem>
@@ -352,6 +357,8 @@ apt install centreon-map-server
 
 When installing Centreon MAP server, it will automatically install java
 (OpenJDK 11) if needed.
+
+> Go to this troubleshooting procedure if OpenJDK 17 causes an issue [preventing centreon-map-server from being installed](./troubleshooter.md#centreon-map-server-and-all-its-dependencies-cannot-get-installed-on-alma-linux-8).
 
 > You need to have a MariaDB database to store Centreon MAP data, whether
 > it's on localhost or somewhere else.

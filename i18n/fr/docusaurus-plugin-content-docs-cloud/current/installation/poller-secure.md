@@ -1,6 +1,6 @@
 ---
 id: poller-secure
-title: Sécuriser votre collecteur
+title: Sécuriser vos collecteurs
 ---
 
 import Tabs from '@theme/Tabs';

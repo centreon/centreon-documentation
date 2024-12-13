@@ -5,6 +5,8 @@ title: Using packages
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This is an older version of Centreon. We recommend you install the latest version.
+
 Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
@@ -538,9 +540,9 @@ GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<CENTRAL_SERVER_IP>' WITH GRANT OPTION
 FLUSH PRIVILEGES;
 ```
 
-> Replace **<CENTRAL_SERVER_IP\>** with the Centreon Central IP address that will connect to the database server.
+> Replace **\<CENTRAL_SERVER_IP\>** with the Centreon Central IP address that will connect to the database server.
 >
-> Replace **<USER\>** and **<PASSWORD\>** by the user's credentials.
+> Replace **\<USER\>** and **\<PASSWORD\>** by the user's credentials.
 
 This user will only be used for the installation process: once the [web installation](../web-and-post-installation.md) is complete you can delete this user using:
 

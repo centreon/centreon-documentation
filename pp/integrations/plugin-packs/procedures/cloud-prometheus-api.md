@@ -166,7 +166,7 @@ user account and test the Plugin by running the following command:
     --hostname=amzprometheus.int.centreon.com \
     --url-path='/api/v1' --port='9090' --proto='http' \
     --filter-label='job,coredns' \
-    --warning-status='' --critical-status='%{health} !~ /up/' 
+    --warning-status='' --critical-status='%\{health\} !~ /up/' 
 ```
 
 Expected command output is shown below:
@@ -198,9 +198,9 @@ Nothing is better than a clear example to understand how the Expression generic 
     --hostname=amzprometheus.int.centreon.com \
     --url-path='/api/v1' --port='9090' --proto='http' \
     --query='cpu_requests,sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100' \
-    --output='%{instance} CPU Requests: %{cpu_requests}%' --multiple-output='Nodes CPU Requests within bounds' \
+    --output='%\{instance\} CPU Requests: %\{cpu_requests\}%' --multiple-output='Nodes CPU Requests within bounds' \
     --instance='node' \
-    --warning-status='%{cpu_requests} > 60' --critical-status='%{cpu_requests} > 70' \
+    --warning-status='%\{cpu_requests\} > 60' --critical-status='%\{cpu_requests\} > 70' \
     --use-new-perfdata --verbose 
 ```
 
@@ -228,8 +228,8 @@ check in the following cases:
 - Check returning an error
 
 Values can be specified through the corresponding macros, in this example the value of OUTPUT macro
-would be "%{instance} CPU Requests: %{cpu_requests}%". Note that we use the Centreon label defined in the `--query`
-option to use the obtained value). We also use the '%{instance}' keyword to display the node name. 
+would be "%\{instance\} CPU Requests: %\{cpu_requests\}%". Note that we use the Centreon label defined in the `--query`
+option to use the obtained value). We also use the '%\{instance\}' keyword to display the node name. 
 
 The MULTIPLEOUTPUT value would be "Nodes CPU Requests within bounds"
 
@@ -243,7 +243,7 @@ In the command above, the check triggers a *WARNING* alarm when the 'cpu_request
 Note that the Centreon label defined in the `--query` options is used again to compare 
 the obtained value with thresholds. 
 
-The macros value would be '%{cpu_requests} > 60' for WARNINGSTATUS and '%{cpu_requests} > 70' 
+The macros value would be '%\{cpu_requests\} > 60' for WARNINGSTATUS and '%\{cpu_requests\} > 70' 
 for CRITICALSTATUS.
 
 #### Expected output and macros summary
@@ -265,18 +265,18 @@ Here is a summary of the Service's macros definitions:
 | INSTANCE          | node                                                   |
 | OUTPUT            | URL Path to reach API (Default: '/api/v1)              |
 | MULTIPLEOUTPUT    | Nodes CPU Requests within bounds                       |
-| WARNINGSTATUS     | %{cpu_requests} > 60                                   |
-| CRITICALSTATUS    | %{cpu_requests} > 70                                   |
+| WARNINGSTATUS     | %\{cpu_requests\} > 60                                   |
+| CRITICALSTATUS    | %\{cpu_requests\} > 70                                   |
 | EXTRAOPTIONS      | --verbose --use-new-perfdata                           |
 
 ## Troubleshooting
 
-### UNKNOWN: 500 Can't connect to amzprometheus.int.centreon.com:9090 (<error_text) |
+### UNKNOWN: 500 Can't connect to amzprometheus.int.centreon.com:9090 (\<error_text\>) |
 
 When facing this error message, check that port, hostname are OK and double check the 
 connection between your Centreon Poller and the Prometheus Server. 
 
-The <error_text> should give more information about the root cause 
+The \<error_text\> should give more information about the root cause 
 
 ### UNKNOWN: 400 Bad Request |
 

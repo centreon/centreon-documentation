@@ -2,12 +2,24 @@
 id: stream-connectors
 title: Stream connectors
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Stream connectors transfer in real time the flow of monitoring data coming from the Centreon platform to a third-party tool. This flow can contain events or metrics.
 
 ## Release notes
 
 ## 2024
+
+### September
+
+<Tabs groupId="sync">
+<TabItem value="Fix" label="Fix">
+
+- [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - fixed return code when payload is empty.
+
+</TabItem>
+</Tabs>
 
 ### August
 
@@ -16,7 +28,7 @@ Stream connectors transfer in real time the flow of monitoring data coming from 
 
 - [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Fixed an issue with **max_buffer_size** parameter in Splunk stream connector.
 - [**Clickhouse**](data-analytics/sc-clickhouse.md) - Added a protection on metric names containing spaces.
-- **InfluxdDB Metrics** - Added a protection on metric names containing spaces.
+- [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Added a protection on metric names containing spaces.
 - [**Centreon library: sc_macro**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_macro.lua) - Fixed an issue with **_scshort flag** leading to the macro name of an event being displayed instead of its value.
 
 </TabItem>
@@ -47,7 +59,7 @@ Stream connectors transfer in real time the flow of monitoring data coming from 
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**All stream connectors**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/docs/README.md) - Added additional debug information when an issue occurs while sending data.
-- **Influxdb2 Metrics** - Added the possibility to send **metric_id**.
+- [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Added the possibility to send **metric_id**.
 
 </TabItem>
 </Tabs>

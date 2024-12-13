@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ## Comment ça marche
 
-* A chaque fois que le statut d'un service, hôte ou BA est contrôlé, l'évènement passe par Centreon Broker qui utilise le Stream Connector puor envoyer ce changement d'état.
+* A chaque fois que le statut d'un service, hôte ou BA est contrôlé, l'évènement passe par Centreon Broker qui utilise le Stream Connector pour envoyer ce changement d'état.
 * Un changement d'état peut survenir en cas de détection d'anomalie
 * Un alias est généré pour chaque alerte afin de profiter de la déduplication d'Opsgenie
 
@@ -187,7 +187,7 @@ rm -f /usr/share/centreon-broker/lua/opsgenie.lua
 
 ## Macros
 
-Les macros sont un outil pour créer des messages dynamiques dépendant de l'évènement que vous envoyez. Elles doivent être mises entre {} (ex : {hostname}). Si une macro est une macro de type *time* alors vous pouvez utiliser le suffixe **\_date** pour le convertir en un format lisible pour l'Homme. Vous pouvez changer le format de la date avec le paramètre de type string `date_format`. (ex : {last_update} est une macro sous la forme d'un timestamp. Vous pouvez utiliser {last_update_date} pour la convertir)
+Les macros sont un outil pour créer des messages dynamiques dépendant de l'évènement que vous envoyez. Elles doivent être mises entre {} (ex : \{hostname\}). Si une macro est une macro de type *time* alors vous pouvez utiliser le suffixe **\_date** pour le convertir en un format lisible pour l'Homme. Vous pouvez changer le format de la date avec le paramètre de type string `date_format`. (ex : \{last_update\} est une macro sous la forme d'un timestamp. Vous pouvez utiliser \{last_update_date\} pour la convertir)
 
 #### Host event macros
 

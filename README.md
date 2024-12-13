@@ -40,7 +40,7 @@ let you know so that you can rebase it.
 
 To understand how the documentation is structured, you may have a look to the
  [Docusaurus project](https://docusaurus.io/).
-We're using version 2.
+We're using version 3.
 
 ### Pull request guidelines
 
@@ -57,7 +57,7 @@ set by the existing documentation.
 
 ## How to build the documentation locally
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
 
 ### Which branch should I base my PRs on?
 
@@ -65,9 +65,9 @@ Use branch **staging**. We will merge the PR into production once it has gone th
 
 ### Prerequisites
 
-1. Install **yarn**. On Windows: https://classic.yarnpkg.com/latest.msi
+1. Install [**pnpm** (version 9)]: https://pnpm.io/installation
 
-2. Install **node.js** (version 14 minimum): https://nodejs.org/en/download/
+2. Install **node.js** (version 18 minimum): https://nodejs.org/en/download/
 
 3. Clone the repository :
 
@@ -85,28 +85,28 @@ Use branch **staging**. We will merge the PR into production once it has gone th
    git checkout <name_of_branch>
    ```
 
-4. Install dependencies:
+5. Install dependencies:
 
    ```
-   yarn install --frozen-lockfile
+   pnpm install --frozen-lockfile
    ```
 
 ### Building the documentation website
 
 * Build the EN or FR version of the site (faster)
 
-   * EN: ```yarn start```
-   * FR: ```yarn start --locale=fr```
+   * EN: ```pnpm start```
+   * FR: ```pnpm start --locale=fr```
 
    The website opens in your browser at the following address: http://localhost:3000/. Most changes are reflected live without having to restart the server.
 
 * If you really need to build the whole website, use the following command (but be aware it takes a long time to build):
 
    ```
-   yarn build
+   pnpm build
    ```
 
-   Then use the `npm run serve` command to open the website in your browser.
+   Then use the `pnpm run serve` command to open the website in your browser.
 
 ## Adding files to the table of contents
 

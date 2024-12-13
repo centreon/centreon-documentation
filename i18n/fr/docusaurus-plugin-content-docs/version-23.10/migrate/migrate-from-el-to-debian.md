@@ -52,10 +52,10 @@ apt update && apt upgrade
 4. Depuis l'ancien serveur, synchronisez les répertoires suivants vers le nouveau serveur :
 
    ```shell
-   rsync -avz /etc/centreon root@<IP_NOUVEAU_CENTREON>:/etc
-   rsync -avz /etc/centreon-broker root@<IP_NOUVEAU_CENTREON>:/etc
-   rsync -avz /var/log/centreon-engine/archives/ root@<IP_NOUVEAU_CENTREON>:/var/log/centreon-engine
-   rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@<IP_NOUVEAU_CENTREON>:/var/lib
+   rsync -avz /etc/centreon root@\<IP_NOUVEAU_CENTREON\>:/etc
+   rsync -avz /etc/centreon-broker root@\<IP_NOUVEAU_CENTREON\>:/etc
+   rsync -avz /var/log/centreon-engine/archives/ root@\<IP_NOUVEAU_CENTREON\>:/var/log/centreon-engine
+   rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@\<IP_NOUVEAU_CENTREON\>:/var/lib
    rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img
    ```
 
@@ -98,8 +98,8 @@ apt update && apt upgrade
 3. Depuis l'ancien serveur, exportez les dumps vers le nouveau serveur de base de données (assurez-vous d'avoir assez d'espace):
 
    ```shell
-   rsync -avz /tmp/centreon.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
-   rsync -avz /tmp/centreon_storage.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
+   rsync -avz /tmp/centreon.sql root@\<IP_NOUVEAU_CENTREON\>:/tmp/
+   rsync -avz /tmp/centreon_storage.sql root@\<IP_NOUVEAU_CENTREON\>:/tmp/
    ```
 
 4. Sur le nouveau serveur de base de données, supprimez les bases de

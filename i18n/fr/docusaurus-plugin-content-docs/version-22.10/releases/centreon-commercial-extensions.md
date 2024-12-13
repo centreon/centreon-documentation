@@ -17,6 +17,18 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.17
+
+Release date: `October 7, 2024`
+
+#### Enhancements
+
+- [SELinux] Packaged SELinux rules for centreon-map.
+
+#### Bug fixes
+
+- [Diagnostic] Fixed an issue in the diagnostic script when MAP was configured in HTTPS.
+
 ### 22.10.16
 
 Release date: `April 17, 2024`
@@ -267,6 +279,14 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.10.17
+
+Release date: `October 7, 2024`
+
+#### Bug fixes
+
+- [Diagnostic] Fixed an issue in the diagnostic script when MAP was configured in HTTPS.
+
 ### 22.10.13
 
 Release date: `November 22, 2023`
@@ -439,6 +459,22 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon MBI
+
+### 22.10.11
+
+Release date: `October 7, 2024`
+
+#### Enhancements
+
+- [SELinux] Packaged SELinux rules for centreon-mbi.
+  
+#### Bug fixes
+
+- [Dependencies] Upgraded Spring framework.
+
+#### Security fixes
+
+- [Security] Fixed SQLi in configuration pages, only accessible to authenticated users with high privilege access (CVE-2024-45754).
 
 ### 22.10.10
 
@@ -615,7 +651,7 @@ Release date: `July 4, 2024`
 #### Bug fixes
 
 - [Packaging] Added missing dependencies on anomaly detection.
-- [Packaging] Various anomaly detection perl installation scripts are now deployed on **/usr/share/perl5/centreon/anomalydetection** instead of **/%{perl_vendorlib}/centreon**.
+- [Packaging] Various anomaly detection perl installation scripts are now deployed on **/usr/share/perl5/centreon/anomalydetection** instead of **/%\{perl_vendorlib\}/centreon**.
 
 ### 22.10.5
 

@@ -115,7 +115,7 @@ module.exports = {
             },
             {
               type: 'doc',
-              id: 'getting-started/create-custom-view',
+              id: 'getting-started/create-dashboard',
             },
           ],
         },
@@ -175,6 +175,26 @@ module.exports = {
           type: 'doc',
           id: 'installation/poller-secure',
         },
+        {
+          type: 'doc',
+          id: 'installation/poller-monitor',
+        },
+        {
+          type: 'doc',
+          id: 'installation/poller-troubleshoot',
+        },
+        {
+          type: 'doc',
+          id: 'installation/poller-migrate',
+        },
+        {
+          type: 'doc',
+          id: 'installation/poller-remove',
+        },
+        {
+          "type": "doc",
+          "id": "installation/poller-versions"
+        }
       ],
     },
     {
@@ -358,16 +378,8 @@ module.exports = {
             {
               "type": "doc",
               "id": "alerts-notifications/event-log"
-            },
-            {
-              "type": "doc",
-              "id": "alerts-notifications/custom-views"
-            },
-            {
-              "type": "doc",
-              "id": "alerts-notifications/dashboards"
             }
-          ]
+      ]
         },
         {
           "type": "category",
@@ -393,31 +405,6 @@ module.exports = {
         {
           "type": "doc",
           "id": "alerts-notifications/notif-configuration"
-        },
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Performance graphs",
-      "link": {
-        "type": "generated-index",
-      },
-      "items": [
-        {
-          "type": "doc",
-          "id": "metrology/chart-management"
-        },
-        {
-          "type": "doc",
-          "id": "metrology/chart-template"
-        },
-        {
-          "type": "doc",
-          "id": "metrology/chart-curves"
-        },
-        {
-          "type": "doc",
-          "id": "metrology/chart-virtual-metrics"
         },
       ]
     },
@@ -465,7 +452,43 @@ module.exports = {
     },
     {
       "type": "category",
-      "label": "Graphical views",
+      "label": "Data Visualization",
+      "link": {
+        "type": "generated-index"
+      },
+      "items": [
+      {
+        "type": "doc",
+        "id": "alerts-notifications/dashboards"
+      },
+      {
+        "type": "category",
+        "label": "Performance graphs",
+        "link": {
+          "type": "generated-index",
+        },
+        "items": [
+          {
+            "type": "doc",
+            "id": "metrology/chart-management"
+          },
+          {
+            "type": "doc",
+            "id": "metrology/chart-template"
+          },
+          {
+            "type": "doc",
+            "id": "metrology/chart-curves"
+          },
+          {
+            "type": "doc",
+            "id": "metrology/chart-virtual-metrics"
+          }
+        ]
+      },
+    {
+      "type": "category",
+      "label": "Graphical views (maps)",
       "link": {
         "type": "generated-index",
       },
@@ -502,9 +525,15 @@ module.exports = {
               "id": "graph-views/map-web-known-issues"
             }
           ]
-        }
-      ]
-    },
+          }
+        ]
+      },
+    {
+      "type": "doc",
+      "id": "alerts-notifications/custom-views"
+    }
+  ]
+},
     {
       "type": "category",
       "label": "Administration",

@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 Pour que votre Centreon puisse envoyer des emails de notification, un serveur smtp local doit être configuré.
 
-Cette page donne un exemple de configuration. Consultez la  [documentation officielle Postfix](http://www.postfix.org/BASIC_CONFIGURATION_README) pour plus d'informations.
+Cette page donne un exemple de configuration. Consultez la  [documentation officielle Postfix](https://www.postfix.org/BASIC_CONFIGURATION_README.html) pour plus d'informations.
 
 Si votre système d'exploitation est RHEL ou Oracle Linux, Postfix est déjà installé.
 

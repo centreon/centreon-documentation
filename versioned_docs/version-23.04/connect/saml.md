@@ -127,6 +127,6 @@ users. Here is an example of fields you may have to fill in:
 
 | IdP option                           | Centreon value                                                 |
 |--------------------------------------|----------------------------------------------------------------|
-| Client ID                            | https://<Centreon_IP_address>                                  |
-| Assertion Consumer Service (ACS) URL | https://<Centreon_IP_address>/centreon/api/latest/saml/acs     |
-| Redirect Binding URLs for SLO        | https://<Centreon_IP_address>/centreon/api/latest/saml/sls     |
+| Client ID                            | https:/\<Centreon_IP_address\>                                  |
+| Assertion Consumer Service (ACS) URL | https:/\<Centreon_IP_address\>/centreon/api/latest/saml/acs     |
+| Redirect Binding URLs for SLO        | https:/\<Centreon_IP_address\>/centreon/api/latest/saml/sls     |
