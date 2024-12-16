@@ -5,43 +5,46 @@ title: Problèmes connus sur Centreon Cloud
 
 Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci seront corrigés dans une prochaine release. 
 
-## Resource Access Management
+## Gestion de l'accès aux ressources
 
-* The click area for “All" boxes (**All contacts**, **All contact groups**, **All hosts**...) is too wide: it is easy to select "All" by mistake.
 
-* It is not possible to select a Resource Access Management rule in the Business View configuration form.
+* La zone de clic pour les cases "Tous" (**Tous les contacts**, **Tous les groupes de contacts**, **Tous les hôtes**...) est trop large : il est facile de sélectionner "Tous" par erreur.
 
-   **Workaround**: When you create a new Business View, you need to go to the **Resource Access Management** menu to add the Business View to a rule.
+* Il n'est pas possible de sélectionner une règle d'accès aux ressources dans le formulaire de configuration des Vues Métier.
 
-* To grant access to services independently of their host, you can define rules only at services group or service category level.
+   **Contournement**: Lorsque vous créez une nouvelle Vue Métier, allez dans le menu **Gestion de l'accès aux ressources** et ajoutez la Vue Métier à une règle.
+
+* Pour donner accès à un service indépendemment de son hôte, vous pouvez définir des règles uniquement au niveau des groupes de services ou des catégories de services.
+
 
 ## Notifications
 
-* Time period exceptions are not considered for notifications.
 
-* In the notification rule listing, rules cannot be sorted by name.
+* Les exceptions relatives aux périodes temporelles ne sont pas prises en compte pour les notifications.
+
+* Dans la liste des règles de notification, il n'est pas possible de trier les règles par leur nom.
+
 
 ## Configuration
 
-* Incremental mass changes are not possible for hosts and services.
 
-* Users cannot yet configure Stream Connectors themselves.
+* Les changements massifs incrémentaux ne sont pas possibles pour les hôtes et les services. 
 
-   **Workaround**: Centreon can configure Stream Connectors for you. Please contact your CSM.
+* Les utilisateurs ne peuvent pas encore configurer des Stream Connectors eux-mêmes.
+   **Contournement**: Centreon peut configurer des Stream Connectors pour vous. Contactez votre CSM.
+  
+* Il est possible de créer deux services portant le même nom rattachés à un même hôte.
 
-* It is possible to create two services with the same name on a host.
+* Déployer un service ne fonctionne pas si le modèle appliqué à un hôte existant a été changé. (Commande **Plus d'actions > Déployer les services**.)
+  
+* Il n'est pas encore possible de définir un collecteur par défaut. Lorsque vous créez un hôte, assurez-vous de définir le bon collecteur pour le superviser au lieu du serveur central.
 
-* Deploying a service does not work if the template of an existing host is changed. (**More actions > Deploy services** command.)
+* Les comptes de service (par exemple, **broker service user**) apparaissent dans les listes de sélection des contacts. Ne les utilisez pas.
 
-* It is not possible yet to define a default poller. When you create a host, make sure you define the correct poller to monitor it instead of the central server.
+* Dans le formulaire de configuration des Activités Métier, la section **Notification**  n'a aucun effet.
 
-* Service accounts (e.g. **broker service user**) are listed in contact selection dropdown lists. Do not use them.
+   **Contournement**: Il est possible de configurer des notifications liées aux Activités Métier en utilisant le mécanisme de notification standard.
 
-* In the Business Activities configuration form, the **Notification** section does not have any effect.
+## Connexion
 
-   **Workaround**: You can still configure notifications related to Business Activities using the standard notification mechanism.
-
-## Log in
-
-* A **Connect with OpenID** button might briefly show on the login screen. Wait for a few seconds before logging in.
-
+* Un bouton **Connect with OpenID** peut apparaître brièvement sur l'écran de connexion. Attendez quelques secondes pour vous connecter.
