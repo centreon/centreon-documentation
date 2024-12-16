@@ -66,26 +66,13 @@ To change the behavior of the plugin (i.e. change the data returned by it), use 
 
 We want to check whether our Centreon platform is in maintenance, and to get a CRITICAL status if it is indeed in maintenance. To achieve this, we use the **HTTP Server** connector rather than the **Centreon central** connector.
 
-We check that the page the plugin obtains is the expected one, and not an error or maintenance response. We will use the **--mode expected-content** mode and the **--expected-string** option (this option lets you specify which string must be looked for in the body of the page, so as to confirm it is the correct page).
-
-In the **EXTRAOPTIONS** macro, enter the following value: **--mode expected-content --expected-string='Best-in-Class Hybrid IT Monitoring for Enterprise'**.
-
-The command becomes:
-
-```shell
-/usr/lib/centreon/plugins/centreon_protocol_http.pl --plugin apps::protocols::http::plugin --mode expected-content --hostname www.centreon.com --expected-string='Best-in-Class Hybrid IT Monitoring for Enterprise'
-```
-
-Once we have deployed the configuration and rerun the command, we get the following results:
-
-```shell
-OK: HTTP test(s) | 'size'=158714B;;;0; 'time'=0.157s;;;0;
-```
-
+Command:
 
 ```shell
 /usr/lib/centreon/plugins/centreon_protocol_http.pl --plugin apps::protocols::http::plugin --mode expected-content --hostname 127.0.0.1 --urlpath='/centreon/api/latest/platform/installation/status' --expected-string='"has_upgrade_available":false' --change-short-output='Content test .*~Centreon is in maintenance' --change-short-output='HTTP test.*~Centreon is functional'
 ```
+
+Results:
 
 ```shell
 CRITICAL: Centreon is in maintenance| 'size'=50B;;;0; 'time'=0.137s;;;0;
