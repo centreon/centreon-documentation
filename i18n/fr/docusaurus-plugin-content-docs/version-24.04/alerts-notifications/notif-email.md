@@ -1,6 +1,6 @@
 ---
 id: notif-email
-title: Email notifications
+title: Notifications par email
 ---
 
 Le façon la plus courante d'envoyer des notifications avec Centreon est par email. Suivez la procédure [Configurer les notifications](./notif-configuration.md) pour les paramétrer.
