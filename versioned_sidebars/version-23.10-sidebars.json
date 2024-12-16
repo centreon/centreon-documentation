@@ -522,8 +522,29 @@
               "id": "alerts-notifications/notif-configuration"
             },
             {
-              "type": "doc",
-              "id": "alerts-notifications/notif-config-for-teams"
+              "type": "category",
+              "label": "Types of notifications",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/notif-email"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/notif-config-for-teams"
+                },
+                {
+                  "type": "doc",
+                  "id": "integrations/notifications/slack-notifications"
+                },
+                {
+                  "type": "doc",
+                  "id": "integrations/notifications/plugin-telegram"
+                }
+              ]
             },
             {
               "type": "doc",
@@ -1308,20 +1329,6 @@
             {
               "type": "doc",
               "id": "integrations/itsm/ot-servicenow"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Notifications",
-          "link": {
-            "type": "doc",
-            "id": "integrations/notifications/notifications-overview"
-          },
-          "items": [
-            {
-              "type": "doc",
-              "id": "integrations/notifications/plugin-telegram"
             }
           ]
         },

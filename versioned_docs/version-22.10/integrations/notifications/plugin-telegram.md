@@ -1,6 +1,6 @@
 ---
 id: plugin-telegram
-title: Notify with Telegram bot
+title: Telegram notifications
 ---
 
 ## Introduction
