@@ -10,7 +10,7 @@ For your Centreon to be able to send notification emails, you need to configure 
 
 This page gives you an example of a possible configuration. Refer to the [official Postfix documentation](https://www.postfix.org/BASIC_CONFIGURATION_README.html) for more information.
 
-If your operating system is RHEL or Oracle Linux, Postfix is already installed.
+On some distributions, Postfix may already be installed.
 
 Notification commands are executed by the poller that monitors the resource, so you need to configure the mail relay on all pollers.
 
@@ -52,7 +52,7 @@ dnf install s-nail cyrus-sasl-plain
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ``` shell
-apt install postfix bsd-mailx
+apt install postfix bsd-mailx libsasl2-modules
 ```
 
 </TabItem>
@@ -77,6 +77,9 @@ apt install postfix bsd-mailx
     ```
 
 5. Add the following information:
+
+<Tabs groupId="sync">
+<TabItem value="With authentication/TLS" label="With authentication/TLS">
 
     ```shell
     myhostname = hostname
@@ -104,6 +107,25 @@ apt install postfix bsd-mailx
     smtp_sasl_security_options = noanonymous
     smtp_sasl_tls_security_options = noanonymous
     ```
+
+</TabItem>
+<TabItem value="Without authentication/TLS" label="Without authentication/TLS">
+
+    ```shell
+    myhostname = centreon-central
+    relayhost = [smtp.gmail.com]:587
+    smtp_use_tls = no
+    smtp_sasl_auth_enable = no
+    ```
+
+</TabItem>
+</Tabs>
+
+6. Restart Postfix:
+
+   ```shell
+   systemctl restart postfix
+   ```
 
 ## Step 2: Configuring the credentials of the account that will send emails
 
@@ -156,7 +178,7 @@ apt install postfix bsd-mailx
 
     Replace `user@isp.com` with a real email address. The recipient should receive the test email.
 
-- If the user has not received the message, check the following log file:
+- If the user has not received the message, check the following log file (if it exists):
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -178,7 +200,6 @@ apt install postfix bsd-mailx
     ```
 </TabItem>
 </Tabs>
-
 
 - To check that your Postfix service is running, enter:
 
