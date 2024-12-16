@@ -58,7 +58,7 @@ Your Centreon Open Tickets Module is now installed.
 
 ![image](../assets/alerts/open_tickets_install_02.png)
 
-## Creating a backup
+## Creating a backup of your custom Open Ticket provider configurations
 
 To create a backup of your Open Ticket provider configuration, follow these steps:
 
