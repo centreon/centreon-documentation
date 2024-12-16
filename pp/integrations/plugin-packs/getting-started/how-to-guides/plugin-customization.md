@@ -19,7 +19,7 @@ Monitoring connectors are provided with a default configuration. However, you ca
 2. [Create a host](/docs/monitoring/basic-objects/hosts) (for instance, `www.centreon.com`) and apply the **App-Protocol-HTTP-custom** host template to it.
 3. Check that the option **Create Services linked to the Template too** is selected.
 4. Click **Save**.
-5. [Deploy the configuration](docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and in the **Resource status** page.
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and in the **Resource status** page.
 6. In the **Resource status** page, filter on the host's name (in our example, type `h.name:www.centreon.com` in the search bar). You can see that a service called **HTTP-Response-Time** has been created.
 7. Click on this service: in the details panel, several tiles give us interesting information:
    - **Performance data**: the service has 2 metrics, **time** (the time that the HTML page takes to answer) and **size** (the size of the obtained page). Example: `'time'=0.035s;;;0; 'size'=915B;;;0;`.
