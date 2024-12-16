@@ -24,7 +24,7 @@ Release date: `December 16, 2024`
 #### Bug fixes
 
 - [API] Fixed issue with the "centreon-map/api/beta/actuator/metrics" endpoint.
-- [Legacy server] Fixed an issue preventing the states of resources (acknowledged, in downtime, etc.) from being up to date on maps.
+- [Legacy server] Fixed an issue preventing the state of resources (acknowledged, in downtime, etc.) from being up-to-date on maps.
 
 ### 22.10.17
 
@@ -486,7 +486,7 @@ Release date: `December 16, 2024`
 #### Bug fixes
 
 - [MBI] Fixed an issue preventing a report from being generated.
-- [MBI] Fixed the SFTP Connection with configuration key as it was causing an error on job publication.
+- [MBI] Fixed the SFTP connection with configuration key as it was causing an error on job publication.
 
 #### Security fixes
 
