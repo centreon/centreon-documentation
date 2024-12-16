@@ -62,24 +62,6 @@ Pour changer le comportement du plugin (c'est-à-dire modifier les données reto
 
 ## Exemples spécifiques
 
-### Vérifier le contenu de la page HTML
-
-On vérifie que la page obtenue par le plugin est bien celle demandée, et non une réponse d'erreur ou de maintenance. Nous allons donc utiliser le mode **--mode expected-content** et l'option **--expected-string** (qui permet de spécifier quelle chaîne doit être cherchée dans le contenu de la page afin de confirmer qu'il s'agit de la bonne).
-
-Dans la macro **EXTRAOPTIONS**, entrez la valeur : **--mode expected-content --expected-string='Best-in-Class Hybrid IT Monitoring for Enterprise'**.
-
-La commande devient :
-
-```shell
-/usr/lib/centreon/plugins/centreon_protocol_http.pl --plugin apps::protocols::http::plugin --mode expected-content --hostname www.centreon.com --expected-string='Best-in-Class Hybrid IT Monitoring for Enterprise'
-```
-
-Une fois la configuration déployée et la commande réexécutée, on obtient le résultat suivant :
-
-```shell
-OK: HTTP test(s) | 'size'=158714B;;;0; 'time'=0.157s;;;0;
-```
-
 ### Vérifier si le serveur est en maintenance
 
 On souhaite vérifier si notre plateforme Centreon est en maintenance ou non, et avoir un statut CRITIQUE si elle l'est. Pour cela, on utilise le connecteur **HTTP Server** plutôt que le connecteur **Centreon central**.
