@@ -15,10 +15,7 @@ servers:
 - central server,
 - database server.
 
-If you use Open Ticket with custom configurations, you should make a backup before updating Centreon:
-
-* Make a backup of these folders: **/usr/share/centreon/www/modules/centreon-open-tickets** and **/usr/share/centreon/www/widgets/open-tickets**
-* After updating, copy paste the backup **register.php** file(s) to **/usr/share/centreon/www/modules/centreon-open-tickets/providers/**
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
 
 ## Update the Centreon central server
 
