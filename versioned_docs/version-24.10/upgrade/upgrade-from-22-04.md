@@ -174,7 +174,7 @@ dnf update centreon\* php-pecl-gnupg
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-apt install --only-upgrade centreon
+apt install --only-upgrade centreon*
 ```
 
 </TabItem>
