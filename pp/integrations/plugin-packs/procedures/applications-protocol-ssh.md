@@ -102,7 +102,7 @@ command:
     --ssh-username=''  \
     --ssh-password=''  \
     --warning-status=''  \
-    --critical-status='%{message} !~ /authentification succeeded/i'  \
+    --critical-status='%\{message\} !~ /authentification succeeded/i'  \
     --warning-time='2'  \
     --critical-time='3'  \
     --use-new-perfdata 

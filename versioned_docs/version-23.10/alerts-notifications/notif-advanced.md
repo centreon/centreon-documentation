@@ -16,12 +16,6 @@ commands.
 > Some plugins [available here](https://github.com/centreon/centreon-plugins/tree/master/src/notification) allow you to send preformated HTML or emails.
 > You have to install the plugin on your pollers, create a new notification command based on this plugin and bind this command to the contacts you want to be notified by this plugin.
 
-## Chatops
-
-A [Centreon-Chatops](https://github.com/centreon/centreon-chatops) community
-project has been developed to allow communication in a team chat like
-Mattermost or Slack and Centreon through slash commands.
-
 ## Stream connector
 
 You can also forward events to a third-party application using the **Centreon

@@ -154,7 +154,7 @@ Une fois le Plugin installé, vous pouvez tester directement celui-ci en ligne d
   --organization='.*' \
   --filter-device-name='^CENFRGW101$' \
   --warning-status='' \
-  --critical-status='%{ping_status} ne "reachable" or %{services_status} ne "good"' \
+  --critical-status='%\{ping_status\} ne "reachable" or %\{services_status\} ne "good"' \
   --verbose
 ```
 

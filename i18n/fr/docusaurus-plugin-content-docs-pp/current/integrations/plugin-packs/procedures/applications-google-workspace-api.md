@@ -122,8 +122,8 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     --port='443' \
     --proxyurl='http://myproxy.mycompany.org:8080' \
     --filter-name='mail|drive|meet' \
-    --warning-status='%{status} eq "disruption"' \
-    --critical-status='%{status} eq "outage"' \
+    --warning-status='%\{status\} eq "disruption"' \
+    --critical-status='%\{status\} eq "outage"' \
     --verbose
 ```
 

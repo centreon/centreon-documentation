@@ -20,7 +20,7 @@ Of course, you could make a widget that would only work with a certain module.
 
 Widgets work pretty much like Modules. They must be placed in the following directory:
 ```Shell
-centreon/www/widgets/name-of-your-widget/
+centreon/www/widgets/name-of-your-widget\/
 ```
 
 Your widget must contain one mandatory file named **configs.xml** at its root.
@@ -106,7 +106,7 @@ Parameter type
 |               | > : greater than
 |               | < : less than
 |               | >= : greater or equal
-|               | <= : less or equal
+|               | \<= : less or equal
 |               | = : equal
 |               | != : not equal
 |               | LIKE : can be used with the wildcard %%

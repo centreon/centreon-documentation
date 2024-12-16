@@ -5,34 +5,34 @@ title: Migrer l'extension
 
 Cette section explique comment déplacer le serveur Centreon MAP vers un autre serveur.
 
-Cette tâche peut être utile si vous devez faire migrer votre serveur de CentOS 6 à CentOS 7.
+Cette tâche peut être utile si vous devez migrer votre serveur de Alma 8 à Alma 9.
 
 ### Installation du nouveau serveur Centreon MAP
 
-Veuillez vous reporter au chapitre sur l'installation de cette documentation pour installer votre nouveau serveur Centreon MAP.
+Veuillez vous reporter à la procédure d'installation dans cette documentation pour installer votre nouveau serveur Centreon MAP.
 
 ### Synchroniser les données
 
-Arrêtez le service Centreon MAP sur les deux serveurs Centreon MAP :
+1. Arrêtez le service Centreon MAP sur les deux serveurs Centreon MAP :
 
-```shell
-systemctl stop centreon-map
-```
+  ```shell
+  systemctl stop centreon-map-engine
+  ```
 
-Extrayez les données MAP de Centreon :
+2. Vous devez extraire les données MAP de Centreon. Veillez à transférer les données sur une partition ayant l'espace disponible nécessaire :
 
-```shell
-mysqldump -u XXXXXX -p centreon_studio > /tmp/centreon_studio.sql
-```
+  ```shell
+  mysqldump -u XXXXXX -p centreon_map > /tmp/centreon_map.sql
+  ```
 
-Téléchargez **centreon_studio.sql** sur le nouveau serveur Centreon MAP (dans /tmp) et importez-le dans la base de données :
+3. Téléchargez **centreon_studio.sql** sur le nouveau serveur Centreon MAP (dans /tmp) et importez-le dans la base de données :
 
-```shell
-mysql -u XXXXXX -p centreon_studio < /tmp/centreon_studio.sql
-```
+  ```shell
+  mysql -u XXXXXX -p centreon_map < /tmp/centreon_map.sql
+  ```
 
-Démarrez le service **centreon-map** sur le nouveau serveur Centreon MAP :
+4. Démarrez le service **centreon-map** sur le nouveau serveur Centreon MAP :
 
-```shell
-systemctl start centreon-map
-```
+  ```shell
+  systemctl start centreon-map-engine
+  ```

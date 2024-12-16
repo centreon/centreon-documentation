@@ -141,7 +141,7 @@ running the following command:
     --proxyurl='' \
     --filter-name='' \
     --warning-status='' \
-    --critical-status='%{peering_state} ne "Connected" || %{provisioning_state} ne "Succeeded"' \
+    --critical-status='%\{peering_state\} ne "Connected" || %\{provisioning_state\} ne "Succeeded"' \
 ```
 
 The expected command output is shown below:

@@ -157,7 +157,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
     --proxyurl='' \
     --vault-name='vault123' \
     --warning-status='' \
-    --critical-status='%{status} eq "Failed"' \
+    --critical-status='%\{status\} eq "Failed"' \
     --warning-total-completed='' \
     --critical-total-completed='' \
     --warning-total-failed='' \

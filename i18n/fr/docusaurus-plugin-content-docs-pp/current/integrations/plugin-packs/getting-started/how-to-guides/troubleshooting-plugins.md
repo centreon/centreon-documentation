@@ -32,7 +32,7 @@ the binary it uses exists or doesn't contain a typo.
 On RPM-based systems, you can use the following command to identify what's the 
 package is providing the missing binary: `yum whatprovides "*/the_binary_name"`
 
-### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/<cache_file_name>'
+### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/\<cache_file_name\>'
 
 The most common cause is inappropriate rights on the cache directory (`/var/lib/centreon/centplugins`) 
 or the cache file itself.  It can also be the result of an inconsistent installation 
@@ -52,7 +52,7 @@ If directory rights are ok, check also the rights of the cache file:
 `stat /var/lib/centreon/centplugins/<cache_file_name>`. The expected result is: 
 
 ```bash
-File: '/var/lib/centreon/centplugins/<cache_file_name>'
+File: '/var/lib/centreon/centplugins/\<cache_file_name\>'
 [...]
 Access: (0664/-rw-rw-r--)  Uid: (  994/centreon-engine)   Gid: (  991/centreon-engine)
 [...]
@@ -179,7 +179,7 @@ It may also happen when the API returns an error instead of the expected data st
 You may want to dig deeper into this by adding the `--debug` flag to your command line 
 to get more information on the query and data received.
 
-### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (<extra_reason_if_available>)
+### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (\<extra_reason_if_available\>)
 
 When grabbing metrics or statuses from an API, multiple issues can show up because
 of proxies, remote devices' certificates, or simply the check configuration.
@@ -233,6 +233,27 @@ Sometimes, the remote host doesn't support negotiation about the SSL implementat
 so you must specify explicitly which one the Plugin has to use thanks to the `--ssl` 
 option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer or software publisher documentation.
 
+## Troubleshooting AWS
+
+### `UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values`
+
+Le résultat de cette commande signifie qu'Amazon Cloudwatch ne dispose d'aucune valeur pour la période demandée.
+
+Ce résultat peut être annulé en ajoutant l'option --zeroed dans la commande. 
+Cela forcera une valeur de 0 lorsqu'aucune métrique n'a été collectée et évitera le message d'erreur UNKNOWN.
+
+### `UNKNOWN: Command error: - An error occurred (AuthFailure) [...] `
+
+Le résultat de cette commande signifie que les informations d'identification fournies 
+n'ont pas les privilèges suffisants pour exécuter l'opération AWS sous-jacente.
+
+### `UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |`
+
+Ce message d'erreur signifie que le plugin Centreon n'a pas pu se connecter avec succès à l'API AWS Cloudwatch. 
+Vérifiez qu'aucun dispositif tiers (tel qu'un pare-feu) ne bloque la demande. 
+Une connexion proxy peut également être nécessaire pour se connecter à l'API. 
+Pour ce faire, utilisez l'option suivante dans la commande : --proxyurl='http://proxy.mycompany:8080'.
+
 ## SSH and CLI checks
 
 ### UNKNOWN: Command error: `<interpreter>`: `<command_name>`: command not found
@@ -273,7 +294,7 @@ allows your monitoring server to send remote command execution.
 
 Do not forget to restart your NRPE daemon to update the configuration.
 
-### NRPE: Command <a_command> not defined
+### NRPE: Command \<a_command\> not defined
 
 The NRPE Server throws this error when the client asks to run a command it doesn't understand. 
 
