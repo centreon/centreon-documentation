@@ -5,17 +5,8 @@ title: Centreon Cloud known issues
 
 The following paragraphs detail issues which are known to Centreon and will be fixed in coming releases. 
 
-## User groups
-
-* You cannot search for a specific user in the user group creation/edition form.
-
-   **Workaround**: Scroll in the list until you find the user you want.
 
 ## Resource Access Management
-
-* You cannot scroll in the dropdown lists in the Resource Access Management creation/edition form.
-
-   **Workaround**: Refine the search until the number of results is less than ten.
 
 * The click area for “All" boxes (**All contacts**, **All contact groups**, **All hosts**...) is too wide: it is easy to select "All" by mistake.
 
@@ -29,15 +20,7 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
 * Time period exceptions are not considered for notifications.
 
-* Changes are not displayed immediately when editing a notification rule.
-
-   **Workaround**: Refresh the page to display the correct parameters.
-
 * In the notification rule listing, rules cannot be sorted by name.
-
-* When editing a notification rule, it is not possible to remove resources or contacts individually.
-
-   **Workaround**: Delete and recreate the rule.
 
 ## Configuration
 
@@ -63,6 +46,3 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
 * A **Connect with OpenID** button might briefly show on the login screen. Wait for a few seconds before logging in.
 
-## MAP
-
-* The default zoom factor and position cannot be saved.
