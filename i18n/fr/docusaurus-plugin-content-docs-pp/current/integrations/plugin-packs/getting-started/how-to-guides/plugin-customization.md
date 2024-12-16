@@ -62,9 +62,7 @@ Pour changer le comportement du plugin (c'est-à-dire modifier les données reto
 
 ## Exemples spécifiques
 
-### Vérifier si le serveur est en maintenance
-
-On souhaite vérifier si notre plateforme Centreon est en maintenance ou non, et avoir un statut CRITIQUE si elle l'est. Pour cela, on utilise le connecteur **HTTP Server** plutôt que le connecteur **Centreon central**.
+### Vérifier le contenu de la page HTML
 
 On vérifie que la page obtenue par le plugin est bien celle demandée, et non une réponse d'erreur ou de maintenance. Nous allons donc utiliser le mode **--mode expected-content** et l'option **--expected-string** (qui permet de spécifier quelle chaîne doit être cherchée dans le contenu de la page afin de confirmer qu'il s'agit de la bonne).
 
@@ -82,10 +80,15 @@ Une fois la configuration déployée et la commande réexécutée, on obtient le
 OK: HTTP test(s) | 'size'=158714B;;;0; 'time'=0.157s;;;0;
 ```
 
+### Vérifier si le serveur est en maintenance
+
+On souhaite vérifier si notre plateforme Centreon est en maintenance ou non, et avoir un statut CRITIQUE si elle l'est. Pour cela, on utilise le connecteur **HTTP Server** plutôt que le connecteur **Centreon central**.
 
 ```shell
 /usr/lib/centreon/plugins/centreon_protocol_http.pl --plugin apps::protocols::http::plugin --mode expected-content --hostname 127.0.0.1 --urlpath='/centreon/api/latest/platform/installation/status' --expected-string='"has_upgrade_available":false' --change-short-output='Content test .*~Centreon is in maintenance' --change-short-output='HTTP test.*~Centreon is functional'
 ```
+
+On obtient:
 
 ```shell
 CRITICAL: Centreon is in maintenance| 'size'=50B;;;0; 'time'=0.137s;;;0;
