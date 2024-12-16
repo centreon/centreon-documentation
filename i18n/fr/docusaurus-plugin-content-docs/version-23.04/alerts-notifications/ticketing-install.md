@@ -60,7 +60,7 @@ Le module est maintenant installé.
 
 ![image](../assets/alerts/open_tickets_install_02.png)
 
-## Créer une sauvegarde
+## Sauvegarder votre configuration personnalisée de fournisseur OpenTicket
 
 Pour créer une sauvegarde de votre configuration de fournisseur Open Ticket, suivez les étapes ci-dessous : 
 
