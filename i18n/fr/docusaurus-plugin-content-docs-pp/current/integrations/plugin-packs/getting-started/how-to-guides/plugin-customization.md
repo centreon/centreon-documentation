@@ -19,7 +19,7 @@ Les connecteurs de supervision sont fournis avec une configuration par défaut. 
 2. [Créez un hôte](/docs/monitoring/basic-objects/hosts) (par exemple, `www.centreon.com`) et appliquez-lui le modèle d'hôte **App-Protocol-HTTP-custom**.
 3. Vérifiez que la case **Créer aussi les services liés aux modèles** est bien cochée.
 4. Cliquez sur **Sauvegarder**.
-5. [Déployez la configuration](docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes, et à la page **Statut des ressources**.
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes, et à la page **Statut des ressources**.
 6. À la page **Statut des ressources**, filtrez sur le nom de l'hôte (dans notre exemple, entrez `h.name:www.centreon.com` dans la barre de recherche). Vous pouvez voir qu'un service **HTTP-Response-Time** a été créé.
 7. Cliquez sur celui-ci : dans le panneau de détails, plusieurs tuiles donnent des informations intéressantes :
    - **Données de performance** : le service comprend 2 métriques, **time** (le temps que prend la page HTML à répondre) et **size** (la taille de la page obtenue). Exemple : `'time'=0.035s;;;0; 'size'=915B;;;0;`.
@@ -56,7 +56,7 @@ Pour changer le comportement du plugin (c'est-à-dire modifier les données reto
 1. À la page **Statut des ressources**, cliquez sur le service **HTTP-ResponseTime**, puis, dans le panneau de détails, cliquez sur la roue dentée à côté du nom du service afin d'accéder à sa page de configuration.
 2. Dans la section **Macros personnalisées**, entrez les valeurs désirées dans la macro **EXTRAOPTIONS**.
 3. Cliquez sur **Sauvegarder**.
-4. [Déployez la configuration](docs/monitoring/monitoring-servers/deploying-a-configuration).
+4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
 5. À la page **Statut des ressources**, cliquez sur le service **HTTP-Response-Time** : dans le panneau de détails, la commande a été mise à jour.
 6. Survolez le service puis cliquez sur **Vérification forcée**. La commande est exécutée : la colonne **Informations** affiche l'output du plugin. Dans le panneau de détails, dans la tuile **Données de performance**, les valeurs des métriques sont mises à jour.
 
