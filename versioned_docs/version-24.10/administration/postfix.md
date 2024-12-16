@@ -118,6 +118,9 @@ apt install postfix bsd-mailx libsasl2-modules
     smtp_sasl_auth_enable = no
     ```
 
+</TabItem>
+</Tabs>
+
 6. Restart Postfix:
 
    ```shell
