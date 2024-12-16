@@ -288,6 +288,14 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.10.18
+
+Release date: `December 16, 2024`
+
+#### Bug fixes
+
+- [Legacy server] Fixed an issue preventing the state of resources (acknowledged, in downtime, etc.) from being up-to-date on maps.
+
 ### 22.10.17
 
 Release date: `October 7, 2024`
