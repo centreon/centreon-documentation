@@ -5,6 +5,8 @@ title: Centreon Cloud release notes
 
 ## December 16th, 2024
 
+This release contrains numerous bugs and vulnerability fixes but also the following improvements:
+
 ### Centreon IT Edition
 
 **Data Collection**
