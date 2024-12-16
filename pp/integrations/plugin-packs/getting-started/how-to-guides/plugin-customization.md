@@ -56,7 +56,7 @@ To change the behavior of the plugin (i.e. change the data returned by it), use 
 1. In the **Resource status** page, click the **HTTP-ResponseTime** service, then, in the details panel, click the cog icon next to the name of the service in order to access its configuration page.
 2. In the **Custom macros** section, enter the values you want in the **EXTRAOPTIONS** macro.
 3. Click **Save**.
-4. [Deploy the configuration](docs/monitoring/monitoring-servers/deploying-a-configuration).
+4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
 5. In the **Resource status** page, click on the **HTTP-Response-Time** service: in the details panel, the command has been updated.
 6. Hover over the service, then click **Forced check**. The command is executed: the **Information** column displays the output of the plugin. In the details panel, in the **Performance data** tile, the values of the metrics are updated.
 
