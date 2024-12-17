@@ -1,6 +1,6 @@
 ---
 id: network-oracle-otd-snmp
-title: Traffic Director SNMP
+title: Oracle Traffic Director SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
