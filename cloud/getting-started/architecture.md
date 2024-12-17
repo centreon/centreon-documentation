@@ -3,7 +3,7 @@ id: architecture
 title: Architecture of Centreon Cloud
 ---
 
-Your Centreon Cloud platform consists mainly of a central server provided by Centreon and pollers that you install in your infrastructure. In addition, the Centreon [CIAM](../ciam/ciam.md) module allows you to manage organizations and users, and to log in to Centreon Cloud.
+Centreon Cloud consists mainly of a user interface provided by Centreon, and pollers that you install in your infrastructure. In addition, the Centreon [CIAM](../ciam/ciam.md) module allows you to manage organizations and users, and to log in to Centreon Cloud.
 
 ![image](../assets/getting-started/infra3.png)
 
