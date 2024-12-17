@@ -1,6 +1,6 @@
 ---
 id: notif-config-for-teams
-title: Intégrer les notifications de Microsoft Teams
+title: Notifications Microsoft Teams
 ---
 
 import Tabs from '@theme/Tabs';

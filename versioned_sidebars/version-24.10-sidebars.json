@@ -475,8 +475,7 @@
               "type": "doc",
               "id": "alerts-notifications/event-log"
             }
-           
-            ]
+          ]
         },
         {
           "type": "category",
@@ -519,8 +518,29 @@
               "id": "alerts-notifications/notif-configuration"
             },
             {
-              "type": "doc",
-              "id": "alerts-notifications/notif-config-for-teams"
+              "type": "category",
+              "label": "Types of notifications",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/notif-email"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/notif-config-for-teams"
+                },
+                {
+                  "type": "doc",
+                  "id": "integrations/notifications/slack-notifications"
+                },
+                {
+                  "type": "doc",
+                  "id": "integrations/notifications/plugin-telegram"
+                }
+              ]
             },
             {
               "type": "doc",
@@ -632,7 +652,7 @@
             }
           ]
         },
-                {
+        {
           "type": "category",
           "label": "Administrate",
           "link": {
@@ -663,7 +683,7 @@
         }
       ]
     },
-        {
+    {
       "type": "category",
       "label": "Data Visualization",
       "link": {
@@ -703,14 +723,14 @@
             }
           ]
         },
-    {
-      "type": "category",
-      "label": "Graphical views (maps)",
-      "link": {
-        "type": "generated-index",
-        "description": "The graphical view capabilities in Centreon rely on the Centreon MAP module."
-      },
-        "items": [
+        {
+          "type": "category",
+          "label": "Graphical views (maps)",
+          "link": {
+            "type": "generated-index",
+            "description": "The graphical view capabilities in Centreon rely on the Centreon MAP module."
+          },
+          "items": [
             {
               "type": "doc",
               "id": "graph-views/introduction-map"
@@ -721,20 +741,20 @@
               "link": {
                 "type": "generated-index"
               },
-                    "items":[
-                      {
-                        "type": "doc",
-                        "id": "graph-views/map-legacy-eol"
-                      },
-                      {
-                        "type": "doc",
-                        "id": "graph-views/upgrading-map-legacy"
-                      },
-                      {
-                        "type": "doc",
-                        "id": "graph-views/import-into-map-web"
-                      }
-                    ]
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-legacy-eol"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/upgrading-map-legacy"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/import-into-map-web"
+                }
+              ]
             },
             {
               "type": "doc",
@@ -782,7 +802,6 @@
             },
             {
               "type": "doc",
-              
               "id": "graph-views/map-web-known-issues"
             },
             {
@@ -792,17 +811,16 @@
             {
               "type": "doc",
               "id": "api/map-api"
-                  }
-              ]
             }
-          ,
-            {
-      "type": "doc",
-      "id": "alerts-notifications/custom-views"
-    }
-    ]
-    },
+          ]
+        },
         {
+          "type": "doc",
+          "id": "alerts-notifications/custom-views"
+        }
+      ]
+    },
+    {
       "type": "category",
       "label": "Reporting",
       "link": {
@@ -1280,20 +1298,6 @@
             {
               "type": "doc",
               "id": "integrations/itsm/ot-servicenow"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Notifications",
-          "link": {
-            "type": "doc",
-            "id": "integrations/notifications/notifications-overview"
-          },
-          "items": [
-            {
-              "type": "doc",
-              "id": "integrations/notifications/plugin-telegram"
             }
           ]
         },
