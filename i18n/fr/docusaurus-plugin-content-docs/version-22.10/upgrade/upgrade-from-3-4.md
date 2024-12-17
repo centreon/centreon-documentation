@@ -2,6 +2,8 @@
 id: upgrade-from-3-4
 title: Montée de version depuis Centreon 3.4
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 22.10.

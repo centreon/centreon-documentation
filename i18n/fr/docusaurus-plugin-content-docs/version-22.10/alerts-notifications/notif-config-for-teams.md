@@ -1,6 +1,6 @@
 ---
 id: notif-config-for-teams
-title: Intégrer les notifications de Microsoft Teams
+title: Notifications Microsoft Teams
 ---
 
 import Tabs from '@theme/Tabs';
@@ -66,9 +66,9 @@ Pour bénéficier des fonctionnalités du plugin, vous devez créer les objets C
 1. Pour faciliter la création de ces objets, vous pouvez copier le contenu suivant issu d'un fichier CLAPI et le coller dans un fichier du répertoire /tmp de votre serveur central (par exemple /tmp/clapi-teams.import).
  
  > Avant de charger le fichier, remplacez ces valeurs par les vôtres :
-   - **<SET_CENTREON_URL>** avec l'URL que vous utilisez pour accéder à l'interface web de Centreon.
-   - **<SET_TEAMSWORKFLOW_URL>** avec l'URL de Teams pour le workflow, obtenu précédemment.
-   - **<SET_CONTACT_PASSWORD>** avec le mot de passe que vous souhaitez pour le nouveau contact.
+   - **\<SET_CENTREON_URL\>** avec l'URL que vous utilisez pour accéder à l'interface web de Centreon.
+   - **\<SET_TEAMSWORKFLOW_URL\>** avec l'URL de Teams pour le workflow, obtenu précédemment.
+   - **\<SET_CONTACT_PASSWORD\>** avec le mot de passe que vous souhaitez pour le nouveau contact.
  
  ``` shell
  CMD;ADD;bam-notify-by-microsoft-teams;1;$CENTREONPLUGINS$/centreon_notification_teams.pl --plugin=notification::microsoft::office365::teams::plugin --mode=alert --custommode=workflowapi --teams-workflow='$CONTACTPAGER$' --bam --service-description='$SERVICEDISPLAYNAME$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --date='$DATE$ $TIME$' --centreonurl='$CONTACTADDRESS1$'
@@ -90,7 +90,7 @@ CONTACT;setparam;notify_teams_consulting_channel;svcnotifperiod;24x7
 CONTACT;setparam;notify_teams_consulting_channel;hostnotifopt;d,u
 CONTACT;setparam;notify_teams_consulting_channel;servicenotifopt;w,u,c
 CONTACT;setparam;notify_teams_consulting_channel;contact_pager;<SET_TEAMSWORKFLOW_URL>
-CONTACT;setparam;notify_teams_consulting_channel;contact_address1;<SET_CENTREON_URL>
+CONTACT;setparam;notify_teams_consulting_channel;contact_address1;\<SET_CENTREON_URL\>
 CONTACT;setparam;notify_teams_consulting_channel;contact_js_effects;0
 CONTACT;setparam;notify_teams_consulting_channel;reach_api;0
 CONTACT;setparam;notify_teams_consulting_channel;reach_api_rt;0

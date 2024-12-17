@@ -205,8 +205,8 @@ Here is an example configuration for Microsoft Azure Active Directory:
 | End Session Endpoint         |                                                           |
 | Scope                        | openid                                                    |
 | Login claim value            | email                                                     |
-| Client ID                    | ${clientId}                                               |
-| Client Secret                | ${clientSecret}                                           |
+| Client ID                    | $\{clientId\}                                               |
+| Client Secret                | $\{clientSecret\}                                           |
 
 > Please replace `${tenantId}`, `${clientId}` and `${clientSecret}` with your own values.
 
@@ -217,7 +217,7 @@ Here is an example configuration for Okta:
 
 | Fields                       | Values                                   |
 |------------------------------|------------------------------------------|
-| Base Url                     | https://${theIdPdomain}/oauth2/v1        |
+| Base Url                     | https://$\{theIdPdomain\}/oauth2/v1        |
 | Authorization Endpoint       | /authorize                               |
 | Token Endpoint               | /token                                   |
 | Introspection Token Endpoint | /introspect                              |
@@ -225,8 +225,8 @@ Here is an example configuration for Okta:
 | End Session Endpoint         | /logout                                  |
 | Scope                        | profile openid                           |
 | Login claim value            | username                                 |
-| Client ID                    | ${clientId}                              |
-| Client Secret                | ${clientSecret}                          |
+| Client ID                    | $\{clientId\}                              |
+| Client Secret                | $\{clientSecret\}                          |
 
 > Please replace `${theIdPdomain}`, `${clientId}` and `${clientSecret}` with your own values.
 
@@ -237,7 +237,7 @@ Here is an example configuration for Keycloak:
 
 | Fields                       | Values                                                                  |
 |------------------------------|-------------------------------------------------------------------------|
-| Base Url                     | https://${theIdPdomain}:8080/auth/realms/master/protocol/openid-connect |
+| Base Url                     | https://$\{theIdPdomain\}:8080/auth/realms/master/protocol/openid-connect |
 | Authorization Endpoint       | /auth                                                                   |
 | Token Endpoint               | /token                                                                  |
 | Introspection Token Endpoint | /token/introspect                                                       |
@@ -245,8 +245,8 @@ Here is an example configuration for Keycloak:
 | End Session Endpoint         | /logout                                                                 |
 | Scope                        | openid                                                                  |
 | Login claim value            | email                                                                   |
-| Client ID                    | ${clientId}                                                             |
-| Client Secret                | ${clientSecret}                                                         |
+| Client ID                    | $\{clientId\}                                                             |
+| Client Secret                | $\{clientSecret\}                                                         |
 
 > Please replace `${theIdPdomain}`, `${clientId}` and `${clientSecret}` with your own values.
 
@@ -265,8 +265,8 @@ Here is an example configuration for LemonLDAP::NG:
 | End Session Endpoint         |                                          |
 | Scope                        | openid                                   |
 | Login claim value            | email                                    |
-| Client ID                    | ${clientId}                              |
-| Client Secret                | ${clientSecret}                          |
+| Client ID                    | $\{clientId\}                              |
+| Client Secret                | $\{clientSecret\}                          |
 
 > Please replace `auth.example.com`, `${clientId}` and `${clientSecret}` with your own values.
 
