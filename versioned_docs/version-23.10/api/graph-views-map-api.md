@@ -3,6 +3,9 @@ id: map-api
 title: MAP API
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 If you want to automate standard maps creation or maintenance, you may use the Centreon MAP extension API.
 
 ## Permissions
@@ -19,9 +22,23 @@ of the following privileges:
 
 ### Authenticate
 
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+
 ```
-POST : http://{{serverURL}}:8081/centreon-map/api/beta/auth/sign-in
+POST : http://serverURL:8081/centreon-map/api/beta/auth/sign-in
 ```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```
+POST : https://serverURL:9443/centreon-map/api/beta/auth/sign-in
+```
+
+</TabItem>
+</Tabs>
 
 ```
 Headers {
@@ -35,7 +52,7 @@ Body {
 }
 ```
 
-- In the result, retrieve the \{jwtToken\}. You will need to use it for all your API calls. The headers will look like this:
+- In the result, retrieve the **jwtToken**. You will need to use it for all your API calls. The headers will look like this:
 
 ```
 Headers {
@@ -47,9 +64,23 @@ Headers {
 
 ### Create a map
 
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+
 ```
-POST http://{{serverURL}}:8081/centreon-map/api/beta/maps
+POST http://serverURL:8081/centreon-map/api/beta/maps
 ```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```
+POST https://serverURL:9443/centreon-map/api/beta/maps
+```
+
+</TabItem>
+</Tabs>
 
 ```
 Headers {
@@ -63,21 +94,49 @@ Body {
    }
 ```
 
-- Retrieve the ID of the map \{mapId\} and the view \{viewId\} returned.
+- Retrieve the ID of the map (mapId) and the view (viewId) returned.
 
 ### Open the map
 
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+
 ```
-GET http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views/{viewId}
+GET http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views/_viewId_
 ```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```
+GET https://serverURL:9443/centreon-map/api/beta/maps/_mapId_/views/_viewId_
+```
+
+</TabItem>
+</Tabs>
 
 ### Create and attach a "shape" element to the opened map
 
 In this scenario, the "shape" element is a rectangle.
 
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+
 ```
-PUT http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views
+PUT http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views
 ```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```
+PUT https://serverURL:9443/centreon-map/api/beta/maps/_mapId_/views
+```
+
+</TabItem>
+</Tabs>
 
 ```
 Body: {
