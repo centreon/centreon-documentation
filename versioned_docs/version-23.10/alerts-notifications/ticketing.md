@@ -5,7 +5,6 @@ title: Configuring Open Tickets
 
 ## Configuration
 
-
 ### Select a provider
 
 The module offers many ready-to-use providers listed in the dedicated [integration

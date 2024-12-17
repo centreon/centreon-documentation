@@ -7,7 +7,6 @@ import TabItem from '@theme/TabItem';
 
 ## Configuration
 
-
 ### Select a provider
 
 The module offers many ready-to-use providers listed in the dedicated [integration

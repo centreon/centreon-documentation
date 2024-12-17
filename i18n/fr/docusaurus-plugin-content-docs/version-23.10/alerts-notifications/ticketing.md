@@ -5,7 +5,6 @@ title: Configuration
 
 ## Configuration
 
-
 ### Sélectionner un fournisseur de service
 
 La liste des fournisseurs disponibles est actualisée dans la section de documentation
