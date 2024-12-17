@@ -147,8 +147,8 @@ commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur
     --resource='IPA001ABCD' \
     --timeframe='900' \
     --interval='PT5M' \
-    --critical-provisioning-state='%{state} =~ /Failed/i' \
-    --critical-ddos-status='%{status} =~ /DDOS Attack ongoing/i'
+    --critical-provisioning-state='%\{state\} =~ /Failed/i' \
+    --critical-ddos-status='%\{status\} =~ /DDOS Attack ongoing/i'
 ```
 
 La commande devrait retourner un message de sortie similaire à: 

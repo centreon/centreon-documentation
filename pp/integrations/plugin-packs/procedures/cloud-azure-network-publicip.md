@@ -148,8 +148,8 @@ user account and test the Plugin by running the following command:
     --resource='IPA001ABCD' \
     --timeframe='900' \
     --interval='PT5M' \
-    --critical-provisioning-state='%{state} =~ /Failed/i' \
-    --critical-ddos-status='%{status} =~ /DDOS Attack ongoing/i'
+    --critical-provisioning-state='%\{state\} =~ /Failed/i' \
+    --critical-ddos-status='%\{status\} =~ /DDOS Attack ongoing/i'
 ```
 
 Expected command output is shown below:

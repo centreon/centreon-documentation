@@ -179,7 +179,7 @@ rm -f /usr/share/centreon-broker/lua/opsgenie.lua
 
 ## Macros
 
-Les macros sont un outil pour créer des messages dynamiques dépendant de l'évènement que vous envoyez. Elles doivent être mises entre {} (ex : {hostname}). Si une macro est une macro de type *time* alors vous pouvez utiliser le suffixe **\_date** pour le convertir en un format lisible pour l'Homme. Vous pouvez changer le format de la date avec le paramètre de type string `date_format`. (ex : {last_update} est une macro sous la forme d'un timestamp. Vous pouvez utiliser {last_update_date} pour la convertir)
+Les macros sont un outil pour créer des messages dynamiques dépendant de l'évènement que vous envoyez. Elles doivent être mises entre {} (ex : \{hostname\}). Si une macro est une macro de type *time* alors vous pouvez utiliser le suffixe **\_date** pour le convertir en un format lisible pour l'Homme. Vous pouvez changer le format de la date avec le paramètre de type string `date_format`. (ex : \{last_update\} est une macro sous la forme d'un timestamp. Vous pouvez utiliser \{last_update_date\} pour la convertir)
 
 #### Host event macros
 

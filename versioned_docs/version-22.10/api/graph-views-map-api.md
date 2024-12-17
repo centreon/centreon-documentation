@@ -35,13 +35,13 @@ Body {
 }
 ```
 
-- In the result, retrieve the {jwtToken}. You will need to use it for all your API calls. The headers will look like this:
+- In the result, retrieve the \{jwtToken\}. You will need to use it for all your API calls. The headers will look like this:
 
 ```
 Headers {
     Content-Type = application/json
     X-client-version = 22.10.0
-    Authorization = Bearer {jwtToken}
+    Authorization = Bearer \{jwtToken\}
 }
 ```
 
@@ -55,7 +55,7 @@ POST http://{{serverURL}}:8081/centreon-map/api/beta/maps
 Headers {
     Content-Type = application/json
     X-client-version =  22.10.0
-    Authorization = Bearer {jwtToken}
+    Authorization = Bearer \{jwtToken\}
 }
 
 Body {
@@ -63,7 +63,7 @@ Body {
    }
 ```
 
-- Retrieve the ID of the map {mapId} and the view {viewId} returned.
+- Retrieve the ID of the map \{mapId\} and the view \{viewId\} returned.
 
 ### Open the map
 
@@ -81,7 +81,7 @@ PUT http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views
 
 ```
 Body: {
- "id": {viewId},
+ "id": \{viewId\},
  "shapes": [
      {
         "type": "RECTANGLE",
