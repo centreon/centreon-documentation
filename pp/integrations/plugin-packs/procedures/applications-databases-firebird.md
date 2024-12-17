@@ -16,7 +16,7 @@ yum install centreon-plugin-Applications-Databases-Firebird
 ### Dependencies
 
 Please install perl module DBD::Firebird:
-<https://metacpan.org/release/DBD-Firebird> Follow the readme, because you need
+\<https://metacpan.org/release/DBD-Firebird\> Follow the readme, because you need
 to install the Firebird C library also.
 
 ## Centreon Configuration

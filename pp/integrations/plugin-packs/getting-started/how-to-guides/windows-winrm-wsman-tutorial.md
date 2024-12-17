@@ -176,8 +176,9 @@ wmic useraccount where name="@USERNAME@" get name,sid
 ```
 
 Output:
-><p>Name&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;SID</p>
->@USRNAME@&ensp;&ensp;S-1-5-21-3051596711-3341658857-577043467-1000
+> Name&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;SID
+>
+> @USRNAME@&ensp;&ensp;S-1-5-21-3051596711-3341658857-577043467-1000
 
 #### Retrieve current SDDL for Service Control Manager
 
@@ -399,17 +400,17 @@ $Thumbprint=Invoke-Command -ComputerName $FQDN `
 
 
 Set-WSManInstance -ResourceURI winrm/config/Listener `
-                  -SelectorSet @{Address="*";Transport="HTTPS"} `
+                  -SelectorSet @\{Address="*";Transport="HTTPS"\} `
                   -ComputerName $FQDN `
-                  -ValueSet @{CertificateThumbprint=$Thumbprint}
+                  -ValueSet @\{CertificateThumbprint=$Thumbprint\}
 
-winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@{Hostname=".$FQDN.".;CertificateThumbprint=".$Thumbprint."}"
+winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@\{Hostname=".$FQDN.".;CertificateThumbprint=".$Thumbprint."\}"
 ```
 
 * Copy this script in the following location to be able to deploy it massively:
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 In our case it looks like this:
@@ -625,7 +626,7 @@ $RootSecurity.PsBase.InvokeMethod("SetSd",$SdList)
 * Copy this script to the following location to be able to deploy this script massively.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 * Go back to your **Enable WinRM** policy.
@@ -718,7 +719,7 @@ Invoke-Expression -Command:$SetPermissionsCommand
 * Copy this script to the following location to be able to massively deploy it.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 * Go back to your **Enable WinRM** policy.
@@ -818,7 +819,7 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 * Copy this script to the following location to be able to deploy it massively.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 * Go back to the **Enable WinRM** policy.

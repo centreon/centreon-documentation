@@ -17,9 +17,13 @@ module.exports = {
           items: [
             {
               type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/plugin-customization'
+            },
+            {
+              type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/cma'
             },
-			{
+            {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/azure-credential-configuration'
             },
@@ -279,6 +283,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-jenkins'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-jmeter'
         },
         {
           type: 'doc',
@@ -554,6 +562,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-antivirus-skyhigh-webgateway-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-pvx-restapi'
         },
         {
@@ -728,7 +740,7 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-ha'
         },
-	{
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-gorgone-restapi'
         }
@@ -1223,6 +1235,10 @@ module.exports = {
           id: 'integrations/plugin-packs/procedures/hardware-devices-aeg-acm-snmp'
         },
         {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-video-appeartv-snmp'
+        },
+       {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-camera-avigilon-snmp'
         },

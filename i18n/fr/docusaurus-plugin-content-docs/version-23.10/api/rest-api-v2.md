@@ -71,12 +71,12 @@ environnements.
 >
 > Voici un exemple de résultat :
 >
-> {
+> \{
 >   "version": "23.10.6",
 >   "major": "23",
 >   "minor": "10",
 >   "fix": "6"
-> }
+> \}
 >
 > ![image](../assets/api/postman-collection-variables.png)
 >

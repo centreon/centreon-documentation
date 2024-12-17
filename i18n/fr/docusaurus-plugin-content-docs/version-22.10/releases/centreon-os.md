@@ -816,11 +816,19 @@ Release date: `October 26, 2022`
 
 ## Centreon Open Tickets
 
+### 22.10.5
+
+Release date: `December 5, 2024`
+
+#### Bug fixes
+
+- [Open Ticket widget] Fixed an issue preventing non admin users from opening tickets.
+
 ### 22.10.4
 
 Release date: `November 21, 2024`
 
-#### Security fixex
+#### Security fixes
 
 - [Security] Fixed SQLi in the ticket creation form, only accessible to authenticated users with high privilege access. (CVE-2024-45756)
 

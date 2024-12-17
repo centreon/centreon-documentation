@@ -32,7 +32,7 @@ the binary it uses exists or doesn't contain a typo.
 On RPM-based systems, you can use the following command to identify what's the 
 package is providing the missing binary: `yum whatprovides "*/the_binary_name"`
 
-### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/<cache_file_name>'
+### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/\<cache_file_name\>'
 
 The most common cause is inappropriate rights on the cache directory (`/var/lib/centreon/centplugins`) 
 or the cache file itself.  It can also be the result of an inconsistent installation 
@@ -52,7 +52,7 @@ If directory rights are ok, check also the rights of the cache file:
 `stat /var/lib/centreon/centplugins/<cache_file_name>`. The expected result is: 
 
 ```bash
-File: '/var/lib/centreon/centplugins/<cache_file_name>'
+File: '/var/lib/centreon/centplugins/\<cache_file_name\>'
 [...]
 Access: (0664/-rw-rw-r--)  Uid: (  994/centreon-engine)   Gid: (  991/centreon-engine)
 [...]
@@ -179,7 +179,7 @@ It may also happen when the API returns an error instead of the expected data st
 You may want to dig deeper into this by adding the `--debug` flag to your command line 
 to get more information on the query and data received.
 
-### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (<extra_reason_if_available>)
+### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (\<extra_reason_if_available\>)
 
 When grabbing metrics or statuses from an API, multiple issues can show up because
 of proxies, remote devices' certificates, or simply the check configuration.
@@ -294,7 +294,7 @@ allows your monitoring server to send remote command execution.
 
 Do not forget to restart your NRPE daemon to update the configuration.
 
-### NRPE: Command <a_command> not defined
+### NRPE: Command \<a_command\> not defined
 
 The NRPE Server throws this error when the client asks to run a command it doesn't understand. 
 

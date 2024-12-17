@@ -42,7 +42,8 @@ The table below defines the columns in the results table:
 </tr>
 <tr class="even">
 <td>Modification type</td>
-<td><p>Contains the type of action effective. There are several types of action possible:</p>
+<td>
+<p>Contains the type of action effective. There are several types of action possible:</p>
 <ul>
 <li>Added: Indicates that the object has been added</li>
 <li>Changed: Indicates that the object has been changed</li>
@@ -100,7 +101,8 @@ The table below defines the columns of the changes table:
 </tr>
 <tr class="even">
 <td></td>
-<td><p>The last column describes the change itself :</p>
+<td>
+<p>The last column describes the change itself :</p>
 <ul>
 <li>Field name: Describes the field that has been changed</li>
 <li>Before: Indicates the previous value</li>

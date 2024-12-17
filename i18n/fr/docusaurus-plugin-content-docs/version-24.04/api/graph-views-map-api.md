@@ -3,6 +3,9 @@ id: map-api
 title: MAP API
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Si vous souhaitez automatiser la création ou la maintenance de cartes standard, vous pouvez utiliser l'API de Centreon MAP.
 
 ## Permissions
@@ -18,9 +21,23 @@ Avec cette API, vous pouvez créer / mettre à jour / supprimer des cartes stand
 
 ### S'authentifier
 
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+
 ```
-POST : http://{{serverURL}}:8081/centreon-map/api/beta/auth/sign-in
+POST : http://serverURL:8081/centreon-map/api/beta/auth/sign-in
 ```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```
+POST : https://serverURL:9443/centreon-map/api/beta/auth/sign-in
+```
+
+</TabItem>
+</Tabs>
 
 ```
 Headers {
@@ -34,27 +51,41 @@ Body {
 }
 ```
 
-- Dans le résultat, récupérez le {jwtToken}. Vous devrez l'utiliser pour tous vos appels à l'API. Les headers ressembleront à ceci :
+- Dans le résultat, récupérez le **jwtToken**. Vous devrez l'utiliser pour tous vos appels à l'API. Les headers ressembleront à ceci :
 
 ```
 Headers {
     Content-Type = application/json
     X-client-version = 24.04.0
-    Authorization = Bearer {jwtToken}
+    Authorization = Bearer \{jwtToken\}
 }
 ```
 
 ### Créer une carte
 
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+
 ```
-POST http://{{serverURL}}:8081/centreon-map/api/beta/maps
+POST http://serverURL:8081/centreon-map/api/beta/maps
 ```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```
+POST https://serverURL:9443/centreon-map/api/beta/maps
+```
+
+</TabItem>
+</Tabs>
 
 ```
 Headers {
     Content-Type = application/json
     X-client-version =  24.04.0
-    Authorization = Bearer {jwtToken}
+    Authorization = Bearer \{jwtToken\}
 }
 
 Body {
@@ -62,25 +93,53 @@ Body {
    }
 ```
 
-- Récupérez l'identifiant de la carte {mapId} et de la vue {viewId} renvoyés.
+- Récupérez les identifiants de la carte (mapId) et de la vue (viewId) renvoyés.
 
 ### Ouvrir la carte
 
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+
 ```
-GET http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views/{viewId}
+GET http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views/_viewId_
 ```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```
+GET https://serverURL:9443/centreon-map/api/beta/maps/_mapId_/views/_viewId_
+```
+
+</TabItem>
+</Tabs>
 
 ### Créer et attacher un élément "shape" à la carte ouverte
 
 Dans ce scénario, l'élément "shape" est un rectangle.
 
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+
 ```
-PUT http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views
+PUT http://serverURL:8081/centreon-map/api/beta/maps/_mapId_/views
 ```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```
+PUT https://serverURL:9443/centreon-map/api/beta/maps/_mapId_/views
+```
+
+</TabItem>
+</Tabs>
 
 ```
 Body: {
- "id": {viewId},
+ "id": \{viewId\},
  "shapes": [
      {
         "type": "RECTANGLE",

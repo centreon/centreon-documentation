@@ -228,7 +228,7 @@ This procedure is the same as to update a Centreon central server.
 2. Then upgrade all the components with the following command:
 
   ```shell
-  apt-get update && apt-mark hold centreon-pack* && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*' 
+  apt-get update && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*'
   ```
 
 </TabItem>
@@ -262,7 +262,7 @@ Nothing to do for this OS.
 <TabItem value="Debian 12" label="Debian 12">
 
   ```shell
-  apt-mark unhold centreon-pack* && apt-mark unhold centreon-plugin*
+  apt-mark unhold centreon-plugin*
   ```
 
 </TabItem>
