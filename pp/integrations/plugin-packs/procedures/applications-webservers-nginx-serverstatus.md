@@ -53,16 +53,16 @@ To activate this module, you have to open your nginx configuration file:
 and check that if not already configured, add the followings lines in 'server'
 bracket:
 
-    server { 
-        ... 
-        location /nginx_status { 
-            stub_status on; 
-            access_log off;
-            allow <centreon-poller_@IP>;
-            deny all; 
-        }
+    server \{
         ...
-    }
+        location /nginx_status \{
+            stub_status on;
+            access_log off;
+            allow \<centreon-poller_@IP\>;
+            deny all;
+        \}
+        ...
+    \}
 
 Make sure you are allowing Pollers to access this URL.
 
@@ -78,7 +78,7 @@ Nginx must be reloaded to take this modification into account:
 
 You can now check the result by accessing the URL
 
-    http://<nginx_address>/nginx_status
+    http://\<nginx_address\>/nginx_status
 
 
 ## Installation

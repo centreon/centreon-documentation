@@ -23,21 +23,27 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="OS-Windows-Centreon-Monitoring-Agent-custom" label="OS-Windows-Centreon-Monitoring-Agent-custom">
 
-| Service Alias  | Service Template                                           | Service Description                          |
-|:---------------|:-----------------------------------------------------------|:---------------------------------------------|
-| Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Check the synchronization with a NTP server. |
-| Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Check if Windows needs rebooting.            |
-| Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Check the number of active sessions.         |
-| Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Check if there are pending updates.          |
+| Service Alias  | Service Template                                           | Service Description                                                                                                                                  |
+|:---------------|:-----------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| CPU            | OS-Windows-CPU-Centreon-Monitoring-Agent-custom            | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
+| Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Check the rate of the utilization of memory                                                                                                          |
+| Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Check the synchronization with a NTP server.                                                                                                         |
+| Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Check if Windows needs rebooting.                                                                                                                    |
+| Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Check the number of active sessions.                                                                                                                 |
+| Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Check virtual memory usage                                                                                                                           |
+| Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Check if there are pending updates.                                                                                                                  |
+| Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Check time since the server has been working and available                                                                                           |
 
 > The services listed above are created automatically when the **OS-Windows-Centreon-Monitoring-Agent-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                                         | Service Description           |
-|:--------------|:---------------------------------------------------------|:------------------------------|
-| Certificates  | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom | Check the local certificates. |
+| Service Alias | Service Template                                         | Service Description                                                                                                                                           |
+|:--------------|:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Certificates  | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom | Check the local certificates.                                                                                                                                 |
+| CPU-detailed  | OS-Windows-CPU-detailed-Centreon-Monitoring-Agent-custom | Check the detailed rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
+| Storage       | OS-Windows-Storage-Centreon-Monitoring-Agent-custom      | Check storage usages                                                                                                                                          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -51,17 +57,47 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Certificates" label="Certificates">
 
-| Metric name                          | Unit  |
+| Metric                               | Unit  |
 |:-------------------------------------|:------|
 | certificates.detected.count          | count |
 | certificate#certificate.expires.days | d     |
 
 </TabItem>
+<TabItem value="CPU" label="CPU">
+
+| Metric                                       | Unit  |
+|:---------------------------------------------|:------|
+| *core_index*#core.cpu.utilization.percentage | %     |
+| user#cpu.utilization.percentage              | %     |
+
+</TabItem>
+<TabItem value="CPU-detailed" label="CPU-detailed">
+
+| Metric                                                      | Unit |
+|:------------------------------------------------------------|:-----|
+| *core_index*\~user#core.cpu.utilization.percentage          | %     |
+| user#cpu.utilization.percentage                             | %     |
+ | *core_index*\~system#core.cpu.utilization.percentage        | %     |
+ | *core_index*\~idle#core.cpu.utilization.percentage          | %     |
+ | *core_index*\~interrupt#core.cpu.utilization.percentage     | %     |
+ | *core_index*\~dpc_interrupt#core.cpu.utilization.percentage | %     |
+ | *core_index*\~used#core.cpu.utilization.percentage          | %     |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Metric                  | Unit |
+|:------------------------|:-----|
+| memory.usage.bytes      | B    |
+| memory.free.bytes       | B    |
+| memory.usage.percentage | %    |
+
+</TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Metric name | Unit |
-|:------------|:-----|
-| offset      | s    |
+| Metric   | Unit |
+|:---------|:-----|
+| offset   | s    |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
@@ -71,7 +107,7 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Metric name                         | Unit  |
+| Metric                              | Unit  |
 |:------------------------------------|:------|
 | sessions.created.total.count        | count |
 | sessions.disconnected.total.count   | count |
@@ -82,11 +118,38 @@ No metrics for this service.
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
+<TabItem value="Storage" label="Storage">
+
+| Metric   | Unit |
+|:---------|:-----|
+| used_C:\ | B    |
+| used_D:\ | B    |
+
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Metric                  | Unit  |
+|:------------------------|:------|
+| memory.usage.bytes      | B     |
+| memory.free.bytes       | B     |
+| memory.usage.percentage | %     |
+| swap.usage.bytes        | B     |
+| swap.free.bytes         | B     |
+| swap.usage.percentage   | %     |
+
+</TabItem>
 <TabItem value="Updates" label="Updates">
 
-| Metric name                   | Unit  |
+| Metric                        | Unit  |
 |:------------------------------|:------|
 | windows.pending.updates.count | count |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Metric | Unit |
+|:-------|:-----|
+| uptime | s    |
 
 </TabItem>
 </Tabs>
@@ -214,6 +277,48 @@ This connector relies on an integration supported by Centreon Engine and does no
 | EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                    |               |           |
 
 </TabItem>
+<TabItem value="CPU" label="CPU">
+
+| Macro           | Description                                                                                                                              | Default value | Mandatory |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGCORE     | Threshold for warning status on core usage in percentage                                                                                 |               |           |
+| CRITICALCORE    | Threshold for critical status on core usage in percentage                                                                                |               |           |
+| WARNINGAVERAGE  | Threshold for warning status on average usage in percentage                                                                              |               |           |
+| CRITICALAVERAGE | Threshold for critical status on average usage in percentage                                                                             |               |           |
+
+</TabItem>
+<TabItem value="CPU-detailed" label="CPU-detailed">
+
+| Macro                 | Description                                                                                                                              | Default value | Mandatory |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGCORE           | Threshold for warning status on core usage in percentage                                                                                 |               |           |
+| CRITICALCORE          | Threshold for critical status on core usage in percentage                                                                                |               |           |
+| WARNINGAVERAGE        | Threshold for warning status on average usage in percentage                                                                              |               |           |
+| CRITICALAVERAGE       | Threshold for critical status on average usage in percentage                                                                             |               |           |
+| WARNINGCOREUSER       | Threshold for warning status on core user usage in percentage                                                                            |               |           |
+| CRITICALCOREUSER      | Threshold for critical status on core user usage in percentage                                                                           |               |           |
+| WARNINGAVERAGEUSER    | Threshold for warning status on average user usage in percentage                                                                         |               |           |
+| CRITICALAVERAGEUSER   | Threshold for critical status on average user usage in percentage                                                                        |               |           |
+| WARNINGCORESYSTEM     | Threshold for warning status on core system usage in percentage                                                                          |               |           |
+| CRITICALCORESYSTEM    | Threshold for critical status on core system usage in percentage                                                                         |               |           |
+| WARNINGAVERAGESYSTEM  | Threshold for warning status on average system usage in percentage                                                                       |               |           |
+| CRITICALAVERAGESYSTEM | Threshold for critical status on average system usage in percentage                                                                      |               |           |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Macro                 | Description                                                                                                                              | Default value | Mandatory |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGUSAGE          | Threshold for warning status on physical memory usage in bytes                                                                           |               |           |
+| CRITICALUSAGE         | Threshold for critical status on physical memory usage in bytes                                                                          |               |           |
+| WARNINGUSAGEFREE      | Threshold for warning status on free physical memory in bytes                                                                            |               |           |
+| CRITICALUSAGEFREE     | Threshold for critical status on free physical memory in bytes                                                                           |               |           |
+| WARNINGUSAGEPRCT      | Threshold for warning status on physical memory usage in percentage                                                                      |               |           |
+| CRITICALUSAGEPRCT     | Threshold for critical status on physical memory usage in percentage                                                                     |               |           |
+| WARNINGUSAGEFREEPRCT  | Threshold for warning status on free physical memory in percentage                                                                       |               |           |
+| CRITICALUSAGEFREEPRCT | Threshold for critical status on free physical memory in percentage                                                                      |               |           |
+
+</TabItem>
 <TabItem value="Ntp" label="Ntp">
 
 | Macro          | Description                                                                                                                    | Default value | Mandatory |
@@ -230,8 +335,8 @@ This connector relies on an integration supported by Centreon Engine and does no
 
 | Macro          | Description                                                                                                                                                                                                                                              | Default value                 | Mandatory |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{RebootPending}, %{WindowsUpdate}, %{CBServicing}, %{CCMClientSDK}, %{PendFileRename}, %{PendComputerRename} | `%{RebootPending} =~ /true/i` |           |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{RebootPending}, %{WindowsUpdate}, %{CBServicing}, %{CCMClientSDK}, %{PendFileRename}, %{PendComputerRename}                           |                               |           |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\} | `%{RebootPending} =~ /true/i` |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}                           |                               |           |
 | TIMEOUT        | Set timeout time for command execution                                                                                                                                                                                                | 10                            |           |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                           |                               |           |
 
@@ -256,14 +361,46 @@ This connector relies on an integration supported by Centreon Engine and does no
 | EXTRAOPTIONS                        | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                       |               |           |
 
 </TabItem>
+<TabItem value="Storage" label="Storage">
+
+| Macro             | Description                                                                                                                                                                                                                                                                                    | Default value | Mandatory |
+|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING           | Thresholds                                                                                                                                                                                                                                                                                     | 80            |           |
+| CRITICAL          | Thresholds                                                                                                                                                                                                                                                                                     | 90            |           |
+| FILTERSTORAGETYPE | Case insensitive regex to filter storage type it includes drive type (fixed, network...). Types recognized by agent: hrunknown, hrstoragefixeddisk, hrstorageremovabledisk, hrstoragecompactdisc, hrstorageramdisk, hrstoragenetworkdisk, hrfsunknown, hrfsfat, hrfsntfs, hrfsfat32, hrfsexfat | .*            |           |
+| FILTERFS          | Case insensitive regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                               | .*            |           |
+
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Macro                | Description                                                                                                                              | Default value | Mandatory |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGSWAP          | Threshold for warning status on swap memory usage in bytes                                                                               |               |           |
+| CRITICALSWAP         | Threshold for critical status on swap memory usage in bytes                                                                              |               |           |
+| WARNINGSWAPFREE      | Threshold for warning status on free swap memory in bytes                                                                                |               |           |
+| CRITICALSWAPFREE     | Threshold for critical status on free swap memory in bytes                                                                               |               |           |
+| WARNINGSWAPPRCT      | Threshold for warning status on swap memory usage in percentage                                                                          |               |           |
+| CRITICALSWAPPRCT     | Threshold for critical status on swap memory usage in percentage                                                                         |               |           |
+| WARNINGSWAPFREEPRCT  | Threshold for warning status on free swap memory in percentage                                                                           |               |           |
+| CRITICALSWAPFREEPRCT | Threshold for critical status on free swap memory in percentage                                                                          |               |           |
+
+</TabItem>
 <TabItem value="Updates" label="Updates">
 
 | Macro                  | Description                                                                                                                    | Default value               | Mandatory |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:---------:|
 | WARNINGPENDINGUPDATES  | Thresholds                                                                                                                     | 1                           |           |
 | CRITICALPENDINGUPDATES | Thresholds                                                                                                                     |                             |           |
-| TIMEOUT                | Set timeout time for command execution                                                                    | 30                          |           |
+| TIMEOUT                | Set timeout time for command execution                                                                                         | 30                          |           |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose --display-updates |           |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Macro          | Description                                                                                                                              | Default value | Mandatory |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state                                     | 3600          |           |
+| CRITICALUPTIME | Critical threshold                                                                                                                       |               | 600       |
 
 </TabItem>
 </Tabs>
@@ -320,7 +457,7 @@ All generic options are listed here:
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -365,6 +502,78 @@ All available options for each service template are listed below:
 | --ps-exec-only                   | Print powershell output.                                                                                                                                    |
 
 </TabItem>
+<TabItem value="CPU" label="CPU">
+
+| Option                            | Description                                                                        |
+|:----------------------------------|:-----------------------------------------------------------------------------------|
+| --use-nt-query-system-information | (default true): true: use NtQuerySystemInformation instead of performance counters |
+| --cpu-detailed                    | (default false): true: add detailed cpu usage to output                            |
+| --warning-core                    | Threshold for warning status on core usage in percentage                           |
+| --critical-core                   | Threshold for critical status on core usage in percentage                          |
+| --warning-average                 | Threshold for warning status on average usage in percentage                        |
+| --critical-average                | Threshold for critical status on average usage in percentage                       |
+| --warning-core-user               | Threshold for warning status on core user usage in percentage                      |
+| --critical-core-user              | Threshold for critical status on core user usage in percentage                     |
+| --warning-average-user            | Threshold for warning status on average user usage in percentage                   |
+| --critical-average-user           | Threshold for critical status on average user usage in percentage                  |
+| --warning-core-system             | Threshold for warning status on core system usage in percentage                    |
+| --critical-core-system            | Threshold for critical status on core system usage in percentage                   |
+| --warning-average-system          | Threshold for warning status on average system usage in percentage                 |
+| --critical-average-system         | Threshold for critical status on average system usage in percentage                |
+
+</TabItem>
+<TabItem value="CPU-detailed" label="CPU-detailed">
+
+| Option                            | Description                                                                        |
+|:----------------------------------|:-----------------------------------------------------------------------------------|
+| --use-nt-query-system-information | (default true): true: use NtQuerySystemInformation instead of performance counters |
+| --cpu-detailed                    | (default false): true: add detailed cpu usage to output                            |
+| --warning-core                    | Threshold for warning status on core usage in percentage                           |
+| --critical-core                   | Threshold for critical status on core usage in percentage                          |
+| --warning-average                 | Threshold for warning status on average usage in percentage                        |
+| --critical-average                | Threshold for critical status on average usage in percentage                       |
+| --warning-core-user               | Threshold for warning status on core user usage in percentage                      |
+| --critical-core-user              | Threshold for critical status on core user usage in percentage                     |
+| --warning-average-user            | Threshold for warning status on average user usage in percentage                   |
+| --critical-average-user           | Threshold for critical status on average user usage in percentage                  |
+| --warning-core-system             | Threshold for warning status on core system usage in percentage                    |
+| --critical-core-system            | Threshold for critical status on core system usage in percentage                   |
+| --warning-average-system          | Threshold for warning status on average system usage in percentage                 |
+| --critical-average-system         | Threshold for critical status on average system usage in percentage                |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Option                       | Description                                                          |
+|:-----------------------------|:---------------------------------------------------------------------|
+| --swap                       | (default false): true: add swap to output                            |
+| --virtual                    | (default false): true: add virtual memory to output                  |
+| --warning-usage              | Threshold for warning status on physical memory usage in bytes       |
+| --critical-usage             | Threshold for critical status on physical memory usage in bytes      |
+| --warning-usage-free         | Threshold for warning status on free physical memory in bytes        |
+| --critical-usage-free        | Threshold for critical status on free physical memory in bytes       |
+| --warning-usage-prct         | Threshold for warning status on physical memory usage in percentage  |
+| --critical-usage-prct        | Threshold for critical status on physical memory usage in percentage |
+| --warning-usage-free-prct    | Threshold for warning status on free physical memory in percentage   |
+| --critical-usage-free-prct   | Threshold for critical status on free physical memory in percentage  |
+| --warning-swap               | Threshold for warning status on swap usage in bytes                  |
+| --critical-swap              | Threshold for critical status on swap usage in bytes                 |
+| --warning-swap-free          | Threshold for warning status on free swap in bytes                   |
+| --critical-swap-free         | Threshold for critical status on free swap in bytes                  |
+| --warning-swap-prct          | Threshold for warning status on swap usage in percentage             |
+| --critical-swap-prct         | Threshold for critical status on swap usage in percentage            |
+| --warning-swap-free-prct     | Threshold for warning status on free swap in percentage              |
+| --critical-swap-free-prct    | Threshold for critical status on free swap in percentage             |
+| --warning-virtual            | Threshold for warning status on virtual memory usage in bytes        |
+| --critical-virtual           | Threshold for critical status on virtual memory usage in bytes       |
+| --warning-virtual-free       | Threshold for warning status on free virtual memory in bytes         |
+| --critical-virtual-free      | Threshold for critical status on free virtual memory in bytes        |
+| --warning-virtual-prct       | Threshold for warning status on virtual memory usage in percentage   |
+| --critical-virtual-prct      | Threshold for critical status on virtual memory usage in percentage  |
+| --warning-virtual-free-prct  | Threshold for warning status on free virtual memory in percentage    |
+| --critical-virtual-free-prct | Threshold for critical status on free virtual memory in percentage   |
+
+</TabItem>
 <TabItem value="Ntp" label="Ntp">
 
 | Option         | Description                                                                |
@@ -387,8 +596,8 @@ All available options for each service template are listed below:
 | --command-options | Command options (Default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                                                                                                                   |
 | --ps-display      | Display powershell script.                                                                                                                                                                                                                                |
 | --ps-exec-only    | Print powershell output.                                                                                                                                                                                                                                  |
-| --warning-status  | Define the conditions to match for the status to be WARNING (Default: '%{RebootPending} =~ /true/i'). You can use the following variables: %{RebootPending}, %{WindowsUpdate}, %{CBServicing}, %{CCMClientSDK}, %{PendFileRename}, %{PendComputerRename}. |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{RebootPending}, %{WindowsUpdate}, %{CBServicing}, %{CCMClientSDK}, %{PendFileRename}, %{PendComputerRename}.                           |
+| --warning-status  | Define the conditions to match for the status to be WARNING (Default: '%\{RebootPending\} =~ /true/i'). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}. |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}.                           |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
@@ -403,6 +612,51 @@ All available options for each service template are listed below:
 | --timeout                | Timeout in seconds for the command (Default: 30).                                                                                                                                                                                             |
 | --filter-sessionname     | Filter session name (can be a regexp).                                                                                                                                                                                                        |
 | --warning-* --critical-* | Thresholds. Can be: 'sessions-created', 'sessions-disconnected', 'sessions-reconnected', 'sessions-active', 'sessions-disconnected-current'.                                                                                                  |
+
+</TabItem>
+<TabItem value="Storage" label="Storage">
+
+| Option                | Description                                                                                                                                                                                                                                                                                    |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --unit                | (default %): unit of threshold. If different from % threshold are in bytes                                                                                                                                                                                                                     |
+| --free                | (default used): true: threshold is applied on free space and service become warning if free sapce is lower than threshold. false: threshold is applied on used space and service become warning if used space is higher than threshold                                                         |
+| --warning             | warning threshold                                                                                                                                                                                                                                                                              |
+| --critical            | critical threshold                                                                                                                                                                                                                                                                             |
+| --filter-storage-type | Case insensitive regex to filter storage type it includes drive type (fixed, network...). Types recognized by agent: hrunknown, hrstoragefixeddisk, hrstorageremovabledisk, hrstoragecompactdisc, hrstorageramdisk, hrstoragenetworkdisk, hrfsunknown, hrfsfat, hrfsntfs, hrfsfat32, hrfsexfat |
+| --filter-fs           | Regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                                                                   |
+| --exclude-fs          | Regex to exclude filesystem                                                                                                                                                                                                                                                                   |
+
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Option                       | Description                                                          |
+|:-----------------------------|:---------------------------------------------------------------------|
+| --swap                       | (default false): true: add swap to output                            |
+| --virtual                    | (default false): true: add virtual memory to output                  |
+| --warning-usage              | Threshold for warning status on physical memory usage in bytes       |
+| --critical-usage             | Threshold for critical status on physical memory usage in bytes      |
+| --warning-usage-free         | Threshold for warning status on free physical memory in bytes        |
+| --critical-usage-free        | Threshold for critical status on free physical memory in bytes       |
+| --warning-usage-prct         | Threshold for warning status on physical memory usage in percentage  |
+| --critical-usage-prct        | Threshold for critical status on physical memory usage in percentage |
+| --warning-usage-free-prct    | Threshold for warning status on free physical memory in percentage   |
+| --critical-usage-free-prct   | Threshold for critical status on free physical memory in percentage  |
+| --warning-swap               | Threshold for warning status on swap usage in bytes                  |
+| --critical-swap              | Threshold for critical status on swap usage in bytes                 |
+| --warning-swap-free          | Threshold for warning status on free swap in bytes                   |
+| --critical-swap-free         | Threshold for critical status on free swap in bytes                  |
+| --warning-swap-prct          | Threshold for warning status on swap usage in percentage             |
+| --critical-swap-prct         | Threshold for critical status on swap usage in percentage            |
+| --warning-swap-free-prct     | Threshold for warning status on free swap in percentage              |
+| --critical-swap-free-prct    | Threshold for critical status on free swap in percentage             |
+| --warning-virtual            | Threshold for warning status on virtual memory usage in bytes        |
+| --critical-virtual           | Threshold for critical status on virtual memory usage in bytes       |
+| --warning-virtual-free       | Threshold for warning status on free virtual memory in bytes         |
+| --critical-virtual-free      | Threshold for critical status on free virtual memory in bytes        |
+| --warning-virtual-prct       | Threshold for warning status on virtual memory usage in percentage   |
+| --critical-virtual-prct      | Threshold for critical status on virtual memory usage in percentage  |
+| --warning-virtual-free-prct  | Threshold for warning status on free virtual memory in percentage    |
+| --critical-virtual-free-prct | Threshold for critical status on free virtual memory in percentage   |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
@@ -420,6 +674,15 @@ All available options for each service template are listed below:
 | --exclude-title          | Exclude windows updates by title (regexp can be used).                                                                                   |
 | --display-updates        | Display updates in verbose output.                                                                                                       |
 | --warning-* --critical-* | Thresholds. Can be: 'pending-updates'.                                                                                                   |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Option             | Description                                                                                          |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|
+| --unit             | (defaults s): can be s, second, m, minute, h, hour, d, day, w, week                                  |
+| --warning-uptime   | warning threshold, if computer has been up for less than this time, service will be in warning state |
+| --critical-uptime  | critical threshold                                                                                   |
 
 </TabItem>
 </Tabs>

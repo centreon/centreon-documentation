@@ -62,7 +62,7 @@ Go to **Configuration > SNMP traps > SNMP traps** and click **Add**
 > It is possible to construct the output message yourself. To do this, use the MIB to find out the arguments that will be
 > present in the body of the event and retrieve the arguments with the variables **$n**. As each argument is identified
 > by an OID, it is possible to use this OID directly to place it in the output message without knowing its position via
-> the variable **@{OID}**.
+> the variable **@\{OID\}**.
 
 * The **Default status** field defines the “monitoring” status of the service in case of reception of the trap.
 * If the **Submit result** box is checked, the result is submitted to the Network supervisor engine.
@@ -119,7 +119,7 @@ The following command can be used to retrieve this value:
 snmpget -v 2c -Ovq -c <community> <cisco switch> ifAlias.$1
 ```
 
-To use the result of the PREEXEC command in the **Output message**, it is necessary to use the variable $p{n} where ‘n’
+To use the result of the PREEXEC command in the **Output message**, it is necessary to use the variable $p\{n\} where ‘n’
 corresponds to the order of definition of the command.
 
 Example:
@@ -175,7 +175,7 @@ or **Special command** fields. These arguments are listed in the table below:
 
 | Macro name               | Description                                                                                                               |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| @{NUMERIC_OID}           | Retrieval of the value of an argument via its OID, e.g.: @{.1.3.6.1.4.1.9.9.43.1.1.1}                                     |
+| @\{NUMERIC_OID\}         | Retrieval of the value of an argument via its OID, e.g.: @\{.1.3.6.1.4.1.9.9.43.1.1.1\}                                   |
 | $1, $2...                | Retrieval of the value of an argument via its order of appearance                                                         |
 | $p1, $p2,...             | Value of the command: PREEXEC ($p1 = at the first command, $p2 at the second, ...)                                        |
 | $*                       | All the arguments separated by a space                                                                                    |

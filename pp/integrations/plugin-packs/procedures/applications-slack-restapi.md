@@ -124,8 +124,8 @@ by running the following command (Some of the parameters such as ```proxyurl``` 
     --mode=services \
     --proxyurl='http://myproxy.mycompany.org:8080' \
     --filter-name='Connections|Messaging' \
-    --warning-status='%{status} eq "active" and %{type} eq "incident"' \
-    --critical-status='%{status} eq "active" and %{type} eq "outage"' \
+    --warning-status='%\{status\} eq "active" and %\{type\} eq "incident"' \
+    --critical-status='%\{status\} eq "active" and %\{type\} eq "outage"' \
     --verbose
 ```
 

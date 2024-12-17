@@ -121,8 +121,8 @@ by running the following command (Some of the parameters such as ```proxyurl``` 
     --port='443' \
     --proxyurl='http://myproxy.mycompany.org:8080' \
     --filter-name='mail|drive|meet' \
-    --warning-status='%{status} eq "disruption"' \
-    --critical-status='%{status} eq "outage"' \
+    --warning-status='%\{status\} eq "disruption"' \
+    --critical-status='%\{status\} eq "outage"' \
     --verbose
 ```
 

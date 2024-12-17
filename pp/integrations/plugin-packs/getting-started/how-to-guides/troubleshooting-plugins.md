@@ -29,7 +29,7 @@ the binary it uses exists or doesn't contain a typo.
 On RPM-based systems, you can use the following command to identify what's the 
 package is providing the missing binary: `yum whatprovides "*/the_binary_name"`
 
-### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/<cache_file_name>'
+### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/\<cache_file_name\>'
 
 The most common cause is inappropriate rights on the cache directory (`/var/lib/centreon/centplugins`) 
 or the cache file itself.  It can also be the result of an inconsistent installation 
@@ -49,7 +49,7 @@ If directory rights are ok, check also the rights of the cache file:
 `stat /var/lib/centreon/centplugins/<cache_file_name>`. The expected result is: 
 
 ```bash
-File: '/var/lib/centreon/centplugins/<cache_file_name>'
+File: '/var/lib/centreon/centplugins/\<cache_file_name\>'
 [...]
 Access: (0664/-rw-rw-r--)  Uid: (  994/centreon-engine)   Gid: (  991/centreon-engine)
 [...]
@@ -229,11 +229,30 @@ Sometimes, the remote host doesn't support negotiation about the SSL implementat
 so you must specify explicitly which one the Plugin has to use thanks to the `--ssl` 
 option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer or software publisher documentation.
 
+## Troubleshooting AWS
+
+### `UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values`
+
+This command result means that Amazon Cloudwatch does not have any value for the requested period.
+
+This result can be overriden by adding the --zeroed option to the command. 
+This will force a value of 0 when no metric has been collected and will prevent the UNKNOWN error message.
+
+### `UNKNOWN: Command error: - An error occurred (AuthFailure) [...] `
+
+This command result means that the credentials provided don't have enough privileges to perform the underlying AWS Operation.
+
+### `UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |`
+
+This error message means that the Centreon Plugin couldn't successfully connect to the AWS Cloudwatch API. 
+Check that no third party device (such as a firewall) is blocking the request. 
+A proxy connection may also be necessary to connect to the API. This can be done by using this option in the command: --proxyurl='http://proxy.mycompany:8080'.
+
 ## SSH and CLI checks
 
-### UNKNOWN: Command error: `<interpreter>`: <command_name>: command not found
+### UNKNOWN: Command error: `<interpreter>`: \<command_name\>: command not found
 
-This error warns that the Plugin is not able to execute the <command_name> because it 
+This error warns that the Plugin is not able to execute the \<command_name\> because it 
 doesn't exist in PATH or is not installed.
 
 Depending on how the check is performed (locally or remotely), make sure that the 
@@ -269,7 +288,7 @@ allows your monitoring server to send remote command execution.
 
 Do not forget to restart your NRPE daemon to update the configuration.
 
-### NRPE: Command <a_command> not defined
+### NRPE: Command \<a_command\> not defined
 
 The NRPE Server throws this error when the client asks to run a command it doesn't understand. 
 

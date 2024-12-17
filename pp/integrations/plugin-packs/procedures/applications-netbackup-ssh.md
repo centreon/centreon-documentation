@@ -187,7 +187,7 @@ Once the Plugin is installed, log into your Poller using the **centreon-engine**
     --ssh-username=centreon \
     --ssh-password='centreon-password' \
     --ssh-backend=sshcli \
-    --critical-status='%{status} !~ /up/i' \ 
+    --critical-status='%\{status\} !~ /up/i' \ 
     --verbose
 ```
 

@@ -58,7 +58,7 @@ Body {
 Headers {
     Content-Type = application/json
     X-client-version = 24.04.0
-    Authorization = Bearer {jwtToken}
+    Authorization = Bearer \{jwtToken\}
 }
 ```
 
@@ -86,7 +86,7 @@ POST https://serverURL:9443/centreon-map/api/beta/maps
 Headers {
     Content-Type = application/json
     X-client-version =  24.04.0
-    Authorization = Bearer {jwtToken}
+    Authorization = Bearer \{jwtToken\}
 }
 
 Body {
@@ -140,7 +140,7 @@ PUT https://serverURL:9443/centreon-map/api/beta/maps/_mapId_/views
 
 ```
 Body: {
- "id": {viewId},
+ "id": \{viewId\},
  "shapes": [
      {
         "type": "RECTANGLE",

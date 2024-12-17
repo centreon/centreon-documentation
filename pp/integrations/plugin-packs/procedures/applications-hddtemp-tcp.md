@@ -27,7 +27,7 @@ It brings the following Service Template:
 | Metric Name                              | Unit                    |
 |:-----------------------------------------|:------------------------|
 | status                                   | string                  |
-| drive_name#drive.temperature.<temp_unit> | celsius or fahrenheit   |
+| drive_name#drive.temperature.\<temp_unit\> | celsius or fahrenheit   |
 
 </TabItem>
 </Tabs>
@@ -100,7 +100,7 @@ command:
     --filter-name='' \
     --unknown-status='' \
     --warning-status='' \
-    --critical-status='%{status} !~ /ok/i' \
+    --critical-status='%\{status\} !~ /ok/i' \
     --warning-temperature='30' \
     --critical-temperature='50' \
     --verbose \

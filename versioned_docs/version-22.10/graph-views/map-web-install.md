@@ -588,6 +588,8 @@ This procedure is to ensure that the configuration file can be used for both MAP
 When installing Centreon MAP Engine server, it will automatically install java
 (OpenJDK 17) if needed.
 
+> Go to this troubleshooting procedure if OpenJDK 17 causes an issue [preventing centreon-map-engine from being installed](./map-web-troubleshooting.md#centreon-map-engine-and-all-its-dependencies-cannot-get-installed-on-alma-linux-8).
+
 #### Java requirement
 
   > Ensure a version of Java 17 (or 18) is correctly installed and activated.

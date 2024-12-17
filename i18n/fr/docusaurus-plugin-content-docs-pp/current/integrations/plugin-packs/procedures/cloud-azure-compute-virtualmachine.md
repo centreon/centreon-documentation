@@ -197,10 +197,10 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
     --client-id='xxxxxxxxx' \
     --client-secret='xxxxxxxxx' \
     --proxyurl='' \
-    --ok-status='%{status} =~ /^Available$/' \
+    --ok-status='%\{status\} =~ /^Available$/' \
     --warning-status='' \
-    --critical-status='%{status} =~ /^Unavailable$/' \
-    --unknown-status='%{status} =~ /^Unknown$/' \
+    --critical-status='%\{status\} =~ /^Unavailable$/' \
+    --unknown-status='%\{status\} =~ /^Unknown$/' \
     --api-version=2017-07-01\
     --use-new-perfdata
 ```

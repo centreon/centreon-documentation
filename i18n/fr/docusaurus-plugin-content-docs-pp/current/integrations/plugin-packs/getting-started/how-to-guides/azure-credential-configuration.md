@@ -87,7 +87,7 @@ Le terminal devrait afficher un code permettant l'authentification :
 	*and enter the code CWT4WQZAD to authenticate.*
 ```
 
-Rendez-vous sur <https://microsoft.com/devicelogin> puis renseignez le code d'authentification, ensuite connectez-vous avec le compte de service de supervision dédiée.
+Rendez-vous sur https://microsoft.com/devicelogin puis renseignez le code d'authentification, ensuite connectez-vous avec le compte de service de supervision dédiée.
 
 A la suite de la connexion, le terminal devrait afficher un message comme ci-dessous : 
 
