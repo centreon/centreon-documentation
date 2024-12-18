@@ -344,7 +344,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--port='443' \
 	--proto='https' \
 	--token='XXXX'  \
-	--warning-dimm-status='%\{status\} !~ /ok/i' \
+	--warning-dimm-status='%{status} !~ /ok/i' \
 	--critical-dimm-status='' \
 	--warning-memory-usage='' \
 	--critical-memory-usage='' \
