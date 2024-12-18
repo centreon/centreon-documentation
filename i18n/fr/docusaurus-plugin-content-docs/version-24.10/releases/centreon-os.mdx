@@ -185,6 +185,32 @@ Release date: `October 31, 2024`
 
 ## Centreon Collect
 
+### 24.10.3
+
+Release date: `December 18, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Added a native CPU check for Windows & Linux.
+- [CMA] Added a native Memory check for Windows.
+- [CMA] Added a native Uptime check for Windows.
+- [CMA] Added a native Storage check for Windows.
+- [CMA] Agent checks scheduling has been optimized to avoid delay in case of checks timeouts.
+- [CMA] Centreon Monitoring Agent & installer are now signed.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Adapted Broker parsing so as to avoid breaking a metric name ending with the ] character.
+- [Broker] Fixed a typo in an SQL query.
+- [CMA] Fixed a listening issue when using "Poller initiated connection".
+- [Engine] Fixed errors in RRD logs that appeared following the upgrade to the new log engine in collect.
+
+</details>
+
 ### 24.10.2
 
 Release date: `November 27, 2024`
@@ -245,6 +271,17 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.10.2
+
+Release date: `December 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed a bug in gorgone where if the plateform have thousands of hosts, pushing the configuration failed and gorgone connection was severed.
+
+</details>
 
 ### 24.10.1
 
