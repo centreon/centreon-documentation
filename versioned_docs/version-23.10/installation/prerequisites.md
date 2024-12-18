@@ -32,7 +32,7 @@ The following data is meant for:
 
 You need to adapt the following figures to your actual values. Bear in mind that you may need to adjust the size of your platform as you add more hosts over time.
 
-<Tabs groupId="sync">
+<Tabs groupId="Sizing" queryString>
 <TabItem value="Up to 500 hosts" label="Up to 500 hosts">
 
 Standalone central server:
