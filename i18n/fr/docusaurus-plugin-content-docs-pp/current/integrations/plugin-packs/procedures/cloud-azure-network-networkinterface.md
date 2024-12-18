@@ -32,7 +32,7 @@ The login and access token handling will be made by the plugin itself.
 ### Azure CLI 2.0 (for 'azcli' custom mode)
 
 The CLI needs at least Python version 2.7
-(<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md>).
+(\<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md\>).
 
 On CentOS/RedHat, install with following commands:
 
@@ -47,7 +47,7 @@ The shell should prompt:
 
     To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code CWT4WQZAD to authenticate.
 
-Go to <https://microsoft.com/devicelogin> and enter the given code.
+Go to \<https://microsoft.com/devicelogin\> and enter the given code.
 
 Log in with your account credentials. You should use a service account.
 Application is not yet supported.
@@ -55,18 +55,18 @@ Application is not yet supported.
 The command line should now show:
 
     [
-      {
+      \{
         "cloudName": "AzureCloud",
         "id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
         "isDefault": true,
         "name": "N/A(tenant level account)",
         "state": "Enabled",
         "tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
-        "user": {
+        "user": \{
           "name": "email@mycompany.onmicrosoft.com",
           "type": "user"
-        }
-      }
+        \}
+      \}
     ]
 
 You now have a hidden azure directory where your token is stored in an
@@ -123,5 +123,5 @@ Click on the *Save* button.
 ## Available metrics
 
 Go to
-<https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics?toc=/azure/azure-monitor/toc.json#microsoftnetworknetworkinterfaces>
+\<https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics?toc=/azure/azure-monitor/toc.json#microsoftnetworknetworkinterfaces\>
 to see the description of return metrics for this Azure service.

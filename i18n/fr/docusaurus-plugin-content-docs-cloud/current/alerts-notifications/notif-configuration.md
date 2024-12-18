@@ -40,12 +40,12 @@ Les ressources sont contrôlées selon les paramètres suivants :
 	
     | Macro | Description | Exemple |
     | ----- | ----------- |-------- |
-	|{{NOTIFICATIONTYPE}}| **Recovery**, **Warning**, **Critical** or **Unknown** pour un service; **Recovery**, **Down** ou **Unreachable** pour un hôte. | CRITICAL |
-	{{NAME}}| Le nom du service ou de l'hôte. Pour un service, le nom de l'hôte auquel celui-ci est rattaché est également indiqué. | central/proc-ntpd |
-	{{ID}}| Un ID interne pour cette ressource. Cet ID peut être utilisé pour des appels API. | 41:209 |
-	{{STATE}}| Le [statut](./concepts.md) dans lequel la ressource vient de passer. | CRITICAL |
-	{{SHORTDATETIME}}| Date et heure au format suivant : MM/JJ/AA hh:mm:ss | 10/18/23 12:20:42 |
-    {{LONGDATETIME}}| Date et heure, avec le jour de la semaine.  | Wednesday October 18, 2023, 12:20:42 |
-	{{OUTPUT}}| La sortie de la commande de contrôle, c'est-à-dire le texte affiché dans la colonne **Information** de la page **Statut des ressources**. | CRITICAL: Number of current processes running: 0 |
+	|\{\{NOTIFICATIONTYPE\}\}| **Recovery**, **Warning**, **Critical** or **Unknown** pour un service; **Recovery**, **Down** ou **Unreachable** pour un hôte. | CRITICAL |
+	\{\{NAME\}\}| Le nom du service ou de l'hôte. Pour un service, le nom de l'hôte auquel celui-ci est rattaché est également indiqué. | central/proc-ntpd |
+	\{\{ID\}\}| Un ID interne pour cette ressource. Cet ID peut être utilisé pour des appels API. | 41:209 |
+	\{\{STATE\}\}| Le [statut](./concepts.md) dans lequel la ressource vient de passer. | CRITICAL |
+	\{\{SHORTDATETIME\}\}| Date et heure au format suivant : MM/JJ/AA hh:mm:ss | 10/18/23 12:20:42 |
+    \{\{LONGDATETIME\}\}| Date et heure, avec le jour de la semaine.  | Wednesday October 18, 2023, 12:20:42 |
+	\{\{OUTPUT\}\}| La sortie de la commande de contrôle, c'est-à-dire le texte affiché dans la colonne **Information** de la page **Statut des ressources**. | CRITICAL: Number of current processes running: 0 |
 
 3. Cliquez sur le bouton **Save** en haut à droite du panneau. La nouvelle règle de notification apparaît dans la liste. Elle peut mettre jusqu'à 5 minutes pour commencer à s'appliquer.

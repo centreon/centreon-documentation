@@ -45,7 +45,8 @@ Le tableau ci-dessous définit les colonnes du tableau de résultats :
 </tr>
 <tr class="even">
 <td>Type de modification</td>
-<td><p>Contient le type d'action effectuée. Il existe plusieurs types d'actions possibles :</p>
+<td>
+<p>Contient le type d'action effectuée. Il existe plusieurs types d'actions possibles :</p>
 <ul>
 <li>Ajouté : Indique que l'objet a été ajouté</li>
 <li>Modifié : Indique que l'objet a été modifié</li>
@@ -103,7 +104,8 @@ Le tableau ci-dessous définit les colonnes du tableau des modifications :
 </tr>
 <tr class="even">
 <td></td>
-<td><p>La dernière colonne décrit la modification en elle-même :</p>
+<td>
+<p>La dernière colonne décrit la modification en elle-même :</p>
 <ul>
 <li>Nom du champ : Décrit le champ du formulaire modifié</li>
 <li>Avant : Indique l'ancienne valeur</li>
