@@ -62,7 +62,7 @@ This is how your central server should be partitioned:
 In some cases, you may want to set up a distributed architecture, even for fewer than 500 hosts. The poller will have the same characteristics as for up to 1,000 hosts.
 
 </TabItem>
-<TabItem value="Up to 1,000 hosts" label="Up to 1,000 hosts">
+## <TabItem value="Up to 1,000 hosts" label="Up to 1,000 hosts">
 
 Distributed architecture:
 
