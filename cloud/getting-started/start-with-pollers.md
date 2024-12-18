@@ -15,6 +15,8 @@ title: Getting started with pollers
 
 2. Then you can follow the [installation](../installation/deploy-poller.md) procedure.
 
+Once the poller is installed, we recommend [securing](../installation/poller-secure.md) it and making sure they remain [updated](../installation/poller-update-upgrade.md). If you have more than one poller, we also recommend having your pollers [monitor each other](../installation/poller-monitor.md) rather than having them monitor themselves.
+
 ## Troubleshooting
 
-Feel free to ask any questions you may have on our community platform [The Watch](https://thewatch.centreon.com/).
+We have a section dedicated to [troubleshooting pollers](../installation/poller-troubleshoot.md) to help you out, many users also help each other on our community platform [The Watch](https://thewatch.centreon.com/).
