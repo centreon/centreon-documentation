@@ -32,7 +32,7 @@ Les données ci-après sont des estimations en fonction des critères suivants :
 
 Adaptez les chiffres suivants à vos valeurs réelles. Au cours du temps, vous serez peut-être amenés à ajuster la taille de votre plateforme au fur et à mesure que vous ajoutez plus d'hôtes.
 
-<Tabs groupId="Sizing" queryString>
+<Tabs groupId="sizing" queryString>
 <TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
 
 Serveur central seul :
