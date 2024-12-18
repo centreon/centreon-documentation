@@ -546,10 +546,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-databases-sap-hana'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-scom-restapi'
         },
         {
@@ -1211,6 +1207,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-databases-rrdtool'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-databases-sap-hana'
         },
         {
           type: 'doc',
