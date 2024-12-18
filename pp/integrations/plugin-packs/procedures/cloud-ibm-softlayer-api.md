@@ -234,7 +234,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--warning-published='' \
 	--critical-published='' \
 	--warning-event='' \
-	--critical-event='%\{status\} =~ /Active/ && %\{items\} > 0' \
+	--critical-event='%{status} =~ /Active/ && %{items} > 0' \
 	--verbose
 ```
 

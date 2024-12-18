@@ -439,7 +439,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--filter-dest-ip='' \
 	--filter-src-ip='' \
 	--warning-status='' \
-	--critical-status='%\{adminState\} eq "up" and %\{operState\} ne "up"' \
+	--critical-status='%{adminState} eq "up" and %{operState} ne "up"' \
 	--warning-gretunnels-detected='' \
 	--critical-gretunnels-detected='' \
 	--warning-gretunnels-up='' \
