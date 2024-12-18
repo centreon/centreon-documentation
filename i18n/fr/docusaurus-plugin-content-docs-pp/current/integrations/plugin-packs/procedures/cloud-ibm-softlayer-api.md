@@ -229,7 +229,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--warning-published='' \
 	--critical-published='' \
 	--warning-event='' \
-	--critical-event='%\{status\} =~ /Active/ && %\{items\} > 0' \
+	--critical-event='%{status} =~ /Active/ && %{items} > 0' \
 	--verbose
 ```
 
