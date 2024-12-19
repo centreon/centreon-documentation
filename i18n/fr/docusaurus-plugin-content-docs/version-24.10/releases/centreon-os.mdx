@@ -22,6 +22,52 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 24.10.3
+
+Release date: `December 19, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added missing configuration change logs for timeperiods configuration.
+- [API] Added missing configuration change logs for host template configuration.
+- [API] Added missing configuration change logs for host severities configuration.
+- [API] Added missing configuration change logs for service severities configuration.
+- [Configuration] Improved the tooltip for Broker's Unify SQL output.
+- [Dashboards] Added meta-services to metric widgets.
+- [Install] Added 24.10 support to unattended script.
+- [Library - view by card] Added thumbnail, that show a snapshot of your data, taken when the dashboard is saved.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ACC] Fixed an issue on ACC where .json file was not deployed in case of a central Poller.
+- [Authentication] Fixed an issue preventing LDAP users with more than one email address to log in to Centreon.
+- [Custom Views] Fixed an issue with how the edit widget pencil icon was displayed.
+- [Custom Views] Fixed issue preventing some filters from functioning in the Hostgroup monitoring widget.
+- [Custom Views] Fixed issue preventing some filters from functioning in the "Host monitoring" widget.
+- [Downtimeas] Fixed an issue on actions details column in Action Log.
+- [Services] Fixed issue with service names containing a slash ("/") in their name.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed an issue on virtual metric's RPN field.
+- [Security] Fixed a security issue in media binary.
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to export the results in CSV format.
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "Host Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "TOP10 CPU usage" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "TOP10 Memory usage" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Improved an SQL query triggered via the Event Logs menu for better protection.
+- [Security] Updated Symfony Security-Http component.
+
+</details>
+
 ### 24.10.2
 
 Release date: `November 27, 2024`
