@@ -466,7 +466,9 @@ Vous devez ensuite finaliser le processus de mise à jour :
 accéder à la page de connexion :
 
   ![image](../assets/upgrade/web_update_5.png)
-  
+
+> Nous avons des articles dédiés pour les procédures de montée de version pour [Centreon BAM](../service-mapping/update.md), [Centreon MBI](../reporting/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md).
+
 </TabItem>
 <TabItem value="Avec une API dédiée" label="Avec une API dédiée">
 
@@ -561,9 +563,6 @@ usermod -a -G www-data centreon-broker
 
 </TabItem>
 </Tabs>
-
-Si le module Centreon BAM est installé, référez-vous à la [documentation
-associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 ### Actions post montée de version
 
