@@ -370,7 +370,7 @@ page:
 
   ![image](../assets/upgrade/web_update_5.png)
 
-> Refer to the [Centreon BAM](../service-mapping/update.md) and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
+> Refer to the [Centreon BAM](../service-mapping/update.md), [Centreon MBI](../reporting/update.md)  and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
 
 6. Deploy the central's configuration from the Centreon web UI by following [this
 procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).

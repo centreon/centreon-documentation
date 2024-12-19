@@ -372,7 +372,7 @@ accéder à la page de connexion :
 
   ![image](../assets/upgrade/web_update_5.png)
 
-> Trouvez ici les procédures de montée de version pour [Centreon BAM](../service-mapping/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md).
+> Nous avons des articles dédiés pour les procédures de montée de version pour [Centreon BAM](../service-mapping/update.md), [Centreon MBI](../reporting/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md).
 
 </TabItem>
 <TabItem value="Avec une API dédiée" label="Avec une API dédiée">
