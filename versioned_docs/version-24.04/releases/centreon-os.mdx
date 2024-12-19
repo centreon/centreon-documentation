@@ -35,26 +35,25 @@ Release date: `December 19, 2024`
 - [API] Added missing configuration change logs for service severities configuration.
 - [API] Added missing configuration change logs for service template configuration.
 - [API] Added missing configuration change logs for timeperiods configuration.
-- [Configuration] Improved the tooltip for Broker's Unify SQL output.
-- [Install] add 24.10 support to unattended script.
+- [Configuration] Improved the tooltip for Broker's Unified SQL output.
+- [Install] Add 24.10 support for unattended script.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [Action Log] Fixed an issue on actions details column in Action Log.
+- [Action Log] The action details column now displays the correct information in the Action Log page.
 - [API] Time period definitions containing the value 00:00-00:00 are now correctly taken into account.
 - [Authentication] Fixed a random disconnection issue occurring with OpenID authentication.
 - [Authentication] Fixed an issue preventing LDAP users with more than one email address to log in to Centreon.
-- [Authentication] Fixed SSO authentication when user have a legacy page as default page with SAML protocol.
+- [Authentication] Fixed an issue with SSO authentication with SAML that occurred when users had a legacy page as default page.
 - [Configuration] Adding a Centreon Broker output with lua parameters now works properly: values are no longer mixed up.
 - [Custom Views] Fixed an issue with how the edit widget pencil icon was displayed.
-- [Custom Views] Fixed issue preventing some filters from functioning in the Hostgroup monitoring widget.
-- [Custom Views] Fixed issue preventing some filters from functioning in the "Host monitoring" widget.
-- [Downtimes] Fixed an issue on Service Groups which can't be deleted in recurrent downtimes.
-- [Services] Fixed issue with service names containing a slash ("/") in their name.
-- [Status Grid] Fixed issue with incorrect number of resources displayed on hover.
+- [Custom Views] Fixed an issue preventing some filters from functioning in the "Hostgroup monitoring" and "Host monitoring" widgets.
+- [Downtimes] Fixed an issue where Service Groups could not be deleted in recurrent downtimes.
+- [Dashboards][Widgets] In the resource selection fields, services containing a slash ("/") in their name no longer trigger an error.
+- [Status Grid] Fixed an issue where an incorrect number of resources were displayed on hover.
 
 </details>
 
