@@ -211,7 +211,7 @@ yum update centreon\* php-pecl-gnupg
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-apt install --only-upgrade centreon
+apt install --only-upgrade centreon*
 ```
 
 </TabItem>
@@ -437,8 +437,6 @@ systemctl reload php-fpm httpd
 ```shell
 apt autoremove
 systemctl daemon-reload
-systemctl stop php8.1-fpm
-systemctl disable php8.1-fpm
 systemctl enable php8.2-fpm
 systemctl start php8.2-fpm
 systemctl restart apache2
@@ -591,10 +589,6 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
     ```shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
-
-## Mettre à jour MariaDB
-
-Suivez [cette procédure](upgrade-mariadb.md) pour monter de version MariaDB en 10.11.
 
 ## Montée de version des Remote Servers
 

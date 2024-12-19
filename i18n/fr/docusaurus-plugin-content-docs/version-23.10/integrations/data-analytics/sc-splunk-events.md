@@ -118,7 +118,7 @@ Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la 
 
 ## Event bulking
 
-Ce stream connector est compatible avec l'event bulking. Cela signifie qu'il est capable d'envoyer plus d'un évènement lors de chaque appel à l'API REST Spunk.
+Ce stream connector est compatible avec l'event bulking. Cela signifie qu'il est capable d'envoyer plus d'un évènement lors de chaque appel à l'API REST Splunk.
 
 Pour utiliser cette fonctionnalité, vous devez ajouter le paramètre suivant à la configuration de votre stream connector.
 
@@ -171,17 +171,17 @@ Ce stream connector envoie des évènements au format suivant :
 
 ### Format d'évènement personnalisé
 
-This stream connector allows you to change the format of the event to suit your needs. Only the **event** part of the json is customisable. It also allows you to handle events type that are not handled by default such as **ba_status events**.
+Ce stream connector vous permet de modifier le format de l'événement en fonction de vos besoins. Seule la partie **event** du json est personnalisable. Il vous permet également de gérer des types d'événements qui ne sont pas gérés par défaut, tels que les événements **ba_status**.
 
-In order to use this feature you need to configure a json event format file and add a new stream connector parameter.
+Pour utiliser cette fonctionnalité, vous devez configurer un fichier json de format d'événement et ajouter un nouveau paramètre de connecteur de flux.
 
-| Type   | Nom        | Valeur                                         |
-| ------ | ----------- | ---------------------------------------------- |
+| Type   | Nom         | Valeur                                         |
+| ------ |-------------| ---------------------------------------------- |
 | string | format_file | /etc/centreon-broker/splunk-events-format.json |
 
-> The event format configuration file must be readable by the centreon-broker user
+> Le fichier de configuration du format des événements doit être lisible par l'utilisateur de centreon-broker.
 
-To learn more about custom event format and templating file, head over the following **[documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
+Pour en savoir plus sur les formats d'événements personnalisés et les fichiers modèles, consultez **[cette page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
 ## Commandes Curl : tester le stream connector
 
@@ -196,6 +196,6 @@ Si vous voulez tester que les évènements sont envoyés correctement à Splunk 
 curl -X POST -H "content-type: application/json" -H "authorization: Splunk <splunk_token>" '<http_server_url>' -d '{"sourcetype": "<splunk_sourcetype>","source": "<splunk_source>","index": "<splunk_index>","host": "<splunk_host>","time": <epoch_timestamp>,"event": {"event_type": "host","state": 1,"state_type": 1,"hostname":"my_host","output": "Critical: it is on fire"}}'
 ```
 
-  > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. Par exemple, *<splunk_sourcetype>* pourra être remplacé par *_json*.
+  > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. Par exemple, *\<splunk_sourcetype\>* pourra être remplacé par *_json*.
 
 3. Vérifiez que l'évènement a bien été reçu par Splunk.

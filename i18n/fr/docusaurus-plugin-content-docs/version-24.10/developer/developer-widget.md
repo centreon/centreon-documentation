@@ -18,7 +18,7 @@ Bien sûr, vous pourriez créer un widget qui ne fonctionnerait qu’avec un mod
 Les widgets fonctionnent à peu près comme les modules. Ils doivent être placés dans le répertoire suivant :
 
 ```Shell
-centreon/www/widgets/name-of-your-widget/
+centreon/www/widgets/name-of-your-widget\/
 ```
 
 Votre widget doit contenir un fichier obligatoire nommé **configs.xml** à sa racine.

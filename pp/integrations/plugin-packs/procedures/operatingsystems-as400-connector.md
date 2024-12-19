@@ -146,16 +146,51 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-This plugin works in a slightly different way than the common ones. It requires 
-a connector to communicate with the AS400/iSeries system. 
+This plugin works in a slightly different way than the common ones. 
+It requires a connector to communicate with the AS400/iSeries system. 
 
 You can install the connector using this command: 
 
-```shell
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Operatingsystems-AS400-daemon
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Operatingsystems-AS400-daemon
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-Operatingsystems-AS400-daemon
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
 yum install centreon-plugin-Operatingsystems-AS400-daemon
 ```
 
+</TabItem>
+</Tabs>
+
 A connector can act as a relay between several Hosts and several AS400 systems. 
+
+> Please note that a recent update of the java version (8 -> 17) in the daemon (versions 2.0.3 and higher) 
+> means that if java 8 was already installed on your system, you must force the switch to java 17 for the 
+> daemon to work. Run the following command: 
+
+```shell
+update-alternatives --config java
+```
 
 ## Installing the monitoring connector
 
@@ -276,9 +311,9 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 | Macro          | Description                                                                                                                            | Default value          | Mandatory   |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
 | COMMANDNAME    | Specify the command to execute (required)                                                                                              |                        | X           |
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                   |                        |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}                  | %{status} =~ /failed/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                   |                        |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                   |                        |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                  | %\{status\} =~ /failed/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                   |                        |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                        |             |
 
 </TabItem>
@@ -286,10 +321,10 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 
 | Macro             | Description                                                                                                                            | Default value                                                                           | Mandatory   |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------|:-----------:|
-| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                   | %{status} =~ /unknown/i                                                                 |             |
+| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                   | %\{status\} =~ /unknown/i                                                                 |             |
 | DISKNAME          | Filter disks by name (can be a regexp)                                                                                                 |                                                                                         |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                   | %{status} =~ /noReady\|busy\|hwFailureOk\|hwFailurePerf\|Protected\|rebuilding/i        |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}                  | %{status} =~ /^(noAccess\|otherDiskSubFailed\|failed\|notOperational\|noUnitControl)$/i |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                   | %\{status\} =~ /noReady\|busy\|hwFailureOk\|hwFailurePerf\|Protected\|rebuilding/i        |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                  | %\{status\} =~ /^(noAccess\|otherDiskSubFailed\|failed\|notOperational\|noUnitControl)$/i |             |
 | WARNINGUSAGEPRCT  | Thresholds                                                                                                                             |                                                                                         |             |
 | CRITICALUSAGEPRCT | Thresholds                                                                                                                             |                                                                                         |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                                                                               |             |
@@ -300,7 +335,7 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 | Macro                 | Description                                                                                                                            | Default value        | Mandatory   |
 |:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
 | JOBQUEUES             |                                                                                                                                        |                      | X           |
-| UNKNOWNSTATUS         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}, %{library}       |                      |             |
+| UNKNOWNSTATUS         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}, %\{library\}       |                      |             |
 | WARNINGJOBSACTIVE     | Thresholds                                                                                                                             |                      |             |
 | CRITICALJOBSACTIVE    | Thresholds                                                                                                                             |                      |             |
 | WARNINGJOBSHELD       | Thresholds                                                                                                                             |                      |             |
@@ -309,8 +344,8 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 | CRITICALJOBSSCHEDULED | Thresholds                                                                                                                             |                      |             |
 | WARNINGJOBSTOTAL      | Thresholds                                                                                                                             |                      |             |
 | CRITICALJOBSTOTAL     | Thresholds                                                                                                                             |                      |             |
-| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}, %{library}      | %{status} =~ /HELD/i |             |
-| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}, %{library}       |                      |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}, %\{library\}      | %\{status\} =~ /HELD/i |             |
+| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{library\}       |                      |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose            |             |
 
 </TabItem>
@@ -356,7 +391,7 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
 | FILTERNAME         | Filter subsystems by name (can be a regexp)                                                                                            |                                               |             |
 | FILTERLIBRARY      | Filter subsystems by library (can be a regexp)                                                                                         |                                               |             |
-| UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}, %{library}       |                                               |             |
+| UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}, %\{library\}       |                                               |             |
 | WARNINGACTIVE      | Thresholds                                                                                                                             |                                               |             |
 | CRITICALACTIVE     | Thresholds                                                                                                                             |                                               |             |
 | WARNINGENDING      | Thresholds                                                                                                                             |                                               |             |
@@ -369,8 +404,8 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 | CRITICALRESTRICTED | Thresholds                                                                                                                             |                                               |             |
 | WARNINGSTARTING    | Thresholds                                                                                                                             |                                               |             |
 | CRITICALSTARTING   | Thresholds                                                                                                                             |                                               |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}, %{library}       | %{status} =~  /ending\|restricted\|starting/i |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}, %{library}      |                                               |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{library\}       | %\{status\} =~  /ending\|restricted\|starting/i |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}, %\{library\}      |                                               |             |
 | WARNINGTOTAL       | Thresholds                                                                                                                             |                                               |             |
 | CRITICALTOTAL      | Thresholds                                                                                                                             |                                               |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                                     |             |
@@ -478,7 +513,7 @@ All generic options are listed here:
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -524,9 +559,9 @@ All available options for each service template are listed below:
 | Option            | Description                                                                                                                                                  |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --command-name    | Specify the command to execute (required).                                                                                                                   |
-| --unknown-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                                         |
-| --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                                         |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /failed/i'). You can use the following variables: %{status}, %{name}    |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                                         |
+| --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                         |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /failed/i'). You can use the following variables: %\{status\}, %\{name\}    |
 
 </TabItem>
 <TabItem value="Disks" label="Disks">
@@ -535,9 +570,9 @@ All available options for each service template are listed below:
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --disk-name              | Check exact disk.                                                                                                                                                                                                             |
 | --filter-disk-name       | Filter disks by name (can be a regexp).                                                                                                                                                                                       |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/i'). You can use the following variables: %{status}, %{name}                                                                     |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /noReady\|busy\|hwFailureOk\|hwFailurePerf\|Protected\|rebuilding/i') . You can use the following variables: %{status}, %{name}           |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^(noAccess\|otherDiskSubFailed\|failed\|notOperational\|noUnitContr ol)$/i'). You can use the following variables: %{status}, %{name}   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}, %\{name\}                                                                     |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /noReady\|busy\|hwFailureOk\|hwFailurePerf\|Protected\|rebuilding/i') . You can use the following variables: %\{status\}, %\{name\}           |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^(noAccess\|otherDiskSubFailed\|failed\|notOperational\|noUnitContr ol)$/i'). You can use the following variables: %\{status\}, %\{name\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'space-usage', 'space-usage-free', 'space-usage-prct', 'reserved', 'disks-total', 'disks-active', 'disks-errors', 'disks-gap-repartition'.                                                                |
 
 </TabItem>
@@ -545,9 +580,9 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                           |
 |:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}, %{library}                                      |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}, %{library}                                      |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /HELD/i'). You can use the following variables: %{status}, %{name}, %{library}   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}, %\{library\}                                      |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{library\}                                      |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /HELD/i'). You can use the following variables: %\{status\}, %\{name\}, %\{library\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'jobqueues-total', 'jobqueue-jobs-active', 'jobqueue-jobs-scheduled', 'jobqueue-jobs-held'.                                                       |
 
 </TabItem>
@@ -588,9 +623,9 @@ All available options for each service template are listed below:
 |:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-subsystem-name    | Filter subsystems by name (can be a regexp).                                                                                                                                                 |
 | --filter-subsystem-library | Filter subsystems by library (can be a regexp).                                                                                                                                              |
-| --unknown-status           | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}, %{library}                                                             |
-| --warning-status           | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /ending\|restricted\|starting/i'). You can use the following variables: %{status}, %{name}, %{library}   |
-| --critical-status          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}, %{library}                                                            |
+| --unknown-status           | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}, %\{library\}                                                             |
+| --warning-status           | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /ending\|restricted\|starting/i'). You can use the following variables: %\{status\}, %\{name\}, %\{library\}   |
+| --critical-status          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}, %\{library\}                                                            |
 | --warning-* --critical-*   | Thresholds. Can be: 'subsystems-total', 'subsystems-active', 'subsystems-ending', 'subsystems-inactive', 'subsystems-restricted', 'subsystems-starting', 'jobs-active'.                      |
 
 </TabItem>

@@ -29,7 +29,7 @@ Afin de pouvoir interroger l'API, il est nécessaire d'avoir à disposition une 
 ### Centreon
 
 <Tabs groupId="sync">
-<TabItem value="Licence en ligne" label="Licence en ligne>
+<TabItem value="Licence en ligne" label="Licence en ligne">
 
 1. Installer le Plugin Sur chaque collecteur se connectant à une instance MIP:
 

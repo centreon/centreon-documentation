@@ -3,9 +3,14 @@ id: postfix
 title: Configurer l'envoi d'emails
 ---
 
-Pour que votre Centreon puisse envoyer des emails de notification, un serveur smtp local doit être configuré. Si votre système d'exploitation est RHEL, CentOS ou Oracle Linux, Postfix est déjà installé. 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Pour que votre Centreon puisse envoyer des emails de notification, un serveur SMTP local doit être configuré.
 
 Cette page donne un exemple de configuration. Consultez la  [documentation officielle Postfix](https://www.postfix.org/BASIC_CONFIGURATION_README.html) pour plus d'informations.
+
+Sur certaines distributions, Postfix peut déjà être installé.
 
 Les commandes de notifications sont exécutées par le collecteur qui supervise la ressource : il est nécessaire de configurer le relais mail sur tous les collecteurs.
 
@@ -15,31 +20,68 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
 
 1. Dans le terminal de votre serveur, entrez la commande suivante :
 
-    ```
-    yum -y install mailx cyrus-sasl-plain
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma 8" label="Alma 8">
+
+``` shell
+dnf install postfix mailx cyrus-sasl-plain
+```
+
+</TabItem>
+<TabItem value="Alma 9" label="Alma 9">
+
+``` shell
+dnf install postfix mailx cyrus-sasl-plain
+```
+
+</TabItem>
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+
+``` shell
+dnf install mailx cyrus-sasl-plain
+```
+
+</TabItem>
+<TabItem value="RHEL / Oracle Linux 9" label="RHEL / Oracle Linux 9">
+
+``` shell
+dnf install s-nail cyrus-sasl-plain
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+``` shell
+apt install postfix bsd-mailx libsasl2-modules
+```
+
+</TabItem>
+</Tabs>
 
 2. Redémarrez Postfix : 
 
-    ```
+    ```shell
     systemctl restart postfix
     ```
 
 3. Configurez Postfix pour qu'il s'exécute au démarrage :
 
-    ```
+    ```shell
     systemctl enable postfix
     ```
 
 3. Éditez le fichier suivant :
 
-    ```
+    ```shell
     vi /etc/postfix/main.cf
     ```
 
 4. Ajoutez les informations suivantes :
 
-    ```
+<Tabs groupId="sync">
+<TabItem value="Avec authentification/TLS" label="With authentification/TLS">
+
+    ```shell
     myhostname = hostname
     relayhost = [smtp.isp.com]:port
     smtp_use_tls = yes
@@ -55,7 +97,7 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
 
     Dans l'exemple suivant, Centreon utilisera un compte Gmail pour envoyer les notifications :
 
-    ```
+    ```shell
     myhostname = centreon-central
     relayhost = [smtp.gmail.com]:587
     smtp_use_tls = yes
@@ -66,23 +108,36 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
     smtp_sasl_tls_security_options = noanonymous
     ```
 
+</TabItem>
+<TabItem value="Without authentication/TLS" label="Without authentication/TLS">
+
+    ```shell
+    myhostname = centreon-central
+    relayhost = [smtp.gmail.com]:587
+    smtp_use_tls = no
+    smtp_sasl_auth_enable = no
+    ```
+
+</TabItem>
+</Tabs>
+
 ## Étape 2 : Configurer les identifiants du compte qui enverra les emails
 
 1. Créez un fichier `/etc/postfix/sasl_passwd` :
 
-    ```
+    ```shell
     touch /etc/postfix/sasl_passwd
     ```
 
 2. Ajoutez la ligne suivante, en remplaçant `identifiant:motdepasse` par les informations de connexion du compte qui enverra les emails de notification :
 
-    ```
+    ```shell
     [smtp.fai.com]:port identifiant:motdepasse
     ```
 
     Exemple:
 
-    ```
+    ```shell
     [smtp.gmail.com]:587 username@gmail.com:XXXXXXXX
     ```
 
@@ -90,20 +145,20 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
 
 3. Dans le terminal, entrez la commande suivante : 
 
-    ```
+    ```shell
     postmap /etc/postfix/sasl_passwd
     ```
 
 4. Pour plus de sécurité, changez les permissions sur le fichier `sasl_passwd` :
 
-    ```
+    ```shell
     chown root:postfix /etc/postfix/sasl_passwd*
     chmod 640 /etc/postfix/sasl_passwd*
     ```
 
 3. Rechargez Postfix pour prendre en compte les modifications:
 
-    ```
+    ```shell
     systemctl reload postfix
     ```
 
@@ -111,21 +166,38 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
 
 - Pour envoyer un email de test, utilisez la commande suivante :
 
-    ```
+    ```shell
     echo "Test" | mail -s "Test" utilisateur@fai.com
     ```
 
     Remplacez `utilisateur@fai.com` par une véritable adresse email : le destinataire devrait recevoir l'email de test.
 
-- Si le destinataire n'a pas reçu l'email, vérifiez le fichier de log suivant :
+- Si le destinataire n'a pas reçu l'email, vérifiez le fichier de log suivant (s'il existe) :
 
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+    ```shell
     tail -f /var/log/maillog
     ```
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+    ```shell
+    tail -f /var/log/maillog
+    ```
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+    ```shell
+    tail -f /var/log/mail.log
+    ```
+</TabItem>
+</Tabs>
 
 - Pour vérifier si votre service Postfix tourne, entrez:
 
-    ```
+    ```shell
     systemctl status postfix
     ```
 
@@ -135,5 +207,4 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
 
 ## Configuration spécifique à Gmail
 
-Si vous souhaitez envoyer des emails en utilisant un compte Gmail, vous devrez activer l'option **Accès pour les applications moins sécurisées** sur celui-ci : voir la page [Autoriser les applications moins sécurisées à accéder à votre compte](https://support.google.com/accounts/answer/6010255).
-
+Pour utiliser Postfix avec Gmail, vous devez utiliser un [mot de passe d'application](https://support.google.com/mail/answer/185833?hl=fr&sjid=15941614565763159471-EU).

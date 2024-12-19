@@ -67,6 +67,7 @@ Release date: `November 21, 2024`
 - [Resource Status] Made downtime and acknowledge icons more visible in light and dark modes.
 - [Resource Status] Removed list refresh that was triggered by hovering over the left main menu.
 - [Resource Status] The monitoring server filter now takes into account spaces in poller names correctly.
+- [Resource Status] The value of the "Conf Changed" column of the poller menu is now correctly updated when a service is added by manual discovery.
 - [Widget Graph] Fixed "invalid metric format" error when using "threshold area color" parameter for curves.
 
 </details>
@@ -563,6 +564,29 @@ Release date: `October 30, 2023`
 
 ## Centreon Collect
 
+### 23.10.13
+
+Release date: `December 19, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Engine] Fixed an issue where retention.dat files were deleted after an upgrade.
+
+</details>
+
+### 23.10.12
+
+Release date: `November 25, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Adapted Broker to a new behavior of the MariaDB database concerning errors: Broker no longer fails to reconnect after an error.
+- [Broker] The Stream Connector cache behavior with host groups and service groups has been improved. When a host group or service group is deleted, it is also correctly removed from the Stream Connector caches.
+
+</details>
+
 ### 23.10.11
 
 Release date: `September 30, 2024`
@@ -943,6 +967,17 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Open Tickets
+
+### 23.10.2
+
+Release date: `December 5, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Open Ticket widget] Fixed an issue preventing non admin users from opening tickets.
+
+</details>
 
 ### 23.10.1
 

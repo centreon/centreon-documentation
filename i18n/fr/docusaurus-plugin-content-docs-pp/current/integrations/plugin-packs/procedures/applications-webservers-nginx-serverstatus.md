@@ -54,16 +54,16 @@ Pour activer ce module, vous devez ouvrir votre fichier de configuration nginx.
 
 and ajouter les lignes suivantes dans la parenthèse 'server':
 
-    server { 
-        ... 
-        location /nginx_status { 
-            stub_status on; 
-            access_log off;
-            allow <centreon-poller_@IP>;
-            deny all; 
-        }
+    server \{
         ...
-    }
+        location /nginx_status \{
+            stub_status on;
+            access_log off;
+            allow \<centreon-poller_@IP\>;
+            deny all;
+        \}
+        ...
+    \}
 
 Assurez-vous que le collecteur est authorisé à accéder à cette URL.
 
@@ -79,7 +79,7 @@ Nginx doit être rechargé pour prendre en compte cette modification :
 
 Accéder à l'url suivante pour contrôler le résultat :
 
-    http://<nginx_address>/nginx_status
+    http://\<nginx_address\>/nginx_status
 
 ## Installation
 
