@@ -1,71 +1,109 @@
 ---
 id: network-versa-director-restapi
-title: Versa Director Restapi
+title: Versa Director Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Dépendances du connecteur de supervision
 
-## Vue d'ensemble
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Versa Director Restapi** 
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
-Versa Director est la plateforme de management, supervision et d'orchestration
-pour délivrer les services de sécurité et de réseau VNF de la suite Versa Networks.
+## Contenu du pack
 
-Le connecteur de supervision Centreon utilise l'API de Versa Director pour se connecter et
-récupérer des informations et des métriques relatives aux équipements Versa.
+### Modèles
 
-Vous trouverez plus d'information à propos de l'API Versa Director sur la documentation officielle :
-https://apidocs.versa-networks.com/
+Le connecteur de supervision **Versa Director Restapi** apporte un modèle d'hôte :
 
-## Contenu du connecteur de supervision
+* **Net-Versa-Director-Device-Restapi-custom**
 
-### Elements supervisés
-
-* Versa Networks devices
-
-### Règles de découvertes
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Hosts" label="Hosts">
+<TabItem value="Net-Versa-Director-Device-Restapi-custom" label="Net-Versa-Director-Device-Restapi-custom">
 
-| Nom de la règle                                  | Description                                                   |
-|:------------------------------------------------ |:------------------------------------------------------------- |
-| Net-Versa-Director-Restapi-HostDiscovery-devices | Découvrez vos équipements Versa managés par un Versa Director |
+| Alias   | Modèle de service                         | Description                          |
+|:--------|:------------------------------------------|:-------------------------------------|
+| Devices | Net-Versa-Director-Devices-Restapi-custom | Contrôle l'utilisation des systèmes  |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Versa-Director-Device-Restapi-custom** est utilisé.
+
+</TabItem>
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+
+| Alias | Modèle de service                       | Description                  | Découverte |
+|:------|:----------------------------------------|:-----------------------------|:----------:|
+| Paths | Net-Versa-Director-Paths-Restapi-custom | Contrôle le statut des chemins | X          |
+
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
 </Tabs>
 
-### Métriques Collectées
+### Règles de découverte
+
+#### Découverte d'hôtes
+
+| Nom de la règle                           | Description                                                           |
+|:------------------------------------------|:----------------------------------------------------------------------|
+| Versa Networks devices (Director RestAPI) | Découvrir les appareils Versa Networks en utilisant Director Rest API |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
+
+#### Découverte de services
+
+| Nom de la règle                              | Description                                   |
+|:---------------------------------------------|:----------------------------------------------|
+| Net-Versa-Director-Restapi-Path-LocalWanLink | Découvre les chemins et supervise leur statut |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Devices" label="Devices">
 
-* Global
+| Nom                                                          | Unité |
+|:-------------------------------------------------------------|:------|
+| devices.total.count                                          | count |
+| status                                                       | N/A   |
+| *devices*~memory.usage.bytes                                 | B     |
+| *devices*~memory.free.bytes                                  | B     |
+| *devices*~memory.usage.percentage                            | %     |
+| *devices*~disk.usage.bytes                                   | B     |
+| *devices*~disk.free.bytes                                    | B     |
+| *devices*~disk.usage.percentage                              | %     |
+| *devices*~alarms.critical.count                              | count |
+| *devices*~alarms.major.count                                 | count |
+| *devices*~alarms.minor.count                                 | count |
+| *devices*~alarms.warning.count                               | count |
+| *devices*~alarms.indeterminate.count                         | count |
+| *devices*~paths.up.count                                     | count |
+| *devices*~paths.down.count                                   | count |
+| *devices*~policy.violation.packets.dropped.novalidlink.count | count |
+| *devices*~policy.violation.packets.dropped.slaaction.count   | count |
 
-| Metric name                                        | Description                                  | Unit  |
-|:-------------------------------------------------- |:-------------------------------------------- |:----- |
-| status                                             | Status of the device                         |       |
-| memory.usage.bytes                                 | Memory usage on the device                   | B     |
-| memory.free.bytes                                  | Free memory on the device                    | B     |
-| memory.usage.percentage                            | Percentage of memory usage on the device     | %     |
-| disk.usage.bytes                                   | Disk usage on the device                     | B     |
-| disk.free.bytes                                    | Free disk space on the device                | B     |
-| disk.usage.percentage                              | Percentage of disk usage on the device       | %     |
-| alarms.critical.count                              | Number of critical alarms on the device      | Count |
-| alarms.major.count                                 | Number of major alarms on the device         | Count |
-| alarms.minor.count                                 | Number of minor alarms on the device         | Count |
-| alarms.warning.count                               | Number of warning alarms on the device       | Count |
-| alarms.indeterminate.count                         | Number of indeterminate alarms on the device | Count |
-| policy.violation.packets.dropped.novalidlink.count | Number of packets dropped by no valid link   | Count |
-| policy.violation.packets.dropped.slaaction.count   | Number of packets dropped by sla action      | Count |
+</TabItem>
+<TabItem value="Paths" label="Paths">
 
-* Per health monitor. monitor-name are 'bgp', 'config', 'ike', 'interface', 'port', 'path', 'reachability', 'service'.
-
-| Metric name                          | Description                        | Unit  |
-|:------------------------------------ |:---------------------------------- |:----- |
-| `<monitor-name>`.health.up.count       | Number of health monitors up       | Count |
-| `<monitor-name>`.health.disabled.count | Number of health monitors disabled | Count |
-| `<monitor-name>`.health.down.count     | Number of health monitors down     | Count |
+| Nom                             | Unité |
+|:--------------------------------|:------|
+| paths.up.count                  | count |
+| paths.down.count                | count |
+| *grp1*~paths.up.count           | count |
+| *grp1*~paths.down.count         | count |
+| *grp1*~*grp21*#paths.up.count   | count |
+| *grp1*~*grp22*#paths.up.count   | count |
+| *grp1*~*grp21*#paths.down.count | count |
+| *grp1*~*grp22*#paths.down.count | count |
 
 </TabItem>
 </Tabs>
@@ -75,171 +113,437 @@ https://apidocs.versa-networks.com/
 ### API
 
 l'API doit être activée et démarrée sur le Versa Director.
-Référencez-vous à la documentation officielle de Versa Networks pour l'activation de l'API.
+Référez-vous à la documentation officielle de Versa Networks pour l'activation de l'API.
 
 ### Flux réseaux
 
 La communication doit être possible sur le port TCP 9182 (en HTTPS) depuis le collecteur Centreon vers le Versa Director.
 
-## Installation
+## Installer le connecteur de supervision
+
+### Pack
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant
-des équipements Versa via l'API du Versa Director :
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Network-Versa-Director-Restapi
+dnf install centreon-pack-network-versa-director-restapi
 ```
-
-2. Installer le connecteur de supervision *Versa Director Restapi* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin sur l'ensemble des collecteurs Centreon supervisant
-des équipements Versa via l'API du Versa Director :
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Network-Versa-Director-Restapi
+dnf install centreon-pack-network-versa-director-restapi
 ```
 
-2. Installer le RPM du connecteur de supervision contenant les modèles de supervision:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-network-versa-director-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-network-versa-director-restapi
 ```
 
-3. Installer le connecteur de supervision *Versa Director Restapi* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
+</TabItem>
+</Tabs>
+
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Versa Director Restapi**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Network-Versa-Director-Restapi
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Network-Versa-Director-Restapi
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-network-versa-director-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Network-Versa-Director-Restapi
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration 
+## Utiliser le connecteur de supervision
 
-* Depuis l'interface Web de Centreon, ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes".
-* Appliquez le modèle *Net-Versa-Director-Device-Restapi-custom* et configurez tous les macros nécessaires :
+### Utiliser un modèle d'hôte issu du connecteur
 
-| Mandatory | Name                    | Description                                                                |
-| :-------- | :---------------------- | :------------------------------------------------------------------------- |
-| X         | DIRECTORAPIPORT         | Port used. Default: 9182                                                   |
-| X         | DIRECTORAPIPROTO        | Protocol used. Default: https                                              |
-| X         | DIRECTORAPIORGANIZATION | Linked organizations of the device. Default: .*                            |
-| X         | DIRECTORAPIHOSTNAME     | Hostname of the Versa Director.                                            |
-| X         | DIRECTORAPIUSERNAME     | Username to access to the API.                                             |
-| X         | DIRECTORAPIPASSWORD     | Password to access to the API.                                             |
-| X         | DIRECTORAPIDEVICENAME   | Name of the Versa device.                                                  |
-|           | DIRECTORAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
-|           | PROXYURL                | Proxy URL. (eg. http://myproxy.int:3128)                                   |
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **Net-Versa-Director-Device-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-> Utiliez le module de découverte pour ajouter à votre supervision vos équipements Versa.
-> Allez dans le menu "Configuration > Host > Discovery" et utilisez le provider *Versa Networks devices (Director RestAPI)*
+| Macro                   | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| DIRECTORAPIHOSTNAME     | Director hostname                                                                                                                                  |                   | X           |
+| DIRECTORAPIUSERNAME     | Versa Director API username                                                                                                                        |                   | X           |
+| DIRECTORAPIPASSWORD     | Versa Director API password                                                                                                                        |                   | X           |
+| DIRECTORAPIPROTO        | Specify https if needed                                                                                                                            | https             |             |
+| DIRECTORAPIPORT         | Port used                                                                                                                                          | 9182              |             |
+| DIRECTORDEVICENAME      | Filter device by name (can be a regexp)                                                                                                            |                   |             |
+| DIRECTORDEVICETYPE      | Filter device by type (can be a regexp)                                                                                                            |                   |             |
+| DIRECTORORGANIZATION    | Check device under an organization name                                                                                                            | .*                |             |
+| DIRECTORORGNAME         | Filter organizations by name (can be a regexp)                                                                                                     |                   |             |
+| PROXYURL                | Proxy URL. Example: http://my.proxy:3128                                                                                                           |                   |             |
+| DIRECTORAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-## FAQ
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-### Comment tester un contrôle en ligne de commande et que signifient les options principales ?
+### Utiliser un modèle de service issu du connecteur
 
-Une fois le Plugin installé, vous pouvez tester directement celui-ci en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*:
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Devices" label="Devices">
+
+| Macro                              | Description                                                                                                                                                                                                  | Valeur par défaut                                               | Obligatoire |
+|:-----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|:-----------:|
+| WARNINGALARMSCRITICAL              | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALALARMSCRITICAL             | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGALARMSWARNING               | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALALARMSWARNING              | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGALARMSINDETERMINATE         | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALALARMSINDETERMINATE        | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGALARMSMAJOR                 | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALALARMSMAJOR                | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGALARMSMINOR                 | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALALARMSMINOR                | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGBGPHEALTHDISABLED           | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALBGPHEALTHDISABLED          | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGBGPHEALTHDOWN               | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALBGPHEALTHDOWN              | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGBGPHEALTHUP                 | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALBGPHEALTHUP                | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGCONFIGHEALTHDISABLED        | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALCONFIGHEALTHDISABLED       | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGCONFIGHEALTHDOWN            | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALCONFIGHEALTHDOWN           | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGCONFIGHEALTHUP              | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALCONFIGHEALTHUP             | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGDISKUSAGE                   | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALDISKUSAGE                  | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGDISKUSAGEFREE               | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALDISKUSAGEFREE              | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGDISKUSAGEPRCT               | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALDISKUSAGEPRCT              | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGIKEHEALTHDISABLED           | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALIKEHEALTHDISABLED          | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGIKEHEALTHDOWN               | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALIKEHEALTHDOWN              | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGIKEHEALTHUP                 | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALIKEHEALTHUP                | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGINTERFACEHEALTHDISABLED     | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALINTERFACEHEALTHDISABLED    | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGINTERFACEHEALTHDOWN         | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALINTERFACEHEALTHDOWN        | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGINTERFACEHEALTHUP           | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALINTERFACEHEALTHUP          | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGMEMORYUSAGE                 | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALMEMORYUSAGE                | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGMEMORYUSAGEFREE             | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALMEMORYUSAGEFREE            | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGMEMORYUSAGEPRCT             | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALMEMORYUSAGEPRCT            | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGPACKETSDROPPEDNOVALIDLINK   | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALPACKETSDROPPEDNOVALIDLINK  | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGPACKETSDROPPEDSLAACTION     | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALPACKETSDROPPEDSLAACTION    | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGPATHHEALTHDISABLED          | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALPATHHEALTHDISABLED         | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGPATHHEALTHDOWN              | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALPATHHEALTHDOWN             | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGPATHHEALTHUP                | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALPATHHEALTHUP               | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGPATHSDOWN                   | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALPATHSDOWN                  | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGPATHSUP                     | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALPATHSUP                    | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGPORTHEALTHDISABLED          | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALPORTHEALTHDISABLED         | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGPORTHEALTHDOWN              | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALPORTHEALTHDOWN             | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGPORTHEALTHUP                | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALPORTHEALTHUP               | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGREACHABILITYHEALTHDISABLED  | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALREACHABILITYHEALTHDISABLED | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGREACHABILITYHEALTHDOWN      | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALREACHABILITYHEALTHDOWN     | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGREACHABILITYHEALTHUP        | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALREACHABILITYHEALTHUP       | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGSERVICEHEALTHDISABLED       | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALSERVICEHEALTHDISABLED      | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGSERVICEHEALTHDOWN           | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALSERVICEHEALTHDOWN          | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| WARNINGSERVICEHEALTHUP             | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALSERVICEHEALTHUP            | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALSTATUS                     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ping\_status\}, %\{services\_status\}, %\{sync\_status\}, %\{controller\_status\}, %\{path\_status\}, %\{display\} | %\{ping\_status\} ne "reachable" or %\{services\_status\} ne "good" |             |
+| WARNINGSTATUS                      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ping\_status\}, %\{service\_sstatus\}, %\{sync\_status\}, %\{controller\_status\}, %\{path\_status\}, %\{display\}  |                                                                 |             |
+| WARNINGTOTAL                       | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| CRITICALTOTAL                      | Threshold                                                                                                                                                                                                    |                                                                 |             |
+| EXTRAOPTIONS                       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                             | --verbose                                                       |             |
+
+</TabItem>
+<TabItem value="Paths" label="Paths">
+
+| Macro                     | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| GROUP                     | Choose dimensions to group paths up/down.                                                                                                        | remoteSiteName    |             |
+| FILTERLOCALWANLINK        | Filter paths by localWanLink (can be a regexp)                                                                                                   |                   |             |
+| FILTERREMOTEWANLINK       | Filter paths by remoteWanLink (can be a regexp)                                                                                                  |                   |             |
+| FILTERREMOTESITENAME      | Filter paths by remoteSiteName (can be a regexp)                                                                                                 |                   |             |
+| WARNINGGROUPPATHSDOWN     | Threshold                                                                                                                                        |                   |             |
+| CRITICALGROUPPATHSDOWN    | Threshold                                                                                                                                        |                   |             |
+| WARNINGGROUPPATHSUP       | Threshold                                                                                                                                        |                   |             |
+| CRITICALGROUPPATHSUP      | Threshold                                                                                                                                        |                   |             |
+| WARNINGSUBGROUPPATHSDOWN  | Threshold                                                                                                                                        |                   |             |
+| CRITICALSUBGROUPPATHSDOWN | Threshold                                                                                                                                        |                   |             |
+| WARNINGSUBGROUPPATHSUP    | Threshold                                                                                                                                        |                   |             |
+| CRITICALSUBGROUPPATHSUP   | Threshold                                                                                                                                        |                   |             |
+| WARNINGTOTALPATHSDOWN     | Threshold                                                                                                                                        |                   |             |
+| CRITICALTOTALPATHSDOWN    | Threshold                                                                                                                                        |                   |             |
+| WARNINGTOTALPATHSUP       | Threshold                                                                                                                                        |                   |             |
+| CRITICALTOTALPATHSUP      | Threshold                                                                                                                                        |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_versa_director_restapi.pl \
-  --plugin=network::versa::director::restapi::plugin \
-  --mode=devices \
-  --hostname=10.0.0.1 \
-  --port='9182' \
-  --proto='https' \
-  --api-username='jdoe' \
-  --api-password='6fbadZEJbsLG' \
-  --organization='.*' \
-  --filter-device-name='^CENFRGW101$' \
-  --warning-status='' \
-  --critical-status='%\{ping_status\} ne "reachable" or %\{services_status\} ne "good"' \
-  --verbose
+/usr/lib/centreon/plugins/centreon_versa_director_restapi.pl \
+	--plugin network::versa::director::restapi::plugin \
+	--mode=paths \
+	--hostname='10.0.0.1' \
+	--port='9182' \
+	--proto='https' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
+	--proxyurl=''  \
+	--organization='.*' \
+	--filter-org-name='' \
+	--filter-device-name='^$$' \
+	--filter-device-type='' \
+	--filter-local-wan-link='' \
+	--filter-remote-wan-link='' \
+	--filter-remote-site-name='' \
+	--group='remoteSiteName' \
+	--warning-group-paths-up='' \
+	--critical-group-paths-up='' \
+	--warning-group-paths-down='' \
+	--critical-group-paths-down='' \
+	--warning-subgroup-paths-up='' \
+	--critical-subgroup-paths-up='' \
+	--warning-subgroup-paths-down='' \
+	--critical-subgroup-paths-down='' \
+	--warning-total-paths-up='' \
+	--critical-total-paths-up='' \
+	--warning-total-paths-down='' \
+	--critical-total-paths-down='' \
+	--verbose
 ```
 
-La commande retourne le message de sortie ci-dessous:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Device 'CENFRGW101' status services: good [ping: reachable] [sync: in_sync] [path: unavailable] [controller: unavailable] -
-memory total: 31.42 GB used: 11.49 GB (36.57%) free: 19.93 GB (63.43%) - disk total: 250.00 B used: 18.00 B (7.20%) free: 232.00 B (92.80%) -
-alarms critical: 0, major: 0, minor: 0, warning: 0, indeterminate: 0 -
-policy violation packets-dropped-novalidlink : 0, packets-dropped-slaaction : 0 -
-all health monitors are ok | 'devices.total.count'=1;;;0; 'CENFRGW101#memory.usage.bytes'=12337293557B;;;0;33736968110.08
-'CENFRGW101#memory.free.bytes'=21399674552B;;;0;33736968110.08 'CENFRGW101#memory.usage.percentage'=36.57;;;0;100
-'CENFRGW101#disk.usage.bytes'=18B;;;0;250 'CENFRGW101#disk.free.bytes'=232B;;;0;250
-'CENFRGW101#disk.usage.percentage'=7.20;;;0;100 'CENFRGW101#alarms.critical.count'=0;;;0;
-'CENFRGW101#alarms.major.count'=0;;;0; 'CENFRGW101#alarms.minor.count'=0;;;0; 'CENFRGW101#alarms.warning.count'=0;;;0;
-'CENFRGW101#alarms.indeterminate.count'=0;;;0; 'CENFRGW101~bgp adjacencies#health.up.count'=3;;;0;3
-'CENFRGW101~bgp adjacencies#health.down.count'=0;;;0;3 'CENFRGW101~bgp adjacencies#health.disabled.count'=0;;;0;3
-'CENFRGW101~config sync status#health.up.count'=1;;;0;1 'CENFRGW101~config sync status#health.down.count'=0;;;0;1
-'CENFRGW101~config sync status#health.disabled.count'=0;;;0;1 'CENFRGW101~ike status#health.up.count'=2;;;0;2
-'CENFRGW101~ike status#health.down.count'=0;;;0;2 'CENFRGW101~ike status#health.disabled.count'=0;;;0;2
-'CENFRGW101~interfaces#health.up.count'=3;;;0;3 'CENFRGW101~interfaces#health.down.count'=0;;;0;3
-'CENFRGW101~interfaces#health.disabled.count'=0;;;0;3 'CENFRGW101~paths#health.up.count'=24;;;0;24
-'CENFRGW101~paths#health.down.count'=0;;;0;24 'CENFRGW101~paths#health.disabled.count'=0;;;0;24
-'CENFRGW101~physical ports#health.up.count'=0;;;0;0 'CENFRGW101~physical ports#health.down.count'=0;;;0;0
-'CENFRGW101~physical ports#health.disabled.count'=0;;;0;0 'CENFRGW101~reachability status#health.up.count'=1;;;0;1
-'CENFRGW101~reachability status#health.down.count'=0;;;0;1 'CENFRGW101~reachability status#health.disabled.count'=0;;;0;1
-'CENFRGW101~service status#health.up.count'=1;;;0;1 'CENFRGW101~service status#health.down.count'=0;;;0;1
-'CENFRGW101~service status#health.disabled.count'=0;;;0;1
-checking device 'CENFRGW101' [type: hub]
-    status services: good [ping: reachable] [sync: in_sync] [path: unavailable] [controller: unavailable]
-    memory total: 31.42 GB used: 11.49 GB (36.57%) free: 19.93 GB (63.43%)
-    disk total: 250.00 B used: 18.00 B (7.20%) free: 232.00 B (92.80%)
-    alarms critical: 0, major: 0, minor: 0, warning: 0, indeterminate: 0
-    policy violation packets-dropped-novalidlink : 0, packets-dropped-slaaction : 0
-    health monitor 'bgp adjacencies' up: 3, down: 0, disabled: 0
-    health monitor 'config sync status' up: 1, down: 0, disabled: 0
-    health monitor 'ike status' up: 2, down: 0, disabled: 0
-    health monitor 'interfaces' up: 3, down: 0, disabled: 0
-    health monitor 'paths' up: 24, down: 0, disabled: 0
-    health monitor 'physical ports' up: 0, down: 0, disabled: 0
-    health monitor 'reachability status' up: 1, down: 0, disabled: 0
-    health monitor 'service status' up: 1, down: 0, disabled: 0
+OK: up: 30634 down: 76298 up: 55523 down: 53572 sub-group paths are ok | 'paths.up.count'=30634;;;0; 'paths.down.count'=76298;;;0; 'grp1~paths.up.count'=55523;;;0; 'grp1~paths.down.count'=53572;;;0; 'grp1~grp21#paths.up.count'=47205;;;0; 'grp1~grp22#paths.up.count'=15660;;;0; 'grp1~grp21#paths.down.count'=31301;;;0; 'grp1~grp22#paths.down.count'=93423;;;0; 
 ```
 
-Cette commande supervise un équipement Versa Networks **CENFRGW101** (```--filter-device-name='^CENFRGW101$'```)
-à l'aide l'API Versa Director (```--plugin=network::versa::director::restapi::plugin --mode=devices```).
-Le plugin requête l'API du Versa Director **10.0.0.1** (```--hostname=10.0.0.1```) avec l'utilisateur
-**jdoe** et son mot de passe (```--api-username='jdoe' --api-password='6fbadZEJbsLG'```).
-Un équipement Versa peut être lié à plusieurs organisations, nous utilisons une *wildcard* (```--organization='.*'```).
+### Diagnostic des erreurs communes
 
-Cette commande retournera une alerte CRITICAL (```--critical-status='%{ping_status} ne "reachable" or %{services_status} ne "good"'```) si :
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+des plugins basés sur HTTP/API.
 
-* Le 'ping status' de l'équipement est différent de **reachable**
-* Le 'service_status' de l'équipement est différent de **good**
+### Modes disponibles
 
-Des seuils peuvent être positionnés à l'aide des options ```--warning-*``` et ```--critical-*``` sur les métriques.
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
 
-Pour chaque mode, les options disponibles peuvent être consultées en ajoutant l'option ```--help``` à la commande:
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_versa_snmp.pl \
-  --plugin=network::versa::director::restapi::plugin \
-  --mode=devices \
-  --help
+/usr/lib/centreon/plugins/centreon_versa_director_restapi.pl \
+	--plugin network::versa::director::restapi::plugin \
+	--list-mode
 ```
 
-### J'obtiens le message d'erreur suivant: 
+Le plugin apporte les modes suivants :
 
-#### ```UNKNOWN: 500 Can't connect to myversadirector:9182 |```
+| Mode                                                                                                                                    | Modèle de service associé                 |
+|:----------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|
+| cache [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/versa/director/restapi/mode/cache.pm)]              | Not used in this Monitoring Connector     |
+| devices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/versa/director/restapi/mode/devices.pm)]          | Net-Versa-Director-Devices-Restapi-custom |
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/versa/director/restapi/mode/discovery.pm)]      | Used for host discovery                   |
+| list-devices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/versa/director/restapi/mode/listdevices.pm)] | Not used in this Monitoring Connector     |
+| list-paths [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/versa/director/restapi/mode/listpaths.pm)]     | Used for service discovery                |
+| paths [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/versa/director/restapi/mode/paths.pm)]              | Net-Versa-Director-Paths-Restapi-custom   |
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant ```UNKNOWN: 500 Can't connect to myversadirector:9182 |```.
-Cela signifie que Centreon n'a pas réussi à se connecter à l'API du Versa Director.
-La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'API du Versa Director en utilisant l'option ```--proxyurl='http://proxy.mycompany:8080'```.
+### Options disponibles
 
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
+#### Options génériques
 
-Suite à la mise en place du proxy, j'obtiens le message suivant ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
-Cela signifie que le protocole de connexion au proxy n'est pas supporté par la libraire *LWP* utlisée par défaut par le Plugin Centreon.
-Cette erreur peut être résolue en utilisant le backend HTTP *curl*. Pour ce faire, ajoutez l'option ```--http-backend='curl'``` à la commande.
+Les options génériques sont listées ci-dessous :
 
-#### ```UNKNOWN: Cannot load module 'Net::Curl::Easy'```
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[newuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --output-file                              |   Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --http-peer-addr                           |   Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --proxyurl                                 |   Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --memcached                                |   Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --redis-server                             |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --redis-attribute                          |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --redis-db                                 |   Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --failback-file                            |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --memexpiration                            |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-dir                            |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --statefile-suffix                         |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-concat-cwd                     |   If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --statefile-format                         |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --statefile-key                            |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --statefile-cipher                         |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --hostname                                 |   Director hostname (required)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --port                                     |   Port used (default: 9182)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --proto                                    |   Specify https if needed (default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --api-username                             |   Versa Director API username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --api-password                             |   Versa Director API password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --timeout                                  |   Set HTTP timeout                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --ignore-unknown-errors                    |   Ignore unknown errors (404 status code).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --cache-use                                |   Use the cache file (created with cache mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
-Ce message d'erreur indique qu'une librairie Perl est maquante pour utiliser le backend curl.
-Pour corriger ce problème, installer la librairie Perl Net::Curl::Easy à l'aide de la commande suivante :
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Devices" label="Devices">
+
+| Option                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --organization           |   Check device under an organization name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-org-name        |   Filter organizations by name (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --filter-device-name     |   Filter device by name (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-device-type     |   Filter device by type (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --add-paths              |   Add path statuses count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{ping\_status\}, %\{services\_status\}, %\{sync\_status\}, %\{controller\_status\}, %\{path\_status\}, %\{display\}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ping\_status\}, %\{service\_sstatus\}, %\{sync\_status\}, %\{controller\_status\}, %\{path\_status\}, %\{display\}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{ping\_status\} ne "reachable" or %\{services\_status\} ne "good"'). You can use the following variables: %\{ping\_status\}, %\{services\_status\}, %\{sync\_status\}, %\{controller\_status\}, %\{path\_status\}, %\{display\}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --warning-* --critical-* |   Thresholds. Can be: 'total','memory-usage', 'memory-usage-free', 'memory-usage-prct', 'disk-usage', 'disk-usage-free', 'disk-usage-prct', 'alarms-critical', 'alarms-major', 'alarms-minor', 'alarms-warning', 'alarms-indeterminate', 'bgp-health-up' 'bgp-health-down' 'bgp-health-disabled'  'path-health-up' 'path-health-down' 'path-health-disabled' 'service-health-up' 'service-health-down' 'service-health-disabled'  'port-health-up' 'port-health-down' 'port-health-disabled' 'reachability-health-up' 'reachability-health-down' 'reachability-health-disabled' 'interface-health-up' 'interface-health-down' 'interface-health-disabled'  'ike-health-up' 'ike-health-down' 'ike-health-disabled' 'config-health-up' 'config-health-down' 'config-health-disabled' 'packets-dropped-novalidlink', 'packets dropped by sla action', 'paths-up', 'paths-down'.    |
+
+</TabItem>
+<TabItem value="Paths" label="Paths">
+
+| Option                    | Description                                                                                                                                       |
+|:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
+| --group                   |   Choose dimensions to group paths up/down. Default: --group='remoteSiteName'                                                                     |
+| --organization            |   Check device under an organization name.                                                                                                        |
+| --filter-org-name         |   Filter organizations by name (can be a regexp).                                                                                                 |
+| --filter-device-name      |   Filter devices by name (can be a regexp).                                                                                                       |
+| --filter-device-type      |   Filter devices by type (can be a regexp).                                                                                                       |
+| --filter-local-wan-link   |   Filter paths by localWanLink (can be a regexp).                                                                                                 |
+| --filter-remote-site-name |   Filter paths by remoteSiteName (can be a regexp).                                                                                               |
+| --filter-remote-wan-link  |   Filter paths by remoteWanLink (can be a regexp).                                                                                                |
+| --warning-* --critical-*  |   Thresholds. Can be: 'total-paths-up', 'total-paths-down', 'group-paths-up', 'group-paths-down',  'subgroup-paths-up', 'subgroup-paths-down'.    |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-yum install perl-Net-Curl
+/usr/lib/centreon/plugins/centreon_versa_director_restapi.pl \
+	--plugin network::versa::director::restapi::plugin \
+	--mode=paths \
+	--help
 ```
