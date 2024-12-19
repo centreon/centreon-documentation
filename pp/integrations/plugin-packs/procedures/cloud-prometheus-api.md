@@ -346,7 +346,7 @@ this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-
 #### UNKNOWN: 500 Can't connect to amzprometheus.int.centreon.com:9090 (\<error_text\>) |
 When facing this error message, check that port, hostname are OK and double check the connection between your Centreon Poller and the Prometheus Server.
 
-The <error_text> should give more information about the root cause
+The \<error_text\> should give more information about the root cause
 
 #### UNKNOWN: 400 Bad Request |
 The PromQL query expression is invalid. Check that it works within the Prometheus WebUI.
