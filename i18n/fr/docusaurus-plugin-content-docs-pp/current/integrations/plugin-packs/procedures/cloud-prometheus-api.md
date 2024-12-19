@@ -344,10 +344,10 @@ Target 'http://10.244.2.5:9153/metrics' health is 'up' [pod = coredns-74ff55c5b-
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
 des plugins basés sur HTTP/API.
 
-#### UNKNOWN: 500 Can't connect to amzprometheus.int.centreon.com:9090 (<error_text>) |
+#### UNKNOWN: 500 Can't connect to amzprometheus.int.centreon.com:9090 (\<error_text\>) |
 Lorsque cette erreur est renvoyée, vérifier que les informations pour contacter le serveur Prometheus sont correctes (Port, Nom d'Hôte) et que la connexion est possible.
 
-Le contenu de la balise <error_text> donne des indications supplémentaires sur la cause du dysfonctionnement.
+Le contenu de la balise \<error_text\> donne des indications supplémentaires sur la cause du dysfonctionnement.
 
 #### UNKNOWN: 400 Bad Request |
 La requête PromQL contient probablement une erreur de syntaxe. Il est nécessaire de valider son fonctionnement dans l'interface Prometheus.
