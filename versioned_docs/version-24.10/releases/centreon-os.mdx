@@ -190,11 +190,9 @@ Release date: `December 18, 2024`
   <summary>Enhancements</summary>
 
 - [CMA] Added a native CPU check for Windows & Linux.
-- [CMA] Added a native Memory check for Windows.
-- [CMA] Added a native Uptime check for Windows.
-- [CMA] Added a native Storage check for Windows.
-- [CMA] Agent checks scheduling has been optimized to avoid delay in case of checks timeouts.
-- [CMA] Centreon Monitoring Agent & installer are now signed.
+- [CMA] Added native checks for Windows: Memory, Uptime and Storage.
+- [CMA] Agent check scheduling has been optimized to avoid delay in case of check timeouts.
+- [CMA] The Centreon Monitoring Agent and its installer are now signed.
 
 </details>
 
@@ -203,8 +201,8 @@ Release date: `December 18, 2024`
 
 - [Broker] Adapted Broker parsing so as to avoid breaking a metric name ending with the ] character.
 - [Broker] Fixed a typo in an SQL query.
-- [CMA] Fixed a listening issue when using "Poller initiated connection".
-- [Engine] Fixed errors in RRD logs that appeared following the upgrade to the new log engine in collect.
+- [CMA] Fixed a listening issue that occurred when using "Poller-initiated connection" mode.
+- [Engine] Fixed errors in RRD logs that appeared following the upgrade to the new log engine in Collect.
 
 </details>
 
@@ -276,7 +274,7 @@ Release date: `December 18, 2024`
 <details>
   <summary>Bug fixes</summary>
 
-- [Gorgone] Fixed a bug in gorgone where if the plateform have thousands of hosts, pushing the configuration failed and gorgone connection was severed.
+- [Gorgone] Fixed a bug in Gorgone affecting platforms with thousands of hosts, where deploying the configuration failed and the connection with Gorgone was lost.
 
 </details>
 
