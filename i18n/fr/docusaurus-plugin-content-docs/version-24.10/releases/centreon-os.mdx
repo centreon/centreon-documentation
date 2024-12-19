@@ -33,30 +33,29 @@ Release date: `December 19, 2024`
 - [API] Added missing configuration change logs for host template configuration.
 - [API] Added missing configuration change logs for host severities configuration.
 - [API] Added missing configuration change logs for service severities configuration.
-- [Configuration] Improved the tooltip for Broker's Unify SQL output.
-- [Dashboards] Added meta-services to metric widgets.
-- [Install] Added 24.10 support to unattended script.
-- [Library - view by card] Added thumbnail, that show a snapshot of your data, taken when the dashboard is saved.
+- [Configuration] Improved the tooltip for Broker's Unified SQL output.
+- [Dashboards] Added meta-services to metric widgets (Single metric, Metrics graph, Top/Bottom).
+- [Install] Added 24.10 support for unattended script.
+- [Library - view by card] Added a thumbnail that shows a snapshot of your data, taken when the dashboard is saved.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [ACC] Fixed an issue on ACC where .json file was not deployed in case of a central Poller.
+- [ACC] Fixed an issue with ACC where configuration files were not copied to the central server.
 - [Authentication] Fixed an issue preventing LDAP users with more than one email address to log in to Centreon.
 - [Custom Views] Fixed an issue with how the edit widget pencil icon was displayed.
-- [Custom Views] Fixed issue preventing some filters from functioning in the Hostgroup monitoring widget.
-- [Custom Views] Fixed issue preventing some filters from functioning in the "Host monitoring" widget.
-- [Downtimeas] Fixed an issue on actions details column in Action Log.
-- [Services] Fixed issue with service names containing a slash ("/") in their name.
+- [Custom Views] Fixed an issue preventing some filters from functioning in the "Hostgroup monitoring" and "Host monitoring" widgets.
+- [Downtimes] The action details column now displays the correct information in the Action Log page.
+- [Dashboards][Widgets] In the resource selection fields, services containing a slash ("/") in their name no longer trigger an error
 
 </details>
 
 <details>
   <summary>Security fixes</summary>
 
-- [Security] Fixed an issue on virtual metric's RPN field.
+- [Security] Fixed an issue on virtual metrics' RPN field.
 - [Security] Fixed a security issue in media binary.
 - [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to export the results in CSV format.
 - [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
