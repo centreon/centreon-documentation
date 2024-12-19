@@ -9,7 +9,7 @@ Généralement, une mauvaise configuration ou un dispositif tiers sont la source
 
 Mais avant tout, rappelons que la majorité des connecteurs ont leur propre documentation contenant des sections de "Prérequis" et "Configuration" pour vous aider à éviter les erreurs courantes.
 
-Les pollers Centreon emploie un ordonnanceur planifier et executer les checks.
+Les pollers Centreon emploient un ordonnanceur planifier et exécuter les checks.
 Pour dépanner un plugin, vous devez impérativement :
 
 * Copier/coller la commande du UI Centreon Web pour tenter dépanner le problème avec le CLI
@@ -25,7 +25,7 @@ Pour les systèmes basés sur RPM, vous pouvez utiliser la commande `yum whatpro
 
 ### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/<cache_file_name>'
 
-La raison la plus commune de cette erreur sont des droits inadaptés dans le répertoire de cache (`/var/lib/centreon/centplugins`)  ou dans le ficher cache lui-même. Cela peut ausi être dû à une installation inconsistente ou alors le directoire n'existe tout simplement pas.
+La raison la plus commune de cette erreur sont des droits inadaptés dans le répertoire de cache (`/var/lib/centreon/centplugins`)  ou dans le fichier cache lui-même. Cela peut aussi être dû à une installation inconsistante ou alors le directoire n'existe tout simplement pas.
 
 Vérifiez que le directoire existe bien et qu'il a les droits appropriés avec la commande stat suivante : 
 `stat /var/lib/centreon/centplugins`. Vous devriez obtenir le résultat suivant : 
