@@ -22,6 +22,45 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 23.10.19
+
+Release date: `December 20, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added missing configuration change logs for timeperiods configuration.
+- [Install] Added 23.10 support for unattended script.
+- [UX] Aligned the Centreon logo in the "Lost in space" page.	
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Action Log] Fixed an issue on actions details column in Action Log.	
+- [API] Time period definitions containing the value 00:00-00:00 are now correctly taken into account.	
+- [Authentication] Fixed SSO authentication when user have a legacy page as default page with SAML protocol.	
+- [Core] Changed log file for the cron job that removed outdated tokens.	
+- [Custom Views] Fixed an issue with how the edit widget pencil icon was displayed.
+- [Custom Views] Fixed an issue preventing some filters from functioning in the "Hostgroup monitoring" and "Host monitoring" widgets.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed an issue on virtual metrics' RPN field.
+- [Security] Fixed a security issue in media binary.
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to export the results in CSV format.
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "Host Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "TOP10 CPU usage" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "TOP10 Memory usage" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Improved an SQL query triggered via the Event Logs menu for better protection.	
+
+</details>
+
 ### 23.10.18
 
 Release date: `November 21, 2024`
