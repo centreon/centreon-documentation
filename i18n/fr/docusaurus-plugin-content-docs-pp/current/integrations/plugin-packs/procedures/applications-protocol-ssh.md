@@ -40,6 +40,7 @@ SSH.
 Afin de superviser le serveur SSH, le service doit être configuré et les Macro
 d'hôtes doivent être renseignées. Plus d'information dans le chapite 
 "Configuration" [ici](#hôte).
+
 ## Installation
 
 <Tabs groupId="sync">
