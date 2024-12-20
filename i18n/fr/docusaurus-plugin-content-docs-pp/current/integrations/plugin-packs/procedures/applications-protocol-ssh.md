@@ -37,7 +37,7 @@ SSH.
 
 ## Prérequis
 
-Afin de superviser le serveur SSH, le service doit être configuré et les Macro
+Afin de superviser le serveur SSH, le service doit être configuré et les macros
 d'hôtes doivent être renseignées. Plus d'information dans le chapite 
 "Configuration" [ici](#hôte).
 
