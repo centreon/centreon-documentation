@@ -748,23 +748,16 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Install the Centreon repository :
-
-```shell
-echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-```
-
 Install the prerequisite packages:
 
 ```shell
 apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
 
-Add the following external repository (for Java 8):
+Install the Centreon repository :
 
 ```shell
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
 In the case of an installation based on a blank distribution, install the GPG key:
