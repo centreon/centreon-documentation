@@ -57,3 +57,12 @@ menu and search **Open Tickets**. Click on **Install selection**:
 Your Centreon Open Tickets Module is now installed.
 
 ![image](../assets/alerts/open_tickets_install_02.png)
+
+## Creating a backup of your custom Open Ticket provider configurations
+
+If you need to [update](../update/update-centreon-platform.md) or [upgrade](../upgrade/introduction.md) Centreon, first backup your custom Open Ticket provider configurations so as not to lose them.
+
+* Make a backup of these folders: **/usr/share/centreon/www/modules/centreon-open-tickets** and **/usr/share/centreon/www/widgets/open-tickets**.
+* After updating, copy and paste the backup **register.php** file(s) to **/usr/share/centreon/www/modules/centreon-open-tickets/providers/**.
+
+

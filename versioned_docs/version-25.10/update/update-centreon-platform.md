@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 
 This chapter describes how to update your Centreon 24.10 platform (i.e. switch from version 24.10.x to version 24.10.y).
 
+
 ## Perform a backup
 
 Make sure that you have fully backed up your environment for the following
@@ -14,6 +15,8 @@ servers:
 
 - central server,
 - database server.
+
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
 
 ## Update the Centreon central server
 
