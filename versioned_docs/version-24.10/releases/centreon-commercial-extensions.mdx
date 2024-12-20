@@ -1,26 +1,64 @@
 ---
 id: centreon-commercial-extensions
-title: Commercial extensions
+title: Extensions Commerciales
 ---
 
 import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 ## Introduction
 
-You can find in this chapter all changelogs concerning **Centreon Commercial Extension**.
+Vous trouverez dans ce chapitre tout ce qui concerne les **extensions commerciales** de Centreon.
 
-> It is very important when you update your system to refer to this section in order to learn about behavior changes or
-> major changes that have been made on this version. This will let you know the impact of the installation of these
-> versions on the features you use or the specific developments that you have built on your platform (modules,
-> widgets, plugins).
+> Il est important de mettre à jour en utilisant la documentation adéquate de mise à jour et de lire attentivement les
+> notes de mise à jour afin d'être au courant des changements qui pourraient impacter votre usage ou votre plateforme
+> ou des développements spécifiques que vous auriez fait.
 
-If you have feature requests or want to report a bug, please contact support.
+Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions commerciales, veuillez contacter le support.
 
-Read more about version 24.10 in our [blog post](https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-10/).
+> Retrouvez plus de détails sur la version 24.10 dans notre [post de blog](https://www.centreon.com/fr/centreon-annonce-la-sortie-de-sa-derniere-version-logicielle-centreon-24-10/).
 
 <ExpandCollapseAll />
 
 ## Centreon MAP
+
+### 24.10.2
+
+Release date: `December 20, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Database] Extended bend point limitations for links.
+- [Packaging] rpm packages are now compressed using zstd.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Engine] Updated dependency.
+- [Metric links, Gauge and Output widgets] Optimized metric selection.
+- [Metric links, Gauge and Output widgets] Ordered metrics alphabetically.	
+- [Migration from Legacy] Fixed an issue where the opacity of shapes was lost when migrating to MAP.
+- [Migration from Legacy] Fixed several issues concerning the migration of images.
+- [Process widget] Fixed an issue preventing a command to be launched properly.
+- [Server] Fixed an issue that prevented users from using meta service's macros in the output widget.
+- [Viewer] The widgets and links are now propagating their status to their parent Map.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed lo4j vulnerability
+- [Security] Fixed tomcat vulnerability.
+- [Security] Updated JDOM dependency.
+- [Security] Updated JSON in Java dependency.
+- [Security] Updated logback dependency.
+- [Security] Updated spring-security-web dependency.
+- [Security] Updated Symfony Security-Http component.
+
+</details>
 
 ### 24.10.1
 
@@ -44,7 +82,7 @@ Release date: `October 31, 2024`
   <summary>Map Legacy retirement</summary>
 
 > **MAP Legacy is no longer available.**
-- If you have used MAP Legacy in the past, or are still using Map Legacy and want to know more about how to migrate to MAP, read [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+- If you have used MAP Legacy in the past, or are still using Map Legacy and want to know more about how to migrate to MAP, read [MAP Legacy end of life](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/).
 
 </details>
 
@@ -84,6 +122,24 @@ Release date: `October 31, 2024`
 
 ## Centreon BAM
 
+### 24.10.1
+
+Release date: `December 20, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] rpm packages are now compressed using zstd.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in the listing of Boolean KPIs, only accessible to authenticated users with high privilege access. (CVE-2024-46924)	
+
+</details>
+
 ### 24.10.0
 
 Release date: `October 31, 2024`
@@ -98,6 +154,29 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon MBI
+
+## Centreon MBI
+
+### 24.10.2
+
+Release date: `December 20, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] rpm packages are now compressed using zstd.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Fixed an issue preventing the "report parameters" form to be displayed.
+- [MBI] Fixed an issue preventing the MBI extension from being updated to the latest version.
+- [MBI] Fixed report generation.
+
+</details>
+
 
 ### 24.10.1
 
@@ -135,6 +214,24 @@ Release date: `October 31, 2024`
 
 ## Centreon Auto Discovery
 
+### 24.10.2
+
+Release date: `December 20, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] rpm packages are now compressed using zstd.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an error displayed on Service Discovery rule duplication.
+
+</details>
+
 ### 24.10.1
 
 Release date: `December 04, 2024`
@@ -160,6 +257,17 @@ Release date: `October 31, 2024`
 
 ## Centreon License Manager
 
+### 24.10.1
+
+Release date: `December 20, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] rpm packages are now compressed using zstd.
+
+</details>
+
 ### 24.10.0
 
 Release date: `October 31, 2024`
@@ -173,6 +281,17 @@ Release date: `October 31, 2024`
 
 ## Centreon Anomaly Detection
 
+### 24.10.1
+
+Release date: `December 20, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] rpm packages are now compressed using zstd.
+
+</details>
+
 ### 24.10.0
 
 Release date: `October 31, 2024`
@@ -185,6 +304,17 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon IT Edition Extensions
+
+### 24.10.3
+
+Release date: `December 20, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] rpm packages are now compressed using zstd.
+
+</details>
 
 ### 24.10.2
 
@@ -235,6 +365,17 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
+
+### 24.10.1
+
+Release date: `December 20, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] rpm packages are now compressed using zstd.
+
+</details>
 
 ### 24.10.0
 
