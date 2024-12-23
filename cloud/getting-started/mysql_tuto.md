@@ -23,7 +23,7 @@ GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 
 > Replace the username, the IP address of the poller and the password with the values you want.
 
-### On the central server
+### In the user interface
 
 The database will be monitored using the **MySQL/MariaDB** Monitoring Connector.
 Go to **Configuration > Monitoring Connector Manager** and install the **MySQL/MariaDB** Monitoring Connector:

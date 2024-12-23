@@ -19,13 +19,13 @@ An alert is one of the following statuses: **Warning**, **Down**, **Critical**, 
 
 The term alert is used in this way in the [pre-defined filters on page **Resources Status**](../alerts-notifications/resources-status.md#pre-defined-filters).
 
-## Central server
+## User interface
 
-In Centreon, the central server is the main console where you monitor resources. The central server allows you to:
+In Centreon, the user interface is the main console where you monitor resources. The user interface allows you to:
 
 - configure the monitoring of your whole infrastructure,
 - monitor resources
-- see what all your Centreon servers (all [pollers](#poller)) monitor, using its web interface.
+- see what all your Centreon servers (all [pollers](#poller)) monitor.
 
 ## Downtime
 
@@ -93,7 +93,7 @@ A pack contains the configuration of the plugin in Centreon (command, [templates
 ## Monitoring engine
 
 Centreon Engine is the software component that plans checks, executes them, and [notifies](#notification) users if an incident occurs.
-Centreon Engine is present on [pollers](#poller) and the [central server](#central-server).
+Centreon Engine is present on [pollers](#poller) and the [SaaS platform](#SaaS-platform).
 
 ## Notification
 
@@ -109,13 +109,12 @@ A plugin is a monitoring probe, i.e. a binary executable or a script that is cal
 
 ## Poller
 
-A poller is a monitoring server installed in your infrastructure to monitor your resources. A poller is attached to the [central server](#central-server).
+A poller is a monitoring server installed in your infrastructure to monitor your resources. A poller is attached to the [SaaS platform](#SaaS-platform).
 
 - A Centreon poller monitors [resources](#resource). It has a [monitoring engine](#monitoring-engine).
 
-- A poller has no graphical interface: the resources it monitors are displayed in the interface of the central server it is attached to.
+- A poller has no graphical interface: the resources it monitors are displayed in the user interface.
 
-"Poller" is also used to refer to the monitoring engine that is present in a central server and a poller.
 
 ## Recurring downtime
 

@@ -3,7 +3,7 @@ id: interface
 title: Overview of the Centreon interface
 ---
 
-## Accessing the central server's interface
+## Accessing the Centreon interface
 
 To connect to Centreon Cloud for the first time, connect to the [CIAM](../ciam/ciam.md) and click on your platform in the **Applications** list on your organization's home page. You can then mark the URL as a favorite to access the platform faster.
 
@@ -34,7 +34,7 @@ The Centreon web interface contains several menus, each with a specific function
 
 The left part of the top banner shows the health of your platform in real time:
 
-* whether all pollers are running or not: the icon becomes red when a poller has not sent data to the central server for at least 15 minutes
+* whether all pollers are running or not: the icon becomes red when a poller has not sent data to the platform for at least 15 minutes
 * whether checks are running late or not. If the icon is orange or red, this may mean that your pollers are monitoring too many resources.
 
 Click the **pollers** icon to expand the menu. On the menu, click **Configure pollers** to access page **Configuration > Pollers > Pollers**.

@@ -20,9 +20,9 @@ Please refer to the documentation of your Cisco device to find out how to config
 
 The target device must be reachable from the Centreon Poller on the UDP/161 SNMP port.
 
-### On the central server
+### In the user interface
 
-In the web interface, go to **Configuration > Monitoring Connector Manager**, search for the **Cisco standard** Monitoring Connector; and install it:
+In the user interface, go to **Configuration > Monitoring Connector Manager**, search for the **Cisco standard** Monitoring Connector; and install it:
 
    ![image](../assets/getting-started/quick_start_cisco_0.gif)
 
