@@ -7,14 +7,14 @@ Centreon Cloud consists mainly of a user interface provided by Centreon, and pol
 
 ![image](../assets/getting-started/infra3.png)
 
-## Central server
+## SaaS platform
 
-* The central server is provided to you by Centreon, ready to use.
-* The central server does not monitor resources in your infrastructure (the pollers do).
-* The central server has a [user interface](interface.md), in which you can see the resources monitored by all pollers.
+* The SaaS platform is provided to you by Centreon, ready to use.
+* The SaaS platform does not monitor resources in your infrastructure (the pollers do).
+* The SaaS platform has a [user interface](interface.md), in which you can see the resources monitored by all pollers.
 * You can reach the user interface from anywhere, using a web browser, at `<organization>.<region>.centreon.cloud`.
-* The central server is hosted in the cloud.
-* Centreon installs and upgrades central servers.
+* The SaaS platform is hosted in the cloud.
+* Centreon installs and upgrades SaaS platform.
 
 ## One or more pollers
 

@@ -18,7 +18,7 @@ already installed on your pollers.
 For each type of equipment,
  the templates determine which indicators will be
 monitored and set default warning and critical thresholds (these may be
-fine-tuned later on). If you want to use a pack, you must install it on the central server.
+fine-tuned later on). If you want to use a pack, you must install it on the user interface.
 
   Some packs also contain discovery rules.
 

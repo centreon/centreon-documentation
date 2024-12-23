@@ -159,9 +159,9 @@ Associate users with resources and the statuses for which users will be notified
 
 With Dashboards, you can effortlessly create and share intuitive dashboards for real-time monitoring of metrics, host/service statuses, and much more. Join our [Dashboards Beta group](https://thewatch.centreon.com/groups/centreon-dashboards-beta-59) on our community platform The Watch!
 
-**HTTPS connection between central and poller**:
+**HTTPS connection between SaaS platform and poller**:
 
-Communication between the central server and the pollers is now done using HTTPS instead of going through Centreon's VPN.
+Communication between the SaaS platform and the pollers is now done using HTTPS instead of going through Centreon's VPN.
 
 ### Centreon Business Edition
 

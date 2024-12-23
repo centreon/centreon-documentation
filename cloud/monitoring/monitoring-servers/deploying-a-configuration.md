@@ -3,14 +3,14 @@ id: deploying-a-configuration
 title: Deploying a configuration
 ---
 
-When you create, delete or edit objects in the **Configuration** menu, changes are not applied automatically (either on the central server on which you have made the change or on any remote server or poller linked to it). For the changes to be taken into account, you must export the configuration.
+When you create, delete or edit objects in the **Configuration** menu, changes are not applied automatically (either on the central poller on which you have made the change or on any remote server or poller linked to it). For the changes to be taken into account, you must export the configuration.
 
 ## Exporting the configuration
 
 1. Go to the **Configuration > Pollers > Pollers** page. The page shows the state of your central
-server and of all pollers linked to it: changes are shown in the **Conf changed** column.
+poller and of all pollers linked to it: changes are shown in the **Conf changed** column.
 
-2. Select the central server or the poller whose configuration has changed.
+2. Select the server or the poller whose configuration has changed.
 
     ![image](../../assets/monitoring/monitoring-servers/export_conf.png)
 
@@ -23,7 +23,7 @@ server and of all pollers linked to it: changes are shown in the **Conf changed*
     - **Move Export Files**
     - **Restart Monitoring Engine**. Use the most appropriate method: 
       - **Reload**: when you have created, deleted or edited monitored objects
-      - **Restart**: when you have made changes to the way a poller and the central server communicate together, or 
+      - **Restart**: when you have made changes to the way a poller and the SaaS server communicate together, or 
       to the configuration of the engine. Restarting takes more time than reloading.
 
 5. Click **Export**. A log of the export is displayed.

@@ -17,4 +17,4 @@ To remove a poller from your Centreon architecture:
 
    The services monitored by this poller are moved to the other poller automatically.
 3. On the **Configuration > Pollers > Pollers** page, select the poller you want to remove, then click **Delete**. The poller disappears from the list of pollers.
-4. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for the central server. The poller is removed for good. This cannot be undone.
+4. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for the SaaS platform. The poller is removed for good. This cannot be undone.

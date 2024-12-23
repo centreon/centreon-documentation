@@ -35,7 +35,7 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
 
 Export the configuration for this poller:
 
-1. On the central server, go to **Configuration > Pollers > Pollers**, then select the poller you have just created.
+1. On the user interface, go to **Configuration > Pollers > Pollers**, then select the poller you have just created.
 2. Click **Export configuration**. A new page opens:
    * Check the first four boxes
    * Under **Restart Monitoring Engine**, select the **Restart** method.

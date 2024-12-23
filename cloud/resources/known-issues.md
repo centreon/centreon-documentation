@@ -34,7 +34,7 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
 * Deploying a service does not work if the template of an existing host is changed. (**More actions > Deploy services** command.)
 
-* It is not possible yet to define a default poller. When you create a host, make sure you define the correct poller to monitor it instead of the central server.
+* It is not possible yet to define a default poller. When you create a host, make sure you define the correct poller to monitor it instead of the central poller.
 
 * Service accounts (e.g. **broker service user**) are listed in contact selection dropdown lists. Do not use them.
 
