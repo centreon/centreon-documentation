@@ -70,9 +70,22 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+### Configuration HP iLO
+
+* Activez l'API REST sur HP iLO :
+  * Assurez-vous que la fonctionnalité REST est activée dans l'interface de gestion iLO. 
+  Cela nécessite souvent une version récente du firmware iLO (iLO 4 ou iLO 5, selon votre matériel). 
+  * Vérifiez que l'accès REST est activé et que les ports nécessaires (par défaut 443) sont ouverts.
+* Compte utilisateur avec permissions :
+  * Créez un compte utilisateur dédié dans iLO avec des droits suffisants pour accéder aux métriques via l'API REST.
+
+### Configuration réseau :
+* Accès réseau :
+  * Le serveur Centreon doit pouvoir atteindre l'adresse IP d'iLO sur le port 443. 
+  * Configurez les règles de pare-feu pour autoriser cette communication.
+* Certificats SSL :
+  * Si l'API iLO utilise un certificat SSL auto-signé, configurez Centreon pour ignorer les vérifications 
+  SSL ou ajoutez le certificat au registre de certificats de confiance.
 
 ## Installer le connecteur de supervision
 
