@@ -115,7 +115,6 @@ A poller is a monitoring server installed in your infrastructure to monitor your
 
 - A poller has no graphical interface: the resources it monitors are displayed in the user interface.
 
-"Poller" is also used to refer to the monitoring engine that is present in a central server and a poller.
 
 ## Recurring downtime
 

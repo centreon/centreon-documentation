@@ -19,12 +19,12 @@ Centreon Cloud consists mainly of a user interface provided by Centreon, and pol
 ## One or more pollers
 
 * Pollers monitor resources in your infrastructure. They should be in the same network as the resources they will monitor.
-* Pollers do not have a user interface (you see the pollers' activity on the central server's interface).
+* Pollers do not have a user interface (you see the pollers' activity on the user interface).
 * Pollers are part of your infrastructure, which means better security, latency and bandwidth.
 * You [install your pollers](../installation/deploy-poller.md) using a simple script.
 * The communication between the central and the pollers uses HTTPS.
 
 ## Centreon CIAM
 
-* The [CIAM](../ciam/ciam.md) has a user interface that is separate from the central server's.
+* The [CIAM](../ciam/ciam.md) has a user interface that is separate from the SaaS platform.
 * Before you can use Centreon Cloud, you need to configure your organization in the CIAM, and invite your users to your platform.
