@@ -21,7 +21,7 @@ According to your [Centreon edition](https://www.centreon.com/en/editions/), you
 
 The following modules need to be installed separately and require a valid license.
 
-- [Monitoring Connectors](../monitoring/pluginpacks.md#installation)
+- [Monitoring Connectors](../monitoring/pluginpacks.md#installing-a-monitoring-connector)
 - [Auto Discovery](../monitoring/discovery/installation.md)
 - [Anomaly Detection](../monitoring/anomaly-detection.md)
 - [Service mapping (BAM)](../service-mapping/install.md)
