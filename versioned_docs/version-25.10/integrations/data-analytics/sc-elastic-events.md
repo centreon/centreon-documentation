@@ -87,7 +87,7 @@ On your Elasticsearch server, you will need:
 | string | logfile           | the file in which logs are written                              | /var/log/centreon-broker/elastic-events-apiv2.log |
 | number | log_level         | logging level from 1 (errors) to 3 (debug)                      | 1                                                 |
 
-7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Elasticsearch](##filtering-or-adapting-the-data-you-want-to-send-to-elasticsearch).
+7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Elasticsearch](#filtering-or-adapting-the-data-you-want-to-send-to-elasticsearch).
 
 8. [Deploy the configuration](https://docs.centreon.com/docs/monitoring/monitoring-servers/deploying-a-configuration/).
 
