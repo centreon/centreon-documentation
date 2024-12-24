@@ -21,7 +21,7 @@ According to your [Centreon edition](https://www.centreon.com/en/editions/), you
 
 The following modules need to be installed separately and require a valid license.
 
-- [Plugin Packs](../monitoring/pluginpacks.md#installation)
+- [Plugin Packs](../monitoring/pluginpacks.md#installing-a-monitoring-connector)
 - [Auto Discovery](../monitoring/discovery/installation.md)
 - [Anomaly Detection](../monitoring/anomaly-detection.md)
 - [Service mapping (BAM)](../service-mapping/install.md)
@@ -36,7 +36,7 @@ Go to **Administration > Extensions > Manager**. All modules currently installed
 
 ## Adding a license to your Centreon platform
 
-<Tabs groupId="sync">
+<Tabs groupId="licences" queryString>
 <TabItem value="Offline licenses" label="Offline licenses">
 
 1. To request your license:
