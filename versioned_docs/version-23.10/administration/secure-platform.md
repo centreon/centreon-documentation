@@ -329,7 +329,7 @@ systemctl start firewalld
 Then add rules for firewalld:
 
 > The list of network flows required for each type of server is defined
-> [here](../installation/architectures.md#tables-of-platform-flows).
+> [here](../installation/technical.md#tables-of-network-flows).
 
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
@@ -1294,7 +1294,7 @@ If everything is ok, you should have:
 Now you can access your platform with your browser in HTTPS mode.
 
 > Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you must set it to HTTPS mode too, otherwise
-> recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
+> recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-httpstls-on-the-MAP-server).
 
 9. Gorgone API configuration
 
@@ -1576,7 +1576,7 @@ the management of [Access Control List](./access-control-lists.md).
 It is strongly recommended to secure communications between the different servers of the Centreon platform if some servers
 are not in a secure network.
 
-> The Table of network flows is available [here](../installation/architectures.md#table-of-network-flows).
+> The Table of network flows is available [here](../installation/technical.md#table-of-network-flows).
 
 ### Centreon Broker communication
 
