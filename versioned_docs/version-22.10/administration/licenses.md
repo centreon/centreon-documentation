@@ -36,7 +36,7 @@ Go to **Administration > Extensions > Manager**. All modules currently installed
 
 ## Adding a license to your Centreon platform
 
-<Tabs groupId="sync">
+<Tabs groupId="licences" queryString>
 <TabItem value="Offline licenses" label="Offline licenses">
 
 1. To request your license:
