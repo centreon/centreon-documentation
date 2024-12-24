@@ -46,7 +46,7 @@ team](https://support.centreon.com/) to obtain and install your license key.
 
 #### Software
 
-See the [software requirements](../installation/prerequisites.md#(secure-your-map-platform.md#configure-httpstls-on-the-map-or-map-legacy-server)).
+See the [software requirements](../installation/prerequisites.md#characteristics-of-the-servers).
 
 #### Hardware
 
