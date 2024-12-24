@@ -36,7 +36,7 @@ Go to **Administration > Extensions > Manager**. All modules currently installed
 
 ## Adding a license to your Centreon platform
 
-<Tabs groupId="sync">
+<Tabs groupId="licences" queryString>
 <TabItem value="Online licenses" label="Online licenses">
 
 > Refer to the [tables of network flows](../installation/technical.md#tables-of-network-flows) to integrate your monitoring platform.
