@@ -223,7 +223,7 @@ Time period, in days, during which you want to keep the data from your RRD and M
 
 ## RRD files
 
-An RRD file contains the data for a [metric](#metric). RRD files are used to build performance [graph](#graphs). If there are no RRD files, graphs cannot be displayed. Because of the way RRD works, the data displayed in the graphs shows a trend rather than the exact data that was measured.
+An RRD file contains the data for a [metric](#metric). RRD files are used to build performance [graph](#graph). If there are no RRD files, graphs cannot be displayed. Because of the way RRD works, the data displayed in the graphs shows a trend rather than the exact data that was measured.
 
 ## Scheduler
 
