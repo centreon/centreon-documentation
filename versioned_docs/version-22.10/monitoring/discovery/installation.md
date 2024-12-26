@@ -23,5 +23,5 @@ products and go to the **Administration > Extensions > Manager** menu.
     ![image](../../assets/monitoring/discovery/install-after.png)
 
 5. To get ready-to-use discovery rules, go to the **Configuration > Plugin
-Packs** page and [install the plugin packs](../pluginpacks.md#pack-installation) for the 
+Packs** page and [install the plugin packs](../pluginpacks.md#installing-the-pack) for the 
 discovery providers you want.
