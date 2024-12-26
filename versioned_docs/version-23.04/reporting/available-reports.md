@@ -27,7 +27,7 @@ Directly access the area you want to have a look at:
 - [Electric consumption](#electric-consumption)
 - [Profiling](#profiling)
 - [Inventory & Configuration](#inventory--configuration)
-- [Centreon/Reporting Database diagnostic](#centreon-database-diagnostics)
+- [Centreon/Reporting Database diagnostic](#database-diagnostics)
 
 To incorporate your own logos into reports (when adequate space is provided),
 upload them to Centreon MBI using the interface. All images, regardless of their
