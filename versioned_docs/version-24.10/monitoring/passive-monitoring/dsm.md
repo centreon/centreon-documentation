@@ -182,7 +182,7 @@ Your form should now be like this:
 ![image](../../assets/configuration/dsm/trap-form-2.png)
 
 After saving the form, please generate the
-*[SNMP traps database definition](monitoring-with-snmp-traps.md#Applying-the-changes)*.
+*[SNMP traps database definition](monitoring-with-snmp-traps.md#applying-the-changes)*.
 
 ### Configure Trap links
 
