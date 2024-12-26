@@ -195,7 +195,7 @@ partie **Macros**.
 ## Commandes de découverte
 
 Une **discovery commands** est la définition d’une ligne de commande exécutant
-la [sonde de découverte](#discovery-plugins).
+la [sonde de découverte](#sondes-de-découverte).
 
 Chaque sonde de découverte doit disposer de deux commandes :
 
