@@ -15,7 +15,7 @@ a remote server within your customer's infrastructure).
 - By default, the InfluxDB 2 Metrics stream connector sends **metrics** from [**host_status**](../../developer/developer-broker-mapping.md#host-status) 
 and [**service_status**](../../developer/developer-broker-mapping.md#service-status) Broker events. These metrics are contained in the **perf_data** 
 field of the events. The event format is shown **[here](#event-format)**.
-- These events are sent each time a host or a service is checked. Various parameters let you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-influxdb2).
+- These events are sent each time a host or a service is checked. Various parameters let you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-influxdb-2).
 
 ## Installation
 
@@ -86,7 +86,7 @@ Click on the **+Add a new entry** link located below the **Filter category** tab
 | string | logfile    | The file in which logs are written         | /var/log/centreon-broker/influxdb2-metrics.log |
 | number | log_level  | Logging level from 1 (errors) to 3 (debug) | 1                                              |
 
-7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to InfluxDB 2](#filtering-or-adapting-the-data-you-want-to-send-to-influxdb2).
+7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to InfluxDB 2](#filtering-or-adapting-the-data-you-want-to-send-to-influxdb-2).
 
 8. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
