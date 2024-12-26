@@ -14,7 +14,7 @@ to make a backup of your system.
 
 > If you are using at least one of the BAM, MAP or MBI modules, you must install
 > their new repository to avoid dependency problems.
-> Refer to [this page](../reporting/upgrade.md#update-the-repository).
+> Refer to [this page](../reporting/upgrade.md#step-1-update-the-repository).
 
 > If you want to change the OS of the host server, follow the [migration procedure](../migrate/introduction.md). (If you want to migrate a platform that uses **Centreon Poller Display 1.6.x**, refer
 > to the corresponding [migration procedure](../migrate/poller-display-to-remote-server.md).)
