@@ -119,7 +119,7 @@ a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre
 | number | log_level | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug) | 1                                                  |
 
 7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les 
-données que vous voulez que Centreon envoie à Canopsis](#filtering-or-adapting-the-data-you-want-to-send-to-canopsis).
+données que vous voulez que Centreon envoie à Canopsis](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-canopsis).
 8. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration/). 
 9. Redémarrez **centengine** sur tous les collecteurs :
 
