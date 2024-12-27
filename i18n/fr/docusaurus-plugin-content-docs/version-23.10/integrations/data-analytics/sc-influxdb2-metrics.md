@@ -85,7 +85,7 @@ Assurez-vous que InfluxDB 2 puisse recevoir les données envoyées par Centreon 
 | string | logfile     | The file in which logs are written          | /var/log/centreon-broker/influxdb2-metrics.log |
 | number | log_level   | Logging level from 1 (errors) to 3 (debug)  | 1                                              |
 
-7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à InfluxDB 2](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-influxdb2).
+7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à InfluxDB 2](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-influxdb-2).
 
 8. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
