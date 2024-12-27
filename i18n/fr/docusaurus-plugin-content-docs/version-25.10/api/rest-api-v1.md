@@ -1857,7 +1857,7 @@ To delete more than one hostgroup, use the character '|'. Ex:
 `resourcecfg` objects allow to define macro values that apply to a set of monitoring engines.  
 A `resourcecfg` object defines a macro for one or multiple monitoring engines.  
 The same macro can be defined in multiple `resourcecfg` objects with complementary lists of monitoring engines.  
-More information here: [Resource macros](../monitoring/basic-objects/macros.md#resource-macros)
+More information here: [macros de ressources](../monitoring/basic-objects/macros.md#les-macros-de-ressources)
 
 #### List RESOURCECFG objects
 
