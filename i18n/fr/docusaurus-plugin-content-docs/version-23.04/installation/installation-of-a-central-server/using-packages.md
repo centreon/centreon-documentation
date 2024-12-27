@@ -516,7 +516,7 @@ mysql_secure_installation
 ```
 
 Ensuite, dans la base de données distante, créez un utilisateur avec des privilèges **root**. Vous devrez entrer cet utilisateur pendant 
-le processus d'installation web (à [étape 6](../web-and-post-installation.md#étape-6-database-information),
+le processus d'installation web (à [étape 6](../web-and-post-installation.md#étape-6--database-information),
 dans les champs **Root user** et **Root password**).
 
 ```SQL
@@ -789,4 +789,4 @@ systemctl start apache2
 </Tabs>
 
 2. Pour terminer l'installation, suivez la procédure
-d'[installation web](../web-and-post-installation.md#web-installation).
+d'[installation web](../web-and-post-installation.md#installation-web).
