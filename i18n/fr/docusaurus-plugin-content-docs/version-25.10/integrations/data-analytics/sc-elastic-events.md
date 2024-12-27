@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 Le stream connector Elastic Events vous permet d'envoyer des données depuis Centreon vers Elasticsearch. Il envoie des données grâce aux APIs Elasticsearch.
 
-Utilisez le stream connector Elastic Events si vous souhaitez transmettre toutes les données pour les évènements concernés (y compris les changements d'état). Si vous ne souhaitez transmettre que des métriques, utilisez le stream connector [Elastic Metrics](./sc-elasticsearch-metrics.md).
+Utilisez le stream connector Elastic Events si vous souhaitez transmettre toutes les données pour les évènements concernés (y compris les changements d'état). Si vous ne souhaitez transmettre que des métriques, utilisez le stream connector [Elastic Metrics](sc-elasticsearch-metrics.md).
 
 Un index template adapté est créé automatiquement par le stream connector afin que vos données soient indexées correctement dans Elasticsearch. (L'index template est la description du format des données qui seront envoyées.)
 
