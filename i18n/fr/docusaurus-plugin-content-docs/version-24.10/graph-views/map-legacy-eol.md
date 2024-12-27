@@ -24,7 +24,7 @@ Si vous aviez utilisé MAP par le passé, puis êtes retournés à MAP Legacy, s
 ## J'utilisais toujours MAP Legacy et je n'ai pas encore monté de version vers la 24.10
 
 * Faites une sauvegarde de vos données MAP legacy : sauvegardez tous les fichiers présents dans **/etc/centreon-studio** et faites un dump de la base de données MAP.
-* [Montez de version votre plateforme Centreon en 24.10](../../upgrade/introduction.md).
+* [Montez de version votre plateforme Centreon en 24.10](../upgrade/introduction.md).
 * Si vous ne l'aviez jamais installé par le passé, [installez MAP](map-web-install.md). Si vous l'aviez déjà installé, [montez-le de version vers la 24.10](map-web-upgrade.md).
 * [Montez MAP legacy de version vers la 24.10](upgrading-map-legacy.md).
 * [Migrez de MAP Legacy à MAP](import-into-map-web.md) dans votre version actuelle. Cela inclut d'activer le nouveau module MAP et d'importer vos cartes legacy dans MAP.
