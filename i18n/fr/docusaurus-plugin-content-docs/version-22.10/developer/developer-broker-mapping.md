@@ -1893,7 +1893,7 @@ Cet évènement est le même qu'en BBDO v2. Il n'existe pas d'évènement Protob
 
 Cet évènement est émis par Centreon Broker lorsqu'une nouvelle configuration de
 service est reçue. Il établit la relation entre un ID d'index d'un service et un
-ID de métrique. Voir [Index mapping](#indexmapping) pour davantage d'informations
+ID de métrique. Voir [Index mapping](#index-mapping) pour davantage d'informations
 sur les ID d'index.
 
 <Tabs groupId="sync">
