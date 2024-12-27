@@ -16,10 +16,10 @@ Il est également possible de les envoyer depuis un serveur distant ou un collec
 défaillance unique, ou bien si vous êtes un MSP et vous installez le stream connector 
 sur un collecteur ou un serveur distant dans l'infratructure de votre client).
 - Par défaut, le stream connector Canopsis Events envoie des évènements Broker 
-**[host_status](../../developer/developer-broker-mapping/#host-status)**,
-**[service_status](../../developer/developer-broker-mapping/#service-status)**,
-**[acknowledgement](../../developer/developer-broker-mapping/#acknowledgement)**
-et **[downtime](../../developer/developer-broker-mapping/#downtime)**.
+**[host_status](../../developer/developer-broker-mapping.md#host-status)**,
+**[service_status](../../developer/developer-broker-mapping.md#service-status)**,
+**[acknowledgement](../../developer/developer-broker-mapping.md#acknowledgement)**
+et **[downtime](../../developer/developer-broker-mapping.md#downtime)**.
 Ces formats d'événement sont décrits **[ici](#event-format)**.
 - Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres 
 dédiés vous permettent de [ne pas envoyer certains évènements](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-canopsis).
