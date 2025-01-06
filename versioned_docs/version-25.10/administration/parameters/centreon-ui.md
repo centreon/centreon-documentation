@@ -4,6 +4,7 @@ title: Centreon UI
 ---
 
 
+
 This part covers the configuration of the general options of the Centreon web
 interface.
 
