@@ -16,13 +16,13 @@ jobs:
   get-versions:
     runs-on: ubuntu-24.04
 
-    environment: |
-      ${{
-        github.event_name == 'pull_request_target' &&
-        github.event.pull_request.head.repo.fork &&
-        'external_contributor' ||
-        'external_contributor'
-      }}
+    # environment: |
+    #   ${{
+    #     github.event_name == 'pull_request_target' &&
+    #     github.event.pull_request.head.repo.fork &&
+    #     'external_contributor' ||
+    #     'external_contributor'
+    #   }}
 
     name: Get versions
 
