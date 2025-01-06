@@ -11,7 +11,7 @@ Go to **Administration > Parameters > Centreon UI**.
 
 ## General options
 
-- **Directory** indicates the directory where Centreon is installed
+- **Directoryyyy** indicates the directory where Centreon is installed
 - **Contacts & Contact groups method calculation** lets you define how
 notification inheritance for hosts and services will be calculated.
 - The **Limit per page (default)** field defines the number of objects displayed
