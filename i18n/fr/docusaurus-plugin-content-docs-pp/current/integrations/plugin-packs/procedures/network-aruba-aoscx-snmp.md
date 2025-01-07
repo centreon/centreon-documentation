@@ -83,7 +83,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Metric name                                | Unité |
+| Nom                              | Unité |
 |:-------------------------------------------|:------|
 | *fan_name*#hardware.fan.speed.rpm          | rpm   |
 | fan tray status                            |       |
