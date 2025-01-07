@@ -227,7 +227,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All components are ok. | 
+OK: All components are ok. | hardware.cpu.celsius=65;;;0;100 hardware.mem.percent=80;;;; hardware.hdd.elsius=45;;;;
 ```
 
 ### Diagnostic des erreurs communes
