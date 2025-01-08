@@ -21,11 +21,12 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ### 22.10.27
 
-Release date: `December 20, 2024`
+Release date: `January 9, 2025`
 
 #### Bug fixes
 
 - [Custom Views] Fixed an issue preventing some filters from functioning in the "Hostgroup monitoring" and "Host monitoring" widgets.
+- [Event Logs] Fixed hostgroup selection.
 
 #### Security fixes
 
