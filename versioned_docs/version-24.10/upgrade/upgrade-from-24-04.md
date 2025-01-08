@@ -15,6 +15,8 @@ This chapter describes how to upgrade your Centreon platform from version 24.04 
 
 > If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
 
+> Version 24.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
+
 ## Prerequisites
 
 ### Perform a backup
@@ -209,7 +211,7 @@ dnf update centreon\* php-pecl-gnupg
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-apt install --only-upgrade centreon
+apt install --only-upgrade centreon*
 ```
 
 </TabItem>
@@ -436,8 +438,6 @@ systemctl reload php-fpm httpd
 ```shell
 apt autoremove
 systemctl daemon-reload
-systemctl stop php8.1-fpm
-systemctl disable php8.1-fpm
 systemctl enable php8.2-fpm
 systemctl start php8.2-fpm
 systemctl restart apache2
@@ -591,10 +591,6 @@ with the following:
     ``` shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
-
-## Upgrade MariaDB
-
-Follow [this procedure](upgrade-mariadb.md) to upgrade MariaDB to version 10.11.
 
 ## Upgrade the Remote Servers
 

@@ -8,6 +8,71 @@ import TabItem from '@theme/TabItem';
 
 ## 2024
 
+### Décembre
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**AppearTV SNMP**](../procedures/hardware-devices-video-appeartv-snmp.md) - Initial release of AppearTV SNMP.
+- [**JMeter**](../procedures/applications-jmeter.md) - Initial release of JMeter.
+- [**Skyhigh Web Gateway SNMP**](../procedures/applications-antivirus-skyhigh-webgateway-snmp.md) - Replaces the McAfee Gateaway connector following the MacAfee Webgateway OID [end-of-life announcement](https://success.skyhighsecurity.com/Skyhigh_Secure_Web_Gateway_(On_Prem)/Secure_Web_Gateway_Overview/End-of-life_(EOL)_Dates_for_Secure_Web_Gateway).
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**AIX SSH**](../procedures/operatingsystems-aix-ssh.md) - Added `--warning-usage-prct` and `--critical-usage-prct` to the `OS-AIX-SSH-Storage` command.
+- [**AWS Transit Gateway**](../procedures/cloud-aws-transitgateway.md) - Added default value `awscli` for host template custom mode.
+- [**AWS VPN**](../procedures/cloud-aws-vpn.md) - Added default value `awscli` for host template custom mode.
+- [**Fortinet Fortimanager SNMP**](../procedures/network-fortinet-fortimanager-snmp.md) - Added `device-policy-package-status thresholds` to the `Net-Fortinet-Fortimanager-SNMP-Device-Status` command (from an idea on [TheWatch](https://thewatch.centreon.com/ideas/fortimanager-monitoring-connector-device-status-integrate-policy-package-in-monitoring-connector-4022)).
+- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Added new mode **stack** from community contribution [PR 5082](https://github.com/centreon/centreon-plugins/pull/5082).
+- [**Keysight NVOS Rest API**](../procedures/network-keysight-nvos-restapi.md) - Enhanced **ports** mode and added **license** mode.
+- [**Nokia TiMos SNMP**](../procedures/network-nokia-timos-snmp.md) - Added new **sas-alarm** mode from community contribution [PR 5083](https://github.com/centreon/centreon-plugins/pull/5083).
+- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added native checks for CPU, Cpu-detailed, Memory, Storage, Swap and Uptime (these native checks will be available with the upcoming Collect 24.10.3 release).
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed an issue with the **process** mode that wasn't returning the process in some cases. We added a column size limit to avoid filter issues.
+
+</TabItem>
+<TabItem value="Fix" label="Bug fixes">
+
+- [**Azure Elastic Pool**](../procedures/cloud-azure-database-elasticpool.md) - Fixed an issue with **storage** mode where thresholds weren't taken into account.
+- [**Commvault Commserve Rest API**](../procedures/applications-commvault-commserve-restapi.md) - Fixed **storagepools** mode to avoid division by 0, from community feedback [PR 5141](https://github.com/centreon/centreon-plugins/pull/5141).
+
+</TabItem>
+</Tabs>
+
+### Novembre
+
+<Tabs groupId="sync">
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Atrica Routeur**](../procedures/network-routers-atrica-snmp.md) - Added service discovery rule for **connections** mode.
+- [**Centreon Database**](../procedures/applications-monitoring-centreon-database.md) - Used the correct MariaDB message when checking MySQL replication state.
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Added several new modes and service discovery rules.
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Used the correct MariaDB message when checking MySQL replication state.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Changed mode names and dependencies paths.
+- [**Linux Telegraf Agent**](../procedures/operatingsystems-linux-telegraf-agent.md) - The default inherited templates are now passive.
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Fixed `exclude` option working as "include".
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - The default inherited templates are now passive.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Amazon CloudTrail**](../procedures/cloud-aws-cloudtrail.md) - Fixed command for event lookup, from community feedback [PR 5086](https://github.com/centreon/centreon-plugins/pull/5086).
+- [**Eclipse Mosquitto MQTT**](../procedures//applications-eclipse-mosquitto-mqtt.md) - Fixed ` warning-regexp` and `critical-regexp` options.
+- [**HPE Primera REST API**](../procedures/hardware-storage-hpe-primera-restapi.md) - Fixed status handling & retry on invalid token, from community feedback [PR 5256](https://github.com/centreon/centreon-plugins/pull/5256).
+- [**Speedtest**](../procedures/applications-monitoring-speedtest.md) - Fixed packaging issue leading to conflict between speedtest and speedtest-cli binaries.
+- [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - Fixed wrong unit for roundtrip-time.
+
+</TabItem>
+</Tabs>
+
 ### Octobre
 
 <Tabs groupId="sync">

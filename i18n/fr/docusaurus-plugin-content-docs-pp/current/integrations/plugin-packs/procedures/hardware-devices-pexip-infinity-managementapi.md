@@ -119,8 +119,8 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
     --api-username='myapiusername' \
     --api-password='myapipassword' \
     --filter-name='mycall1.centreon.com' \
-    --warning-status='%{level} =~ /warning|minor/i' \
-    --critical-status='%{level} =~ /critical|major|error/i' \
+    --warning-status='%\{level\} =~ /warning|minor/i' \
+    --critical-status='%\{level\} =~ /critical|major|error/i' \
     --verbose
 ```
 

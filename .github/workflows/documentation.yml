@@ -173,30 +173,56 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Node
-        uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
+      - uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
         with:
-          node-version: 20
-          cache: yarn
+          version: 9
+          run_install: false
+
+      - name: Set up Node
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install dependencies
-        uses: borales/actions-yarn@3766bb1335b98fb13c60eaf358fe20811b730a88 # v5.0.0
+        run: pnpm install --frozen-lockfile
+        shell: bash
+
+      - name: Restore docusaurus build from cache
+        uses: actions/cache/restore@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
         with:
-          cmd: install --frozen-lockfile
+          path: |
+            .docusaurus
+            build
+          key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+          restore-keys: |
+            docusaurus-build-${{ matrix.environment }}-staging
 
       - name: Build documentation
-        run: yarn build
+        run: pnpm build
         env:
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 
-      - name: Store build in cache
-        uses: actions/cache/save@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+      - name: Clear previous docker image from cache
+        run: |
+          curl \
+            -X DELETE \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/centreon/centreon-documentation/actions/caches?key=docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+        shell: bash
+
+      - name: Store docusaurus build cache in cache
+        uses: actions/cache/save@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
         with:
-          path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
+          path: |
+            .docusaurus
+            build
+          key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
 
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
@@ -215,10 +241,12 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Restore build from cache
-        uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        uses: actions/cache/restore@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
         with:
-          path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
+          path: |
+            .docusaurus
+            build
+          key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
           fail-on-cache-miss: true
 
       - name: Setup awscli
@@ -295,10 +323,12 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Restore build from cache
-        uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        uses: actions/cache/restore@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
         with:
-          path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-staging"
+          path: |
+            .docusaurus
+            build
+          key: docusaurus-build-staging-${{ github.head_ref || github.ref_name }}
           fail-on-cache-miss: true
 
       - name: Deploy to https://docs-staging.int.centreon.com
@@ -327,10 +357,12 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Restore build from cache
-        uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        uses: actions/cache/restore@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
         with:
-          path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-next"
+          path: |
+            .docusaurus
+            build
+          key: docusaurus-build-next-${{ github.head_ref || github.ref_name }}
           fail-on-cache-miss: true
 
       - name: Setup awscli

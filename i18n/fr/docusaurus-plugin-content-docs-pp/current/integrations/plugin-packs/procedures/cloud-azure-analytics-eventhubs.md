@@ -167,7 +167,7 @@ dans Centreon.
 Afin d'utiliser le custom-mode 'azcli', installez le binaire associé sur tous les Collecteurs Centreon
 devant superviser des resources Azure:
 
-- La CLI requiert une version de Python >= 2.7 (<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md>)
+- La CLI requiert une version de Python >= 2.7 (\<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md\>)
 
 Sur un système utilisant le packaging RPM, utilisez les commandes ci-dessous avec 
 l'utilisateur *root* ou un utilisateur avec les droits 'sudo' adéquats:
@@ -191,7 +191,7 @@ La commande retourne le message ci-dessous contenant un code:
     *To sign in, use a web browser to open the page https://microsoft.com/devicelogin*
     *and enter the code CWT4WQZAD to authenticate.*
 
-Rendez-vous sur <https://microsoft.com/devicelogin> afin de saisir le code obtenu, puis connectez vous avec le compte de service dédié à la supervision.
+Rendez-vous sur \<https://microsoft.com/devicelogin\> afin de saisir le code obtenu, puis connectez vous avec le compte de service dédié à la supervision.
 
 Une fois ces actions effectuées, des informations d'auhtentification de la forme suivante devraient s'afficher dans le terminal
 du collecteur Centreon: 

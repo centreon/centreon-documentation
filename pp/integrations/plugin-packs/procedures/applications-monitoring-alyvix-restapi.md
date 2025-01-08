@@ -138,8 +138,8 @@ by running the following command (some of the parameters such as ```--proxyurl``
     --port='80' \
     --proxyurl='http://myproxy.mycompany.org:8080' \
     --filter-testcase='case_app1|case_app2' \
-    --critical-testcase-state='%{state} eq "FAILED"' \
-    --critical-transaction-state='%{state} eq "FAILED"' \
+    --critical-testcase-state='%\{state\} eq "FAILED"' \
+    --critical-transaction-state='%\{state\} eq "FAILED"' \
     --warning-testcase-duration='40000' \
     --critical-testcase-duration='60000' \
     --critical-testcase-freshness='600' \

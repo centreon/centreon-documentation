@@ -23,8 +23,8 @@ Generate key for centreon-engine user with command:
     # su - centreon-engine
     # ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
     # ssh-keygen -e -f .ssh/identity.pub > identity.pub.ietf
-    # telnet <FUJITSU_IP>
-    CLI> import ssh-public-key -server <POLLER_IP> -port maintenance -user <ADMIN_USER> -filename identity.pub.ietf -account-name centreon
+    # telnet \<FUJITSU_IP\>
+    CLI> import ssh-public-key -server \<POLLER_IP\> -port maintenance -user \<ADMIN_USER\> -filename identity.pub.ietf -account-name centreon
     Password:
     importing ./identity.pub.ietf from ...
     CLI> exit
@@ -32,7 +32,7 @@ Generate key for centreon-engine user with command:
 You can now try to connect you without password
 
     # su - centreon-engine
-    # ssh -l centreon <FUJITSU_IP>
+    # ssh -l centreon \<FUJITSU_IP\>
 
 ## Centreon Configuration
 

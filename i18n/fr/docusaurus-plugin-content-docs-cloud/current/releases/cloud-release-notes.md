@@ -3,6 +3,18 @@ id: cloud-release-notes
 title: Centreon Cloud - notes de release
 ---
 
+## December 17th, 2024
+
+This release contains numerous bug and vulnerability fixes but also the following improvements:
+
+### Centreon IT Edition
+
+**Data Collection**
+
+- Thanks to the Additional Connector Configurations feature, you can now define the credentials to access a monitored resource through the Centreon interface rather than having to connect to your pollers manually.
+- It is also now possible to duplicate and then customize commands coming from official Centreon Monitoring Connectors.
+
+
 ## October 10th, 2024
 
 ### Centreon IT Edition

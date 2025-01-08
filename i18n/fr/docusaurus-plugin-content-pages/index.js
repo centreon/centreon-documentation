@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect } from '@docusaurus/router';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -77,8 +77,8 @@ const cards = [
 ]
 
 const versionInfo = {
-  version: '24.04',
-  link: 'https://www.centreon.com/fr/nouvelle-cadence-de-sortie-de-version-et-nouveau-cycle-de-vie-des-versions-de-centreon/',
+  version: '24.10',
+  link: 'https://www.centreon.com/fr/centreon-annonce-la-sortie-de-sa-derniere-version-logicielle-centreon-24-10/',
   target: '_blank'
  }
 
@@ -100,8 +100,8 @@ function BannerBlock() {
     <div className={clsx(styles.bannerContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <div className={clsx(styles.bannerWrapper)}>
-          {/* <span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span> */}
-          <p>Bientôt un nouveau cycle de vie logiciel !</p>
+          {<span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span>}
+          <p>Nouvelle version logicielle disponible</p>
           <Button href={versionInfo.link} target={versionInfo.target} label="En savoir plus" dark="true"/>
         </div>
       </div>

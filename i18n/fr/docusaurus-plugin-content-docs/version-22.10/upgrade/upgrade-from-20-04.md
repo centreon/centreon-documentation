@@ -2,6 +2,8 @@
 id: upgrade-from-20-04
 title: Montée de version depuis Centreon 20.04
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 20.04 vers la version 22.10.

@@ -7,6 +7,8 @@ Centreon MAP is a solution fully available in the Centreon web interface while o
 
 The difference with the MAP (Legacy) version is that MAP provides you with an edition tool fully embedded in the web interface. You do not need to install anything on your desktop. You can navigate easily between the edition mode and the view mode.
 
+> Centreon MAP is a Centreon extension that requires a valid [license](../administration/licenses.md). To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
+
 > If you already used the MAP (Legacy) version, note that you can easily [import your legacy maps](import-into-map-web.md#importing-legacy-maps-into-map) into the MAP interface.
 
 > See how to manage views using the Centreon MAP REST API [here](https://docs-api.centreon.com/api/centreon-map/).

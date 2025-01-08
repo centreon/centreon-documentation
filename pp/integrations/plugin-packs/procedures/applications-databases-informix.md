@@ -44,7 +44,7 @@ To compile DBD Informix, you need an access to an Informix Database, run:
     # cd DBD-Informix-2013.0521 
     # export INFORMIXDIR=/home/informix/sdkclient 
     # export LD\_LIBRARY\_PATH=$ORACLE\_HOME/lib  
-    # export PATH=${PATH}:/home/informix/sdkclient/bin
+    # export PATH=$\{PATH\}:/home/informix/sdkclient/bin
     # export LD\_LIBRARY\_PATH=/home/informix/sdkclient/lib/esql/:/home/informix/sdkclient/lib/
     # export DBD\_INFORMIX\_USERNAME=root 
     # export DBD\_INFORMIX\_PASSWORD=xxxx # export DBD\_INFORMIX\_DATABASE=xxxx
