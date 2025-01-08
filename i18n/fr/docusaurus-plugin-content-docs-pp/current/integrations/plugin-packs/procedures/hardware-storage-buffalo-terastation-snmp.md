@@ -93,8 +93,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom                                                        | Unité |
 |:-----------------------------------------------------------|:------|
 | disk.status                                                     | N/A   |
-| iscistatus                                                     | N/A   |
-| psu.status       | b/s   |
+| isci.status                                                     | N/A   |
+| psu.status       | N/A   |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
