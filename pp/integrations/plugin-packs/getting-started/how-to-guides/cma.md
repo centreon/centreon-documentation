@@ -87,18 +87,8 @@ On your central server:
 5. If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), enable **Connection initiated by poller**. Then, in **Host configurations**, define all the hosts on which the agent will be installed. Here the certificates are optional, but if you use them, store them in the **/etc/pki/** directory of the poller.
 > If you configure several pollers at once, make sure all certificate files have the same name.
 
-#### Add a new Broker module
-
-1. Go to **Configuration > Pollers > Engine configuration**, then click on the poller you want to monitor your resources.
-2. On the **Data** tab, in the **Broker module** section, in the **Multiple Broker Module** parameter, click on **Add a new entry**.
-3. Add the following entry :
-
-   ```bash
-   /usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
-   ```
-
-4. Deploy the configuration.
-5. Restart the monitoring engine:
+6. Deploy the configuration.
+7. Restart the monitoring engine:
 
    ```bash
    systemctl restart centengine

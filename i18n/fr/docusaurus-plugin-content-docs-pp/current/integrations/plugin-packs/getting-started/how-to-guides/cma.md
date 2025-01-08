@@ -88,18 +88,8 @@ Sur votre serveur central :
 5. Si l'agent n'est pas autorisé à se connecter au collecteur pour des raisons de sécurité (par exemple lorsque le collecteur est situé dans une DMZ), activez l'option **Connection initiée par le collecteur**. Puis, dans la section **Configuration des hôtes**, définissez tous les hôtes sur lesquels l'agent sera installé. Ici, les certificats sont optionnels, mais si vous les utilisez, mettez-les dans le répertoire **/etc/pki/** du collecteur.
 > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
 
-### Ajoutez un nouveau module Broker
-
-1. Allez à la page **Configuration > Collecteurs > Configuration du moteur de collecte**, puis cliquez sur le collecteur qui supervisera les ressources.
-2. Dans l'onglet **Données**, dans la section **Commande de lancement du module**, dans le paramètre **Multiple Broker Module**, cliquez sur **Ajouter une nouvelle entrée**.
-3. Ajoutez l'entrée suivante :
-
-   ```bash
-   /usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
-   ```
-
-4. Exportez la configuration.
-5. Redémarrez le moteur de collecte.
+6. Exportez la configuration.
+7. Redémarrez le moteur de collecte.
 
    ```bash
    systemctl restart centengine

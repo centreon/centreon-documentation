@@ -67,19 +67,8 @@ Installez le processeur Open Telemetry pour Telegraf sur votre serveur central :
 5. Le **Fournisseur de configuration** est le serveur à l'intérieur du moteur du collecteur qui enverra à l'agent sa configuration. Entrez le port et les noms des fichiers de certificat. Les certificats doivent être stockés dans le répertoire **/etc/pki/** du collecteur. Vous pouvez utiliser les mêmes certificats que pour le receveur OTLP.
 > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
 
-
-### Ajoutez un nouveau module Broker
-
-1. Allez à la page **Configuration > Collecteurs > Configuration du moteur de collecte**, puis cliquez sur le collecteur qui supervisera les ressources.
-2. Dans l'onglet **Données**, dans la section **Commande de lancement du module**, dans le paramètre **Multiple Broker Module**, cliquez sur **Ajouter une nouvelle entrée**.
-3. Ajoutez l'entrée suivante :
-
-   ```bash
-   /usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
-   ```
-
-4. Exportez la configuration
-5. Redémarrez le moteur de collecte
+6. Exportez la configuration
+7. Redémarrez le moteur de collecte
 
    ```bash
    systemctl restart centengine
