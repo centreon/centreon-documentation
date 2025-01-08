@@ -92,8 +92,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Name                                                        | Unit |
 |:-----------------------------------------------------------|:------|
 | disk.status                                                     | N/A   |
-| iscistatus                                                     | N/A   |
-| psu.status       | b/s   |
+| isci.status                                                     | N/A   |
+| psu.status       | N/A   |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
