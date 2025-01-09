@@ -5,7 +5,7 @@ title: Lenovo XCC SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Lenovo XCC SNMP** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -27,7 +27,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias           | Modèle de service                         | Description                             |
 |:----------------|:------------------------------------------|:----------------------------------------|
-| Hardware-Global | HW-Lenovo-Xcc-Hardware-Global-SNMP-custom | Contrôle l'ensemble des sondes matériel |
+| Hardware-Global | HW-Lenovo-Xcc-Hardware-Global-SNMP-custom | Contrôle l'ensemble des sondes |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Lenovo-Xcc-SNMP-custom** est utilisé.
 
