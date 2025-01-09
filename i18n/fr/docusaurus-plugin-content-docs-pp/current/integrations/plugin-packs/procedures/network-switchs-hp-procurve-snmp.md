@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias       | Modèle de service                       | Description                                                             |
 |:------------|:----------------------------------------|:------------------------------------------------------------------------|
 | Cpu         | Net-Hp-Procurve-Cpu-SNMP-custom         | Contrôle du taux d'utilisation du CPU de la machine                     |
-| Environment | Net-Hp-Procurve-Environment-SNMP-custom | Contrôle l'état du matériel (Ventilateurs, alimentations, températures) |
+| Environment | Net-Hp-Procurve-Environment-SNMP-custom | Contrôle l'état du matériel (ventilateurs, alimentations, températures) |
 | Memory      | Net-Hp-Procurve-Memory-SNMP-custom      | Contrôle l'utilisation mémoire du matériel                              |
 | Uptime      | Net-HP-Procurve-Uptime-SNMP-custom      | Contrôle de l'uptime du système                                         |
 
@@ -40,10 +40,10 @@ Le connecteur apporte les modèles de service suivants
 | Alias                | Modèle de service                                | Description                                                   | Découverte |
 |:---------------------|:-------------------------------------------------|:--------------------------------------------------------------|:----------:|
 | Spanning-Tree        | Net-HP-Procurve-SpanningTree-SNMP-custom         | Contrôle l'état du protocole Spanning Tree sur les interfaces |     X      |
-| Stack                | Net-Hp-Procurve-Stack-SNMP-custom                | Contrôle les membres du stack                                 |            |
-| Traffic-Generic-Id   | Net-Hp-Procurve-Traffic-Id-Generic-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau             |            |
-| Traffic-Generic-Name | Net-Hp-Procurve-Traffic-Name-Generic-SNMP-custom | Contrôle le traffic réseau d'une interface réseau             |            |
-| Traffic-Global       | Net-Hp-Procurve-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau     |     X      |
+| Stack                | Net-Hp-Procurve-Stack-SNMP-custom                | Contrôle les membres de la stack                                 |            |
+| Traffic-Generic-Id   | Net-Hp-Procurve-Traffic-Id-Generic-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau             |            |
+| Traffic-Generic-Name | Net-Hp-Procurve-Traffic-Name-Generic-SNMP-custom | Contrôle le trafic réseau d'une interface réseau             |            |
+| Traffic-Global       | Net-Hp-Procurve-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau     |     X      |
 | Virtual-Chassis      | Net-Hp-Procurve-Virtual-Chassis-SNMP-custom      | Contrôle l'état des châssis virtuels VSF                      |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -284,7 +284,7 @@ yum install centreon-plugin-Network-Switchs-Hp-Procurve-Snmp
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'psu', 'sensor', 'temperature'                                                          | .*                |             |
+| COMPONENT    | Which component to check. Can be: 'fan', 'psu', 'sensor', 'temperature'                                                          | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
