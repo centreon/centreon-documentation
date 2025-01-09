@@ -29,9 +29,9 @@ The connector brings the following service templates (sorted by the host templat
 | Cache-Age     | HW-Storage-NetApp-Ontap-Cache-Age-SNMP-custom     | Check age in minutes of the oldest read-only blocks in the buffer cache. |
 | Cp-Statistics | HW-Storage-NetApp-Ontap-Cp-Statistics-SNMP-custom | Check consistency point metrics.                                         |
 | Cpu-Load      | HW-Storage-NetApp-Ontap-Cpu-Load-SNMP-custom      | Check CPU usage.                                                         |
-| Disk-Failed   | HW-Storage-NetApp-Ontap-Disk-Failed-SNMP-custom   | Check the current number of disk broken                                  |
+| Disk-Failed   | HW-Storage-NetApp-Ontap-Disk-Failed-SNMP-custom   | Check the current number of malfunctioning disks                                  |
 | Global-status | HW-Storage-NetApp-Ontap-Global-status-SNMP-custom | Check the overall status of the  appliance                               |
-| Nvram         | HW-Storage-NetApp-Ontap-Nvram-SNMP-custom         | Check current status of the NVRAM batteries                              |
+| Nvram         | HW-Storage-NetApp-Ontap-Nvram-SNMP-custom         | Check the current status of the NVRAM batteries                              |
 | Shelf         | HW-Storage-NetApp-Ontap-Shelf-SNMP-custom         | Check Shelves hardware                                                   |
 
 > The services listed above are created automatically when the **HW-Storage-NetApp-Ontap-SNMP-custom** host template is used.
@@ -43,16 +43,16 @@ The connector brings the following service templates (sorted by the host templat
 |:-----------------------|:-----------------------------------------------------------|:--------------------------------------------------------------------------------------|:---------:|
 | Aggregates             | HW-Storage-NetApp-Ontap-Aggregates-SNMP-custom             | Check state of one or several aggregates                                              |           |
 | Cluster-Nodes          | HW-Storage-NetApp-Ontap-Cluster-Nodes-SNMP-custom          | Check cluster nodes                                                                   |     X     |
-| Fan                    | HW-Storage-NetApp-Ontap-Fan-SNMP-custom                    | Check if fans are failed                                                              |           |
+| Fan                    | HW-Storage-NetApp-Ontap-Fan-SNMP-custom                    | Check if fans have failed                                                              |           |
 | File-System-Global     | HW-Storage-NetApp-Ontap-File-System-Global-SNMP-custom     | Check filesystem usage                                                                |     X     |
-| Ndmpsessions           | HW-Storage-NetApp-Ontap-Ndmpsessions-SNMP-custom           | Check current total of ndmp sessions opened                                           |           |
+| Ndmpsessions           | HW-Storage-NetApp-Ontap-Ndmpsessions-SNMP-custom           | Check current total of open NDMP sessions                                           |           |
 | Partner-Status         | HW-Storage-NetApp-Ontap-Partner-Status-SNMP-custom         | Check status of clustered failover partner                                            |           |
 | Plexes                 | HW-Storage-NetApp-Ontap-Plexes-SNMP-custom                 | Check plexes                                                                          |     X     |
-| Psu                    | HW-Storage-NetApp-Ontap-Psu-SNMP-custom                    | Check if power supplies are failed                                                    |           |
+| Psu                    | HW-Storage-NetApp-Ontap-Psu-SNMP-custom                    | Check if power supplies have failed                                                    |           |
 | Quotas                 | HW-Storage-NetApp-Ontap-Quotas-SNMP-custom                 | Check quotas                                                                          |           |
-| Share-Calls            | HW-Storage-NetApp-Ontap-Share-Calls-SNMP-custom            | Check cifs and nfs calls per seconds.                                                 |           |
-| Snapshot-Age-Global    | HW-Storage-NetApp-Ontap-Snapshot-Age-Global-SNMP-custom    | Check snapshot age of volumes                                                         |           |
-| Snapshot-Age-Name      | HW-Storage-NetApp-Ontap-Snapshot-Age-Name-SNMP-custom      | Check snapshot age of volumes                                                         |           |
+| Share-Calls            | HW-Storage-NetApp-Ontap-Share-Calls-SNMP-custom            | Check CIFS and NFS calls per second.                                                 |           |
+| Snapshot-Age-Global    | HW-Storage-NetApp-Ontap-Snapshot-Age-Global-SNMP-custom    | Check the age of volume snapshots |           |
+| Snapshot-Age-Name      | HW-Storage-NetApp-Ontap-Snapshot-Age-Name-SNMP-custom      | Check the age of volume snapshots                                                         |           |
 | Temperature            | HW-Storage-NetApp-Ontap-Temperature-SNMP-custom            | Check if hardware is currently operating outside of its recommended temperature range |           |
 | Volume-Options-Generic | HW-Storage-NetApp-Ontap-Volume-Options-Generic-SNMP-custom | Check options from volumes                                                            |           |
 
@@ -78,7 +78,7 @@ More information about discovering hosts automatically is available on the [dedi
 | Rule name                               | Description                             |
 |:----------------------------------------|:----------------------------------------|
 | Net-Netapp-Ontap-SNMP-Cluster-Node-Name | Discover cluster nodes and monitor them |
-| Net-Netapp-Ontap-SNMP-Disk-Name         | Discover disk broken and monitor them   |
+| Net-Netapp-Ontap-SNMP-Disk-Name         | Discover malfunctioning disks and monitor them   |
 | Net-Netapp-Ontap-SNMP-Plex-Name         | Discover plexes and monitor them        |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
@@ -292,6 +292,8 @@ If your netapp storage is in 'c-mode', following services won't work:
 - Share-Calls
 - Cache-Age
 - Ndmpsessions
+
+> The current plugin is not fully compatible with device versions higher than 8.2.5. You can vote for its improvement in this [TheWatch idea](https://thewatch.centreon.com/ideas/mise-a-jour-plugin-pack-netapp-ontap-snmp-3571).
 
 ### SNMP Configuration
 

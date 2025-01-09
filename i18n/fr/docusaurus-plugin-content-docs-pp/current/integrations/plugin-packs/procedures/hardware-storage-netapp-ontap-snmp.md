@@ -27,12 +27,12 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias         | Modèle de service                                 | Description                                                                |
 |:--------------|:--------------------------------------------------|:---------------------------------------------------------------------------|
-| Cache-Age     | HW-Storage-NetApp-Ontap-Cache-Age-SNMP-custom     | Contrôle en minutes le dernier bloc en lecture-seul dans le 'cache buffer' |
+| Cache-Age     | HW-Storage-NetApp-Ontap-Cache-Age-SNMP-custom     | Contrôle l'âge en minutes du dernier bloc en lecture seule dans le 'cache buffer' |
 | Cp-Statistics | HW-Storage-NetApp-Ontap-Cp-Statistics-SNMP-custom | Contrôle les métriques des 'consistency point'                             |
 | Cpu-Load      | HW-Storage-NetApp-Ontap-Cpu-Load-SNMP-custom      | Contrôle l'utilisation du CPU                                              |
 | Disk-Failed   | HW-Storage-NetApp-Ontap-Disk-Failed-SNMP-custom   | Contrôle le nombre de disques avec un problème de fonctionnement           |
-| Global-status | HW-Storage-NetApp-Ontap-Global-status-SNMP-custom | Contrôle le status global du NetApp                                        |
-| Nvram         | HW-Storage-NetApp-Ontap-Nvram-SNMP-custom         | Contrôle le status de la NVRAM                                             |
+| Global-status | HW-Storage-NetApp-Ontap-Global-status-SNMP-custom | Contrôle le statut global du NetApp                                        |
+| Nvram         | HW-Storage-NetApp-Ontap-Nvram-SNMP-custom         | Contrôle le statut de la NVRAM                                             |
 | Shelf         | HW-Storage-NetApp-Ontap-Shelf-SNMP-custom         | Contrôle le matériel de l'armoire                                          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-NetApp-Ontap-SNMP-custom** est utilisé.
@@ -46,15 +46,15 @@ Le connecteur apporte les modèles de service suivants
 | Cluster-Nodes          | HW-Storage-NetApp-Ontap-Cluster-Nodes-SNMP-custom          | Contrôle les noeuds du cluster                           |     X      |
 | Fan                    | HW-Storage-NetApp-Ontap-Fan-SNMP-custom                    | Contrôle l'état des ventilateurs                         |            |
 | File-System-Global     | HW-Storage-NetApp-Ontap-File-System-Global-SNMP-custom     | Contrôle l'utilisation des disques                       |     X      |
-| Ndmpsessions           | HW-Storage-NetApp-Ontap-Ndmpsessions-SNMP-custom           | Contrôle le nombre de sessions ndmp                      |            |
-| Partner-Status         | HW-Storage-NetApp-Ontap-Partner-Status-SNMP-custom         | Contrôle le status du failover                           |            |
+| Ndmpsessions           | HW-Storage-NetApp-Ontap-Ndmpsessions-SNMP-custom           | Contrôle le nombre de sessions NDMP                      |            |
+| Partner-Status         | HW-Storage-NetApp-Ontap-Partner-Status-SNMP-custom         | Contrôle le statut du failover                           |            |
 | Plexes                 | HW-Storage-NetApp-Ontap-Plexes-SNMP-custom                 | Contrôle les plex                                        |     X      |
-| Psu                    | HW-Storage-NetApp-Ontap-Psu-SNMP-custom                    | Contrôle le status de l'alimentation éléctrique          |            |
+| Psu                    | HW-Storage-NetApp-Ontap-Psu-SNMP-custom                    | Contrôle le statut de l'alimentation électrique          |            |
 | Quotas                 | HW-Storage-NetApp-Ontap-Quotas-SNMP-custom                 | Contrôle les quotas                                      |            |
-| Share-Calls            | HW-Storage-NetApp-Ontap-Share-Calls-SNMP-custom            | Contrôle le nombre d'appels 'CIFS' et 'NFS' par secondes |            |
+| Share-Calls            | HW-Storage-NetApp-Ontap-Share-Calls-SNMP-custom            | Contrôle le nombre d'appels 'CIFS' et 'NFS' par seconde |            |
 | Snapshot-Age-Global    | HW-Storage-NetApp-Ontap-Snapshot-Age-Global-SNMP-custom    | Contrôle l'ancienneté des snapshots de volumes           |            |
 | Snapshot-Age-Name      | HW-Storage-NetApp-Ontap-Snapshot-Age-Name-SNMP-custom      | Contrôle l'ancienneté des snapshots de volumes           |            |
-| Temperature            | HW-Storage-NetApp-Ontap-Temperature-SNMP-custom            | Contrôle la temperature du materiel                      |            |
+| Temperature            | HW-Storage-NetApp-Ontap-Temperature-SNMP-custom            | Contrôle la température du materiel                      |            |
 | Volume-Options-Generic | HW-Storage-NetApp-Ontap-Volume-Options-Generic-SNMP-custom | Contrôle des options des volumes                         |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -156,7 +156,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Fan" label="Fan">
 
-Pas de métrique pour ce service
+Pas de métrique pour ce service.
 
 </TabItem>
 <TabItem value="File-System-Global" label="File-System-Global">
@@ -191,12 +191,12 @@ Pas de métrique pour ce service
 </TabItem>
 <TabItem value="Nvram" label="Nvram">
 
-Pas de métrique pour ce service
+Pas de métrique pour ce service.
 
 </TabItem>
 <TabItem value="Partner-Status" label="Partner-Status">
 
-Pas de métrique pour ce service
+Pas de métrique pour ce service.
 
 </TabItem>
 <TabItem value="Plexes" label="Plexes">
@@ -293,6 +293,8 @@ Si votre système de stockage Netapp est en 'c-mode', les services suivants ne f
 - Share-Calls
 - Cache-Age
 - Ndmpsessions
+
+> Le plugin actuel n'est pas totalement compatible avec les versions d'équipement supérieures à 8.2.5. Vous pouvez voter pour son amélioration sur cette idée [The Watch](https://thewatch.centreon.com/ideas/mise-a-jour-plugin-pack-netapp-ontap-snmp-3571).
 
 ### Configuration SNMP
 
