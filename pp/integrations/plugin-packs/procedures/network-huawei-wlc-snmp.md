@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                       | Service Description                             |
 |:--------------|:---------------------------------------|:------------------------------------------------|
-| Cpu           | Net-Huawei-Wlc-Cpu-SNMP-custom         | Monitor the utilization rate of the CPU         |
+| Cpu           | Net-Huawei-Wlc-Cpu-SNMP-custom         | Monitor the CPU utilization rate         |
 | Hardware      | Net-Huawei-Wlc-Hardware-SNMP-custom    | Check the state of hardware components          |
-| Memory        | Net-Huawei-Wlc-Memory-SNMP-custom      | Check the rate of the utilization of memory     |
+| Memory        | Net-Huawei-Wlc-Memory-SNMP-custom      | Check the memory utilization rate     |
 | Uptime        | Net-Huawei-Wlc-Uptime-SNMP-custom      | Check uptime                                    |
 | Wlan-Global   | Net-Huawei-Wlc-Wlan-Global-SNMP-custom | Check the state of the wireless networks (WLAN) |
 

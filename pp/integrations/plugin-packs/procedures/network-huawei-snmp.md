@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                | Service Description                          |
 |:--------------|:--------------------------------|:---------------------------------------------|
-| Cpu           | Net-Huawei-Cpu-SNMP-custom      | Check the rate of the utilization of CPU.    |
+| Cpu           | Net-Huawei-Cpu-SNMP-custom      | Check the rate of CPU utilization.    |
 | Hardware      | Net-Huawei-Hardware-SNMP-custom | Check the state of hardware components.      |
-| Memory        | Net-Huawei-Memory-SNMP-custom   | Check the rate of the utilization of memory. |
+| Memory        | Net-Huawei-Memory-SNMP-custom   | Check the rate of memory utilization. |
 | Uptime        | Net-Huawei-Uptime-SNMP-custom   | Check uptime.                                |
 
 > The services listed above are created automatically when the **Net-Huawei-SNMP-custom** host template is used.
