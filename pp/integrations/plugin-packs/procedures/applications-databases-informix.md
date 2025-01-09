@@ -162,28 +162,31 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-You need to download "Informix Client Software Development Kit" on [IBM website](https://www.ibm.com/support/pages/informix-client-software-development-kit-client-sdk-and-informix-connect-system-requirements).
+You need to download the "Informix Client Software Development Kit" on the [IBM website](https://www.ibm.com/support/pages/informix-client-software-development-kit-client-sdk-and-informix-connect-system-requirements).
 
-Install with the following procedure:
-1. Copy archive on the poller
+Install the SDK with the following procedure:
+1. Copy the archive on the poller.
 2. Create an user informix
 
 ```
 useradd informix chmod 775 /home/informix
 ``` 
 
-3. Need to install Sun JRE (as explain in the IBM process).
-4. Install SDK (choose Typical Installation): 
+3. Install Sun JRE (as explained in the IBM procedure).
+4. Install the SDK (select**Typical Installation**): 
 
 ```
 ./installclientsdk -javahome /usr/java/jreXXXX/ ....
 ```
-Specify a directory or press Enter to accept the default directory. 
+
+5. Specify a directory or press **Enter** to accept the default directory. 
 Directory Name: `[/root/informix/sdkclient/] /home/informix/sdkclient` 
 
 ### Perl DBD Informix
 
-To compile DBD Informix, you need an access to an Informix Database, run:
+
+1. To compile Informix DBD, you need access to an Informix Database. Run:
+
 
 ```
 cd /usr/local/src

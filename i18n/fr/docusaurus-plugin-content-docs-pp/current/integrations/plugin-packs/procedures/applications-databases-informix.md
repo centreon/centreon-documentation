@@ -28,11 +28,11 @@ Le connecteur apporte les modèles de service suivants
 | Alias                | Modèle de service                           | Description                                                           |
 |:---------------------|:--------------------------------------------|:----------------------------------------------------------------------|
 | Archivelevel0-Global | App-DB-Informix-Archivelevel0-Global-custom | Contrôle la dernière exécution de la sauvegarde archive level0        |
-| Checkpoints          | App-DB-Informix-Checkpoints-custom          | Contrôle les métriques associés à aux checkpoints informix            |
+| Checkpoints          | App-DB-Informix-Checkpoints-custom          | Contrôle les métriques associées aux checkpoints Informix            |
 | Chunk-Down-Global    | App-DB-Informix-Chunk-Down-Global-custom    | Contrôle l'état des chunks                                            |
-| Connection           | App-DB-Informix-Connection-custom           | Contrôle la connexions au serveur Informix                            |
+| Connection           | App-DB-Informix-Connection-custom           | Contrôle la connexion au serveur Informix                            |
 | Global-Cache         | App-DB-Informix-Global-Cache-custom         | Contrôle les caches de lecture et écriture                            |
-| Lockoverflow         | App-DB-Informix-Lockoverflow-custom         | Contrôle le nombre de fois qu'Informix a dépassé le nombre de 'locks' |
+| Lockoverflow         | App-DB-Informix-Lockoverflow-custom         | Contrôle le nombre de fois qu'Informix a dépassé le nombre maximal de 'locks' |
 | Longtxs              | App-DB-Informix-Longtxs-custom              | Contrôle le nombre de transactions longues courantes                  |
 | Sessions             | App-DB-Informix-Sessions-custom             | Contrôle les sessions courantes                                       |
 
@@ -165,26 +165,27 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 Vous devez télécharger "Informix Client Software Development Kit" sur le [website IBM](https://www.ibm.com/support/pages/informix-client-software-development-kit-client-sdk-and-informix-connect-system-requirements).
 
-Installez avec la procédure suivante :
-1. Copiez l'archive sur le poller
-2. Créez un utilisateur informix
+Installez le SDK avec la procédure suivante :
+1. Copiez l'archive sur le collecteur.
+2. Créez un utilisateur **informix** :
 
 ```
 useradd informix chmod 775 /home/informix
 ``` 
 
-3. Il faut installer Sun JRE (comme expliqué dans la procédure IBM).
-4. Installez le SDK (choisissez l'installation Typical) : 
+3. Installez Sun JRE (comme expliqué dans la procédure IBM).
+4. Installez le SDK (choisissez l'installation **Typical**) : 
 
 ```
 ./installclientsdk -javahome /usr/java/jreXXXX/ ....
 ```
-Précisez le dossier ou appuyez sur Entrée pour accpeter le dossier par défaut. 
+
+Précisez le dossier ou appuyez sur **Entrée** pour accepter le dossier par défaut. 
 Nom du dossier : `[/root/informix/sdkclient/] /home/informix/sdkclient` 
 
 ### Perl DBD Informix
 
-Pour compiler Informix DBD, vous devez accéder à la Database Informix et exécutez les commandes suivantes:
+Pour compiler Informix DBD, vous devez accéder à la base de données Informix et exécuter les commandes suivantes :
 
 ```
 cd /usr/local/src
@@ -213,7 +214,7 @@ $ make
 $ make install
 ```
 
-2. Créez le fichier `/etc/ld.so.conf.d/informix.conf` 
+2. Créez le fichier **/etc/ld.so.conf.d/informix.conf**.
 3. Faites le lien avec la bibliothèque Informix:
 
 ```
@@ -221,15 +222,15 @@ $ touch /etc/ld.so.conf.d/informix.conf
 vi /etc/ld.so.conf.d/informix.conf
 ```
 
-Ensuite faire :
+4. Exécutez la commande suivante :
 
 `/home/informix/sdkclient/lib/esql/ /home/informix/sdkclient/lib/`
 
-Ensuite :
+5. Exécutez ensuite cette commande :
 
 `/sbin/ldconfig`
 
-### A propos du compte utilisateur
+### À propos du compte utilisateur
 
 Le moyen le plus sûr de récupérer des informations du serveur Oracle est de créer un utilisateur dédié à Centreon.
 Ce compte utilisateur doit avoir les droits de lecture sur la base de données `sysmaster`.
@@ -348,7 +349,7 @@ yum install centreon-plugin-Applications-Databases-Informix
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DBSPACENAME  | Set the dbspace (empty means 'check all dbspaces')                                                                                               |                   |             |
+| DBSPACENAME  | Define which dbspace to check (empty means 'check all dbspaces')                                                                                               |                   |             |
 | WARNING      | Warning threshold in seconds since last execution                                                                                                |                   |             |
 | CRITICAL     | Critical threshold in seconds since last execution                                                                                               |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
@@ -358,7 +359,7 @@ yum install centreon-plugin-Applications-Databases-Informix
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER       | Set the dbspace (empty means 'check all dbspaces')                                                                                               | .*                |             |
+| FILTER       | Define which dbspace to check (empty means 'check all dbspaces')                                                                                               | .*                |             |
 | WARNING      | Warning threshold in seconds since last execution                                                                                                |                   |             |
 | CRITICAL     | Critical threshold in seconds since last execution                                                                                               |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
@@ -385,7 +386,7 @@ yum install centreon-plugin-Applications-Databases-Informix
 | Macro        | Description                                                                                                                                      | Valeur par défaut  | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
 | STATE        | State to check (can be: is\_offline, is\_recovering, is\_blobchunk, is\_inconsistent)                                                            | is\_offline        |             |
-| FILTER       | Set the dbspace (empty means 'check all dbspaces')                                                                                               | .*                 |             |
+| FILTER       | Define which dbspace to check (empty means 'check all dbspaces')                                                                                               | .*                 |             |
 | GLOBALOKMSG  | Display global message when you have no errors                                                                                                   | All chunks are ok. |             |
 | OKMSG        | Display message when chunk is ok                                                                                                                 | Chunk %s is ok     |             |
 | ERRORMSG     | Display message when you have an error                                                                                                           | Chunk %s is down   |             |
@@ -407,7 +408,7 @@ yum install centreon-plugin-Applications-Databases-Informix
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DBSPACENAME  | Set the dbspace (empty means 'check all dbspaces')                                                                                               |                   |             |
+| DBSPACENAME  | Define which dbspace to check (empty means 'check all dbspaces')                                                                                               |                   |             |
 | WARNING      | Warning threshold in percent                                                                                                                     | 80                |             |
 | CRITICAL     | Critical threshold in percent                                                                                                                    | 90                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
@@ -417,7 +418,7 @@ yum install centreon-plugin-Applications-Databases-Informix
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER       | Set the dbspace (empty means 'check all dbspaces')                                                                                               | .*                |             |
+| FILTER       | Define which dbspace to check (empty means 'check all dbspaces')                                                                                               | .*                |             |
 | WARNING      | Warning threshold in percent                                                                                                                     | 80                |             |
 | CRITICAL     | Critical threshold in percent                                                                                                                    | 90                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
@@ -484,7 +485,7 @@ yum install centreon-plugin-Applications-Databases-Informix
 
 | Macro            | Description                                                                                                                                      | Valeur par défaut          | Obligatoire |
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
-| DBNAME           | Set the database (empty means 'check all databases')                                                                                             |                            |             |
+| DBNAME           | Define which database to check (empty means 'check all databases')                                                                                             |                            |             |
 | WARNINGDEADLKS   | Warning threshold 'deadlks' in absolute                                                                                                          |                            |             |
 | CRITICALDEADLKS  | Critical threshold 'deadlks' in absolute                                                                                                         |                            |             |
 | WARNINGLKTOUTS   | Warning threshold 'lktouts' in absolute                                                                                                          |                            |             |
@@ -500,7 +501,7 @@ yum install centreon-plugin-Applications-Databases-Informix
 
 | Macro            | Description                                                                                                                                      | Valeur par défaut          | Obligatoire |
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
-| DBFILTER         | Set the database (empty means 'check all databases')                                                                                             | .*                         |             |
+| DBFILTER         | Define which database to check (empty means 'check all databases')                                                                                            | .*                         |             |
 | WARNINGDEADLKS   | Warning threshold 'deadlks' in absolute                                                                                                          |                            |             |
 | CRITICALDEADLKS  | Critical threshold 'deadlks' in absolute                                                                                                         |                            |             |
 | WARNINGLKTOUTS   | Warning threshold 'lktouts' in absolute                                                                                                          |                            |             |
