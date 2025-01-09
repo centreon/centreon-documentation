@@ -5,10 +5,6 @@ title: Lenovo XCC SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Lenovo développe, fabrique et vend du matériel et des logiciels informatiques.
-
 ## Dépendances du Connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Lenovo XCC SNMP** 
