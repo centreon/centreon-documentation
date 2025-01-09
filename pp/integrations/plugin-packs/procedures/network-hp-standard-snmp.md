@@ -34,8 +34,8 @@ The connector brings the following service templates (sorted by the host templat
 |:---------------------------|:-------------------------------------------------------|:-----------------------------------------------------------------------|:---------:|
 | Cast-Generic-Name          | Net-HP-Standard-Cast-Generic-Name-SNMP-custom          | Check packets casting type of a network interface                      |           |
 | Cast-Global                | Net-HP-Standard-Cast-Global-SNMP-custom                | Check packets casting type of multiple network interfaces              |     X     |
-| Packet-Errors-Generic-Name | Net-HP-Standard-Packet-Errors-Generic-Name-SNMP-custom | Check packets on errors/discards of a network interface                |           |
-| Packet-Errors-Global       | Net-HP-Standard-Packet-Errors-Global-SNMP-custom       | Check packets on errors/discards of multiple network interfaces        |     X     |
+| Packet-Errors-Generic-Name | Net-HP-Standard-Packet-Errors-Generic-Name-SNMP-custom | Check packets in error/discarded from a network interface                |           |
+| Packet-Errors-Global       | Net-HP-Standard-Packet-Errors-Global-SNMP-custom       | Check packets in error/discarded from multiple network interfaces        |     X     |
 | Spanning-Tree              | Net-HP-Standard-SpanningTree-SNMP-custom               | Monitor the status of the Spanning Tree Protocol on network interfaces |     X     |
 | Traffic-Generic-Id         | Net-HP-Standard-Traffic-Generic-Id-SNMP-custom         | Check traffic of a network interface                                   |           |
 | Traffic-Generic-Name       | Net-HP-Standard-Traffic-Generic-Name-SNMP-custom       | Check traffic of a network interface                                   |           |
