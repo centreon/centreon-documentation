@@ -115,7 +115,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Un identifiant, un mot de passe et une URL de l'API sont requis pour surveiller EMC Unisphere via REST API.
+Un identifiant et un mot de passe API sont requis pour surveiller EMC Unisphere via REST API.
 
 ## Installer le connecteur de supervision
 
