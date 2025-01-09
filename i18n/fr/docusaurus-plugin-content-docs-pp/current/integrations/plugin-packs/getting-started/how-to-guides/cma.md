@@ -301,7 +301,7 @@ Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. [Téléchargez l'installer de l'agent] (https://github.com/centreon/centreon-collect/releases/download/centreon-collect-24.04.6/centreon-monitoring-agent-24.10.0.exe) sur tous les serveurs que vous voulez superviser.
+1. [Téléchargez l'installer de l'agent](https://github.com/centreon/centreon-collect/releases/tag/centreon-collect-24.10.3) sur tous les serveurs que vous voulez superviser.
 
 2. Lancez l'installer (durant la configuration, vous pourrez cliquer sur les (i) pour avoir de l'aide).
 
