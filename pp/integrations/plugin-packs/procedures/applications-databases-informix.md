@@ -166,7 +166,7 @@ You need to download the "Informix Client Software Development Kit" on the [IBM 
 
 Install the SDK with the following procedure:
 1. Copy the archive on the poller.
-2. Create an user informix
+2. Create an **informix** user:
 
 ```
 useradd informix chmod 775 /home/informix
