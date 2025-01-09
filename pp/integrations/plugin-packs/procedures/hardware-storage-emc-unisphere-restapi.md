@@ -113,7 +113,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-A username, password, and API endpoint are needed to monitor EMC Unisphere via REST API.
+An API username and password are required to monitor EMC Unisphere via REST API.
 
 ## Installing the monitoring connector
 
