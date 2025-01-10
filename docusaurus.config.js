@@ -154,14 +154,14 @@ const config = {
             label: "cloud",
             path: "cloud",
           },
-          {
-            label: "onPrem",
-            path: "i18n",
-          },
-          {
-            label: "onPrem",
-            path: "versioned_docs",
-          },
+          // {
+          //   label: "onPrem",
+          //   path: "i18n",
+          // },
+          // {
+          //   label: "onPrem",
+          //   path: "versioned_docs",
+          // },
         ],
         language: ["en", "fr"],
       }),
