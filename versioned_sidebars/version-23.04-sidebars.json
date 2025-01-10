@@ -553,10 +553,6 @@
             {
               "type": "doc",
               "id": "alerts-notifications/notif-flapping"
-            },
-            {
-              "type": "doc",
-              "id": "alerts-notifications/notif-advanced"
             }
           ]
         },
