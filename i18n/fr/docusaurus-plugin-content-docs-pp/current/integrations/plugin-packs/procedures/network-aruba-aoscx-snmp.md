@@ -41,7 +41,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias      | Modèle de service                      | Description                   | Découverte |
 |:-----------|:---------------------------------------|:------------------------------|:----------:|
 | Interfaces | Net-Aruba-Aoscx-Interfaces-SNMP-custom | Contrôle les interfaces       |     X      |
-| Stack      | Net-Aruba-Aoscx-Stack-SNMP-custom      | Contrôle les membres du stack |            |
+| Stack      | Net-Aruba-Aoscx-Stack-SNMP-custom      | Contrôle les membres de la stack |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
