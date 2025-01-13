@@ -103,7 +103,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 > Applies to the following service templates: Disk-Generic-Id, Disk-Generic-Name, Disk-Global
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Disk-IO" label="Disk-IO">
