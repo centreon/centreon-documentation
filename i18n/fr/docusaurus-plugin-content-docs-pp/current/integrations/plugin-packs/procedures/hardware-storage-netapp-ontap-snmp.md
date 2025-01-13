@@ -25,38 +25,38 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-NetApp-Ontap-SNMP-custom" label="HW-Storage-NetApp-Ontap-SNMP-custom">
 
-| Alias         | Modèle de service                                 | Description                                                                |
-|:--------------|:--------------------------------------------------|:---------------------------------------------------------------------------|
-| Cache-Age     | HW-Storage-NetApp-Ontap-Cache-Age-SNMP-custom     | Contrôle en minutes le dernier bloc en lecture-seul dans le 'cache buffer' |
-| Cp-Statistics | HW-Storage-NetApp-Ontap-Cp-Statistics-SNMP-custom | Contrôle les métriques des 'consistency point'                             |
-| Cpu-Load      | HW-Storage-NetApp-Ontap-Cpu-Load-SNMP-custom      | Contrôle l'utilisation du CPU                                              |
-| Disk-Failed   | HW-Storage-NetApp-Ontap-Disk-Failed-SNMP-custom   | Contrôle le nombre de disques en avec un problème de fonctionnement        |
-| Global-status | HW-Storage-NetApp-Ontap-Global-status-SNMP-custom | Contrôle le status global du NetApp                                        |
-| Nvram         | HW-Storage-NetApp-Ontap-Nvram-SNMP-custom         | Contrôle le status de la NVRAM                                             |
-| Shelf         | HW-Storage-NetApp-Ontap-Shelf-SNMP-custom         | Contrôle le matériel de l'armoire                                          |
-| Uptime        | HW-Storage-NetApp-Ontap-Uptime-SNMP-custom        | Durée depuis laquelle le serveur tourne sans interruption                  |
+| Alias         | Modèle de service                                 | Description                                                                       |
+|:--------------|:--------------------------------------------------|:----------------------------------------------------------------------------------|
+| Cache-Age     | HW-Storage-NetApp-Ontap-Cache-Age-SNMP-custom     | Contrôle l'âge en minutes du dernier bloc en lecture seule dans le 'cache buffer' |
+| Cp-Statistics | HW-Storage-NetApp-Ontap-Cp-Statistics-SNMP-custom | Contrôle les métriques des 'consistency point'                                    |
+| Cpu-Load      | HW-Storage-NetApp-Ontap-Cpu-Load-SNMP-custom      | Contrôle l'utilisation du CPU                                                     |
+| Disk-Failed   | HW-Storage-NetApp-Ontap-Disk-Failed-SNMP-custom   | Contrôle le nombre de disques avec un problème de fonctionnement                  |
+| Global-status | HW-Storage-NetApp-Ontap-Global-status-SNMP-custom | Contrôle le statut global du NetApp                                               |
+| Nvram         | HW-Storage-NetApp-Ontap-Nvram-SNMP-custom         | Contrôle le statut de la NVRAM                                                    |
+| Shelf         | HW-Storage-NetApp-Ontap-Shelf-SNMP-custom         | Contrôle le matériel de l'armoire                                                 |
+| Uptime        | HW-Storage-NetApp-Ontap-Uptime-SNMP-custom        | Durée depuis laquelle le serveur tourne sans interruption                         |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-NetApp-Ontap-SNMP-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                  | Modèle de service                                          | Description                                              | Découverte |
-|:-----------------------|:-----------------------------------------------------------|:---------------------------------------------------------|:----------:|
-| Aggregates             | HW-Storage-NetApp-Ontap-Aggregates-SNMP-custom             | Contrôle l'état d'un ou plusieurs aggrégats              |            |
-| Cluster-Nodes          | HW-Storage-NetApp-Ontap-Cluster-Nodes-SNMP-custom          | Contrôle les noeuds du cluster                           |     X      |
-| Fan                    | HW-Storage-NetApp-Ontap-Fan-SNMP-custom                    | Contrôle l'état des ventilateurs                         |            |
-| File-System-Global     | HW-Storage-NetApp-Ontap-File-System-Global-SNMP-custom     | Contrôle l'utilisation des disques                       |     X      |
-| Ndmpsessions           | HW-Storage-NetApp-Ontap-Ndmpsessions-SNMP-custom           | Contrôle le nombre de sessions ndmp                      |            |
-| Partner-Status         | HW-Storage-NetApp-Ontap-Partner-Status-SNMP-custom         | Contrôle le statut du failover                           |            |
-| Plexes                 | HW-Storage-NetApp-Ontap-Plexes-SNMP-custom                 | Contrôle les plex                                        |     X      |
-| Psu                    | HW-Storage-NetApp-Ontap-Psu-SNMP-custom                    | Contrôle le statut de l'alimentation électrique          |            |
-| Quotas                 | HW-Storage-NetApp-Ontap-Quotas-SNMP-custom                 | Contrôle les quotas                                      |            |
-| Share-Calls            | HW-Storage-NetApp-Ontap-Share-Calls-SNMP-custom            | Contrôle le nombre d'appels 'CIFS' et 'NFS' par secondes |            |
-| Snapshot-Age-Global    | HW-Storage-NetApp-Ontap-Snapshot-Age-Global-SNMP-custom    | Contrôle l'ancienneté des snapshots de volumes           |            |
-| Snapshot-Age-Name      | HW-Storage-NetApp-Ontap-Snapshot-Age-Name-SNMP-custom      | Contrôle l'ancienneté des snapshots de volumes           |            |
-| Temperature            | HW-Storage-NetApp-Ontap-Temperature-SNMP-custom            | Contrôle la temperature du materiel                      |            |
-| Volume-Options-Generic | HW-Storage-NetApp-Ontap-Volume-Options-Generic-SNMP-custom | Contrôle des options des volumes                         |            |
+| Alias                  | Modèle de service                                          | Description                                             | Découverte |
+|:-----------------------|:-----------------------------------------------------------|:--------------------------------------------------------|:----------:|
+| Aggregates             | HW-Storage-NetApp-Ontap-Aggregates-SNMP-custom             | Contrôle l'état d'un ou plusieurs aggrégats             |            |
+| Cluster-Nodes          | HW-Storage-NetApp-Ontap-Cluster-Nodes-SNMP-custom          | Contrôle les noeuds du cluster                          |     X      |
+| Fan                    | HW-Storage-NetApp-Ontap-Fan-SNMP-custom                    | Contrôle l'état des ventilateurs                        |            |
+| File-System-Global     | HW-Storage-NetApp-Ontap-File-System-Global-SNMP-custom     | Contrôle l'utilisation des disques                      |     X      |
+| Ndmpsessions           | HW-Storage-NetApp-Ontap-Ndmpsessions-SNMP-custom           | Contrôle le nombre de sessions NDMP                     |            |
+| Partner-Status         | HW-Storage-NetApp-Ontap-Partner-Status-SNMP-custom         | Contrôle le statut du failover                          |            |
+| Plexes                 | HW-Storage-NetApp-Ontap-Plexes-SNMP-custom                 | Contrôle les plex                                       |     X      |
+| Psu                    | HW-Storage-NetApp-Ontap-Psu-SNMP-custom                    | Contrôle le statut de l'alimentation électrique         |            |
+| Quotas                 | HW-Storage-NetApp-Ontap-Quotas-SNMP-custom                 | Contrôle les quotas                                     |            |
+| Share-Calls            | HW-Storage-NetApp-Ontap-Share-Calls-SNMP-custom            | Contrôle le nombre d'appels 'CIFS' et 'NFS' par seconde |            |
+| Snapshot-Age-Global    | HW-Storage-NetApp-Ontap-Snapshot-Age-Global-SNMP-custom    | Contrôle l'ancienneté des snapshots de volumes          |            |
+| Snapshot-Age-Name      | HW-Storage-NetApp-Ontap-Snapshot-Age-Name-SNMP-custom      | Contrôle l'ancienneté des snapshots de volumes          |            |
+| Temperature            | HW-Storage-NetApp-Ontap-Temperature-SNMP-custom            | Contrôle la température du materiel                     |            |
+| Volume-Options-Generic | HW-Storage-NetApp-Ontap-Volume-Options-Generic-SNMP-custom | Contrôle des options des volumes                        |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
