@@ -73,7 +73,7 @@ performances & d'isolation.
 
 #### Prérequis logiciels
 
-Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
+Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiques-des-serveurs).
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -262,8 +262,8 @@ vgdisplay vg_data | grep -i free*
 
 - OS : voir la compatibilité [ici](../installation/prerequisites.md#système-dexploitation)
 - SGBD : voir la compatibilité [ici](../installation/prerequisites.md#sgbd)
-- Firewalld : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Configurer-ou-désactiver-le-pare-feu))
-- SELinux : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Désactiver-SELinux))
+- Firewalld : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#configurer-ou-désactiver-le-pare-feu))
+- SELinux : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#désactiver-selinux))
 
 > Assurez-vous que le fuseau horaire du serveur de reporting est le même que celui du serveur central, sinon les publications de rapports échoueront (lien vers le téléchargement manquant).
 > Le même fuseau horaire doit être affiché avec la commande `timedatectl`.
