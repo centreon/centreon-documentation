@@ -71,7 +71,7 @@ Idéalement, vous devez évaluer les types de gestionnaires d'événements que v
 assez de permissions à l'utilisateur Centreon Engine pour exécuter les commandes système nécessaires. Vous voudrez
 peut-être essayer d'utiliser sudo pour ce faire.
 
-Suivre [cette procédure pour créer une commande](../basic-objects/commands.md#ajouter-une-commande).
+Suivre [cette procédure pour créer une commande](./basic-objects/commands.md#ajouter-une-commande).
 
 > Utilisez ** Misc ** pour le type de commande pour classer vos commandes.
 
