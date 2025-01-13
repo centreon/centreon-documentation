@@ -39,15 +39,15 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                           | Description                                                                                                                                      | Découverte |
 |:---------------------|:--------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Disk-Generic-Id      | OS-FreeBSD-Disk-Generic-Id-SNMP-custom      | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le nom du disque comme "label"                             |            |
-| Disk-Generic-Name    | OS-FreeBSD-Disk-Generic-Name-SNMP-custom    | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le nom du disque comme "label"                             |            |
-| Disk-Global          | OS-FreeBSD-Disk-Global-SNMP-custom          | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le nom du disque comme "label"                           | X          |
+| Disk-Generic-Id      | OS-FreeBSD-Disk-Generic-Id-SNMP-custom      | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le nom du disque                                           |            |
+| Disk-Generic-Name    | OS-FreeBSD-Disk-Generic-Name-SNMP-custom    | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le nom du disque                                           |            |
+| Disk-Global          | OS-FreeBSD-Disk-Global-SNMP-custom          | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le nom du disque                                         | X          |
 | Disk-IO              | OS-FreeBSD-Disk-IO-SNMP-custom              | Contrôle les accès disque du disque. Pour chaque contrôle, le nom du disque apparaîtra                                                           |            |
 | Inodes-Global        | OS-Freebsd-Inodes-Global-SNMP-custom        | Contrôle l'utilisation des inodes                                                                                                                |            |
 | Process-Generic      | OS-FreeBSD-Process-Generic-SNMP-custom      | Contrôle permettant de vérifier le fonctionnement d'un processus/service Unix                                                                    |            |
-| Traffic-Generic-Id   | OS-FreeBSD-Traffic-Generic-Id-SNMP-custom   | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface as a "label" raccourci décrivant l'interface |            |
-| Traffic-Generic-Name | OS-FreeBSD-Traffic-Generic-Name-SNMP-custom | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface as a "label" raccourci décrivant l'interface |            |
-| Traffic-Global       | OS-FreeBSD-Traffic-Global-SNMP-custom       | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface as a "label" raccourci décrivant l'interface | X          |
+| Traffic-Generic-Id   | OS-FreeBSD-Traffic-Generic-Id-SNMP-custom   | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface                                              |            |
+| Traffic-Generic-Name | OS-FreeBSD-Traffic-Generic-Name-SNMP-custom | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface                                              |            |
+| Traffic-Global       | OS-FreeBSD-Traffic-Global-SNMP-custom       | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface                                              | X          |
 | Uptime               | OS-FreeBSD-Uptime-SNMP-custom               | Contrôle la durée depuis laquelle le serveur tourne sans interruption                                                                            |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -101,7 +101,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | *disk_name*#storage.space.usage.bytes | B     |
 | *disk_name*#storage.access.count      | count |
 
-> Applies to the following service templates: Disk-Generic-Id, Disk-Generic-Name, Disk-Global
+> Concerne les modèles de service suivants : Disk-Generic-Id, Disk-Generic-Name, Disk-Global
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 

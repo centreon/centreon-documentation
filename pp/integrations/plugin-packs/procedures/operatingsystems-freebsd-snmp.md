@@ -38,15 +38,15 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                            | Service Description                                                                                                            | Discovery  |
 |:---------------------|:--------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Disk-Generic-Id      | OS-FreeBSD-Disk-Generic-Id-SNMP-custom      | Check the rate of free space on the disk. For each check the disk mount point will appear as a "label"                         |            |
-| Disk-Generic-Name    | OS-FreeBSD-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on the disk. For each check the disks mount point will appear as a "label"                        |            |
-| Disk-Global          | OS-FreeBSD-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each check the disks mount point will appear as a "label"                           | X          |
-| Disk-IO              | OS-FreeBSD-Disk-IO-SNMP-custom              | Check disk access. For each check the name of the disk will appear as a "label"                                                |            |
+| Disk-Generic-Id      | OS-FreeBSD-Disk-Generic-Id-SNMP-custom      | Check the rate of free space on the disk. For each check the disk mount point will appear                                      |            |
+| Disk-Generic-Name    | OS-FreeBSD-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on the disk. For each check the disks mount point will appear                                     |            |
+| Disk-Global          | OS-FreeBSD-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each check the disks mount point will appear                                        | X          |
+| Disk-IO              | OS-FreeBSD-Disk-IO-SNMP-custom              | Check disk access. For each check the name of the disk will appear                                                             |            |
 | Inodes-Global        | OS-Freebsd-Inodes-Global-SNMP-custom        | Check Inodes space usage on partitions                                                                                         |            |
 | Process-Generic      | OS-FreeBSD-Process-Generic-SNMP-custom      | Check to verify the operation of a Unix process/service                                                                        |            |
-| Traffic-Generic-Id   | OS-FreeBSD-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of interfaces. For each checks the name of the interface will appear as a "label" describing the interface |            |
-| Traffic-Generic-Name | OS-FreeBSD-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of interfaces. For each checks the name of the interface will appear as a "label" describing the interface |            |
-| Traffic-Global       | OS-FreeBSD-Traffic-Global-SNMP-custom       | Check the bandwidth of interfaces. For each checks the name of the interface will appear as a "label" describing the interface | X          |
+| Traffic-Generic-Id   | OS-FreeBSD-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of interfaces. For each checks the name of the interface will appear                                       |            |
+| Traffic-Generic-Name | OS-FreeBSD-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of interfaces. For each checks the name of the interface will appear                                       |            |
+| Traffic-Global       | OS-FreeBSD-Traffic-Global-SNMP-custom       | Check the bandwidth of interfaces. For each checks the name of the interface will appear                                       | X          |
 | Uptime               | OS-FreeBSD-Uptime-SNMP-custom               | Check the time since the server has been working and available                                                                 |            |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
