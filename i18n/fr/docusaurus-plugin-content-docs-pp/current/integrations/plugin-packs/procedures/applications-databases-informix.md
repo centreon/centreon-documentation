@@ -200,7 +200,7 @@ export DBD_INFORMIX_USERNAME=root
 export DBD_INFORMIX_PASSWORD=xxxx # export DBD_INFORMIX_DATABASE=xxxx
 ```
 
-Remplissez Informix Instance dans le fichier `/home/informix/sdkclient/etc/sqlhosts` :
+Renseignez une valeur pour **Informix Instance** dans le fichier `/home/informix/sdkclient/etc/sqlhosts` :
 
 ```
 INSTANCE onsoctcp IP PORT
