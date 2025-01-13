@@ -28,7 +28,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cpu           | OS-FreeBSD-Cpu-SNMP-custom    | Check the rate of CPU utilization for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
 | Load          | OS-FreeBSD-Load-SNMP-custom   | Check the server load average                                                                                                                      |
-| Memory        | OS-FreeBSD-Memory-SNMP-custom | Check the memory usage (RAM)                                                                                                                       |
+| Memory        | OS-FreeBSD-Memory-SNMP-custom | Check memory usage (RAM)                                                                                                                       |
 | Swap          | OS-FreeBSD-Swap-SNMP-custom   | Check the virtual memory usage                                                                                                                     |
 
 > The services listed above are created automatically when the **OS-FreeBSD-SNMP-custom** host template is used.
