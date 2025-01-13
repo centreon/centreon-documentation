@@ -39,9 +39,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                       |
-|:----------------|:----------------------------------|
-| IP-Label Ekara  | Discover IP-Label Ekara scenarios |
+| Nom de la règle | Description                           |
+|:----------------|:--------------------------------------|
+| IP-Label Ekara  | Découvre les scénarios IP-Label Ekara |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -79,7 +79,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-* Un compte de service disposant des droits en lecture est requis pour l'accès à l'API Rest Ekara.
+* Un compte de service disposant de droits en lecture seule est requis pour l'accès à l'API Rest Ekara.
 * Le collecteur Centreon en charge de la supervision de ces ressources doit être en mesure de pouvoir joindre l'API Ekara sur Internet sur le port TCP/443.
 
 ## Installer le connecteur de supervision
@@ -254,8 +254,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::monitoring::iplabel::ekara::restapi::plugin \
 	--mode=scenarios \
 	--hostname='api.ekara.ip-label.net' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='username' \
+	--api-password='veryLongPassword' \
 	--port='443' \
 	--proto='https' \
 	--proxyurl=''  \

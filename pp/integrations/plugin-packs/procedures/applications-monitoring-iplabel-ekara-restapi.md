@@ -78,8 +78,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-* A valid user account (username/password) with RO rights is required to authenticate against the Ekara Rest API
-* The Ekara API must be reachable on port TCP/443 from the Centreon Poller
+* A valid user account (username/password) with read-only rights is required to authenticate against the Ekara Rest API.
+* The Ekara API must be reachable on port TCP/443 from the Centreon poller.
 
 ## Installing the monitoring connector
 
@@ -253,8 +253,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=apps::monitoring::iplabel::ekara::restapi::plugin \
 	--mode=scenarios \
 	--hostname='api.ekara.ip-label.net' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='username' \
+	--api-password='veryLongPassword' \
 	--port='443' \
 	--proto='https' \
 	--proxyurl=''  \
