@@ -40,7 +40,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias      | Modèle de service                             | Description                                                                                                               |
 |:-----------|:----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|
 | Interfaces | HW-Telephony-Avaya-Aes-Interfaces-SNMP-custom | Contrôle les interfaces                                                                                                   |
-| Storage    | HW-Telephony-Avaya-Aes-Storage-SNMP-custom    | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques ( |
+| Storage    | HW-Telephony-Avaya-Aes-Storage-SNMP-custom    | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 

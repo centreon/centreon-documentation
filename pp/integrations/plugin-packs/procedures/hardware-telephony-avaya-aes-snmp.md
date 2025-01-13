@@ -28,7 +28,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:--------------------------------------------|:--------------------------------------------------|
 | Cpu           | HW-Telephony-Avaya-Aes-Cpu-SNMP-custom      | Check CPU usage                                   |
 | Load          | HW-Telephony-Avaya-Aes-Load-SNMP-custom     | Check the server load average                     |
-| Memory        | HW-Telephony-Avaya-Aes-Memory-SNMP-custom   | Check the rate of the utilization of memory (RAM) |
+| Memory        | HW-Telephony-Avaya-Aes-Memory-SNMP-custom   | Check the rate of memory (RAM) utilization |
 | Services      | HW-Telephony-Avaya-Aes-Services-SNMP-custom | Check services                                    |
 
 > The services listed above are created automatically when the **HW-Telephony-Avaya-Aes-SNMP-custom** host template is used.
@@ -39,7 +39,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                              | Service Description                                                                           |
 |:--------------|:----------------------------------------------|:----------------------------------------------------------------------------------------------|
 | Interfaces    | HW-Telephony-Avaya-Aes-Interfaces-SNMP-custom | Check interfaces                                                                              |
-| Storage       | HW-Telephony-Avaya-Aes-Storage-SNMP-custom    | Check the rate of free space on disks. For each checks the mount point of disks will appear ( |
+| Storage       | HW-Telephony-Avaya-Aes-Storage-SNMP-custom    | Check the rate of free space on disks. For each check the mount point of the disks will appear |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
