@@ -533,7 +533,7 @@ Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutan
   systemctl restart cbd centengine gorgoned
   ```
 
-Ajoutez l'utilisateur apache au groupe centreon-broker et vice versa.
+Ajoutez l'utilisateur **apache** au groupe **centreon-broker** et vice versa.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
