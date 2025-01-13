@@ -90,7 +90,7 @@ Ce script :
 <Tabs groupId="sync">
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
-Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle clé publiée le 14 octobre 2021](#list-of-keys) :
+Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle clé publiée le 14 octobre 2021](#liste-des-clés) :
 
 <Tabs groupId="sync">
 <TabItem value="Nouvelle installation" label="Nouvelle installation">
