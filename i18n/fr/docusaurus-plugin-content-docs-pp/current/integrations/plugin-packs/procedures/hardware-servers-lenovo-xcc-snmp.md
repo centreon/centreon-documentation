@@ -222,7 +222,60 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: 
+OK: All 44 components are ok [1/1 cpu, 2/2 disk, 12/12 fans, 4/4 health, 8/8 memory, 2/2 psu, 1/1 raidvolume, 10/10 temperatures, 4/4 voltages]. | 'temp_Ambient Temp'=18C;0:43;0:47;; 'temp_CPU 1 Temp'=30C;0:100;0:101;; 'temp_DIMM 2 Temp'=21C;0:85;0:87;; 'temp_DIMM 4 Temp'=22C;0:85;0:87;; 'temp_DIMM 5 Temp'=22C;0:85;0:87;; 'temp_DIMM 6 Temp'=22C;0:85;0:87;; 'temp_DIMM 7 Temp'=21C;0:85;0:87;; 'temp_DIMM 8 Temp'=21C;0:85;0:87;; 'temp_DIMM 9 Temp'=21C;0:85;0:87;; 'temp_DIMM 11 Temp'=21C;0:85;0:87;; 'volt_CMOS Battery'=3.1070;2.3920:;2.2490:;; 'volt_SysBrd 12V'=12.040;;10.808:13.216;; 'volt_SysBrd 5V'=4.9374;;4.4928:5.4990;; 'volt_SysBrd 3.3V'=3.3015;;2.9760:3.6270;; 'fan_Fan 1 Front Tach'=26%;;;0;100 'fan_Fan 2 Front Tach'=26%;;;0;100 'fan_Fan 3 Front Tach'=26%;;;0;100 'fan_Fan 4 Front Tach'=26%;;;0;100 'fan_Fan 5 Front Tach'=26%;;;0;100 'fan_Fan 6 Front Tach'=26%;;;0;100 'fan_Fan 1 Rear Tach'=27%;;;0;100 'fan_Fan 2 Rear Tach'=27%;;;0;100 'fan_Fan 3 Rear Tach'=27%;;;0;100 'fan_Fan 4 Rear Tach'=27%;;;0;100 'fan_Fan 5 Rear Tach'=27%;;;0;100 'fan_Fan 6 Rear Tach'=27%;;;0;100 'count_cpu'=1;;;; 'count_disk'=2;;;; 'count_fan'=12;;;; 'count_health'=4;;;; 'count_memory'=8;;;; 'count_psu'=2;;;; 'count_raidvolume'=1;;;; 'count_temperature'=10;;;; 'count_voltage'=4;;;;
+Checking temperatures
+temperature 'Ambient Temp' status is Normal [instance: 1][value: 18 C].
+temperature 'CPU 1 Temp' status is Normal [instance: 2][value: 30 C].
+temperature 'DIMM 2 Temp' status is Normal [instance: 3][value: 21 C].
+temperature 'DIMM 4 Temp' status is Normal [instance: 4][value: 22 C].
+temperature 'DIMM 5 Temp' status is Normal [instance: 5][value: 22 C].
+temperature 'DIMM 6 Temp' status is Normal [instance: 6][value: 22 C].
+temperature 'DIMM 7 Temp' status is Normal [instance: 7][value: 21 C].
+temperature 'DIMM 8 Temp' status is Normal [instance: 8][value: 21 C].
+temperature 'DIMM 9 Temp' status is Normal [instance: 9][value: 21 C].
+temperature 'DIMM 11 Temp' status is Normal [instance: 10][value: 21 C].
+Checking voltages
+voltage 'CMOS Battery' status is Normal [instance: 1][value: 3.1070].
+voltage 'SysBrd 12V' status is Normal [instance: 2][value: 12.040].
+voltage 'SysBrd 5V' status is Normal [instance: 3][value: 4.9374].
+voltage 'SysBrd 3.3V' status is Normal [instance: 4][value: 3.3015].
+Checking fans
+Fan 'Fan 1 Front Tach' status is 'Normal' [instance = 1][value: 26% of maximum]
+Fan 'Fan 2 Front Tach' status is 'Normal' [instance = 2][value: 26% of maximum]
+Fan 'Fan 3 Front Tach' status is 'Normal' [instance = 3][value: 26% of maximum]
+Fan 'Fan 4 Front Tach' status is 'Normal' [instance = 4][value: 26% of maximum]
+Fan 'Fan 5 Front Tach' status is 'Normal' [instance = 5][value: 26% of maximum]
+Fan 'Fan 6 Front Tach' status is 'Normal' [instance = 6][value: 26% of maximum]
+Fan 'Fan 1 Rear Tach' status is 'Normal' [instance = 7][value: 27% of maximum]
+Fan 'Fan 2 Rear Tach' status is 'Normal' [instance = 8][value: 27% of maximum]
+Fan 'Fan 3 Rear Tach' status is 'Normal' [instance = 9][value: 27% of maximum]
+Fan 'Fan 4 Rear Tach' status is 'Normal' [instance = 10][value: 27% of maximum]
+Fan 'Fan 5 Rear Tach' status is 'Normal' [instance = 11][value: 27% of maximum]
+Fan 'Fan 6 Rear Tach' status is 'Normal' [instance = 12][value: 27% of maximum]
+Checking power supplies
+power supply 'Anonymized 250' status is Normal [instance: 1].
+power supply 'Anonymized 193' status is Normal [instance: 2].
+Checking disks
+disk 'Anonymized 016' status is Normal [instance: 40].
+disk 'Anonymized 104' status is Normal [instance: 41].
+Checking raid volumes
+raid volume 'Anonymized 215' status is Optimal [instance: 1].
+Checking health
+health Anonymized 144 status is 'Normal' [instance: 1].
+health Anonymized 149 status is 'Normal' [instance: 2].
+health Anonymized 127 status is 'Normal' [instance: 3].
+health Anonymized 130 status is 'Normal' [instance: 4].
+Checking cpu
+Anonymized 155 status is 'Normal' [instance: 1].
+Checking memory
+DIMM_2 status is 'Normal' [instance: 1].
+DIMM_4 status is 'Normal'  [instance: 2].
+DIMM_5 status is 'Normal'  [instance: 3].
+DIMM_6 status is 'Normal'  [instance: 4].
+DIMM_7 status is 'Normal'  [instance: 5].
+DIMM_8 status is 'Normal'  [instance: 6].
+DIMM_9 status is 'Normal'  [instance: 7].
+DIMM_11 status is 'Normal'  [instance: 8].
 ```
 
 ### Diagnostic des erreurs communes
