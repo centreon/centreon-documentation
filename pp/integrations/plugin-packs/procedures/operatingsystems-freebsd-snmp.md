@@ -70,8 +70,8 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                    | Description                                                   |
 |:-----------------------------|:--------------------------------------------------------------|
-| OS-FreeBSD-SNMP-Disk-Name    | Discover the disk partitions and monitor space occupation     |
-| OS-FreeBSD-SNMP-Disk-Path    | Discover the disk partitions and monitor space occupation     |
+| OS-FreeBSD-SNMP-Disk-Name    | Use the disk name to discover the disk partitions and monitor space occupation     |
+| OS-FreeBSD-SNMP-Disk-Path    | Use the disk path to discover the disk partitions and monitor space occupation    |
 | OS-FreeBSD-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
