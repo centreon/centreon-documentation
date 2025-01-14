@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias         | Modèle de service                                 | Description                                                                       |
 |:--------------|:--------------------------------------------------|:----------------------------------------------------------------------------------|
 | Cache-Age     | HW-Storage-NetApp-Ontap-Cache-Age-SNMP-custom     | Contrôle l'âge en minutes du dernier bloc en lecture seule dans le 'cache buffer' |
-| Cp-Statistics | HW-Storage-NetApp-Ontap-Cp-Statistics-SNMP-custom | Contrôle les métriques des 'consistency point'                                    |
+| Cp-Statistics | HW-Storage-NetApp-Ontap-Cp-Statistics-SNMP-custom | Contrôle les métriques des 'consistency points'                                    |
 | Cpu-Load      | HW-Storage-NetApp-Ontap-Cpu-Load-SNMP-custom      | Contrôle l'utilisation du CPU                                                     |
 | Disk-Failed   | HW-Storage-NetApp-Ontap-Disk-Failed-SNMP-custom   | Contrôle le nombre de disques avec un problème de fonctionnement                  |
 | Global-status | HW-Storage-NetApp-Ontap-Global-status-SNMP-custom | Contrôle le statut global du NetApp                                               |
@@ -43,7 +43,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                  | Modèle de service                                          | Description                                             | Découverte |
 |:-----------------------|:-----------------------------------------------------------|:--------------------------------------------------------|:----------:|
-| Aggregates             | HW-Storage-NetApp-Ontap-Aggregates-SNMP-custom             | Contrôle l'état d'un ou plusieurs aggrégats             |            |
+| Aggregates             | HW-Storage-NetApp-Ontap-Aggregates-SNMP-custom             | Contrôle l'état d'un ou plusieurs agrégats             |            |
 | Cluster-Nodes          | HW-Storage-NetApp-Ontap-Cluster-Nodes-SNMP-custom          | Contrôle les noeuds du cluster                          |     X      |
 | Fan                    | HW-Storage-NetApp-Ontap-Fan-SNMP-custom                    | Contrôle l'état des ventilateurs                        |            |
 | File-System-Global     | HW-Storage-NetApp-Ontap-File-System-Global-SNMP-custom     | Contrôle l'utilisation des disques                      |     X      |
@@ -55,7 +55,7 @@ Le connecteur apporte les modèles de service suivants
 | Share-Calls            | HW-Storage-NetApp-Ontap-Share-Calls-SNMP-custom            | Contrôle le nombre d'appels 'CIFS' et 'NFS' par seconde |            |
 | Snapshot-Age-Global    | HW-Storage-NetApp-Ontap-Snapshot-Age-Global-SNMP-custom    | Contrôle l'ancienneté des snapshots de volumes          |            |
 | Snapshot-Age-Name      | HW-Storage-NetApp-Ontap-Snapshot-Age-Name-SNMP-custom      | Contrôle l'ancienneté des snapshots de volumes          |            |
-| Temperature            | HW-Storage-NetApp-Ontap-Temperature-SNMP-custom            | Contrôle la température du materiel                     |            |
+| Temperature            | HW-Storage-NetApp-Ontap-Temperature-SNMP-custom            | Contrôle la température du matériel                     |            |
 | Volume-Options-Generic | HW-Storage-NetApp-Ontap-Volume-Options-Generic-SNMP-custom | Contrôle des options des volumes                        |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -682,7 +682,6 @@ La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: All volumes are ok | 'failed'=0;;;0;
-
 ```
 
 ### Diagnostic des erreurs communes
