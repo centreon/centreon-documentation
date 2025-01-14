@@ -19,9 +19,11 @@ Les comptes utilisateurs sont gérés dans le module [Centreon CIAM](../ciam/cia
 
 ### Comment créer une organisation pour votre plateforme d'essai ?
 
-La mise en place de la plateforme d'essai de Centreon Cloud se fait en deux étapes :
+La mise en place de la plateforme d'essai de Centreon Cloud se fait en trois étapes :
 
-- Votre administrateur doit préparer votre plateforme, en suivant la procédure expliquée dans cet [article](article the watch). Votre organisation sera alors créée.
+- Il faut premièrement que votre administrateur rejoigne [The Watch](https://thewatch.centreon.com/), notre plateforme communautaire, et rejoigne le **groupe Centreon Cloud Trial** sur la plateforme
+
+- Votre administrateur doit préparer votre plateforme, en suivant la procédure expliquée dans cet [article](article the watch)(il est nécessaire de faire partie du **groupe Centreon Cloud Trial** pour accéder à l'article). Votre organisation sera alors créée.
 
 - Une fois la plateforme prête, l'administrateur invite d'autres utilisateurs de votre organisation sur la plateforme, via le Centreon CIAM. Chaque utilisateur dispose d'un compte sur Centreon CIAM, grâce auquel il peut accéder à la plateforme d'essai de votre organisation.
 
