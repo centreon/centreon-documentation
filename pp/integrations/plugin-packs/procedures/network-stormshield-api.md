@@ -579,7 +579,7 @@ All available options for each service template are listed below:
 | --units-traffic          | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                         |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{plugged\}, %\{user\_name\}, %\{real\_name\}                                  |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{plugged\}, %\{user\_name\}, %\{real\_name\}                                  |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: "%{state} eq 'down'"). You can use the following variables: %\{state\}, %\{plugged\}, %\{user\_name\}, %\{real\_name\} |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: "%\{state\} eq 'down'"). You can use the following variables: %\{state\}, %\{plugged\}, %\{user\_name\}, %\{real\_name\} |
 | --warning-* --critical-* | Thresholds. Can be: 'in-traffic', 'out-traffic', 'packets-accepted', 'packets-blocked',                                                                                                       |
 | --speed                  | Set interface speed (in Mb).                                                                                                                                                                  |
 
