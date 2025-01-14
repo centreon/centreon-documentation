@@ -42,6 +42,7 @@ There are several ways to define downtime:
 2. Use one of the following methods:
     - Select the object(s) that you want to define downtime on, and then click the **Set Downtime** button above the list of resources.
     - Hover over the resource you want to define downtime on, and then click the **Set Downtime** icon that appears on the left.
+    - Open the Detail panel of the resource and click on the **Set Downtime** button below the tabs.
 
         ![image](../assets/alerts/resources-status/dt-hover.gif)
 
