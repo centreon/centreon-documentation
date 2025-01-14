@@ -140,6 +140,7 @@ const config = {
       ({
         hashed: true,
         indexBlog: false,
+        docsRouteBasePath: ["docs", "cloud", "pp"],
         docsDir: ["i18n", "versioned_docs", "cloud", "pp"],
         explicitSearchResultPath: true,
         // searchContextByPaths: [
