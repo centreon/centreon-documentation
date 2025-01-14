@@ -45,7 +45,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle             | Description                                      |
 |:----------------------------|:-------------------------------------------------|
-| Net-Backbox-RESTAPI-Devices | Découvre les sauvegarde et supervise leur statut |
+| Net-Backbox-RESTAPI-Devices | Découvre les appareils et supervise leur statut de sauvegarde |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
