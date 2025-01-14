@@ -44,6 +44,7 @@ To acknowledge an alert, there are several solutions:
 2. Use one of the following methods:
     - Select the object(s) that you want to acknowledge, then click the **Acknowledge** button above the list of resources.
     - Hover over the resource you want to acknowledge, then click the **Acknowledge** icon that appears on the left.
+    - Click on the resource to open its **Detail panel** and click the **Acknowledge** button below the tabs.
 
         ![image](../assets/alerts/resources-status/ack-hover.gif)
 
@@ -61,37 +62,6 @@ To acknowledge an alert, there are several solutions:
     maintained in case of a change of Not-OK status (e.g.: DOWN to
     UNREACHABLE or WARNING to CRITICAL). Otherwise, the acknowledgment
     disappears and the notification process is reactivated.
-
-</TabItem>
-<TabItem value="From Detail panel" label="Detail panel">
-
-When clicking on a resource outside of its selection box in the **Resources Status** page, the **detail panel** for this resource appears on the left.
-
-It is possible to **Acknowledge** a status from the **detail panel**, the buttons to do this is located below the list of tabs. 
-
-The following window appears:
-
-![image](../assets/alerts/acknowledged.png)
-
--   If the **Sticky** box is checked, the acknowledgment will be
-    maintained in case of a change of Not-OK status (e.g.: DOWN to
-    UNREACHABLE or WARNING to CRITICAL). Otherwise, the acknowledgment
-    disappears and the notification process is reactivated.
--   If the **Notify** box is checked, a notification is sent to the
-    contacts linked to the object to warn them that the incident on the
-    resource has been acknowledged (if the contact
-    possesses the activity acknowledgment notification filter).
--   If the **Persistent** box is checked, the acknowledgment will be
-    maintained in the case of a restart of the scheduler. Otherwise, the
-    acknowledgment disappears and the notification process is
-    reactivated.
--   The **Comment** field is generally used to provide the reason for the
-    acknowledgment. It is mandatory.
--   If the **Acknowledge services attached to hosts** box is checked,
-    all the services linked to the host will be acknowledged (option
-    visible only if we acknowledge a host).
--   If the **Force active checks** box is checked, a command will be
-    sent to the scheduler to recheck the resource as soon as possible.
 
 </TabItem>
 <TabItem value="From real time monitoring" label="From real time monitoring">
