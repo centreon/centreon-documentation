@@ -34,13 +34,13 @@ Le connecteur apporte les modèles de service suivants
 | Alias                      | Modèle de service                                      | Description                                                                                   | Découverte |
 |:---------------------------|:-------------------------------------------------------|:----------------------------------------------------------------------------------------------|:----------:|
 | Cast-Generic-Name          | Net-HP-Standard-Cast-Generic-Name-SNMP-custom          | Contrôle le pourcentage de paquets pour chaque type de casting d'une interface réseau         |            |
-| Cast-Global                | Net-HP-Standard-Cast-Global-SNMP-custom                | Contrôle le pourcentage de paquets pour chaque type de casting de plusieurs interfaces réseau | X          |
-| Packet-Errors-Generic-Name | Net-HP-Standard-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                    |            |
-| Packet-Errors-Global       | Net-HP-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau            | X          |
-| Spanning-Tree              | Net-HP-Standard-SpanningTree-SNMP-custom               | Contrôle l'état du protocole Spanning Tree sur les interfaces.                                           | X          |
-| Traffic-Generic-Id         | Net-HP-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le traffic réseau d'une interface réseau                                             |            |
-| Traffic-Generic-Name       | Net-HP-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau                                             |            |
-| Traffic-Global             | Net-HP-Standard-Traffic-Global-SNMP-custom             | Contrôle le traffic réseau de plusieurs interfaces réseau                                     | X          |
+| Cast-Global                | Net-HP-Standard-Cast-Global-SNMP-custom                | Contrôle le pourcentage de paquets pour chaque type de casting de plusieurs interfaces réseau |     X      |
+| Packet-Errors-Generic-Name | Net-HP-Standard-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                   |            |
+| Packet-Errors-Global       | Net-HP-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau           |     X      |
+| Spanning-Tree              | Net-HP-Standard-SpanningTree-SNMP-custom               | Contrôle l'état du protocole Spanning Tree sur les interfaces                                 |     X      |
+| Traffic-Generic-Id         | Net-HP-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le trafic réseau d'une interface réseau                                             |            |
+| Traffic-Generic-Name       | Net-HP-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                                             |            |
+| Traffic-Global             | Net-HP-Standard-Traffic-Global-SNMP-custom             | Contrôle le trafic réseau de plusieurs interfaces réseau                                     |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -61,12 +61,12 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 #### Découverte de services
 
-| Nom de la règle                         | Description                                                           |
-|:----------------------------------------|:----------------------------------------------------------------------|
-| Net-Hp-Standard-SNMP-Cast-Name          |                                                                       |
-| Net-Hp-Standard-SNMP-Packet-Errors-Name | Découvre les interfaces en vue de contrôler les paquets en erreur. |
-| Net-Hp-Standard-SNMP-Spanning-Tree-Name | Découvre les interfaces en vue de contrôler l'état du protocole Spanning Tree. |
-| Net-Hp-Standard-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization         |
+| Nom de la règle                         | Description                                                                                       |
+|:----------------------------------------|:--------------------------------------------------------------------------------------------------|
+| Net-Hp-Standard-SNMP-Cast-Name          | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
+| Net-Hp-Standard-SNMP-Packet-Errors-Name | Découvre les interfaces en vue de contrôler les paquets en erreur                                 |
+| Net-Hp-Standard-SNMP-Spanning-Tree-Name | Découvre les interfaces en vue de contrôler l'état du protocole Spanning Tree                     |
+| Net-Hp-Standard-SNMP-Traffic-Name       | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
