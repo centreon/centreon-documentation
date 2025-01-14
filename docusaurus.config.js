@@ -142,27 +142,27 @@ const config = {
         indexBlog: false,
         docsDir: ["i18n", "versioned_docs", "cloud", "pp"],
         explicitSearchResultPath: true,
-        searchContextByPaths: [
-          {
-            label: {
-              en: "monitoring connectors",
-              fr: "connecteurs de supervision",
-            },
-            path: "pp"
-          },
-          {
-            label: "cloud",
-            path: "cloud",
-          },
-          // {
-          //   label: "onPrem",
-          //   path: "i18n",
-          // },
-          // {
-          //   label: "onPrem",
-          //   path: "versioned_docs",
-          // },
-        ],
+        // searchContextByPaths: [
+        //   {
+        //     label: {
+        //       en: "monitoring connectors",
+        //       fr: "connecteurs de supervision",
+        //     },
+        //     path: "pp"
+        //   },
+        //   {
+        //     label: "cloud",
+        //     path: "cloud",
+        //   },
+        //   // {
+        //   //   label: "onPrem",
+        //   //   path: "i18n",
+        //   // },
+        //   // {
+        //   //   label: "onPrem",
+        //   //   path: "versioned_docs",
+        //   // },
+        // ],
         language: ["en", "fr"],
       }),
     ],
