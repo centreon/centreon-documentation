@@ -5,7 +5,7 @@ title: L'offre d'essai Centreon Cloud
 
 ## Que comprend l'offre d'essai Centreon Cloud ?
 
-La formule d'essai de Centreon Cloud est une licence **gratuite de 14 jours**, qui comprend l'édition IT avec une capacité de supervision jusqu'à 100 ressources.
+La formule d'essai de Centreon Cloud est une licence **gratuite de 7 jours**, qui comprend notre [IT Edition](https://www.centreon.com/fr/centreon-editions/#editions-table) avec une capacité de supervision jusqu'à 100 ressources.
 
 Débutez avec Centreon Cloud afin de profiter de la plateforme de supervision Centreon en version SaaS, pour une expérience sans contrainte d'installation ni de maintenance.
 
@@ -27,7 +27,7 @@ La mise en place de la plateforme d'essai de Centreon Cloud se fait en trois ét
 
 - Une fois la plateforme prête, l'administrateur invite d'autres utilisateurs de votre organisation sur la plateforme, via le Centreon CIAM. Chaque utilisateur dispose d'un compte sur Centreon CIAM, grâce auquel il peut accéder à la plateforme d'essai de votre organisation.
 
-> Une fois la plateforme mise en place, vous pouvez tester la version d'essai de Centreon Cloud pendant 14 jours et superviser jusqu'à 100 hôtes.
+> Une fois la plateforme mise en place, vous pouvez tester la version d'essai de Centreon Cloud pendant 7 jours et superviser jusqu'à 100 hôtes.
 
   ## Obtenir des réponses à vos questions
 
