@@ -157,7 +157,7 @@ To open the appropriate ports:
 /sbin/iptables -A INPUT -p tcp --dport <PORT> -j ACCEPT
 ```
 
-> Replace <PORT\> by the port your Centreon MAP server is using (mostly 8080 or
+> Replace \<PORT\> by the port your Centreon MAP server is using (mostly 8080 or
 > 8443 if you have configured it in SSL).
 
 To simply disable your firewall, execute:
@@ -285,7 +285,7 @@ specify a new one to your desktop client. To do so, edit the file:
 <TabItem value="Windows" label="Windows">
 
 ```shell
-C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
+C:\Users<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 ```
 
 </TabItem>
@@ -371,7 +371,7 @@ is working hard, your desktop client requires more memory.
  <TabItem value="Windows" label="Windows">
  
  ```shell
- C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
+ C:\Users<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
  ```
  
  </TabItem>

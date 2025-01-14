@@ -60,10 +60,10 @@ It brings the following Service Templates:
 
 To control your Redis Sentinel, the Poller should be able to perform ```redis-cli``` requests over the TCP/26379 port (by default).
 The following commands are used:
-* sentinel ckquorum <cluster_name>
+* sentinel ckquorum \<cluster_name\>
 * sentinel masters
-* sentinel replicas <cluster_name>
-* sentinel sentinels <cluster_name>
+* sentinel replicas \<cluster_name\>
+* sentinel sentinels \<cluster_name\>
 
 ## Setup
 

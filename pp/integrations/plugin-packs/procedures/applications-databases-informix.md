@@ -184,9 +184,7 @@ Directory Name: `[/root/informix/sdkclient/] /home/informix/sdkclient`
 
 ### Perl DBD Informix
 
-
 1. To compile Informix DBD, you need access to an Informix Database. Run:
-
 
 ```
 cd /usr/local/src

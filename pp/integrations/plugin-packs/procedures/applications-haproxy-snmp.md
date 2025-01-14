@@ -119,7 +119,7 @@ I> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentica
     --snmp-community='my-snmp-community'   \
     --filter-name=''  \
     --warning-status=''  \
-    --critical-status='%{status} !~ /OPEN/i'  \
+    --critical-status='%\{status\} !~ /OPEN/i'  \
     --warning-total-sessions=''  \
     --critical-total-sessions=''  \
     --warning-current-sessions=''  \

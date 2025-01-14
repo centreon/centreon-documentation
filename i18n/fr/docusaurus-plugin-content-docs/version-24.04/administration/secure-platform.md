@@ -780,17 +780,17 @@ cp /etc/apache2/sites-available/centreon.conf{,.origin}
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la section **<VirtualHost *:443>**.
+Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la section **\<VirtualHost *:443\>**.
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la section **<VirtualHost *:443>**.
+Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la section **\<VirtualHost *:443\>**.
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-Éditez le fichier **/etc/apache2/sites-available/centreon.conf** en ajoutant la section **<VirtualHost *:443>**.
+Éditez le fichier **/etc/apache2/sites-available/centreon.conf** en ajoutant la section **\<VirtualHost *:443\>**.
 </TabItem>
 </Tabs>
 
@@ -1299,7 +1299,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 
 Vous pouvez maintenant accéder à votre plateforme via votre navigateur en mode HTTPS.
 
-> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez le configurer en mode HTTPS également. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](../graph-views/secure-your-map-platform.md/#configure-httpstls-on-the-map-server).
+> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez le configurer en mode HTTPS également. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](../graph-views/secure-your-map-platform.md#configure-httpstls-on-the-map-server).
 
 9. Configuration API de Gorgone
 

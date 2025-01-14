@@ -54,7 +54,7 @@ This is how your central server should be partitioned:
 | vg_data | /var/lib/centreon-broker   | contains broker retention files | 5 GB                               |
 | vg_data | /var/lib/centreon-engine | contains engine retention files | 5 GB |
 | vg_data | /var/lib/mysql (only if the DBMS is on the central server)          | database | 106 GB        |
-| vg_data | /var/cache/centreon/backup | backup directory | 10 GB <p>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0,6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul></p> |
+| vg_data | /var/cache/centreon/backup | backup directory | 10 GB <br/>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0,6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul> |
 | vg_data |  | Free space (unallocated) | 5 GB |
 
 > Your system must use LVM to manage the file system.
@@ -88,7 +88,7 @@ This is how your central server should be partitioned:
 | vg_data | /var/lib/centreon-broker   | contains retention files | 10 GB                               |
 | vg_data | /var/lib/centreon-engine | | 5 GB |
 | vg_data | /var/lib/mysql (only if the DBMS is on the central server)          | database | 213 GB        |
-| vg_data | /var/cache/centreon/backup | backup directory | 10 GB <p>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0,6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul></p> |
+| vg_data | /var/cache/centreon/backup | backup directory | 10 GB <br/>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0,6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul> |
 | vg_data |  | Free space (unallocated) | 5 GB |
 
 > Your system must use LVM to manage the file system.
@@ -157,7 +157,7 @@ This is how your central server should be partitioned:
 | vg_data | /var/lib/centreon-broker   | contains retention files | 25 GB                               |
 | vg_data | /var/lib/centreon-engine | | 5 GB |
 | vg_data | /var/lib/mysql (only if the DBMS is on the central server)          | database | 538 GB        |
-| vg_data | /var/cache/centreon/backup | backup directory | 10 GB <p>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0,6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul></p>    |
+| vg_data | /var/cache/centreon/backup | backup directory | 10 GB <br/>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0,6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul>    |
 | vg_data |  | Free space (unallocated) | 5 GB |
 
 > Your system must use LVM to manage the file system.
@@ -226,7 +226,7 @@ This is how your central server should be partitioned:
 | vg_data | /var/lib/centreon          | contains mostly RRD files | 339 GB |
 | vg_data | /var/lib/centreon-broker   | contains retention files | 50 GB                               |
 | vg_data | /var/lib/centreon-engine | | 5 GB |
-| vg_data | /var/cache/centreon/backup | backup directory | 10 GB <p>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0,6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul></p>   |
+| vg_data | /var/cache/centreon/backup | backup directory | 10 GB <br/>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0,6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul>   |
 
 **Database server**
 
@@ -313,7 +313,7 @@ This is how your central server should be partitioned:
 | vg_data | /var/lib/centreon          | contains mostly RRD files | 677 GB |
 | vg_data | /var/lib/centreon-broker   | contains retention files | 50 GB                               |
 | vg_data | /var/lib/centreon-engine | | 5 GB |
-| vg_data | /var/cache/centreon/backup | backup directory | 10 GB <p>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0,6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul></p> |
+| vg_data | /var/cache/centreon/backup | backup directory | 10 GB <br/>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0,6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul> |
 
 **Database server**
 

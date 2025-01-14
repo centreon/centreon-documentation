@@ -166,7 +166,7 @@ Une fois le Plugin installé, connectez-vous au Collecteur Centreon et utilisez 
     --hostname=amzprometheus.int.centreon.com \
     --url-path='/api/v1' --port='9090' --proto='http' \
     --filter-label='job,coredns' \
-    --warning-status='' --critical-status='%{health} !~ /up/' 
+    --warning-status='' --critical-status='%\{health\} !~ /up/' 
 ```
 
 La commande devrait retourner un message de sortie similaire à :
@@ -220,9 +220,9 @@ Voici un exemple pour illustrer comment le mode *Expression* fonctionne :
     --hostname=amzprometheus.int.centreon.com \
     --url-path='/api/v1' --port='9090' --proto='http' \
     --query='cpu_requests,sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100' \
-    --output='%{instance} CPU Requests: %{cpu_requests}%' --multiple-output='Nodes CPU Requests within bounds' \
+    --output='%\{instance\} CPU Requests: %\{cpu_requests\}%' --multiple-output='Nodes CPU Requests within bounds' \
     --instance='node' \
-    --warning-status='%{cpu_requests} > 60' --critical-status='%{cpu_requests} > 70' \
+    --warning-status='%\{cpu_requests\} > 60' --critical-status='%\{cpu_requests\} > 70' \
     --use-new-perfdata --verbose 
 ```
 
@@ -288,25 +288,25 @@ Voici un résumé des macros à définir au niveau du Service:
 | INSTANCE          | node                                                   |
 | OUTPUT            | URL Path to reach API (Default: '/api/v1)              |
 | MULTIPLEOUTPUT    | Nodes CPU Requests within bounds                       |
-| WARNINGSTATUS     | %{cpu_requests} > 60                                   |
-| CRITICALSTATUS    | %{cpu_requests} > 70                                   |
+| WARNINGSTATUS     | %\{cpu_requests\} > 60                                   |
+| CRITICALSTATUS    | %\{cpu_requests\} > 70                                   |
 | EXTRAOPTIONS      | --verbose --use-new-perfdata                           |
 
 ## Troubleshooting
 
-### UNKNOWN: 500 Can't connect to amzprometheus.int.centreon.com:9090 (<error_text) |
+### UNKNOWN: 500 Can't connect to amzprometheus.int.centreon.com:9090 (\<error_text\>) |
 
 Lorsque cette erreur est renvoyée, vérifier que les informations pour contacter 
 le serveur Prometheus sont correctes (Port, Nom d'Hôte) et que la connexion est 
 possible.
 
-Le contenu de la balise <error_text> donne des indications supplémentaires sur la 
+Le contenu de la balise \<error_text\> donne des indications supplémentaires sur la 
 cause du dysfonctionnement.
 
 ### UNKNOWN: 400 Bad Request |
 
 La requête PromQL contient probablement une erreur de syntaxe. Il est nécessaire
-de valider son fonctionnement dans l'interface Prometheus. 
+de valider son fonctionnement dans l'interface Prometheus.
 
 ### Diagnostic des erreurs communes
 

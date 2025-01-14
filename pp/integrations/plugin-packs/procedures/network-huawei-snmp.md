@@ -331,6 +331,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--snmp-community='my-snmp-community'  \
 	--warning-usage='' \
 	--critical-usage='' 
+  
 ```
 
 The expected command output is shown below:

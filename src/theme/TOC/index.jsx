@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DefaultTOC from '@theme-original/TOC';
 import clsx from 'clsx';
 import { useLocation } from '@docusaurus/router';
-import { useDoc } from '@docusaurus/theme-common/internal';
+import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import styles from './styles.module.css';
 import 'typeface-roboto';
 import Translate from '@docusaurus/Translate';
@@ -62,7 +62,7 @@ export default function TOC(props) {
                 id="Commentaire_doc"
                 data-name="Commentaire doc"
                 xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -82,7 +82,7 @@ export default function TOC(props) {
                 <g
                   id="Groupe_4176"
                   data-name="Groupe 4176"
-                  clip-path="url(#clip-path)"
+                  clipPath="url(#clip-path)"
                 >
                   <path
                     id="Tracé_4198"
@@ -155,7 +155,7 @@ export default function TOC(props) {
           onClick={handleToggleButtons}
           aria-label="Toggle buttons"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 80 80">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 80 80">
             <defs>
               <filter id="a" x="13" y="14" width="54" height="54" filterUnits="userSpaceOnUse">
                 <feOffset dy="2" input="SourceAlpha"/>

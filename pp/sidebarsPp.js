@@ -17,6 +17,10 @@ module.exports = {
           items: [
             {
               type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/plugin-customization'
+            },
+            {
+              type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/cma'
             },
             {
@@ -539,10 +543,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-salesforce-restapi'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-databases-sap-hana'
         },
         {
           type: 'doc',
@@ -1207,6 +1207,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-databases-rrdtool'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-databases-sap-hana'
         },
         {
           type: 'doc',
@@ -1940,6 +1944,10 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-oracle-infiniband-snmp'
         },
+	{
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-oracle-otd-snmp'
+        },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-firewalls-paloalto-standard-snmp'
@@ -2063,10 +2071,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-tplink-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-oracle-otd-snmp'
         },
         {
           type: 'doc',
