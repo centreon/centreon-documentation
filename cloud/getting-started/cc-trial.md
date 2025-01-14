@@ -23,7 +23,7 @@ There are three steps to setting up your Centreon Cloud trial platform for an or
 
 - First of all, your administrator should join [The Watch](https://thewatch.centreon.com/), our community platform, and join the **Centreon Cloud Trial group** on it.
 
-- Your administrator should get your platform ready, following the procedure explained in this [article](article the watch)(having joined the Centreon Cloud Trial group on The Watch is necessary for accessing the article). Your organization will then be created.
+- Your administrator should get your platform ready, following the procedure explained in this [article](article the watch)(having joined the **Centreon Cloud Trial group** on The Watch is necessary for accessing the article). Your organization will then be created.
 
 - Once the platform is ready, the administrator invites other users from your organization to the platform, through Centreon CIAM. Each user has an account on Centreon CIAM, through which they can access your organization's trial platform.
 
