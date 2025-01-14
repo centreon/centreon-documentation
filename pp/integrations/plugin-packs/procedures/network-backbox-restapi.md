@@ -42,9 +42,9 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                   | Description |
-|:----------------------------|:------------|
-| Net-Backbox-RESTAPI-Devices |             |
+| Rule name                   | Description                                   |
+|:----------------------------|:----------------------------------------------|
+| Net-Backbox-RESTAPI-Devices | Discover device backup and monitor its status |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -283,7 +283,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--custommode=api \
 	--mode=intellicheck \
 	--hostname='10.0.0.1' \
-	--api-token=' ' \
+	--api-token=' XXXX' \
 	--port=' 443' \
 	--proto=' https'  \
 	--filter-type='' \
