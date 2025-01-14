@@ -43,9 +43,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de services
 
-| Nom de la règle             | Description |
-|:----------------------------|:------------|
-| Net-Backbox-RESTAPI-Devices |             |
+| Nom de la règle             | Description                                      |
+|:----------------------------|:-------------------------------------------------|
+| Net-Backbox-RESTAPI-Devices | Découvre les sauvegarde et supervise leur statut |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -284,7 +284,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--custommode=api \
 	--mode=intellicheck \
 	--hostname='10.0.0.1' \
-	--api-token=' ' \
+	--api-token=' XXXX' \
 	--port=' 443' \
 	--proto=' https'  \
 	--filter-type='' \
