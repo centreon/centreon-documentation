@@ -429,9 +429,9 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Snmp
 | Macro          | Description                                                                                                                                      | Valeur par défaut                | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
 | FILTERNAME     | Filter aggregates by name                                                                                                                        |                                  |             |
-| CRITICALSTATE  | Set critical threshold for state. You can use the following variables: %{state}, %{name}                                                         | %{state} =~ /offline/i           |             |
-| WARNINGSTATE   | Set warning threshold for state. You can use the following variables: %{state}, %{name}                                                          |                                  |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}                            | %{status} !~ /normal\|mirrored/i |             |
+| CRITICALSTATE  | Set critical threshold for state. You can use the following variables: %\{state\}, %\{name\}                                                         | %\{state\} =~ /offline/i           |             |
+| WARNINGSTATE   | Set warning threshold for state. You can use the following variables: %\{state\}, %\{name\}                                                          |                                  |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}                            | %\{status\} !~ /normal\|mirrored/i |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                             |                                  |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                        |             |
 
@@ -545,8 +545,8 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Snmp
 | FILTERNAME             | Filter plexes by name                                                                                                                            |                          |             |
 | WARNINGRESYNCING       | Threshold                                                                                                                                        |                          |             |
 | CRITICALRESYNCING      | Threshold                                                                                                                                        |                          |             |
-| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}, %{aggregate}               | %{status} eq "resyncing" |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}, %{aggregate}              | %{status} eq "offline"   |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{aggregate\}               | %\{status\} eq "resyncing" |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}, %\{aggregate\}              | %\{status\} eq "offline"   |             |
 | WARNINGTOTALOFFLINE    | Threshold                                                                                                                                        |                          |             |
 | CRITICALTOTALOFFLINE   | Threshold                                                                                                                                        |                          |             |
 | WARNINGTOTALONLINE     | Threshold                                                                                                                                        |                          |             |
@@ -640,12 +640,12 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Snmp
 | Macro           | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERNAME      | Filter on volume name (can be a regexp)                                                                                                          |                   |             |
-| UNKNOWNSTATUS   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{display}                          |                   |             |
-| UNKNOWNOPTIONS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{options}, %{display}                         |                   |             |
-| WARNINGOPTIONS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{options}, %{display}                         |                   |             |
-| CRITICALOPTIONS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{options}, %{display}                        |                   |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                          |                   |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{display}                         |                   |             |
+| UNKNOWNSTATUS   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{display\}                          |                   |             |
+| UNKNOWNOPTIONS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{options\}, %\{display\}                         |                   |             |
+| WARNINGOPTIONS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{options\}, %\{display\}                         |                   |             |
+| CRITICALOPTIONS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{options\}, %\{display\}                        |                   |             |
+| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                          |                   |             |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}                         |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
