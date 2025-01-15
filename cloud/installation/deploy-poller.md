@@ -6,7 +6,7 @@ title: Deploying a poller
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-With Centreon Cloud, your user interface is already ready to use. All you have to do is to install pollers in your infrastructure, and that is very easy: just execute a script and then export the configuration, and there you are!
+With Centreon Cloud, your SaaS platform is already ready to use. All you have to do is to install pollers in your infrastructure, and that is very easy: just execute a script and then export the configuration, and there you are!
 
 Before deploying a poller, make sure the [prerequisites](prerequisites.md) for your host machine are met. Only users with the **Administrator** or **Editor** [roles](../users/users.md#user-roles) can access the poller installation command.
 
@@ -28,7 +28,7 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
 6. On the server that will become your poller, in your terminal, paste the install command and execute it (this should take about 10 minutes).
 
 7. When this is finished, in the user interface, go to **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
-   * The address in the **IP Address** column is that of the poller as seen by the platform.
+   * The address in the **IP Address** column is that of the poller as seen by the SaaS platform.
    * The poller is not running yet (**No** in the **Is running?** column).
 
 ## Step 2: Exporting the configuration and restarting the poller
