@@ -21,7 +21,7 @@ User accounts are managed in the [Centreon CIAM](../ciam/ciam.md) (Customer Iden
 
 There are three steps to setting up your Centreon Cloud trial platform for an organization:
 
-- Fill in the form available on our [website](https://www.centreon.com/free-trial/) using a professional email adress.
+- Your administrator fills in the form available on our [website](https://www.centreon.com/free-trial/) using a professional email adress.
 
 - Your organization will then be automatically created. This process can take a few minutes, you will be notified by email once the platform has finished building.
 
