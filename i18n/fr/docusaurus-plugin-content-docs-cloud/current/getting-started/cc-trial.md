@@ -5,9 +5,9 @@ title: L'offre d'essai Centreon Cloud
 
 ## Que comprend l'offre d'essai Centreon Cloud ?
 
-La formule d'essai de Centreon Cloud est une licence **gratuite de 7 jours**, qui comprend notre [IT Edition](https://www.centreon.com/fr/centreon-editions/#editions-table) avec une capacité de supervision jusqu'à 100 ressources.
+La formule d'essai de Centreon Cloud est une licence **gratuite de 7 jours**, qui comprend les fonctionnalités de notre [IT Edition](https://www.centreon.com/fr/centreon-editions/#editions-table) avec une capacité de supervision jusqu'à 125 ressources.
 
-Débutez avec Centreon Cloud afin de profiter de la plateforme de supervision Centreon en version SaaS, pour une expérience sans contrainte d'installation ni de maintenance.
+Centreon Cloud permet de profiter de la plateforme de supervision Centreon en version SaaS, pour une expérience sans contrainte d'installation ni de maintenance.
 
 > Consultez la page [Éditions](https://www.centreon.com/fr/editions-centreon/) pour découvrir les fonctionnalités des éditions Centreon.
 
@@ -15,20 +15,22 @@ Débutez avec Centreon Cloud afin de profiter de la plateforme de supervision Ce
 
 ### Information sur les comptes utilisateurs
 
-Les comptes utilisateurs sont gérés dans le module [Centreon CIAM](../ciam/ciam.md) (Customer Identity and Access Management) : l'application de gestion des accès à Centreon. Votre administrateur doit créer une organisation afin que tous les membres d'une équipe puissent travailler sur la même plateforme Centreon. Selon vos besoins, vous pouvez avoir une ou plusieurs organisations.
+Les comptes utilisateurs sont gérés dans le module [Centreon CIAM](../ciam/ciam.md) (Customer Identity and Access Management) : l'application de gestion des accès à Centreon. Votre administrateur doit créer une organisation et y inviter les autres utilisateurs afin que tous les membres d'une équipe puissent travailler sur la même plateforme Centreon.
 
 ### Comment créer une organisation pour votre plateforme d'essai ?
 
 La mise en place de la plateforme d'essai de Centreon Cloud se fait en trois étapes :
 
-- Il faut premièrement que votre administrateur rejoigne [The Watch](https://thewatch.centreon.com/), notre plateforme communautaire, et rejoigne le **groupe Centreon Cloud Trial** sur la plateforme
+- Il faut premièrement que votre administrateur remplisse le formulaire disponible sur notre [site web](https://www.centreon.com/free-trial/) en utilisant une adresse email professionnelle. Assurez-vous d'accéder au formulaire en utilisant la version anglaise du site.
 
-- Votre administrateur doit préparer votre plateforme, en suivant la procédure expliquée dans cet [article](article the watch)(il est nécessaire de faire partie du **groupe Centreon Cloud Trial** pour accéder à l'article). Votre organisation sera alors créée.
+- Votre organisation sera alors créée automatiquement. Cette étape peut prendre quelques minutes, vous serez notifié par email lorsque la plateforme aura fini de construire.
 
 - Une fois la plateforme prête, l'administrateur invite d'autres utilisateurs de votre organisation sur la plateforme, via le Centreon CIAM. Chaque utilisateur dispose d'un compte sur Centreon CIAM, grâce auquel il peut accéder à la plateforme d'essai de votre organisation.
 
-> Une fois la plateforme mise en place, vous pouvez tester la version d'essai de Centreon Cloud pendant 7 jours et superviser jusqu'à 100 hôtes.
+Une fois la plateforme mise en place, vous pouvez tester la version d'essai de Centreon Cloud pendant 7 jours et superviser jusqu'à 125 hôtes.
+
+> Un nombre limité de plateformes d'essai est disponible en même temps, il est possible qu'il n'y ait pas de plateforme disponible quand vous envoyez le formulaire. Dans ce cas, vous serez automatiquement placé en liste d'attente et notifié lorsqu'une plateforme est préparée pour vous.
 
   ## Obtenir des réponses à vos questions
 
-Vous avez des questions spécifiques à l'utilisation de la version d'essai Centreon Cloud ou vous souhaitez partager votre expérience et vos retours? N'hésitez pas à rejoindre le [groupe dédié Centreon Cloud trial](https://thewatch.centreon.com/groups/centreon-cloud-trial-55) sur notre plateforme communautaire The Watch.
+Si vous avez des questions sur l'utilisation de la version d'essai Centreon Cloud ou vous souhaitez partager votre expérience et vos retours, n'hésitez pas à rejoindre le [groupe dédié Centreon Cloud trial](https://thewatch.centreon.com/groups/centreon-cloud-trial-55) sur notre plateforme communautaire The Watch.
