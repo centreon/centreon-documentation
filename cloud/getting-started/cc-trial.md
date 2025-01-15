@@ -5,7 +5,7 @@ title: About the Centreon Cloud trial
 
 ## What is the Centreon Cloud trial?
 
-Centreon Cloud trial is a **free 7-days license** that includes the features available with our [IT Edition](https://www.centreon.com/centreon-editions/#editions-table) and with a monitoring capacity of up to 125 resources.
+Centreon Cloud trial is a **free 7-days license** that includes the features available with our [IT Edition](https://www.centreon.com/centreon-editions/#editions-table) and with a monitoring capacity of up to 125 hosts.
 
 Centreon Cloud offers the Centreon monitoring platform in a SaaS version, for an experience free of installation and maintenance.
 
