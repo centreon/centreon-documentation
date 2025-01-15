@@ -5,7 +5,7 @@ title: Déployer une configuration
 
 Lorsque vous créez, supprimez ou modifiez des objets via le menu
 **Configuration**, les changements effectués ne sont pas appliqués de manière
-automatique (ni sur le poller sur que vous avez modifié, ni sur aucun collecteur qui en dépendrait). Pour que les modifications soient prises en compte, il est nécessaire d'exporter la configuration.
+automatique (ni sur le collecteur central, ni sur aucun collecteur ou serveur distant qui en dépendrait). Pour que les modifications soient prises en compte, il est nécessaire d'exporter la configuration.
 
 ## Exporter la configuration
 

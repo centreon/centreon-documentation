@@ -23,7 +23,7 @@ poller and of all pollers linked to it: changes are shown in the **Conf changed*
     - **Move Export Files**
     - **Restart Monitoring Engine**. Use the most appropriate method: 
       - **Reload**: when you have created, deleted or edited monitored objects
-      - **Restart**: when you have made changes to the way a poller and the SaaS server communicate together, or 
+      - **Restart**: when you have made changes to the way a poller and the SaaS platform communicate together, or 
       to the configuration of the engine. Restarting takes more time than reloading.
 
 5. Click **Export**. A log of the export is displayed.

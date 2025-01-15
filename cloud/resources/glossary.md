@@ -93,7 +93,7 @@ A pack contains the configuration of the plugin in Centreon (command, [templates
 ## Monitoring engine
 
 Centreon Engine is the software component that plans checks, executes them, and [notifies](#notification) users if an incident occurs.
-Centreon Engine is present on [pollers](#poller) and the [SaaS platform](#SaaS-platform).
+Centreon Engine is present on the [pollers](#poller) and the SaaS platform.
 
 ## Notification
 
@@ -109,7 +109,7 @@ A plugin is a monitoring probe, i.e. a binary executable or a script that is cal
 
 ## Poller
 
-A poller is a monitoring server installed in your infrastructure to monitor your resources. A poller is attached to the [SaaS platform](#SaaS-platform).
+A poller is a monitoring server installed in your infrastructure to monitor your resources. A poller is attached to the SaaS platform.
 
 - A Centreon poller monitors [resources](#resource). It has a [monitoring engine](#monitoring-engine).
 

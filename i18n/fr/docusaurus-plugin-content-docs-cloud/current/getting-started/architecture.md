@@ -13,7 +13,7 @@ Votre plateforme Centreon Cloud est constituée principalement d'une plateforme 
   * La plateforme SaaS offre une [interface utilisateur](interface.md), dans laquelle vous pouvez voir toutes les ressources supervisées par tous les collecteurs.
   * Vous pouvez vous connecter à l'interface utilisateur depuis n'importe où en tapant `<organisation>.<region>.centreon.cloud` dans votre navigateur web.
   * Le serveur central est hosté dans le cloud.
-  * Centreon installe et met à jour La plateforme SaaS.
+  * Centreon installe et met à jour la plateforme SaaS.
 
 * **Un ou plusieurs collecteurs** :
   * Les collecteurs supervisent des ressources dans votre infrastructure. Ils doivent être situés dans le même réseau que les ressources à superviser.
