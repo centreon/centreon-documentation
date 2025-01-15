@@ -25,13 +25,13 @@ Le terme d'alerte est utilisé de cette façon dans les [filtres prédéfinis](.
 
 ## Collecteur
 
-Un collecteur est un serveur de supervision installé dans votre infrastructure, qui supervise vos resources. Un collecteur est rattaché à un [serveur central](#serveur-central).
+Un collecteur est un serveur de supervision installé dans votre infrastructure, qui supervise vos resources. Un collecteur est rattaché à un [interface utilisateur](#interface-utilisateur).
 
 - Un collecteur Centreon supervise des [ressources](#ressource). Il possède un [moteur de supervision](#moteur-de-supervision).
 
-- Il n’a pas d’interface graphique : les ressources qu’il supervise s’affichent dans l’interface du serveur central auquel il est rattaché.
+- Il n’a pas d’interface graphique : les ressources qu’il supervise s’affichent dans l’interface du collecteur central ou du serveur distant auquel il est rattaché.
 
-On appelle aussi “collecteur” le moteur de supervision présent dans un serveur central ou un collecteur.
+On appelle aussi “collecteur” le moteur de supervision présent dans un collecteur central ou un collecteur.
 
 ## Connecteur de supervision
 
@@ -108,7 +108,7 @@ Il existe des modèles d’hôtes et de services.
 ## Moteur de supervision
 
 Centreon Engine est le composant logiciel qui planifie les contrôles, les exécute et [notifie](#notification) les utilisateurs en cas d’incident.
-Il est présent sur les [collecteurs](#collecteur) et le [serveur central](#serveur-central).
+Il est présent sur les [collecteurs](#collecteur) et les [serveur distants](#serveur-distant).
 
 ## Notification
 
@@ -138,9 +138,9 @@ Est appelé "plugin" une sonde de supervision, c'est-à-dire un binaire exécuta
 
 Objet supervisé par une plateforme Centreon (hôtes, services, métaservices).
 
-## Serveur central
+## Interface utilisateur
 
-Dans Centreon, le serveur central est la console principale de votre supervision. Il permet :
+Dans Centreon, l'interface utilisateur est la console principale de votre supervision. Il permet :
 
 - de configurer toute la supervision de votre infrastructure,
 - des superviser des ressources,
