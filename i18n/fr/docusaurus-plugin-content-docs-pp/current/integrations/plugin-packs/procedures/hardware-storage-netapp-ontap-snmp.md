@@ -96,7 +96,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom    | Unité |
 |:-------|:------|
 | state  | N/A   |
-| status | N/A   |
+|  | N/A   |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
@@ -431,8 +431,8 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Snmp
 | FILTERNAME     | Filter aggregates by name                                                                                                                        |                                  |             |
 | CRITICALSTATE  | Set critical threshold for state. You can use the following variables: %\{state\}, %\{name\}                                                         | %\{state\} =~ /offline/i           |             |
 | WARNINGSTATE   | Set warning threshold for state. You can use the following variables: %\{state\}, %\{name\}                                                          |                                  |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}                            | %\{status\} !~ /normal\|mirrored/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                             |                                  |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status}, %\{name}                            | %\{status\} !~ /normal\|mirrored/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status}, %\{name}                             |                                  |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                        |             |
 
 </TabItem>
