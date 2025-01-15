@@ -23,7 +23,7 @@ automatique (ni sur le collecteur central, ni sur aucun collecteur ou serveur di
     - **Déplacer les fichiers générés**
     - **Redémarrer l'ordonnanceur**. Utilisez la méthode : 
       - **Recharger** : lorsque vous avez créé, supprimé ou modifié des objets supervisés
-      - **Redémarrer** : lorsque vous avez apporté des changements à la communication entre un collecteur et le collecteur central, ou à la configuration du moteur de collecte. Un redémarrage prend plus de temps qu'un rechargement.
+      - **Redémarrer** : lorsque vous avez apporté des changements à la communication entre un collecteur et la plateforme SaaS, ou à la configuration du moteur de collecte. Un redémarrage prend plus de temps qu'un rechargement.
 
 5. Cliquez sur **Exporter**. Un log de l'export s'affiche.
 

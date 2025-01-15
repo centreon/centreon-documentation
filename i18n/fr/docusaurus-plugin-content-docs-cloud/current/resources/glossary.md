@@ -107,7 +107,7 @@ Il existe des modèles d’hôtes et de services.
 ## Moteur de supervision
 
 Centreon Engine est le composant logiciel qui planifie les contrôles, les exécute et [notifie](#notification) les utilisateurs en cas d’incident.
-Il est présent sur les [collecteurs](#collecteur) et les [serveur distants](#serveur-distant).
+Il est présent sur les [collecteurs](#collecteur) et la plateforme SaaS.
 
 ## Notification
 

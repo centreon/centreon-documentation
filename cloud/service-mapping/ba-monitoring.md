@@ -5,7 +5,7 @@ title: Monitor Business Activities
 
 After adding, editing or deleting the BAs, KPIs and BVs, the objects
 linked to Centreon BAM, go to **Configuration > Poller**, generate the
-configuration files, and push them to the SaaS platform.
+configuration files, and push them to the **Central** poller.
 
 After you have loaded the configuration and checked the services linked to the
 KPIs, the BA will be up to date and available under
