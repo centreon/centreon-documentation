@@ -34,7 +34,7 @@ The Centreon web interface contains several menus, each with a specific function
 
 The left part of the top banner shows the health of your platform in real time:
 
-* whether all pollers are running or not: the icon becomes red when a poller has not sent data to the platform for at least 15 minutes
+* whether all pollers are running or not: the icon becomes red when a poller has not sent data to the SaaS platform for at least 15 minutes
 * whether checks are running late or not. If the icon is orange or red, this may mean that your pollers are monitoring too many resources.
 
 Click the **pollers** icon to expand the menu. On the menu, click **Configure pollers** to access page **Configuration > Pollers > Pollers**.
