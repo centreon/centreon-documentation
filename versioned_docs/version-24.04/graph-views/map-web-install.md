@@ -497,34 +497,44 @@ mariadb-secure-installation
 
 > You need to have a MySQL database to store your Centreon MAP data.
 
-First you need to add the MySQL repository:
+Depending on your operating system, you may need to add the MySQL repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-```shell
-to add
-```
+You have nothing to do, as MySQL 8.0 is already available in the official repository.
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-```shell
-to add
-```
+You have nothing to do, as MySQL 8.0 is already available in the official repository.
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-to add
+wget -P /tmp/ https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
+apt install /tmp/mysql-apt-config_0.8.29-1_all.deb
+```
+
+Select OK to validate the installation of **MySQL Tools & Connectors**. Then enter the following command:
+
+```shell
+apt update
 ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-to add
+wget -P /tmp/ https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
+apt install /tmp/mysql-apt-config_0.8.29-1_all.deb
+```
+
+Select OK to validate the installation of **MySQL Tools & Connectors**. Then enter the following command:
+
+```shell
+apt update
 ```
 
 </TabItem>
@@ -556,13 +566,13 @@ to add
 > MySQL must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
 > 
 > ```shell
-> to add
+> /etc/mysql/mysql.conf.d/mysqld.cnf
 > ```
 > 
-> Set the **bind-address** parameter to **0.0.0.0** and restart MySQL.
+> Set the **bind-address** parameter to **0.0.0.0** and restart MySQL:
 > 
 > ```shell
-> to add
+> sudo service mysql restart
 > ```
 
 </TabItem>
@@ -862,7 +872,7 @@ mariadb-secure-installation
 Then, restart MySQL:
 
 ```shell
-to add
+systemctl restart mysql
 ```
 
 It is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
