@@ -112,7 +112,7 @@ function BannerBlock() {
 function SearchForm() {
   function handleClick(e) {
     e.preventDefault()
-    document.querySelector('.@easyops-cn/docusaurus-search-local').click()
+    document.querySelector('.navbar__search-input').click()
   }
   return (
     <form className={clsx(styles.searchForm)} onClick={handleClick}>
