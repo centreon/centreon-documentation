@@ -546,21 +546,21 @@ Then install MySQL server:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-to add
+dnf install centreon-map-engine
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-to add
+dnf install centreon-map-engine
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-to add
+apt update && apt install centreon-map-engine
 ```
 
 > MySQL must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
@@ -581,8 +581,8 @@ to add
 Then enable and restart MySQL.
 
 ```shell
-systemctl enable mariadb
-systemctl restart mariadb
+systemctl enable mysql
+systemctl restart mysql
 ```
 
 It is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the Map server:
