@@ -5,7 +5,7 @@ title: About the Centreon Cloud trial
 
 ## What is the Centreon Cloud trial?
 
-Centreon Cloud trial is a **free 7-days license** that includes the features available with our [IT Edition](https://www.centreon.com/centreon-editions/#editions-table) and with a monitoring capacity of up to 125 hosts.
+Centreon Cloud trial is a **free 7-day license** that includes the features available with our [IT Edition](https://www.centreon.com/centreon-editions/#editions-table) and with a monitoring capacity of up to 125 hosts.
 
 Centreon Cloud offers the Centreon monitoring platform in a SaaS version, for an experience free of installation and maintenance.
 
@@ -15,13 +15,13 @@ Centreon Cloud offers the Centreon monitoring platform in a SaaS version, for an
 
 ### User accounts information
 
-User accounts are managed in the [Centreon CIAM](../ciam/ciam.md) (Customer Identity and Access Management) module: the Centreon’s access management tool. Your administrator needs to create an organization and invite the other users to it so that all team members can work on the same Centreon platform. 
+User accounts are managed in the [Centreon CIAM](../ciam/ciam.md) (Customer Identity and Access Management) module, Centreon’s access management tool. Your administrator needs to create an organization and invite the other users to it so that all team members can work on the same Centreon platform. 
 
 ### How to create an organization for your trial platform?
 
 There are three steps to setting up your Centreon Cloud trial platform for an organization:
 
-- Your administrator fills in the form available on our [website](https://www.centreon.com/free-trial/) using a professional email adress.
+- Your administrator fills in [the form available on our website](https://www.centreon.com/free-trial/) using a professional email adress.
 
 - Your organization will then be automatically created. This process can take a few minutes, you will be notified by email once the platform has finished building.
 
