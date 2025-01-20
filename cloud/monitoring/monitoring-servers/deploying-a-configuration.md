@@ -3,12 +3,12 @@ id: deploying-a-configuration
 title: Deploying a configuration
 ---
 
-When you create, delete or edit objects in the **Configuration** menu, changes are not applied automatically (either on the central poller on which you have made the change or on any remote server or poller linked to it). For the changes to be taken into account, you must export the configuration.
+When you create, delete or edit objects in the **Configuration** menu, changes are not applied automatically. For the changes to be taken into account, you must deploy the configuration.
 
 ## Exporting the configuration
 
-1. Go to the **Configuration > Pollers > Pollers** page. The page shows the state of your central
-poller and of all pollers linked to it: changes are shown in the **Conf changed** column.
+1. Go to the **Configuration > Pollers > Pollers** page. The page shows the state of your SaaS platform (**Central** poller)
+and of all pollers linked to it: changes are shown in the **Conf changed** column.
 
 2. Select the server or the poller whose configuration has changed.
 

@@ -17,7 +17,7 @@ Votre plateforme Centreon Cloud est constituée principalement d'une plateforme 
 
 * **Un ou plusieurs collecteurs** :
   * Les collecteurs supervisent des ressources dans votre infrastructure. Ils doivent être situés dans le même réseau que les ressources à superviser.
-  * Les collecteurs n'ont pas d'interface utilisateur (l'activité des pollers est visible sur l'interface utilisateur).
+  * Les collecteurs eux-mêmes n'ont pas d'interface utilisateur (l'activité des collecteurs est visible sur l'interface utilisateur de la plateforme SaaS).
   * Les collecteurs sont situés dans votre infrastructure, ce qui veut dire une meilleure sécurité, latence et bande passante.
   * Vous [installez vos collecteurs](../installation/deploy-poller.md) à l'aide d'un simple script.
   * La communication entre le central et les collecteurs se fait en HTTPS.

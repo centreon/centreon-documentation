@@ -113,7 +113,7 @@ A poller is a monitoring server installed in your infrastructure to monitor your
 
 - A Centreon poller monitors [resources](#resource). It has a [monitoring engine](#monitoring-engine).
 
-- A poller has no graphical interface: the resources it monitors are displayed in the user interface.
+- A poller has no graphical interface: the resources it monitors are displayed in the SaaS platform's user interface.
 
 
 ## Recurring downtime

@@ -5,11 +5,11 @@ title: Déployer une configuration
 
 Lorsque vous créez, supprimez ou modifiez des objets via le menu
 **Configuration**, les changements effectués ne sont pas appliqués de manière
-automatique (ni sur le collecteur central, ni sur aucun collecteur ou serveur distant qui en dépendrait). Pour que les modifications soient prises en compte, il est nécessaire d'exporter la configuration.
+automatique. Pour que les modifications soient prises en compte, il est nécessaire d'exporter la configuration.
 
 ## Exporter la configuration
 
-1. Allez à la page **Configuration > Collecteurs > Collecteurs**. La page affiche l'état de votre collecteur central et de tous les collecteurs qui y sont reliés : les changements sont signalés dans la colonne **Changement de configuration**.
+1. Allez à la page **Configuration > Collecteurs > Collecteurs**. La page affiche l'état de votre plateforme SaaS (collecteur **Central**) et de tous les collecteurs qui y sont reliés : les changements sont signalés dans la colonne **Changement de configuration**.
 
 2. Sélectionnez le collecteur dont la configuration a changé.
 

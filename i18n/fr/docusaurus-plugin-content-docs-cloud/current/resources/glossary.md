@@ -29,7 +29,7 @@ Un collecteur est un serveur de supervision installé dans votre infrastructure,
 
 - Un collecteur Centreon supervise des [ressources](#ressource). Il possède un [moteur de supervision](#moteur-de-supervision).
 
-- Il n’a pas d’interface graphique : les ressources qu’il supervise s’affichent dans l’interface utilisateur.
+- Il n’a pas d’interface graphique : les ressources qu’il supervise s’affichent dans l’interface utilisateur de la plateforme SaaS.
 
 
 ## Connecteur de supervision
