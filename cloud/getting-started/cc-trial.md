@@ -1,5 +1,5 @@
 ---
-id: cc-trial
+id: centreon-cloud-trial
 title: About the Centreon Cloud trial
 ---
 
