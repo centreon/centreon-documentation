@@ -115,7 +115,7 @@ module.exports = {
             },
             {
               type: 'doc',
-              id: 'getting-started/create-custom-view',
+              id: 'getting-started/create-dashboard',
             },
           ],
         },
@@ -175,6 +175,26 @@ module.exports = {
           type: 'doc',
           id: 'installation/poller-secure',
         },
+        {
+          type: 'doc',
+          id: 'installation/poller-monitor',
+        },
+        {
+          type: 'doc',
+          id: 'installation/poller-troubleshoot',
+        },
+        {
+          type: 'doc',
+          id: 'installation/poller-migrate',
+        },
+        {
+          type: 'doc',
+          id: 'installation/poller-remove',
+        },
+        {
+          "type": "doc",
+          "id": "installation/poller-versions"
+        }
       ],
     },
     {

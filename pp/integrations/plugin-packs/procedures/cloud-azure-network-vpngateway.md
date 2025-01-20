@@ -173,10 +173,10 @@ running the following command:
     --client-id='' \
     --client-secret='' \
     --proxyurl='' \
-    --ok-status='%{status} =~ /^Available$/' \
+    --ok-status='%\{status\} =~ /^Available$/' \
     --warning-status='' \
-    --critical-status='%{status} =~ /^Unavailable$/' \
-    --unknown-status='%{status} =~ /^Unknown$/' \
+    --critical-status='%\{status\} =~ /^Unavailable$/' \
+    --unknown-status='%\{status\} =~ /^Unknown$/' \
     --api-version=2017-07-01\
 ```
 

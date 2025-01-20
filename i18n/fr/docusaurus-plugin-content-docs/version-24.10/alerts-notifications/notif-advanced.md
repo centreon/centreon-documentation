@@ -20,12 +20,6 @@ modifier / ajouter de nouvelles commandes de notification.
 > plugin sur tous les collecteurs, et ajouter une commande pour utiliser
 > ce plugin et changer la commande de vos contacts.
 
-## Chatops
-
-Un projet communautaire [Centreon-Chatops](https://github.com/centreon/centreon-chatops)
-a été développé pour permettre la communication entre un chat d'équipe
-comme Mattermost ou Slack et Centreon via des commandes slash
-
 ## Stream connector
 
 Vous pouvez également transférer l’événement vers une application tierce
