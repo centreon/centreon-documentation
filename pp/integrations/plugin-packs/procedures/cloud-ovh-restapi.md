@@ -5,7 +5,7 @@ title: OVH
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Pack assetsf
+## Pack assets
 
 ### Templates
 
