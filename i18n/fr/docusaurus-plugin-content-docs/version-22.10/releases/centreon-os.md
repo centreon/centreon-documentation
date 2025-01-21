@@ -18,6 +18,24 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.27
+
+Release date: `January 9, 2025`
+
+#### Bug fixes
+
+- [Custom Views] Fixed an issue preventing some filters from functioning in the "Hostgroup monitoring" and "Host monitoring" widgets.
+- [Event Logs] Fixed hostgroup selection.
+
+#### Security fixes
+
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to export the results in CSV format.
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "Host Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "TOP10 CPU usage" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "TOP10 Memory usage" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Improved an SQL query triggered via the Event Logs menu for better protection.
+  
 ### 22.10.26
 
 Release date: `November 21, 2024`
