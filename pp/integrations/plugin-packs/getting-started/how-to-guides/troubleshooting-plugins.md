@@ -26,8 +26,8 @@ To troubleshoot a Plugin, you must always:
 When getting this error, please focus on the command line executed and ensure that 
 the binary it uses exists or doesn't contain a typo.
 
-On RPM-based systems, you can use the following command to identify what is the 
-package's missing binary: `yum whatprovides "*/the_binary_name"`
+On RPM-based systems, you can use the following command to identify which package provides the missing binary: 
+`yum whatprovides "*/the_binary_name"`
 
 ### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/<cache_file_name>'
 

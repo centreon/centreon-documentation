@@ -3,13 +3,13 @@ id: troubleshooting-plugins
 title: Dépannage des erreurs de plugin
 ---
 
-Lorsque vous utilisez des plugins et que vous deployez une nouvelle sonde de supervisions, des erreurs peuvent apparaitre.
+Lorsque vous utilisez des plugins et que vous déployez une nouvelle sonde de supervision, des erreurs peuvent apparaître.
 
-Généralement, une mauvaise configuration ou un dispositif tiers sont la source du problème. Cette section décrit les erreurs le plus communes que vous pourriez rencontrer et peut vous aider à identifier 
+Généralement, une mauvaise configuration ou un dispositif tiers sont la source du problème. Cette section décrit les erreurs les plus communes que vous pourriez rencontrer et peut vous aider à identifier 
 
-Mais avant tout, rappelons que la majorité des connecteurs ont leur propre documentation contenant des sections de "Prérequis" et "Configuration" pour vous aider à éviter les erreurs courantes.
+Mais avant tout, rappelons que la majorité des connecteurs ont leur propre documentation contenant des sections "Prérequis" et "Configuration" pour vous aider à éviter les erreurs courantes.
 
-Les pollers Centreon emploient un ordonnanceur planifier et exécuter les checks.
+Les collecteurs Centreon emploient un ordonnanceur qui planifie et exécute les contrôles.
 Pour dépanner un plugin, vous devez impérativement :
 
 * Copier/coller la commande du UI Centreon Web pour tenter dépanner le problème avec le CLI
