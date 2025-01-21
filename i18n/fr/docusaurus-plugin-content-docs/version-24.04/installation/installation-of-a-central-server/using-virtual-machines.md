@@ -69,7 +69,9 @@ cliquez sur **Download**.
 
 1. Importez le fichier **centreon-central.ova** dans VMWare. Un terminal s’ouvre : attendez que le serveur démarre. Lorsque celui-ci est prêt, le terminal affiche le message suivant :
     
-    ![image](../../assets/installation/VMW1.png)
+  ```shell
+  centreon-central login: _ 
+  ```
 
 2. Selon la structure de votre réseau, dans la configuration de votre machine virtuelle, ajoutez un adaptateur réseau et sélectionnez le réseau via lequel la machine pourra communiquer avec les ressources qu'elle devra superviser.
 
