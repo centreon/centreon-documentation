@@ -30,16 +30,16 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias              | Service Template                                       | Service Description                                             | Discovery  |
-|:---------------------------|:-------------------------------------------------------|:----------------------------------------------------------------|:----------:|
-| Cast-Generic-Name          | Net-HP-Standard-Cast-Generic-Name-SNMP-custom          | Check packets casting type of a network interface               |            |
-| Cast-Global                | Net-HP-Standard-Cast-Global-SNMP-custom                | Check packets casting type of multiple network interfaces       | X          |
-| Packet-Errors-Generic-Name | Net-HP-Standard-Packet-Errors-Generic-Name-SNMP-custom | Check packets on errors/discards of a network interface         |            |
-| Packet-Errors-Global       | Net-HP-Standard-Packet-Errors-Global-SNMP-custom       | Check packets on errors/discards of multiple network interfaces | X          |
-| Spanning-Tree              | Net-HP-Standard-SpanningTree-SNMP-custom               | Monitor the status of the Spanning Tree Protocol on network interfaces.                         | X          |
-| Traffic-Generic-Id         | Net-HP-Standard-Traffic-Generic-Id-SNMP-custom         | Check traffic of a network interface                           |            |
-| Traffic-Generic-Name       | Net-HP-Standard-Traffic-Generic-Name-SNMP-custom       | Check traffic of a network interface                           |            |
-| Traffic-Global             | Net-HP-Standard-Traffic-Global-SNMP-custom             | Check traffic of multiple network interfaces                    | X          |
+| Service Alias              | Service Template                                       | Service Description                                                    | Discovery |
+|:---------------------------|:-------------------------------------------------------|:-----------------------------------------------------------------------|:---------:|
+| Cast-Generic-Name          | Net-HP-Standard-Cast-Generic-Name-SNMP-custom          | Check packets casting type of a network interface                      |           |
+| Cast-Global                | Net-HP-Standard-Cast-Global-SNMP-custom                | Check packets casting type of multiple network interfaces              |     X     |
+| Packet-Errors-Generic-Name | Net-HP-Standard-Packet-Errors-Generic-Name-SNMP-custom | Check packets in error/discarded from a network interface                |           |
+| Packet-Errors-Global       | Net-HP-Standard-Packet-Errors-Global-SNMP-custom       | Check packets in error/discarded from multiple network interfaces        |     X     |
+| Spanning-Tree              | Net-HP-Standard-SpanningTree-SNMP-custom               | Monitor the status of the Spanning Tree Protocol on network interfaces |     X     |
+| Traffic-Generic-Id         | Net-HP-Standard-Traffic-Generic-Id-SNMP-custom         | Check traffic of a network interface                                   |           |
+| Traffic-Generic-Name       | Net-HP-Standard-Traffic-Generic-Name-SNMP-custom       | Check traffic of a network interface                                   |           |
+| Traffic-Global             | Net-HP-Standard-Traffic-Global-SNMP-custom             | Check traffic of multiple network interfaces                           |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -60,12 +60,12 @@ More information about discovering hosts automatically is available on the [dedi
 
 #### Service discovery
 
-| Rule name                               | Description                                                           |
-|:----------------------------------------|:----------------------------------------------------------------------|
-| Net-Hp-Standard-SNMP-Cast-Name          |                                                                       |
-| Net-Hp-Standard-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets |
-| Net-Hp-Standard-SNMP-Spanning-Tree-Name | Discover the network interfaces in order to monitor the status of the Spanning Tree Protocol.  |
-| Net-Hp-Standard-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization         |
+| Rule name                               | Description                                                                                  |
+|:----------------------------------------|:---------------------------------------------------------------------------------------------|
+| Net-Hp-Standard-SNMP-Cast-Name          | Discover network interfaces and monitor bandwidth utilization                                |
+| Net-Hp-Standard-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets                        |
+| Net-Hp-Standard-SNMP-Spanning-Tree-Name | Discover the network interfaces in order to monitor the status of the Spanning Tree Protocol |
+| Net-Hp-Standard-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization                                |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).

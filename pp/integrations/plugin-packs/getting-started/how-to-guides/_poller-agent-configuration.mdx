@@ -1,0 +1,7 @@
+- Some agents can connect to the poller, while the poller can connect to some other agents.
+- You can select several pollers at once in a single configuration form so that you don't have to do the same configuration several times.
+
+1. Go to **Configuration > Pollers > Agent configurations** and click **Add poller/agent configuration**.
+2. In the window that opens, select the type of agent you want to configure. Additional fields appear.
+3. In the **Parameters** section, select the poller(s) that will receive data from the agent.
+4. In the **OTLP receiver** section, enter the file names for the certificates for the part of the poller that will receive data from the agent, i.e., the poller's engine. Communication between the agent and the poller is always in HTTPS. You need to store the certificates in the **/etc/pki/** directory of the poller.
