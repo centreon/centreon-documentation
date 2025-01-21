@@ -173,7 +173,7 @@ minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la vers
 
 ### Configuration de Centreon Engine
 
-Référez-vous à [cette page](../getting-started/how-to-guides/cma.md#configurez-engine) pour la procédure de configuration de centreon-engine.
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma.md#configurez-engine).
 
 ### Prérequis système sur l'hôte à superviser
 
