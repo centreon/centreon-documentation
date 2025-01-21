@@ -22,6 +22,52 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 24.10.3
+
+Release date: `December 19, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added missing configuration change logs for timeperiods configuration.
+- [API] Added missing configuration change logs for host template configuration.
+- [API] Added missing configuration change logs for host severities configuration.
+- [API] Added missing configuration change logs for service severities configuration.
+- [Configuration] Improved the tooltip for Broker's Unified SQL output.
+- [Dashboards] Added meta-services to metric widgets (Single metric, Metrics graph, Top/Bottom).
+- [Install] Added 24.10 support for unattended script.
+- [Library - view by card] Added a thumbnail that shows a snapshot of your data, taken when the dashboard is saved.
+- [Poller/Agent configurations] You can now manage the configuration of agents through an interface. This includes Centreon Monitoring Agent and Telegraf.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ACC] Fixed an issue with ACC where configuration files were not copied to the central server.
+- [Authentication] Fixed an issue preventing LDAP users with more than one email address to log in to Centreon.
+- [Custom Views] Fixed an issue with how the edit widget pencil icon was displayed.
+- [Custom Views] Fixed an issue preventing some filters from functioning in the "Hostgroup monitoring" and "Host monitoring" widgets.
+- [Downtimes] The action details column now displays the correct information in the Action Log page.
+- [Dashboards][Widgets] In the resource selection fields, services containing a slash ("/") in their name no longer trigger an error.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed an issue on virtual metrics' RPN field.
+- [Security] Fixed a security issue in media binary.
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to export the results in CSV format.
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "Host Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "TOP10 CPU usage" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "TOP10 Memory usage" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Improved an SQL query triggered via the Event Logs menu for better protection.
+- [Security] Updated Symfony Security-Http component.
+
+</details>
+
 ### 24.10.2
 
 Release date: `November 27, 2024`
@@ -61,6 +107,7 @@ Release date: `November 27, 2024`
 - [Resource Status] Fixed the redirection from the Event Logs page to Resource Status: the details panel is now opened on the correct resource.
 - [Resource Status] If no notification has ever been sent, the "Last notification" field in the details panel is not displayed.
 - [Resource Status] Made downtime and acknowledge icons more visible in light and dark mode.
+- [Resource Status] The value of the "Conf Changed" column of the poller menu is now correctly updated when a service is added by manual discovery.
 - [Resource Status] Tooltips on quick action buttons are now displayed only briefely when they are hovered, so as not to block the action button just below.
 - [Status Chart widget] Filters on selected resources are now handled properly.
 - [Status Grid] Fixed an issue where an incorrect number of resources were displayed on hover.
@@ -87,8 +134,6 @@ Release date: `November 8, 2024`
 
 </details>
 
-## Centreon Web
-
 ### 24.10.0
 
 Release date: `October 31, 2024`
@@ -103,6 +148,14 @@ Release date: `October 31, 2024`
 **Additional Connector Configurations**
 
 - The **Additional connector configurations** menu allows you to define the credentials to access a monitored resource through the Centreon interface rather than having to connect to your pollers manually.
+
+  > Warning: If you were using the following monitoring connectors, from version 24.10 you must declare all of their configurations using [the **Configuration \> Additional connector configurations** page](/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration) before deploying the configuration of the corresponding poller:
+  > * [VMware ESX](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/)
+  > * [VMware vCenter](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-generic/)
+  > * [VMware VM](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vm/)
+  > * [VMware vCenter v4](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-4/)
+  > * [VMware vCenter v5](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-5/)
+  > * [VMware vCenter v6](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-6/)
 
 **API**
 
@@ -184,6 +237,31 @@ Release date: `October 31, 2024`
 
 ## Centreon Collect
 
+### 24.10.3
+
+Release date: `December 18, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Added a native CPU check for Windows & Linux.
+- [CMA] Added native checks for Windows: Memory, Uptime and Storage.
+- [CMA] Agent check scheduling has been optimized to avoid delay in case of check timeouts.
+- [CMA] Fixed a listening issue occurring when using the "Poller initiated connection" option.
+- [CMA] The Centreon Monitoring Agent and its installer are now signed.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Adapted Broker parsing so as to avoid breaking a metric name ending with the ] character.
+- [Broker] Fixed a typo in an SQL query.
+- [CMA] Fixed a listening issue that occurred when using "Poller-initiated connection" mode.
+- [Engine] Fixed errors in RRD logs that appeared following the upgrade to the new log engine in Collect.
+
+</details>
+
 ### 24.10.2
 
 Release date: `November 27, 2024`
@@ -245,6 +323,17 @@ Release date: `October 31, 2024`
 
 ## Centreon Gorgone
 
+### 24.10.2
+
+Release date: `December 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed a bug in Gorgone affecting platforms with thousands of hosts, where deploying the configuration failed and the connection with Gorgone was lost.
+
+</details>
+
 ### 24.10.1
 
 Release date: `November 27, 2024`
@@ -294,6 +383,17 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Open Tickets
+
+### 24.10.1
+
+Release date: `December 5, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Open Ticket widget] Fixed an issue preventing non admin users from opening tickets.
+
+</details>
 
 ### 24.10.0
 

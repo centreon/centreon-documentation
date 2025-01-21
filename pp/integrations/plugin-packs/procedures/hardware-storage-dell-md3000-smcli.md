@@ -27,7 +27,7 @@ When you install the package, choose 'Management Station':
       
       4- Customize...
       
-    ENTER THE NUMBER FOR THE INSTALL SET, OR PRESS <ENTER> TO ACCEPT THE
+    ENTER THE NUMBER FOR THE INSTALL SET, OR PRESS \<ENTER\> TO ACCEPT THE
     DEFAULT : 2
 
 After install, monitoring engine user needs root privileges to execute the

@@ -25,7 +25,7 @@ Our provider requires the following parameters:
 
 | Parameter | Example of value |
 | --------- | ---------------- |
-| From      | {$user.email}    |
+| From      | \{$user.email\}    |
 | To        |                  |
 
 ## Possibilities

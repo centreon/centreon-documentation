@@ -48,14 +48,14 @@ Body {
 }
 ```
 
-In the result, retrieve the {studio-session} (token); you'll need to
+In the result, retrieve the \{studio-session\} (token); you'll need to
 use it for all your API calls. The headers will look like this:
 
 ```
 Headers {
     Content-Type = application/json
     X-client-version = 19.10.0
-    studio-session = {studio-session}
+    studio-session = \{studio-session\}
 }
 ```
 
@@ -69,7 +69,7 @@ POST http://{{serverURL}}:8080/centreon-studio/api/beta/maps
 Headers {
     Content-Type = application/json
     X-client-version = 19.10.0
-    studio-session = {studio-session}
+    studio-session = \{studio-session\}
 }
 
 Body {
@@ -77,7 +77,7 @@ Body {
    }
 ```
 
-Retrieve the ID of the view returned: {viewId}
+Retrieve the ID of the view returned: \{viewId\}
 
 **3.Open the Map**
 

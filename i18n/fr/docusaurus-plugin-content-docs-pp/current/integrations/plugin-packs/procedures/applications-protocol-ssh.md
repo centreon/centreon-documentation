@@ -37,13 +37,10 @@ SSH.
 
 ## Prérequis
 
-To use this pack, the SSH service must be properly configured on your server and
-the mandatory Host Macros must be properly configured. More info in the 
-"Configuration" section [here](#Hôte).
+Afin de superviser le serveur SSH, le service doit être configuré et les macros
+d'hôtes doivent être renseignées. Plus d'information [dans la section 
+ **Configuration**](#hôte).
 
-Afin de superviser le serveur SSH, le service doit être configuré et les Macro
-d'hôtes doivent être renseignées. Plus d'information dans le chapite 
-"Configuration" [ici](#Hôte).
 ## Installation
 
 <Tabs groupId="sync">
@@ -106,7 +103,7 @@ de commande depuis votre collecteur Centreon en vous connectant avec
     --ssh-username=''  \
     --ssh-password=''  \
     --warning-status=''  \
-    --critical-status='%{message} !~ /authentification succeeded/i'  \
+    --critical-status='%\{message\} !~ /authentification succeeded/i'  \
     --warning-time='2'  \
     --critical-time='3'  \
     --use-new-perfdata 

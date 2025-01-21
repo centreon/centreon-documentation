@@ -154,9 +154,9 @@ Le module stocke la sélection de la liste d'utilisateurs dans un tableau
 `mapping ticket arguments`). Il y a 3 champs (**LIST\_ID** doit être
 remplacé):
 
--   {$select.LIST\_ID.id}
--   {$select.LIST\_ID.value}
--   {$select.LIST\_ID.label}
+-   \{$select.LIST\_ID.id\}
+-   \{$select.LIST\_ID.value\}
+-   \{$select.LIST\_ID.label\}
 
 ### Règles de chaînage
 
