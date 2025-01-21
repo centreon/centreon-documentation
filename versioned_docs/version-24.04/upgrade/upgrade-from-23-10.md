@@ -131,13 +131,13 @@ rm /etc/apt/sources.list.d/centreon-business.list
 systemctl stop cbd
 ```
 
-5. Delete existing retention files:
+6. Delete existing retention files:
 
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
 
-6. Clean the cache:
+7. Clean the cache:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -164,7 +164,7 @@ apt update
 </TabItem>
 </Tabs>
 
-7. Then upgrade all the components with the following command:
+8. Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
