@@ -4,6 +4,7 @@ title: Telegraf
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 ## Introduction
 
@@ -60,50 +61,15 @@ Install the Open Telemetry processor for Telegraf on your central server:
 
 ### Configure Engine
 
-1. On the poller that will receive the data from the agent, create the following file:
+Configure how the poller and the agent will communicate:
 
-   ```shell
-   touch /etc/centreon-engine/otl_server.json
-   ```
+<PollerAgentConfiguration />
 
-2. Enter the following contents. This will allow the poller to receive the data that the agent will send.
+5. The **Configuration provider** is the server inside the poller's engine that will send the agent its configuration. Enter the port and the file names for the certificates. The certificates must be stored in the **/etc/pki/** directory. You can use the same certificates as for the OTLP receiver.
+> If you configure several pollers at once, make sure all certificate files have the same name.
 
-```json
-{
- "otel_server": {
-   "host": "0.0.0.0",
-   "port": 4317,
-   "encryption": false
- },
- "max_length_grpc_log": 0,
- "telegraf_conf_server": {
-   "http_server": {
-     "port": 1080,
-     "encryption": false
-   },
-   "telegraf_conf": {
-     "interval": "60s",
-   }
- }
-}
-```
-
-* The **interval** field is the frequency of checks performed by Telegraf, and should be set to 60 seconds as it is the frequency of Engine checks.
-
-> For the sake of simplicity, this page only covers the configuration of Telegraf **without encryption**. You may find how to secure the communications in the [Linux Telegraf Agent](../../procedures/operatingsystems-linux-telegraf-agent.md) and [Windows Telegraf Agent](../../procedures/operatingsystems-windows-telegraf-agent.md) pages.
-
-### Add a new Broker module
-
-1. Go to **Configuration > Pollers > Engine configuration**, then click on the poller you want to monitor your resources.
-2. On the **Data** tab, in the **Broker module** section, in the **Multiple Broker Module** parameter, click on **Add a new entry**.
-3. Add the following entry :
-
-   ```shell
-   /usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
-   ```
-
-4. Export the configuration
-5. Restart the monitoring engine
+6. Export the configuration
+7. Restart the monitoring engine
 
    ```bash
    systemctl restart centengine

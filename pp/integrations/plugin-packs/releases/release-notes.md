@@ -6,6 +6,73 @@ title: Release Notes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## 2025
+
+### January
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Huawei WLC SNMP**](../procedures/network-huawei-wlc-snmp.md) - Initial release of Huawei WLC SNMP from community contribution [PR 5146](https://github.com/centreon/centreon-plugins/pull/5146) and [The Watch idea](https://thewatch.centreon.com/ideas/new-plugin-for-huawei-wlc-controller-2763).
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- **Centreon plugins option** - Added a common `--change-output-adv` plugin option to change the short output and the exit code at the same time.
+- [**ArubaOS-CX SNMP**](../procedures/network-aruba-aoscx-snmp.md) - Added new **stack** mode from a [The Watch idea](https://thewatch.centreon.com/ideas/aruba-stack-members-check-if-not-vsf-or-vsx-stack-3832).
+- [**Backbox Rest API**](../procedures/network-backbox-restapi.md) - Added **device-backup** mode and its service discovery.
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Added `--filter-model` option to host discovery, from community contribution [PR 5228](https://github.com/centreon/centreon-plugins/pull/5228).
+- [**FreeBSD SNMP**](../procedures/operatingsystems-freebsd-snmp.md) - Refreshed service template descriptions.
+- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Added **uptime**, **spanning-tree** modes and **spanning-tree** service discovery from community contribution [PR 5198](https://github.com/centreon/centreon-plugins/pull/5198).
+- [**Informix DB SNMP**](../procedures/applications-databases-informix-snmp.md) - Improved the calculation of space used by created log files, from community contribution [PR 4943](https://github.com/centreon/centreon-plugins/pull/4943).
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Added `--filter-workspaceid` and ` --filter-siteid` options for **incidents** and **scenarios** modes.
+- [**Lenovo XCC SNMP**](../procedures/hardware-servers-lenovo-xcc-snmp.md) - Added new components in the **hardware** mode: **cpu**, **memory** and **health**. Planned from a [The Watch idea](https://thewatch.centreon.com/ideas/hardware-server-lenovo-xcc-snmp-plugin-mode-hardware-system-health-memory-and-cpu-table-not-checked-2636). 
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Added default values for **Volumes** and **Aggregates** service templates.
+- [**NetApp Ontap SNMP**](../procedures/hardware-storage-netapp-ontap-snmp.md) - Added **uptime** mode and service template.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Fixed the attributes for VPN statuses.
+- [**Huawei Standard SNMP**](../procedures/network-huawei-snmp.md) - Renamed, refactored, and added a new service template.
+- [**Stormshield API**](../procedures/network-stormshield-api.md) - Fixed mapped values for **state** and **plugged in interfaces** modes.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- **Debian 12 Bookworm**: Mass update of 557 monitoring connectors has been undertaken to make the automatic installation of the required plugins work on this distribution.
+- [**Adder AIM SNMP**](../procedures/hardware-kvm-adder-aim-snmp.md) - Fixed **HW-Kvm-Adder-Aim-SNMP-Server-Usage** command.
+- [**Avaya AES SNMP**](../procedures/hardware-telephony-avaya-aes-snmp.md) - Fixed **HW-Telephony-Avaya-Aes-SNMP-Services** command.
+- [**Axis Video SNMP**](../procedures/hardware-devices-video-axis-snmp.md) - Fixed wrong fan status mapping leading to false positives, from community contribution [PR 5356](https://github.com/centreon/centreon-plugins/pull/5356)
+- [**Azure Classic Storage**](../procedures/cloud-azure-classicstorage-storageaccount.md) - Fixed **Cloud-Azure-ClassicStorage-StorageAccount-Api-File-Share-Quota** command.
+- [**Azure Management Costs**](../procedures/cloud-azure-management-costs.md) - Fixed **Cloud-Azure-Management-Costs-Api-Tags-Compliance** command.
+- [**Azure Monitor**](../procedures/cloud-azure-management-monitor.md) - Removed unrelated **Loganalytics** service template.
+- [**Cambium CnPilot SNMP**](../procedures/network-cambium-cnpilot-snmp.md) - Fixed **Net-cambium-Cnpilot-SNMP-Radios** command.
+- [**Colubris SNMP**](../procedures/network-colubris-snmp.md) - Fixed **Net-Colubris-SNMP-Memory** and **Net-Colubris-SNMP-Load** commands. Also fixed plugin to support options from **Net-Colubris-SNMP-Load** command.
+- [**Dell OS10 SNMP**](../procedures/network-dell-os10-snmp.md) - Fixed **Net-Dell-Os10-SNMP-Disk-usage** command.
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Fixed wrong output when cleaning is running and cleaned unused macros in **Filesystem** service template.
+- [**Emerson PDU**](../procedures/hardware-pdu-emerson-snmp.md) - Fixed **HW-Pdu-Emerson-SNMP-Receptacles** command.
+- [**Fortinet FortiAuthenticator SNMP**](../procedures/network-fortinet-fortiauthenticator-snmp.md) - Fixed **Net-Fortinet-Fortiauthenticator-SNMP-Ha** command.
+- [**Github**](../procedures/applications-github-restapi.md) - Fixed **App-Github-Restapi-Repositories-Statistics**, **App-Github-Restapi-Repositories-Pull-Requests**, **App-Github-Restapi-Repositories-Issues** and **App-Github-Restapi-Repositories-Commits** commands as well as the default port and protocol.
+- [**IBM Bladecenter Switch SNMP**](../procedures/network-ibm-bladecenter-snmp.md) - Fixed **Net-IBM-Bladecenter-SNMP-Time** command.
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Fixed scenario monitoring where scenarios names were not correctly ordered.
+- [**Lenovo Flex System Switch SNMP**](../procedures/network-lenovo-flexsystem-snmp.md) - Fixed **Net-Lenovo-Flexsystem-SNMP-Time** command.
+- [**Linux Centreon Monitoring Agent**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Fixed wrong default values in uptime service.
+- [**NetApp Ontap SNMP**](../procedures/hardware-storage-netapp-ontap-snmp.md) - Fixed **Disk-Failed** command.
+- [**OpenMetrics**](../procedures/applications-monitoring-openmetrics.md) - Fixed **App-Monitoring-Openmetrics-File-Scrape-Metrics** command.
+- [**Panzura SNMP**](../procedures/hardware-storage-panzura-snmp.md) - Removed unrelated service templates.
+- [**Patton SmartNode SNMP**](../procedures/network-patton-smartnode-snmp.md) - Fixed **Net-Patton-Smartnode-SNMP-Call** command.
+- [**pfSense SNMP**](../procedures/network-firewalls-pfsense-snmp.md) - Split **Net-FW-Pfsense-SNMP-Packet-Stats** into 6 dedicated commands.
+- [**SecurActive SNMP**](../procedures/network-securactive-snmp.md) - Fixed **Net-Securactive-SNMP-Bca** and **Net-Securactive-SNMP-Bcn** commands.
+- [**SMTP Server**](../procedures/applications-protocol-smtp.md) - Fixed a Perl warning in **App-Protocol-SMTP-Message** and **App-Protocol-SMTP-Login** commands.
+- [**Solaris SNMP**](../procedures/operatingsystems-solaris-snmp.md) - Fixed **OS-Solaris-SNMP-Load** command.
+- [**Sun MgmtCard**](../procedures/hardware-servers-sun-mgmtcards.md) - Fixed the default behavior of the `--command-plink` option of the plugin.
+- [**Sybase**](../procedures/applications-databases-sybase.md) - Fixed **App-DB-Sybase-Databases-Size** command.
+- [**VMware VCSA SNMP**](../procedures/applications-vmware-vcsa-snmp.md) - Fixed plugin package name.
+
+</TabItem>
+</Tabs>
+
 ## 2024
 
 ### December
@@ -35,7 +102,7 @@ import TabItem from '@theme/TabItem';
 - [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed an issue with the **process** mode that wasn't returning the process in some cases. We added a column size limit to avoid filter issues.
 
 </TabItem>
-<TabItem value="Fix" label="Bug fixes">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Azure Elastic Pool**](../procedures/cloud-azure-database-elasticpool.md) - Fixed an issue with **storage** mode where thresholds weren't taken into account.
 - [**Commvault Commserve Rest API**](../procedures/applications-commvault-commserve-restapi.md) - Fixed **storagepools** mode to avoid division by 0, from community feedback [PR 5141](https://github.com/centreon/centreon-plugins/pull/5141).
@@ -62,7 +129,7 @@ import TabItem from '@theme/TabItem';
 - [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - The default inherited templates are now passive.
 
 </TabItem>
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Amazon CloudTrail**](../procedures/cloud-aws-cloudtrail.md) - Fixed command for event lookup, from community feedback [PR 5086](https://github.com/centreon/centreon-plugins/pull/5086).
 - [**Eclipse Mosquitto MQTT**](../procedures//applications-eclipse-mosquitto-mqtt.md) - Fixed ` warning-regexp` and `critical-regexp` options.

@@ -6,9 +6,9 @@ title: Flapping
 ## Introduction
 
 Centreon Engine prend en charge la détection des hôtes et des services
-bagoter. Le bagotement se produit lorsqu'un service ou un hôte change
-d'état trop fréquemment, ce qui entraîne une tempête de notifications de
-problèmes et de récupération. Le battement peut indiquer des problèmes
+bagotants. Le bagotement se produit lorsqu'un service ou un hôte change
+d'état trop fréquemment, ce qui entraîne de nombreuses notifications de
+problèmes et de récupération. Le bagotement peut indiquer des problèmes
 de configuration (c'est-à-dire des seuils trop bas), des services
 gênants ou de vrais problèmes de réseau.
 
