@@ -109,8 +109,8 @@ Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifi
 
 * **Durée maximale d'un acquittement** : spécifie une durée maximale en minutes pour l'[acquittement](../../alerts-notifications/acknowledge.md) de l'hôte. Si le statut de l'hôte est toujours non-OK lorsque ce temps s'est écoulé, l'envoi des notifications reprend son cours.  Laissez ce champ vide pour que l'acquittement n'ait pas de durée maximale.
 * **Contrôler la fraicheur du résultat** : effectue un contrôle actif lorsque la quantité de temps définie dans **Seuil de fraicheur du résultat** s'est écoulée depuis le dernier [contrôle passif](../../monitoring/passive-monitoring/enable-snmp-traps.md) de l'objet.
-* **Seuil de fraicheur du résultat** : exprimé en secondes. Si durant cette période aucune demande de changement de
-  statut de l’hôte (commande passive) n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champ est laissé vide, un seuil sera déterminé automatiquement.
+* **Seuil de fraicheur du résultat** : exprimé en secondes. Si durant cette période aucune
+ commande passive de l'hôte n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champ est laissé vide, un seuil sera déterminé automatiquement.
 * **Détection de bagotage des statuts** : active ou désactive la détection du [bagotage](../../alerts-notifications/notif-flapping.md) (ou instabilité) des statuts (statut
   changeant trop fréquemment de valeur sur une période donnée).
 * **Seuil bas de détection de bagotage des statuts** et **Seuil haut de détection de bagotage des statuts** : les seuils hauts et bas pour la détection du
