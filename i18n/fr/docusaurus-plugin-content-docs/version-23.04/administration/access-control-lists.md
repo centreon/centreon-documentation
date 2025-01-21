@@ -72,10 +72,6 @@ Pour créer un filtre d'accès aux ressources :
 
 5. Cliquez sur **Sauvegarder**.
 
-> Une fois les filtres sur les ressources paramétrés, vous pouvez visualiser le
-> résultat via le menu **Vérifier la vue de l'utilisateur** à côté de l'option
-> d'ajout de filtre à la page **Administration > ACL > Gestion des accès aux ressources**.
-
 #### Référence
 
 | Onglet                 | Actions                                                                                                                                                                                                                                                                                                    |
