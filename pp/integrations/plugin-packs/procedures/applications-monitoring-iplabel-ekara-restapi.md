@@ -5,170 +5,426 @@ title: IP-Label Ekara Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Pack Assets
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **IP-Label Ekara Rest API** connector through the
+**Configuration > Monitoring Connector Manager** menu:
+* [Base Pack](./base-generic.md)
+
+## Pack assets
 
 ### Templates
 
-The Centreon Monitoring Connector **IP-Label Ekara Rest API** brings 1 host template:
+The Monitoring Connector **IP-Label Ekara Rest API** brings a host template:
 
-* App-Monitoring-Iplabel-Ekara-Restapi-custom
+* **App-Monitoring-Iplabel-Ekara-Restapi-custom**
 
-It brings the following Service Templates:
+The connector brings the following service templates (sorted by the host template they are attached to):
 
-| Service Alias   | Service Template                                     | Service Description            | Default |
-|:----------------|:-----------------------------------------------------|:-------------------------------|:--------|
-| Incidents       | App-Monitoring-Iplabel-Ekara-Incidents-Restapi       | Check IP-Label Ekara incidents | X       |
-| Scenario-Status | App-Monitoring-Iplabel-Ekara-Scenario-Status-Restapi | Check IP-Label Ekara scenarios | X       |
+<Tabs groupId="sync">
+<TabItem value="App-Monitoring-Iplabel-Ekara-Restapi-custom" label="App-Monitoring-Iplabel-Ekara-Restapi-custom">
+
+| Service Alias   | Service Template                                            | Service Description            |
+|:----------------|:------------------------------------------------------------|:-------------------------------|
+| Incidents       | App-Monitoring-Iplabel-Ekara-Incidents-Restapi-custom       | Check IP-Label Ekara incidents |
+| Scenario-Status | App-Monitoring-Iplabel-Ekara-Scenario-Status-Restapi-custom | Check IP-Label Ekara scenarios |
+
+> The services listed above are created automatically when the **App-Monitoring-Iplabel-Ekara-Restapi-custom** host template is used.
+
+</TabItem>
+</Tabs>
 
 ### Discovery rules
 
-The Centreon Monitoring Connector **IP-Label Ekara Rest API** includes a Host Discovery provider to automatically discover the Ekara scenarios and add them as hosts to the Centreon inventory.
-This provider is named **IP-Label Ekara**.
+#### Host discovery
 
-More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](/docs/monitoring/discovery/hosts-discovery)
+| Rule name       | Description                       |
+|:----------------|:----------------------------------|
+| IP-Label Ekara  | Discover IP-Label Ekara scenarios |
+
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
 ### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Incidents" label="Incidents">
 
-| Metric Name                         | Unit   |
-|:------------------------------------|:-------|
-| ekara.incidents.current.total.count | count  |
-| ekara.incident.duration.seconds     | s      |
-| incident-severity                   | string |
-| incident-status                     | string |
-| trigger-status                      | string |
+| Name                                        | Unit  |
+|:--------------------------------------------|:------|
+| ekara.incidents.current.total.count         | count |
+| incident-status                             | N/A   |
+| incident-severity                           | N/A   |
+| *incidents*~ekara.incident.duration.seconds | s     |
+| trigger-status                              | N/A   |
 
 </TabItem>
 <TabItem value="Scenario-Status" label="Scenario-Status">
 
-| Metric Name                                    | Unit   |
-|:-----------------------------------------------|:-------|
-| scenario.availability.percentage               | %      |
-| scenario-status                                | string |
-| scenario.time.interaction.milliseconds         | ms     |
-| scenario.time.allsteps.total.milliseconds      | ms     |
-| *steps*#scenario.step.time.milliseconds        | ms     |
-| *steps*#scenario.steps.time.total.milliseconds | ms     |
+| Name                                                        | Unit  |
+|:------------------------------------------------------------|:------|
+| scenario-status                                             | N/A   |
+| *scenarios*~scenario.availability.percentage                | %     |
+| *scenarios*~scenario.time.allsteps.total.milliseconds       | ms    |
+| *scenarios*~scenario.time.interaction.milliseconds          | ms    |
+| *scenarios*~*steps1*#scenario.step.time.milliseconds        | ms    |
+| *scenarios*~*steps2*#scenario.step.time.milliseconds        | ms    |
+| *scenarios*~*steps1*#scenario.steps.time.total.milliseconds | ms    |
+| *scenarios*~*steps2*#scenario.steps.time.total.milliseconds | ms    |
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-* A valid user account (username/password) with RO rights is required to authenticate against the Ekara Rest API
-* The Ekara API must be reachable on port TCP/443 from the Centreon Poller
+* A valid user account (username/password) with read-only rights is required to authenticate against the Ekara Rest API.
+* The Ekara API must be reachable on port TCP/443 from the Centreon poller.
 
-## Setup
+## Installing the monitoring connector
+
+### Pack
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connector Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Install the Centreon package on every Centreon poller expected to monitor **IP-Label Ekara** resources:
-
-  ```bash
-  yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
-  ```
-
-2. On the Centreon Web interface, install the **IP-Label Ekara Rest API** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
+```bash
+dnf install centreon-pack-applications-monitoring-iplabel-ekara-restapi
+```
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-1. Install the Centreon package on every Centreon poller expected to monitor **IP-Label Ekara** resources:
+```bash
+dnf install centreon-pack-applications-monitoring-iplabel-ekara-restapi
+```
 
-  ```bash
-  yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
-  ```
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-2. Install the **IP-Label Ekara Rest API** Centreon Monitoring Connector RPM on the Centreon Central server:
+```bash
+apt install centreon-pack-applications-monitoring-iplabel-ekara-restapi
+```
 
-  ```bash
-  yum install centreon-pack-applications-monitoring-iplabel-ekara-restapi
-  ```
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
-3. On the Centreon Web interface, install the **IP-Label Ekara Rest API** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
+```bash
+yum install centreon-pack-applications-monitoring-iplabel-ekara-restapi
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+2. Whatever the license type (*online* or *offline*), install the **IP-Label Ekara Rest API** connector through
+the **Configuration > Monitoring Connector Manager** menu.
 
-### Host
+### Plugin
 
-* Log into Centreon and add a new Host through **Configuration > Hosts**.
-* Fill the **Name** & **Alias**
-* Set the **IP Address/DNS** to **127.0.0.1**.
-* Select the **App-Monitoring-Iplabel-Ekara-Restapi-custom** template to apply to the Host.
-* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
 
-| Mandatory   | Macro                | Description                                                                            |
-|:------------|:---------------------|:---------------------------------------------------------------------------------------|
-|             | DUMMYOUTPUT          | This is a dummy check                                                                  |
-|             | DUMMYSTATUS          | OK                                                                                     |
-|             | EKARAAPIEXTRAOPTIONS | Any extra option you may want to add to every command\_line (eg. a --verbose flag)     |
-| X           | EKARAAPIHOSTNAME     | api.ekara.ip-label.net                                                                 |
-| X           | EKARAAPIUSERNAME     |                                                                                        |
-| X           | EKARAAPIPASSWORD     |                                                                                        |
-| X           | EKARAAPIPORT         | 443                                                                                    |
-| X           | EKARAAPIPROTO        | https                                                                                  |
-|             | FILTERID             |                                                                                        |
-|             | FILTERNAME           |                                                                                        |
-|             | PROXYURL             |                                                                                        |
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-## How to check in the CLI that the configuration is OK and what are the main options for? 
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
 
-Once the plugin is installed, log into your Centreon Poller CLI using the
-**centreon-engine** user account (`su - centreon-engine`) and test the Plugin by
-running the following command:
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-/usr/lib/centreon/plugins//centreon_monitoring_iplabel_ekara_restapi.pl \
-    --plugin=apps::monitoring::iplabel::ekara::restapi::plugin \
-    --mode=scenarios \
-    --hostname='api.ekara.ip-label.net' \
-    --api-username='johndoe@company.com' \
-    --api-password='MyPassw0rd' \
-    --port='443' \
-    --proto='https' \
-    --proxyurl='' \
-    --timeframe='900' \
-    --filter-name='MyScenario' \
-    --filter-id='' \
-    --verbose
+dnf install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-applications-monitoring-iplabel-ekara-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
+```
+
+</TabItem>
+</Tabs>
+
+## Using the monitoring connector
+
+### Using a host template provided by the connector
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Monitoring-Iplabel-Ekara-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro                | Description                                                                                                                              | Default value          | Mandatory   |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
+| EKARAAPIHOSTNAME     | Set hostname (default: 'api.ip-label.net')                                                                                               | api.ekara.ip-label.net | X           |
+| EKARAAPIUSERNAME     | Set username                                                                                                                             |                        | X           |
+| EKARAAPIPASSWORD     | Set password                                                                                                                             |                        | X           |
+| EKARAAPIPROTO        | Specify https if needed (default: 'https')                                                                                               | https                  |             |
+| EKARAAPIPORT         | Port used (default: 443)                                                                                                                 | 443                    |             |
+| FILTERID             | Filter by monitor ID (can be a regexp)                                                                                                   |                        |             |
+| FILTERNAME           | Filter by monitor name (can be a regexp)                                                                                                 |                        |             |
+| PROXYURL             | Proxy URL. Example: http://my.proxy:3128                                                                                                 |                        |             |
+| EKARAAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                        |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Incidents" label="Incidents">
+
+| Macro                    | Description                                                                                                                                                                                                                                   | Default value               | Mandatory   |
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
+| TIMEFRAME                | Set timeframe period in seconds. (default: 900) Example: --timeframe='3600' will check the last hour                                                                                                                                          | 900                         |             |
+| WARNINGINCIDENTDURATION  |                                                                                                                                                                                                                                               |                             |             |
+| CRITICALINCIDENTDURATION |                                                                                                                                                                                                                                               |                             |             |
+| CRITICALINCIDENTSEVERITY | Critical threshold for incident severity (default: '%\{severity\} =~ "Critical"'). Syntax: --critical-incident-severity='%\{severity\} =~ "xxx"'                                                                                              | %\{severity\} =~ "Critical" |             |
+| WARNINGINCIDENTSEVERITY  | Warning threshold for incident severity (default: none). Syntax: --warning-incident-severity='%\{severity\} =~ "xxx"'                                                                                                                         |                             |             |
+| CRITICALINCIDENTSTATUS   | Critical threshold for incident status (default: '%\{status\} =~ "Open"'). Syntax: --critical-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                                | %\{status\} =~ "Open"       |             |
+| WARNINGINCIDENTSTATUS    | Warning threshold for incident status (default: none). Syntax: --warning-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                                                     |                             |             |
+| WARNINGINCIDENTSTOTAL    |                                                                                                                                                                                                                                               |                             |             |
+| CRITICALINCIDENTSTOTAL   |                                                                                                                                                                                                                                               |                             |             |
+| CRITICALTRIGGERSTATUS    | Critical threshold for trigger status (default: '%\{severity\} =~ "Failure"'). Syntax: --critical-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded'  | %\{severity\} =~ "Failure"  |             |
+| WARNINGTRIGGERSTATUS     | Warning threshold for trigger status (default: none). Syntax: --warning-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded'                            |                             |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                        | --ignore-closed --verbose   |             |
+
+</TabItem>
+<TabItem value="Scenario-Status" label="Scenario-Status">
+
+| Macro                     | Description                                                                                                                                                                                                                                     | Default value            | Mandatory   |
+|:--------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
+| TIMEFRAME                 | Set timeframe period in seconds. (default: 900) Example: --timeframe='3600' will check the last hour                                                                                                                                            | 900                      |             |
+| FILTERSTATUS              | Filter by numeric status (can be multiple). 0 =\> 'Unknown', 1 =\> 'Success', 2 =\> 'Failure', 3 =\> 'Aborted', 4 =\> 'No execution', 5 =\> 'No execution', 6 =\> 'Stopped', 7 =\> 'Excluded', 8 =\> 'Degraded'  Example: --filter-status='1,2' |                          |             |
+| FILTERTYPE                | Filter by scenario type. Can be: 'WEB', 'HTTPR', 'BROWSER PAGE LOAD'                                                                                                                                                                            |                          |             |
+| WARNINGAVAILABILITY       | Threshold                                                                                                                                                                                                                                       |                          |             |
+| CRITICALAVAILABILITY      | Threshold                                                                                                                                                                                                                                       |                          |             |
+| WARNINGSCENARIOSTATUS     | Warning threshold for scenario status (default: '%\{status\} !~ "Success"'). Syntax: --warning-scenario-status='%\{status\} =~ "xxx"'                                                                                                           | %\{status\} !~ "Success" |             |
+| CRITICALSCENARIOSTATUS    | Critical threshold for scenario status (default: '%\{status\} =~ "Failure"'). Syntax: --critical-scenario-status='%\{status\} =~ "xxx"'                                                                                                         | %\{status\} =~ "Failure" |             |
+| WARNINGTIMEINTERACTION    | Threshold                                                                                                                                                                                                                                       |                          |             |
+| CRITICALTIMEINTERACTION   | Threshold                                                                                                                                                                                                                                       |                          |             |
+| WARNINGTIMESTEP           | Threshold                                                                                                                                                                                                                                       |                          |             |
+| CRITICALTIMESTEP          | Threshold                                                                                                                                                                                                                                       |                          |             |
+| WARNINGTIMETOTAL          | Threshold                                                                                                                                                                                                                                       |                          |             |
+| CRITICALTIMETOTAL         | Threshold                                                                                                                                                                                                                                       |                          |             |
+| WARNINGTIMETOTALALLSTEPS  | Threshold                                                                                                                                                                                                                                       |                          |             |
+| CRITICALTIMETOTALALLSTEPS | Threshold                                                                                                                                                                                                                                       |                          |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                              | --verbose                |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
+
+```bash
+/usr/lib/centreon/plugins/centreon_monitoring_iplabel_ekara_restapi.pl \
+	--plugin=apps::monitoring::iplabel::ekara::restapi::plugin \
+	--mode=scenarios \
+	--hostname='api.ekara.ip-label.net' \
+	--api-username='username' \
+	--api-password='veryLongPassword' \
+	--port='443' \
+	--proto='https' \
+	--proxyurl=''  \
+	--timeframe='900' \
+	--filter-name='' \
+	--filter-id='' \
+	--filter-status='' \
+	--filter-type='' \
+	--warning-scenario-status='%\{status\} !~ "Success"' \
+	--critical-scenario-status='%\{status\} =~ "Failure"' \
+	--warning-availability='' \
+	--critical-availability='' \
+	--warning-time-total-allsteps='' \
+	--critical-time-total-allsteps='' \
+	--warning-time-interaction='' \
+	--critical-time-interaction='' \
+	--warning-time-step='' \
+	--critical-time-step='' \
+	--warning-time-total='' \
+	--critical-time-total='' \
+	--verbose
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: Scenario 'MyScenario': status: Success (1), availability: 100% | 'MyScenario#scenario.availability.percentage'=100%;;;0;100
-Scenario 'MyScenario':
-    status: Success (1), availability: 100%
+OK: availability: 80% time total all steps: 6849ms time interaction: 36880ms All steps are ok | 'scenarios~scenario.availability.percentage'=80%;;;0;100 'scenarios~scenario.time.allsteps.total.milliseconds'=6849ms;;;0; 'scenarios~scenario.time.interaction.milliseconds'=36880ms;;;0; 'scenarios~steps1#scenario.step.time.milliseconds'=16964ms;;;0; 'scenarios~steps2#scenario.step.time.milliseconds'=82538ms;;;0; 'scenarios~steps1#scenario.steps.time.total.milliseconds'=87197ms;;;0; 'scenarios~steps2#scenario.steps.time.total.milliseconds'=64961ms;;;0; 
 ```
+
+### Troubleshooting
+
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_monitoring_iplabel_ekara_restapi.pl \
+	--plugin=apps::monitoring::iplabel::ekara::restapi::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                                                      | Linked service template                                     |
+|:------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/iplabel/ekara/restapi/mode/discovery.pm)] | Used for host discovery                                     |
+| incidents [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/iplabel/ekara/restapi/mode/incidents.pm)] | App-Monitoring-Iplabel-Ekara-Incidents-Restapi-custom       |
+| scenarios [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/iplabel/ekara/restapi/mode/scenarios.pm)] | App-Monitoring-Iplabel-Ekara-Scenario-Status-Restapi-custom |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|:-------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --custommode                               | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --list-custommode                          | List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --multiple                                 | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --change-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --extend-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back  |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-short-output                      | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-long-output                       | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --output-file                              | Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-counters                          | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --http-peer-addr                           | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --proxyurl                                 | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --proxypac                                 | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --insecure                                 | Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --http-backend                             | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --memcached                                | Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --redis-server                             | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --redis-attribute                          | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --redis-db                                 | Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --failback-file                            | Failback on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --memexpiration                            | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --statefile-dir                            | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --statefile-suffix                         | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --statefile-concat-cwd                     | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-format                         | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --statefile-key                            | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --statefile-cipher                         | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --hostname                                 | Set hostname (default: 'api.ip-label.net').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --port                                     | Port used (default: 443)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --proto                                    | Specify https if needed (default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --api-username                             | Set username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --api-password                             | Set password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --filter-id                                | Filter by monitor ID (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --filter-name                              | Filter by monitor name (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --filter-status                            | Filter by numeric status (can be multiple). 0 =\> 'Unknown', 1 =\> 'Success', 2 =\> 'Failure', 3 =\> 'Aborted', 4 =\> 'No execution', 5 =\> 'No execution', 6 =\> 'Stopped', 7 =\> 'Excluded', 8 =\> 'Degraded'  Example: --filter-status='1,2'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --filter-workspaceid                       | Filter scenario to check by workspace id.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --filter-siteid                            | Filter scenario to check by site id.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --timeout                                  | Set timeout in seconds (default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Incidents" label="Incidents">
+
+| Option                       | Description                                                                                                                                                                                                                                  |
+|:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --timeframe                  | Set timeframe period in seconds. (default: 900) Example: --timeframe='3600' will check the last hour                                                                                                                                         |
+| --ignore-closed              | Ignore solved incidents within the timeframe.                                                                                                                                                                                                |
+| --warning-incident-status    | Warning threshold for incident status (default: none). Syntax: --warning-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                                                    |
+| --critical-incident-status   | Critical threshold for incident status (default: '%\{status\} =~ "Open"'). Syntax: --critical-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                               |
+| --warning-incident-severity  | Warning threshold for incident severity (default: none). Syntax: --warning-incident-severity='%\{severity\} =~ "xxx"'                                                                                                                        |
+| --critical-incident-severity | Critical threshold for incident severity (default: '%\{severity\} =~ "Critical"'). Syntax: --critical-incident-severity='%\{severity\} =~ "xxx"'                                                                                             |
+| --warning-trigger-status     | Warning threshold for trigger status (default: none). Syntax: --warning-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded'                           |
+| --critical-trigger-status    | Critical threshold for trigger status (default: '%\{severity\} =~ "Failure"'). Syntax: --critical-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded' |
+| --warning-* --critical-*     | Thresholds. Can be: 'warning-incidents-total' (count) 'critical-incidents-total' (count), 'warning-incident-duration' (s), 'critical-incident-duration' (s).                                                                                 |
+
+</TabItem>
+<TabItem value="Scenario-Status" label="Scenario-Status">
+
+| Option                     | Description                                                                                                                                                                                                     |
+|:---------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --timeframe                | Set timeframe period in seconds. (default: 900) Example: --timeframe='3600' will check the last hour                                                                                                            |
+| --filter-type              | Filter by scenario type. Can be: 'WEB', 'HTTPR', 'BROWSER PAGE LOAD'                                                                                                                                            |
+| --warning-scenario-status  | Warning threshold for scenario status (default: '%\{status\} !~ "Success"'). Syntax: --warning-scenario-status='%\{status\} =~ "xxx"'                                                                           |
+| --critical-scenario-status | Critical threshold for scenario status (default: '%\{status\} =~ "Failure"'). Syntax: --critical-scenario-status='%\{status\} =~ "xxx"'                                                                         |
+| --warning-* --critical-*   | Thresholds. Common: 'availability' (%), For WEB scenarios: 'time-total-allsteps' (ms), 'time-step' (ms), For HTTPR scenarios: 'time-total' (ms), FOR BPL scenarios: 'time-interaction' (ms), 'time-total' (ms). |
+
+</TabItem>
+</Tabs>
 
 All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_monitoring_iplabel_ekara_restapi.pl \
-    --plugin=apps::monitoring::iplabel::ekara::restapi::plugin \
-    --mode=scenarios \
-    --help
+/usr/lib/centreon/plugins/centreon_monitoring_iplabel_ekara_restapi.pl \
+	--plugin=apps::monitoring::iplabel::ekara::restapi::plugin \
+	--mode=scenarios \
+	--help
 ```
-
-All available options for a given mode can be displayed by adding the
-`--list-mode` parameter to the command:
-
-```bash
-/usr/lib/centreon/plugins//centreon_monitoring_iplabel_ekara_restapi.pl \
-    --plugin=apps::monitoring::iplabel::ekara::restapi::plugin \
-    --list-mode
-```
-
-### Troubleshooting
-
-Please find all the troubleshooting documentation for the API-based Plugins in
-the [dedicated chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
-of the Centreon documentation.
