@@ -1,0 +1,8 @@
+- Certains agents peuvent se connecter au collecteur, mais le collecteur peut également se connecter à certains agents.
+- Vous pouvez sélectionner plusieurs pollers à la fois dans un même formulaire de configuration afin d'éviter d'effectuer plusieurs fois la même configuration.
+
+1. Allez à la page **Configuration > Collecteurs > Configurations d'agent**, puis cliquez sur **Ajouter une configuration collecteur/agent**.
+2. Dans la fenêtre qui s'ouvre, sélectionnez le type d'agent souhaité. Des champs supplémentaires apparaissent.
+3. Dans la section **Paramètres**, sélectionnez le ou les collecteurs qui recevront des données en provenance de l'agent.
+4. Dans la section **Receveur OTLP**, entrez les noms des fichiers des certificats pour la partie du collecteur (engine) qui recevra des données en provenance de l'agent. La communication entre l'agent et le collecteur se fait toujours en HTTPS. Vous devez mettre les certificats dans le répertoire **/etc/pki/** du collecteur.
+Les fichiers doivent posséder l'extension .crt (pour les certificats) ou .key (pour la clé)
