@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Prometheus Server** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Prometheus Server API** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Prometheus Server** apporte 2 modèles d'hôte :
+Le connecteur de supervision **Prometheus Server API** apporte 2 modèles d'hôte :
 
 * **Cloud-Prometheus-Api-custom**
 * **Cloud-Prometheus-Target-Name-Api-custom**
@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias         | Modèle de service                         | Description                               |
 |:--------------|:------------------------------------------|:------------------------------------------|
-| Target-Status | Cloud-Prometheus-Target-Status-Api-custom | Contrôle le status des sources de données |
+| Target-Status | Cloud-Prometheus-Target-Status-Api-custom | Contrôle le statut des sources de données |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Prometheus-Api-custom** est utilisé.
 
@@ -37,7 +37,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias              | Modèle de service                              | Description                               |
 |:-------------------|:-----------------------------------------------|:------------------------------------------|
-| Target-Name-Status | Cloud-Prometheus-Target-Name-Status-Api-custom | Contrôle le status des sources de données |
+| Target-Name-Status | Cloud-Prometheus-Target-Name-Status-Api-custom | Contrôle le statut des sources de données |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Prometheus-Target-Name-Api-custom** est utilisé.
 
@@ -46,7 +46,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias      | Modèle de service                      | Description                                                                                             |
 |:-----------|:---------------------------------------|:--------------------------------------------------------------------------------------------------------|
-| Expression | Cloud-Prometheus-Expression-Api-custom | Contrôle permettant d'exécuter des requêtes et d'utiliser le résultat pour définir des seuils d'alarmes |
+| Expression | Cloud-Prometheus-Expression-Api-custom | Contrôle permettant d'exécuter des requêtes et d'utiliser le résultat pour définir des seuils d'alarme |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -213,7 +213,7 @@ yum install centreon-plugin-Cloud-Prometheus-Api
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | PROMETHEUSAPIPROTO | Specify https if needed                                                                                                                            | http              |             |
 | PROMETHEUSAPIPORT  | API port                                                                                                                                           | 9090              |             |
-| PROMETHEUSAPIURL   | API url path                                                                                                                                       | /api/v1           |             |
+| PROMETHEUSAPIURL   | API URL path                                                                                                                                       | /api/v1           |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.

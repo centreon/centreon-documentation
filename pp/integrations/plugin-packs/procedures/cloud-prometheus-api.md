@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Prometheus Server** connector through the
+The following monitoring connectors will be installed when you install the **Prometheus Server API** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Pro
 
 ### Templates
 
-The Monitoring Connector **Prometheus Server** brings 2 host templates:
+The Monitoring Connector **Prometheus Server API** brings 2 host templates:
 
 * **Cloud-Prometheus-Api-custom**
 * **Cloud-Prometheus-Target-Name-Api-custom**
@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                          | Service Description  |
 |:--------------|:------------------------------------------|:---------------------|
-| Target-Status | Cloud-Prometheus-Target-Status-Api-custom | Check targets status |
+| Target-Status | Cloud-Prometheus-Target-Status-Api-custom | Check the status of targets |
 
 > The services listed above are created automatically when the **Cloud-Prometheus-Api-custom** host template is used.
 
@@ -36,7 +36,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias      | Service Template                               | Service Description  |
 |:-------------------|:-----------------------------------------------|:---------------------|
-| Target-Name-Status | Cloud-Prometheus-Target-Name-Status-Api-custom | Check targets status |
+| Target-Name-Status | Cloud-Prometheus-Target-Name-Status-Api-custom | Check the status of targets |
 
 > The services listed above are created automatically when the **Cloud-Prometheus-Target-Name-Api-custom** host template is used.
 
@@ -45,7 +45,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                       | Service Description                                                    |
 |:--------------|:---------------------------------------|:-----------------------------------------------------------------------|
-| Expression    | Cloud-Prometheus-Expression-Api-custom | Check allowing to execute queries and use results to define thresholds |
+| Expression    | Cloud-Prometheus-Expression-Api-custom | This check executes queries and uses the results to define thresholds |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -214,7 +214,7 @@ yum install centreon-plugin-Cloud-Prometheus-Api
 |:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | PROMETHEUSAPIPROTO | Specify https if needed                                                                                                                  | http              |             |
 | PROMETHEUSAPIPORT  | API port                                                                                                                                 | 9090              |             |
-| PROMETHEUSAPIURL   | API url path                                                                                                                             | /api/v1           |             |
+| PROMETHEUSAPIURL   | API URL path                                                                                                                             | /api/v1           |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
