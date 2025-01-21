@@ -113,7 +113,6 @@ Configure those extra SNMP options in the host/host template configuration in th
 | -e        | --securityengineid     |
 | -E        | --contextengineid      |
 
-
 ### UNKNOWN: SNMP GET Request : Timeout
 
 Often, a timeout comes from: 
@@ -159,6 +158,76 @@ run into this error.
 
 For interfaces and storage checks, options exist to ask the probe to use 
 an other OID (e.g. `--oid-filter='ifDesc' --oid-display='ifDesc'`).
+
+### Problème d'uptime
+
+### Contexte sur le sysUpTime dans SNMP
+
+Lorsque l'uptime dépasse 497 jours, un problème spécifique peut se produire en raison de la 
+manière dont l'uptime est représenté dans le format TimeTicks utilisé par SNMP. Le `sysUpTime` 
+dans SNMP est un nombre exprimé en TimeTicks, qui représente le nombre de centi-secondes 
+écoulées depuis le dernier démarrage du système. Ce nombre est stocké dans un format de 
+32 bits, ce qui signifie qu'il peut stocker des valeurs comprises  entre 0 et 4 294 967 295. 
+Ainsi l'uptime atteint sa valeur maximale après environ 497 jours 
+(environ 4 294 967 295 centi-secondes). Lorsque cette limite est dépassée, un débordement 
+(overflow) se produit, ce qui signifie que le compteur recommence à zéro. 
+
+### Comment identifier le problème ?
+
+Vous pouvez identifier que l'uptime a dépassé la limite de 497 jours en vérifiant directement 
+sur l'équipement (si c'est possible) son uptime (sans interroger via SNMP). Par exemple
+pour Linux, utilisez la commande suivante :
+
+```commandline
+uptime
+14:32:12 up 500 days,  3:04,  2 users,  load average: 0.15, 0.10, 0.09
+```
+
+Ce qui indique que le système est en fonctionnement depuis 500 jours, 3 heures et 4 minutes.
+
+### Solution proposée en amont : l'option --check-overload
+
+La majorité des modèles de services associés à l'uptime via SNMP utilisent l'option ` --check-overload`
+qui va permettre de gérer le débordement de l'uptime après 497 jours. Pour cela ils vont utiliser le cache
+du plugin pour déterminer l'ancien uptime et calculer le dépassement qui a eu lieu afin d'ajuster la 
+valeur d'uptime retournée par le plugin. Ainsi le débordement est transparent et ne génère pas de 
+fausse alerte vis-à-vis de l'uptime et l'utilisateur n'a rien à faire de particulier.
+
+### Si le dépassement a eu lieu mais l'option --check-overload n'était pas présente dans la commande du plugin
+
+Dans le cas où l'option ` --check-overload` n'était pas présente dans la commande du plugin avant que le 
+dépassement ait lieu, il est possible de corriger la situation de la façon suivante : 
+
+Lancez la commande du plugin en ajoutant l'option ` --check-overload`:
+
+```commandline
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=uptime --hostname=XXXX --snmp-version='2c' --snmp-community='public' --check-overload
+OK: System uptime is: 11h 28m 39s | 'uptime'=41319.00s;;;0;
+```
+
+Ensuite vérifiez que l'option s'est ajoutée dans le cache du plugin :
+
+```commandline
+cat /var/lib/centreon/centplugins/cache_<hostname>_uptime 
+{"last_time":170905862051,"overload":0,"uptime":"4131920"}
+```
+
+Remplacez la valeur de l'option "overload" par 1 et vérifiez que cela a fonctionné :
+
+```commandline
+sed -i 's/"overload":0/"overload":1/g' /var/lib/centreon/centplugins/cache_<hostname>_uptime
+cat /var/lib/centreon/centplugins/cache_<hostname>_uptime 
+{"last_time":170905862051,"overload":1,"uptime":"4131920"}
+```
+
+Vous pouvez ensuite relancer la commande du plugin avec l'option ` --check-overload` : le 
+résultat devrait tenir compte du dépassement et correspondre aux informations d'uptime du
+système que vous avez pu vérifier manuellement :
+
+```commandline
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=uptime --hostname=XXXX --snmp-version='2c' --snmp-community='public' --check-overload
+OK: System uptime is: 497d 13h 58m 41s | 'uptime'=42991121.00s;;;0;
+```
 
 ## HTTP and API checks
 

@@ -147,13 +147,50 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Ce plugin fonctionne un peu différemment des plugins plus communs. Un connecteur est requis afin de pouvoir communiquer avec les systèmes AS400/iSeries. Installez le connecteur grâce à la commande suivante :
+Ce plugin fonctionne un peu différemment des plugins plus communs. 
+Un connecteur est requis afin de pouvoir communiquer avec les systèmes AS400/iSeries. 
+Installez le connecteur grâce à la commande suivante :
 
-```shell
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Operatingsystems-AS400-daemon
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Operatingsystems-AS400-daemon
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-Operatingsystems-AS400-daemon
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
 yum install centreon-plugin-Operatingsystems-AS400-daemon
 ```
 
+</TabItem>
+</Tabs>
+
 Un même connecteur peut servir de relais entre plusieurs hôtes et plusieurs systèmes AS400. 
+
+> Attention, une mise à jour récente de la version java (8 -> 17) dans le daemon (versions 2.0.3 et supérieures)
+> implique que si java 8 était déjà installé sur votre système, vous devez forcer le passage en java 17 pour que le daemon fonctionne.
+> Exécutez la commande suivante : 
+
+```shell
+update-alternatives --config java
+```
 
 ## Installer le connecteur de supervision
 

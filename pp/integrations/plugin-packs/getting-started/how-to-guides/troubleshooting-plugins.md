@@ -156,6 +156,74 @@ run into this error.
 For interfaces and storage checks, options exist to ask the probe to use 
 an other OID (e.g. `--oid-filter='ifDesc' --oid-display='ifDesc'`).
 
+### Uptime issue
+
+### Context on sysUpTime in SNMP
+
+When the uptime exceeds 497 days, a specific issue can occur due to how uptime is represented 
+in the TimeTicks format used by SNMP. The `sysUpTime` in SNMP is a number expressed in TimeTicks, 
+which represents the number of centi-seconds that have passed since the system was last rebooted. 
+This number is stored in a 32-bit format, which means it can hold values between 0 and 4,294,967,295. 
+Thus, the uptime reaches its maximum value after approximately 497 days of uptime 
+(about 4,294,967,295 centi-seconds). When this limit is exceeded, an overflow occurs, meaning 
+the counter resets to zero. 
+
+### How to identify the issue?
+
+You can identify that the uptime has exceeded the 497-day limit by checking the uptime directly 
+on the device (if possible) without querying via SNMP. For example, on Linux, use the following command:
+
+```commandline
+uptime
+14:32:12 up 500 days,  3:04,  2 users,  load average: 0.15, 0.10, 0.09
+```
+
+This indicates that the system has been running for 500 days, 3 hours, and 4 minutes.
+
+### Proposed solution: the --check-overload option
+
+Most service templates associated with uptime in SNMP use the `--check-overload` option, 
+which allows for managing the overflow of uptime after 497 days. It utilizes the plugin’s 
+cache to determine the previous uptime and calculate the overflow that occurred, adjusting 
+the uptime value returned by the plugin. Thus, the overflow becomes transparent and does 
+not generate a false alert regarding uptime, and the user does not need to take any specific action.
+
+### If the overflow occurred but the --check-overload option was not used in the plugin command
+
+In cases where the `--check-overload` option was not included in the plugin command 
+before the overflow occurred, you can correct the situation by following these steps:
+
+Run the plugin command by adding the -`--check-overload` option:
+
+```commandline
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=uptime --hostname=XXXX --snmp-version='2c' --snmp-community='public' --check-overload
+OK: System uptime is: 11h 28m 39s | 'uptime'=41319.00s;;;0;
+```
+
+Then, check that the option has been added to the plugin’s cache:
+
+```commandline
+cat /var/lib/centreon/centplugins/cache_<hostname>_uptime 
+{"last_time":170905862051,"overload":0,"uptime":"4131920"}
+```
+
+Replace the "overload" value with 1 and check that the change worked:
+
+```commandline
+sed -i 's/"overload":0/"overload":1/g' /var/lib/centreon/centplugins/cache_<hostname>_uptime
+cat /var/lib/centreon/centplugins/cache_<hostname>_uptime 
+{"last_time":170905862051,"overload":1,"uptime":"4131920"}
+```
+
+You can then rerun the plugin command with the `--check-overload` option, and the result 
+should account for the overflow and reflect the correct system uptime information, as 
+you manually checked:
+
+```commandline
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=uptime --hostname=XXXX --snmp-version='2c' --snmp-community='public' --check-overload
+OK: System uptime is: 497d 13h 58m 41s | 'uptime'=42991121.00s;;;0;
+```
+
 ## HTTP and API checks
 
 ### UNKNOWN: Cannot decode response (add --debug option to display returned content)

@@ -546,10 +546,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-databases-sap-hana'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-scom-restapi'
         },
         {
@@ -1214,6 +1210,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-databases-sap-hana'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-databases-sybase'
         },
         {
@@ -1810,6 +1810,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-huawei-wlc-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-ibm-bladecenter-snmp'
         },
         {
@@ -1940,6 +1944,10 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-oracle-infiniband-snmp'
         },
+	{
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-oracle-otd-snmp'
+        },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-firewalls-paloalto-standard-snmp'
@@ -2063,10 +2071,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-tplink-snmp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-oracle-otd-snmp'
         },
         {
           type: 'doc',
