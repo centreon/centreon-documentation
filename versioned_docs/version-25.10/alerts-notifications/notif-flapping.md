@@ -7,7 +7,7 @@ title: Flapping
 
 Centreon Engine supports optional detection of hosts and services that
 are “flapping”. Flapping occurs when a service or host changes state too
-frequently, resulting in a storm of problem and recovery notifications.
+frequently, resulting in many alert and recovery notifications being sent.
 Flapping can be indicative of configuration problems (i.e. thresholds
 set too low), troublesome services, or real network problems.
 
