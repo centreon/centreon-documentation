@@ -30,7 +30,7 @@ The connector brings the following service templates (sorted by the host templat
 | Container-Load       | Cloud-Prometheus-cAdvisor-Load-Api-custom       | Check container load          |
 | Container-Memory     | Cloud-Prometheus-cAdvisor-Memory-Api-custom     | Check container memory usage  |
 | Container-Storage    | Cloud-Prometheus-cAdvisor-Storage-Api-custom    | Check container storage usage |
-| Container-Task-State | Cloud-Prometheus-cAdvisor-Task-State-Api-custom | Check container tasks state   |
+| Container-Task-State | Cloud-Prometheus-cAdvisor-Task-State-Api-custom | Check the state of container tasks   |
 
 > The services listed above are created automatically when the **Cloud-Prometheus-cAdvisor-Api-custom** host template is used.
 
