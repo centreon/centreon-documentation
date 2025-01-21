@@ -4,6 +4,7 @@ title: Centreon Monitoring Agent
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 ## Introduction
 
@@ -78,131 +79,16 @@ On your central server:
 ### Configure Engine
 
 1. On the poller that will receive the data from the agent, install the **centreon-engine-opentelemetry** package.
-   
-2. On the poller that will receive the data from the agent, create the following file:
 
-   ```shell
-   touch /etc/centreon-engine/otl_server.json
-   ```
+2. Configure how the poller and the agent will communicate:
 
-3. Enter the following contents. This will allow the poller to receive the data that the agent will send.
-  
-  > The poller can work in both modes simultaneously (some agents connect to the poller, while the poller connects to some other agents).
+<PollerAgentConfiguration />
 
-<Tabs groupId="sync">
-<TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">
+5. If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), enable **Connection initiated by poller**. Then, in **Host configurations**, define all the hosts on which the agent will be installed. Here the certificates are optional, but if you use them, store them in the **/etc/pki/** directory of the poller.
+> If you configure several pollers at once, make sure all certificate files have the same name.
 
-```json
-{
-   "otel_server":{
-      "host":"0.0.0.0",
-      "port":4317
-   },
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":10
-   }
-}
-```
-
-```bash
-chown centreon-engine: /etc/centreon-engine/otl_server.json
-```
-
-</TabItem>
-<TabItem value="Encryption, agent connects to poller" label="Encryption, agent connects to poller">
-
-```json
-{
-   "otel_server":{
-      "host":"0.0.0.0",
-      "port":4317,
-      "encryption":true,
-      "public_cert":"<CERTIFICATE PATH>",
-      "private_key":"<KEY PATH>",
-      "ca_certificate":"<CA PATH>"
-   },
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":10
-   }
-}
-```
-
-</TabItem>
-<TabItem value="No encryption, poller connects to agent" label="No encryption, poller connects to agent">
-
-Use this configuration when the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ).
-In this mode, the poller connects to the CMA.
-
-```json
-{
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":15,
-      "reverse_connections":[
-         {
-            "host":"<HOST ADDRESS>",
-            "port":<PORT>
-         }
-      ]
-   }
-}
-```
-
-```bash
-chown centreon-engine: /etc/centreon-engine/otl_server.json
-```
-
-* Enter the IP address of the CMA host in the **host** and **port** fields. This IP address must be reachable by the poller.
-* The **check_interval** field is the period between two checks for the same service.
-
-</TabItem>
-<TabItem value="Encryption, poller connects to agent" label="Encryption, poller connects to agent">
-
-Use this configuration when the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ).
-In this mode, the poller connects to the CMA.
-
-```json
-{
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":15,
-      "reverse_connections":[
-         {
-            "host":"localhost",
-            "port":4317,
-            "encryption":true,
-            "ca_certificate":"/tmp/ca_1234.crt",
-            "ca_name":"<CA NAME>"
-         }
-      ]
-   }
-}
-```
-
-* Enter the IP address of the CMA host in the **host** and **port** fields. This IP address must be reachable by the poller.
-* The **check_interval** field is the period between two checks for the same service.
-
-</TabItem>
-</Tabs>
-
-#### Add a new Broker module
-
-1. Go to **Configuration > Pollers > Engine configuration**, then click on the poller you want to monitor your resources.
-2. On the **Data** tab, in the **Broker module** section, in the **Multiple Broker Module** parameter, click on **Add a new entry**.
-3. Add the following entry :
-
-   ```bash
-   /usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
-   ```
-
-4. Deploy the configuration.
-5. Restart the monitoring engine:
+6. Deploy the configuration.
+7. Restart the monitoring engine:
 
    ```bash
    systemctl restart centengine
