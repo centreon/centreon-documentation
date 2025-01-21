@@ -4,6 +4,7 @@ title: Telegraf
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 ## Introduction
 
@@ -59,51 +60,15 @@ Installez le processeur Open Telemetry pour Telegraf sur votre serveur central :
 
 ### Configurez Engine
 
-1. Sur le collecteur qui recevra les données de l'agent, créez le fichier suivant :
+2. Configurez la communication entre le collecteur et l'agent :
 
-   ```shell
-   touch /etc/centreon-engine/otl_server.json
-   ```
+<PollerAgentConfiguration />
 
-2. Entrez le contenu suivant. Cela permettra au collecteur de recevoir les données en provenance de l'agent.
+5. Le **Fournisseur de configuration** est le serveur à l'intérieur du moteur du collecteur qui enverra à l'agent sa configuration. Entrez le port et les noms des fichiers de certificat. Les certificats doivent être stockés dans le répertoire **/etc/pki/** du collecteur. Vous pouvez utiliser les mêmes certificats que pour le receveur OTLP.
+> Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
 
-```json
-{
- "otel_server": {
-   "host": "0.0.0.0",
-   "port": 4317,
-   "encryption": false
- },
- "max_length_grpc_log": 0,
- "telegraf_conf_server": {
-   "http_server": {
-     "port": 1080,
-     "encryption": false
-   },
-   "telegraf_conf": {
-     "interval": "60s"
-   }
- }
-}
-```
-
-* Le champ **interval** correspond à la fréquence des contrôles effectués par Telegraf, et doit valoir 60 secondes, car il s'agit de la fréquence des contrôles Engine.
-
-> Pour des raisons de simplicité, cette page ne couvre que la configuration de Telegraf **en mode non sécurisé**, mais vous
-> trouverez la procédure pour chiffrer les communications dans la documentation du [connecteur Linux Telegraf Agent](../../procedures/operatingsystems-linux-telegraf-agent.md) ou celle du  [connecteur Windows Telegraf Agent](../../procedures/operatingsystems-windows-telegraf-agent.md).
-
-### Ajoutez un nouveau module Broker
-
-1. Allez à la page **Configuration > Collecteurs > Configuration du moteur de collecte**, puis cliquez sur le collecteur qui supervisera les ressources.
-2. Dans l'onglet **Données**, dans la section **Commande de lancement du module**, dans le paramètre **Multiple Broker Module**, cliquez sur **Ajouter une nouvelle entrée**.
-3. Ajoutez l'entrée suivante :
-
-   ```bash
-   /usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
-   ```
-
-4. Exportez la configuration
-5. Redémarrez le moteur de collecte
+6. Exportez la configuration
+7. Redémarrez le moteur de collecte
 
    ```bash
    systemctl restart centengine
