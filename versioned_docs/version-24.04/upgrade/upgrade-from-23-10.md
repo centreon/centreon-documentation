@@ -541,6 +541,8 @@ usermod -a -G www-data centreon-broker
 </TabItem>
 </Tabs>
 
+> Refer to the [Centreon BAM](../service-mapping/update.md), [Centreon MBI](../reporting/update.md) and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
+
 ### Post-upgrade actions
 
 1. Upgrade extensions. From **Administration > Extensions > Manager**, upgrade all extensions, starting
