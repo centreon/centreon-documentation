@@ -5,6 +5,8 @@ title: Using packages
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This is an older version of Centreon. We recommend you install the latest version.
+
 Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
@@ -393,9 +395,9 @@ Example:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
 ```
 
-> Replace **<IP_TARGET_NODE>** with the IP of the central server or remote server that you want to link the poller to (IP as seen by the poller)
+> Replace **\<IP_TARGET_NODE\>** with the IP of the central server or remote server that you want to link the poller to (IP as seen by the poller)
 
-> The **<API_ACCOUNT>** must have access to the configuration API. You can use the default **admin** account.
+> The **\<API_ACCOUNT\>** must have access to the configuration API. You can use the default **admin** account.
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
 > `HTTPS://<IP_TARGET_NODE>:PORT`
@@ -446,19 +448,19 @@ You will receive the validation of the Centreon central or the Remote Server ser
 2023-05-20T10:23:15+02:00 [ERROR]: Invalid credentials
 ```
 
-> Your credentials are incorrect for the **<API_ACCOUNT>**.
+> Your credentials are incorrect for the **\<API_ACCOUNT\>**.
 
 ``` shell
 2023-05-20T10:24:59+02:00 [ERROR]: Access Denied.
 ```
 
-> The **<API_ACCOUNT>** doesn't have access to configuration API.
+> The **\<API_ACCOUNT\>** doesn't have access to configuration API.
 
 ``` shell
 Couldn't connect to 192.168.0.1:444; Connection refused
 ```
 
-> Unable to access the API. Please check **<IP_TARGET_NODE>**, scheme and port.
+> Unable to access the API. Please check **\<IP_TARGET_NODE\>**, scheme and port.
 
 ``` shell
 2023-05-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login

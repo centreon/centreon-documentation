@@ -118,10 +118,10 @@ détection de bagotements :
 
 Vous pouvez modifier les seuils ou conserver ceux préconfigurés.
 
-### Détection de bagotement pour les services
+### Détection de bagotement pour les hôtes
 
 Si vous activez la détection de bagotement pour un moteur (Centreon
-Engine), le processus sera appliqué à toutes les ressources surveillé
+Engine), le processus sera appliqué à toutes les ressources supervisées
 par ce dernier.
 
 Vous pouvez désactiver / activer la détection de bagotement pour un hôte
@@ -136,10 +136,10 @@ Vous pouvez également adapter les seuils de bagotements pour cette ressource.
 
 > Utilisez des modèles pour faciliter la configuration.
 
-### Détection de bagotement pour les hôtes
+### Détection de bagotement pour les services
 
 Si vous activez la détection de bagotement pour un moteur (Centreon
-Engine), le processus sera appliqué à toutes les ressources surveillé
+Engine), le processus sera appliqué à toutes les ressources supervisées
 par ce dernier.
 
 Vous pouvez désactiver / activer la détection de bagotement pour un

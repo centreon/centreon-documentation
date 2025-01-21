@@ -3,9 +3,62 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## December 17th, 2024
+
+This release contains numerous bug and vulnerability fixes but also the following improvements:
+
+### Centreon IT Edition
+
+**Data Collection**
+
+- Thanks to the Additional Connector Configurations feature, you can now define the credentials to access a monitored resource through the Centreon interface rather than having to connect to your pollers manually.
+
+  > Warning: If you were using the following monitoring connectors, you must now declare all of their configurations using [the **Configuration \> Additional connector configurations** page](/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration) before deploying the configuration of the corresponding poller:
+  > * [VMware ESX](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/)
+  > * [VMware vCenter](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-generic/)
+  > * [VMware VM](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vm/)
+  > * [VMware vCenter v4](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-4/)
+  > * [VMware vCenter v5](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-5/)
+  > * [VMware vCenter v6](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-6/)
+
+- It is also now possible to duplicate and then customize commands coming from official Centreon Monitoring Connectors.
+
+## October 10th, 2024
+
+### Centreon IT Edition
+
+**Notifications**
+
+It is now possible to configure a time period for a notification. When you do so, notifications will be issued only in the time range corresponding to the defined time period.
+Please note that time period exceptions are not taken into account yet.
+
+**Centreon Dashboards**
+
+A new widget named "Clock / Timer" is available, allowing you to contextualize your dashboards by adding a time reference in it (either time and date of a specific timezone or a timer).
+Status Grid widget tiles have also been improved by displaying resource icons and information about the state of the resource (acknowledged or in downtime).
+
+**APIs**
+
+The creation of a resource is now synchronous with the computation of its associated access rights, which improves automatic resource creation using the API.
+
+### Centreon Business Edition
+
+**MAP**
+
+It is now possible to use different common fonts in your maps. As a note, "roboto" will now be the default font. 
+You are now also able to display the host's name in a service object.
+
+**Service Mapping**
+
+We have also improved the integration of Business Edition features in "Centreon Dashboard" by adding the possibility to display Business Activities in the Status Grid widget.
+
 ## August 22, 2024
 
 ### Centreon IT Edition
+
+**Security**
+
+As we keep improving the security of our software, the SNMP community is now considered as a password. As such, it is now obfuscated in host and host template forms. There is no way to copy or read the SNMP community from the configuration form. Users can still edit the SNMP community. Please note that exporting the monitoring configuration is required to enforce changes.
 
 **Open Access to Centreon APIs**
 
@@ -115,9 +168,9 @@ Associate users with resources and the statuses for which users will be notified
 
 With Dashboards, you can effortlessly create and share intuitive dashboards for real-time monitoring of metrics, host/service statuses, and much more. Join our [Dashboards Beta group](https://thewatch.centreon.com/groups/centreon-dashboards-beta-59) on our community platform The Watch!
 
-**HTTPS connection between central and poller**:
+**HTTPS connection between SaaS platform and poller**:
 
-Communication between the central server and the pollers is now done using HTTPS instead of going through Centreon's VPN.
+Communication between the SaaS platform and the pollers is now done using HTTPS instead of going through Centreon's VPN.
 
 ### Centreon Business Edition
 

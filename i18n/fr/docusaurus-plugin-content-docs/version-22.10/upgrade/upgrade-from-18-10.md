@@ -2,6 +2,8 @@
 id: upgrade-from-18-10
 title: Montée de version depuis Centreon 18.10
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 18.10 vers la version 22.10.

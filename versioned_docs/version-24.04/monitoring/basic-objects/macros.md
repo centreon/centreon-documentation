@@ -64,7 +64,7 @@ $_HOSTSNMPCOMMUNITY$ and $_HOSTSNMPVERSION$.
 Macros of resources are global macros that are used by the monitoring engine. These macros can be invoked by any type
 of command. They come in the form: $USERn$ where ‘n’ lies between 1 and 256.
 
-In general, these macros are used to refer to paths containing supervision probes. By default the $USER1$
+In general, these macros are used to refer to paths containing monitoring probes. By default the $USER1$
 macro is created, and its value is the following: /usr/lib/nagios/plugins.
 
 To add a resource macro:
@@ -82,7 +82,7 @@ To add a resource macro:
 ## Environment macros
 
 Environment macros (also called “on demand”) are used to retrieve information from all
-the objects obtained from the supervision. They are used to retrieve the value of an object at any given moment.
+the objects obtained from the monitoring. They are used to retrieve the value of an object at any given moment.
 
 They are complementary to standard macros, e.g.:
 

@@ -68,7 +68,7 @@ The host srvi-web-01 will automatically possess the following services:
     “Web-Server-Apache”
 
 When the services of a host are generated from host's templates, it is possible
-that certain services generated are not checked by the supervision tool. In this
+that certain services generated are not checked by the monitoring tool. In this
 case, it is necessary to disable the services that are not used (but not to
 delete them). In case of deletion of services, regeneration of services of the
 host from host's templates will re-create the services deleted.

@@ -1209,10 +1209,10 @@ pcs resource create "ms_mysql" \
     socket="/var/lib/mysql/mysql.sock" \
     binary="/usr/bin/mysqld_safe" \
     node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
-    replication_user="centreon-repl" \
-    replication_passwd='centreon-repl' \
-    test_user="centreon-repl" \
-    test_passwd='centreon-repl' \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd='@MARIADB_REPL_PASSWD@' \
     test_table='centreon.host'
 ```
 

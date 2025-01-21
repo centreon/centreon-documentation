@@ -158,8 +158,8 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
 	--api-username='myapiuser' \
 	--api-password='myapipassword' \
 	--filter-name='myapplication1' \
-	--warning-status='%{status} =~ /STOPPED/' \
-	--critical-status='%{status} =~ /FAILED/' \
+	--warning-status='%\{status\} =~ /STOPPED/' \
+	--critical-status='%\{status\} =~ /FAILED/' \
 	--verbose
 	
 

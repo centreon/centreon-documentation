@@ -5,6 +5,8 @@ title: Installation silencieuse d'un serveur distant
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette version de Centreon est ancienne. Nous vous recommandons d'installer la dernière version.
+
 Pour installer un serveur distant plus rapidement, vous pouvez utiliser un script. Le script exécutera les étapes d'installation proprement dites. Vous devrez ensuite enregistrer le serveur distant et le rattacher au serveur central.
 
 ## Procédure d'installation
@@ -78,7 +80,7 @@ bash /tmp/unattended.sh install -t central -v 23.10 -r stable -s -l DEBUG  2>&1 
 
 Dans les deux cas, vous obtiendrez un fichier de log complet avec toutes les erreurs dans votre répertoire **tmp**, fichier nommé **unattended(date).log**.
 
-4. Une fois le script exécuté, suivez les [étapes 5 à 8 de la procédure d'installation standard d'un serveur distant](./using-packages.md#step-5-register-the-server).
+4. Une fois le script exécuté, suivez les [étapes 4 à 8 de la procédure d'installation standard d'un serveur distant](./using-packages.md#step-5-register-the-server).
 
 ## Aide
 

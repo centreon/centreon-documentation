@@ -9,6 +9,8 @@ De manière générale, les logiciels Open Source fournis par Centreon sont disp
 * [Machine virtuelle basées sur les distributions CentOS 7](https://download.centreon.com),
 * [Archives contenant les sources](https://download.centreon.com).
 
+> L'installation par machine virtuelle n'est adaptée que pour utiliser IT-100, ou à des fins de test.
+
 Les paquets RPM sont le meilleur format pour obtenir nos logiciels. Ces derniers ont été packagés par des experts
 Centreon et permettent de ne pas se soucier du processus d'installation.
 

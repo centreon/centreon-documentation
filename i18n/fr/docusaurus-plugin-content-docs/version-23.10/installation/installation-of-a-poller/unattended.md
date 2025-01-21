@@ -5,6 +5,8 @@ title: Installation silencieuse d'un collecteur
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette version de Centreon est ancienne. Nous vous recommandons d'installer la dernière version.
+
 Pour installer un collecteur plus rapidement, vous pouvez utiliser un script. Le script exécutera les étapes d'installation proprement dites. Vous devrez ensuite enregistrer le collecteur et le rattacher au serveur central ou au serveur distant.
 
 ## Procédure d'installation

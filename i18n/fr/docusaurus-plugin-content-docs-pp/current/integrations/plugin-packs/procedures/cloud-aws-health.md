@@ -39,9 +39,10 @@ Le Plugin Centreon AWS Health utilise l'API Amazon Health pour collecter les mé
 
 Voici la liste des droits nécessaires au travers des *access/secret keys* utilisées pour pouvoir implémenter la supervision AWS Health: 
 
-| AWS Privilege                  | Description                                                                 |
-| :----------------------------- | :-------------------------------------------------------------------------- |
-| health:DescribeEvents          | Returns information about events that meet the specified filter criteria.   |
+| AWS Privilege                   | Description                                                                                                        |
+|:--------------------------------|:-------------------------------------------------------------------------------------------------------------------|
+| health:DescribeEvents           | Returns information about events that meet the specified filter criteria.                                          |
+| health:DescribeAffectedEntities | Returns a list of entities that have been affected by the specified events, based on the specified filter criteria |
 
 L'API AWS Health nécessite un plan de support Business or Enterprise d'AWS Support. Un appel de l'API Health à partir d'un compte qui ne dispose pas d'un plan de support Business ou Enterprise entraîne une exception *SubscriptionRequiredException*.
 

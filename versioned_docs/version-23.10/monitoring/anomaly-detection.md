@@ -137,7 +137,7 @@ You can create an Anomaly Detection service manually, or [use the creation wizar
 
    - The first predictions will appear in up to 36 hours. The service will then be in OK status, until status changes are enabled (Step 3).
 
-   > If the data to which you apply the anomaly detection has been supervised for a
+   > If the data to which you apply the anomaly detection has been monitored for a
    > certain time, you can [transfer the data
    > history](#forward-history-of-data) to obtain a reliable model more quickly.
 

@@ -17,6 +17,14 @@ module.exports = {
           items: [
             {
               type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/plugin-customization'
+            },
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/cma'
+            },
+            {
+              type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/azure-credential-configuration'
             },
             {
@@ -30,6 +38,10 @@ module.exports = {
             {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/collect-openmetrics'
+            },
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration'
             },
             {
               type: 'doc',
@@ -162,6 +174,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-docker-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-drbd-ssh'
         },
         {
@@ -199,10 +215,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-google-workspace-api'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-gorgone-restapi'
         },
         {
           type: 'doc',
@@ -271,6 +283,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-jenkins'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-jmeter'
         },
         {
           type: 'doc',
@@ -530,10 +546,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-databases-sap-hana'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-scom-restapi'
         },
         {
@@ -543,6 +555,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-sendmail-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-antivirus-skyhigh-webgateway-snmp'
         },
         {
           type: 'doc',
@@ -719,6 +735,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-ha'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-gorgone-restapi'
         }
       ]
     },
@@ -1032,10 +1052,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-docker-restapi'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-docker-ssh'
         },
         {
@@ -1194,6 +1210,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-databases-sap-hana'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-databases-sybase'
         },
         {
@@ -1216,6 +1236,14 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-video-appeartv-snmp'
+        },
+       {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-avigilon-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-kvm-avocent-acs-6000-snmp'
         },
         {
@@ -1229,10 +1257,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-barco-cs-restapi'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-avigilon-snmp'
         },
         {
           type: 'doc',
@@ -1483,6 +1507,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-atto-fibrebridge-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-backbox-restapi'
         },
         {
           type: 'doc',
@@ -1758,7 +1786,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-switchs-hirschmann'
+          id: 'integrations/plugin-packs/procedures/network-switchs-hirschmann-snmp'
         },
         {
           type: 'doc',
@@ -1779,6 +1807,14 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-huawei-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-huawei-wlc-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-ibm-bladecenter-snmp'
         },
         {
           type: 'doc',
@@ -1908,6 +1944,10 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-oracle-infiniband-snmp'
         },
+	{
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-oracle-otd-snmp'
+        },
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-firewalls-paloalto-standard-snmp'
@@ -2034,10 +2074,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-oracle-otd-snmp'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-ubiquiti-airfiber-snmp'
         },
         {
@@ -2112,6 +2148,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-linux-nrpe'
         },
         {
@@ -2149,6 +2189,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-solaris-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent'
         },
         {
           type: 'doc',
@@ -2633,6 +2677,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-purestorage-flashblade-v2-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-purestorage-snmp'
         },
         {
           type: 'doc',

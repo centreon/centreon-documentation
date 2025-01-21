@@ -114,7 +114,7 @@ command:
     --password='' \
     --filter-name='' \
     --warning-status='' \
-    --critical-status='%{status} !~ /GREEN/i' \
+    --critical-status='%\{status\} !~ /GREEN/i' \
     --use-new-perfdata 
 ```
 

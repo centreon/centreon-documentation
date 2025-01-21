@@ -182,31 +182,56 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-### SNMP
+### Configuration SNMP de l'équipement
 
 SNMP doit être configuré sur le serveur central. Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp.md#prerequisites) pour mettre en place rapidement une simple configuration SNMP.
 
-### SSH key exchange
+### Configuration de la connexion SSH sans mot de passe
 
-Les vérifications liées au service **Broker-Stats** devraient être effectuées depuis un collecteur et sont réalisées par SSH. Si vous ne disposez que d'un central, les vérifications seront faites depuis et sur le central lui-même. Vous pouvez ignorer les étapes ci-dessous si vous êtes dans ce cas-là.
+Les contrôles liés au service **Broker-Stats** devraient être effectués depuis un collecteur et sont réalisés par SSH. 
+Si vous ne disposez que d'un central, les contrôles seront faits depuis et sur le central lui-même. 
+Vous pouvez ignorer les étapes ci-dessous si vous êtes dans ce cas-là.
 
-Le collecteur réalise les vérifications en tant qu'utilisateur système **centreon-engine** et se connectera au serveur central en tant qu'utilisateur **centreon**.
+> NB : Il est très fortement recommandé de superviser le serveur central à partir d'un collecteur plutôt qu'à partir du serveur central.
 
-Les étapes ci-dessous décrivent l'échange de clef SSH entre le collecteur et le central :
+Ouvrir une session en ligne de commande sur :
+* le collecteur qui sera chargé de superviser le central
+* le serveur central
 
-1. Depuis le central, paramétrer un mot de passe pour l'utilisateur **centreon** :
+Une fois ces sessions ouvertes, lancer cette commande :
 
-```
-passwd centreon
-```
 
-2. Depuis le collecteur, créer et copier la nouvelle clef SSH de l'utilisateur **centreon-engine** vers le central :
-
-```
+```bash
 su - centreon-engine
-ssh-keygen -t ed25519 -a 100
-ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_CENTRAL>
 ```
+
+À présent nous sommes dans l'environnement `bash` de `centreon-engine`. Lancer ensuite cette commande :
+
+```bash
+ssh-keygen -t ed25519 -a 100
+```
+
+Nous avons généré une paire de clés sur chaque serveur, ainsi que le répertoire `~/.ssh`. 
+
+Sur le collecteur lancer cette commande pour afficher la clé publique créée :
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Après avoir lancé cette commande, copier le contenu du fichier qui s'est affiché sous la commande `cat`. Coller ce contenu à la fin du fichier (probablement à créer) `~/.ssh/authorized_keys` du serveur central, puis appliquer les bons droits sur le fichier (toujours en tant que `centreon-engine`) :
+
+```bash
+chmod 600 ~/.ssh/authorized_keys
+```
+
+Une fois cette étape effectuée sur le central, il ne reste plus qu'à initialiser une première connexion depuis le collecteur vers celui-ci :
+
+```bash
+ssh <central-ip-address>
+```
+
+L'utilisateur `centreon-engine` du collecteur est alors capable d'ouvrir une session SSH sur le serveur central. 
 
 ### Serveur central auto-supervisé
 
@@ -331,8 +356,8 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Central
 | CRITICALQUEUEDEVENTS         | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
 | WARNINGSPEEDEVENTS           | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
 | CRITICALSPEEDEVENTS          | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
-| CRITICALSTATUS               | Define the conditions to match for the status to be CRITICAL (Default: '%{type} eq "output" and %{queue\_file\_enabled} =~ /yes/i'). You can use the following variables: %{queue\_file\_enabled}, %{state}, %{status}, %{type}, %{display} | %{type} eq "output" and %{queue\_file\_enabled} =~ /true\|yes/i |             |
-| WARNINGSTATUS                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{queue\_file\_enabled}, %{state}, %{status}, %{type}, %{display}                                                                         |                                                                 |             |
+| CRITICALSTATUS               | Define the conditions to match for the status to be CRITICAL (Default: '%\{type\} eq "output" and %\{queue_file_enabled\}=~ /yes/i'). You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\} | %\{type\} eq "output" and %\{queue_file_enabled\}=~ /true\|yes/i |             |
+| WARNINGSTATUS                | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}                                                                         |                                                                 |             |
 | WARNINGUNACKNOWLEDGEDEVENTS  | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
 | CRITICALUNACKNOWLEDGEDEVENTS | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
 | EXTRAOPTIONS                 | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                         | --verbose                                                       |             |
@@ -581,7 +606,7 @@ Les options génériques sont listées ci-dessous :
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -628,8 +653,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --broker-stats-file      | Specify the centreon-broker json stats file (Required). Can be multiple.                                                                                                                                                                       |
 | --filter-name            | Filter endpoint name.                                                                                                                                                                                                                          |
 | --warning-* --critical-* | Thresholds. Can be: 'speed-events', 'queued-events', 'unacknowledged-events'.                                                                                                                                                                  |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{queue\_file\_enabled}, %{state}, %{status}, %{type}, %{display}                                                                            |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{type} eq "output" and %{queue\_file\_enabled} =~ /yes/i'). You can use the following variables: %{queue\_file\_enabled}, %{state}, %{status}, %{type}, %{display}    |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}                                                                            |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%\{type\} eq "output" and %\{queue_file_enabled\}=~ /yes/i'). You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}    |
 
 </TabItem>
 <TabItem value="proc-broker-rrd" label="proc-broker-rrd">

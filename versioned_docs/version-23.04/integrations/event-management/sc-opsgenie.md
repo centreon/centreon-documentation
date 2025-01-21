@@ -139,10 +139,10 @@ To make sure that everything goes fine, you should have a look at `central-broke
 | `skip_nil_id`               | Number | `1`                                                                     | Do not send events from objects that do not have an ID (meta services most of the time) |               
 | `accepted_hostgroups`       | String |                                                                         | List of hostgroups in which the host must be (coma separeted eg: grp1,grp2,grp3) |               
 | `date_format`               | String | `%Y-%m-%d %H:%M:%S`                                                     | The default date format for converted timestamps (https://www.lua.org/pil/22.1) |               
-| `host_alert_message`        | String | `{last_update_date} {hostname} is {state}`                              | The default message for host alerts. See [host event macros](sc-opsgenie.md#host-event-macros) for more details about macros |
+| `host_alert_message`        | String | `{last_update_date}{hostname} is {state}`                              | The default message for host alerts. See [host event macros](sc-opsgenie.md#host-event-macros) for more details about macros |
 | `host_alert_description`    | String |                                                                         | The default description of a host alert. See [host event macros](sc-opsgenie.md#host-event-macros) for more details about macros |
 | `host_alert_alias`          | String | `{hostname}_{state}`                                                    | The default alias for a host alert, useful for alert deduplication. See [host event macros](sc-opsgenie.md#host-event-macros) for more details about macros  |
-| `service_alert_message`     | String | `{last_update_date} {hostname} // {serviceDescription} is {state}`      | The default message for service alerts. See [service event macros](sc-opsgenie.md#service-event-macros) for more details about macros |
+| `service_alert_message`     | String | `{last_update_date}{hostname} // {serviceDescription} is {state}`      | The default message for service alerts. See [service event macros](sc-opsgenie.md#service-event-macros) for more details about macros |
 | `service_alert_description` | String |                                                                         | The default description of a service alert. See [service event macros](sc-opsgenie.md#service-event-macros) for more details about macros |
 | `service_alert_alias`       | String | `{hostname}_{serviceDescription}_{state}`                               | The default alias for a service alert, useful for alert deduplication. See [service event macros](sc-opsgenie.md#service-event-macros) for more details about macros  |
 | `ba_incident_message`       | String | `{baName} is {state}, health level reached {level_nominal}`             | The default message for a ba incident. See [BA event macros](sc-opsgenie.md#ba-event-macros) for more details about macros |
@@ -186,7 +186,7 @@ rm -f /usr/share/centreon-broker/lua/opsgenie.lua
 
 ## Macros
 
-Macros are a tool to create dynamic messages depending on the event you want to send. They must be enclosed by {} (eg: {hostname}). If a macro is a time type macro then you will be able to use **\_date suffix** to convert it to a human readable format. You can Change this format using the string parameter `date_format` (eg: {last_update} is a timestamp macro. You can use {last_update_date} to have it converted)
+Macros are a tool to create dynamic messages depending on the event you want to send. They must be enclosed by {} (eg:\{hostname\}). If a macro is a time type macro then you will be able to use **\_date suffix** to convert it to a human readable format. You can Change this format using the string parameter `date_format` (eg:\{last_update\} is a timestamp macro. You can use\{last_update_date\} to have it converted)
 
 #### Host event macros
 
