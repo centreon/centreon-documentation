@@ -501,6 +501,7 @@ Ce compte utilisateur doit avoir la permission de lecture/READ (Oracle 12+) ou d
   - v_$rollstat
   - v_$resource\_limit
   - v_$tablespace
+  - v_$tempfile
   - v_$event\_name
   - v_$waitstat
   
