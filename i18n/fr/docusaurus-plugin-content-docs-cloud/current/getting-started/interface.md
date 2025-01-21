@@ -3,7 +3,7 @@ id: interface
 title: Aperçu de l'interface Centreon
 ---
 
-## Accéder à l'interface du serveur central
+## Accéder à l'interface utilisateur
 
 Pour vous connecter à Centreon Cloud pour la première fois, connectez-vous d'abord au [CIAM](../ciam/ciam.md), puis cliquez sur votre plateforme dans la liste **Applications** à la page de votre organisation. Vous pouvez ensuite enregistrer l'URL dans vos favoris afin d'accéder à la plateforme plus rapidement.
 
@@ -34,7 +34,7 @@ L'interface web de Centreon est composée de plusieurs menus, chaque menu a une 
 
 La partie gauche du bandeau supérieur montre la santé de votre plateforme en temps réel :
 
-* si tous les collecteurs sont en cours d'exécution ou non : l'icône devient rouge lorsqu'un collecteur n'a pas envoyé de données au serveur central depuis au moins 15 minutes
+* si tous les collecteurs sont en cours d'exécution ou non : l'icône devient rouge lorsqu'un collecteur n'a pas envoyé de données à la plateforme SaaS depuis au moins 15 minutes
 * si les contrôles sont en retard ou non. Si l'icône est orange ou rouge, cela peut indiquer que vos collecteurs supervisent de trop nombreuse ressources.
 
 Cliquez sur l'icône **collecteurs** pour développer le menu. Dans le menu, cliquez sur **Configurer les collecteurs** pour accéder à la page **Configuration > Collecteurs > Collecteurs**.

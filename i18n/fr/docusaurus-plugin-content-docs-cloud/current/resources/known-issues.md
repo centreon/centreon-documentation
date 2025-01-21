@@ -37,7 +37,7 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 
 * Déployer un service ne fonctionne pas si le modèle appliqué à un hôte existant a été changé. (Commande **Plus d'actions > Déployer les services**.)
   
-* Il n'est pas encore possible de définir un collecteur par défaut. Lorsque vous créez un hôte, assurez-vous de définir le bon collecteur pour le superviser au lieu du serveur central.
+* Il n'est pas encore possible de définir un collecteur par défaut. Lorsque vous créez un hôte, assurez-vous de définir le bon collecteur pour le superviser au lieu de la plateforme SaaS elle-même (collecteur **Central**).
 
 * Les comptes de service (par exemple, **broker service user**) apparaissent dans les listes de sélection des contacts. Ne les utilisez pas.
 
