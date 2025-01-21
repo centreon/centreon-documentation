@@ -20,7 +20,7 @@ Veuillez vous référer à la documentation de votre appareil Cisco pour savoir 
 
 L'équipement doit être accessible depuis le collecteur Centreon sur le port SNMP UDP/161.
 
-### Sur le serveur central
+### Dans l'interface utilisateur
 
 Dans l'interface web, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**, recherchez et installez le connecteur de supervision **Cisco standard** :
 
