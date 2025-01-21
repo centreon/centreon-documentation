@@ -457,8 +457,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname='10.0.0.1' \
 	--port='443' \
 	--proto='https' \
-	--api-username='' \
-	--api-password=''  \
+	--api-username='username' \
+	--api-password='password'  \
 	--filter-name='' \
 	--unknown-status='' \
 	--warning-status='' \
@@ -467,8 +467,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--critical-usage='' \
 	--warning-usage-free='' \
 	--critical-usage-free='' \
-	--warning-usage-prct='' \
-	--critical-usage-prct='' \
+	--warning-usage-prct='80' \
+	--critical-usage-prct='90' \
 	--warning-read='' \
 	--critical-read='' \
 	--warning-write='' \
@@ -487,7 +487,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All volumes are ok | 'volumes1#volume.space.usage.bytes'=97864B;;;0;total_space 'volumes2#volume.space.usage.bytes'=69332B;;;0;total_space 'volumes1#volume.space.free.bytes'=68642B;;;0;total_space 'volumes2#volume.space.free.bytes'=98862B;;;0;total_space 'volumes1#volume.space.usage.percentage'=34517%;;;0;100 'volumes2#volume.space.usage.percentage'=40609%;;;0;100 'volumes1#volume.io.read.usage.bytespersecond'=45065B/s;;;; 'volumes2#volume.io.read.usage.bytespersecond'=7535B/s;;;; 'volumes1#volume.io.write.usage.bytespersecond'=41378B/s;;;0; 'volumes2#volume.io.write.usage.bytespersecond'=43572B/s;;;0; 'volumes1#volume.io.other.usage.bytespersecond'=56965B/s;;;0; 'volumes2#volume.io.other.usage.bytespersecond'=53443B/s;;;0; 'volumes1#volume.io.total.usage.bytespersecond'=85915B/s;;;0; 'volumes2#volume.io.total.usage.bytespersecond'=49323B/s;;;0; 'volumes1#volume.io.read.usage.iops'=20118iops;;;0; 'volumes2#volume.io.read.usage.iops'=73466iops;;;0; 'volumes1#volume.io.write.usage.iops'=79321iops;;;0; 'volumes2#volume.io.write.usage.iops'=56603iops;;;0; 'volumes1#volume.io.other.usage.iops'=73273iops;;;0; 'volumes2#volume.io.other.usage.iops'=96779iops;;;0; 'volumes1#volume.io.total.usage.iops'=83646iops;;;0; 'volumes2#volume.io.total.usage.iops'=1920iops;;;0; 'volumes1#volume.io.read.latency.milliseconds'=78031ms;;;0; 'volumes2#volume.io.read.latency.milliseconds'=42278ms;;;0; 'volumes1#volume.io.write.latency.milliseconds'=1255ms;;;0; 'volumes2#volume.io.write.latency.milliseconds'=15898ms;;;0; 'volumes1#volume.io.other.latency.milliseconds'=87176ms;;;0; 'volumes2#volume.io.other.latency.milliseconds'=25398ms;;;0; 'volumes1#volume.io.total.latency.milliseconds'=20082ms;;;0; 'volumes2#volume.io.total.latency.milliseconds'=74687ms;;;0; 
+OK: All volumes are ok | 'volumes1#volume.space.usage.bytes'=66159B;;;0;total_space 'volumes2#volume.space.usage.bytes'=95915B;;;0;total_space 'volumes1#volume.space.free.bytes'=12281B;;;0;total_space 'volumes2#volume.space.free.bytes'=67019B;;;0;total_space 'volumes1#volume.space.usage.percentage'=66404%;0:80;0:90;0;100 'volumes2#volume.space.usage.percentage'=87107%;0:80;0:90;0;100 'volumes1#volume.logicalspace.usage.bytes'=71683B;;;0;total_logical_space 'volumes2#volume.logicalspace.usage.bytes'=2590B;;;0;total_logical_space 'volumes1#volume.logicalspace.free.bytes'=68726B;;;0;total_logical_space 'volumes2#volume.logicalspace.free.bytes'=97233B;;;0;total_logical_space 'volumes1#volume.logicalspace.usage.percentage'=39983%;;;0;100 'volumes2#volume.logicalspace.usage.percentage'=41105%;;;0;100 'volumes1#volume.io.read.usage.bytespersecond'=7133B/s;;;; 'volumes2#volume.io.read.usage.bytespersecond'=90416B/s;;;; 'volumes1#volume.io.write.usage.bytespersecond'=93609B/s;;;0; 'volumes2#volume.io.write.usage.bytespersecond'=92864B/s;;;0; 'volumes1#volume.io.other.usage.bytespersecond'=86691B/s;;;0; 'volumes2#volume.io.other.usage.bytespersecond'=13270B/s;;;0; 'volumes1#volume.io.total.usage.bytespersecond'=58513B/s;;;0; 'volumes2#volume.io.total.usage.bytespersecond'=27731B/s;;;0; 'volumes1#volume.io.read.usage.iops'=73888iops;;;0; 'volumes2#volume.io.read.usage.iops'=32587iops;;;0; 'volumes1#volume.io.write.usage.iops'=79865iops;;;0; 'volumes2#volume.io.write.usage.iops'=47151iops;;;0; 'volumes1#volume.io.other.usage.iops'=30520iops;;;0; 'volumes2#volume.io.other.usage.iops'=88490iops;;;0; 'volumes1#volume.io.total.usage.iops'=12956iops;;;0; 'volumes2#volume.io.total.usage.iops'=97483iops;;;0; 'volumes1#volume.io.read.latency.milliseconds'=84217ms;;;0; 'volumes2#volume.io.read.latency.milliseconds'=6221ms;;;0; 'volumes1#volume.io.write.latency.milliseconds'=12290ms;;;0; 'volumes2#volume.io.write.latency.milliseconds'=88721ms;;;0; 'volumes1#volume.io.other.latency.milliseconds'=11545ms;;;0; 'volumes2#volume.io.other.latency.milliseconds'=63868ms;;;0; 'volumes1#volume.io.total.latency.milliseconds'=23807ms;;;0; 'volumes2#volume.io.total.latency.milliseconds'=49953ms;;;0; 
 ```
 
 ### Troubleshooting
@@ -584,6 +584,7 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
+
 <TabItem value="Aggregates" label="Aggregates">
 
 | Option                   | Description                                                                                                                                                                                                                                                                        |
