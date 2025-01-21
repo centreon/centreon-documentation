@@ -139,7 +139,7 @@ Pour optimiser le client lourd, vous devez lui allouer plus de mémoire que la v
 <TabItem value="Windows" label="Windows">
 
 ```shell
-C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
+C:\Users<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 ```
 
 </TabItem>
@@ -337,6 +337,8 @@ apt install centreon-map-server
 </Tabs>
 
 Lors de l'installation du serveur Centreon MAP, java (OpenJDK 11) sera automatiquement installé, si nécessaire.
+
+> Suivez cette procédure de dépannage si OpenJDK 17 cause un incident [empêchant l'installation de centreon-map-server](./troubleshooter.md#centreon-map-server-et-toutes-ses-dépendances-ne-peuvent-pas-être-installés-sur-alma-linux-8).
 
 > Vous devez disposer d'une base de données MariaDB pour stocker les données de Centreon MAP, qu'elle soit sur localhost ou ailleurs.
 

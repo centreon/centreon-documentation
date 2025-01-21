@@ -771,17 +771,17 @@ cp /etc/apache2/sites-available/centreon.conf{,.origin}
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Edit the **/etc/httpd/conf.d/10-centreon.conf** file by adding the **<VirtualHost *:443>** section.
+Edit the **/etc/httpd/conf.d/10-centreon.conf** file by adding the **\<VirtualHost *:443\>** section.
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Edit the **/etc/httpd/conf.d/10-centreon.conf** file by adding the **<VirtualHost *:443>** section.
+Edit the **/etc/httpd/conf.d/10-centreon.conf** file by adding the **\<VirtualHost *:443\>** section.
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Edit the **/etc/apache2/sites-available/centreon.conf** file by adding the **<VirtualHost *:443>** section.
+Edit the **/etc/apache2/sites-available/centreon.conf** file by adding the **\<VirtualHost *:443\>** section.
 </TabItem>
 </Tabs>
 

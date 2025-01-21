@@ -107,7 +107,7 @@ yum install centreon-pack-applications-protocol-radius
     --username=''  \
     --password=''   \
     --warning-status=''  \
-    --critical-status='%{status} ne "accepted"'  \
+    --critical-status='%\{status\} ne "accepted"'  \
     --warning-time='2'  \
     --critical-time='3'  \
     --use-new-perfdata 

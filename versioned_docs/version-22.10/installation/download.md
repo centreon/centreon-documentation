@@ -9,6 +9,8 @@ Open Source software supplied by Centreon is generally available in 3 formats:
 * [Virtual machine based on CentOS 7](https://download.centreon.com) in OVA formats,
 * [Archives containing the sources](https://download.centreon.com).
 
+> Virtual machines are only suitable to use Centreon IT-100 or to test the solution.
+
 RPM packages are the best format to obtain our software. They are packaged by Centreon experts and relieve
 you of any concern over the installation process.
 
