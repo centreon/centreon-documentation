@@ -352,6 +352,82 @@ Le contenu de la balise \<error_text\> donne des indications supplémentaires su
 #### UNKNOWN: 400 Bad Request |
 La requête PromQL contient probablement une erreur de syntaxe. Il est nécessaire de valider son fonctionnement dans l'interface Prometheus.
 
+#### Comment utiliser le mode Expression (générique) ?
+
+> Note : Ce mode peut être utilisé à la fois directement sur un hôte étant un 
+serveur Prometheus et à la fois sur un hôte pour lequel Prometheus récupère des 
+métriques. Dans les deux cas, l'hôte doit hérité du modèle *Cloud-Prometheus-Api-custom*
+et le service doit être créé manuellement au moyen du modèle de service *Cloud-Prometheus-Expression-Api-custom*
+
+Voici un exemple pour illustrer comment le mode *Expression* fonctionne : 
+
+```bash
+/usr/lib/centreon/plugins//centreon_prometheus_api.pl \
+    --plugin=cloud::prometheus::restapi::plugin \
+    --mode=expression \
+    --hostname=amzprometheus.int.centreon.com \
+    --url-path='/api/v1' --port='9090' --proto='http' \
+    --query='cpu_requests,sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100' \
+    --output='%\{instance\} CPU Requests: %\{cpu_requests\}%' --multiple-output='Nodes CPU Requests within bounds' \
+    --instance='node' \
+    --warning-status='%\{cpu_requests\} > 60' --critical-status='%\{cpu_requests\} > 70' \
+    --use-new-perfdata --verbose 
+```
+
+##### Option `--query` et Macro QUERIES associée
+
+L'option `--query` permet de définir deux paramètres : 
+
+- le nom de la métrique pour Centreon (`cpu_requests`)
+- la requête PromQL (`sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100`)
+
+Dans la configuration du service, vous pouvez spécifier plusieurs requêtes c'est pour cette raison 
+que la macro `QUERIES` inclut exceptionnellement la définition du nom de la métrique.
+Dans le cas ci-dessus, la macro `QUERIES` vaudrait `--query='cpu_requests,sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100'`.
+
+##### Option `--instance` et Macro associée
+
+L'option `--instance` permet de préciser le label utilisé dans les graphs. La macro `MACRO`
+dans cet exemple serait `node` grâce à l'option `--instance='node'`.
+
+##### Options `--multiple-output`/`--output` et macros MULTIPLEOUTPUT/OUTPUT associées
+
+Les options d'output permettent de personnaliser les messages de sortie dans les cas suivants : 
+
+- Supervision d'une métrique sur plusieurs instances
+- Check retournant une erreur 
+
+Les valeurs peuvent être spécifiées via les macros correspondantes. Dans l'exemple ci-dessus la macro
+`OUTPUT` vaudrait `"%{instance} CPU Requests: %{cpu_requests}%"`. Notez que le label Centreon défini dans l'option
+`--query` est utilisée pour afficher la valeur obtenue. La variable `%{instance}` est aussi utilisée pour afficher le nom
+du node.
+
+La macro `MULTIOUTPUT` vaudrait `Nodes CPU Requests within bounds`.
+
+##### Options `--\*-status` et macros *STATUS associées
+
+Les options `--warning-status` et `--critical-status` permettent de définir les seuils d'alerte.
+
+Toujours dans l'exemple ci-dessus, l'alerte **WARNING** sera déclenchée quand la valeur de `cpu_requests`
+dépassera `60` et **CRITICAL** quand elle dépassera `70`.
+
+La macro `WARNINGSTATUS` vaudrait `'%{cpu_requests} > 60'`.
+La macro `CRITICALSTATUS` vaudrait `'%{cpu_requests} > 70'`.
+
+Notez que le label Centreon spécifié dans l'option `--query` est utilisé à nouveau pour comparer les valeurs 
+aux seuils. 
+
+##### Sortie du Plugin et résumé des macros
+
+Si tout fonctionne correctement, un message similaire au suivant devrait s'afficher:
+
+```bash
+OK: Nodes CPU Requests within bounds | 'amzkubemaster.int.centreon.com#cpu_requests'=37.5;;;; 'amzkubenode1.int.centreon.com#cpu_requests'=35;;;; 'amzkubenode2.int.centreon.com#cpu_requests'=30;;;;
+amzkubemaster.int.centreon.com CPU Requests: 37.5%
+amzkubenode1.int.centreon.com CPU Requests: 35%
+amzkubenode2.int.centreon.com CPU Requests: 30%
+```
+
 ### Modes disponibles
 
 Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
