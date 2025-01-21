@@ -64,7 +64,7 @@ apt update && apt upgrade centreon-pack-*
 
 ## Connector updates and breaking changes
 
-Bear in mind that some connector updates may introduce breaking changes. In this case, if you were using the connector and you update it, you'll need to modify its configuration so that it works again. Be sure to read the [connector release notes](../.../releases/release-notes.md) before updating a connector.
+Bear in mind that some connector updates may introduce breaking changes. In this case, if you were using the connector and you update it, you'll need to modify its configuration so that it works again. Be sure to read the [connector release notes](../../releases/release-notes.md) before updating a connector.
 
 Connectors for which an update is available are displayed with an arrow icon on a blue background: click on it to install the update.
 
