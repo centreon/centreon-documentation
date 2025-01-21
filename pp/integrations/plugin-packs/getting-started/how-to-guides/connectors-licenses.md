@@ -1,6 +1,6 @@
 ---
 id: connectors-licenses
-title: Licences offline/online et les connecteurs
+title: Offline/online licenses and connectors
 ---
 
 import Tabs from '@theme/Tabs';
