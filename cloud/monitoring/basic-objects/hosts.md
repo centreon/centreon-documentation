@@ -16,7 +16,7 @@ To create a host manually:
 * The **Name** field defines the host name that will be used by the Monitoring Engine. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
 * The **Alias** field shows the alias of the host.
 * The **Address** field defines the IP address or DNS name of the host. The **Resolve** button enables us to
-  resolve the domain name by questioning the DNS server configured on the central server.
+  resolve the domain name by questioning the DNS server configured on the SaaS platform.
 * The **Templates** field enables us to associate one or more host templates with this object.
 
   In case of conflicts between settings present on multiple templates, the host template above overwrites the identical properties

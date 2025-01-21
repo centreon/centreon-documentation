@@ -318,7 +318,7 @@ Only one TCP flow must be open from the host to the poller.
 
 ### Configure Engine
 
-Read [this page](../getting-started/how-to-guides/cma.md#configure-engine) to learn how to configure engine for compatibility with CMA.
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma.md#configure-engine).
 
 ### System prerequisites on the monitored host
 
