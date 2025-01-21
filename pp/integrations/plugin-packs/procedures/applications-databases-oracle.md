@@ -504,6 +504,7 @@ This user account must have the READ (Oracle 12+) or SELECT (Oracle < 12) permis
   - v_$rollstat
   - v_$resource\_limit
   - v_$tablespace
+  - v_$tempfile
   - v_$event\_name
   - v_$waitstat
 

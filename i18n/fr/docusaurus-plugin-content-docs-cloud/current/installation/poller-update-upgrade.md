@@ -15,7 +15,7 @@ Votre collecteur doit toujours avoir la dernière version disponible (c'est-à-d
 
 ## Mettre à jour ou mettre à niveau un collecteur
 
-1. [Sur votre serveur central](../getting-started/interface.md#accéder-à-linterface-du-serveur-central), cliquez sur la flèche à côté de **Collecteurs** dans le bandeau en haut à gauche.
+1. [Dans votre interface utilisateur](../getting-started/interface.md#accéder-à-linterface-du-serveur-central), cliquez sur la flèche à côté de **Collecteurs** dans le bandeau en haut à gauche.
 
 2. Dans la pop-up qui apparaît, cliquez sur **Copy install command**. La commande est copiée dans votre presse-papiers.
 
