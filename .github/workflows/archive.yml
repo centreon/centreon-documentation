@@ -25,7 +25,7 @@ jobs:
           run_install: false
 
       - name: Set up Node
-        uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: 22
           cache: pnpm
@@ -45,7 +45,7 @@ jobs:
         run: ARCHIVED_VERSION="${{ github.event.inputs.version }}" pnpm build
 
       - name: Store build archived doc in cache
-        uses: actions/cache/save@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
+        uses: actions/cache/save@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-archived-doc"
@@ -55,7 +55,7 @@ jobs:
     runs-on: [self-hosted, infra]
     steps:
       - name: Restore built archived doc from cache
-        uses: actions/cache/restore@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
+        uses: actions/cache/restore@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-archived-doc"
