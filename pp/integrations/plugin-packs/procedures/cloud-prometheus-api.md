@@ -351,14 +351,11 @@ The \<error_text\> should give more information about the root cause
 #### UNKNOWN: 400 Bad Request |
 The PromQL query expression is invalid. Check that it works within the Prometheus WebUI.
 
-#### Comment utiliser le mode Expression (générique) ?
+#### How to use the generic Expression mode ?
 
-> Note : Ce mode peut être utilisé à la fois directement sur un hôte étant un 
-serveur Prometheus et à la fois sur un hôte pour lequel Prometheus récupère des 
-métriques. Dans les deux cas, l'hôte doit hérité du modèle *Cloud-Prometheus-Api-custom*
-et le service doit être créé manuellement au moyen du modèle de service *Cloud-Prometheus-Expression-Api-custom*
+> Note: The mode below can be used with Host that are not Prometheus Server even if the metric collection use it. The Host must inherit from the *Cloud-Prometheus-Api-custom* Template and the Service needs to be created manually using the *Cloud-Prometheus-Expression-Api-custom* Service Template.
 
-Voici un exemple pour illustrer comment le mode *Expression* fonctionne : 
+Nothing is better than a clear example to understand how the Expression generic mode works:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_prometheus_api.pl \
@@ -373,52 +370,51 @@ Voici un exemple pour illustrer comment le mode *Expression* fonctionne :
     --use-new-perfdata --verbose 
 ```
 
-##### Option `--query` et Macro QUERIES associée
+##### `--query` option and QUERIES macro
 
-L'option `--query` permet de définir deux paramètres : 
+The `--query` option allows to define two things:
 
-- le nom de la métrique pour Centreon (`cpu_requests`)
-- la requête PromQL (`sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100`)
+- the Centreon metric name (`cpu_requests`)
+- the PromQL query (`sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100`)
 
-Dans la configuration du service, vous pouvez spécifier plusieurs requêtes c'est pour cette raison 
-que la macro `QUERIES` inclut exceptionnellement la définition du nom de la métrique.
-Dans le cas ci-dessus, la macro `QUERIES` vaudrait `--query='cpu_requests,sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100'`.
+In the Service definition, you can specify several queries that's why the QUERIES macro 
+exceptionnaly includes the option definition. Here, QUERIES value would be "--query='cpu_requests,sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100'". 
 
-##### Option `--instance` et Macro associée
+##### `--instance` option and INSTANCE macro
 
-L'option `--instance` permet de préciser le label utilisé dans les graphs. La macro `MACRO`
-dans cet exemple serait `node` grâce à l'option `--instance='node'`.
+The instance option explicits the Prometheus metric dimension/label the Plugin will highlight 
+in the graphs (`--instance='node'`). The INSTANCE macro value would be "node" in this example. 
 
-##### Options `--multiple-output`/`--output` et macros MULTIPLEOUTPUT/OUTPUT associées
+##### `--multiple-output`/`--output` options and MULTIPLEOUTPUT/OUTPUT macros
 
-Les options d'output permettent de personnaliser les messages de sortie dans les cas suivants : 
+The output-related options gives ability to tune output messages of the
+check in the following cases:
 
-- Supervision d'une métrique sur plusieurs instances
-- Check retournant une erreur 
+- Check a metric on multiple instances
+- Check returning an error
 
-Les valeurs peuvent être spécifiées via les macros correspondantes. Dans l'exemple ci-dessus la macro
-`OUTPUT` vaudrait `"%{instance} CPU Requests: %{cpu_requests}%"`. Notez que le label Centreon défini dans l'option
-`--query` est utilisée pour afficher la valeur obtenue. La variable `%{instance}` est aussi utilisée pour afficher le nom
-du node.
+Values can be specified through the corresponding macros, in this example the value of OUTPUT macro
+would be "%\{instance\} CPU Requests: %\{cpu_requests\}%". Note that we use the Centreon label defined in the `--query`
+option to use the obtained value). We also use the '%\{instance\}' keyword to display the node name. 
 
-La macro `MULTIOUTPUT` vaudrait `Nodes CPU Requests within bounds`.
+The MULTIPLEOUTPUT value would be "Nodes CPU Requests within bounds"
 
-##### Options `--\*-status` et macros *STATUS associées
+##### `--\*-status` options and \*STATUS macros 
 
-Les options `--warning-status` et `--critical-status` permettent de définir les seuils d'alerte.
+--warning-status and --critical-status purpose is to define when the Plugin will raise an alert. 
 
-Toujours dans l'exemple ci-dessus, l'alerte **WARNING** sera déclenchée quand la valeur de `cpu_requests`
-dépassera `60` et **CRITICAL** quand elle dépassera `70`.
+In the command above, the check triggers a *WARNING* alarm when the 'cpu_requests' value is above 60 and a 
+*CRITICAL* one when it is above 70. 
 
-La macro `WARNINGSTATUS` vaudrait `'%{cpu_requests} > 60'`.
-La macro `CRITICALSTATUS` vaudrait `'%{cpu_requests} > 70'`.
+Note that the Centreon label defined in the `--query` options is used again to compare 
+the obtained value with thresholds. 
 
-Notez que le label Centreon spécifié dans l'option `--query` est utilisé à nouveau pour comparer les valeurs 
-aux seuils. 
+The macros value would be '%\{cpu_requests\} > 60' for WARNINGSTATUS and '%\{cpu_requests\} > 70' 
+for CRITICALSTATUS.
 
-##### Sortie du Plugin et résumé des macros
+##### Expected output and macros summary
 
-Si tout fonctionne correctement, un message similaire au suivant devrait s'afficher:
+If everything is OK, a output similar to the one below should be displayed: 
 
 ```bash
 OK: Nodes CPU Requests within bounds | 'amzkubemaster.int.centreon.com#cpu_requests'=37.5;;;; 'amzkubenode1.int.centreon.com#cpu_requests'=35;;;; 'amzkubenode2.int.centreon.com#cpu_requests'=30;;;;
