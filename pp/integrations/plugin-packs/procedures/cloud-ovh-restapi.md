@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                     | Service Description     |
 |:--------------|:-------------------------------------|:------------------------|
 | Quota-Usage   | Cloud-Ovh-Quota-Usage-Restapi-custom | Check web hosting space |
-| Sms           | Cloud-Ovh-Sms-Restapi-custom         | Check SMS left          |
+| Sms           | Cloud-Ovh-Sms-Restapi-custom         | Check the number of SMS left          |
 
 > The services listed above are created automatically when the **Cloud-Ovh-Restapi-custom** host template is used.
 
