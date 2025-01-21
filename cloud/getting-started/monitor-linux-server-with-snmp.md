@@ -52,9 +52,9 @@ systemctl enable snmpd
 
 > The target server must be reachable from the Centreon Poller on the UDP/161 SNMP port.
 
-### On the central server
+### In the user interface
 
-In the web interface, go to **Configuration > Monitoring Connector Manager** and install the **Linux SNMP** Monitoring Connector:
+In the user interface, go to **Configuration > Monitoring Connector Manager** and install the **Linux SNMP** Monitoring Connector:
 
 ![image](../assets/getting-started/quick_start_linux_0.gif)
 
