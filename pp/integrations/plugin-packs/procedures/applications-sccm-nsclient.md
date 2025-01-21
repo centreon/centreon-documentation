@@ -155,7 +155,7 @@ user account and test the Plugin by running the following command:
     -p 5666 \
     -t 30 \
     -u -m 8192 \
-    -c check_centreon_plugins -a 'apps::sccm::local::plugin' 'site-status' '--critical-status="%{status} eq FAILED"'
+    -c check_centreon_plugins -a 'apps::sccm::local::plugin' 'site-status' '--critical-status="%\{status\} eq FAILED"'
 ```
 
 This command should return an output message like:
@@ -191,7 +191,7 @@ parameter to the command:
     --command=check_centreon_plugins  \
     --arg='apps::sccm::local::plugin'  \
     --arg='site-status' \
-    --arg='--critical-status="%{status} eq FAILED"'
+    --arg='--critical-status="%\{status\} eq FAILED"'
 
 ```
 This command should return an output message like:

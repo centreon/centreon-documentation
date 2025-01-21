@@ -2,6 +2,8 @@
 id: upgrade-from-3-4
 title: Upgrade from Centreon 3.4
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon platform from version 3.4
 (Centreon Web 2.8) to version 22.10.

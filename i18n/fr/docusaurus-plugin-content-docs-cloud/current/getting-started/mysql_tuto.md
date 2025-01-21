@@ -23,7 +23,7 @@ GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 
 > Remplacez le nom d'utilisateur, l'adresse IP du collecteur et le mot de passe par les valeurs de votre choix.
 
-### Sur le serveur central
+### Dans l'interface utilisateur
 
 La base de données sera supervisée à l'aide du connecteur de supervision **MySQL/MariaDB**.
 Rendez-vous dans le menu **Configuration > Gestionnaire de connecteurs de supervision** et installez le connecteur de supervision **MySQL/MariaDB** :

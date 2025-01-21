@@ -2,6 +2,8 @@
 id: upgrade-from-20-04
 title: Upgrade from Centreon 20.04
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon platform from version 20.04
 to version 22.10.
