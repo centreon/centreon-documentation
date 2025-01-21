@@ -490,6 +490,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-prometheus-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-proxmox-mg-api'
         },
         {
@@ -1125,10 +1129,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-ovh-restapi'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-prometheus-api'
         },
         {
           type: 'doc',
@@ -1807,6 +1807,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-huawei-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-huawei-wlc-snmp'
         },
         {
           type: 'doc',

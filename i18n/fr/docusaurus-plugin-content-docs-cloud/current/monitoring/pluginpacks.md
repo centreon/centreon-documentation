@@ -12,7 +12,7 @@ Il existe un connecteur de supervision par type d'équipement supervisé (par ex
 Un connecteur de supervision est constitué de deux éléments, installés séparément :
 
 - Un plugin, qui exécute les commandes de supervision depuis un collecteur. Tous les plugins sont déjà installés sur vos collecteurs.
-- Un pack, qui contient des commandes, des modèles de services et des modèles d’hôtes. Il est installé via l'interface du serveur central.
+- Un pack, qui contient des commandes, des modèles de services et des modèles d’hôtes. Il est installé via l'interface utilisateur.
   Pour chaque type d’équipement, les modèles déterminent quels indicateurs seront
 supervisés et définissent les valeurs par défaut des seuils Warning et
 Critical (celles-ci sont modifiables par la suite).
