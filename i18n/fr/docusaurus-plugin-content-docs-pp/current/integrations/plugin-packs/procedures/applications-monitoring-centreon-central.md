@@ -239,7 +239,7 @@ Si votre serveur central se supervise lui-même, vous devrez ajouter l'option `-
 
 ## Installer le connecteur de supervision
 
-### Pack
+### PackLa procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
