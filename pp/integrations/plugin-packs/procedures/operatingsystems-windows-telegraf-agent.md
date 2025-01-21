@@ -154,9 +154,7 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 
 ### Configure Engine
 
-1. In the **Configuration > Pollers > Engine configuration** menu, on the **Data** tab, add an entry to the Broker modules to load and enter the `/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json` directive. Save the form.
-
-2. Export the poller's configuration, selecting the **Restart** option.
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/telegraf.md#configure-engine).
 
 ### System prerequisites on the monitored host
 
