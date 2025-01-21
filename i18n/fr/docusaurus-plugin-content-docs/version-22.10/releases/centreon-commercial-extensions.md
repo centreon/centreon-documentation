@@ -17,6 +17,15 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.18
+
+Release date: `December 16, 2024`
+
+#### Bug fixes
+
+- [API] Fixed issue with the "centreon-map/api/beta/actuator/metrics" endpoint.
+- [Legacy server] Fixed an issue preventing the state of resources (acknowledged, in downtime, etc.) from being up-to-date on maps.
+
 ### 22.10.17
 
 Release date: `October 7, 2024`
@@ -279,6 +288,14 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.10.18
+
+Release date: `December 16, 2024`
+
+#### Bug fixes
+
+- [Legacy server] Fixed an issue preventing the state of resources (acknowledged, in downtime, etc.) from being up-to-date on maps.
+
 ### 22.10.17
 
 Release date: `October 7, 2024`
@@ -396,6 +413,14 @@ Release date: `October 26, 2022`
 
 ## Centreon BAM
 
+### 22.10.7
+
+Release date: `December 16, 2024`
+
+#### Security fixes
+
+- [Security] Fixed SQLi in the user settings form, only accessible to authenticated users with high privilege access. (CVE-2024-45757)
+
 ### 22.10.6
 
 Release date: `April 17, 2024`
@@ -459,6 +484,24 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon MBI
+
+### 22.10.12
+
+Release date: `December 16, 2024`
+
+#### Enhancements
+
+#### Bug fixes
+
+- [MBI] Fixed an issue preventing a report from being generated.
+- [MBI] Fixed the SFTP connection with configuration key as it was causing an error on job publication.
+
+#### Security fixes
+
+- [Security] Fixed file permission in purgeArchive cron file, only accessible to authenticated users with high privilege access.
+- [Security] Replaced dom4j with another package.
+- [Security] Upgraded Apache Commons Collection dependency.
+- [Security] Upgraded XmlBeans dependency.
 
 ### 22.10.11
 
@@ -651,7 +694,7 @@ Release date: `July 4, 2024`
 #### Bug fixes
 
 - [Packaging] Added missing dependencies on anomaly detection.
-- [Packaging] Various anomaly detection perl installation scripts are now deployed on **/usr/share/perl5/centreon/anomalydetection** instead of **/%{perl_vendorlib}/centreon**.
+- [Packaging] Various anomaly detection perl installation scripts are now deployed on **/usr/share/perl5/centreon/anomalydetection** instead of **/%\{perl_vendorlib\}/centreon**.
 
 ### 22.10.5
 

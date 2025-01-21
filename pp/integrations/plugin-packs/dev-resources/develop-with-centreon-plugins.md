@@ -507,7 +507,7 @@ sub new {
          'port:s'               => { name => 'port', default => 443 },
          'timeout:s'            => { name => 'timeout' },
         # These options are here to defined conditions about which status the plugin will return regarding HTTP response code
-         'unknown-status:s'     => { name => 'unknown_status', default => '%{http_code} < 200 or %{http_code} >= 300' },
+         'unknown-status:s'     => { name => 'unknown_status', default => '%\{http_code\} < 200 or %\{http_code\} >= 300' },
          'warning-status:s'     => { name => 'warning_status' },
          'critical-status:s'    => { name => 'critical_status', default => '' }
     });
@@ -529,7 +529,7 @@ sub check_options {
     $self->SUPER::check_options(%options);
 
     # Check if the user provided a value for --hostname option. If not, display a message and exit
-    if (!defined($self->{option_results}->{hostname}) || $self->{option_results}->{hostname} eq '') {
+    if (!defined($self->{option_results}-\{hostname\}) || $self->{option_results}-\{hostname\} eq '') {
         $self->{output}->add_option_msg(short_msg => 'Please set hostname option');
         $self->{output}->option_exit();
     }
@@ -584,8 +584,8 @@ sub set_counters {
             # All properties below (before et) are related to the catalog_status_ng catalog function imported at the top of our mode
             type => 2,
             # These properties allow you to define default thresholds for each status but not mandatory.
-            warning_default => '%{health} =~ /yellow/',
-            critical_default => '%{health} =~ /red/',
+            warning_default => '%\{health\} =~ /yellow/',
+            critical_default => '%\{health\} =~ /red/',
             # To simplify, manage things related to how get value in the counter, what to display and specific threshold
             # check because of the type of the data (string)
             set => {
@@ -981,7 +981,7 @@ sub manage_selection {
     # Initialize an empty app_metrics counter.
     $self->{app_metrics} = {};
     # Loop in the connections array of hashes
-    foreach my $entry (@{ $decoded_content->{connections} }) {
+    foreach my $entry (@\{ $decoded_content->{connections\} }) {
         # Same logic than type => 0 counters but an extra key $entry->{component} to associate the value
         # with a specific instance
         $self->{app_metrics}->{ $entry->{component} }->{display} = $entry->{component};
@@ -989,7 +989,7 @@ sub manage_selection {
     };
 
     # Exactly the same thing with errors
-    foreach my $entry (@{ $decoded_content->{errors} }) {
+    foreach my $entry (@\{ $decoded_content->{errors\} }) {
         # Don't need to redefine the display key, just assign a value to the error key_value while
         # keeping the $entry->{component} key to associate the value with the good instance
         $self->{app_metrics}->{ $entry->{component} }->{errors} = $entry->{value};
@@ -1066,7 +1066,7 @@ Check my-awesome-app metrics exposed through its API
 
 Warning and critical threshold for application health string.
 
-Defaults values are: --warning-health='%{health} eq "yellow"' --critical-health='%{health} eq "red"'
+Defaults values are: --warning-health='%\{health\} eq "yellow"' --critical-health='%\{health\} eq "red"'
 
 =item B<--warning/critical-select>
 
@@ -1106,8 +1106,8 @@ Mode:
     --warning/critical-health
             Warning and critical threshold for application health string.
 
-            Defaults are: --warning-health='%{health} eq "yellow"' &
-            --critical-health='%{health} eq "red"'
+            Defaults are: --warning-health='%\{health\} eq "yellow"' &
+            --critical-health='%\{health\} eq "red"'
 
     --warning/critical-select
             Warning and critical threshold for select queries

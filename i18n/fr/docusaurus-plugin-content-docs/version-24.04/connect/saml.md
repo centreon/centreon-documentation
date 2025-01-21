@@ -133,6 +133,6 @@ vos utilisateurs. Voici un exemple de champs que vous devrez peut-être remplir�
 
 | Option fournisseur d'identité        | Valeur Centreon                                                |
 |--------------------------------------|----------------------------------------------------------------|
-| Client ID                            | https://<Centreon_IP_address>                                  |
-| Assertion Consumer Service (ACS) URL | https://<Centreon_IP_address>/centreon/api/latest/saml/acs     |
-| Redirect Binding URLs for SLO        | https://<Centreon_IP_address>/centreon/api/latest/saml/sls     |
+| Client ID                            | https://\<Centreon_IP_address\>                                  |
+| Assertion Consumer Service (ACS) URL | https://\<Centreon_IP_address\>/centreon/api/latest/saml/acs     |
+| Redirect Binding URLs for SLO        | https://\<Centreon_IP_address\>/centreon/api/latest/saml/sls     |

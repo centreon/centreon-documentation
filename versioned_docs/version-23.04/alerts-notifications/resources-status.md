@@ -284,7 +284,7 @@ Graphs display metric evolution over a given period of time. This can be defined
 
 - A selection of preconfigured periods is available in the graph header: Last Day, Last 7 Days, Last 31 Days
 - Datetime pickers are available for Start and End points in time. Anytime the displayed period changes, this element is updated accordingly
-- Using the side [<] and [>] buttons that appear upon hovering the graph's border, you can translate in time by half your current timespan (respectively backward and forward in time)
+- Using the side [\<] and [>] buttons that appear upon hovering the graph's border, you can translate in time by half your current timespan (respectively backward and forward in time)
 - Selecting a period of time within the graph will zoom in on this period
 
 ![image](../assets/alerts/resources-status/resources-status-graph-time-selection.gif)
