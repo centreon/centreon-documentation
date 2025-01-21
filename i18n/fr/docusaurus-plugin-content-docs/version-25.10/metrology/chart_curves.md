@@ -21,7 +21,7 @@ Se rendre dans le menu **Monitoring \> Performances \> Curves**
   ne sont pas renseignées, cette définition de courbe s'appliquera à l'ensemble des services dans lesquels cette métrique
   apparait
 * Le champ **Data Source Name** permet de sélectionner la métrique qui utilisera cette définition. La liste
-  **List of known metrics** permet de choisir les métriques déjà existantes utilisées par les services
+  **List of known metrics** permet de choisir les métriques déjà existantes utilisées par les services. Si vous souhaitez réutiliser une définition pour d'autres courbes, vous pouvez utiliser un point "." comme joker dans le nom. Par exemple, si vous avez DataSource-Nom1 et DataSource-Nom2, vous pouvez écrire ici DataSource-. pour appliquer les mêmes réglages à toutes les courbes dont le nom commence par "DataSource-".
 * Si la case **Stack** est cochée, cette courbe s'empilera ('stacking') sur les autres (utile pour voir la proportion
   d'une métrique par rapport à une autre).
 * Si la case **Stack** est cochée, la liste **Order** permet de définir l'ordre d'affichage/empilage de la courbe (plus
