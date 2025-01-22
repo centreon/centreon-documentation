@@ -343,7 +343,7 @@ systemctl start firewalld
 Ajoutez des règles pour firewalld :
 
 > La liste des flux réseau nécessaires pour chaque type de serveur est définie
-> [ici](../installation/technical.md#tableau-des-flux-réseau).
+> [ici](../installation/technical.md#tableaux-des-flux-réseau).
 
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
