@@ -371,9 +371,7 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 
 ### Configuration de Centreon Engine
 
-1. Dans le menu **Configuration > Collecteurs > Configuration de Centreon Engine**, sous l'onglet **Données**, ajoutez une entrée dans les modules Broker à charger et inscrivez-y la directive `/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json`. Sauvegardez le formulaire.
-
-2. Exportez la configuration du collecteur, en sélectionnant l'option **Redémarrer**.
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/telegraf.md#configurez-engine).
 
 ### Prérequis système sur l'hôte à superviser
 
