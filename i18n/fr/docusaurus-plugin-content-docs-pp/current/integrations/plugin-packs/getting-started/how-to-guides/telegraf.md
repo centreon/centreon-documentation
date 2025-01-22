@@ -31,13 +31,13 @@ Les limitations suivantes sont dues à des contraintes côté Telegraf ou côté
 <TabItem value="Linux" label="Linux">
 
 1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks#installer-un-connecteur-de-supervision) le connecteur de supervision **Linux Telegraf Agent**.
+2. [Installez](/docs/monitoring/pluginpacks/#installer-un-connecteur-de-supervision) le connecteur de supervision **Linux Telegraf Agent**.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
 1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks#installer-un-connecteur-de-supervision) le connecteur de supervision **Windows Telegraf Agent**.
+2. [Installez](/docs/monitoring/pluginpacks/#installer-un-connecteur-de-supervision) le connecteur de supervision **Windows Telegraf Agent**.
 
 </TabItem>
 </Tabs>
