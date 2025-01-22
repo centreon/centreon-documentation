@@ -68,7 +68,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 Si vous n'avez pas encore créé votre compte sous Office 365, reportez-vous à la 
 documentation d'Office 365 Management ou suivez le lien dans la partie 
-[Aide supplémentaire](#aide-supplementaire).
+[Aide supplémentaire](#aide-supplémentaire).
 
 ### Enregistrez une application
 
@@ -248,7 +248,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 | CRITICALTOTALUSAGEACTIVE   | Critical threshold                                                                                                                                                                                 |                                     |           |
 | WARNINGTOTALUSAGEINACTIVE  | Warning threshold                                                                                                                                                                                  |                                     |           |
 | CRITICALTOTALUSAGEINACTIVE | Critical threshold                                                                                                                                                                                 |                                     |           |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                             |                                     |           |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles).                                                             |                                     |           |
 
 </TabItem>
 </Tabs>
