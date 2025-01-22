@@ -97,7 +97,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### SNMP
 
-SNMP doit être configuré sur chaque collecteur supervisé. Vous pouvez vous aider de [cette documentation](operatingsystems-linux-snmp.md#prerequis) pour mettre en place rapidement une configuration SNMP simple. 
+SNMP doit être configuré sur chaque collecteur supervisé. Vous pouvez vous aider de [cette documentation](operatingsystems-linux-snmp.md#prérequis) pour mettre en place rapidement une configuration SNMP simple. 
 
 ### Échange de clef SSH
 
