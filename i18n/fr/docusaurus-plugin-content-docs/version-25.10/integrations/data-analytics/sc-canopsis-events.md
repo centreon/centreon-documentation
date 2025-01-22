@@ -20,7 +20,7 @@ sur un collecteur ou un serveur distant dans l'infratructure de votre client).
 **[service_status](../../developer/developer-broker-mapping.md#service-status)**,
 **[acknowledgement](../../developer/developer-broker-mapping.md#acknowledgement)**
 et **[downtime](../../developer/developer-broker-mapping.md#downtime)**.
-Ces formats d'événement sont décrits **[ici](#event-format)**.
+Ces formats d'événement sont décrits **[ici](#Format-des-évènements)**.
 - Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres 
 dédiés vous permettent de [ne pas envoyer certains évènements](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-canopsis).
 
