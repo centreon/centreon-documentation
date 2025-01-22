@@ -381,7 +381,7 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Aws-Rds-Cluster-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro           | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -403,7 +403,7 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Aws-Rds-Instance-Aurora-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro           | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -425,7 +425,7 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Aws-Rds-Instance-MSSQL-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro           | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -447,7 +447,7 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Aws-Rds-Instance-MariaDB-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro           | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -469,7 +469,7 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Aws-Rds-Instance-MySQL-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro           | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -491,7 +491,7 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Aws-Rds-Instance-Oracle-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro           | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -513,7 +513,7 @@ yum install centreon-plugin-Cloud-Aws-Rds-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Aws-Rds-Instance-PostgreSQL-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro           | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
