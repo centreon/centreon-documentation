@@ -179,7 +179,7 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 | IPLABELNEWTESTAPIPASSWORD     | API password            |                   |             |
 | IPLABELNEWTESTAPIPORT         | Port used               | 443               |             |
 | IPLABELNEWTESTAPIPROTO        | Specify HTTPS if needed | https             |             |
-| IPLABELNEWTESTAPIEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options)            |              |             |
+| IPLABELNEWTESTAPIEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#options-disponibles)            |              |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
