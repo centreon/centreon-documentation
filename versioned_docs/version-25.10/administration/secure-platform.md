@@ -342,7 +342,7 @@ systemctl start firewalld
 Then add rules for firewalld:
 
 > The list of network flows required for each type of server is defined
-> [here](../installation/technical.md#tables-of-network-flows).
+> [here](../installation/technical.md#tables-of-s).
 
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
@@ -1589,7 +1589,7 @@ the management of [Access Control List](./access-control-lists.md).
 It is strongly recommended to secure communications between the different servers of the Centreon platform if some servers
 are not in a secure network.
 
-> The Table of network flows is available [here](../installation/technical.md#table-of-network-flows).
+> The Table of network flows is available [here](../installation/technical.md#tables-of-network-flows).
 
 ### Centreon Broker communication
 
