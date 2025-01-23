@@ -78,3 +78,10 @@ Les connecteurs pour lesquels une mise à jour est disponible sont affichés ave
 | ------- |:--------------:|:---------------:|
 | Cloud   |    &check;     |  X              |
 | OnPrem  |    &check;     |  &check;        |
+
+## De quel type est ma licence ?
+
+Si vous avez déjà installé votre licence mais que vous ne vous souvenez plus de son type, allez à la page **Administration > Extensions > Gestionnaire**.
+
+* Si vous avez un bouton **Voir la licence**, votre licence est online.
+* Si vous avez un bouton **Ajouter Token**, votre licence est offline.

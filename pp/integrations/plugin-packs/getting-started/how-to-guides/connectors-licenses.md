@@ -78,3 +78,10 @@ On the **Configuration > Monitoring Connector Manager** page, if **Automatic plu
 | ------- |:--------------:|:---------------:|
 | Cloud   |    &check;     |  X              |
 | OnPrem  |    &check;     |  &check;        |
+
+## How do I know what type of license I have?
+
+If you have already installed your license in the past but don't remember what kind you have, go to **Administration > Extensions > Manager**.
+
+* If you have a **See license** button, then your license is an online one.
+* If you have an **Add token** button, then your licence is an offline one.
