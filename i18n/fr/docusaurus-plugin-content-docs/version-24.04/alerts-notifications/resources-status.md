@@ -246,7 +246,7 @@ En fonction du type de ressource, différents onglets sont disponibles.
 
 Le panneau d'hôte contient les éléments suivants :
 
-- Onglet **Détails** : Informations détaillées sur le statut courant. Vous pouvez glisser-déposer les tuiles pour changer leur disposition. Vous y trouverez également des boutons pour [**Acquitter**](acknowledge.md) une alerte, [**planifier une maintenance**](downtimes.md) et [**relancer un contrôle**](#relancer-un-contrôle)
+- Onglet **Détails** : Informations détaillées sur le statut courant. Vous pouvez glisser-déposer les tuiles pour changer leur disposition. Vous y trouverez également des boutons pour [**Acquitter**](acknowledge.md) une alerte, [**planifier une maintenance**](downtimes.md) et [**relancer un contrôle**](#relancer-un-contrôle).
 - Onglet **Services** : La liste des services rattachés à cet hôte avec leur statut (et de leurs graphiques, quand le mode correspondant est sélectionné),
 - Onglet **Historique** : La chronologie des évènements survenus pour cet hôte,
 - Onglet **Notification** : Affiche si les notifications sont activées pour cette hôte, ainsi que les contacts et groupes de contacts qui seront notifiés.
