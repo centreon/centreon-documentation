@@ -1582,7 +1582,7 @@ via la gestion de [liste de contrôle d'accès](./access-control-lists.md).
 Il est fortement recommandé de sécuriser les communications entre les différents serveurs de la plateforme Centreon si
 certains serveurs ne sont pas dans un réseau sécurisé.
 
-> Le tableau des flux réseau est disponible [ici](../installation/technical.md#tableau-des-flux-réseau).
+> Le tableau des flux réseau est disponible [ici](../installation/technical.md#tableaux-des-flux-réseau).
 
 ### Communication Centreon Broker
 
