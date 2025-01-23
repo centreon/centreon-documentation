@@ -229,7 +229,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 | CRITICALTOTALRECEIVECOUNT | Critical threshold                                                                                                                               |                                  |             |
 | WARNINGTOTALSENDCOUNT     | Warning threshold                                                                                                                                |                                  |             |
 | CRITICALTOTALSENDCOUNT    | Critical threshold                                                                                                                               |                                  |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                  |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                                  |             |
 </TabItem>
 <TabItem value="Users-Activity" label="Users-Activity">
 

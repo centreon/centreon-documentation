@@ -224,7 +224,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 | CRITICALTOTALUSAGEINACTIVE     | Critical threshold                                                                                                                               |                     |             |
 | WARNINGUSAGE                   | Warning threshold                                                                                                                                |                     |             |
 | CRITICALUSAGE                  | Critical threshold                                                                                                                               |                     |             |
-| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                     |             |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                     |             |
 
 </TabItem>
 </Tabs>

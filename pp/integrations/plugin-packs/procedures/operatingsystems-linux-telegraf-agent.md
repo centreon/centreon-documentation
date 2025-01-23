@@ -711,7 +711,7 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 |:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
 | TELEGRAFPLUGINS      | Path where the Centreon Plugins can be found.                                                                                                      | `/usr/lib/centreon/plugins` |      X      |
 | TELEGRAFSTATEFILEDIR | Define the cache directory.                                                                                                                        | `/var/lib/telegraf`          |      X      |
-| TELEGRAFEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                              |             |
+| TELEGRAFEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                              |             |
 
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.

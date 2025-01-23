@@ -197,7 +197,7 @@ yum install centreon-plugin-Network-Cisco-Apic-Restapi
 | CRITICALHEALTHCURRENT | Set critical for each health percentage value.                                                                                                   |                   |             |
 | WARNINGHEALTHMINIMUM  | Set warning for each health percentage value.                                                                                                   |                   |             |
 | CRITICALHEALTHMINIMUM | Set critical for each health percentage value.                                                                                                   |                   |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Tenant" label="Tenant">

@@ -268,7 +268,7 @@ yum install centreon-plugin-Network-Cisco-Firepower-Snmp
 | CRITICALAVERAGE1M    | Critical threshold for 'average-1m' (%)                                                                                                          |                   |             |
 | WARNINGAVERAGE5M     | Warning threshold for 'average-5m' (%)                                                                                                           |                   |             |
 | CRITICALAVERAGE5M    | Critical threshold for 'average-5m' (%)                                                                                                          |                   |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). | --verbose         |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose         |             |
 
 </TabItem>

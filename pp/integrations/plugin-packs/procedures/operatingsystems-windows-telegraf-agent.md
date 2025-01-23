@@ -294,7 +294,7 @@ This connector relies on an integration supported by Centreon Engine and does no
 | CRITICALCERTIFICATEEXPIRES   | Thresholds.                                                                                                                                                 | 30:               |             |
 | WARNINGCERTIFICATESDETECTED  | Thresholds.                                                                                                                                                 |                   |             |
 | CRITICALCERTIFICATESDETECTED | Thresholds.                                                                                                                                                 |                   |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                    |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                    |                   |             |
 
 
 </TabItem>
