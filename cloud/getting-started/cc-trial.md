@@ -23,7 +23,7 @@ There are three steps to setting up your Centreon Cloud trial platform for an or
 
 - Your administrator fills in [the form available on our website](https://www.centreon.com/free-trial/) using a professional email adress.
 
-- Your organization will then be automatically created. This process can take a few minutes, you will be notified by email once the platform has finished building.
+- Your platform will then be automatically created. This process can take a few minutes, you will be notified by email once the platform has finished building.
 
 - Once the platform is ready, the administrator invites other users from your organization to the platform, through Centreon CIAM. Each user has an account on Centreon CIAM, through which they can access your organization's trial platform.
 
