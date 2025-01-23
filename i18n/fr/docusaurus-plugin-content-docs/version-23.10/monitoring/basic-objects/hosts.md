@@ -13,9 +13,9 @@ Pour créer un hôte manuellement :
 
 ### Information de base sur l'hôte
 
-* **Nom** : nom d’hôte utilisé par le moteur de supervision. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}`. De plus, les espaces seront remplacés par des `_`.
-* **Alias** : un autre nom pour l'hôte. Les espaces et caractères interdits dans le nom peuvent être employés ici. L'alias peut être utilisé dans la **Barre de recherche** de la page **Statut des ressources** avec la syntaxe `alias:` pour retrouver un hôte.
-* **Adresse** : adresse IP ou nom DNS de l’hôte. Le bouton **Résoudre** permet de tester le nom du domaine en interrogeant le serveur DNS configuré dans le serveur central. Dans le cas où un nom DNS est utilisé pour remplir le champ, le bouton **Résoudre** le remplacera également par l'adresse IP correspondante.
+* **Nom** : nom d’hôte utilisé par le moteur de supervision. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}`. De plus, les espaces seront remplacés par des `_`. Vous pouvez utiliser la syntaxe `h.name:` dans la **Barre de recherche** de la page **Statut des ressources** pour retrouver un hôte.
+* **Alias** : un autre nom pour l'hôte. Les espaces et caractères interdits dans le nom peuvent être employés ici. Vous pouvez utiliser la syntaxe `h.alias:` dans la **Barre de recherche** de la page **Statut des ressources** pour retrouver un hôte.
+* **Adresse** : adresse IP ou nom DNS de l’hôte. Le bouton **Résoudre** permet de tester le nom du domaine en interrogeant le serveur DNS configuré dans le serveur central. Dans le cas où un nom DNS est utilisé pour remplir le champ, le bouton **Résoudre** le remplacera également par l'adresse IP correspondante. Vous pouvez utiliser la syntaxe `h.address:` dans la **Barre de recherche** de la page **Statut des ressources** pour retrouver un hôte.
 * **Communauté SNMP & Version** : nom de la communauté attribuée à l'équipement et sa version. S'il s'agit de la version 1 ou 2c, remplissez le premier champ. S'il s'agit de la version 3, laissez le premier champ vide et remplissez la macro personnalisée [`snmpextraoptions`](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/#snmpv3-options-mapping) qui sera automatiquement ajoutée dans la section **Options de contrôle de l'hôte** lorsque vous sélectionnerez un modèle SNMP.
 * **Serveur de supervision** : détermine quel serveur Centreon (central, poller ou distant) sera chargé de superviser cet hôte.
 * **Fuseau horaire** : localisation de l'hôte. Attention, c'est le fuseau horaire défini ici qui détermine à quel moment sont réalisés les contrôles sur cet hôte, et non le fuseau horaire du serveur qui supervise l'hôte.
@@ -79,15 +79,13 @@ Si plusieurs modèles tentaient de modifier le même champ, les caractéristique
 Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifications/notif-concept.md) et les [contacts](contacts.md) pour en savoir plus sur ces sujets.
 
 * **Notification activée** : activer ou désactiver les notifications concernant l’objet.
-* **Contacts liés** : contacts qui recevront les notifications. Ces contacts doivent être d'abord configurés à la page **Configuration > Utilisateurs**.
+* **Contacts liés** : contacts qui recevront les notifications. Ces contacts doivent être d'abord configurés à la page **Configuration > Utilisateurs > Contacts / Utilisateurs**.
 * **Groupes de contacts liés** : tous les contacts appartenant aux groupes de contacts définis recevront les
-  notifications. Les groupes doivent d'abord être configurés à la page **Configuration > Utilisateurs**.
+  notifications. Les groupes doivent d'abord être configurés à la page **Configuration > Utilisateurs > Contacts / Utilisateurs**.
   
-  **Vertical inheritance only** : établit les contacts et/ou groupes de contacts à notifier. Elle se trouve dans l'onglet **Administration > Paramètres > Centreon web**. Une fois activée, deux cases supplémentaires apparaissent :
+  Si à la page **Administration > Paramètres > Centreon web**, l'option **Vertical inheritance only** est activée, des cases additionnelles seront situées sous les deux champs précédents pour activer l'héritage additionnel pour ces champs. Cela fait en sorte qu'ajouter des contacts ici les ajoute à ceux ajoutés par le modèle d'hôte au lieu de les écraser.
 
-    * Cocher **Contacts hérités additionnels** n'écrase pas la configuration du parent modèle d'hôte
   mais ajoute les contacts en plus des contacts définis dans le modèle parent.
-    * Cocher **Groupes de contacts hérités additionnels** n'écrase pas la configuration du parent modèle d'hôte
   mais ajoute les contacts en plus des groupes de contacts définis dans le modèle parent.
 
 * **Options de notifications** : définit les statuts pour lesquels une notification sera envoyée. Si aucune case n'est cochée, vous serez notifié pour tous les statuts listés.
@@ -117,9 +115,9 @@ Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifi
   bagotage en pourcentage de changement de statuts.
 * **Retain Status Information** et **Retain Non Status Information** : indiquent si les informations concernant
   ou non le statut sont sauvegardées après chaque relance de la commande de vérification.
-* **Event Handler Enabled** : activer ou désactiver le [gestionnaire d'évènements](../event-handler.md).
-* **Event Handler** : commande à exécuter lors d'un changement de statut de l'hôte.
-* **Args** : arguments de la commande du gestionnaire d'évènements.
+* **Gestionnaire d'évènements activé** : activer ou désactiver le [gestionnaire d'évènements](../event-handler.md), il s'agit de commandes exécutées automatiquement lors du changement de statut de l'hôte. Ces commandes permettent potentiellement à Centreon de résoudre des problèmes avant de recourir aux notifications.
+* **Gestionnaire d'évènements** : commande à exécuter lors d'un changement de statut de l'hôte.
+* **Arguments** : arguments de la commande du gestionnaire d'évènements.
 
 ## Onglet Informations détaillées de l’hôte
 
