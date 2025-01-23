@@ -87,7 +87,7 @@ Check your resources and refresh their status in three ways:
 
 - By directly clicking the button on the line when the mouse is over it (**Forced check** only).
 - By selecting one or multiple lines and clicking the **Check** or **Forced check** button above the table.
-- By clicking the button on the **Check** or **Forced check** button in detail pannel of the resource.
+- By clicking the **Check** or **Forced check** button in the detail pannel of the resource.
 
 ### Submit a status
 
@@ -232,7 +232,7 @@ Depending on the type of resource, the detail panel displays different informati
 
 The host panel contains the following elements:
 
-- **Details** tab: Detailed information about the host's current status. You can drag and drop tiles to rearrange them. There are also buttons [**acknowledge an alert**](acknowledge.md), [**set downtime**](downtimes.md) and [**refresh the status**](#refresh-a-status) of the resource.
+- **Details** tab: Detailed information about the host's current status. You can drag and drop tiles to rearrange them. There are also buttons to [**acknowledge an alert**](acknowledge.md), [**set downtime**](downtimes.md) and [**refresh the status**](#refresh-a-status) of the resource below the panel tabs.
 - **Services** tab: A listing of its attached services and their current status (as well as their graphs if the corresponding mode is selected)
 - **Timeline** tab: The timeline of events that occurred for this host
 - **Graph** tab: Graphs for the services for this host
