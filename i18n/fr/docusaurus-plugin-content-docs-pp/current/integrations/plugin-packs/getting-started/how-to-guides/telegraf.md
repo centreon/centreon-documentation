@@ -266,6 +266,8 @@ systemctl restart telegraf
 
 2. Vous devez alors configurer la sortie OpenTelemetry de Telegraf.
 Vous devez décommenter ce paragraphe ou bien recréer un fichier de configuration avec juste les lignes suivantes :
+
+```
 # [[outputs.opentelemetry]]
 #   ## Override the default (localhost:4317) OpenTelemetry gRPC service
 #   ## address:port
