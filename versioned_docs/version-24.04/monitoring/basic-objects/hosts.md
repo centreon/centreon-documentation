@@ -13,9 +13,9 @@ To create a host manually:
 
 ### Host basic information
 
-* **Name**: host name used by the Monitoring Engine. Cannot contain `~!$%^&|'"<>?,()=*{}` and spaces will be automatically replaced with _.
-* **Alias**: another name for the host. Spaces and characters unauthorized in the name are allowed here. You can also use the alias to look up the host using the Search bar in the Resource Status page with the syntax `alias:`.
-* **Address**: IP address or DNS name of the host. The **Resolve** button tests the domain name by questioning the DNS server configured on the central server. If given a DNS name, the **Resolve** button will also replace the text with the matching IP address.
+* **Name**: host name used by the Monitoring Engine. Cannot contain `~!$%^&|'"<>?,()=*{}` and spaces will be automatically replaced with _. You may use the `h.name:` syntax in the **Search bar** of the **Resource status** to look up a host.
+* **Alias**: another name for the host. Spaces and characters unauthorized in the name are allowed here. You may use the `h.alias:` syntax in the **Search bar** of the **Resource status** to look up a host.
+* **Address**: IP address or DNS name of the host. The **Resolve** button tests the domain name by questioning the DNS server configured on the central server. If given a DNS name, the **Resolve** button will also replace the text with the matching IP address. You may use the `h.address:` syntax in the **Search bar** of the **Resource status** to look up a host.
 * **SNMP Community & Version**: name of the community that you have defined for the equipment and its version. If the version is 1 or 2c, enter the community's name in the first field. If the version is 3, leave the first field empty and fill in the [`snmpextraoptions`](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/#snmpv3-options-mapping) custom macro that will automatically appear in the **Host check options** section.
 * **Monitoring server**: which Centreon server (central, poller or remote) will monitor this host.
 * **Timezone**: location of the host. Note that the timezone defined here is what determines when checks will be carried out on this host, not the timezone of the server monitoring it.
@@ -78,10 +78,10 @@ If multiple templates modify the same field, the properties of the template plac
 Learn more about [notifications](../../alerts-notifications/notif-concept.md) and [contacts](contacts.md).
 
 * **Notification Enabled**: used to enable or disable notifications concerning the object.
-* **Linked contacts**: contacts that will receive the notifications. These contacts must be configured in the **Configuration > Users** page.
-* **Linked contacts Groups**: groups of contacts that will receive the notifications. Groups must be configured in the **Configuration > Users** page.
+* **Linked contacts**: contacts that will receive the notifications. These contacts must be configured in the **Configuration > Users > Contact / Users** page.
+* **Linked contacts Groups**: groups of contacts that will receive the notifications. Groups must be configured in the **Configuration > Users > Contact / Users** page.
   
-  **Vertical inheritance only**: determines contacts and/or groups of contacts that should be notified. When enabled on the  **Administration > Parameters > Centreon UI** page, two extra checkboxes appear:
+If, on page **Administration > Parameters > Centreon UI**, the **Vertical inheritance only** option is enabled, the two previous fields will have had a checkbox below them to enable **additive inheritance**. When checked, the host will contacts and contacts groups added here will not override those added from the template but add themselves to those.
 
 
 * **Notification Options**: define the statuses for which a notification will be sent. If no boxes are checked, you will receive notifications for all the statuses listed.
@@ -110,7 +110,7 @@ Learn more about [notifications](../../alerts-notifications/notif-concept.md) an
   flapping as a percentage of status change.
 * **Retain Status Information** and **Retain Non Status Information**: indicate if the information concerning
   the status is saved after each time the check command is repeated.
-* **Event Handler Enabled**: enables or disables the [event handler](../event-handler.md).
+* **Event Handler Enabled**: enables or disables the [event handler](../event-handler.md), these are commands executed automatically when the host changes its status and can potentially allow Centreon to solve an issue without needing to send a notification.
 * **Event Handler**: command to be executed if the event handler is enabled.
 * **Args**: arguments of the events handler command.
 
