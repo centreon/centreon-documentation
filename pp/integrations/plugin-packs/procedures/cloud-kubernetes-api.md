@@ -966,7 +966,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).                       |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 > For the host discovery: set the path to the [created configuration file](#create-a-kubectl-configuration) (prefer using relative path to make it work for both discovery and monitoring, i.e. `~/.kube/config`).
@@ -1011,7 +1011,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).                       |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 > For the host discovery: set the path to the [created configuration file](#create-a-kubectl-configuration) (prefer using relative path to make it work for both discovery and monitoring, i.e. `~/.kube/config`).
