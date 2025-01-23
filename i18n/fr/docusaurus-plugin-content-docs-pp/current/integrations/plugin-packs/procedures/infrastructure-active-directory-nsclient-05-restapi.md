@@ -160,7 +160,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | NSCPRESTAPILEGACYPASSWORD | Password used (configured in the prerequisites section)                                                                                   | PASSWORD          |             |
 | NSCPRESTAPIPROTO          | Protocol used                                                                                                                             | https             |             |
 | NSCPRESTAPIPORT           | Port used by the REST API NSClient++                                                                                                       | 8443              |             |
-| NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).  |                   |             |
+| NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#options-disponibles).  |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
