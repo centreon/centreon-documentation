@@ -56,7 +56,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 Si vous n'avez pas encore créé votre compte sous Office 365, reportez-vous à la
 documentation d'Office 365 Management ou suivez le lien dans la partie
-[Aide supplémentaire](#aide-supplementaire).
+[Aide supplémentaire](#aide-supplémentaire).
 
 ### Enregistrez une application
 
