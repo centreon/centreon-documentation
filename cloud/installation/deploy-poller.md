@@ -21,7 +21,7 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
 
 3. By default, the hostname of the machine will become the name of the poller. If you want to change the machine's hostname, use the following command: `hostnamectl set-hostname your-hostname`.
 
-4. [In the user interface](../getting-started/interface.md#accessing-the-central-servers-interface), click the arrow next to **Pollers** at the left of the header bar.
+4. [In the user interface](../getting-started/interface.md#accessing-the-user-interface), click the arrow next to **Pollers** at the left of the header bar.
 
 5. In the pop-up that appears, click **Copy install command**. The command is copied to your clipboard.
 
