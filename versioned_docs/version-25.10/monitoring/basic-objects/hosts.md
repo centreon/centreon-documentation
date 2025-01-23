@@ -40,7 +40,7 @@ If multiple templates modify the same field, the properties of the template plac
 - This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is used to delete the host template.
 
 * If the **Create Services linked to the Template too** field is defined as **Yes**, Centreon automatically generates
-  the services according to the service [template](../templates.md) of the host template placed above the others.
+  the services according to the service [templates](../templates.md) of the host templates placed above the others.
 
 ### Access groups (option for non-administrators)
 
