@@ -473,7 +473,7 @@ mysql_secure_installation
 </Tabs>
 
 * Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely ?".
-* Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Ce mot de passe vous sera demandé pendant l'[installation web](../web-and-post-installation.md#étape-6--database-information).
+* Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Ce mot de passe vous sera demandé pendant l'[installation web](../web-and-post-installation.md).
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
