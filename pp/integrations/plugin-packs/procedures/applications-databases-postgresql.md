@@ -290,7 +290,7 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 | POSTGRESPASSWORD     | Password for the defined user name                                                                    |                   |      X      |
 | POSTGRESPORT         | Database Server Port                                                                                  | 5432              |             |
 | POSTGRESDATABASE     | Database Name                                                                                         | postgres          |             |
-| POSTGRESEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| POSTGRESEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
