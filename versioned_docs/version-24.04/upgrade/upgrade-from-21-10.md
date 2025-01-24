@@ -139,20 +139,26 @@ rm /var/lib/centreon-broker/* -f
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
 ```shell
 dnf clean all --enablerepo=*
 ```
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   
 ```shell
 dnf clean all --enablerepo=*
 ```
+
 </TabItem>
 <TabItem value="Debian" label="Debian">
+   
 ```shell
 apt clean all
 apt update
 ```
+
 </TabItem>
 </Tabs>
 
