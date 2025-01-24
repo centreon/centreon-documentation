@@ -87,7 +87,7 @@ Check your resources and refresh their status in three ways:
 
 - By directly clicking the button on the line when the mouse is over it (**Forced check** only).
 - By selecting one or multiple lines and clicking the **Check** or **Forced check** button above the table.
-- By clicking the **Check** or **Forced check** button in the detail pannel of the resource.
+- By clicking the **Check** or **Forced check** button in the detail panel of the resource.
 
 ### Submit a status
 
