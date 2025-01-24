@@ -111,19 +111,16 @@ function BannerBlock() {
 
 function SearchForm() {
   function handleClick(e) {
-    e.preventDefault()
-    document.querySelector('.DocSearch').click()
+    e.preventDefault();
+    document.querySelector('div.navbar__search input.navbar__search-input').focus();
   }
+
   return (
     <form className={clsx(styles.searchForm)} onClick={handleClick}>
       <div className={clsx(styles.searchForm_input)}>
         <img src={basePathImg + "search.svg"}/>
         <input type="search" placeholder="Rechercher dans la documentation" ></input>
       </div>
-      <button className={clsx(styles.button, styles.buttonBig)}>
-        Rechercher
-        <img src={basePathImg + "arrow.svg"}/>
-      </button>
     </form>
   )
 }
