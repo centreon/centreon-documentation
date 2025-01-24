@@ -112,7 +112,7 @@ rm /etc/yum.repos.d/centreon-business-23.10.repo
 
 </TabItem>
 
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian" label="Debian">
 
 ```shell
 rm /etc/apt/sources.list.d/centreon-business.list
