@@ -69,7 +69,7 @@ serveur Centreon (ou le collecteur). Testez l'accès avec des outils comme `curl
 
 2. Configuration réseau
 - Ouverture des ports : Le collecteur doit pouvoir se connecter au port utilisé par l'endpoint
-OpenMetrics (généralement le port 80 pour HTTP ou 443 pour HTTPS).
+OpenMetrics (généralement le port `80` pour `HTTP` ou `443` pour `HTTPS`).
 - Pare-feu : Configurez les règles du pare-feu pour autoriser les connexions entre le collecteur et l'endpoint.
 
 3. Authentification
