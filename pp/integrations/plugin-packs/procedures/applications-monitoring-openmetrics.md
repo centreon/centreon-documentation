@@ -62,13 +62,13 @@ The values of the metrics collected depend on your Openmetrics equipment and the
 1. Configuration of the OpenMetrics Source
 - OpenMetrics-Compatible Service: You need an application or service that exposes metrics 
 in the OpenMetrics format, often via an HTTP/HTTPS API (e.g., Prometheus or applications 
-exposing a /metrics endpoint).
+exposing a `/metrics` endpoint).
 - Accessible Endpoint: Ensure that the OpenMetrics endpoint is accessible from the 
-Centreon server (or the poller). Test access using tools like curl or wget. 
+Centreon server (or the poller). Test access using tools like `curl` or `wget`. 
 
 2. Network Configuration
 - Port Opening: The poller must be able to connect to the port used by the OpenMetrics endpoint 
-(typically port 80 for HTTP or 443 for HTTPS).
+(typically port `80` for `HTTP` or `443` for `HTTPS`).
 - Firewall: Configure firewall rules to allow connections between the poller and the endpoint.
 
 3. Authentication
