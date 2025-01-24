@@ -123,7 +123,7 @@ rm /etc/apt/sources.list.d/centreon-business.list
 
 3. Install the 24.04 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
-4. If your OS is Debian 11 and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
+4. If your OS is Debian and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
 
 5. Stop the Centreon Broker process:
 
@@ -541,7 +541,7 @@ usermod -a -G www-data centreon-broker
 </TabItem>
 </Tabs>
 
-> Refer to the [Centreon BAM](../service-mapping/update.md), [Centreon MBI](../reporting/update.md) and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
+> Refer to the [Centreon MBI](../reporting/update.md) and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
 
 ### Post-upgrade actions
 
