@@ -74,13 +74,13 @@ apt update
 
 1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
 
-If you have installed Business extensions, delete the configuration of repository 23.10 : 
+If you have installed Business extensions, delete the configuration of repository 22.10 : 
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-rm /etc/yum.repos.d/centreon-business-23.10.repo
+rm /etc/yum.repos.d/centreon-business-22.10.repo
 ```
 
 </TabItem>
@@ -88,7 +88,7 @@ rm /etc/yum.repos.d/centreon-business-23.10.repo
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-rm /etc/yum.repos.d/centreon-business-23.10.repo
+rm /etc/yum.repos.d/centreon-business-22.10.repo
 ```
 
 </TabItem>
