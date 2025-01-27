@@ -1,6 +1,6 @@
 ---
 id: network-cisco-umbrella-snmp
-title: Cisco Umbrella
+title: Cisco Umbrella SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Cisco Umbrella** brings a host template:
+The Monitoring Connector **Cisco Umbrella SNMP** brings a host template:
 
 * **Net-Cisco-Umbrella-SNMP-custom**
 
@@ -187,7 +187,7 @@ yum install centreon-pack-network-cisco-umbrella-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Cisco Umbrella** connector through
+2. Whatever the license type (*online* or *offline*), install the **Cisco Umbrella SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -485,10 +485,10 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Connectivity" label="Connectivity">
 
-| Option       | Description                                                                                                                                                                                                                                          |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-*  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /yellow/'). Can be: 'dns-status', 'localdns-status', 'cloud-status', 'ad-status'.  Can use special variables like: %\{status\}, %\{display\}                        |
-| --critical-* | Define the conditions to match for the status to be CRITICAL. (default: %\{status\} =~ /red/). Can be: 'dns-connectivity', 'localdns-connectivity', 'cloud-connectivity', 'ad-connectivity'.  Can use special variables like: %\{status\}, %\{display\}    |
+| Option       | Description                                                                                                                                                                                                                         |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-*  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /yellow/'). Can be: 'dns-status', 'localdns-status', 'cloud-status', 'ad-status'.  Can use special variables like: %\{status\}, %\{display\} |
+| --critical-* | Define the conditions to match for the status to be CRITICAL. (default: %\{status\} =~ /red/). Can be: 'dns-status', 'localdns-status', 'cloud-status', 'ad-status'.  Can use special variables like: %\{status\}, %\{display\}     |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
