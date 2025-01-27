@@ -63,6 +63,7 @@ Valid credentials are required to access the OVH API, including the appropriate 
 
  The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
 
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
 **Configuration > Monitoring Connector Manager** menu.
