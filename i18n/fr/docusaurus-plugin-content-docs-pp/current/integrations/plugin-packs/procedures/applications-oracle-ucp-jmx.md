@@ -50,6 +50,7 @@ Demandez à votre administrateur de le déployer et de vous fournir l'URL.
 ## Installation
 
 ### Pack
+
 La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md). de supervision
 
 Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet

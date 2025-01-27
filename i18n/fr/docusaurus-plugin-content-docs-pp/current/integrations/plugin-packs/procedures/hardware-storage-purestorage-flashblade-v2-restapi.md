@@ -87,6 +87,7 @@ Vous devez configurer un utilisateur pouvant se connecter à la baie de stockage
 ## Installation
 
 ### Pack
+
 La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md). de supervision
 
 Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
