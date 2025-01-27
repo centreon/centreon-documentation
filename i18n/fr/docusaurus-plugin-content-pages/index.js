@@ -109,22 +109,6 @@ function BannerBlock() {
   );
 }
 
-function SearchForm() {
-  function handleClick(e) {
-    e.preventDefault();
-    document.querySelector('div.navbar__search input.navbar__search-input').focus();
-  }
-
-  return (
-    <form className={clsx(styles.searchForm)} onClick={handleClick}>
-      <div className={clsx(styles.searchForm_input)}>
-        <img src={basePathImg + "search.svg"}/>
-        <input type="search" placeholder="Rechercher dans la documentation" ></input>
-      </div>
-    </form>
-  )
-}
-
 function HeadingCard(props) {
   return(
     <div className={clsx(styles.headingCard)}>
@@ -164,7 +148,6 @@ function HeadingBlock() {
     <div className={clsx(styles.headingContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <h1>Bienvenue dans la Documentation Centreon !</h1>
-        <SearchForm/>
         <HeadingCards cards={cards}/>
       </div>
     </div>
