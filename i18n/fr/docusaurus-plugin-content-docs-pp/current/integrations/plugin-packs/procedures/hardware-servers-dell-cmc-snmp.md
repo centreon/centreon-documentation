@@ -5,7 +5,7 @@ title: Dell CMC
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Dell CMC**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                       | Description                                                                         |
 |:----------------|:----------------------------------------|:------------------------------------------------------------------------------------|
-| Hardware-Global | HW-Dell-CMC-Hardware-Global-SNMP-custom | Contrôle l'ensemble des sondes ('chassis', 'alimentation', 'statut', 'température') |
+| Hardware-Global | HW-Dell-CMC-Hardware-Global-SNMP-custom | Contrôle l'ensemble des sondes de l'équipement |
 | Uptime          | HW-Dell-CMC-Uptime-SNMP-custom          | Durée depuis laquelle le serveur tourne sans interruption                           |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Dell-CMC-SNMP-custom** est utilisé.

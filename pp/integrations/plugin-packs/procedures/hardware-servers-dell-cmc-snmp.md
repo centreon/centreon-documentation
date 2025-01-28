@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                        | Service Description                                                    |
 |:----------------|:----------------------------------------|:-----------------------------------------------------------------------|
-| Hardware-Global | HW-Dell-CMC-Hardware-Global-SNMP-custom | Check all sensors ('chassis', 'power supply', 'status', 'temperature') |
+| Hardware-Global | HW-Dell-CMC-Hardware-Global-SNMP-custom | Check all hardware sensors |
 | Uptime          | HW-Dell-CMC-Uptime-SNMP-custom          | Time since the server has been working and available                   |
 
 > The services listed above are created automatically when the **HW-Server-Dell-CMC-SNMP-custom** host template is used.
