@@ -5,11 +5,8 @@ title: Eltek eNexus SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
 
-Eltek est un spécialiste mondial de la gestion et la transformation de l'énergie électrique. Ils développent et commercialisent des matériels utilisés dans les secteurs de l'industrie et des télécommunications.
-
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Eltek eNexus**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :

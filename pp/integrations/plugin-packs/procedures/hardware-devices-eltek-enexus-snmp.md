@@ -5,9 +5,6 @@ title: Eltek eNexus SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Eltek is a global electric power conversion specialist that develops and markets systems for telecommunications and industrial applications.
 
 ## Connector dependencies
 
@@ -30,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                           | Service Description |
 |:--------------|:-------------------------------------------|:--------------------|
-| Alarms        | HW-Device-Eltek-Enexus-Alarms-SNMP-custom  | Check alarms status |
+| Alarms        | HW-Device-Eltek-Enexus-Alarms-SNMP-custom  | Check the status of alarms |
 | Battery       | HW-Device-Eltek-Enexus-Battery-SNMP-custom | Check battery       |
 | Load          | HW-Device-Eltek-Enexus-Load-SNMP-custom    | Check load          |
 | Outputs       | HW-Device-Eltek-Enexus-Outputs-SNMP-custom | Check outputs       |
