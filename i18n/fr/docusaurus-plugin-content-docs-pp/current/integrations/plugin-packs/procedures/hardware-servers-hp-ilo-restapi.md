@@ -1,13 +1,13 @@
 ---
 id: hardware-servers-hp-ilo-restapi
-title: HP Ilo Rest API
+title: HP iLO Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **HP Ilo Rest API** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **HP iLO Rest API** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **HP Ilo Rest API** apporte un modèle d'hôte :
+Le connecteur de supervision **HP iLO Rest API** apporte un modèle d'hôte :
 
 * **HW-Server-Hp-Ilo-Restapi-custom**
 
@@ -80,6 +80,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
   * Créez un compte utilisateur dédié dans iLO avec des droits suffisants pour accéder aux métriques via l'API REST.
 
 ### Configuration réseau :
+
 * Accès réseau :
   * Le serveur Centreon doit pouvoir atteindre l'adresse IP d'iLO sur le port 443. 
   * Configurez les règles de pare-feu pour autoriser cette communication.
@@ -128,7 +129,7 @@ yum install centreon-pack-hardware-servers-hp-ilo-restapi
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **HP Ilo Rest API**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **HP iLO Rest API**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -221,8 +222,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=hardware::server::hp::ilo::restapi::plugin \
 	--mode=hardware \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password=''  \
+	--api-username='XXXX' \
+	--api-password='XXXX'  \
 	--component='.*' \
 	--verbose
 ```

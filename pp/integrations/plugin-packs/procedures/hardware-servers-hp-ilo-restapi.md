@@ -1,13 +1,13 @@
 ---
 id: hardware-servers-hp-ilo-restapi
-title: HP Ilo Rest API
+title: HP iLO Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **HP Ilo Rest API** connector through the
+The following monitoring connectors will be installed when you install the **HP iLO Rest API** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **HP 
 
 ### Templates
 
-The Monitoring Connector **HP Ilo Rest API** brings a host template:
+The Monitoring Connector **HP iLO Rest API** brings a host template:
 
 * **HW-Server-Hp-Ilo-Restapi-custom**
 
@@ -74,7 +74,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 * Enable the REST API on HP iLO:
   * Ensure that the REST functionality is enabled in the iLO management interface.
   This often requires a recent version of the iLO firmware (iLO 4 or iLO 5, depending on your hardware). 
-  * Verify that REST access is enabled and that the necessary ports (default is 443) are open. 
+  * Verify that REST access is enabled and that the necessary ports are open (default is 443). 
 * User account with permissions:
   * Create a dedicated user account in iLO with sufficient rights to access metrics via the REST API.
 
@@ -128,7 +128,7 @@ yum install centreon-pack-hardware-servers-hp-ilo-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **HP Ilo Rest API** connector through
+2. Whatever the license type (*online* or *offline*), install the **HP iLO Rest API** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -221,8 +221,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=hardware::server::hp::ilo::restapi::plugin \
 	--mode=hardware \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password=''  \
+	--api-username='XXXX' \
+	--api-password='XXXX'  \
 	--component='.*' \
 	--verbose
 ```
