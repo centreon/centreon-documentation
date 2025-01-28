@@ -97,24 +97,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-### Configuration des équipements Eltek eNexusL
+### Configuration SNMP
 
-Afin de superviser vos équipements Eltek le SNMP v2 doit être configuré.
-
-### Configuration d'un équipement SNMP
-
-> Les instructions ci-après peuvent changer en fonction de la version de votre Eltek. Des documentations sont le cas échéant disponibles sur le site officiel du constructeur.
-
-Sur l'interface Web:
-
-1. Cliquer sur l'icône "système Conf. " dans la barre de menu supérieure.
-2. Dans la barre de menu de gauche, cliquer sur "Device Settings" pour développer le menu.
-3. Sous "Device Settings", cliquer sur "SNMP Settings". La page  "General SNMP configuration" apparaît.
-4. Enfin, ajouter vos informations SNMP
+Le service SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
 ### Flux réseau
 
-La communication doit être possible sur le port UDP 161 depuis le Collecteur Centreon vers l'équipemnt Eltek eNexus supervisé.
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
