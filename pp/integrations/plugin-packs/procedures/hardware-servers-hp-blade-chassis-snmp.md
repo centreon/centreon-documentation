@@ -35,14 +35,14 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                    | Service Description                                |
 |:---------------------|:----------------------------------------------------|:---------------------------------------------------|
-| Hardware-Blade       | HW-Hp-Bladechassis-Hardware-Blade-SNMP-custom       | Check 'blades' hardware  of HP Blade chassis       |
-| Hardware-Enclosure   | HW-Hp-Bladechassis-Hardware-Enclosure-SNMP-custom   | Check 'enclosure' hardware  of HP Blade chassis    |
-| Hardware-Fan         | HW-Hp-Bladechassis-Hardware-Fan-SNMP-custom         | Check 'fan' hardware  of HP Blade chassis          |
-| Hardware-Fuse        | HW-Hp-Bladechassis-Hardware-Fuse-SNMP-custom        | Check 'fuse' hardware  of HP Blade chassis         |
-| Hardware-Manager     | HW-Hp-Bladechassis-Hardware-Manager-SNMP-custom     | Check 'manager' hardware  of HP Blade chassis      |
-| Hardware-Network     | HW-Hp-Bladechassis-Hardware-Network-SNMP-custom     | Check 'network' hardware  of HP Blade chassis      |
-| Hardware-Psu         | HW-Hp-Bladechassis-Hardware-Psu-SNMP-custom         | Check 'power supply' hardware  of HP Blade chassis |
-| Hardware-Temperature | HW-Hp-Bladechassis-Hardware-Temperature-SNMP-custom | Check 'temperatures' hardware  of HP Blade chassis |
+| Hardware-Blade       | HW-Hp-Bladechassis-Hardware-Blade-SNMP-custom       | Check 'blades' of HP Blade chassis       |
+| Hardware-Enclosure   | HW-Hp-Bladechassis-Hardware-Enclosure-SNMP-custom   | Check 'enclosure' of HP Blade chassis    |
+| Hardware-Fan         | HW-Hp-Bladechassis-Hardware-Fan-SNMP-custom         | Check 'fan' of HP Blade chassis          |
+| Hardware-Fuse        | HW-Hp-Bladechassis-Hardware-Fuse-SNMP-custom        | Check 'fuse' of HP Blade chassis         |
+| Hardware-Manager     | HW-Hp-Bladechassis-Hardware-Manager-SNMP-custom     | Check 'manager' of HP Blade chassis      |
+| Hardware-Network     | HW-Hp-Bladechassis-Hardware-Network-SNMP-custom     | Check 'network' of HP Blade chassis      |
+| Hardware-Psu         | HW-Hp-Bladechassis-Hardware-Psu-SNMP-custom         | Check 'power supply' of HP Blade chassis |
+| Hardware-Temperature | HW-Hp-Bladechassis-Hardware-Temperature-SNMP-custom | Check 'temperatures' of HP Blade chassis |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -257,7 +257,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Blade-Chassis-Snmp
 
 | Macro        | Description                                                                                                                       | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | blade             |             |
+| COMPONENT    | Which component to check. Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | blade             |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                | --verbose         |             |
 
 </TabItem>
@@ -265,7 +265,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Blade-Chassis-Snmp
 
 | Macro        | Description                                                                                                                       | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | enclosure         |             |
+| COMPONENT    | Which component to check. Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | enclosure         |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                | --verbose         |             |
 
 </TabItem>
@@ -273,7 +273,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Blade-Chassis-Snmp
 
 | Macro        | Description                                                                                                                       | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | fan               |             |
+| COMPONENT    | Which component to check. Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | fan               |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                | --verbose         |             |
 
 </TabItem>
@@ -281,7 +281,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Blade-Chassis-Snmp
 
 | Macro        | Description                                                                                                                       | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | fuse              |             |
+| COMPONENT    | Which component to check. Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | fuse              |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                | --verbose         |             |
 
 </TabItem>
@@ -289,7 +289,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Blade-Chassis-Snmp
 
 | Macro        | Description                                                                                                                       | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | .*                |             |
+| COMPONENT    | Which component to check. Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                | --verbose         |             |
 
 </TabItem>
@@ -297,7 +297,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Blade-Chassis-Snmp
 
 | Macro        | Description                                                                                                                       | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | manager           |             |
+| COMPONENT    | Which component to check. Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | manager           |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                | --verbose         |             |
 
 </TabItem>
@@ -305,7 +305,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Blade-Chassis-Snmp
 
 | Macro        | Description                                                                                                                       | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | network           |             |
+| COMPONENT    | Which component to check. Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | network           |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                | --verbose         |             |
 
 </TabItem>
@@ -313,7 +313,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Blade-Chassis-Snmp
 
 | Macro        | Description                                                                                                                       | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | psu               |             |
+| COMPONENT    | Which component to check. Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | psu               |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                | --verbose         |             |
 
 </TabItem>
@@ -321,7 +321,7 @@ yum install centreon-plugin-Hardware-Servers-Hp-Blade-Chassis-Snmp
 
 | Macro        | Description                                                                                                                       | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | temperature       |             |
+| COMPONENT    | Which component to check. Can be: 'enclosure', 'manager', 'fan', 'blade', 'network', 'psu', 'temperature', 'fuse' | temperature       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                | --verbose         |             |
 
 </TabItem>
