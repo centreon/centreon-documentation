@@ -26,10 +26,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                      | Service Description                                  |
 |:--------------|:------------------------------------------------------|:-----------------------------------------------------|
-| Connections   | HW-Device-Safenet-Keysecure-Connections-SNMP-custom   | Check connections statistics                         |
-| Cpu           | HW-Device-Safenet-Keysecure-Cpu-SNMP-custom           | Check the rate of utilization of CPU for the machine |
+| Connections   | HW-Device-Safenet-Keysecure-Connections-SNMP-custom   | Check connection statistics                         |
+| Cpu           | HW-Device-Safenet-Keysecure-Cpu-SNMP-custom           | Check the CPU utilization rate for the machine |
 | Disk          | HW-Device-Safenet-Keysecure-Disk-SNMP-custom          | Check disk usage                                     |
-| Memory        | HW-Device-Safenet-Keysecure-Memory-SNMP-custom        | Check the rate of the utilization of memory          |
+| Memory        | HW-Device-Safenet-Keysecure-Memory-SNMP-custom        | Check the memory utilization rate          |
 | Request-Stats | HW-Device-Safenet-Keysecure-Request-Stats-SNMP-custom | Check request statistics                             |
 
 > The services listed above are created automatically when the **HW-Device-Safenet-Keysecure-SNMP-custom** host template is used.
@@ -39,7 +39,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                             | Service Description                          | Discovery  |
 |:---------------------|:-------------------------------------------------------------|:---------------------------------------------|:----------:|
-| Traffic-Generic-Name | HW-Device-Safenet-Keysecure-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface        |            |
+| Traffic-Generic-Name | HW-Device-Safenet-Keysecure-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface        |            |
 | Traffic-Global       | HW-Device-Safenet-Keysecure-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
