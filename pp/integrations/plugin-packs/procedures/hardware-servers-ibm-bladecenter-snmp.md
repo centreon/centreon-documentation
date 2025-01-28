@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                               | Service Description                                                                                                    |
 |:----------------|:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------|
-| Hardware-Global | HW-IBM-Bladecenter-Hardware-Global-SNMP-custom | Check hardware (ambient temperatures, blowers, power modules, system health, chassis tests) of IBM Bladecenter chassis |
+| Hardware-Global | HW-IBM-Bladecenter-Hardware-Global-SNMP-custom | Check the hardware components of an IBM Bladecenter chassis |
 
 > The services listed above are created automatically when the **HW-Server-IBM-Bladecenter-SNMP-custom** host template is used.
 

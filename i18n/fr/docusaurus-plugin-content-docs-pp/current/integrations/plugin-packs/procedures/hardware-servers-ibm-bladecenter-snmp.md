@@ -5,7 +5,7 @@ title: IBM BladeCenter
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **IBM BladeCenter**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                              | Description                                                                                                                                |
 |:----------------|:-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
-| Hardware-Global | HW-IBM-Bladecenter-Hardware-Global-SNMP-custom | Contrôle l'ensemble (températures ambiantes, blowers, power modules, blades, tests du chassis, état du système) du chassis bladecenter IBM |
+| Hardware-Global | HW-IBM-Bladecenter-Hardware-Global-SNMP-custom | Contrôle l'ensemble des composants du châssis bladecenter IBM |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-IBM-Bladecenter-SNMP-custom** est utilisé.
 
@@ -36,12 +36,12 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                   | Modèle de service                                      | Description                                                    |
 |:------------------------|:-------------------------------------------------------|:---------------------------------------------------------------|
-| Hardware-Ambient        | HW-IBM-Bladecenter-Hardware-Ambient-SNMP-custom        | Contrôle les températures ambiantes du chassis bladecenter IBM |
-| Hardware-Blade          | HW-IBM-Bladecenter-Hardware-Blade-SNMP-custom          | Contrôle les blades du chassis bladecenter IBM                 |
-| Hardware-Blower         | HW-IBM-Bladecenter-Hardware-Blower-SNMP-custom         | Contrôle les 'blower' du chassis bladecenter IBM               |
-| Hardware-Chassis-Status | HW-IBM-Bladecenter-Hardware-Chassis-Status-SNMP-custom | Contrôle les tests du chassis bladecenter IBM                  |
-| Hardware-Power-Module   | HW-IBM-Bladecenter-Hardware-Power-Module-SNMP-custom   | Contrôle les 'power modules' du chassis bladecenter IBM        |
-| Hardware-System-Health  | HW-IBM-Bladecenter-Hardware-System-Health-SNMP-custom  | Contrôle l'état du système du chassis bladecenter IBM          |
+| Hardware-Ambient        | HW-IBM-Bladecenter-Hardware-Ambient-SNMP-custom        | Contrôle les températures ambiantes du châssis bladecenter IBM |
+| Hardware-Blade          | HW-IBM-Bladecenter-Hardware-Blade-SNMP-custom          | Contrôle les blades du châssis bladecenter IBM                 |
+| Hardware-Blower         | HW-IBM-Bladecenter-Hardware-Blower-SNMP-custom         | Contrôle les 'blower' du châssis bladecenter IBM               |
+| Hardware-Chassis-Status | HW-IBM-Bladecenter-Hardware-Chassis-Status-SNMP-custom | Contrôle les tests du châssis bladecenter IBM                  |
+| Hardware-Power-Module   | HW-IBM-Bladecenter-Hardware-Power-Module-SNMP-custom   | Contrôle les 'power modules' du châssis bladecenter IBM        |
+| Hardware-System-Health  | HW-IBM-Bladecenter-Hardware-System-Health-SNMP-custom  | Contrôle l'état du système du châssis bladecenter IBM          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
