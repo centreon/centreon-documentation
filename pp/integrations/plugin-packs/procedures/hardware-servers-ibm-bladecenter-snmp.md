@@ -35,12 +35,12 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias           | Service Template                                       | Service Description                                              |
 |:------------------------|:-------------------------------------------------------|:-----------------------------------------------------------------|
-| Hardware-Ambient        | HW-IBM-Bladecenter-Hardware-Ambient-SNMP-custom        | Check 'ambient temperatures' hardware of IBM Bladecenter chassis |
-| Hardware-Blade          | HW-IBM-Bladecenter-Hardware-Blade-SNMP-custom          | Check 'blades' hardware of IBM Bladecenter chassis               |
-| Hardware-Blower         | HW-IBM-Bladecenter-Hardware-Blower-SNMP-custom         | Check 'blowers' hardware of IBM Bladecenter chassis              |
-| Hardware-Chassis-Status | HW-IBM-Bladecenter-Hardware-Chassis-Status-SNMP-custom | Check hardware tests of IBM Bladecenter chassis                  |
-| Hardware-Power-Module   | HW-IBM-Bladecenter-Hardware-Power-Module-SNMP-custom   | Check 'power modules' hardware of IBM Bladecenter chassis        |
-| Hardware-System-Health  | HW-IBM-Bladecenter-Hardware-System-Health-SNMP-custom  | Check 'system health' hardware of IBM Bladecenter chassis        |
+| Hardware-Ambient        | HW-IBM-Bladecenter-Hardware-Ambient-SNMP-custom        | Check 'ambient temperatures' of IBM Bladecenter chassis |
+| Hardware-Blade          | HW-IBM-Bladecenter-Hardware-Blade-SNMP-custom          | Check 'blades' of IBM Bladecenter chassis               |
+| Hardware-Blower         | HW-IBM-Bladecenter-Hardware-Blower-SNMP-custom         | Check 'blowers' of IBM Bladecenter chassis              |
+| Hardware-Chassis-Status | HW-IBM-Bladecenter-Hardware-Chassis-Status-SNMP-custom | Check tests of IBM Bladecenter chassis                  |
+| Hardware-Power-Module   | HW-IBM-Bladecenter-Hardware-Power-Module-SNMP-custom   | Check 'power modules' of IBM Bladecenter chassis        |
+| Hardware-System-Health  | HW-IBM-Bladecenter-Hardware-System-Health-SNMP-custom  | Check 'system health' of IBM Bladecenter chassis        |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -240,7 +240,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Bladecenter-Snmp
 
 | Macro        | Description                                                                                                                                                               | Default value     | Mandatory   |
 |:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: 'all'). Can be: 'ambient', 'powermodule', 'fanpack', 'chassisfan',  'blower', 'blade', 'systemhealth', 'chassisstatus', 'switchmodule' | ambient           |             |
+| COMPONENT    | Which component to check. Can be: 'ambient', 'powermodule', 'fanpack', 'chassisfan',  'blower', 'blade', 'systemhealth', 'chassisstatus', 'switchmodule' | ambient           |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                        | --verbose         |             |
 
 </TabItem>
@@ -248,7 +248,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Bladecenter-Snmp
 
 | Macro        | Description                                                                                                                                                               | Default value     | Mandatory   |
 |:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: 'all'). Can be: 'ambient', 'powermodule', 'fanpack', 'chassisfan',  'blower', 'blade', 'systemhealth', 'chassisstatus', 'switchmodule' | blade             |             |
+| COMPONENT    | Which component to check. Can be: 'ambient', 'powermodule', 'fanpack', 'chassisfan',  'blower', 'blade', 'systemhealth', 'chassisstatus', 'switchmodule' | blade             |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                        | --verbose         |             |
 
 </TabItem>
@@ -256,7 +256,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Bladecenter-Snmp
 
 | Macro        | Description                                                                                                                                                               | Default value     | Mandatory   |
 |:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: 'all'). Can be: 'ambient', 'powermodule', 'fanpack', 'chassisfan',  'blower', 'blade', 'systemhealth', 'chassisstatus', 'switchmodule' | blower            |             |
+| COMPONENT    | Which component to check. Can be: 'ambient', 'powermodule', 'fanpack', 'chassisfan',  'blower', 'blade', 'systemhealth', 'chassisstatus', 'switchmodule' | blower            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                        | --verbose         |             |
 
 </TabItem>
@@ -264,7 +264,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Bladecenter-Snmp
 
 | Macro        | Description                                                                                                                                                               | Default value     | Mandatory   |
 |:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: 'all'). Can be: 'ambient', 'powermodule', 'fanpack', 'chassisfan',  'blower', 'blade', 'systemhealth', 'chassisstatus', 'switchmodule' | chassisstatus     |             |
+| COMPONENT    | Which component to check. Can be: 'ambient', 'powermodule', 'fanpack', 'chassisfan',  'blower', 'blade', 'systemhealth', 'chassisstatus', 'switchmodule' | chassisstatus     |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                        | --verbose         |             |
 
 </TabItem>
@@ -272,7 +272,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Bladecenter-Snmp
 
 | Macro        | Description                                                                                                                                                               | Default value     | Mandatory   |
 |:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: 'all'). Can be: 'ambient', 'powermodule', 'fanpack', 'chassisfan',  'blower', 'blade', 'systemhealth', 'chassisstatus', 'switchmodule' | .*                |             |
+| COMPONENT    | Which component to check. Can be: 'ambient', 'powermodule', 'fanpack', 'chassisfan',  'blower', 'blade', 'systemhealth', 'chassisstatus', 'switchmodule' | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                        | --verbose         |             |
 
 </TabItem>
@@ -280,7 +280,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Bladecenter-Snmp
 
 | Macro        | Description                                                                                                                                                               | Default value     | Mandatory   |
 |:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: 'all'). Can be: 'ambient', 'powermodule', 'fanpack', 'chassisfan',  'blower', 'blade', 'systemhealth', 'chassisstatus', 'switchmodule' | powermodule       |             |
+| COMPONENT    | Which component to check. Can be: 'ambient', 'powermodule', 'fanpack', 'chassisfan',  'blower', 'blade', 'systemhealth', 'chassisstatus', 'switchmodule' | powermodule       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                        | --verbose         |             |
 
 </TabItem>
@@ -288,7 +288,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Bladecenter-Snmp
 
 | Macro        | Description                                                                                                                                                               | Default value     | Mandatory   |
 |:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: 'all'). Can be: 'ambient', 'powermodule', 'fanpack', 'chassisfan',  'blower', 'blade', 'systemhealth', 'chassisstatus', 'switchmodule' | systemhealth      |             |
+| COMPONENT    | Which component to check. Can be: 'ambient', 'powermodule', 'fanpack', 'chassisfan',  'blower', 'blade', 'systemhealth', 'chassisstatus', 'switchmodule' | systemhealth      |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                        | --verbose         |             |
 
 </TabItem>
