@@ -27,10 +27,10 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias    | Service Template                               | Service Description         |
 |:-----------------|:-----------------------------------------------|:----------------------------|
 | Ac-Status        | HW-Device-Aeg-Acm-Ac-Status-SNMP-custom        | Check AC plant status       |
-| Alarm-Status     | HW-Device-Aeg-Acm-Alarm-Status-SNMP-custom     | Check alarms status         |
+| Alarm-Status     | HW-Device-Aeg-Acm-Alarm-Status-SNMP-custom     | Check the status of alarms |
 | Battery-Status   | HW-Device-Aeg-Acm-Battery-Status-SNMP-custom   | Check battery status         |
 | Load-Status      | HW-Device-Aeg-Acm-Load-Status-SNMP-custom      | Check load plant statistics |
-| Rectifier-Status | HW-Device-Aeg-Acm-Rectifier-Status-SNMP-custom | Check rectifiers status         |
+| Rectifier-Status | HW-Device-Aeg-Acm-Rectifier-Status-SNMP-custom | Check the status of rectifiers       |
 
 > The services listed above are created automatically when the **HW-Device-Aeg-Acm-SNMP-custom** host template is used.
 
