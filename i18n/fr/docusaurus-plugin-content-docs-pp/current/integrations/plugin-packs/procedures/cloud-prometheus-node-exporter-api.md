@@ -5,7 +5,7 @@ title: Node Exporter
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Node Exporter**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -213,7 +213,7 @@ yum install centreon-plugin-Cloud-Prometheus-Node-Exporter-Api
 | PROMETHEUSAPIHOSTNAME | Prometheus hostname                                                                                  |                   |             |
 | PROMETHEUSAPIPROTO    | Specify https if needed (default: 'http')                                                            | http              |             |
 | PROMETHEUSAPIPORT     | API port (default: 9090)                                                                             | 9090              |             |
-| PROMETHEUSAPIURL      | API url path (default: '/api/v1')                                                                    | /api/v1           |             |
+| PROMETHEUSAPIURL      | API URL path (default: '/api/v1')                                                                    | /api/v1           |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
