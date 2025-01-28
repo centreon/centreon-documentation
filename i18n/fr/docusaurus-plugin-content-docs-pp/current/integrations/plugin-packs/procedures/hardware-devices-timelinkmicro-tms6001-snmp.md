@@ -101,14 +101,16 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-### Configuration de l'équipement
+### Configuration SNMP
 
-L'agent SNMP de l'équipement Tms6001 doit être configuré et activé pour permettre la récupération des informations
-de supervision par le Plugin.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseaux
 
-Les collecteurs Centreon doivent être en mesure de pouvoir joindre l'équipement Tms6001 sur le port UDP/161 SNMP.
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
