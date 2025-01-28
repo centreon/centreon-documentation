@@ -100,13 +100,16 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-### Device Configuration
+### SNMP Configuration
 
-On the TMS device, enable and configure the SNMP agent in order to allow the Centreon Poller to request it.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flows
 
-The Centreon Poller must be able to reach the UDP/161 SNMP port of the TMS device.
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
