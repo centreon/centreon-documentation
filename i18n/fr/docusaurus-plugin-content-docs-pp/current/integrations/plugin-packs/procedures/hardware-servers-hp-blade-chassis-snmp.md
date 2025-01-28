@@ -5,7 +5,7 @@ title: HP Blade Chassis
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **HP Blade Chassis**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                              | Description                                                                                                              |
 |:----------------|:-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------|
-| Hardware-Global | HW-Hp-Bladechassis-Hardware-Global-SNMP-custom | Contrôle le matériel ('ventilateur', 'blade', 'réseau', 'alimentations', 'temperature', 'fusibles') des chassis blade HP |
+| Hardware-Global | HW-Hp-Bladechassis-Hardware-Global-SNMP-custom | Contrôle les composants de châssis blade HP |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Hp-Bladechassis-SNMP-custom** est utilisé.
 
