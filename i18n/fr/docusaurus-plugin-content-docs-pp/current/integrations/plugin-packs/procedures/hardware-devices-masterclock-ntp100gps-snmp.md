@@ -5,7 +5,7 @@ title: Masterclock NTP100GP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Masterclock NTP100GP** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias           | Modèle de service                                           | Description                                               |
 |:----------------|:------------------------------------------------------------|:----------------------------------------------------------|
 | Gps-Status      | HW-Device-Masterclock-Ntp100gps-Gps-Status-SNMP-custom      | Contrôle le statut de la réception GPS                    |
-| Ntp-Performance | HW-Device-Masterclock-Ntp100gps-Ntp-Performance-SNMP-custom | Contrôle statut et les performances du server NTP         |
+| Ntp-Performance | HW-Device-Masterclock-Ntp100gps-Ntp-Performance-SNMP-custom | Contrôle le statut et les performances du serveur NTP         |
 | Uptime          | HW-Device-Masterclock-Ntp100gps-Uptime-SNMP-custom          | Durée depuis laquelle le serveur tourne sans interruption |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Device-Masterclock-Ntp100gps-SNMP-custom** est utilisé.

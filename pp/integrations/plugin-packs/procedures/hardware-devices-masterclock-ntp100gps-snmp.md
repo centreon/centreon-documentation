@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias   | Service Template                                            | Service Description                                  |
 |:----------------|:------------------------------------------------------------|:-----------------------------------------------------|
 | Gps-Status      | HW-Device-Masterclock-Ntp100gps-Gps-Status-SNMP-custom      | Check the GPS receiver status                        |
-| Ntp-Performance | HW-Device-Masterclock-Ntp100gps-Ntp-Performance-SNMP-custom | Check the NTP server performances and status         |
+| Ntp-Performance | HW-Device-Masterclock-Ntp100gps-Ntp-Performance-SNMP-custom | Check the NTP server performance and status         |
 | Uptime          | HW-Device-Masterclock-Ntp100gps-Uptime-SNMP-custom          | Time since the server has been working and available |
 
 > The services listed above are created automatically when the **HW-Device-Masterclock-Ntp100gps-SNMP-custom** host template is used.
