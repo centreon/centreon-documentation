@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                               | Service Description                                                                        |
 |:----------------|:-----------------------------------------------|:-------------------------------------------------------------------------------------------|
-| Hardware-Global | HW-Dell-Openmanage-Hardware-Global-SNMP-custom | Check hardware ('fan', 'cpu', 'power supply', 'temperature', 'battery',...) of Dell Server |
+| Hardware-Global | HW-Dell-Openmanage-Hardware-Global-SNMP-custom | Check hardware components of Dell Server |
 
 > The services listed above are created automatically when the **HW-Server-Dell-Openmanage-SNMP-custom** host template is used.
 
@@ -297,7 +297,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Openmanage-Snmp
 
 | Macro        | Description                                                                                                                                                                                | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | battery           |             |
+| COMPONENT    | Which component to check. Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | battery           |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose         |             |
 
 </TabItem>
@@ -305,7 +305,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Openmanage-Snmp
 
 | Macro        | Description                                                                                                                                                                                | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | cachebattery      |             |
+| COMPONENT    | Which component to check. Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | cachebattery      |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose         |             |
 
 </TabItem>
@@ -313,7 +313,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Openmanage-Snmp
 
 | Macro        | Description                                                                                                                                                                                | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | connector         |             |
+| COMPONENT    | Which component to check. Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | connector         |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose         |             |
 
 </TabItem>
@@ -321,7 +321,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Openmanage-Snmp
 
 | Macro        | Description                                                                                                                                                                                | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | controller        |             |
+| COMPONENT    | Which component to check. Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | controller        |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose         |             |
 
 </TabItem>
@@ -329,7 +329,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Openmanage-Snmp
 
 | Macro        | Description                                                                                                                                                                                | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | esmlog            |             |
+| COMPONENT    | Which component to check. Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | esmlog            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose         |             |
 
 </TabItem>
@@ -337,7 +337,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Openmanage-Snmp
 
 | Macro        | Description                                                                                                                                                                                | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | fan               |             |
+| COMPONENT    | Which component to check. Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | fan               |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose         |             |
 
 </TabItem>
@@ -345,7 +345,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Openmanage-Snmp
 
 | Macro        | Description                                                                                                                                                                                | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | .*                |             |
+| COMPONENT    | Which component to check. Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose         |             |
 
 </TabItem>
@@ -353,7 +353,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Openmanage-Snmp
 
 | Macro        | Description                                                                                                                                                                                | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | globalstatus      |             |
+| COMPONENT    | Which component to check. Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | globalstatus      |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose         |             |
 
 </TabItem>
@@ -361,7 +361,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Openmanage-Snmp
 
 | Macro        | Description                                                                                                                                                                                | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | logicaldrive      |             |
+| COMPONENT    | Which component to check. Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | logicaldrive      |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose         |             |
 
 </TabItem>
@@ -369,7 +369,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Openmanage-Snmp
 
 | Macro        | Description                                                                                                                                                                                | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | memory            |             |
+| COMPONENT    | Which component to check. Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | memory            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose         |             |
 
 </TabItem>
@@ -377,7 +377,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Openmanage-Snmp
 
 | Macro        | Description                                                                                                                                                                                | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | physicaldisk      |             |
+| COMPONENT    | Which component to check. Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | physicaldisk      |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose         |             |
 
 </TabItem>
@@ -385,7 +385,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Openmanage-Snmp
 
 | Macro        | Description                                                                                                                                                                                | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | psu               |             |
+| COMPONENT    | Which component to check. Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | psu               |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose         |             |
 
 </TabItem>
@@ -393,7 +393,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Openmanage-Snmp
 
 | Macro        | Description                                                                                                                                                                                | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | storage           |             |
+| COMPONENT    | Which component to check. Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | storage           |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose         |             |
 
 </TabItem>
@@ -401,7 +401,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Openmanage-Snmp
 
 | Macro        | Description                                                                                                                                                                                | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | temperature       |             |
+| COMPONENT    | Which component to check. Can be: 'globalstatus', 'fan', 'cpu', 'psu', 'temperature', 'cachebattery', 'physicaldisk', 'logicaldrive', 'battery', 'controller', 'connector' | temperature       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                         | --verbose         |             |
 
 </TabItem>
