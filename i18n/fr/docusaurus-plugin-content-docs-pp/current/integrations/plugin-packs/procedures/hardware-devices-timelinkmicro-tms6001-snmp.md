@@ -5,11 +5,6 @@ title: Timelinkmicro Tms6001
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-TimeLink microsystems fournit des solutions basées sur une gamme complète de produits COTS et conçoit des équipements ou
-systèmes spécifiques selon les besoins des utilisateurs. Le modèle Tms6001 est unserveur Serveur NTP performant & sécurisé
-avec référence GNSS et IRIGB
 
 ## Dépendances du Connecteur de supervision
 

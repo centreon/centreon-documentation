@@ -5,10 +5,6 @@ title: Timelinkmicro Tms6001
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-TimeLink microsystems provides solutions based on a complete line of COTS products and
-design specific equipment or system on user's requirements. 
 
 ## Connector dependencies
 
@@ -31,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                       | Service Description              |
 |:--------------|:-------------------------------------------------------|:---------------------------------|
-| Alarms        | HW-Device-Timelinkmicro-Tms6001-Alarms-SNMP-custom     | Check alarms NTP serveur         |
+| Alarms        | HW-Device-Timelinkmicro-Tms6001-Alarms-SNMP-custom     | Check alarms for the NTP server         |
 | Antenna       | HW-Device-Timelinkmicro-Tms6001-Antenna-SNMP-custom    | Check antenna connector          |
 | Frequency     | HW-Device-Timelinkmicro-Tms6001-Frequency-SNMP-custom  | Check frequency status           |
 | Gnss          | HW-Device-Timelinkmicro-Tms6001-Gnss-SNMP-custom       | Check GNSS receiver              |
