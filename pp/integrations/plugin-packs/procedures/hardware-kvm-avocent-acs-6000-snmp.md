@@ -35,9 +35,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                 | Service Description                                           |
 |:--------------|:-------------------------------------------------|:--------------------------------------------------------------|
-| Cpu-Detailed  | HW-Kvm-Avocent-Acs-6000-Cpu-Detailed-SNMP-custom | Check the detailed rate of utilization of CPU for the machine |
+| Cpu-Detailed  | HW-Kvm-Avocent-Acs-6000-Cpu-Detailed-SNMP-custom | Check the detailed rate of CPU utilization for the machine |
 | Load          | HW-Kvm-Avocent-Acs-6000-Load-SNMP-custom         | Check the server load average                                 |
-| Memory        | HW-Kvm-Avocent-Acs-6000-Memory-SNMP-custom       | Check the rate of the utilization of memory (RAM)             |
+| Memory        | HW-Kvm-Avocent-Acs-6000-Memory-SNMP-custom       | Check the rate of memory utilization |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
