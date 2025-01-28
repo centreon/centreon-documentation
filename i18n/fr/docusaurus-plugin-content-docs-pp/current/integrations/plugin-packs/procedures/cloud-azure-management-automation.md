@@ -7,20 +7,13 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Azure Automation offre un service d’automatisation et de configuration cloud
-prenant en charge une gestion cohérente de vos environnements Azure et
-non-Azure. Il comprend l’automatisation des processus, la gestion de la
-configuration, la gestion des mises à jour, les fonctionnalités partagées et les
-fonctionnalités hétérogènes. Azure Automation vous offre un contrôle complet
-lors du déploiement, des opérations et de la désaffectation des charges de
-travail et des ressources.
 
 Le connecteur de supervision Centreon *Azure Automation* s'appuie sur les API Azure Monitor
 afin de récuperer les métriques relatives au service
 Automation. Il est possible d'utiliser les 2 modes proposés par
 Microsoft: RestAPI ou Azure CLI.
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure Automation**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -42,7 +35,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias | Modèle de service                                 | Description             |
 |:------|:--------------------------------------------------|:------------------------|
-| Jobs  | Cloud-Azure-Management-Automation-Jobs-Api-custom | Contrôle les jobs count |
+| Jobs  | Cloud-Azure-Management-Automation-Jobs-Api-custom | Contrôle le nombre de jobs |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-Management-Automation-custom** est utilisé.
 

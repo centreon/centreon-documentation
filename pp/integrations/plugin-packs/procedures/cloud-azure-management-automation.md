@@ -7,12 +7,6 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Azure Automation delivers a cloud-based automation and configuration service
-that supports consistent management across your Azure and non-Azure
-environments. It comprises process automation, configuration management, update
-management, shared capabilities, and heterogeneous features. Automation gives
-you complete control during deployment, operations, and decommissioning of
-workloads and resources.
 
 The Centreon Monitoring Connector *Azure Automation* can rely on Azure API or Azure CLI
 to collect the metrics related to the Automation service.
@@ -38,7 +32,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                  | Service Description |
 |:--------------|:--------------------------------------------------|:--------------------|
-| Jobs          | Cloud-Azure-Management-Automation-Jobs-Api-custom | Check jobs count    |
+| Jobs          | Cloud-Azure-Management-Automation-Jobs-Api-custom | Check the number of jobs |
 
 > The services listed above are created automatically when the **Cloud-Azure-Management-Automation-custom** host template is used.
 
