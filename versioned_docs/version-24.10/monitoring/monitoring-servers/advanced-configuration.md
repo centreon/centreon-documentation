@@ -293,7 +293,7 @@ parameters:
   - Enable TLS encryption  
     Enable the encryption of the flux. For the encryption to work, the private
     key file, the public certificate and the trusted CA's certificate need to be
-    set on both end. Default to 'auto', i.e 'no' unless TCP negociation has been
+    set on both end. Default to 'auto', i.e 'no' unless TCP negotiation has been
     activated and the remote endpoint has activated encryption.
 
   - Private Key File  
@@ -305,8 +305,8 @@ parameters:
   - Trusted CA's certificate  
     The trused CA certificate used for the encryption.
 
-  - Enable negociation  
-    Enable negociation. If 'yes', this *Intput* will try to negociate encryption
+  - Enable negotiation  
+    Enable negotiation. If 'yes', this *Intput* will try to negotiate encryption
     and compression with the remote endpoint.
 
   - One peer retention mode  
