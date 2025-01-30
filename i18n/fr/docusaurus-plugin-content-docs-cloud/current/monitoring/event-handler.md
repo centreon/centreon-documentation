@@ -183,7 +183,7 @@ L'exemple de script fourni ci-dessus tentera de redémarrer le serveur web sur l
 
 Le script devrait théoriquement redémarrer le serveur web et résoudre le problème avant que le service ne passe dans
 un état de problème HARD, mais nous incluons un cas de secours dans le cas où cela ne fonctionne pas la première fois.
-Il convient de noter que le gestionnaire d'évènements ne sera exécuté que la première fois que le service tombe dans un
+Dans ce cas, le gestionnaire d'évènements ne sera exécuté que la première fois que le service tombe dans un
 état de problème HARD. Cela empêche Centreon d'exécuter en continu le script pour redémarrer le serveur web si le
 service reste dans un état de problème HARD.
 

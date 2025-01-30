@@ -175,7 +175,7 @@ The sample script provided above will attempt to restart the web server on the l
 * After the service first goes into a HARD CRITICAL state
 
 The script should theoretically restart the web server and fix the problem before the service goes into a HARD problem
-state, but we include a fallback case in the event that it doesn't work the first time. Note that the event
+state, but we include a fallback case in the event that it doesn't work the first time. In that case the event
 handler will only be executed the first time the service falls into a HARD problem state. This prevents Centreon
 from continuously executing the script to restart the web server if the service remains in a HARD problem state.
 
