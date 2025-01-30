@@ -351,6 +351,10 @@ module.exports = {
             }
           ]
         },
+        {
+          "type": "doc",
+          "id": "monitoring/event-handler"
+        }
       ]
     },
     {
