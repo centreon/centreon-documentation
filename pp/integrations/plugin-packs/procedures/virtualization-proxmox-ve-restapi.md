@@ -110,7 +110,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 To monitor, a user with read privileges is required: `VM.Monitor`, `VM.Audit`, `Datastore.Audit`, `Sys.Audit`, `Sys.Syslog`.
 
-Please refer to their (official documentation)[https://pve.proxmox.com/wiki/Proxmox_VE_API].
+Please refer to their [official documentation](https://pve.proxmox.com/wiki/Proxmox_VE_API).
 
 ## Installing the monitoring connector
 
