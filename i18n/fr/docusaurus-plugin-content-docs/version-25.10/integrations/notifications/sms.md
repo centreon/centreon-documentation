@@ -1,6 +1,6 @@
 ---
-id: slack-notifications
-title: Notifications Slack
+id: sms-notifications
+title: Notifications SMS
 ---
 
 Vous pouvez envoyer des notifications par SMS en utilisant un fournisseur SMS et une commande de notification personnalisée dans Centreon.
