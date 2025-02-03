@@ -1,14 +1,14 @@
 ---
 id: ticketing-install
-title: Installing Open Tickets
+title: Installer Open Tickets
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Installing Open Tickets
+## Installer Open Tickets
 
-1. Install the following package:
+1. Installez le paquet suivant:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -34,4 +34,4 @@ apt install centreon-open-tickets
 </TabItem>
 </Tabs>
 
-2. Go to **Administration > Extensions > Manager** and install the **Open Tickets** module. There is now a new menu in Centreon: **Configuration > Notifications > Open Tickets > Rules**.
+2. Allez à la page **Administration > Extensions > Gestionnaire** et installez le module **Open Tickets**. Un nouveau menu apparaît dans l'interface de Centreon: **Configuration > Notifications > Open Tickets > Règles**.

@@ -46,12 +46,12 @@ Make sure you give your two widgets relevant titles so that your users know whic
 
 3. Set the parameters for your tickets in the **Ticket management** section (including the **Rule** you created at step 1):
    * In the first widget, to create a view that will allow users to open tickets, select **Resources with no tickets**.
-   * In the second widget, to create a view that will allow users to view all open tickets (and, for some providers, close them) select **Resources linked to a ticket**.
+   * In the second widget, to create a view that will allow users to view all open tickets and to close them, select **Resources linked to a ticket**.
 
 4. Save your changes.
 
 Your dashboard now displays two **Resource table** widgets containing your two views.
-* When a user creates a ticket on a service, the alert is automatically acknowledged.
+* When a user creates a ticket on a service, the service is automatically acknowledged.
 * When a user creates a ticket on a host, all services for this host will be included in the ticket and displayed in the "open tickets" widget.
 * When a user close a ticket, if your provider allows it, the ticket will be automtically closed in your ITSM tool too.
 
@@ -64,17 +64,17 @@ Your dashboard now displays two **Resource table** widgets containing your two v
    - Select the **Rule** you created at step 1.
    - Don’t check the **Opened Tickets** box.
    - Don’t check the **Display Ticket ID** and **Display Ticket Time** boxes.
-   - Define which tickets you want to display in this table, i.e. the tickets you want to be able to open tickets on. For instance, you can filter them according to their status.
+   - Define which services you want to display in this table, i.e. the services you want to be able to open tickets on. For instance, you can filter them according to their status.
    - Define whether creating a ticket on a service automatically acknowledges the service. (In that case, creating a ticket on the host will include all problematic services in the ticket and they will all be displayed in the "open tickets" widget.)
 
 3. **Apply** your changes.
 
-4. In the second widget, create a view that will allow users to view all open tickets (and, for some providers, close them). Click the
+4. In the second widget, create a view that will allow users to view all open tickets and to close them. Click the
 **Configuration** button:
    - Select the **Rule** you created at step 1.
    - Check the **Opened Tickets** box.
    - Check the **Display Ticket ID** and **Display Ticket Time** boxes.
-   - Define whether closing a ticket should automatically close it in your ITSM tool too (if your provider allows it).
+   - Define whether closing a ticket in Centreon should automatically close it in your ITSM tool too (if your provider allows it).
    - Define any other option you want.
 
 5. **Apply** your changes.

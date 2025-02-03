@@ -7,9 +7,9 @@ import TabItem from '@theme/TabItem';
 
 This page is intended for the operators who will create and close tickets in Centreon.
 
-## Where can I open and/or close tickets?
+## Where can I open and close tickets?
 
-Depending on what your admin has configured, you may be able to open and/or close tickets from:
+Depending on what your admin has configured, you may be able to open and close tickets from:
 
 * the **Resource table** widget [in a dashboard](../alerts-notifications/dashboards.md)
 * the **Open tickets** widget in [a custom view](../alerts-notifications/custom-views.md) (legacy).
@@ -53,7 +53,9 @@ You can close tickets in Centreon: for some providers, the ticket will be automa
 2. The ticket is closed in Centreon, and, if your provider allows it, in your ITSM tool.
 3. The service disappears from the open tickets widget.
 
-> Opening a ticket automatically acknowledges an alert. If you close a ticket while the alert is still ongoing in Centreon, the alert will be disacknowledged and active again.
+> Opening a ticket automatically acknowledges the service. If you close a ticket in Centreon while the alert is still ongoing in Centreon, the service will be disacknowledged.
+
+> Closing a ticket in your ITSM tool does not close it automatically in Centreon.
 
 </TabItem>
 <TabItem value="In Custom Views (legacy)" label="In Custom Views (legacy)">
@@ -62,7 +64,9 @@ You can close tickets in Centreon: for some providers, the ticket will be automa
 2. The ticket is closed in Centreon, and, if your provider allows it and your admin has configured it, in your ITSM tool.
 3. The service disappears from the open tickets widget.
 
-> In some cases, opening a ticket automatically acknowledges an alert. If you close a ticket while the alert is still ongoing in Centreon, the alert will be disacknowledged and active again.
+> If your admin has configured it, opening a ticket automatically acknowledges the service. If you close a ticket in Centreon while the alert is still ongoing in Centreon, the service will be disacknowledged.
+
+> Closing a ticket in your ITSM tool does not close it automatically in Centreon.
 
 </TabItem>
 </Tabs>
