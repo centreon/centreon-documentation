@@ -406,6 +406,29 @@ module.exports = {
           "type": "doc",
           "id": "alerts-notifications/notif-configuration"
         },
+        {
+          "type": "category",
+          "label": "Managing tickets",
+          "link": {
+            "type": "doc",
+            "id": "alerts-notifications/ticketing-overview"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing-install"
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing"
+            }
+            ,
+            {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing-use"
+            }
+          ]
+        }
       ]
     },
     {
@@ -562,7 +585,57 @@ module.exports = {
         {
           "type": "doc",
           "id": "integrations/stream-connectors-cloud"
-        }
+        },
+        {
+          "type": "category",
+          "label": "ITSM",
+          "link": {
+            "type": "doc",
+            "id": "integrations/itsm/itsm-overview"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-bmc-footprints"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-easyvista"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-easyvista-rest-api"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-glpi"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-glpi-restapi"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-itop"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-jira"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-otrs-restapi"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-request-tracker-restapi"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-servicenow"
+            }
+          ]
+        },
       ]
     },
     {
