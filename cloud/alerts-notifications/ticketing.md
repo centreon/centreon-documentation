@@ -42,7 +42,7 @@ Make sure you give your two widgets relevant titles so that your users know whic
 
 1. Go to **Home > Dashboards**, select your dashboard and add two **Resource table** widgets.
 
-2. In the **Widget properties** and **Value settings** sections, fill in the properties you want. Check carefully which statuses, states and status types you want the widget to display.
+2. In the **Widget properties** and **Value settings** sections, fill in the properties you want. Check carefully which statuses, states and status types you want the widget to display. To ensure consistency between displayed resources, apply the same parameters to both widgets.
 
 3. Set the parameters for your tickets in the **Ticket management** section (including the **Rule** you created at step 1):
    * In the first widget, to create a view that will allow users to open tickets, select **Resources with no tickets**.
