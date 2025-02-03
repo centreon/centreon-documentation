@@ -26,7 +26,9 @@ The CMA can be installed on and monitor the following OSs:
 
 * Alma 8
 * Alma 9
+* Debian 11
 * Debian 12
+* Ubuntu 22.04 LTS
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
@@ -76,17 +78,15 @@ On your central server:
 
 ### Configure Engine
 
-1. On the poller that will receive the data from the agent, install the **centreon-engine-opentelemetry** package.
-
-2. Configure how the poller and the agent will communicate:
+1. Configure how the poller and the agent will communicate:
 
 <PollerAgentConfiguration />
 
-5. If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), enable **Connection initiated by poller**. Then, in **Host configurations**, define all the hosts on which the agent will be installed. Here the certificates are optional, but if you use them, store them in the **/etc/pki/** directory of the poller.
+2. If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), enable **Connection initiated by poller**. Then, in **Host configurations**, define all the hosts on which the agent will be installed. Here the certificates are optional, but if you use them, store them in the **/etc/pki/** directory of the poller.
 > If you configure several pollers at once, make sure all certificate files have the same name.
 
-6. Deploy the configuration.
-7. Restart the monitoring engine:
+3. Deploy the configuration.
+4. Restart the monitoring engine:
 
    ```bash
    systemctl restart centengine
@@ -159,11 +159,11 @@ apt install centreon-monitoring-agent
 
 ```json
 {
-    "log_level":"info",
-    "endpoint":"<IP POLLER>:4317",
-    "host":"host_1",
-    "log_type":"file",
-    "log_file":"/var/log/centreon-monitoring-agent/centagent.log" 
+  "log_level":"info",
+  "endpoint":"<IP POLLER>:4317",
+  "host":"host_1",
+  "log_type":"file",
+  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" 
 }
 ```
 
@@ -172,11 +172,11 @@ apt install centreon-monitoring-agent
 
 ```json
 {
-    "log_level":"info",
-    "endpoint":"<IP POLLER>:4317",
-    "host":"host_1",
-    "log_type":"file",
-    "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
+  "log_level":"info",
+  "endpoint":"<IP POLLER>:4317",
+  "host":"host_1",
+  "log_type":"file",
+  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
   "encryption":true,
   "ca_certificate":"/tmp/ca_1234.crt"
 }
@@ -187,11 +187,11 @@ apt install centreon-monitoring-agent
 
 ```json
 {
-    "log_level":"info",
-    "endpoint":"0.0.0.0:4317",
-    "host":"host_1",
-    "log_type":"file",
-    "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
+  "log_level":"info",
+  "endpoint":"0.0.0.0:4317",
+  "host":"host_1",
+  "log_type":"file",
+  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
   "reversed_grpc_streaming":true
 }
 ```
@@ -201,11 +201,11 @@ apt install centreon-monitoring-agent
 
 ```json
 {
-    "log_level":"info",
-    "endpoint":"0.0.0.0:4317",
-    "host":"host_1",
-    "log_type":"file",
-    "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
+  "log_level":"info",
+  "endpoint":"0.0.0.0:4317",
+  "host":"host_1",
+  "log_type":"file",
+  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
   "reversed_grpc_streaming":true,
   "encryption":true,
   "private_key":"/tmp/server_1234.key",
@@ -242,6 +242,11 @@ Allowed log levels are:
 systemctl restart centagent
 ```
 
+You can check that agent is running with:
+```shell
+systemctl status centagent
+```
+
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
@@ -264,16 +269,8 @@ systemctl restart centagent
 
 If you choose to log into a file, log rotation can be customized using the **Max File Size** and **Max number of files** options.
 
-Allowed log levels are:
-* off: no logs
-* critical: critical errors
-* error: all errors
-* info: additional information
-* debug: more information about connections
-* trace: the most verbose trace level showing messages sent and received to the poller
-
 4. Configure encryption
-Encryption is activated by default. In case of a poller-initiated connection, the private key file and certificate file are mandatory.
+Encryption is activated by default. In case of a **Poller-initiated connection**, the private key file and certificate file are mandatory.
 
 </TabItem>
 
@@ -282,26 +279,36 @@ Encryption is activated by default. In case of a poller-initiated connection, th
 In this mode no UI is started. As this installer is not a console program, it returns immediately despite he hasn't finished. You have to wait for message telling that all is finished.
 If you need to have exit status, you can launch it in a powershell session and wait for exit code. Exit code will be 0 if all isright
 
-| flag                | description                                                                                                                                                                                                                                                               |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| --install_cma       | Set this flag if you want to install centreon monitoring agent                                                                                                                                                                                                            |
-| --install_plugins   | Set this flag if you want to install centreon plugins                                                                                                                                                                                                                     |
-| --hostname          | The name of the host as defined in the Centreon interface.                                                                                                                                                                                                                |
-| --endpoint          | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode, it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) |
-| --reverse           | Add this flag for Poller-initiated connection mode.                                                                                                                                                                                                                       |
-| --log_type          | event_log or file. In case of logging in a file, log_file param is mandatory                                                                                                                                                                                              |
-| --log_level         | can be off, critical, error, warning, debug or trace                                                                                                                                                                                                                      |
-| --log_file          | log files path.                                                                                                                                                                                                                                                           |
-| --log_max_file_size | max file in Mo before rotate.                                                                                                                                                                                                                                             |
-| --log_max_files     | max number of log files before delete. For the rotation of logs to be active, it is necessary that both parameters 'Max File Size' and 'Max number of files' are set.                                                                                                     |
-| --encryption        | Add this flag for encrypt connection with poller.                                                                                                                                                                                                                         |
-| --private_key       | Private key file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                                |
-| --public_cert       | Public certificate file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                         |
-| --ca                | Trusted CA's certificate file path.                                                                                                                                                                                                                                       |
-| --ca_name           | Expected TLS certificate common name (CN). Don't use it if unsure.                                                                                                                                                                                                        |
-
+| flag                       | description                                                                                                                                                                                                                                                               |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --install_cma              | Set this flag if you want to install centreon monitoring agent                                                                                                                                                                                                            |
+| --install_plugins          | Set this flag if you want to install latest version of centreon plugins that will be downloaded and installed                                                                                                                                                             |
+| --install_embedded_plugins | Set this flag if you want to install centreon plugins embedded in the installer (case of a host that can access to the web)                                                                                                                                               |
+| --hostname                 | The name of the host as defined in the Centreon interface.                                                                                                                                                                                                                |
+| --endpoint                 | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode, it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) |
+| --reverse                  | Add this flag for Poller-initiated connection mode.                                                                                                                                                                                                                       |
+| --log_type                 | event_log or file. In case of logging in a file, log_file param is mandatory                                                                                                                                                                                              |
+| --log_level                | can be off, critical, error, warning, debug or trace                                                                                                                                                                                                                      |
+| --log_file                 | log files path.                                                                                                                                                                                                                                                           |
+| --log_max_file_size        | max file in Mo before rotate.                                                                                                                                                                                                                                             |
+| --log_max_files            | max number of log files before delete. For the rotation of logs to be active, it is necessary that both parameters 'Max File Size' and 'Max number of files' are set.                                                                                                     |
+| --encryption               | Add this flag for encrypt connection with poller.                                                                                                                                                                                                                         |
+| --private_key              | Private key file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                                |
+| --public_cert              | Public certificate file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                         |
+| --ca                       | Trusted CA's certificate file path.                                                                                                                                                                                                                                       |
+| --ca_name                  | Expected TLS certificate common name (CN). Don't use it if unsure.                                                                                                                                                                                                        |
+| --reverse                  | Add this flag to make the agent accept connections from poller (agent in DMZ for example).                                                                                                                                                                                |
 </TabItem>
 </Tabs>
+Allowed log levels are:
+* off: no logs
+* critical: critical errors
+* error: all errors
+* info: additional information
+* debug: more information about connections
+* trace: the most verbose trace level showing messages sent and received to the poller
+
+If encryption is activated but no **Poller-initiated connection**, the agent will use certificates stored in Windows Certificate Store to connect to poller.
 
 </TabItem>
 </Tabs>

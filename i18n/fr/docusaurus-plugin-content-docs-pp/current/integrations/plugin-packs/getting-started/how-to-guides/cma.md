@@ -27,7 +27,9 @@ L'agent peut être installé sur et superviser les OS suivants :
 
 * Alma 8
 * Alma 9
+* Debian 11
 * Debian 12
+* Ubuntu 22.04 LTS
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
@@ -77,17 +79,15 @@ Sur votre serveur central :
 
 ### Configurez Engine
 
-1. Sur le collecteur qui recevra les données de l'agent, installez le paquet **centreon-engine-opentelemetry**.
-
-2. Configurez la communication entre le collecteur et l'agent :
+1. Configurez la communication entre le collecteur et l'agent :
 
 <PollerAgentConfiguration />
 
-5. Si l'agent n'est pas autorisé à se connecter au collecteur pour des raisons de sécurité (par exemple lorsque le collecteur est situé dans une DMZ), activez l'option **Connection initiée par le collecteur**. Puis, dans la section **Configuration des hôtes**, définissez tous les hôtes sur lesquels l'agent sera installé. Ici, les certificats sont optionnels, mais si vous les utilisez, mettez-les dans le répertoire **/etc/pki/** du collecteur.
+2. Si l'agent n'est pas autorisé à se connecter au collecteur pour des raisons de sécurité (par exemple lorsque le collecteur est situé dans une DMZ), activez l'option **Connection initiée par le collecteur**. Puis, dans la section **Configuration des hôtes**, définissez tous les hôtes sur lesquels l'agent sera installé. Ici, les certificats sont optionnels, mais si vous les utilisez, mettez-les dans le répertoire **/etc/pki/** du collecteur.
 > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
 
-6. Exportez la configuration.
-7. Redémarrez le moteur de collecte.
+3. Exportez la configuration.
+4. Redémarrez le moteur de collecte.
 
    ```bash
    systemctl restart centengine
@@ -158,11 +158,11 @@ apt install centreon-monitoring-agent
 
 ```json
 {
-    "log_level":"info",
-    "endpoint":"<IP POLLER>:4317",
-    "host":"host_1",
-    "log_type":"file",
-    "log_file":"/var/log/centreon-monitoring-agent/centagent.log" 
+  "log_level":"info",
+  "endpoint":"<IP POLLER>:4317",
+  "host":"host_1",
+  "log_type":"file",
+  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" 
 }
 ```
 
@@ -171,11 +171,11 @@ apt install centreon-monitoring-agent
 
 ```json
 {
-    "log_level":"info",
-    "endpoint":"<IP POLLER>:4317",
-    "host":"host_1",
-    "log_type":"file",
-    "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
+  "log_level":"info",
+  "endpoint":"<IP POLLER>:4317",
+  "host":"host_1",
+  "log_type":"file",
+  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
   "encryption":true,
   "ca_certificate":"/tmp/ca_1234.crt"
 }
@@ -186,11 +186,11 @@ apt install centreon-monitoring-agent
 
 ```json
 {
-    "log_level":"info",
-    "endpoint":"0.0.0.0:4317",
-    "host":"host_1",
-    "log_type":"file",
-    "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
+  "log_level":"info",
+  "endpoint":"0.0.0.0:4317",
+  "host":"host_1",
+  "log_type":"file",
+  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
   "reversed_grpc_streaming":true
 }
 ```
@@ -199,11 +199,11 @@ apt install centreon-monitoring-agent
 
 ```json
 {
-    "log_level":"info",
-    "endpoint":"0.0.0.0:4317",
-    "host":"host_1",
-    "log_type":"file",
-    "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
+  "log_level":"info",
+  "endpoint":"0.0.0.0:4317",
+  "host":"host_1",
+  "log_type":"file",
+  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
   "reversed_grpc_streaming":true,
   "encryption":true,
   "private_key":"/tmp/server_1234.key",
@@ -234,10 +234,15 @@ Les niveaux de logs possibles sont:
 * debug: quelques informations sur les connections en plus
 * trace: le niveau de trace le plus bavard qui permet de voir les messages envoyés et reçus vers le poller
 
-1. Redémarrer l'agent : 
+2. Redémarrer l'agent : 
    ```shell
    systemctl restart centagent
    ```
+
+Vous pouvez vérifier l'état de l'agent avec la commande:
+```shell
+systemctl status centagent
+```
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
@@ -263,7 +268,7 @@ Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
   Si vous choisissez de logger dans un fichier, vous pouvez configurer la rotation de logs en renseignant **Max File Size** et **Max number of files**.
 
 1. Configurez les paramètres de chiffrement.
-Le chiffrement est activé par défaut. Dans le cas où l'option **Poller-initiated connection** est activée, renseignez **Max File Size** et **Max number of files**.
+Le chiffrement est activé par défaut. Dans le cas où l'option **Poller-initiated connection** est activée, le certificat et la le fichier contenant la clé privée sont obligatoires.
 
 </TabItem>
 
@@ -280,23 +285,25 @@ centreon-monitoring-agent.exe /S --help
 
 Les différents arguments sont:
 
-| flag                | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| --install_cma       | Si ce flag est présent, l'agent sera installé                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --install_plugins   | Si ce flag est présent, les plugins seront installés                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --hostname          | Le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --endpoint          | Dans le cas le plus courant (l'agent se connecte au poller), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le poller, sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317. Si vous activez l'option **--reverse** (le collecteur se connecte à l'agent), vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du collecteur. |
-| --reverse           | Si ce flag est présent, l'agent accepte les connections venant du collecteur                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --log_type          | event_log ou file. Si vous choisissez fichier, le paramètre log_file est obligatoire                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --log_level         | Choisir parmi: off, critical, error, warning, debug ou trace                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --log_file          | Chemin du fichier de log                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --log_max_file_size | Taille maximale du fichier de log en Mo avant rotation.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --log_max_files     | Nombre maximal de fichiers de log. Pour que la rotation des logs soit activée, ces deux paramètres sont nécessaires.                                                                                                                                                                                                                                                                                                                                                                        |
-| --encryption        | Si ce flag est présent le chiffrement est activé.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --private_key       | Chemin du fichier contenant la clé privée. Obligatoire si le chiffrement et le mode reverse sont activés.                                                                                                                                                                                                                                                                                                                                                                                   |
-| --public_cert       | Chemin du fichier contenant la clé publique. Obligatoire si le chiffrement et le mode reverse sont activés.                                                                                                                                                                                                                                                                                                                                                                                 |
-| --ca                | Chemin du fichier contenant le certificat de confiance.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --ca_name           | TLS certificate common name (CN). Ne pas utiliser en cas de doute.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| flag                       | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --install_cma              | Si ce flag est présent, l'agent sera installé                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --install_plugins          | Si ce flag est présent, la dernière version des plugins sera téléchargée et installée                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --install_embedded_plugins | Utilisez ce flag pour installer les plugins fournis par ce installer ( cas d'un hôte n'ayant pas accès à internet)                                                                                                                                                                                                                                                                                                                                                                          |
+| --hostname                 | Le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --endpoint                 | Dans le cas le plus courant (l'agent se connecte au poller), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le poller, sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317. Si vous activez l'option **--reverse** (le collecteur se connecte à l'agent), vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du collecteur. |
+| --reverse                  | Si ce flag est présent, l'agent accepte les connections venant du collecteur                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --log_type                 | event_log ou file. Si vous choisissez fichier, le paramètre log_file est obligatoire                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --log_level                | Choisir parmi: off, critical, error, warning, debug ou trace                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --log_file                 | Chemin du fichier de log                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --log_max_file_size        | Taille maximale du fichier de log en Mo avant rotation.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --log_max_files            | Nombre maximal de fichiers de log. Pour que la rotation des logs soit activée, ces deux paramètres sont nécessaires.                                                                                                                                                                                                                                                                                                                                                                        |
+| --encryption               | Si ce flag est présent le chiffrement est activé.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --private_key              | Chemin du fichier contenant la clé privée. Obligatoire si le chiffrement et le mode reverse sont activés.                                                                                                                                                                                                                                                                                                                                                                                   |
+| --public_cert              | Chemin du fichier contenant la clé publique. Obligatoire si le chiffrement et le mode reverse sont activés.                                                                                                                                                                                                                                                                                                                                                                                 |
+| --ca                       | Chemin du fichier contenant le certificat de confiance.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --ca_name                  | TLS certificate common name (CN). Ne pas utiliser en cas de doute.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --reverse                  | Si ce flag est activé, l'agent accepte les connexions venant du poller (Agent en DMZ par example).                                                                                                                                                                                                                                                                                                                                                                                          |
 
 </TabItem>
 </Tabs>
@@ -308,6 +315,8 @@ Les différents arguments sont:
    * info: quelques informations supplémentaires
    * debug: quelques informations sur les connections en plus
    * trace: le niveau de trace le plus bavard qui permet de voir les messages envoyés et reçus vers le poller
+
+  Si le chiffrement est activé et que l'option **Poller-initiated connection** n'est pas activée, l'agent utilisera les certificats présents dans le Certificate Store de Windows pour se connecter au poller.
 
 </TabItem>
 </Tabs>
