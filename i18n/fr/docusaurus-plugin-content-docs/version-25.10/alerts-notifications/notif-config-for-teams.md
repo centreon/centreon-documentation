@@ -21,7 +21,14 @@ Consultez cette page pour savoir comment [migrer vos connecteurs vers Workflows[
 
 Suivez cette procédure Microsoft qui explique comment publier sur un canal lors de la réception d’une demande de webhook : [Publier un flux de travail lorsqu’une demande de webhook est reçue dans Microsoft Teams](https://support.microsoft.com/fr-fr/office/post-a-workflow-when-a-webhook-request-is-received-in-microsoft-teams-8ae491c7-0394-4861-ba59-055e33f75498#:~:text=You%20can%20post%20to%20a,a%20webhook%20request%20is%20received.&text=next%20to%20the%20channel%20or,that%20best%20suits%20your%20needs). Cela permettra à Centreon d'envoyer une alerte dans un canal Teams.
 
-> Vous obtiendrez une URL que vous pourrez facilement copier/coller. Conservez soigneusement cette URL. Vous en aurez besoin lorsque vous vous connecterez au service pour lequel vous souhaitez envoyer des données à votre groupe.
+Vous obtiendrez une URL que vous pourrez facilement copier/coller. Conservez soigneusement cette URL. Vous en aurez besoin lorsque vous vous connecterez au service pour lequel vous souhaitez envoyer des données à votre groupe.
+
+> Cette URL contient des caractères spéciaux tels que « & ». Comme ce caractère empêche la commande de notification de fonctionner, vous devez le supprimer de la liste des caractères illégaux dans Centreon.
+> 
+> - Allez dans **Configuration > Collecteurs > Configuration du moteur de collecte**.
+> Cliquez sur la configuration du moteur pour l'éditer. Ouvrez ensuite l'onglet **Administrateur**.
+> - Dans le champ **Caractères illégaux dans la valeur des macros**, supprimez le caractère « & ».
+> - Sauvegardez vos modifications.
 
 Vous devriez recevoir une notification Teams confirmant la configuration du connecteur.
 
