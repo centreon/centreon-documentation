@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 | Health             | Cloud-Azure-Network-VpnGateway-Health-Api-custom             | Contrôle le statut de la passerelle VPN                   |
 | Site-Traffic       | Cloud-Azure-Network-VpnGateway-Site-Traffic-Api-custom       | Contrôle le trafic entrant et sortant du site             |
 | Tunnel-Traffic     | Cloud-Azure-Network-VpnGateway-Tunnel-Traffic-Api-custom     | Contrôle le trafic entrant et sortant du tunnel           |
-| Vpn-Gateway-Status | Cloud-Azure-Network-VpnGateway-Vpn-Gateway-Status-Api-custom | Contrôle le statut du provisionement de la passerelle VPN |
+| Vpn-Gateway-Status | Cloud-Azure-Network-VpnGateway-Vpn-Gateway-Status-Api-custom | Contrôle le statut du provisionnement de la passerelle VPN |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-Network-VpnGateway-custom** est utilisé.
 
@@ -232,6 +232,7 @@ yum install centreon-plugin-Cloud-Azure-Network-VpnGateway-Api
 
 </TabItem>
 </Tabs>
+
 > Deux méthodes peuvent être utilisées pour définir l'authentification :
 >
 > * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXXX/XXXXXXX/<resource_name>`) dans la macro **AZURERESOURCE**.
