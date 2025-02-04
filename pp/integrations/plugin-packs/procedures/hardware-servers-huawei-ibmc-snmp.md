@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                           | Service Description    |
 |:--------------|:-------------------------------------------|:-----------------------|
-| Hardware      | HW-Server-Huawei-Ibmc-Hardware-SNMP-custom | Check components state |
+| Hardware      | HW-Server-Huawei-Ibmc-Hardware-SNMP-custom | Check the state of the components |
 
 > The services listed above are created automatically when the **HW-Server-Huawei-Ibmc-SNMP-custom** host template is used.
 
