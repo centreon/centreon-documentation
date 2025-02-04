@@ -27,10 +27,10 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias   | Service Template                                           | Service Description                                                                                                                                         |
 |:----------------|:-----------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Array-Usage     | HW-Storage-Buffalo-Terastation-Array-Usage-SNMP-custom     | Check array usage                                                                                                                                           |
-| Cpu-Detailed    | HW-Storage-Buffalo-Terastation-Cpu-Detailed-SNMP-custom    | Check the detailed rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
+| Cpu-Detailed    | HW-Storage-Buffalo-Terastation-Cpu-Detailed-SNMP-custom    | Check the detailed rate of CPU utilization for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
 | Hardware-Global | HW-Storage-Buffalo-Terastation-Hardware-Global-SNMP-custom | Check hardware                                                                                                                                              |
 | Load            | HW-Storage-Buffalo-Terastation-Load-SNMP-custom            | Check the server load average                                                                                                                               |
-| Memory          | HW-Storage-Buffalo-Terastation-Memory-SNMP-custom          | Check the rate of the utilization of memory (RAM)                                                                                                           |
+| Memory          | HW-Storage-Buffalo-Terastation-Memory-SNMP-custom          | Check the rate of memory utilization (RAM)                                                                                                           |
 
 > The services listed above are created automatically when the **HW-Storage-Buffalo-Terastation-SNMP-custom** host template is used.
 
