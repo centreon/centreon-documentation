@@ -5,7 +5,7 @@ title: Dell Equallogic
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Dell Equallogic**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -39,9 +39,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                                           | Description                                               | Découverte |
 |:---------------------|:------------------------------------------------------------|:----------------------------------------------------------|:----------:|
-| Traffic-Generic-Id   | HW-Storage-Dell-Equallogic-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Generic-Name | HW-Storage-Dell-Equallogic-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Global       | HW-Storage-Dell-Equallogic-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau | X          |
+| Traffic-Generic-Id   | HW-Storage-Dell-Equallogic-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau         |            |
+| Traffic-Generic-Name | HW-Storage-Dell-Equallogic-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau         |            |
+| Traffic-Global       | HW-Storage-Dell-Equallogic-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -116,7 +116,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | health.status       | N/A   |
 | psu.status       | N/A   |
 | raid.status       | N/A   |
-| teamperature.status       | N/A  |
+| temperature.status       | N/A  |
 
 </TabItem>
 <TabItem value="Pool-Usage-Global" label="Pool-Usage-Global">

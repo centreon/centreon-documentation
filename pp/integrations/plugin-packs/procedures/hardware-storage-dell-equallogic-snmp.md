@@ -26,10 +26,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias      | Service Template                                          | Service Description                                                   |
 |:-------------------|:----------------------------------------------------------|:----------------------------------------------------------------------|
-| Array-Usage-Global | HW-Storage-Dell-Equallogic-Array-Usage-Global-SNMP-custom | Check array usages                                                    |
-| Disk-Usage-Global  | HW-Storage-Dell-Equallogic-Disk-Usage-Global-SNMP-custom  | Check disk usages                                                     |
+| Array-Usage-Global | HW-Storage-Dell-Equallogic-Array-Usage-Global-SNMP-custom | Check array usage                                                    |
+| Disk-Usage-Global  | HW-Storage-Dell-Equallogic-Disk-Usage-Global-SNMP-custom  | Check disk usage                                                     |
 | Hardware-Global    | HW-Storage-Dell-Equallogic-Hardware-Global-SNMP-custom    | Check hardware ('fan', 'temperature', 'disk', 'raid', 'power supply') |
-| Pool-Usage-Global  | HW-Storage-Dell-Equallogic-Pool-Usage-Global-SNMP-custom  | Check pool usages                                                     |
+| Pool-Usage-Global  | HW-Storage-Dell-Equallogic-Pool-Usage-Global-SNMP-custom  | Check pool usage                                                     |
 
 > The services listed above are created automatically when the **HW-Storage-Dell-Equallogic-SNMP-custom** host template is used.
 
@@ -38,8 +38,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                            | Service Description                          | Discovery  |
 |:---------------------|:------------------------------------------------------------|:---------------------------------------------|:----------:|
-| Traffic-Generic-Id   | HW-Storage-Dell-Equallogic-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface        |            |
-| Traffic-Generic-Name | HW-Storage-Dell-Equallogic-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface        |            |
+| Traffic-Generic-Id   | HW-Storage-Dell-Equallogic-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface        |            |
+| Traffic-Generic-Name | HW-Storage-Dell-Equallogic-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface        |            |
 | Traffic-Global       | HW-Storage-Dell-Equallogic-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
@@ -115,7 +115,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | health.status       | N/A   |
 | psu.status       | N/A   |
 | raid.status       | N/A   |
-| teamperature.status       | N/A  |
+| temperature.status       | N/A  |
 
 </TabItem>
 <TabItem value="Pool-Usage-Global" label="Pool-Usage-Global">
