@@ -62,7 +62,7 @@ apt update && apt install --only-upgrade centreon-pack*
 </TabItem>
 </Tabs>
 
-> Si votre platform n'a pas de connexion internet, vous devrez installer les mises à jour depuis un dépôt mirroir. Adaptez [la procédure suivante](/docs/installation/offline) au dépôt des connecteurs.
+> Si votre plateforme n'a pas de connexion internet, vous devrez installer les mises à jour depuis un dépôt mirroir. Adaptez [la procédure suivante](/docs/installation/offline) au dépôt des connecteurs.
 
 ## Mises à jour de connecteurs et "breaking changes"
 
