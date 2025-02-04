@@ -5,7 +5,7 @@ title: Sun SFxxK
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Sun SFxxK**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -27,8 +27,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                        | Description                                        |
 |:----------------|:-----------------------------------------|:---------------------------------------------------|
-| Boards          | HW-Sun-Sfxxk-Boards-PSSH-custom          | Contrôle les 'boards' du sun 'sfxxk'               |
-| Environment     | HW-Sun-Sfxxk-Environment-PSSH-custom     | Contrôle l'environnement du sun 'sfxxk'            |
+| Boards          | HW-Sun-Sfxxk-Boards-PSSH-custom          | Contrôle les 'boards' du Sun 'sfxxk'               |
+| Environment     | HW-Sun-Sfxxk-Environment-PSSH-custom     | Contrôle l'environnement du Sun 'sfxxk'            |
 | Failover-Status | HW-Sun-Sfxxk-Failover-Status-PSSH-custom | Contrôle le statut du failover 'system controller' |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Sun-Sfxxk-PSSH-custom** est utilisé.
@@ -66,7 +66,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Pour superviser un serveur Sun SFxxK, assurez-vous que le System Controller (SC) est configuré avec SMS.
+Pour superviser un serveur Sun SFxxK, assurez-vous que le System Controller (SC) soit configuré avec SMS.
 
 ## Installer le connecteur de supervision
 
