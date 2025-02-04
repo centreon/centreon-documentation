@@ -168,14 +168,10 @@ yum install centreon-plugin-Applications-Proxmox-Mg-Api
 |:-------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | PROXMOXMGAPIUSERNAME     | Set API username                                                                                     |                   | X           |
 | PROXMOXMGAPIPASSWORD     | Set API password                                                                                     |                   | X           |
-| PROMOXMGAPIPROTO         | Specify https if needed (Default: 'https')                                                                                                     | https             |             |
-| PROXMOXMGAPIPROTO        | Specify https if needed                                                          |                   |             |
-| PROMOXMGAPIPORT          | API port                                                                                                     | 8006              |             |
-| PROXMOXMGAPIPORT         | API port (default: 8806)                                                                             |                   |             |
-| PROMOXMGAPIREALM         | Set user realm (default: 'pmg')                                                                                                     | pmg               |             |
-| PROMOXMGAPIURLPATH       | Specify api path                                                                                                     | /api2/json        |             |
-| PROXMOXMGAPIREALM        | Set user realm                                                                      |                   |             |
-| PROXMOXMGAPIURL          | API url path (default: '/api2/json')                                                                 |                   |             |
+| PROXMOXMGAPIPROTO        | Specify https if needed                                                                              | https             |             |
+| PROXMOXMGAPIPORT         | API port                                                                                             | 8006              |             |
+| PROXMOXMGAPIREALM        | Set user realm                                                                                       | mg                |             |
+| PROXMOXMGAPIURL          | API url path                                                                                         | /api2/json        |             |
 | PROXMOXMGAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
