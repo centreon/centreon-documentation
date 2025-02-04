@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 The Centreon Central Monitoring Connector will help you set up monitoring for your Centreon Central server.
 
-> The best practice is to have the central server monitored by a poller if you have one. If not, you will need to add the `--hostname=''` option to the host's `EXTRAOPTIONS` macro to avoid host key verification issues.
+> The best practice is to have the central server monitored by a poller if you have one. If not, you will need to add the `--hostname=''` option to the service's `EXTRAOPTIONS` macro to avoid host key verification issues.
 
 ### Templates
 
@@ -236,7 +236,7 @@ The `centreon-engine` user is now able to log in to the central server via SSH.
 
 ### Self-monitored central server
 
-If your central server is monitoring itself, you will need to add the `--hostname=''` option to the host's `EXTRAOPTIONS` macro to avoid host key verification issues. (It is however best practice that a central server is monitored by a poller.)
+If your central server is monitoring itself, you will need to add the `--hostname=''` option to the service's `EXTRAOPTIONS` macro to avoid host key verification issues. (It is however best practice that a central server is monitored by a poller.)
 
 ## Installing the monitoring connector
 

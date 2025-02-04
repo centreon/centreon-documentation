@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Le connecteur de supervision Centreon Central permet de faciliter la mise en place de la supervision pour le serveur central.
 
-> Nous recommandons fortement que le serveur central soit supervisé par un collecteur, si votre architecture en dispose d'un. Dans le cas contraire, vous devrez ajouter l'option `--hostname=''` à la macro `EXTRAOPTIONS` de l'hôte pour éviter d'avoir des erreurs de vérification de la clef de l'hôte.
+> Nous recommandons fortement que le serveur central soit supervisé par un collecteur, si votre architecture en dispose d'un. Dans le cas contraire, vous devrez ajouter l'option `--hostname=''` à la macro `EXTRAOPTIONS` du service pour éviter d'avoir des erreurs de vérification de la clef de l'hôte.
 
 ### Modèles
 
@@ -235,7 +235,7 @@ L'utilisateur `centreon-engine` du collecteur est alors capable d'ouvrir une ses
 
 ### Serveur central auto-supervisé
 
-Si votre serveur central se supervise lui-même, vous devrez ajouter l'option `--hostname=''` à la macro `EXTRAOPTIONS` de l'hôte pour éviter d'avoir des erreurs de vérification de la clef de l'hôte. (La meilleure pratique consiste cependant à superviser son central avec un collecteur.)
+Si votre serveur central se supervise lui-même, vous devrez ajouter l'option `--hostname=''` à la macro `EXTRAOPTIONS` du service pour éviter d'avoir des erreurs de vérification de la clef de l'hôte. (La meilleure pratique consiste cependant à superviser son central avec un collecteur.)
 
 ## Installer le connecteur de supervision
 
