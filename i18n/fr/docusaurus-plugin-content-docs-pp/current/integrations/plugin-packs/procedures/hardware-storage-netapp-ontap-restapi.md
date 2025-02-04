@@ -387,9 +387,9 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 | Macro                  | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERINDEX            | Filter by index (identified entry in the /etc/quotas) (can be a regexp)                                                                          |                   |             |
-| FILTERVSERVER          | Filter by vserver name (can be a regexp)                                                                                                         |                   |             |
+| FILTERVSERVER          | Filter by Vserver name (can be a regexp)                                                                                                         |                   |             |
 | FILTERVOLUME           | Filter by volume name (can be a regexp)                                                                                                          |                   |             |
-| FILTERQTREE            | Filter by qtree name (can be a regexp)                                                                                                           |                   |             |
+| FILTERQTREE            | Filter by Qtree name (can be a regexp)                                                                                                           |                   |             |
 | WARNINGSPACEUSAGE      | Threshold                                                                                                                                        |                   |             |
 | CRITICALSPACEUSAGE     | Threshold                                                                                                                                        |                   |             |
 | WARNINGSPACEUSAGEFREE  | Threshold                                                                                                                                        |                   |             |
@@ -403,7 +403,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 
 | Macro          | Description                                                                                                                                                     | Valeur par défaut                                     | Obligatoire |
 |:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| FILTERNAME     | Filter snapmirror name (can be a regexp)                                                                                                                        |                                                       |             |
+| FILTERNAME     | Filter SnapMirror name (can be a regexp)                                                                                                                        |                                                       |             |
 | UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\}  |                                                       |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\} | %\{healthy\} ne "true" or %\{state\} eq "broken\_off" |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\}  |                                                       |             |
@@ -641,9 +641,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
 | --filter-index           |   Filter by index (identified entry in the /etc/quotas) (can be a regexp).                                                    |
-| --filter-vserver         |   Filter by vserver name (can be a regexp).                                                                                   |
+| --filter-vserver         |   Filter by Vserver name (can be a regexp).                                                                                   |
 | --filter-volume          |   Filter by volume name (can be a regexp).                                                                                    |
-| --filter-qtree           |   Filter by qtree name (can be a regexp).                                                                                     |
+| --filter-qtree           |   Filter by Qtree name (can be a regexp).                                                                                     |
 | --warning-* --critical-* |   Thresholds. Can be: 'space-usage', 'space-usage-free', 'space-usage-prct'.                                                  |
 
 </TabItem>
@@ -652,7 +652,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                                                                                                                                                             |
 |:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                             |
-| --filter-name     |   Filter snapmirror name (can be a regexp).                                                                                                                                                                                             |
+| --filter-name     |   Filter SnapMirror name (can be a regexp).                                                                                                                                                                                             |
 | --unknown-status  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\}                                                                        |
 | --warning-status  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\}                                                                        |
 | --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{healthy\} ne "true" or %\{state\} eq "broken\_off"'). You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\}    |

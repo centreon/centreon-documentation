@@ -388,9 +388,9 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 | Macro                  | Description                                                                                                                            | Default value     | Mandatory   |
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERINDEX            | Filter by index (identified entry in the /etc/quotas) (can be a regexp)                                                                |                   |             |
-| FILTERVSERVER          | Filter by vserver name (can be a regexp)                                                                                               |                   |             |
+| FILTERVSERVER          | Filter by Vserver name (can be a regexp)                                                                                               |                   |             |
 | FILTERVOLUME           | Filter by volume name (can be a regexp)                                                                                                |                   |             |
-| FILTERQTREE            | Filter by qtree name (can be a regexp)                                                                                                 |                   |             |
+| FILTERQTREE            | Filter by Qtree name (can be a regexp)                                                                                                 |                   |             |
 | WARNINGSPACEUSAGE      | Threshold                                                                                                                              |                   |             |
 | CRITICALSPACEUSAGE     | Threshold                                                                                                                              |                   |             |
 | WARNINGSPACEUSAGEFREE  | Threshold                                                                                                                              |                   |             |
@@ -404,7 +404,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 
 | Macro          | Description                                                                                                                                                     | Default value                                         | Mandatory   |
 |:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| FILTERNAME     | Filter snapmirror name (can be a regexp)                                                                                                                        |                                                       |             |
+| FILTERNAME     | Filter SnapMirror name (can be a regexp)                                                                                                                        |                                                       |             |
 | UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\}  |                                                       |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\} | %\{healthy\} ne "true" or %\{state\} eq "broken\_off" |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\}  |                                                       |             |
