@@ -83,10 +83,11 @@ Two types of check action are available:
 - The **Check** action: a regular check that you perform only during the configured check period.
 - The **Forced check** action: a check that you can perform at any time (in or out of the configured check period).
 
-Check your resources and refresh their status in two ways:
+Check your resources and refresh their status in three ways:
 
 - By directly clicking the button on the line when the mouse is over it (**Forced check** only).
 - By selecting one or multiple lines and clicking the **Check** or **Forced check** button above the table.
+- By clicking the **Check** or **Forced check** button in the detail panel of the resource.
 
 ### Submit a status
 
@@ -231,7 +232,7 @@ Depending on the type of resource, the detail panel displays different informati
 
 The host panel contains the following elements:
 
-- **Details** tab: Detailed information about the host's current status. You can drag and drop tiles to rearrange them.
+- **Details** tab: Detailed information about the host's current status. You can drag and drop tiles to rearrange them. There are also buttons to [**acknowledge an alert**](acknowledge.md), [**set downtime**](downtimes.md) and [**refresh the status**](#refresh-a-status) of the resource below the panel tabs.
 - **Services** tab: A listing of its attached services and their current status (as well as their graphs if the corresponding mode is selected)
 - **Timeline** tab: The timeline of events that occurred for this host
 - **Graph** tab: Graphs for the services for this host
