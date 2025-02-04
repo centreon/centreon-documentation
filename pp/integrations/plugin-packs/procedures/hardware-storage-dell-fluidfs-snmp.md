@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias       | Service Template                                        | Service Description |
 |:--------------------|:--------------------------------------------------------|:--------------------|
 | Components-Global   | HW-Storage-Dell-Fluidfs-Components-Global-SNMP-custom   | Check components    |
-| Volume-Usage-Global | HW-Storage-Dell-Fluidfs-Volume-Usage-Global-SNMP-custom | Check volume usages |
+| Volume-Usage-Global | HW-Storage-Dell-Fluidfs-Volume-Usage-Global-SNMP-custom | Check volume usage |
 
 > The services listed above are created automatically when the **HW-Storage-Dell-Fluidfs-SNMP-custom** host template is used.
 

@@ -5,7 +5,7 @@ title: Dell FluidFS
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Dell FluidFS**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias               | Modèle de service                                       | Description                       |
 |:--------------------|:--------------------------------------------------------|:----------------------------------|
 | Components-Global   | HW-Storage-Dell-Fluidfs-Components-Global-SNMP-custom   | Contrôle les composants           |
-| Volume-Usage-Global | HW-Storage-Dell-Fluidfs-Volume-Usage-Global-SNMP-custom | Contrôle l'utilisation des volume |
+| Volume-Usage-Global | HW-Storage-Dell-Fluidfs-Volume-Usage-Global-SNMP-custom | Contrôle l'utilisation des volumes |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Dell-Fluidfs-SNMP-custom** est utilisé.
 
