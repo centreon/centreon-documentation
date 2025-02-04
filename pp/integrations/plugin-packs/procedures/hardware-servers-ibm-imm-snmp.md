@@ -235,7 +235,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Imm-Snmp
 
 | Macro        | Description                                                                                                                   | Default value     | Mandatory   |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | fan               |             |
+| COMPONENT    | Which component to check. Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | fan               |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                            | --verbose         |             |
 
 </TabItem>
@@ -251,7 +251,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Imm-Snmp
 
 | Macro        | Description                                                                                                                   | Default value     | Mandatory   |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | global            |             |
+| COMPONENT    | Which component to check. Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | global            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                            | --verbose         |             |
 
 </TabItem>
@@ -259,7 +259,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Imm-Snmp
 
 | Macro        | Description                                                                                                                   | Default value     | Mandatory   |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | temperature       |             |
+| COMPONENT    | Which component to check. Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | temperature       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                            | --verbose         |             |
 
 </TabItem>
@@ -267,7 +267,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Imm-Snmp
 
 | Macro        | Description                                                                                                                   | Default value     | Mandatory   |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | voltage           |             |
+| COMPONENT    | Which component to check. Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | voltage           |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                            | --verbose         |             |
 
 </TabItem>

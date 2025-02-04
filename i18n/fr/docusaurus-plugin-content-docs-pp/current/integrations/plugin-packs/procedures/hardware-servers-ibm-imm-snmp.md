@@ -5,7 +5,7 @@ title: IBM IMM
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **IBM IMM**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias              | Modèle de service                         | Description                                                                                                    |
 |:-------------------|:------------------------------------------|:---------------------------------------------------------------------------------------------------------------|
-| Environment-Global | HW-IBM-IMM-Environment-Global-SNMP-custom | Contrôle l'ensemble des sondes ('statut globale', 'ventilateur', 'température', 'voltage') de la carte IBM IMM |
+| Environment-Global | HW-IBM-IMM-Environment-Global-SNMP-custom | Contrôle l'ensemble des sondes ('statut global', 'ventilateur', 'température', 'voltage') de la carte IBM IMM |
 | Eventlog           | HW-IBM-IMM-Eventlog-SNMP-custom           | Contrôle les journaux d'événements de la carte IBM IMM                                                         |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-IBM-IMM-SNMP-custom** est utilisé.
@@ -38,7 +38,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias                    | Modèle de service                               | Description                                            |
 |:-------------------------|:------------------------------------------------|:-------------------------------------------------------|
 | Environment-Fan          | HW-IBM-IMM-Environment-Fan-SNMP-custom          | Contrôle les sondes 'ventilateur' de la carte IBM IMM  |
-| Environment-GlobalStatus | HW-IBM-IMM-Environment-GlobalStatus-SNMP-custom | Contrôle la sonde 'statut globale' de la carte IBM IMM |
+| Environment-GlobalStatus | HW-IBM-IMM-Environment-GlobalStatus-SNMP-custom | Contrôle la sonde 'statut global' de la carte IBM IMM |
 | Environment-Temperature  | HW-IBM-IMM-Environment-Temperature-SNMP-custom  | Contrôle les sondes 'température' de la carte IBM IMM  |
 | Environment-Voltage      | HW-IBM-IMM-Environment-Voltage-SNMP-custom      | Contrôle les sondes 'voltage' de la carte IBM IMM      |
 
@@ -234,7 +234,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Imm-Snmp
 
 | Macro        | Description                                                                                                                   | Valeur par défaut | Obligatoire |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | fan               |             |
+| COMPONENT    | Which component to check. Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | fan               |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                            | --verbose         |             |
 
 </TabItem>
@@ -250,7 +250,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Imm-Snmp
 
 | Macro        | Description                                                                                                                   | Valeur par défaut | Obligatoire |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | global            |             |
+| COMPONENT    | Which component to check. Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | global            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                            | --verbose         |             |
 
 </TabItem>
@@ -258,7 +258,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Imm-Snmp
 
 | Macro        | Description                                                                                                                   | Valeur par défaut | Obligatoire |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | temperature       |             |
+| COMPONENT    | Which component to check. Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | temperature       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                            | --verbose         |             |
 
 </TabItem>
@@ -266,7 +266,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Imm-Snmp
 
 | Macro        | Description                                                                                                                   | Valeur par défaut | Obligatoire |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | voltage           |             |
+| COMPONENT    | Which component to check. Can be: 'cpu', 'disk', 'fan', 'global', 'memory', 'power', 'temperature', 'voltage' | voltage           |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                            | --verbose         |             |
 
 </TabItem>
