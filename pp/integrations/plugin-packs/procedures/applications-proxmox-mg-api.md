@@ -171,14 +171,10 @@ yum install centreon-plugin-Applications-Proxmox-Mg-Api
 |:-------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | PROXMOXMGAPIUSERNAME     | Set API username                                                                                     |                   | X           |
 | PROXMOXMGAPIPASSWORD     | Set API password                                                                                     |                   | X           |
-| PROMOXMGAPIPROTO         | Specify https if needed (Default: 'https')                                                                                                     | https             |             |
-| PROXMOXMGAPIPROTO        | Specify https if needed                                                          |                   |             |
-| PROMOXMGAPIPORT          | API port                                                                                                     | 8006              |             |
-| PROXMOXMGAPIPORT         | API port (default: 8806)                                                                             |                   |             |
-| PROMOXMGAPIREALM         | Set user realm (default: 'pmg')                                                                                                     | pmg               |             |
-| PROMOXMGAPIURLPATH       | Specify api path                                                                                                     | /api2/json        |             |
-| PROXMOXMGAPIREALM        | Set user realm                                                                      |                   |             |
-| PROXMOXMGAPIURL          | API url path (default: '/api2/json')                                                                 |                   |             |
+| PROXMOXMGAPIPROTO        | Specify https if needed                                                                              | https             |             |
+| PROXMOXMGAPIPORT         | API port                                                                                             | 8006              |             |
+| PROXMOXMGAPIREALM        | Set user realm                                                                                       | mg                |             |
+| PROXMOXMGAPIURL          | API url path                                                                                         | /api2/json        |             |
 | PROXMOXMGAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -238,12 +234,12 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=apps::proxmox::mg::restapi::plugin \
 	--mode=mail \
 	--hostname='10.0.0.1' \
-	--url-path='' \
+	--url-path='/api2/json' \
 	--port='8006' \
 	--proto='https' \
 	--api-username='xxxxxxx' \
 	--api-password='xxxxxxx' \
-	--realm=''  \
+	--realm='mg'  \
 	--hours='12' \
 	--timespan='1800' \
 	--warning-mails-incoming='' \
