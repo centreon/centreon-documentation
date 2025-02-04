@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                         | Service Description                   |
 |:--------------|:-----------------------------------------|:--------------------------------------|
-| Chassis       | HW-Server-Huawei-Hmm-Chassis-SNMP-custom | Check components state of the chassis |
+| Chassis       | HW-Server-Huawei-Hmm-Chassis-SNMP-custom | Check the state of a chassis's components |
 
 > The services listed above are created automatically when the **HW-Server-Huawei-Hmm-SNMP-custom** host template is used.
 
@@ -35,7 +35,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                       | Service Description               |
 |:--------------|:---------------------------------------|:----------------------------------|
-| Blade         | HW-Server-Huawei-Hmm-Blade-SNMP-custom | Check components state of a blade |
+| Blade         | HW-Server-Huawei-Hmm-Blade-SNMP-custom | Check the state of a blade's components |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 

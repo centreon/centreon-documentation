@@ -5,7 +5,7 @@ title: Huawei HMM
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Huawei HMM**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias   | Modèle de service                        | Description                               |
 |:--------|:-----------------------------------------|:------------------------------------------|
-| Chassis | HW-Server-Huawei-Hmm-Chassis-SNMP-custom | Contrôle l'état des composants du chassis |
+| Chassis | HW-Server-Huawei-Hmm-Chassis-SNMP-custom | Contrôle l'état des composants du châssis |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Huawei-Hmm-SNMP-custom** est utilisé.
 
