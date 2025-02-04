@@ -45,3 +45,5 @@ chown -R centreon-engine. /usr/lib/centreon/git-plugins
 2. Create a dedicated user (e.g., **sms**) and in the **Host Notification Commands** and **Service Notification Commands** fields, select the commands your have created at step 2. Also select values for the **Host/service Notification Options** and **Host/service Notification Period** fields.
 3. For the hosts you want, on the **Notification** tab, in the **Linked contacts** field, select the dedicated user you just created.
 4. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md). A notification SMS will now be sent to the number you defined when the status changes you have configured go to HARD.
+
+> The sms process is not parallelized. This means that no check will processed until the last SMS is sent by the server.
