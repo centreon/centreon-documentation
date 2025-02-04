@@ -5,7 +5,7 @@ title: Dell ME4 Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Dell Me4 Rest API** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -53,8 +53,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                                        | Description                                                                         |
 |:-------------------------------------------------------|:------------------------------------------------------------------------------------|
-| HW-Storage-Dell-Me4-Restapi-Controller-Statistics-Name | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
-| HW-Storage-Dell-Me4-Restapi-Volume-Statistics-Name     | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
+| HW-Storage-Dell-Me4-Restapi-Controller-Statistics-Name | Découvre les contrôleurs et les supervise |
+| HW-Storage-Dell-Me4-Restapi-Volume-Statistics-Name     | Découvre les volumes et les supervise |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -126,7 +126,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de contrôler votre équipement Dell ME4, l'API Rest doit être configuré (cf: https://www.dell.com/support/manuals/fr-fr/powervault-me4024/me4_series_cli_pub/using-a-script-to-access-the-cli?guid=guid-9ae5ccd6-a207-42df-b2f3-1e02a487a354&lang=en-us)
+Afin de superviser votre équipement Dell ME4, l'API Rest doit être configurée (cf: https://www.dell.com/support/manuals/fr-fr/powervault-me4024/me4_series_cli_pub/using-a-script-to-access-the-cli?guid=guid-9ae5ccd6-a207-42df-b2f3-1e02a487a354&lang=en-us)
 
 ## Installer le connecteur de supervision
 
@@ -227,8 +227,8 @@ yum install centreon-plugin-Hardware-Storage-Dell-Me4-Restapi
 |:----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | APIUSERNAME     | API username                                                                                         |                   | X           |
 | APIPASSWORD     | API password                                                                                         |                   | X           |
-| APIPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
-| APIPORT         | Port used (default: 443)                                                                             | 443               |             |
+| APIPROTO        | Specify https if needed                                                          | https             |             |
+| APIPORT         | Port used                                                                            | 443               |             |
 | APIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -353,8 +353,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=storage::dell::me4::restapi::plugin \
 	--mode=interfaces \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
 	--port='443' \
 	--proto='https'  \
 	--filter-port-name='' \

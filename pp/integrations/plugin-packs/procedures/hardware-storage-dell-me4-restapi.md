@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias         | Service Template                                         | Service Description          | Discovery  |
 |:----------------------|:---------------------------------------------------------|:-----------------------------|:----------:|
-| Controller-Statistics | HW-Storage-Dell-Me4-Controller-Statistics-Restapi-custom | Check controllers statistics | X          |
+| Controller-Statistics | HW-Storage-Dell-Me4-Controller-Statistics-Restapi-custom | Check controller statistics | X          |
 | Hardware              | HW-Storage-Dell-Me4-Hardware-Restapi-custom              | Check hardware               |            |
-| Volume-Statistics     | HW-Storage-Dell-Me4-Volume-Statistics-Restapi-custom     | Check volumes statistics     | X          |
+| Volume-Statistics     | HW-Storage-Dell-Me4-Volume-Statistics-Restapi-custom     | Check volume statistics     | X          |
 
 > The services listed above are created automatically when the **HW-Storage-Dell-Me4-Restapi-custom** host template is used.
 
@@ -52,8 +52,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                                              | Description                                               |
 |:-------------------------------------------------------|:----------------------------------------------------------|
-| HW-Storage-Dell-Me4-Restapi-Controller-Statistics-Name | Discover the disk partitions and monitor space occupation |
-| HW-Storage-Dell-Me4-Restapi-Volume-Statistics-Name     | Discover the disk partitions and monitor space occupation |
+| HW-Storage-Dell-Me4-Restapi-Controller-Statistics-Name | Discover controllers and monitor them |
+| HW-Storage-Dell-Me4-Restapi-Volume-Statistics-Name     | Discover volumes and monitor them |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -127,7 +127,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 To control your Dell ME4, the Rest API must be configured.
 
-E.g: https://www.dell.com/support/manuals/fr-fr/powervault-me4024/me4_series_cli_pub/using-a-script-to-access-the-cli?guid=guid-9ae5ccd6-a207-42df-b2f3-1e02a487a354&lang=en-us
+https://www.dell.com/support/manuals/fr-fr/powervault-me4024/me4_series_cli_pub/using-a-script-to-access-the-cli?guid=guid-9ae5ccd6-a207-42df-b2f3-1e02a487a354&lang=en-us
 
 ## Installing the monitoring connector
 
@@ -230,8 +230,8 @@ yum install centreon-plugin-Hardware-Storage-Dell-Me4-Restapi
 |:----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | APIUSERNAME     | API username                                                                                         |                   | X           |
 | APIPASSWORD     | API password                                                                                         |                   | X           |
-| APIPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
-| APIPORT         | Port used (default: 443)                                                                             | 443               |             |
+| APIPROTO        | Specify https if needed                                                          | https             |             |
+| APIPORT         | Port used                                                                           | 443               |             |
 | APIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -354,8 +354,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=storage::dell::me4::restapi::plugin \
 	--mode=interfaces \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
 	--port='443' \
 	--proto='https'  \
 	--filter-port-name='' \
