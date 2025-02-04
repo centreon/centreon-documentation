@@ -179,7 +179,7 @@ You must uncomment this paragraph or recreate a configuration file with just the
 If the communication between Telegraf and the poller is not encrypted, you just have to enter the IP address and port of the poller in the **service_address** option (port entered in the **otel_server** field in the poller’s configuration). If not, you will also need to provide a value for at least **tls_ca**.
 
 Now you need to add the Telegraf configuration server provided by the poller.
-You must create the ***/etc/default/telegraf file** and add the following line:
+You must create the **/etc/default/telegraf file** and add the following line:
 
 ```
 TELEGRAF_OPTS=-config https://<ip poller>:<http_server port>/engine?host=<host_to_monitor>

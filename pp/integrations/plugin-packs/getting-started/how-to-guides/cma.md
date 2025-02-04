@@ -257,6 +257,11 @@ systemctl status centagent
 <TabItem value="Interactive mode" label="Interactive mode">
 
 1. Start the installer (during the configuration, you can click on the (i) icons for help).
+   If you choose to install centreon-plugins, installer will try to download and install latest version of centreon plugins. If he can't (no web connection, network issue..), a popup is displayed to ask confirmation before using embedded plugins
+  * Is yes : they are installed
+  * If no : no plugins are installed
+  
+  Results are displayed in installer detail frame.
    
 2. Configure the endpoint and the connection:
    * **Host name in Centreon**. This must be the host name you have defined in the Centreon interface.
