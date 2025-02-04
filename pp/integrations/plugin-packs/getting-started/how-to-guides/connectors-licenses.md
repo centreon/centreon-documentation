@@ -12,18 +12,18 @@ In all cases, adding a license (token for online licenses, license files for off
 
 ## Online license
 
-With an online license :
+With an online license (all Cloud platforms, some OnPrem platforms):
 
-* Your platform must be connected to the internet.
+* Your central server/SaaS platform must be connected to the internet.
 * The **Configuration > Monitoring Connector Manager** page always displays the complete catalog of monitoring connectors.
 * Available updates are displayed automatically.
 
 ## Offline license
 
-With an offline license :
+With an offline license (ONPrem platforms only):
 
-* Your platform does not need an internet connection (it can be located in a DMZ).
-* The **Configuration > Monitoring Connector Manager** page displays only the connectors whose packages are installed.
+* It is not mandatory that your platform has an internet connection (it can be located in a DMZ).
+* The **Configuration > Monitoring Connector Manager** page displays only the connectors whose `centreon-pack-*` packages are installed on the central platform.
 * You do not automatically see or retrieve new connectors and updates for installed connectors. To retrieve new connectors and update existing ones, use the following command:
 
 <Tabs groupId="sync">
@@ -61,6 +61,8 @@ apt update && apt upgrade centreon-pack-*
 
 </TabItem>
 </Tabs>
+
+> If your platform has no internet connection, you will need to install the updates from a mirror repository. Adapt [the following procedure](/docs/installation/offline) to the connectors repository.
 
 ## Connector updates and breaking changes
 

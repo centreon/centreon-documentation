@@ -12,18 +12,18 @@ Dans tous les cas, ajouter une licence (jeton pour licence online, fichiers de l
 
 ## Licence online
 
-Avec une licence online :
+Avec une licence online (toutes les plateformes Cloud, certaines plateformes OnPrem) :
 
-* Votre plateforme doit être connectée à internet.
+* Votre serveur central/plateforme SaaS doit être connectée à internet.
 * La page **Configuration > Connecteurs de supervision** affiche toujours le catalogue complet des connecteurs de supervision.
-* Les mises à jour disponibles sont automatiqmeent indiquées.
+* Les mises à jour disponibles sont automatiquement indiquées.
 
 ## Licence offline
 
-Avec une licence offline :
+Avec une licence offline (plateformes OnPrem uniquement):
 
-* Votre plateforme n'a pas besoin d'une connexion à internet (elle peut se trouver dans une DMZ).
-* La page **Configuration > Connecteurs de supervision** affiche les connecteurs dont les paquets sont installés.
+* Il n'est pas obligatoire que votre plateforme ait une connexion à internet (elle peut se trouver dans une DMZ).
+* La page **Configuration > Connecteurs de supervision** affiche les connecteurs dont les paquets `centreon-pack-*` sont installés sur le serveur central.
 * Vous ne voyez et ne recevez pas automatiquement les nouveaux connecteurs et les mises à jour des connecteurs installés. Pour récupérer les nouveaux connecteurs et mettre à jour ceux existants, utilisez la commande suivante :
 
 <Tabs groupId="sync">
@@ -61,6 +61,8 @@ apt update && apt upgrade centreon-pack-*
 
 </TabItem>
 </Tabs>
+
+> Si votre platform n'a pas de connexion internet, vous devrez installer les mises à jour depuis un dépôt mirroir. Adaptez [la procédure suivante](/docs/installation/offline) au dépôt des connecteurs.
 
 ## Mises à jour de connecteurs et "breaking changes"
 
