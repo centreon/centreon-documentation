@@ -312,11 +312,11 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--mode=vpn-gateway-status \
 	--custommode='api' \
 	--filter-name='' \
-	--resource-group='' \
-	--subscription='' \
-	--tenant='' \
-	--client-id='' \
-	--client-secret='' \
+	--resource-group='XXXX' \
+	--subscription='XXXX' \
+	--tenant='XXXX' \
+	--client-id='XXXX' \
+	--client-secret='XXXX' \
 	--proxyurl=''  \
 	--filter-name='' \
 	--warning-status='' \

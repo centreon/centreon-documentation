@@ -198,7 +198,7 @@ yum install centreon-plugin-Cloud-Azure-Network-VpnGateway-Api
 | Macro              | Description                                                                                                                                                                                                                        | Default value                  | Mandatory   |
 |:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
 | AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                                                                                                         | api                            |             |
-| AZURERESOURCE      | Set resource name or ID (required)                                                                                                                                                                                                 |                                |             |
+| AZURERESOURCE      | Set resource name or ID                                                                                                                                                                                               |                                |             |
 | AZURERESOURCEGROUP | Set resource group (required)                                                                                                                                                                                                      |                                | X           |
 | AZURESUBSCRIPTION  | Set Azure subscription ID                                                                                                                                                                                                          |                                | X           |
 | PROXYURL           | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                           |                                |             |
@@ -216,7 +216,7 @@ yum install centreon-plugin-Cloud-Azure-Network-VpnGateway-Api
 | AZURECLIENTID      | Set Azure client ID                                                                                                                                                                                                                |                                | X           |
 | AZURECLIENTSECRET  | Set Azure client secret                                                                                                                                                                                                            |                                | X           |
 | AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                                                                                                         | api                            |             |
-| AZURERESOURCE      | Set resource name or ID (required)                                                                                                                                                                                                 |                                |             |
+| AZURERESOURCE      | Set resource name or ID                                                                                                                                                                                                 |                                |             |
 | AZURERESOURCEGROUP | Set resource group (required)                                                                                                                                                                                                      |                                | X           |
 | AZURESUBSCRIPTION  | Set Azure subscription ID                                                                                                                                                                                                          |                                | X           |
 | AZURETENANT        | Set Azure tenant ID                                                                                                                                                                                                                |                                | X           |
@@ -310,11 +310,11 @@ is able to monitor an Azure Instance using a command like this one (replace the 
 	--mode=vpn-gateway-status \
 	--custommode='api' \
 	--filter-name='' \
-	--resource-group='' \
-	--subscription='' \
-	--tenant='' \
-	--client-id='' \
-	--client-secret='' \
+	--resource-group='XXXX' \
+	--subscription='XXXX' \
+	--tenant='XXXX' \
+	--client-id='XXXX' \
+	--client-secret='XXXX' \
 	--proxyurl=''  \
 	--filter-name='' \
 	--warning-status='' \
