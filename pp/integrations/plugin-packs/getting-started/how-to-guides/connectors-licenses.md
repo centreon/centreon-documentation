@@ -56,7 +56,7 @@ dnf update centreon-pack-*
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-apt update && apt upgrade centreon-pack-*
+apt update && apt install -only-upgrade centreon-pack*
 ```
 
 </TabItem>
