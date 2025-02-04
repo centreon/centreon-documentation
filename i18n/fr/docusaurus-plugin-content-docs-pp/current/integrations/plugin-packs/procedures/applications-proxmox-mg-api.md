@@ -5,7 +5,7 @@ title: Proxmox Mail Gateway
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Proxmox Mail Gateway**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -67,7 +67,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de contrôler l'application Proxmox Mail Gateway, l'API Rest doit être configuré (cf: https://pmg.proxmox.com/pmg-docs/api-viewer/index.html)
+Afin de superviser l'application Proxmox Mail Gateway, l'API Rest doit être configurée (cf: https://pmg.proxmox.com/pmg-docs/api-viewer/index.html)
 
 ## Installer le connecteur de supervision
 
@@ -238,8 +238,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--mode=mail \
 	--hostname='10.0.0.1' \
 	--url-path='' \
-	--port='' \
-	--proto='' \
+	--port='8006' \
+	--proto='https' \
 	--api-username='xxxxxxx' \
 	--api-password='xxxxxxx' \
 	--realm=''  \

@@ -68,7 +68,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 To control your Proxmox Mail Gateway, the Rest API must be configured.
 
-E.g: https://pmg.proxmox.com/pmg-docs/api-viewer/index.html
+https://pmg.proxmox.com/pmg-docs/api-viewer/index.html
 
 ## Installing the monitoring connector
 
@@ -239,8 +239,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--mode=mail \
 	--hostname='10.0.0.1' \
 	--url-path='' \
-	--port='' \
-	--proto='' \
+	--port='8006' \
+	--proto='https' \
 	--api-username='xxxxxxx' \
 	--api-password='xxxxxxx' \
 	--realm=''  \
