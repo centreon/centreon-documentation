@@ -5,7 +5,7 @@ title: Sun Mseries
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Sun Mseries**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -27,8 +27,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias    | Modèle de service                   | Description                         |
 |:---------|:------------------------------------|:------------------------------------|
-| Domains  | HW-Sun-Mseries-Domains-SNMP-custom  | Contrôle le statut des domaines sun |
-| Hardware | HW-Sun-Mseries-Hardware-SNMP-custom | Contrôle le matériel sun mseries    |
+| Domains  | HW-Sun-Mseries-Domains-SNMP-custom  | Contrôle le statut des domaines Sun |
+| Hardware | HW-Sun-Mseries-Hardware-SNMP-custom | Contrôle le matériel Sun Mseries    |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Sun-Mseries-SNMP-custom** est utilisé.
 

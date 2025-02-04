@@ -26,8 +26,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                    | Service Description         |
 |:--------------|:------------------------------------|:----------------------------|
-| Domains       | HW-Sun-Mseries-Domains-SNMP-custom  | Check status of sun domains |
-| Hardware      | HW-Sun-Mseries-Hardware-SNMP-custom | Check sun mseries Hardware  |
+| Domains       | HW-Sun-Mseries-Domains-SNMP-custom  | Check the status of Sun domains |
+| Hardware      | HW-Sun-Mseries-Hardware-SNMP-custom | Check Sun Mseries hardware  |
 
 > The services listed above are created automatically when the **HW-Server-Sun-Mseries-SNMP-custom** host template is used.
 
