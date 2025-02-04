@@ -50,7 +50,7 @@ It is possible of define two settings:
 
 Logical dependencies consist of installing logical links between
 multiple objects that may or not be of different types. E.g.: a service
-is in charge of supervising the access to a web page requiring an
+is in charge of monitoring the access to a web page requiring an
 authentication based on a LDAP. It is logical that if the LDAP server is
 down, the access to the web page will be difficult or even impossible.
 In this situation, the notification issued should only be communicated

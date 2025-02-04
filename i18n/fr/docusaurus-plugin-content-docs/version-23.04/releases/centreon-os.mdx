@@ -22,6 +22,180 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 23.04.25
+
+Release date: `January 27, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in "Host Monitoring" widget in Custom Views, for authenticated users having sufficient rights to export data in CSV.
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to export data in CSV.
+- [Security] Fixed SQLi in "Service Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed a vulnerability in the contact creation form.
+- [Security] Updated Symfony **Security-Http** component.
+
+</details>
+
+### 23.04.24
+
+Release date: `January 09, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added missing configuration change logs for service severities configuration.
+- [Install] Added 23.04 support for unattended script.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Custom Views] Fixed an issue preventing some filters from functioning in the "Hostgroup monitoring" and "Host monitoring" widgets.
+- [Event Logs] Fixed hostgroup selection.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed an issue on virtual metrics' RPN field.
+- [Security] Fixed a security issue in media binary.
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to export the results in CSV format.
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "Host Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "TOP10 CPU usage" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "TOP10 Memory usage" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Improved an SQL query triggered via the Event Logs menu for better protection.
+
+</details>
+
+### 23.04.23
+
+Release date: `November 21, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Install] The unattended script is now available for version 23.04.
+- [Resource Status] Anomaly Detection services for a host are now displayed in the Services tab of its details panel.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Administration] The names of the metaservices are now correctly displayed in the "Administration > Parameters > Data" menu.
+- [Debian] Fixed dependencies between Centreon packages.
+- [Configuration] Fixed incorrect links in the Export configuration page.
+- [Resource Status] Fixed an issue where actions in one browser tab were being replicated to another tab that was open on the same menu.
+- [Resource Status] Fixed an issue with the status_type filter that occurred when values were in upper case.
+- [Resource Status] Fixed behavior of page refresh button that was changing the resource displayed in the open panel.
+- [Resource Status] Fixed display of scale/units on graphs containing multiple curves.
+- [Resource Status] If no notification has ever been sent, the "Last notification" field in the details panel is left blank instead of displaying 1970.
+- [Resource Status] Removed list refresh that was triggered by hovering over the left main menu.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed XSS vulnerability in "Administration > Logs" menu (CVE-2024-47863).
+- [Security] Fixed XSS vulnerability on poller name in several menus.
+
+</details>
+
+### 23.04.22
+
+Release date: `September 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed access control for monitoring server configuration endpoints.
+- [Authorization] Fixed an issue on ACL reloading.
+- [Authentication] Fixed incorrect URL redirection issue with OpenID Connect.
+- [Authentication] The task that deletes expired tokens is now scheduled more frequently.
+- [Packaging] Fixed invalid permissions on the cron file that deletes outdated tokens.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQL injection vulnerability in host-monitoring widgets.
+- [Security] Fixed SQLi in contacts form (CVE-2024-39843).
+- [Security] Updated jQuery & jQuery-UI dependencies (CVE-2022-31160)
+
+</details>
+
+### 23.04.21
+
+Release date: `September 11, 2024`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in contacts form (CVE-2024-39843).
+
+</details>
+
+### 23.04.20
+
+Release date: `July 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Unattended] Backported recent bug fixes on the Unattended script (http services not restarting, it-edition-extensions installation, unattended issue on Oracle Linux distributions).
+
+</details>
+
+### 23.04.19
+
+Release date: `June 26, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed API access control for monitoring endpoints.
+- [Authentication] Fixed a random disconnection issue occurring with SAML authentication.
+- [Configuration] Exporting the configuration no longer fails when a host severity and a service severity have the same name.
+- [Configuration] Fixed mass change on services.
+- [Unattended] Fixed default version used by the script.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed several SQLi issues.
+
+</details>
+
+### 23.04.18
+
+Release date: `May 27, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue affecting downtimes on services linked to a service group via a service template.
+- [Configuration] Fixed an issue where the Service Categories configuration page could appear blank.
+- [Packaging] Fixed symbolic link between **/usr/lib/nagios/plugins** and **/usr/lib64/nagios/plugins**.
+- [UX] Fixed an issue where the top counter pop-up was not closed when users clicked outside of it.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed several SQLi issues.
+- [Security] Fixed XSS in a configuration page.
+
+</details>
+
 ### 23.04.17
 
 Release date: `April 10, 2024`
@@ -33,7 +207,7 @@ Release date: `April 10, 2024`
 
 </details>
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] Upgraded axios dependency.
@@ -53,7 +227,7 @@ Release date: `March 13, 2024`
 
 </details>
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] Improved allowed commands for Centreon Gorgone.
@@ -95,7 +269,7 @@ Release date: `January 15, 2024`
 
 Release date: `January 2, 2024`
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] Fixed an SQLi vulnerability (CVE-2024-0637, CVE-2024-23115, CVE-2024-23116, CVE-2024-23117, CVE-2024-23118, CVE-2024-23119).
@@ -158,7 +332,7 @@ Release date: `November 17, 2023`
 
 </details>
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] Fixed SQLi in a method.
@@ -316,7 +490,7 @@ Release date: `June 20, 2023`
 
 Release date: `June 19, 2023`
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] Fixed the base URI change detection mechanism.
@@ -409,11 +583,82 @@ Release date: `April 26, 2023`
 
 ## Centreon Collect
 
+### 23.04.17
+
+Release date: `December 19, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Engine] Fixed an issue where retention.dat files were deleted after an upgrade.
+
+</details>
+
+### 23.04.16
+
+Release date: `November 26, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Adapted Broker to a new behavior of the MariaDB database concerning errors: Broker no longer fails to reconnect after an error.
+- [Broker] The Stream Connector cache behavior with host groups and service groups has been improved. When a host group or service group is deleted, it is also correctly removed from the Stream Connector caches.
+
+</details>
+
+### 23.04.15
+
+Release date: `September 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] If a plugin sends the same metric several times, an error log from broker explains the issue and only the first occurrence of the metric is kept.
+- [Engine] Fixed issues with the output of external commands.
+
+</details>
+
+### 23.04.14
+
+Release date: `July 17, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue that occurred when inserting too large metrics into the database, which resulted in an error log.
+- [Broker] Added support for the default connection method to MySQL 8.0.35.
+
+</details>
+
+### 23.04.13
+
+Release date: `June 20, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Engine] Added a new centengine parameter (`send_recovery_notifications_anyways`) to force sending a recovery notification even when the resource is outside of its notification period. This aims at keeping third-party tools up-to-date at any time when they are fed notifications.
+- [Engine] Engine can now handle extra configuration files to complement/overload the centengine.cfg file. This enhancement allows you to keep a custom configuration unchanged when exporting the configuration.
+
+</details>
+
+### 23.04.12
+
+Release date: `May 27, 2024`
+
+<details>
+  <summary>Bug Fixes</summary>
+
+- [Broker] Fixed an issue that caused MySQL errors in Broker logs, due to attempts to insert relations between BAs and disabled time periods.
+- [Packaging] Added symbolic link from **/usr/lib64/nagios/plugins** to **/usr/lib/nagios/plugins**.
+
+</details>
+
 ### 23.04.11
 
 Release date: `April 08, 2024`
 
-<details open>
+<details>
   <summary>Bug Fixes</summary>
 
 - [Collect] To limit dependencies, perl-interpretor is now used instead of perl in the centreon-connector-perl package (rpm).
@@ -427,7 +672,7 @@ Release date: `March 19, 2024`
 
 #### Centreon Broker
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - [Broker] BA initialization could result in KPIs having incoherent statuses. This was breaking the statuses of the BAs.
@@ -629,6 +874,44 @@ Compatibility with other 23.04 components.
 
 ## Centreon Gorgone
 
+### 23.04.16
+
+Release date: `September 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Added a partition for the Gorgone MBI **mod_bi_metriccentileweeklyvalue** and **mod_bi_metriccentilemonthlyvalue** tables, which are required by the ETL to run correctly.
+- [Gorgone] Fixed an issue affecting CPU load when a poller was not responding.
+- [Gorgone] Fixed an issue stopping the **nmap** discovery provider from working after a Gorgone whitelist was created.
+- [Gorgone] The password of an MBI database user can now include special characters.
+
+</details>
+
+### 23.04.15
+
+Release date: `June 26, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed gorgone whitelist for HA architecture.
+
+</details>
+
+### 23.04.14
+
+Release date: `May 27, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a path issue on systemctl (Gorgone whitelist).
+- Fixed a minor issue where unnecessary error messages were displayed.
+- [Packaging] Fixed inconsistent system permissions on **/var/log/centreon-engine/centengine.log**.
+
+</details>
+
 ### 23.04.13
 
 Release date: `April 10, 2024`
@@ -806,6 +1089,17 @@ Compatibility with other 23.04 components.
 
 ## Centreon DSM
 
+### 23.04.3
+
+Release date: `November 21, 2024`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in the Centreon DSM slot configuration form, only accessible to authenticated users with high privilege access. (CVE-2024-45755) 
+
+</details>
+
 ### 23.04.2
 
 Release date: `July 10, 2023`
@@ -840,6 +1134,28 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Open Tickets
+
+### 23.04.5
+
+Release date: `December 5, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Open Ticket widget] Fixed an issue preventing non admin users from opening tickets.
+
+</details>
+
+### 23.04.4
+
+Release date: `November 21, 2024`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in the ticket creation form, only accessible to authenticated users with high privilege access. (CVE-2024-45756)	
+
+</details>
 
 ### 23.04.3
 

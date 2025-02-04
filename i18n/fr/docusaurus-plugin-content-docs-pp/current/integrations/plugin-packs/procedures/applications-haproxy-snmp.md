@@ -120,7 +120,7 @@ yum install centreon-pack-applications-haproxy-snmp
     --snmp-community='my-snmp-community'   \
     --filter-name=''  \
     --warning-status=''  \
-    --critical-status='%{status} !~ /OPEN/i'  \
+    --critical-status='%\{status\} !~ /OPEN/i'  \
     --warning-total-sessions=''  \
     --critical-total-sessions=''  \
     --warning-current-sessions=''  \

@@ -106,7 +106,7 @@ can enable the detection of flapping:
 
 You can modify the thresholds or keep preconfigured.
 
-### Flap Detection for Services
+### Flap Detection for hosts
 
 If you enable the flapping detection for a scheduler (Centreon Engine),
 the process will by applied for all resources monitored by it.
@@ -123,7 +123,7 @@ You can also adapt flapping thresholds for this resource.
 
 > Use templates to facilitate configuration
 
-### Flap Detection for Hosts
+### Flap Detection for services
 
 If you enable the flapping detection for a scheduler (Centreon Engine),
 the process will by applied for all resources monitored by it.

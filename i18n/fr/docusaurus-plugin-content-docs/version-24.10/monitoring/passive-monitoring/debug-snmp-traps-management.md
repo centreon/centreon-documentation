@@ -100,7 +100,7 @@ Puis redémarrez **centreontrapd** :
 systemctl restart centreontrapd
 ```
 
-### Centeon Gorgone
+### Centreon Gorgone
 
 Dans le cas d’un serveur central, le processus Centreon Gorgone doit être démarré pour transférer la commande externe à
 l’ordonnanceur supervisant l’émetteur, vérifiez son état de fonctionnement. Activez le débogage du processus via le

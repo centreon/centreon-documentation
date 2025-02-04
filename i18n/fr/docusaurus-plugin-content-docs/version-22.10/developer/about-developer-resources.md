@@ -5,7 +5,6 @@ title: À propos des ressources développeur
 
 Ce chapitre regroupe toutes les ressources permettant d'étendre les fonctionnalités de Centreon.
 
-- [Comment écrire un module](developer-module.md)
 - [Comment écrire un widget](developer-widget.md)
 - [Comment écrire un Stream Connector](developer-stream-connector.md)
 - [Comment traduire Centreon](developer-translate-centreon.md)

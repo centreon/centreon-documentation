@@ -7,6 +7,38 @@ import TabItem from '@theme/TabItem';
 
 This chapter shows some guidelines on how to troubleshoot your MAP installation.
 
+## centreon-map-engine and all its dependencies cannot get installed on Alma Linux 8
+
+#### Symptom
+
+You get a GPG error during the installation of OpenJDK 17 preventing centreon-map-engine and all its dependencies from being installed.
+
+#### Problem
+
+You are not importing the right repository.
+
+#### Solution
+
+Run the following command to import the right repository:
+
+```shell
+rpm --import https://repo.almalinux.org/almalinux/RPM-GPG-KEY-AlmaLinux
+```
+
+## "Failed to authenticate" error when connecting to the MAP homepage
+
+#### Symptom
+
+A "Failed to authenticate" error occurs in the MAP homepage when trying to connect to the Centreon MAP service.
+
+#### Problem
+
+The credentials used by the **Web interface** user (defined during the installation) to connect to the MAP module are no longer valid because they have been changed, probably due to a password expiration.
+
+#### Solution
+
+You can update the password by accessing this file: **/etc/centreon-map/map-config.properties**.
+
 ## MAP configuration is not working in HTTPS
 
 ### Symptom

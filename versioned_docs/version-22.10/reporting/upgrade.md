@@ -60,7 +60,7 @@ yum update centreon-bi-server
 
 ```shell
 apt clean
-apt update && apt upgrade centreon-bi-server
+apt install --only-upgrade centreon-bi-server
 ```
 
 </TabItem>
@@ -130,7 +130,7 @@ yum update centreon-bi\*
 
 ```shell
 apt clean
-apt update && apt upgrade centreon-bi-reporting-server
+apt install --only-upgrade centreon-bi-reporting-server
 ```
 
 </TabItem>

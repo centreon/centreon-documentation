@@ -39,7 +39,7 @@ disponibles afin de rendre compte de l'état d'une BA:
     **Cluster** en spécifiant un pourcentage ou un nombre de resources
     maximum en statut Critique que vous ne voulez pas dépassez
 -   **Impact**: Lorsque vous souhaitez définir finement l'impact de
-    chaque indicateur en fonction de leurs poids (<=> sévérité)
+    chaque indicateur en fonction de leurs poids (\<=\> sévérité)
 
 Ci-dessous des explications et exemples pour chacune des méthodes
 
@@ -126,9 +126,10 @@ formulaire ci-dessous apparaît :
 ![image](../assets/service-mapping/guide/business-activity-add.png)
 
 La création de l'activité métier se fait directement dans le panneau qui
-s'ouvre. Après avoir donner un nom (obligatoire & unique) à votre
+s'ouvre. Après avoir donné un nom (obligatoire & unique) à votre
 activité métier, vous devrez configurer plusieurs sections. La section
 **Indicateur** est la plus importante.
+Les caractères suivants ne sont pas autorisés dans le nom d'une BA : `~!$%^&|'"<>?,()=*{}` et les espaces.
 
 #### Indicateurs
 

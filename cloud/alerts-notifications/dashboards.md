@@ -1,6 +1,6 @@
 ---
 id: dashboards
-title: Dashboards Beta
+title: Dashboards
 ---
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.
@@ -11,8 +11,8 @@ Get started with creating dashboards and adding widgets specially designed to op
 
 > You must be logged into Centreon with administrator or creator rights.
 
-1. Go to **Home > Dashboards Beta**.
-2. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** modal.
+1. Go to **Home > Dashboards**.
+2. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** window.
 3. Name the dashboard and enter a description if needed.
 4. Click **Create** to confirm the creation.
 
@@ -37,10 +37,13 @@ Most of the widgets usually follow these steps:
 
 ### More actions
 
-Click the **three vertical dots** menu at the top right of the widget to edit it or to access more actions:
-- Refresh
-- Duplicate
-- Delete widget
+At the top right of the widget:
+
+- Click the **refresh data** icon to manually update data in real time. You also have the time of the update.
+
+- Click the **three dots** menu to edit it or to access more actions:
+  - Duplicate
+  - Delete widget
 
 > In edition mode, you can easily organize your widgets by moving or resizing them. Make sure to save your changes.
 
@@ -50,35 +53,41 @@ From the dashboard, you can click a screen pictogram at the top right of a widge
 
 ## Managing dashboards
 
-> You must be in the **Dashboard library** page to get an overview of your dashboards.
+> You must be in the **Dashboards** page to get an overview of your dashboards.
 
-### Edit a dashboard
+> The location of action buttons differs slightly depending on whether you are in the **View as cards** or **View as list** mode.
 
-#### Update properties
+### Update properties
 
-Click the **gear** button at the bottom right of the dashboard to update its name and description.
+From the **More actions** button, click **Edit properties** to update the dashboard's name and description.
 
-#### Edit dashboard widgets 
+### Duplicate a dashboard
+
+From the **More actions** button, click **Duplicate** to make a copy of the dashboard.
+
+### Delete a dashboard
+
+From the **More actions** button, click **Delete** and confirm the deletion of the dashboard.
+
+### Edit dashboard widgets 
 
 1. Click the dashboard to open it in view mode.
 2. Click **Edit dashboard** to access and manage widgets in edition mode.
 
-### Delete a dashboard
+## Sharing dashboards
 
-Click the **trash** button at the bottom left of the dashboard to delete it. Then confirm the deletion.
+You can share dashboards using the **Manage access rights** interface.
 
-### Share a dashboard
+- Click the **Share with contacts button** from the dashboard to share.
 
-> You can share dashboards using the **Manage access rights** interface.
-
-#### About access rights
+### About access rights
 
 You are using the Dashboards feature with a **viewer** or an **editor** profile:
 
 - **Viewers:** can only view dashboards you share with them.
-- **Editors:** can view and edit dashboards you share with them.
+- **Editors:** can view, edit and share dashboards.
 
-#### Manage access rights
+### Manage access rights
 
 1. Click the **share** button at the bottom right of the dashboard.
 2. In the **Add contact** dropdown list, select the user to add.
@@ -122,15 +131,26 @@ The control banner allows you to:
 - Go to the previous or next dashboard.
 - Go directly to a specific dashboard by clicking its name.
 
-### Share the playlist
+### Share the playlist with users of your platform
 
-> You can only share your playlist with contacts who have access to your Centreon platform and are authorized Dashboards viewers.
+You can share your playlist with contacts who have access to your Centreon platform and are authorized Dashboards viewers.
 
 - Click the **Share with contacts** button from the line of your playlist.
-The **Playlist access rights** modal is displayed.
-- You can now add contacts or contact groups and define their rights as viewer or editor in the **Share with** section.
+The **Playlist access rights** window is displayed.
+- In the **Share with** section, add contacts or contact groups and define their rights as viewer or editor.
 - Use the **trash** button in the **User rights** section to remove a contact or contact group.
-- Use the **Copy link** button to share the playlist URL directly with users who have access to your platform.
+- Then **Save** your changes.
+
+### Share the playlist with a public link
+
+You can send a public link to non-Centreon users, giving them access to a full-screen view of their IT infrastructure.
+
+> - The link you share will display the playlist content based on the access rights of the user activating the link. Anyone with this link can view the playlist. Be cautious when you share it.
+> - The language used is the one set by the current browser, even if the initial language of the playlist is different.
+
+- In the **Playlist access rights** window, click the **Activated** button in the **Public link** section.
+- You can now copy the URL link to the playlist.
+- You can also resize and copy the embedded code of the playlist view.
 
 ### Edit/Delete a playlist
 
@@ -140,6 +160,8 @@ The three dots action menu at the end of a playlist row allows you to edit prope
 
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Business Activity Diagram           | Displays graphically a business activity hierarchy of KPIs and lets you navigate through it.   |
+| Clock/Timer           | Displays the time according to the selected time zone, or a timer.   |
 | Generic text           | Allows you to add free text to your dashboards (section titles, information, etc.).   |
 | Group monitoring	|  Displays the distribution of current statuses on selected groups of resources, as a table.   |
 | MAP - Display a view            |  Allows you to select and visualize a map created from the MAP module.  |

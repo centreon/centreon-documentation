@@ -206,5 +206,5 @@ Suivez ces étapes pour changer de version mineure de MariaDB (par exemple, pour
 2. Redémarrez MariaDB :
 
     ```
-    restart mariadb
+    systemctl restart mariadb
     ```

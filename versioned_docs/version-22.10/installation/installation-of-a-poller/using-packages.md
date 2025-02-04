@@ -92,9 +92,7 @@ You should have this result:
 Disabled
 ```
 
-> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
-> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
-> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
@@ -125,9 +123,7 @@ You should have this result:
 Disabled
 ```
 
-> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
-> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
-> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
@@ -189,6 +185,11 @@ Enable the CodeReady Builder repository using these commands:
 ```shell
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
@@ -335,9 +336,9 @@ Example:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
 ```
 
-> Replace **<IP_TARGET_NODE>** by the IP of the central server or remote server that you want to link the poller to (IP as seen by the poller)
+> Replace **\<IP_TARGET_NODE\>** by the IP of the central server or remote server that you want to link the poller to (IP as seen by the poller)
 
-> The **<API_ACCOUNT>** must have access to the configuration API. You can use the default **admin** account.
+> The **\<API_ACCOUNT\>** must have access to the configuration API. You can use the default **admin** account.
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
 > `HTTPS://<IP_TARGET_NODE>:PORT`
@@ -388,19 +389,19 @@ You will receive the validation of the Centreon central or the Remote Server ser
 2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
 ```
 
-> Your credentials are incorrect for the **<API_ACCOUNT>**.
+> Your credentials are incorrect for the **\<API_ACCOUNT\>**.
 
 ``` shell
 2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
 ```
 
-> The **<API_ACCOUNT>** doesn't have access to configuration API.
+> The **\<API_ACCOUNT\>** doesn't have access to configuration API.
 
 ``` shell
 Failed connect to 192.168.0.1:444; Connection refused
 ```
 
-> Unable to access to the API. Please check **<IP_TARGET_NODE>**, scheme and port.
+> Unable to access to the API. Please check **\<IP_TARGET_NODE\>**, scheme and port.
 
 ``` shell
 2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login

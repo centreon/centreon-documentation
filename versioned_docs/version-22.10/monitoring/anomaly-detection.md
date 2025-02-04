@@ -117,7 +117,7 @@ You can create an Anomaly Detection service manually, or [use the creation wizar
 
 2. Fill in the following fields:
 
-  - **Description**: the name of the service.
+  - **Description**: the name of the service. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
   - **Status**: enable or disable the service. If you disable the service, after you deploy the configuration, the service will no longer be monitored (for instance it won't appear on page **Resources Status** anymore).
   - **Select host - service**: choose the host/service couple on which the Anomaly Detection service will be based.
   - **Select metric**: select the metric on which to apply anomaly detection.
@@ -134,7 +134,7 @@ You can create an Anomaly Detection service manually, or [use the creation wizar
 
    - The first predictions will appear in up to 36 hours. The service will then be in an OK status, until status changes are enabled (step 3).
 
-   > If the data on which you apply the anomaly detection has been supervised for a
+   > If the data on which you apply the anomaly detection has been monitored for a
    > certain time, it is possible to [transfer the data
    > history](#forward-history-of-data) to obtain a reliable model more quickly.
 

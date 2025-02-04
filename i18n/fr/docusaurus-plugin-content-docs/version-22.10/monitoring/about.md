@@ -9,7 +9,7 @@ Voici quelques notions propres à Centreon :
   un serveur physique, une machine virtuelle, une sonde de température, une caméra IP, une imprimante ou un espace de
   stockage, par exemple.
 * Un [**service**](basic-objects/services-create.md) est un point de contrôle, ou indicateur, à superviser sur un hôte. Cela peut être le taux d'utilisation
-  du CPU, la température, la détection de mouvement, le taux d'utilisation de la bande passante, les E/S disque, etc.
+  du CPU, la température, la détection de mouvement, le taux d'utilisation de la bande passante, les E/S disque, etc. Un service peut avoir une ou plusieurs [métriques](metrics.md) associées.
 * Afin de mesurer chaque indicateur, on utilise des **sondes** de supervision (**plugin** en anglais) qui sont exécutées
   périodiquement par un moteur de collecte appelé **Centreon Engine**.
 * Pour être exécutée, une sonde a besoin d'un ensemble d'arguments qui définissent par exemple à quel hôte se connecter

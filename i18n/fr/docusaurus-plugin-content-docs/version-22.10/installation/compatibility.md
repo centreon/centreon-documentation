@@ -34,6 +34,8 @@ Les OS supportés par Centreon sont CentOS 7, AlmaLinux 8, RedHat/OracleLinux 7 
 
 > Nous ne recommandons pas d'installer Centreon sur CentOS 7 ou RHEL/Oracle Linux 7. En effet, à partir de Centreon 23.04, EL 8/9 et Debian 11 uniquement seront supportés.
 
+Voir notre article de base de connaissances [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759).
+
 Les utilisateurs Open Source, sans contrat de support, peuvent utiliser une autre distribution GNU/Linux.
 L'installation de la plate-forme sera plus complexe, à partir des fichiers sources de chaque composant.
 Attention, les modules de l'IT Edition et de la Business Edition ne fonctionnent pas encore sur une distribution non supportée.

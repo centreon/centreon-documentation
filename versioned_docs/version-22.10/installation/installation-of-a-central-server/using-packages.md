@@ -92,9 +92,7 @@ You should have this result:
 Disabled
 ```
 
-> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
-> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
-> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
@@ -124,9 +122,7 @@ You should have this result:
 Disabled
 ```
 
-> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
-> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
-> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
@@ -186,6 +182,11 @@ dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
@@ -476,9 +477,9 @@ GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<CENTRAL_SERVER_IP>' WITH GRANT OPTION
 FLUSH PRIVILEGES;
 ```
 
-> Replace **<CENTRAL_SERVER_IP\>** with the Centreon Central IP address that will connect to the database server.
+> Replace **\<CENTRAL_SERVER_IP\>** with the Centreon Central IP address that will connect to the database server.
 >
-> Replace **<USER\>** and **<PASSWORD\>** by the user's credentials.
+> Replace **\<USER\>** and **\<PASSWORD\>** by the user's credentials.
 
 This user will only be used for the installation process: once the [web installation](../web-and-post-installation.md) is complete you can delete this user using:
 

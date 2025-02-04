@@ -5,11 +5,11 @@ title: Using a virtual machine (VM)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-On its [download page](https://download.centreon.com), Centreon provides a ready-to-use virtual machine. This virtual machine is available in OVA format for VMware environments and OVF format for Oracle VirtualBox. It is based on the **Alma Linux 8** operating system and includes a Centreon installation that allows you to easily start your first monitoring.
+On its [download page](https://download.centreon.com), Centreon provides ready-to-use virtual machines. These virtual machines are available for VMware environments and for Oracle VirtualBox. They are based on the **Alma Linux 9** and **Debian 12** operating systems and include a Centreon installation that allows you to easily start your first monitoring. 
 
-> The virtual machine is only suitable to use Centreon IT-100 or to test the solution.
+> Virtual machines are only suitable to use Centreon IT-100 or to test the solution.
 
-The VM uses the **Thin Provision** option to save as much free space as possible on the disk (this is best practice).
+The VMs use the **Thin Provision** option to save as much free space as possible on the disk (this is best practice).
 
 ## Prerequisites
 
@@ -61,7 +61,9 @@ The host machine must have the following characteristics:
 
 1. Import the **centreon-central.ova** file into VMWare. A terminal window opens; wait for the server to start. When it is ready, the terminal shows the following message:
 
-    ![image](../../assets/installation/VMW1.png)
+  ```shell
+  centreon-central login: _ 
+  ```
 
 2. According to how your network is set up, in the configuration of your virtual machine, add a network adapter and select the network through which the virtual machine can communicate with the resources it will monitor. Here is a configuration example in VSphere 6:
 
@@ -107,55 +109,114 @@ The host machine must have the following characteristics:
 
 4. The first time you connect to the server, instructions are displayed to help you complete the configuration.
    
-    Change the following settings:
+<Tabs groupId="sync">
+<TabItem value="Alma Linux 9" label="Alma Linux 9">
+   
+Change the following settings:
 
-    - The time zone for the Centreon server. By default, it is set to UTC. This will set the time for the various Centreon logs.
+   - The time zone for the Centreon server. By default, it is set to UTC. This will set the time for the various Centreon logs.
 
-        Use the following command:
+       Use the following command:
 
-        ```shell
-        timedatectl set-timezone your_timezone
-        ```
+       ```shell
+       timedatectl set-timezone your_timezone
+       ```
 
-        For example, to set the time zone to Europe/London, type:
+       For example, to set the time zone to Europe/London, type:
 
-        ```shell
-        timedatectl set-timezone Europe/London
-        ```
+       ```shell
+       timedatectl set-timezone Europe/London
+       ```
 
-        You can obtain a list of all available timezones using this command:
+       You can obtain a list of all available timezones using this command:
 
-        ```shell
-        timedatectl list-timezones
-        ```
+       ```shell
+       timedatectl list-timezones
+       ```
 
-    - The time zone for the PHP server. To avoid errors, this should be the same as the time zone of the server. By default, it is set to Europe/London.
+   - The time zone for the PHP server. To avoid errors, this should be the same as the time zone of the server. By default, it is set to Europe/London.
 
         1. Open the following file:
 
-            ```shell
-            /etc/php.d/50-centreon.ini
-            ```
-
-        2. In `date.timezone`, define the time zone you want.
-
-        3. Restart the PHP server:
-
-            ```shell
-            systemctl restart php-fpm
-            ```
-
-    - The hostname of your server (this is optional). The default name is `centreon-central`. To change it, use the following command:
-
         ```shell
-        hostnamectl set-hostname your-hostname
+        /etc/php.d/50-centreon.ini
         ```
 
-        For example, if you want your machine to be called `monitoring`, type:
+   2. In `date.timezone`, define the time zone you want.
+
+   3. Restart the PHP server:
+
+      ```shell
+      systemctl restart php-fpm
+      ```
+
+- The hostname of your server (this is optional). The default name is `centreon-central`. To change it, use the following command:
+
+  ```shell
+  hostnamectl set-hostname your-hostname
+  ```
+
+  For example, if you want your machine to be called `monitoring`, type:
+
+  ```shell
+  hostnamectl set-hostname monitoring
+  ```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+Change the following settings:
+
+   - The time zone for the Centreon server. By default, it is set to UTC. This will set the time for the various Centreon logs.
+
+       Use the following command:
+
+       ```shell
+       timedatectl set-timezone your_timezone
+       ```
+
+       For example, to set the time zone to Europe/London, type:
+
+       ```shell
+       timedatectl set-timezone Europe/London
+       ```
+
+       You can obtain a list of all available timezones using this command:
+
+       ```shell
+       timedatectl list-timezones
+       ```
+
+   - The time zone for the PHP server. To avoid errors, this should be the same as the time zone of the server. By default, it is set to Europe/London.
+
+        1. Open the following file:
 
         ```shell
-        hostnamectl set-hostname monitoring
+        /etc/php/8.2/mods-available/centreon.ini
         ```
+
+   2. In `date.timezone`, define the time zone you want.
+
+   3. Restart the PHP server:
+
+      ```shell
+      systemctl restart php8.2-fpm.service
+      ```
+
+- The hostname of your server (this is optional). The default name is `centreon-central`. To change it, use the following command:
+
+  ```shell
+  hostnamectl set-hostname your-hostname
+  ```
+
+  For example, if you want your machine to be called `monitoring`, type:
+
+  ```shell
+  hostnamectl set-hostname monitoring
+  ```
+
+</TabItem>
+</Tabs>
 
 5. Add a MariaDB table partition. This step is mandatory. Your Centreon server will not work if this isn't done.
 

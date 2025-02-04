@@ -115,9 +115,9 @@
     "message": "Administrer",
     "description": "The label for category Administrate in sidebar docs"
   },
-  "sidebar.docs.category.Graphical views": {
-    "message": "Vues graphiques",
-    "description": "The label for category Graphical views in sidebar docs"
+  "sidebar.docs.category.Graphical views (maps)": {
+    "message": "Vues graphiques (cartes)",
+    "description": "The label for category Graphical views (maps) in sidebar docs"
   },
   "sidebar.docs.category.Reporting": {
     "message": "Reporting",
@@ -298,5 +298,9 @@
   "sidebar.docs.category.Getting started with Centreon OnPrem": {
     "message": "Démarrer avec Centreon OnPrem",
     "description": "The label for category Getting started with Centreon OnPrem in sidebar docs"
+  },
+  "sidebar.docs.category.Types of notifications": {
+    "message": "Types de notifications",
+    "description": "The label for category Types of notifications in sidebar docs"
   }
 }

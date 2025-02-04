@@ -247,5 +247,5 @@ Follow these steps to upgrade between minor versions of MariaDBB (for example, t
 2. Restart MariaDB :
 
     ```shell
-    restart mariadb
+    systemctl restart mariadb
     ```

@@ -262,7 +262,7 @@ chapitre [Options générales](configure.md#options-g%C3%A9n%C3%A9rales)
 
 Après l'execution d'une tâche planifiée, un nouveau rapport est généré
 et stocké sur le serveur de supervision. Il est donc possible de
-visualiser ou télécharger le rapport généré directement depuis le menu: **Reporting > Business Intelligence > Archives**
+visualiser ou télécharger le rapport généré directement depuis le menu: **Rapports > Monitoring Business Intelligence > Visualisation des rapports**
 
 Le tableau ci-dessous liste les rapports générés.
 

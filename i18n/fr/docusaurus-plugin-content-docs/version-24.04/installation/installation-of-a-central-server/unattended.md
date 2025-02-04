@@ -59,7 +59,7 @@ apt update && apt upgrade
 2. Téléchargez le script à l'aide de la commande suivante :
 
 ```shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/24.04.x/centreon/unattended.sh --output /tmp/unattended.sh
+curl -L https://download.centreon.com/24.04/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Exécutez la commande suivante en **root** :
@@ -78,10 +78,12 @@ bash /tmp/unattended.sh install -t central -v 24.04 -r stable -s -l DEBUG  2>&1 
 
 Dans les deux cas, vous obtiendrez un fichier de log complet avec toutes les erreurs dans votre répertoire **tmp**, fichier nommé **unattended(date).log**.
 
-## Aide
+> Pour obtenir de l'aide sur le script, utilisez la commande suivante :`bash unattended.sh -h`
 
-Pour obtenir de l'aide sur le script, utilisez la commande suivante :
+4. Configurez Centreon
 
-```shell
-bash unattended.sh -h
-```
+Connectez-vous à l'interface web de Centreon avec l'URL `http://[SERVER_IP]/centreon` en remplaçant [SERVER_IP] par l'adresse IP de votre serveur.
+Une fois connecté, suivez les instructions décrites [ici](../../web-and-post-installation/#initialization-of-the-monitoring).
+
+5. Commencez à utiliser Centreon
+Suivez notre [guide de démarrage](../../getting-started/welcome.md) pour commencer à superviser.

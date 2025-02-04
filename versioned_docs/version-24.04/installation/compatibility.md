@@ -22,7 +22,7 @@ Your screen resolution must be at least 1280 x 768.
 
 ### Operating Systems
 
-Centreon supports the following operating systems: AlmaLinux/RedHat/OracleLinux 8 or 9, and Debian 11.
+Centreon supports the following operating systems:
 
 | Version                        | Installation mode                                      |
 |--------------------------------|--------------------------------------------------------|
@@ -31,6 +31,8 @@ Centreon supports the following operating systems: AlmaLinux/RedHat/OracleLinux 
 | RHEL/Oracle Linux/ALma Linux 9 | RPM packages, sources                                  |
 | Debian 11 (bullseye)           | DEB packages                                           |
 | Debian 12 (bookworm)           | DEB packages                                           |
+
+See our knowledge base article [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759).
 
 Open Source users, without a support contract, can use another GNU/Linux operating system.
 This will require installing the platform from source files and will therefore be more complex.
@@ -43,6 +45,6 @@ Bear in mind that IT Edition and Business Edition modules do not work yet on uns
 | Software | Version |
 |----------|---------|
 | MariaDB  | 10.11.x |
-| MySQL    | 8       |
+| MySQL    | 8.0     |
 
 > You can use another DBMS based on MySQL, but it will only be supported by the community.

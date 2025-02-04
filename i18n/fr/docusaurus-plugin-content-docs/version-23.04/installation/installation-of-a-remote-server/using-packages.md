@@ -5,6 +5,8 @@ title: À partir des paquets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette version de Centreon est ancienne. Nous vous recommandons d'installer la dernière version.
+
 Centreon fournit des paquets RPM et DEB pour ses produits au travers de la solution
 Centreon Open Source disponible gratuitement sur notre dépôt.
 
@@ -109,9 +111,7 @@ $ getenforce
 Disabled
 ```
 
-> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
-> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
-> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -138,9 +138,7 @@ $ getenforce
 Disabled
 ```
 
-> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
-> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
-> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
@@ -202,6 +200,11 @@ dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
@@ -263,6 +266,11 @@ Exécutez les commandes suivantes :
 dnf install -y dnf-plugins-core
 dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+```
+
+S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 ```
 
@@ -509,10 +517,10 @@ GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-> Remplacez **<IP\>** par l'adresse IP avec laquelle le serveur Centreon
+> Remplacez **\<IP\>** par l'adresse IP avec laquelle le serveur Centreon
 > Remote Server se connectera au serveur de base de données.
 >
-> Remplacez **<USER\>** et **<PASSWORD\>** par les identifiants de
+> Remplacez **\<USER\>** et **\<PASSWORD\>** par les identifiants de
 > l'utilisateur.
 
 Une fois l'installation terminée, supprimez cet utilisateur via la commande :
@@ -752,9 +760,9 @@ Exemple:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
 
-> Remplacez **<IP_TARGET_NODE>** par l'adresse IP du serveur Central auquel vous voulez rattacher le serveur distant (adresse IP vue par le serveur distant).
+> Remplacez **\<IP_TARGET_NODE\>** par l'adresse IP du serveur Central auquel vous voulez rattacher le serveur distant (adresse IP vue par le serveur distant).
 
-> Le compte **<API_ACCOUNT>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
+> Le compte **\<API_ACCOUNT\>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
 
 > Pour changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
 > `HTTPS://<IP_TARGET_NODE>:PORT`
@@ -834,19 +842,19 @@ Vous recevrez la validation du serveur Centreon Central :
 2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
 ```
 
-> Vos informations d'identification sont incorrectes pour le compte **<API_ACCOUNT>**.
+> Vos informations d'identification sont incorrectes pour le compte **\<API_ACCOUNT\>**.
 
 ``` shell
 2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
 ```
 
-> L'utilisateur **<API_ACCOUNT>** n'a pas accès à l'API de configuration.
+> L'utilisateur **\<API_ACCOUNT\>** n'a pas accès à l'API de configuration.
 
 ``` shell
 Failed connect to 192.168.0.1:444; Connection refused
 ```
 
-> Impossible d'accéder à l'API. Contrôler les valeurs **<IP_TARGET_NODE>**, méthode et port.
+> Impossible d'accéder à l'API. Contrôler les valeurs **\<IP_TARGET_NODE\>**, méthode et port.
 
 ``` shell
 2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login

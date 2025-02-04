@@ -98,6 +98,6 @@ on the MS Active Directory, Okta, or Posix-type directories.
 > plugin](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Configure_Template_App.htm).
 > Please define:
 >
-> - **uid=<USER\>,dc=<ORGANIZATION\>,dc=okta,dc=com** for the **Bind DN** field
-> - **ou=<OU\>,dc=<ORGANIZATION\>,dc=okta,dc=com** \*\* for the **Search group
+> - **uid=\<USER\>,dc=\<ORGANIZATION\>,dc=okta,dc=com** for the **Bind DN** field
+> - **ou=\<OU\>,dc=\<ORGANIZATION\>,dc=okta,dc=com** \*\* for the **Search group
 > base DN** field.

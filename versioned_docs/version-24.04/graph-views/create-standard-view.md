@@ -24,7 +24,7 @@ views:
   (*gate.useResourcesAccess=false*).
 - When you want to view application statuses, we highly recommend
   modeling them using [Business
-  Activities](https://documentation.centreon.com/docs/centreon-bam/en/latest/).
+  Activities](../service-mapping/introduction.md).
   This will help you to limit the number of elements you need to add to a
   view. Adding one Business Activity to a view means only one element is added
   instead of all the hosts and services you would have added in the view to

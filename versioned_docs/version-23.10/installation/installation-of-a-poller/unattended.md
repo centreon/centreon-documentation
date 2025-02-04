@@ -5,6 +5,8 @@ title: Unattended installation of a poller
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This is an older version of Centreon. We recommend you install the latest version.
+
 To install a poller quicker, you can use a script. This will perform all installation steps. You must then register the poller and attach it to the central server or the remote server.
 
 ## Installation procedure
@@ -59,7 +61,7 @@ apt update && apt upgrade
 2. Download the script using the following command:
 
 ```shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/23.10.x/centreon/unattended.sh --output /tmp/unattended.sh
+curl -L https://download.centreon.com/23.10/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Run the following command as **root**:

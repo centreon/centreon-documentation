@@ -40,9 +40,10 @@ The AWS Health Centreon Plugin uses the Amazon Health API to collect the related
 
 Configure a service account (*access/secret keys* combo) for which the following privileges have to be granted:
 
-| AWS Privilege                  | Description                                                                 |
-| :----------------------------- | :-------------------------------------------------------------------------- |
-| health:DescribeEvents          | Returns information about events that meet the specified filter criteria.   |
+| AWS Privilege                  | Description                                                                                                         |
+| :----------------------------- |:--------------------------------------------------------------------------------------------------------------------|
+| health:DescribeEvents           | Returns information about events that meet the specified filter criteria.                                           |
+| health:DescribeAffectedEntities | Returns a list of entities that have been affected by the specified events, based on the specified filter criteria. |
 
 ### Plugin dependencies
 

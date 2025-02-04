@@ -246,9 +246,9 @@ Disabled
 > - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-SELinux is not installed on Debian 11, continue.
+SELinux is not installed on Debian 11 & 12, continue.
 
 </TabItem>
 </Tabs>
@@ -629,6 +629,8 @@ This procedure is to ensure that the configuration file can be used for both MAP
 When installing Centreon MAP Engine server, it will automatically install java
 (OpenJDK 17) if needed.
 
+> Go to this troubleshooting procedure if OpenJDK 17 causes an issue [preventing centreon-map-engine from being installed](./map-web-troubleshooting.md#centreon-map-engine-and-all-its-dependencies-cannot-get-installed-on-alma-linux-8).
+
 #### Java requirement
   > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
   
@@ -814,7 +816,7 @@ Install the Centreon Business repository. You can find this on the
 
 ### Step 2: Install the MAP module
 
-1. From your terminal, run the following command:
+1. From your terminal, run the following command on the central server:
 
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -831,7 +833,7 @@ Install the Centreon Business repository. You can find this on the
   ```
 
   </TabItem>
-  <TabItem value="Debian" label="Debian">
+  <TabItem value="Debian 11  & 12" label="Debian 11 & 12">
 
   ```shell
   sudo apt install centreon-map-web-client

@@ -19,6 +19,83 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.27
+
+Release date: `January 9, 2025`
+
+#### Bug fixes
+
+- [Custom Views] Fixed an issue preventing some filters from functioning in the "Hostgroup monitoring" and "Host monitoring" widgets.
+- [Event Logs] Fixed hostgroup selection.
+
+#### Security fixes
+
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to export the results in CSV format.
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "Host Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "TOP10 CPU usage" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Fixed SQLi in "TOP10 Memory usage" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Improved an SQL query triggered via the Event Logs menu for better protection.
+
+### 22.10.26
+
+Release date: `November 21, 2024`
+
+#### Bug fixes
+
+- [Resource Status] Fixed an issue where actions in one browser tab were being replicated to another tab that was open on the same menu.
+- [Resource Status] If no notification has ever been sent, the "Last notification" field in the details panel is not displayed.
+
+#### Security fixes
+
+- [Security] Fixed XSS vulnerability in "Administration > Logs" menu (CVE-2024-47863).
+- [Security] Fixed XSS vulnerability on poller name in several menus.
+
+### 22.10.25
+
+Release date: `September 27, 2024`
+
+#### Bug fixes
+
+- [Packaging]: Fixed centreon-web broken dependency on httpd24.
+
+### 22.10.24
+
+Release date: `September 11, 2024`
+
+#### Security fixes
+
+- [Authorization] Fixed an issue on ACL reloading.
+- [Security] Fixed SQLi in contacts form (CVE-2024-39843).
+- [Security] Updated jQuery & jQuery-UI dependencies (CVE-2022-31160).
+
+### 22.10.23
+
+Release date: `June 26, 2024`
+
+#### Bug fixes
+
+- [Configuration] Fixed mass change on services.
+- [Unattended] The unattended script now works on Oracle Linux distributions.
+- [Unattended] Fixed default version used by the script. 
+
+#### Security fixes
+
+- [Security] Fixed several SQLi issues.
+  
+### 22.10.22
+
+Release date: `May 16, 2024`
+
+#### Bug fixes
+
+- [API] Fixed an issue affecting downtimes on services linked to a service group via a service template.
+- [Configuration] [Configuration] Fixed an issue where the Service Categories configuration page could appear blank.
+
+#### Security fixes
+
+- [Security] Fixed several SQLi issues.
+
 ### 22.10.21
 
 Release date: `Avril 10, 2024`
@@ -425,6 +502,37 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.12
+
+Release date: `November 25, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- The Stream Connector cache behavior with host groups and service groups has been improved. When a host group or service group is deleted, it is also correctly removed from the Stream Connector caches.
+
+### 22.10.11
+
+Release date: `September 16, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Broker] Fixed an issue where Broker could not connect to MySQL 8.0.35.
+
+### 22.10.10
+
+Release date: `June 27, 2024`
+
+#### Centreon Broker
+
+##### Enhancements
+
+- [Engine] Added a new centengine parameter (`send_recovery_notifications_anyways`) to force sending a recovery notification even when the resource is outside of its notification period. This aims at keeping third-party tools up-to-date at any time when they are fed notifications.
+- [Engine] Engine can now handle extra configuration files to complement/overload the centengine.cfg file. This enhancement allows you to keep a custom configuration unchanged when exporting the configuration.
+
 ### 22.10.9
 
 Release date: `March 6, 2024`
@@ -594,6 +702,31 @@ Release date: `October 26, 2022`
 
 ## Centreon Gorgone
 
+### 22.10.9
+
+Release date: `September 16, 2024`
+
+#### Bug fixes
+
+- [MBI] The password of an MBI database user can now include special characters.
+
+### 22.10.8
+
+Release date: `June 26, 2024`
+
+#### Bug fixes
+
+- Fixed gorgone whitelist for HA architecture.
+
+### 22.10.7
+
+Release date: `May 16, 2024`
+
+#### Bug fixes
+
+- [Gorgone] Fixed a path issue on systemctl (Gorgone whitelist).
+- [Packaging] Fixed inconsistent system permissions on /var/log/centreon-engine/centengine.log.
+
 ### 22.10.6
 
 Release date: `March 28, 2024`
@@ -674,6 +807,14 @@ Release date: `October 26, 2022`
 
 ## Centreon DSM
 
+### 22.10.2
+
+Release date: `November 21, 2023`
+
+#### Security fixes
+
+- [Security] Fixed SQLi in the Centreon DSM slot configuration form, only accessible to authenticated users with high privilege access. (CVE-2024-45755)
+
 ### 22.10.1
 
 Release date: `June 5, 2023`
@@ -693,6 +834,22 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Open Tickets
+
+### 22.10.5
+
+Release date: `December 5, 2024`
+
+#### Bug fixes
+
+- [Open Ticket widget] Fixed an issue preventing non admin users from opening tickets.
+
+### 22.10.4
+
+Release date: `November 21, 2024`
+
+#### Security fixex
+
+- [Security] Fixed SQLi in the ticket creation form, only accessible to authenticated users with high privilege access. (CVE-2024-45756)
 
 ### 22.10.3
 

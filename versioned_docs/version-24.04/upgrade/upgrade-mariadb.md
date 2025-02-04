@@ -124,8 +124,18 @@ rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared Mari
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
+At the **[ Knowing your version of MariaDB](#knowing-your-version-of-mariadb)** step, the **grep** command returned the precise version of MariaDB you have.
+
+* If the results of the **grep** command included “10.5”, your uninstallation command must include it too, like in the following example:
+
 ```shell
-dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-compat,MariaDB-common
+dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-compat,mariadb-common mariadb-server mariadb-server-10.5 mariadb-client mariadb-client-10.5 mariadb-client-core-10.5 mariadb-common mariadb-server-core-10.5 mysql-common
+```
+
+* If the results of the **grep** command did not include “10.5”, use the following command:
+
+```shell
+dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-compat,mariadb-common mariadb-server mariadb-server mariadb-client mariadb-client mariadb-client-core mariadb-common mariadb-server-core mysql-common
 ```
 
 </TabItem>
@@ -141,7 +151,7 @@ dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-co
 >
 > `rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common`
 
-> Make sure you have [installed the official MariaDB repository](upgrade-from-22-04.md#install-the-mariadb-repository) before you continue the procedure.
+> Make sure you have [installed the official MariaDB repository](https://mariadb.com/kb/en/mariadb-package-repository-setup-and-usage/) before you continue the procedure.
 
 3. Install version 10.11:
 
@@ -166,11 +176,31 @@ dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\*
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
 ```
 
+```shell
+sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-backup mariadb-common
+```
+
+If an error message informs you that one or several MariaDB packages are missing, you will need to specify the missing packages in the command, like in the following example:
+
+```shell
+sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-backup mariadb-common MISSING-PACKAGE_A MISSING-PACKAGE_B
+```
+
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
+```
+
+```shell
+sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-backup mariadb-common
+```
+
+If an error message informs you that one or several MariaDB packages are missing, you will need to specify the missing packages in the command, like in the following example:
+
+```shell
+sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-backup mariadb-common MISSING-PACKAGE_A MISSING-PACKAGE_B
 ```
 
 </TabItem>
@@ -273,5 +303,5 @@ apt update MariaDB-*
 2. Restart MariaDB:
 
     ```shell
-    restart mariadb
+    systemctl restart mariadb
     ```

@@ -3,7 +3,7 @@ id: known-issues
 title: MAP (Legacy) known issues
 ---
 
-Below is a list of know issues and/or bugs you may encounter when using
+Below is a list of known issues and/or bugs you may encounter when using
 Centreon MAP. We try to provide workarounds. We apply fixes when
 necessary and are forever improving our software in order to solve any
 issues for future releases.

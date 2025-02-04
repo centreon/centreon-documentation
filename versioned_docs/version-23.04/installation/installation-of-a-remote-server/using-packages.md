@@ -5,6 +5,8 @@ title: Using packages
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This is an older version of Centreon. We recommend you install the latest version.
+
 Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
@@ -111,9 +113,7 @@ You should have this result:
 Disabled
 ```
 
-> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
-> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
-> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -143,9 +143,7 @@ You should have this result:
 Disabled
 ```
 
-> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
-> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
-> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
@@ -204,6 +202,11 @@ dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
@@ -267,6 +270,11 @@ Run the following commands:
 dnf install -y dnf-plugins-core
 dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 ```
 
@@ -522,9 +530,9 @@ GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-> Replace **<IP\>** with the Centreon Central IP address that will connect to the database server.
+> Replace **\<IP\>** with the Centreon Central IP address that will connect to the database server.
 >
-> Replace **<USER\>** and **<PASSWORD\>** by user's credentials.
+> Replace **\<USER\>** and **\<PASSWORD\>** by user's credentials.
 
 This user will only be used for the installation process. Once the [web installation](../web-and-post-installation.md) is complete you can delete this user using:
 
@@ -746,7 +754,7 @@ To transform the server into a Remote Server and to register it to the Central s
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
+-t remote -h <IP_TARGET_NODE> -n<REMOTE_SERVER_NAME>
 ```
 
 Example:
@@ -755,12 +763,12 @@ Example:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
 
-> Replace **<IP_TARGET_NODE>** by the IP of the central server, as seen by the remote server.
+> Replace **\<IP_TARGET_NODE\>** by the IP of the central server, as seen by the remote server.
 
-> The **<API_ACCOUNT>** must have access to the configuration API. You can use the default **admin** account.
+> The **\<API_ACCOUNT\>** must have access to the configuration API. You can use the default **admin** account.
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
-> `HTTPS://<IP_TARGET_NODE>:PORT`
+> `HTTPS:/<IP_TARGET_NODE>:PORT`
 
 Then follow instructions by
 1. Entering your password:
@@ -837,19 +845,19 @@ You will receive the validation of the Centreon central server:
 2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
 ```
 
-> Your credentials are incorrect for the **<API_ACCOUNT>**.
+> Your credentials are incorrect for the **\<API_ACCOUNT\>**.
 
 ``` shell
 2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
 ```
 
-> The **<API_ACCOUNT>** doesn't have access to configuration API.
+> The **\<API_ACCOUNT\>** doesn't have access to configuration API.
 
 ``` shell
 Failed connect to 192.168.0.1:444; Connection refused
 ```
 
-> Unable to access to the API. Please check **<IP_TARGET_NODE>**, scheme and port.
+> Unable to access to the API. Please check **\<IP_TARGET_NODE\>**, scheme and port.
 
 ``` shell
 2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login

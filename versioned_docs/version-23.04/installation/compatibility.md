@@ -31,6 +31,8 @@ Centreon supports the following operating systems: AlmaLinux/RedHat/OracleLinux 
 | RHEL/Oracle Linux/ALma Linux 9                 | RPM packages, sources                 |
 | Debian 11                | DEB packages                                           |
 
+See our knowledge base article [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759).
+
 Open Source users, without a support contract, can use another GNU/Linux operating system.
 This will require installing the platform from source files and therefore be more complex.
 Bear in mind that IT Edition and Business Edition modules do not work yet on unsupported distributions.

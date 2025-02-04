@@ -7,6 +7,38 @@ import TabItem from '@theme/TabItem';
 
 Cette page présente quelques recommandations pour résoudre des incidents lors de l'installation de MAP.
 
+## centreon-map-engine et toutes ses dépendances ne peuvent pas être installés sur Alma Linux 8
+
+#### Symptôme
+
+Vous obtenez une erreur GPG pendant l'installation d'OpenJDK 17 empêchant l'installation de centreon-map-engine et de toutes ses dépendances.
+
+#### Problème
+
+Vous n'importez pas le bon dépôt.
+
+#### Solution
+
+Exécutez la commande suivante pour importer le bon dépôt :
+
+```shell
+rpm --import https://repo.almalinux.org/almalinux/RPM-GPG-KEY-AlmaLinux
+```
+
+## Erreur « Echec d'authentification » lors de la connexion à la page d'accueil MAP
+
+#### Symptôme
+
+Une erreur « Echec d'authentification » se produit à la page d'accueil de MAP lors de la tentative de connexion au service Centreon MAP.
+
+#### Problème
+
+Les informations d'identification utilisées par l'utilisateur **Web interface** (définies lors de l'installation) pour se connecter au module MAP ne sont plus valides car elles ont été modifiées, probablement suite à l'expiration du mot de passe.
+
+#### Solution
+
+Vous pouvez mettre à jour le mot de passe en accédant à ce fichier : **/etc/centreon-map/map-config.properties**.
+
 ## La configuration MAP ne fonctionne pas en HTTPS
 
 ### Symptôme

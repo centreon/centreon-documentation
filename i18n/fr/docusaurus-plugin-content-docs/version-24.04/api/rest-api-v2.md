@@ -21,7 +21,7 @@ Aller dans l'onglet **Link** et entrer l'URL vers la définition OpenAPI de
 GitHub :
 
 ```text
-https://raw.githubusercontent.com/centreon/centreon/develop/doc/API/centreon-api-v24.04.yaml
+https://raw.githubusercontent.com/centreon/centreon/24.04.x/centreon/doc/API/centreon-api-v24.04.yaml
 ```
 
 ![image](../assets/api/postman-import-link.png)
@@ -71,12 +71,12 @@ environnements.
 >
 > Voici un exemple de résultat :
 >
-> {
+> \{
 >   "version": "24.04.0",
 >   "major": "24",
 >   "minor": "04",
 >   "fix": "0"
-> }
+> \}
 >
 > ![image](../assets/api/postman-collection-variables.png)
 >

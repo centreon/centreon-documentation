@@ -14,6 +14,24 @@ We will continue to update this section based on your feedback.
 
 ## General
 
+### centreon-map-server and all its dependencies cannot get installed on Alma Linux 8
+
+#### Symptom
+
+You get a GPG error during the installation of OpenJDK 17 preventing centreon-map-server and all its dependencies from being installed.
+
+#### Problem
+
+You are not importing the right repository.
+
+#### Solution
+
+Run the following command to import the right repository:
+
+```shell
+rpm --import https://repo.almalinux.org/almalinux/RPM-GPG-KEY-AlmaLinux
+```
+
 ### How can I check if my Centreon MAP server is running correctly?
 
 Their are two main ways to check if your Centreon MAP server is up and
@@ -139,7 +157,7 @@ To open the appropriate ports:
 /sbin/iptables -A INPUT -p tcp --dport <PORT> -j ACCEPT
 ```
 
-> Replace <PORT\> by the port your Centreon MAP server is using (mostly 8080 or
+> Replace \<PORT\> by the port your Centreon MAP server is using (mostly 8080 or
 > 8443 if you have configured it in SSL).
 
 To simply disable your firewall, execute:
@@ -267,7 +285,7 @@ specify a new one to your desktop client. To do so, edit the file:
 <TabItem value="Windows" label="Windows">
 
 ```shell
-C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
+C:\Users<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
 ```
 
 </TabItem>
@@ -345,35 +363,51 @@ opening your task manager (Ctrl + Maj + Esc) and checking the memory
 consumption. If it increases and seems to reach a limit while your CPU
 is working hard, your desktop client requires more memory.
 
-To increase memory, edit the .ini file:
+#### Increase the memory
 
-<Tabs groupId="sync">
-<TabItem value="Windows" label="Windows">
+1. To increase memory, edit the .ini file:
 
-```shell
-C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
-```
+ <Tabs groupId="sync">
+ <TabItem value="Windows" label="Windows">
+ 
+ ```shell
+ C:\Users<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
+ ```
+ 
+ </TabItem>
+ <TabItem value="Linux" label="Linux">
+ 
+ ```shell
+ /opt/centreon-map4-desktop-client/Centreon-Map4.ini
+ ```
+ 
+ </TabItem>
+ </Tabs>
 
-</TabItem>
-<TabItem value="Linux" label="Linux">
+2. Add the following line at the end of the file, on a new line:
 
-```shell
-/opt/centreon-map4-desktop-client/Centreon-Map4.ini
-```
+ ```shell
+ -Xmx4g
+ ```
 
-</TabItem>
-</Tabs>
+ > The "4g" means 4 GB (by default it can only use 2 GB). You can change this
+number depending on your hardware (e.g. by setting "3g").
 
-And add the following line at the end of the file, on a new line:
+#### Change the status synchronization interval
 
-```text
--Xmx4g
-```
+If you have a Centreon platform with many hosts and services, the desktop client may spend a lot of time getting the latest status of each resource.
 
-The "4g" means 4 GB (by default it can only use 2 GB). You can change this
-number depending on your hardware (e.g., by setting "3g").
+1. Edit the same file as in the previous step and add this line to increase the interval of status synchronization:
 
-Then restart your desktop client.
+ ```shell
+ -Dsync.delay=14400000
+ ```
+
+ > Dsync-relay is in milliseconds, so 14400000 means the desktop client will refresh the status every 4 hours.
+
+2. Then restart your desktop client.
+
+At the launch, it can take time to synchronize the status, but you will be able to edit your map after this operation.
 
 ### I get the error "Cannot authenticate user" on the login page
 
@@ -406,6 +440,20 @@ occur.
 > to use 32bit colors.
 
 ## Centreon MAP web interface
+
+### "Failed to authenticate" error when connecting to the MAP homepage
+
+#### Symptom
+
+A "Failed to authenticate" error occurs in the MAP homepage when trying to connect to the Centreon MAP Legacy service.
+
+#### Problem
+
+The credentials used by the **Web interface** user (defined during the installation) to connect to the MAP Legacy module are no longer valid because they have been changed, probably due to a password expiration.
+
+#### Solution
+
+You can update the password by accessing this file: **/etc/centreon-studio/studio-config.properties**.
 
 ### Graphs are all shifted to the right after upgrading from Centreon MAP 4.4 to Centreon MAP 18.10
 

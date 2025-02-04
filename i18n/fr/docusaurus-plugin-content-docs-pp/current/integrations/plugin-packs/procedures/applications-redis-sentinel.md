@@ -60,10 +60,10 @@ Il apporte les Modèles de Service suivants :
 
 Afin de superviser Redis Sentinel, le collecteur doit pouvoir réaliser des requêtes avec l'utilitaire **redis-cli** sur le port TCP/26379 (par défaut).
 Voici la liste des commandes utilisées:
-* sentinel ckquorum <cluster_name>
+* sentinel ckquorum \<cluster_name\>
 * sentinel masters
-* sentinel replicas <cluster_name>
-* sentinel sentinels <cluster_name>
+* sentinel replicas \<cluster_name\>
+* sentinel sentinels \<cluster_name\>
 
 ## Installation
 

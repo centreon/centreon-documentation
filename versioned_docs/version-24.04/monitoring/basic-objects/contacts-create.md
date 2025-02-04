@@ -27,7 +27,7 @@ To display the matrix of notifications for a user, click **View contact notifica
 * The **Reach Centreon Front-end** field is used to authorize the user to access the Centreon web interface.
 * The **Password** and **Confirm Password** fields contain the user password.
 * The **Default Language** field is used to define the language of the Centreon interface for this user.
-* The **Admin** field defines whether or not this user is the administrator of the supervision platform.
+* The **Admin** field defines whether or not this user is the administrator of the monitoring platform.
 * The **Autologin key** is used to define a connection key for the user. The user will no longer need to enter his / her
   login and password, but will use this key to log in directly. Connection syntax:
 

@@ -66,12 +66,12 @@ Then click **Add**, and select it in the environments list.
 >
 > Here is an example of output for this command:
 >
-> {
+> \{
 >   "version": "23.10.6",
 >   "major": "23",
 >   "minor": "10",
 >   "fix": "6"
-> }
+> \}
 >
 > ![image](../assets/api/postman-collection-variables.png)
 >

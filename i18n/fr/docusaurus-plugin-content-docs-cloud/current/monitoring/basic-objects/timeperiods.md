@@ -66,4 +66,4 @@ Le tableau ci-dessous présente quelques exemples possibles :
 | june 6 - june 21  | 00:00-00:00             | Ne pas superviser entre le 6 et le 21 juin toute la journée  |
 | june 12           | 00:00-08:00,18:00-24:00 | Superviser chaque 12 juin, sauf entre 8h et 18h              |
 
-> Les périodes d'exception ne sont pas prises en compte dans [BAM](../../service-mapping/introduction.md).
+> Les périodes d'exception ne sont pas prises en compte dans [BAM](../../service-mapping/introduction.md) et dans les [notifications](../../alerts-notifications/notif-configuration.md).

@@ -42,7 +42,7 @@ L'accès à la fonctionnalité Tableaux de bord n'est pas géré au niveau de l'
 
 > Vous devez être connecté à Centreon avec des droits d'administrateur ou de créateur.
 
-1. Dans la page **Bibliothèque de tableaux de bord**, cliquez sur le bouton **Créer un tableau de bord**. Cela ouvre la modale **Créer un tableau de bord**.
+1. Dans la page **Bibliothèque de tableaux de bord**, cliquez sur le bouton **Créer un tableau de bord**. Cela ouvre la fenêtre **Créer un tableau de bord**.
 2. Nommez le tableau de bord et renseignez une description si nécessaire.
 3. Cliquez sur **Créer** pour confirmer la création.
 
@@ -159,7 +159,7 @@ Le bandeau de contrôle vous permet de :
 > Vous ne pouvez partager votre liste de diffusion qu'avec des contacts ayant accès à votre plateforme Centreon, et les droits de viewer sur les tableaux de bord.
 
 - Cliquez sur le bouton **Partager avec des contacts** à partir de la ligne de votre liste de diffusion.
-La modale **Droits d'accès de la liste de diffusion** s'affiche.
+La fenêtre **Droits d'accès de la liste de diffusion** s'affiche.
 - Vous pouvez maintenant ajouter des contacts ou des groupes de contacts et définir leurs droits en tant que viewer ou editor dans la section **Partager avec**.
 - Utilisez le bouton **Corbeille** dans la section **Droits utilisateur** pour supprimer un contact ou un groupe de contacts.
 - Utilisez le bouton **Copier le lien** pour partager l'URL de la liste de diffusion directement avec les utilisateurs qui ont accès à votre plateforme.

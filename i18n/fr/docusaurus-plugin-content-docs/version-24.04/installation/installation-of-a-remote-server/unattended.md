@@ -59,7 +59,7 @@ apt update && apt upgrade
 2. Téléchargez le script à l'aide de la commande suivante :
 
 ```shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/24.04.x/centreon/unattended.sh --output /tmp/unattended.sh
+curl -L https://download.centreon.com/24.04/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Exécutez la commande suivante en **root** :
@@ -78,7 +78,7 @@ bash /tmp/unattended.sh install -t central -v 24.04 -r stable -s -l DEBUG  2>&1 
 
 Dans les deux cas, vous obtiendrez un fichier de log complet avec toutes les erreurs dans votre répertoire **tmp**, fichier nommé **unattended(date).log**.
 
-4. Une fois le script exécuté, suivez les [étapes 5 à 8 de la procédure d'installation standard d'un serveur distant](./using-packages.md#step-5-register-the-server).
+4. Une fois le script exécuté, suivez les [étapes 4 à 8 de la procédure d'installation standard d'un serveur distant](./using-packages.md#step-5-register-the-server).
 
 ## Aide
 

@@ -77,9 +77,9 @@ systemctl restart mariadb
 ```shell
 dnf install -y mysql-server mysql
 dnf install -y centreon-mysql
-systemctl enable --now mysql
+systemctl enable --now mysqld
 echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
-sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/$mysql_service_name.service
+sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld.service
 systemctl daemon-reload
 systemctl restart mysqld
 ```
@@ -90,9 +90,9 @@ systemctl restart mysqld
 ```shell
 dnf install -y mysql-server mysql
 dnf install -y centreon-mysql
-systemctl enable --now mysql
+systemctl enable --now mysqld
 echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
-sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/$mysql_service_name.service
+sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld.service
 systemctl daemon-reload
 systemctl restart mysqld
 ```
@@ -105,7 +105,7 @@ apt update
 apt install -y --no-install-recommends centreon-mysql
 # Select "Use Legacy Authentication Method"
 systemctl daemon-reload
-systemctl restart mysql
+systemctl restart mysqld
 ```
 
 </TabItem>

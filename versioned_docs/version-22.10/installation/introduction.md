@@ -63,7 +63,7 @@ yum update
 2. Run the following command as **root**:
 
   ```Bash
-  curl -L https://raw.githubusercontent.com/centreon/centreon/22.10.x/centreon/unattended.sh | sh
+  curl -L https://download.centreon.com/22.10/unattended.sh | sh
   ```
 
   The script will install a central server using version 22.10, from the stable repository, with minimal output on your terminal.

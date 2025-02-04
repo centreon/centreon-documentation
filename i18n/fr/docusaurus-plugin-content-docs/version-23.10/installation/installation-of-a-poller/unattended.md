@@ -5,6 +5,8 @@ title: Installation silencieuse d'un collecteur
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette version de Centreon est ancienne. Nous vous recommandons d'installer la dernière version.
+
 Pour installer un collecteur plus rapidement, vous pouvez utiliser un script. Le script exécutera les étapes d'installation proprement dites. Vous devrez ensuite enregistrer le collecteur et le rattacher au serveur central ou au serveur distant.
 
 ## Procédure d'installation
@@ -59,7 +61,7 @@ apt update && apt upgrade
 2. Téléchargez le script à l'aide de la commande suivante :
 
 ```shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/23.10.x/centreon/unattended.sh --output /tmp/unattended.sh
+curl -L https://download.centreon.com/23.10/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Exécutez la commande suivante en **root** :

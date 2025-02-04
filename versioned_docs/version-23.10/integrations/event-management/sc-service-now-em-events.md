@@ -26,7 +26,7 @@ dnf install centreon-stream-connector-servicenow
 
 </TabItem>
 
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 98">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install centreon-stream-connector-servicenow

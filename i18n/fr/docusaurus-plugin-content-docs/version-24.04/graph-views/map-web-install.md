@@ -245,9 +245,9 @@ Disabled
 > - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-SELinux n'est pas installé sur Debian 11, continuez.
+SELinux n'est pas installé sur Debian 11 & 12, continuez.
 
 </TabItem>
 </Tabs>
@@ -412,10 +412,17 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
@@ -611,6 +618,8 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 
 Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 17) sera automatiquement installé, si nécessaire.
 
+> Suivez cette procédure de dépannage si OpenJDK 17 cause un incident [empêchant l'installation de centreon-map-engine](./map-web-troubleshooting.md#centreon-map-engine-et-toutes-ses-dépendances-ne-peuvent-pas-être-installés-sur-alma-linux-8).
+
 #### Prérequis Java
   > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
   
@@ -794,7 +803,7 @@ Installez le dépôt de Centreon Business : vous pouvez le trouver sur le [porta
 
 ### Étape 2 : installer le module MAP
 
-1. Depuis votre terminal, entrez la commande suivante :
+1. Depuis votre terminal, entrez la commande suivante sur le serveur central :
 
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -811,7 +820,7 @@ Installez le dépôt de Centreon Business : vous pouvez le trouver sur le [porta
   ```
 
   </TabItem>
-  <TabItem value="Debian" label="Debian">
+  <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
   ```shell
   sudo apt install centreon-map-web-client

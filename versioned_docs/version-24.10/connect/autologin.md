@@ -43,5 +43,5 @@ The Autologin feature allows you to give access to the Centreon platform through
     http://10.29.11.2/centreon/main.php?p=103&autologin=1&useralias=admin&token=3sWymDJk
     ```
 
-    To display Centreon in fullscreen mode, without the menus or the header, append **&min=1** to the URL.
+    To display Centreon in fullscreen mode, without the menus or the header, press F.
  	 

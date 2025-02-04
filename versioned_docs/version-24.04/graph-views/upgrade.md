@@ -5,6 +5,8 @@ title: Upgrading the extension
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **From Centreon 24.10, MAP Legacy will no longer be available.** If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+
 This chapter describes how to upgrade your Centreon MAP (Legacy) extension. This
 is done by upgrading the four main components:
 
@@ -112,7 +114,7 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
 2. Update Centreon MAP (Legacy) server:
 
     ```shell
-    apt update && apt upgrade centreon-map-server
+    apt install --only-upgrade centreon-map-server
     ```
 
 </TabItem>
@@ -157,7 +159,7 @@ dnf update centreon-map-web-client
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-apt update && apt upgrade centreon-map-web-client
+apt install --only-upgrade centreon-map-web-client
 ```
 
 </TabItem>
@@ -176,6 +178,8 @@ automatically upgraded to the latest version that corresponds to the server.
 Alternatively, the client can be downloaded through the `Monitoring >
 Map` menu and the **Desktop client** button.
 
+> Please follow these recommendations to [avoid the MAP desktop client running slowly](./troubleshooter.md#my-desktop-client-is-slow-and-i-often-get-disconnected) after its upgrade.
+
 ## Step 4: Update dialects in .properties files
 
 In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/centreon-studio/studio-database.properties** files, replace **MySQL5Dialect** with **MariaDB10Dialect**.
@@ -191,7 +195,7 @@ In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/cent
     systemctl stop centreon-map
     ```
 
-2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
+2. When upgrading to version 24.04 and above, you have to upgrade MariaDB to version 10.11. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
 
 3. If you have upgraded your Centreon platform from a version earlier than 22.10, the new BBDO v3 protocol is enabled. You need to edit the following file to allow MAP to work properly: **/etc/centreon-studio/studio-config.properties**
 

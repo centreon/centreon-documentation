@@ -66,12 +66,15 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+1. Mettez à jour votre Centreon 23.04 jusqu'à la dernière version mineure.
+2. Exécutez les commandes suivantes :
+
 ```shell
 echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
-Ensuite, importez la clé du dépôt :
+3. Ensuite, importez la clé du dépôt :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
@@ -156,7 +159,7 @@ yum update centreon\* php-pecl-gnupg
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon
+apt install --only-upgrade centreon
 ```
 
 </TabItem>
@@ -483,7 +486,7 @@ Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutan
   systemctl restart cbd centengine gorgoned
   ```
 
-Mettez à jour les permissions sur les fichiers de configurations de centreon-broker.
+Ajoutez l'utilisateur **apache** au groupe **centreon-broker** et vice versa.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -624,7 +627,7 @@ dnf update centreon\*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon-poller
+apt install --only-upgrade centreon-poller
 ```
 
 </TabItem>

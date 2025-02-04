@@ -59,7 +59,7 @@ apt update && apt upgrade
 2. Download the script using the following command:
 
 ```shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/24.04.x/centreon/unattended.sh --output /tmp/unattended.sh
+curl -L https://download.centreon.com/24.04/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Run the following command as **root**:
@@ -78,7 +78,7 @@ bash /tmp/unattended.sh install -t central -v 24.04 -r stable -s -l DEBUG  2>&1 
 
 In both cases, you will get a full log file with all errors in your **tmp** folder, named **unattended(date).log**.
 
-4. Once the script has run, carry out [steps 5 to 8 of the standard installation procedure for a remote server](./using-packages.md#step-5-register-the-server).
+4. Once the script has run, carry out [steps 4 to 8 of the standard installation procedure for a remote server](./using-packages.md#step-5-register-the-server).
 
 ## Help
 

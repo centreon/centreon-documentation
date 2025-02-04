@@ -18,7 +18,7 @@ yum install centreon-plugin-Applications-Rudder-Restapi
 A token needs to be created to acces the API.
 
 To do so, follow the official documentation here :
-<https://docs.rudder.io/api/#api-_-Authentication>.
+\<https://docs.rudder.io/api/#api-_-Authentication\>.
 
 ## Centreon Configuration
 

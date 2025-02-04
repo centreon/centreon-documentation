@@ -18,26 +18,50 @@ Use the following procedure to update your MAP version:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-``` shell
-sudo dnf update centreon-map-engine centreon-map-web-client
-```
+ - On the central server:
+ 
+ ``` shell
+ sudo dnf update centreon-map-web-client
+ ```
+ 
+ - On the MAP server:
+ 
+ ``` shell
+ sudo dnf update centreon-map-engine
+ ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-``` shell
-sudo yum update centreon-map-engine centreon-map-web-client
-```
+ - On the central server:
+ 
+ ``` shell
+ sudo yum update centreon-map-web-client
+ ```
+ 
+ - On the MAP server:
+ 
+ ``` shell
+ sudo yum update centreon-map-engine
+ ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
  - If MAP only is installed:
  
+ On the central server:
+
  ``` shell
- sudo apt upgrade centreon-map-engine centreon-map-web-client
+ sudo apt install centreon-map-web-client
  ```
-  
+
+ On the MAP server:
+
+ ``` shell
+ sudo apt install centreon-map-engine
+ ```
+
  - If MAP and MAP Legacy are installed on the same server:
    
    - Make a backup of the **map.cnf** file:
@@ -47,11 +71,19 @@ sudo yum update centreon-map-engine centreon-map-web-client
     ```
 
    - Update the centreon-map-engine package
-   
+    
+    On the central server:
+    
     ``` shell
-    sudo apt upgrade -o Dpkg::Options::="--force-overwrite" centreon-map-engine centreon-map-web-client
+    sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-web-client
     ```
-
+    
+    On the MAP server:
+    
+    ``` shell
+    sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-engine
+    ```
+    
    - Retrieve the configuration file backup:
    
     ```shell
@@ -68,8 +100,10 @@ sudo yum update centreon-map-engine centreon-map-web-client
 </Tabs>
 
 3. Clear your browser cache.
- 
-4. Restart the **centreon-map-engine** service using the following command:
+
+4. Finalize the update of the module and the widget in the Centreon interface **Administration > Extensions > Manager**.
+
+5. Restart the **centreon-map-engine** service using the following command:
  
   ```shell
   sudo systemctl start centreon-map-engine

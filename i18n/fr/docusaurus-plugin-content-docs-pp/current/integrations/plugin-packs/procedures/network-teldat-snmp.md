@@ -19,14 +19,16 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="Net-Teldat-SNMP-custom" label="Net-Teldat-SNMP-custom">
 
-| Alias       | Modèle de service                  | Description                                               |
-|:------------|:-----------------------------------|:----------------------------------------------------------|
-| Cells-Radio | Net-Teldat-Cells-Radio-SNMP-custom | Contrôle les modules radio cellulaires                    |
-| Cpu         | Net-Teldat-Cpu-SNMP-custom         | Contrôle du taux d'utilisation du CPU de la machine       |
-| Memory      | Net-Teldat-Memory-SNMP-custom      | Contrôle du taux d'utilisation de la mémoire vive         |
-| Uptime      | Net-Teldat-Uptime-SNMP-custom      | Durée depuis laquelle le serveur tourne sans interruption |
+| Alias       | Modèle de service                  | Description                                               | Découverte |
+|:------------|:-----------------------------------|:----------------------------------------------------------|:----------:|
+| Cells-Radio | Net-Teldat-Cells-Radio-SNMP-custom | Contrôle les modules radio cellulaires                    | X          |
+| Cpu         | Net-Teldat-Cpu-SNMP-custom         | Contrôle du taux d'utilisation du CPU de la machine       |            |
+| Memory      | Net-Teldat-Memory-SNMP-custom      | Contrôle du taux d'utilisation de la mémoire vive         |            |
+| Uptime      | Net-Teldat-Uptime-SNMP-custom      | Durée depuis laquelle le serveur tourne sans interruption |            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Teldat-SNMP-custom** est utilisé.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
@@ -46,17 +48,19 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                             |
+| Nom de la règle | Description                                                                                                                                                                                                                                    |
 |:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créer un modèle mapper pour le modèle d'hôte **Net-Teldat-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
-#### Découverte de service
+#### Découverte de services
 
-| Nom de la règle                | Description                                                            |
-|:-------------------------------|:-----------------------------------------------------------------------|
-| Net-Teldat-SNMP-Interface-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
+| Nom de la règle                    | Description                                                             |
+|:-----------------------------------|:------------------------------------------------------------------------|
+| Net-Teldat-SNMP-Cells-Radio-IMEI   | Découvre les modules radio cellulaires en filtrant sur leur IMEI |
+| Net-Teldat-SNMP-Cells-Radio-Module | Découvre les modules radio cellulaires en filtrant sur leur Module |
+| Net-Teldat-SNMP-Interface-Name     | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -134,6 +138,8 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 ## Installer le connecteur de supervision
 
 ### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
@@ -228,7 +234,7 @@ yum install centreon-plugin-Network-Teldat-Snmp
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
-| Macro            | Description                                                                                                                                                                   | Valeur par défaut | Obligatoire |
+| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:-----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | N'importe quelle option que vous souhaiteriez ajouter à toutes les commandes (une option --verbose par exemple). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
@@ -242,8 +248,11 @@ yum install centreon-plugin-Network-Teldat-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cells-Radio" label="Cells-Radio">
 
-| Macro                            | Description                                                                                                                                                                     | Valeur par défaut                                         |  Obligatoire  |
-|:---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:-------------:|
+| Macro                            | Description                                                                                        | Valeur par défaut                                                       | Obligatoire |
+|:---------------------------------|:---------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------|:-----------:|
+| FILTERMODULE                     | Filter cellular radio interfaces by module. |                                                                         |             |
+| FILTERIMEI                       | Filter cellular radio interfaces by IMEI. |                                                                         |             |
+| FILTERINTERFACETYPE              | Filter cellular radio interfaces by type. |                                                                         |             |
 | WARNINGMODULECELLRADIOCSQ        | Thresholds on cellular mobile reception signal quality (+CSQ).                                                                                                                  |                                                           |               |
 | CRITICALMODULECELLRADIOCSQ       | Thresholds on cellular mobile reception signal quality (+CSQ).                                                                                                                  |                                                           |               |
 | WARNINGMODULECELLRADIORSCP       | Thresholds on cellular mobile received signal code power (RSCP).                                                                                                                |                                                           |               |
@@ -256,14 +265,14 @@ yum install centreon-plugin-Network-Teldat-Snmp
 | CRITICALMODULECELLRADIOSNR       | Thresholds on cellular mobile signal versus noise ratio (SINR).                                                                                                                 |                                                           |               |
 | WARNINGMODULESCELLRADIODETECTED  | Thresholds on detected cellular mobile(s)                                                                                                                                       |                                                           |               |
 | CRITICALMODULESCELLRADIODETECTED | Thresholds on detected cellular mobile(s)                                                                                                                                       |                                                           |               |
-| WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi}   | '%{interfaceState} =~ /disconnect/'                       |               |
-| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL.  You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi} | '%{simStatus} =~ /LOCKED/ or %{simStatus} =~ /DETECTING/' |               |
+| WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{simStatus\}, %\{interfaceState\}, %\{cellId\}, %\{simIcc\}, %\{operator\}, %\{imsi\}   | '%\{interfaceState\} =~ /disconnect/'                       |               |
+| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL.  You can use the following variables: %\{simStatus\}, %\{interfaceState\}, %\{cellId\}, %\{simIcc\}, %\{operator\}, %\{imsi\} | '%\{simStatus\} =~ /LOCKED/ or %\{simStatus\} =~ /DETECTING/' |               |
 | EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                | --verbose                                                 |               |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro        | Description                                                                                                                                      | Valeur par défaut  | Obligatoire |
+| Macro                    | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGCPUUTILIZATION1M  | Thresholds on cpu utilization 1 min ago                                                                                                 |                   |             |
 | CRITICALCPUUTILIZATION1M | Thresholds on cpu utilization 1 min ago                                                                                                 |                   |             |
@@ -276,7 +285,7 @@ yum install centreon-plugin-Network-Teldat-Snmp
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro              | Description                                                                                                                                      | Valeur par défaut                                    | Obligatoire |
+| Macro              | Description                                                                                        | Valeur par défaut                                     | Obligatoire |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-----------:|
 | OIDFILTER          | Choose OID used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                  | ifname                                               |             |
 | OIDDISPLAY         | Choose OID used to display interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                 | ifname                                               |             |
@@ -293,14 +302,14 @@ yum install centreon-plugin-Network-Teldat-Snmp
 | CRITICALOUTERROR   | Thresholds                                                                                                                                       |                                                      |             |
 | WARNINGOUTTRAFFIC  | Thresholds                                                                                                                                       |                                                      |             |
 | CRITICALOUTTRAFFIC | Thresholds                                                                                                                                       |                                                      |             |
-| CRITICALSTATUS     | Set critical threshold for status. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                   | %{admstatus} eq "up" and %{opstatus} !~ /up\dormant/ |             |
-| WARNINGSTATUS      | Set warning threshold for status. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                    |                                                      |             |
+| CRITICALSTATUS     | Set critical threshold for status. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                   | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\dormant/ |             |
+| WARNINGSTATUS      | Set warning threshold for status. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                    |                                                      |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                                            |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro        | Description                                                                                                                                                  | Valeur par défaut | Obligatoire |
+| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 |  WARNINGUSAGE      | Thresholds on memory usage                                                                                                                                   |                   |             |
 | CRITICALUSAGE     | Thresholds on memory usage                                                                                                                                   |                   |             |
@@ -308,12 +317,12 @@ yum install centreon-plugin-Network-Teldat-Snmp
 | CRITICALUSAGEFREE | Thresholds on free memory usage                                                                                                                              |                   |             |
 | WARNINGUSAGEPRCT  | Thresholds on memory percent usage                                                                                                                           |                   |             |
 | CRITICALUSAGEPRCT | Thresholds on memory percent usage                                                                                                                           |                   |             
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).             |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Threshold warning                                                                                                                                |                   |             |
 | CRITICAL     | Threshold critical                                                                                                                               |                   |             |
@@ -376,14 +385,15 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                         | Modèle de service associé          |
+| Mode                                                                                                                                | Modèle de service associé          |
 |:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|
-| cells-radio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/cellsradio.pm)]   | Net-Teldat-Cells-Radio-SNMP-custom |
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/cpu.pm)]                  | Net-Teldat-Cpu-SNMP-custom         |
-| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/interfaces.pm)]    | Net-Teldat-Interfaces-SNMP-custom  |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)] | Used for service discovery         |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/memory.pm)]            | Net-Teldat-Memory-SNMP-custom      |
-| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/uptime.pm)]            | Net-Teldat-Uptime-SNMP-custom      |
+| cells-radio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/cellsradio.pm)]          | Net-Teldat-Cells-Radio-SNMP-custom |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/cpu.pm)]                         | Net-Teldat-Cpu-SNMP-custom         |
+| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/interfaces.pm)]           | Net-Teldat-Interfaces-SNMP-custom  |
+| list-cells-radio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/listcellsradio.pm)] | Used for service discovery         |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]        | Used for service discovery         |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/memory.pm)]                   | Net-Teldat-Memory-SNMP-custom      |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/uptime.pm)]                   | Net-Teldat-Uptime-SNMP-custom      |
 
 ### Options disponibles
 
@@ -391,7 +401,7 @@ Le plugin apporte les modes suivants :
 
 Les options génériques sont listées ci-dessous :
 
-| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Option | Description |
 |:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -402,7 +412,7 @@ Les options génériques sont listées ci-dessous :
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Keep only perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -454,26 +464,28 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 <Tabs groupId="sync">
 <TabItem value="Cells-Radio" label="Cells-Radio">
 
-| Option                      | Description                                                                                                                                                                                                                                             |
+| Option | Description |
 |:----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-cell-id            | Filter cell modules by IMEI ID.                                                                                                                                                                                                                         |
-| --custom-perfdata-instances | Define perfdata instances (default: '%(cellId) %(operator)'). You can use the following variables: %{cellId}, %{simIcc}, %{operator}                                                                                                                    |
-| --unknown-status            | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi}                                                                           |
-| --warning-status            | Define the conditions to match for the status to be WARNING (default: '%{interfaceState} =~ /disconnect/'). You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi}                            |
-| --critical-status           | Define the conditions to match for the status to be CRITICAL (default: '%{simStatus} =~ /LOCKED/ \|\| %{simStatus} =~ /DETECTING/'). You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi}   |
+| --filter-module            | Filter cellular radio interfaces by module.                                                                                                                                                                                                                         |
+| --filter-imei            | Filter cellular radio interfaces by IMEI.                                                                                                                                                                                                                         |
+| --filter-interface-type            | Filter cellular radio interfaces by type.                                                                                                                                                                                                                         |
+| --custom-perfdata-instances | Define perfdata instances (default: '%(cellId) %(operator)'). You can use the following variables: %\{cellId\}, %\{simIcc\}, %\{operator\}                                                                                                                    |
+| --unknown-status            | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{simStatus\}, %\{interfaceState\}, %\{cellId\}, %\{simIcc\}, %\{operator\}, %\{imsi\}                                                                           |
+| --warning-status            | Define the conditions to match for the status to be WARNING (default: '%\{interfaceState\} =~ /disconnect/'). You can use the following variables: %\{simStatus\}, %\{interfaceState\}, %\{cellId\}, %\{simIcc\}, %\{operator\}, %\{imsi\}                            |
+| --critical-status           | Define the conditions to match for the status to be CRITICAL (default: '%\{simStatus\} =~ /LOCKED/ \|\| %\{simStatus\} =~ /DETECTING/'). You can use the following variables: %\{simStatus\}, %\{interfaceState\}, %\{cellId\}, %\{simIcc\}, %\{operator\}, %\{imsi\}   |
 | --warning-* --critical-*    | Thresholds. Can be: 'modules-cellradio-detected', 'module-cellradio-rsrp', ''module-cellradio-rsrq', 'module-cellradio-rscp', 'module-cellradio-csq' 'module-cellradio-snr'.                                                                            |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Option                   | Description                                                                              |
+| Option | Description |
 |:-------------------------|:-----------------------------------------------------------------------------------------|
 | --warning-* --critical-* | Thresholds. Can be: 'cpu-utilization-5s', 'cpu-utilization-1m', 'cpu-utilization-5m'.    |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Option                   | Description                                                                                                                                                                                                                                                                                |
+| Option | Description |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                                                                 |
 | --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                            |
@@ -495,9 +507,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --add-cast               | Check interface cast.                                                                                                                                                                                                                                                                      |
 | --add-speed              | Check interface speed.                                                                                                                                                                                                                                                                     |
 | --add-volume             | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      |
-| --check-metrics          | If the expression is true, metrics are checked (Default: '%{opstatus} eq "up"').                                                                                                                                                                                                           |
-| --warning-status         | Set warning threshold for status. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                                                                              |
-| --critical-status        | Set critical threshold for status. (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                   |
+| --check-metrics          | If the expression is true, metrics are checked (Default: '%\{opstatus\} eq "up"').                                                                                                                                                                                                           |
+| --warning-status         | Set warning threshold for status. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                                                              |
+| --critical-status        | Set critical threshold for status. (Default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                   |
 | --warning-* --critical-* | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
 | --units-traffic          | Units of thresholds for the traffic (Default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
 | --units-errors           | Units of thresholds for errors/discards (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |
@@ -522,14 +534,14 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Option                   | Description                                                             |
+| Option | Description |
 |:-------------------------|:------------------------------------------------------------------------|
 | --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%).    |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Option                 | Description                                                                                                                                                                                                                                   |
+| Option | Description |
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
 | --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
