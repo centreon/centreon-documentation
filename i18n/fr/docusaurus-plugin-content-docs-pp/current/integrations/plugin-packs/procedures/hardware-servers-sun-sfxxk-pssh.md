@@ -66,7 +66,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Pour superviser un serveur Sun SFxxK, assurez-vous que le System Controller (SC) soit configuré avec SMS.
+Pour superviser un serveur Sun SFxxK, assurez-vous que le System Controller (SC) ait les permissions d'exécuter les commandes suivantes : 
+- showfailover
+- showenvironment
+- showboards
 
 ## Installer le connecteur de supervision
 

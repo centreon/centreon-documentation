@@ -65,7 +65,10 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To monitor a Sun SFxxK server, ensure that the System Controller (SC) is configured with SMS.
+To monitor a Sun SFxxK server, ensure that the System Controller (SC) has permissions to execute following commands:
+- showfailover
+- showenvironment
+- showboards
 
 ## Installing the monitoring connector
 
