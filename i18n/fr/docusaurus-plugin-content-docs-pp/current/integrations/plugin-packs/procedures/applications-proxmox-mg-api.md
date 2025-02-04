@@ -233,12 +233,12 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::proxmox::mg::restapi::plugin \
 	--mode=mail \
 	--hostname='10.0.0.1' \
-	--url-path='' \
+	--url-path='/api2/json' \
 	--port='8006' \
 	--proto='https' \
 	--api-username='xxxxxxx' \
 	--api-password='xxxxxxx' \
-	--realm=''  \
+	--realm='mg'  \
 	--hours='12' \
 	--timespan='1800' \
 	--warning-mails-incoming='' \
