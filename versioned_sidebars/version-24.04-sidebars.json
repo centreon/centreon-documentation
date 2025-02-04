@@ -1496,19 +1496,19 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-24.04/installation/installation-of-centreon-ha/ha-faq"
+          "id": "installation/installation-of-centreon-ha/ha-faq"
         },
         {
           "type": "doc",
-          "id": "version-24.04/installation/installation-of-centreon-ha/cluster-elements"
+          "id": "installation/installation-of-centreon-ha/cluster-elements"
         },
         {
           "type": "doc",
-          "id": "version-24.04/installation/installation-of-centreon-ha/overview"
+          "id": "installation/installation-of-centreon-ha/overview"
         },
         {
           "type": "doc",
-          "id": "version-24.04/installation/installation-of-centreon-ha/ha-prerequisites"
+          "id": "installation/installation-of-centreon-ha/ha-prerequisites"
         },
         {
           "type": "category",
@@ -1520,11 +1520,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-24.04/installation/installation-of-centreon-ha/integrating-pollers"
+              "id": "installation/installation-of-centreon-ha/integrating-pollers"
             },
             {
               "type": "doc",
-              "id": "version-24.04/administration/centreon-ha/monitoring-guide"
+              "id": "administration/centreon-ha/monitoring-guide"
             }
           ]
         },
@@ -1537,11 +1537,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-24.04/administration/centreon-ha/operating-guide"
+              "id": "administration/centreon-ha/operating-guide"
             },
             {
               "type": "doc",
-              "id": "version-24.04/administration/centreon-ha/troubleshooting-guide"
+              "id": "administration/centreon-ha/troubleshooting-guide"
             }
           ]
         },
@@ -1554,7 +1554,7 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-24.04/update/update-centreon-ha"
+              "id": "update/update-centreon-ha"
             }
           ]
         },
