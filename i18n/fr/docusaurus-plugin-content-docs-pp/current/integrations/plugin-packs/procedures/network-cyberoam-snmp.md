@@ -42,7 +42,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias          | Modèle de service                       | Description                                               | Découverte |
 |:---------------|:----------------------------------------|:----------------------------------------------------------|:----------:|
-| Traffic-Global | Net-Cyberoam-Traffic-Global-SNMP-custom | Contrôle le traffic réseau de plusieurs interfaces réseau |     X      |
+| Traffic-Global | Net-Cyberoam-Traffic-Global-SNMP-custom | Contrôle le trafic réseau de plusieurs interfaces réseau |     X      |
 | Vpn-Status     | Net-Cyberoam-Vpn-Status-SNMP-custom     | Contrôle l'état des réseaux privés virtuels               |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.

@@ -26,11 +26,11 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                   | Service Description                                  |
 |:--------------|:-----------------------------------|:-----------------------------------------------------|
-| Cpu           | Net-Cyberoam-Cpu-SNMP-custom       | Check the rate of utilization of CPU for the machine |
+| Cpu           | Net-Cyberoam-Cpu-SNMP-custom       | Check the rate of CPU utilization for the machine |
 | Disks         | Net-Cyberoam-Disks-SNMP-custom     | Check storage usage                                  |
 | Ha-Status     | Net-Cyberoam-Ha-Status-SNMP-custom | Check the status of the high availability            |
 | License       | Net-Cyberoam-License-SNMP-custom   | Monitor the status of the license                    |
-| Memory        | Net-Cyberoam-Memory-SNMP-custom    | Check the rate of the utilization of memories        |
+| Memory        | Net-Cyberoam-Memory-SNMP-custom    | Check the rate of memory utilization        |
 | Requests      | Net-Cyberoam-Requests-SNMP-custom  | Check request statistics                             |
 | Services      | Net-Cyberoam-Services-SNMP-custom  | Check services                                       |
 
