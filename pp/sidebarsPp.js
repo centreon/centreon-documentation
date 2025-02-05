@@ -230,6 +230,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-haproxy-web'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-hashicorp-vault-restapi'
         },
         {
