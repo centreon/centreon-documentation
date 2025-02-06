@@ -32,7 +32,7 @@ import TabItem from '@theme/TabItem';
 - [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Fix **Interfaces** service template that had too many default macros.
 - [**MongoDB**](../procedures/applications-databases-mongodb.md) - Added missing dependencies to the plugin for Debian.
 - [**Moxa Switch SNMP**](../procedures/network-moxa-switch-snmp.md) - Fixed `--add-duplex-status` option in **interface** mode.
-- [**Proxmox Mail Gateway API**](../procedures/applications-proxmox-mg-api.md) - Fixed host macro typo.
+- [**Proxmox Mail Gateway API**](../procedures/applications-proxmox-mg-api.md) - Fixed host macros typo.
 
 </TabItem>
 </Tabs>
