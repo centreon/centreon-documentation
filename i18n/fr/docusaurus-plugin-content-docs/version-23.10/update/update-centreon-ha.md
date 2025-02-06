@@ -142,7 +142,7 @@ Les extensions (ou modules) Centreon nécessitent également d'être mises à jo
 
 ### Mise à jour des connecteurs de supervision
 
-Afin de maintenir la compatibilité entre les [connecteurs de supervision](../monitoring/pluginpacks.md) et les plugins installés (qui ont été mis à jour sur les serveurs centraux) il faut appliquer les mises à jour des connecteurs de supervision depuis le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Afin de maintenir la compatibilité entre les [connecteurs de supervision](../monitoring/pluginpacks.md) et les plugins installés (qui ont été mis à jour sur les serveurs centraux) il faut appliquer les mises à jour des connecteurs de supervision depuis le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Export de la configuration Broker/Engine
 
