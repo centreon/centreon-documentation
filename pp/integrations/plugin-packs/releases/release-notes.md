@@ -29,7 +29,7 @@ import TabItem from '@theme/TabItem';
 
 - [**Azure Database for PostgreSQL**](../procedures/cloud-azure-database-postgresql.md) - Fixed **storage** command by adding spaces before warning options.
 - [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed **sdwan** mode wrong traffic calculation and units, based on a community contribution [PR 5343](https://github.com/centreon/centreon-plugins/pull/5343).
-- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Fix **Interfaces** service template that had too many default macros.
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Fixed **Interfaces** service template that had too many default macros.
 - [**MongoDB**](../procedures/applications-databases-mongodb.md) - Added missing dependencies to the plugin for Debian.
 - [**Moxa Switch SNMP**](../procedures/network-moxa-switch-snmp.md) - Fixed `--add-duplex-status` option in **interface** mode.
 - [**Proxmox Mail Gateway API**](../procedures/applications-proxmox-mg-api.md) - Fixed host macros typo.
