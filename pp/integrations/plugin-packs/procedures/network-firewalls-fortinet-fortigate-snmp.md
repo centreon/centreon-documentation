@@ -47,7 +47,7 @@ The connector brings the following service templates (sorted by the host templat
 | Traffic-Name     | Net-Fortinet-Fortigate-Traffic-Name-SNMP-custom     | Check traffic of a network interface                         |           |
 | VPN-Global       | Net-Fortinet-Fortigate-VPN-Global-SNMP-custom       | Check the state of VPN links                                 |           |
 | Vdom-Usage       | Net-Fortinet-Fortigate-Vdom-Usage-SNMP-custom       | Check virtual domains                                        |           |
-| Virus            | Net-Fortinet-Fortigate-Virus-SNMP-custom            | Check blocked and detected virus on multiple virtual domains |           |
+| Virus            | Net-Fortinet-Fortigate-Virus-SNMP-custom            | Check blocked and detected viruses on multiple virtual domains |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 

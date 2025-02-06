@@ -43,9 +43,9 @@ Le connecteur apporte les modèles de service suivants
 | Hardware         | Net-Fortinet-Fortigate-Hardware-SNMP-custom         | Contrôle l'état des sondes matérielles                                                |            |
 | Ips-Stats-Global | Net-Fortinet-Fortigate-Ips-Stats-Global-SNMP-custom | Contrôle les statistiques IPS des domaines virtuels                                   |            |
 | SDWan            | Net-Fortinet-Fortigate-SDWan-SNMP-custom            | Contrôle les liens SDWan                                                              |            |
-| Traffic-Global   | Net-Fortinet-Fortigate-Traffic-Global-SNMP-custom   | Contrôle le traffic réseau de plusieurs interfaces réseau                             |     X      |
-| Traffic-Id       | Net-Fortinet-Fortigate-Traffic-Id-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau                                     |            |
-| Traffic-Name     | Net-Fortinet-Fortigate-Traffic-Name-SNMP-custom     | Contrôle le traffic réseau d'une interface réseau                                     |            |
+| Traffic-Global   | Net-Fortinet-Fortigate-Traffic-Global-SNMP-custom   | Contrôle le trafic réseau de plusieurs interfaces réseau                             |     X      |
+| Traffic-Id       | Net-Fortinet-Fortigate-Traffic-Id-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                                     |            |
+| Traffic-Name     | Net-Fortinet-Fortigate-Traffic-Name-SNMP-custom     | Contrôle le trafic réseau d'une interface réseau                                     |            |
 | VPN-Global       | Net-Fortinet-Fortigate-VPN-Global-SNMP-custom       | Contrôle le statut des liens VPN                                                      |            |
 | Vdom-Usage       | Net-Fortinet-Fortigate-Vdom-Usage-SNMP-custom       | Contrôle les domaines virtuels                                                        |            |
 | Virus            | Net-Fortinet-Fortigate-Virus-SNMP-custom            | Contrôle le nombre de virus bloqués et détectés pour l'ensemble des domaines virtuels |            |
