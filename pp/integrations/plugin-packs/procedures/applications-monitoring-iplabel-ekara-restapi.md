@@ -287,7 +287,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: availability: 100% time total all steps: 6849ms time interaction: 36880ms All steps are ok | 'scenarios~scenario.availability.percentage'=100%;;;0;100 'scenarios~scenario.time.allsteps.total.milliseconds'=6849ms;;;0; 'scenarios~scenario.time.interaction.milliseconds'=36880ms;;;0; 'scenarios~steps1#scenario.step.time.milliseconds'=16964ms;;;0; 'scenarios~steps2#scenario.step.time.milliseconds'=82538ms;;;0; 'scenarios~steps1#scenario.steps.time.total.milliseconds'=87197ms;;;0; 'scenarios~steps2#scenario.steps.time.total.milliseconds'=64961ms;;;0; 
+OK: availability: 80% time total all steps: 6849ms time interaction: 36880ms All steps are ok | 'scenarios~scenario.availability.percentage'=80%;;;0;100 'scenarios~scenario.time.allsteps.total.milliseconds'=6849ms;;;0; 'scenarios~scenario.time.interaction.milliseconds'=36880ms;;;0; 'scenarios~steps1#scenario.step.time.milliseconds'=16964ms;;;0; 'scenarios~steps2#scenario.step.time.milliseconds'=82538ms;;;0; 'scenarios~steps1#scenario.steps.time.total.milliseconds'=87197ms;;;0; 'scenarios~steps2#scenario.steps.time.total.milliseconds'=64961ms;;;0; 
 ```
 
 ### Troubleshooting
