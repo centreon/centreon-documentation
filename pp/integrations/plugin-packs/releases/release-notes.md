@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Cyberoam**](../procedures/network-cyberoam-snmp.md) - Added **HA**, **license**, **VPN** and **VPN discovery** modes, based on a community contribution [PR 5144](https://github.com/centreon/centreon-plugins/pull/5144).
+- [**Cyberoam SNMP**](../procedures/network-cyberoam-snmp.md) - Added **HA**, **license**, **VPN** and **VPN discovery** modes, based on a community contribution [PR 5144](https://github.com/centreon/centreon-plugins/pull/5144).
 - [**Fortinet Fortigate Rest API**](../procedures/network-fortinet-fortigate-restapi.md) - Added thresholds options `--warning-last-update` and `--critical-last-update` in **license** mode, from a community contribution [PR 4964](https://github.com/centreon/centreon-plugins/pull/4964).
 - [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Changed status default thresholds and `--timeframe` option default value in **scenario** mode.
 - [**Windows NSClient 0.5 NRPE**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Changed pack display name to make it clear that it uses NRPE protocol.
