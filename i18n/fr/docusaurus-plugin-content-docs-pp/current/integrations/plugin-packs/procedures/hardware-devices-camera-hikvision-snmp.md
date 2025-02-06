@@ -68,7 +68,7 @@ Afin de contrôler votre équipement Hikvision, le SNMP doit être configuré.
 yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Hikvision camera SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Hikvision camera SNMP* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -85,7 +85,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Hikvision-Snmp
 yum install centreon-pack-hardware-devices-camera-hikvision-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Hikvision camera SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Hikvision camera SNMP* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>

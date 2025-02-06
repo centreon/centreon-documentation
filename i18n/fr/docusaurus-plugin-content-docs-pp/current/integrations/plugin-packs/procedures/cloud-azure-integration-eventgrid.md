@@ -79,7 +79,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 yum install centreon-plugin-Cloud-Azure-Integration-EventGrid-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Event Grid* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Event Grid* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -96,7 +96,7 @@ yum install centreon-plugin-Cloud-Azure-Integration-EventGrid-Api
 yum install centreon-pack-cloud-azure-integration-eventgrid.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Event Grid* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Event Grid* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
