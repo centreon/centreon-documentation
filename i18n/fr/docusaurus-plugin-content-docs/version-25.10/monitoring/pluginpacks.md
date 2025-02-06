@@ -86,7 +86,7 @@ Un connecteur de supervision s'installe en 4 étapes :
 
 ### Accéder au catalogue des connecteurs de supervision
 
-* Si vous avez une [licence](../administration/licenses.md) **en ligne**, le catalogue des connecteurs de supervision est déjà disponible sur votre plateforme à la page **Configuration > Gestionnaire de connecteurs de supervision**.
+* Si vous avez une [licence](../administration/licenses.md) **en ligne**, le catalogue des connecteurs de supervision est déjà disponible sur votre plateforme à la page **Configuration > Connecteurs > Connecteurs de supervision**.
 * Si vous avez une licence **hors ligne** :
   - installez le dépôt des connecteurs de supervision (rendez-vous sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en obtenir l'adresse)
   - installez ou mettez à jour le catalogue des connecteurs de supervision
@@ -137,7 +137,7 @@ apt install --only-upgrade centreon-pack-\*
 
 ### Installer le pack
 
-Vous avez maintenant accès au catalogue des connecteurs de supervision, à la page **Configuration > Gestionnaire de connecteurs de supervision** :
+Vous avez maintenant accès au catalogue des connecteurs de supervision, à la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
@@ -177,7 +177,7 @@ que les prérequis nécessaires à son fonctionnement. Cliquez sur l'icône ``i`
 
 1. [Installez le pack](#installer-le-pack).
 2. Vérifiez dans la [procédure de supervision](#vérifier-la-procédure-de-supervision) si des étapes de configuration supplémentaires sont requises.
-3. À la page **Configuration > Gestionnaire de connecteurs de supervision**, réglez **Installation automatique des plugins** sur **ON**.
+3. À la page **Configuration > Connecteurs > Connecteurs de supervision**, réglez **Installation automatique des plugins** sur **ON**.
 4. Utilisez un modèle fourni par le pack pour mettre en supervision un hôte ou un service.
 5. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) des collecteurs qui superviseront cet hôte ou ce service : les plugins correspondants seront installés automatiquement sur ces collecteurs.
 
@@ -284,7 +284,7 @@ Attention, vous devrez quand même [mettre à jour les plugins](#mettre-à-jour-
 
 ### Mettre à jour les plugins
 
-À la page **Configuration > Gestionnaire de connecteurs de supervision**, si **Installation automatique des plugins** est à **ON**, les plugins seront mis à jour automatiquement lorsque vous déploierez la configuration d'un collecteur qui supervise un hôte ou un service qui utilise ce plugin.
+À la page **Configuration > Connecteurs > Connecteurs de supervision**, si **Installation automatique des plugins** est à **ON**, les plugins seront mis à jour automatiquement lorsque vous déploierez la configuration d'un collecteur qui supervise un hôte ou un service qui utilise ce plugin.
 
 Si **Installation automatique des plugins** est à **OFF**, utilisez la commande suivante pour mettre à jour les plugins :
 
