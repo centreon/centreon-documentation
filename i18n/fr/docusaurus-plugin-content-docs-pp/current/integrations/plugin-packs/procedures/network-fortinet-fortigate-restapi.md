@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias    | Modèle de service                              | Description                                                             |
 |:---------|:-----------------------------------------------|:------------------------------------------------------------------------|
-| Health   | Net-Fortinet-Fortigate-Health-Restapi-custom   | Contrôle l'état des santé du firewall                                   |
+| Health   | Net-Fortinet-Fortigate-Health-Restapi-custom   | Contrôle l'état de santé du firewall                                   |
 | Licenses | Net-Fortinet-Fortigate-Licenses-Restapi-custom | Contrôle le statut des licences                                         |
 | System   | Net-Fortinet-Fortigate-System-Restapi-custom   | Contrôle l'utilisation système des VDOM (processeur, mémoire, sessions) |
 
@@ -38,7 +38,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias | Modèle de service                        | Description                                                                           |
 |:------|:-----------------------------------------|:--------------------------------------------------------------------------------------|
-| Ha    | Net-Fortinet-Fortigate-Ha-Restapi-custom | Contrôle l'utilisation système des members du cluster (processeur, mémoire, sessions) |
+| Ha    | Net-Fortinet-Fortigate-Ha-Restapi-custom | Contrôle l'utilisation système des membres du cluster (processeur, mémoire, sessions) |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
