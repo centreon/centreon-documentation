@@ -218,7 +218,9 @@ categorized under **My Filter**.
 
 ![image](../assets/alerts/resources-status/resources-status-filters-custom.gif)
 
-By clicking the **Manage filters** menu, you can manage your existing filters (rename, re-order and delete them).
+By clicking on the **Edit filters** menu, you can manage your existing filters (rename, re-order and delete):
+
+![image](../assets/alerts/resources-status/resources-status-edit-filters.gif)
 
 ## Detail panel
 
