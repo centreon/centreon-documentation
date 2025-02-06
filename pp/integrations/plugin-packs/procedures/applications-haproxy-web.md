@@ -13,8 +13,8 @@ The following monitoring connectors will be installed when you install the **HAP
 
 ## Pack assets
 
-This connector allows to monitor HAProxy (including OSS/free versions) using the HAProxy ‘stats’ page. 
-It only supports the ‘json’ format, the csv format is not compatible.
+This connector allows you to monitor HAProxy (including OSS/free versions) using the HAProxy ‘stats’ page. 
+It only supports the json format, the csv format is not compatible.
 
 ### Templates
 
@@ -121,7 +121,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To monitor HAProxy statistics via API, you need to enable the statistics interface in HAProxy.
+To monitor HAProxy statistics via the API, you need to enable the statistics interface in HAProxy.
 In your `haproxy.cfg` configuration file, add or modify the following section:
 
 ```bash

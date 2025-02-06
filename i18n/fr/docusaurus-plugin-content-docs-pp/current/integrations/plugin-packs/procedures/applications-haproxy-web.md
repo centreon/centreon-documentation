@@ -14,7 +14,7 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 ## Contenu du pack
 
 Ce connecteur permet de superviser HAProxy (y compris les versions OSS/libres) en utilisant la page « stats » de HAProxy. 
-Il ne supporte que le format 'json', le format csv n'est pas compatible.
+Il ne supporte que le format json, le format csv n'est pas compatible.
 
 ### Modèles
 
@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="App-Haproxy-Web-custom" label="App-Haproxy-Web-custom">
 
-> Ce modèle d'hôte n'a pas de service associé par défaut. Utilisez les règles de découvertes de services pour deployer vos services.
+> Ce modèle d'hôte n'a pas de service associé par défaut. Utilisez les règles de découverte de services pour déployer vos services.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
@@ -135,11 +135,11 @@ listen stats
 ```
 
 > `bind *:8404` : Expose la page des statistiques sur le port 8404.
-> `stats uri /haproxy?stats` : Définit l’URL d’accès aux stats.
+> `stats uri /haproxy?stats` : Définit l’URL d’accès aux statistiques.
 > `stats auth username:password` : Définit l’authentification (choisissez le couple username/password)
-> `stats refresh 10s` : Rafraîchit les stats toutes les 10 secondes (vous pouvez ajuster cette valeur à votre cas).
+> `stats refresh 10s` : Rafraîchit les statistiques toutes les 10 secondes (vous pouvez ajuster cette valeur à votre cas).
 
-Vous pouvez vérifier l'accès à la page API (depuis un navigateur ou avec curl):
+Vous pouvez vérifier l'accès à la page API (depuis un navigateur ou avec curl) :
 
 ```bash
 curl -u username:password http://IP_HAPROXY:8404/haproxy?stats
