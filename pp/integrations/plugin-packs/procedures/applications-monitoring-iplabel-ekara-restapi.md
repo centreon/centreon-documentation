@@ -188,7 +188,7 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
 | FILTERID             | Filter by monitor ID (can be a regexp)                                                                                                   |                        |           |
 | FILTERNAME           | Filter by monitor name (can be a regexp)                                                                                                 |                        |           |
 | FILTERSITEID         | Filter scenario to check by site ID                                                                                                      |                        |           |
-| FILTERWORKSPACEID    | Filter scenario to check by workspace id                                                                                                 |                        |           |
+| FILTERWORKSPACEID    | Filter scenario to check by workspace ID                                                                                                 |                        |           |
 | PROXYURL             | Proxy URL. Example: http://my.proxy:3128                                                                                                 |                        |           |
 | EKARAAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                        |           |
 
