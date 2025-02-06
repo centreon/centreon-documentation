@@ -221,7 +221,7 @@ Use the **gear icon** next to **Filter** to:
 As soon as a filter is saved, it can be reused in the Filter dropdown list,
 categorized under **My Filter**.
 
-By clicking the **Edit filters** menu, you can manage your existing filters (rename, re-order and delete):
+By clicking the **Manage filters** menu, you can manage your existing filters (rename, re-order and delete them).
 
 ## Detail panel
 
