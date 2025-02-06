@@ -219,7 +219,7 @@ Use the **gear icon** next to **Filter** to:
 - Edit filters so that you can rename, re-order or delete them
 
 As soon as a filter is saved, it can be reused in the Filter dropdown list,
-categorized under **My Filter**.
+categorized under **My Filters**.
 
 By clicking the **Manage filters** menu, you can manage your existing filters (rename, re-order and delete them).
 
