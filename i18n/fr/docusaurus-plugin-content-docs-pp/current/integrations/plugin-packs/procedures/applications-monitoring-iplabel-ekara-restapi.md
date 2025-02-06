@@ -204,14 +204,14 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
 | Macro                    | Description                                                                                                                                                                                          | Valeur par défaut           | Obligatoire |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
 | TIMEFRAME                | Set timeframe period in seconds. Example: --timeframe='3600' will check the last hour                                                                                                                | 900                         |             |
-| WARNINGINCIDENTDURATION  | Threshold                                                                                                                                                                                            |                             |             |
-| CRITICALINCIDENTDURATION | Threshold                                                                                                                                                                                            |                             |             |
+| WARNINGINCIDENTDURATION  | Warning threshold for duration of any incidents                                                                                                                                                                             |                             |             |
+| CRITICALINCIDENTDURATION | Critical threshold for number of incident                                                                                                                                                                                |                             |             |
 | CRITICALINCIDENTSEVERITY | Critical threshold for incident severity. Syntax: --critical-incident-severity='%\{severity\} =~ "xxx"'                                                                                              | %\{severity\} =~ "Critical" |             |
 | WARNINGINCIDENTSEVERITY  | Warning threshold for incident severity. Syntax: --warning-incident-severity='%\{severity\} =~ "xxx"'                                                                                                |                             |             |
 | CRITICALINCIDENTSTATUS   | Critical threshold for incident status. Syntax: --critical-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                          | %\{status\} =~ "Open"       |             |
 | WARNINGINCIDENTSTATUS    | Warning threshold for incident status. Syntax: --warning-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                            |                             |             |
-| WARNINGINCIDENTSTOTAL    | Threshold                                                                                                                                                                                            |                             |             |
-| CRITICALINCIDENTSTOTAL   | Threshold                                                                                                                                                                                            |                             |             |
+| WARNINGINCIDENTSTOTAL    | Warning threshold for number of incident                                                                                                                                                                                |                             |             |
+| CRITICALINCIDENTSTOTAL   | Critical threshold for number of incident                                                                                                                                                                                 |                             |             |
 | CRITICALTRIGGERSTATUS    | Critical threshold for trigger status. Syntax: --critical-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded' | %\{severity\} =~ "Failure"  |             |
 | WARNINGTRIGGERSTATUS     | Warning threshold for trigger status. Syntax: --warning-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded'   |                             |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                     | --ignore-closed --verbose   |             |
@@ -257,8 +257,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::monitoring::iplabel::ekara::restapi::plugin \
 	--mode=scenarios \
 	--hostname='api.ekara.ip-label.net' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
 	--port='443' \
 	--proto='https' \
 	--proxyurl=''  \
