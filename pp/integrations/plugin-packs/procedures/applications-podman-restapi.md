@@ -223,20 +223,20 @@ yum install centreon-plugin-Applications-Podman-Restapi
 | Macro               | Description                                                                                                                            | Default value          | Mandatory |
 |:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:---------:|
 | CONTAINERNAME       | Container name                                                                                                                         |                        |     X     |
-| WARNINGCPUUSAGE     | Threshold warning for CPU usage                                                                                                        |                        |           |
-| CRITICALCPUUSAGE    | Threshold critical for CPU usage                                                                                                       |                        |           |
-| WARNINGMEMORYUSAGE  | Threshold warning for memory usage                                                                                                     |                        |           |
-| CRITICALMEMORYUSAGE | Threshold critical for memory usage                                                                                                    |                        |           |
-| WARNINGNETWORKIN    | Threshold warning for network in                                                                                                       |                        |           |
-| CRITICALNETWORKIN   | Threshold critical for network in                                                                                                      |                        |           |
-| WARNINGNETWORKOUT   | Threshold warning for network out                                                                                                      |                        |           |
-| CRITICALNETWORKOUT  | Threshold critical for network out                                                                                                     |                        |           |
-| WARNINGREADIO       | Threshold warning for read IO                                                                                                          |                        |           |
-| CRITICALREADIO      | Threshold critical for read IO                                                                                                         |                        |           |
-| WARNINGSTATE        | Threshold warning for state                                                                                                            | %\{state\} =~ /Paused/ |           |
-| CRITICALSTATE       | Threshold critical for state                                                                                                           | %\{state\} =~ /Exited/ |           |
-| WARNINGWRITEIO      | Threshold warning for write IO                                                                                                         |                        |           |
-| CRITICALWRITEIO     | Threshold critical for write IO                                                                                                        |                        |           |
+| WARNINGCPUUSAGE     | Warning threshold for CPU usage                                                                                                        |                        |           |
+| CRITICALCPUUSAGE    | Critical threshold for CPU usage                                                                                                       |                        |           |
+| WARNINGMEMORYUSAGE  | Warning threshold for memory usage                                                                                                     |                        |           |
+| CRITICALMEMORYUSAGE | Critical threshold for memory usage                                                                                                    |                        |           |
+| WARNINGNETWORKIN    | Warning threshold for network in                                                                                                       |                        |           |
+| CRITICALNETWORKIN   | Critical threshold for network in                                                                                                      |                        |           |
+| WARNINGNETWORKOUT   | Warning threshold for network out                                                                                                      |                        |           |
+| CRITICALNETWORKOUT  | Critical threshold for network out                                                                                                     |                        |           |
+| WARNINGREADIO       | Warning threshold for read IO                                                                                                          |                        |           |
+| CRITICALREADIO      | Critical threshold for read IO                                                                                                         |                        |           |
+| WARNINGSTATE        | Warning threshold for state                                                                                                            | %\{state\} =~ /Paused/ |           |
+| CRITICALSTATE       | Critical threshold for state                                                                                                           | %\{state\} =~ /Exited/ |           |
+| WARNINGWRITEIO      | Warning threshold for write IO                                                                                                         |                        |           |
+| CRITICALWRITEIO     | Critical threshold for write IO                                                                                                        |                        |           |
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose              |           |
 
 </TabItem>
@@ -245,18 +245,18 @@ yum install centreon-plugin-Applications-Podman-Restapi
 | Macro                     | Description                                                                                                                            | Default value            | Mandatory |
 |:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------:|
 | PODNAME                   | Pod name                                                                                                                               |                          |     X     |
-| WARNINGCPUUSAGE           | Threshold warning for CPU usage                                                                                                        |                          |           |
-| CRITICALCPUUSAGE          | Threshold critical for CPU usage                                                                                                       |                          |           |
-| WARNINGMEMORYUSAGE        | Threshold warning for memory usage                                                                                                     |                          |           |
-| CRITICALMEMORYUSAGE       | Threshold critical for memory usage                                                                                                    |                          |           |
-| WARNINGPAUSEDCONTAINERS   | Threshold warning for paused containers                                                                                                |                          |           |
-| CRITICALPAUSEDCONTAINERS  | Threshold critical for paused containers                                                                                               |                          |           |
-| WARNINGRUNNINGCONTAINERS  | Threshold warning for running containers                                                                                               |                          |           |
-| CRITICALRUNNINGCONTAINERS | Threshold critical for running containers                                                                                              |                          |           |
+| WARNINGCPUUSAGE           | Warning threshold for CPU usage                                                                                                        |                          |           |
+| CRITICALCPUUSAGE          | Critical threshold for CPU usage                                                                                                       |                          |           |
+| WARNINGMEMORYUSAGE        | Warning threshold for memory usage                                                                                                     |                          |           |
+| CRITICALMEMORYUSAGE       | Critical threshold for memory usage                                                                                                    |                          |           |
+| WARNINGPAUSEDCONTAINERS   | Warning threshold for paused containers                                                                                                |                          |           |
+| CRITICALPAUSEDCONTAINERS  | Critical threshold for paused containers                                                                                               |                          |           |
+| WARNINGRUNNINGCONTAINERS  | Warning threshold for running containers                                                                                               |                          |           |
+| CRITICALRUNNINGCONTAINERS | Critical threshold for running containers                                                                                              |                          |           |
 | WARNINGSTATE              | Define the conditions to match for the state to be WARNING . You can use the following variables: C\<%\{state\}\>                      | %\{state\} =~ /Exited/   |           |
 | CRITICALSTATE             | Define the conditions to match for the state to be CRITICAL. You can use the following variables: C\<%\{state\}\>                      | %\{state\} =~ /Degraded/ |           |
-| WARNINGSTOPPEDCONTAINERS  | Threshold warning for stopped containers                                                                                               |                          |           |
-| CRITICALSTOPPEDCONTAINERS | Threshold critical for stopped containers                                                                                              |                          |           |
+| WARNINGSTOPPEDCONTAINERS  | Warning threshold for stopped containers                                                                                               |                          |           |
+| CRITICALSTOPPEDCONTAINERS | Critical threshold for stopped containers                                                                                              |                          |           |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                |           |
 
 </TabItem>
@@ -264,18 +264,18 @@ yum install centreon-plugin-Applications-Podman-Restapi
 
 | Macro                     | Description                                                                                                                            | Default value     | Mandatory   |
 |:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCONTAINERSRUNNING  | Threshold warning for the number of running containers                                                                                 |                   |             |
-| CRITICALCONTAINERSRUNNING | Threshold critical for the number of running containers                                                                                |                   |             |
-| WARNINGCONTAINERSSTOPPED  | Threshold warning for the number of stopped containers                                                                                 |                   |             |
-| CRITICALCONTAINERSSTOPPED | Threshold critical for the number of stopped containers                                                                                |                   |             |
-| WARNINGCPUUSAGE           | Threshold warning in percent for CPU usage                                                                                             |                   |             |
-| CRITICALCPUUSAGE          | Threshold critical in percent for CPU usage                                                                                            |                   |             |
-| WARNINGMEMORYUSAGE        | Threshold warning in bytes for memory usage                                                                                            |                   |             |
-| CRITICALMEMORYUSAGE       | Threshold critical in bytes for memory usage                                                                                           |                   |             |
-| WARNINGSWAPUSAGE          | Threshold warning in bytes for swap usage                                                                                              |                   |             |
-| CRITICALSWAPUSAGE         | Threshold critical in bytes for swap usage                                                                                             |                   |             |
-| WARNINGUPTIME             | Threshold warning for uptime in seconds                                                                                                |                   |             |
-| CRITICALUPTIME            | Threshold critical for uptime in seconds                                                                                               |                   |             |
+| WARNINGCONTAINERSRUNNING  | Warning threshold for the number of running containers                                                                                 |                   |             |
+| CRITICALCONTAINERSRUNNING | Critical threshold for the number of running containers                                                                                |                   |             |
+| WARNINGCONTAINERSSTOPPED  | Warning threshold for the number of stopped containers                                                                                 |                   |             |
+| CRITICALCONTAINERSSTOPPED | Critical threshold for the number of stopped containers                                                                                |                   |             |
+| WARNINGCPUUSAGE           | Warning threshold in percent for CPU usage                                                                                             |                   |             |
+| CRITICALCPUUSAGE          | Critical threshold in percent for CPU usage                                                                                            |                   |             |
+| WARNINGMEMORYUSAGE        | Warning threshold in bytes for memory usage                                                                                            |                   |             |
+| CRITICALMEMORYUSAGE       | Critical threshold in bytes for memory usage                                                                                           |                   |             |
+| WARNINGSWAPUSAGE          | Warning threshold in bytes for swap usage                                                                                              |                   |             |
+| CRITICALSWAPUSAGE         | Critical threshold in bytes for swap usage                                                                                             |                   |             |
+| WARNINGUPTIME             | Warning threshold for uptime in seconds                                                                                                |                   |             |
+| CRITICALUPTIME            | Critical threshold for uptime in seconds                                                                                               |                   |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -415,18 +415,18 @@ All available options for each service template are listed below:
 | Option                     | Description                                                                                                                                                     |
 |:---------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --container-name           |   Container name.                                                                                                                                               |
-| --warning-cpu-usage        |   Threshold warning for CPU usage.                                                                                                                              |
-| --critical-cpu-usage       |   Threshold critical for CPU usage.                                                                                                                             |
-| --warning-memory-usage     |   Threshold warning for memory usage.                                                                                                                           |
-| --critical-memory-usage    |   Threshold critical for memory usage.                                                                                                                          |
-| --warning-read-io          |   Threshold warning for read IO.                                                                                                                                |
-| --critical-read-io         |   Threshold critical for read IO.                                                                                                                               |
-| --warning-write-io         |   Threshold warning for write IO.                                                                                                                               |
-| --critical-write-io        |   Threshold critical for write IO.                                                                                                                              |
-| --warning-network-in       |   Threshold warning for network in.                                                                                                                             |
-| --critical-network-in      |   Threshold critical for network in.                                                                                                                            |
-| --warning-network-out      |   Threshold warning for network out.                                                                                                                            |
-| --critical-network-out     |   Threshold critical for network out.                                                                                                                           |
+| --warning-cpu-usage        |   Warning threshold for CPU usage.                                                                                                                              |
+| --critical-cpu-usage       |   Critical threshold for CPU usage.                                                                                                                             |
+| --warning-memory-usage     |   Warning threshold for memory usage.                                                                                                                           |
+| --critical-memory-usage    |   Critical threshold for memory usage.                                                                                                                          |
+| --warning-read-io          |   Warning threshold for read IO.                                                                                                                                |
+| --critical-read-io         |   Critical threshold for read IO.                                                                                                                               |
+| --warning-write-io         |   Warning threshold for write IO.                                                                                                                               |
+| --critical-write-io        |   Critical threshold for write IO.                                                                                                                              |
+| --warning-network-in       |   Warning threshold for network in.                                                                                                                             |
+| --critical-network-in      |   Critical threshold for network in.                                                                                                                            |
+| --warning-network-out      |   Warning threshold for network out.                                                                                                                            |
+| --critical-network-out     |   Critical threshold for network out.                                                                                                                           |
 | --warning-container-state  |   Define the conditions to match for the state to be WARNING (default: C\<'%\{state\} =~ /Paused/'\>). You can use the following variables: C\<%\{state\}\>     |
 | --critical-container-state |   Define the conditions to match for the state to be CRITICAL (default: C\<'%\{state\} =~ /Exited/'\>). You can use the following variables: C\<%\{state\}\>    |
 
@@ -436,16 +436,16 @@ All available options for each service template are listed below:
 | Option                        | Description                                                                                                                                                       |
 |:------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --pod-name                    |   Pod name.                                                                                                                                                       |
-| --warning-cpu-usage           |   Threshold warning for CPU usage.                                                                                                                                |
-| --critical-cpu-usage          |   Threshold critical for CPU usage.                                                                                                                               |
-| --warning-memory-usage        |   Threshold warning for memory usage.                                                                                                                             |
-| --critical-memory-usage       |   Threshold critical for memory usage.                                                                                                                            |
-| --warning-running-containers  |   Threshold warning for running containers.                                                                                                                       |
-| --critical-running-containers |   Threshold critical for running containers.                                                                                                                      |
-| --warning-stopped-containers  |   Threshold warning for stopped containers.                                                                                                                       |
-| --critical-stopped-containers |   Threshold critical for stopped containers.                                                                                                                      |
-| --warning-paused-containers   |   Threshold warning for paused containers.                                                                                                                        |
-| --critical-paused-containers  |   Threshold critical for paused containers.                                                                                                                       |
+| --warning-cpu-usage           |   Warning threshold for CPU usage.                                                                                                                                |
+| --critical-cpu-usage          |   Critical threshold for CPU usage.                                                                                                                               |
+| --warning-memory-usage        |   Warning threshold for memory usage.                                                                                                                             |
+| --critical-memory-usage       |   Critical threshold for memory usage.                                                                                                                            |
+| --warning-running-containers  |   Warning threshold for running containers.                                                                                                                       |
+| --critical-running-containers |   Critical threshold for running containers.                                                                                                                      |
+| --warning-stopped-containers  |   Warning threshold for stopped containers.                                                                                                                       |
+| --critical-stopped-containers |   Critical threshold for stopped containers.                                                                                                                      |
+| --warning-paused-containers   |   Warning threshold for paused containers.                                                                                                                        |
+| --critical-paused-containers  |   Critical threshold for paused containers.                                                                                                                       |
 | --warning-state               |   Define the conditions to match for the state to be WARNING (default: C\<'%\{state\} =~ /Exited/'\>). You can use the following variables: C\<%\{state\}\>       |
 | --critical-state              |   Define the conditions to match for the state to be CRITICAL (default: C\<'%\{state\} =~ /Degraded/'\>). You can use the following variables: C\<%\{state\}\>    |
 
@@ -454,18 +454,18 @@ All available options for each service template are listed below:
 
 | Option                        | Description                                                  |
 |:------------------------------|:-------------------------------------------------------------|
-| --warning-cpu-usage           |   Threshold warning in percent for CPU usage.                |
-| --critical-cpu-usage          |   Threshold critical in percent for CPU usage.               |
-| --warning-memory-usage        |   Threshold warning in bytes for memory usage.               |
-| --critical-memory-usage       |   Threshold critical in bytes for memory usage.              |
-| --warning-swap-usage          |   Threshold warning in bytes for swap usage.                 |
-| --critical-swap-usage         |   Threshold critical in bytes for swap usage.                |
-| --warning-containers-running  |   Threshold warning for the number of running containers.    |
-| --critical-containers-running |   Threshold critical for the number of running containers.   |
-| --warning-containers-stopped  |   Threshold warning for the number of stopped containers.    |
-| --critical-containers-stopped |   Threshold critical for the number of stopped containers.   |
-| --warning-uptime              |   Threshold warning for uptime in seconds.                   |
-| --critical-uptime             |   Threshold critical for uptime in seconds.                  |
+| --warning-cpu-usage           |   Warning threshold in percent for CPU usage.                |
+| --critical-cpu-usage          |   Critical threshold in percent for CPU usage.               |
+| --warning-memory-usage        |   Warning threshold in bytes for memory usage.               |
+| --critical-memory-usage       |   Critical threshold in bytes for memory usage.              |
+| --warning-swap-usage          |   Warning threshold in bytes for swap usage.                 |
+| --critical-swap-usage         |   Critical threshold in bytes for swap usage.                |
+| --warning-containers-running  |   Warning threshold for the number of running containers.    |
+| --critical-containers-running |   Critical threshold for the number of running containers.   |
+| --warning-containers-stopped  |   Warning threshold for the number of stopped containers.    |
+| --critical-containers-stopped |   Critical threshold for the number of stopped containers.   |
+| --warning-uptime              |   Warning threshold for uptime in seconds.                   |
+| --critical-uptime             |   Critical threshold for uptime in seconds.                  |
 
 </TabItem>
 </Tabs>
