@@ -49,10 +49,10 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                     | Description |
-|:------------------------------|:------------|
-| App-Podman-Restapi-Containers |             |
-| App-Podman-Restapi-Pods       |             |
+| Rule name                     | Description                                 |
+|:------------------------------|:--------------------------------------------|
+| App-Podman-Restapi-Containers | Discover containers and monitor their state |
+| App-Podman-Restapi-Pods       | Discover pods and monitor their state       |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -204,10 +204,10 @@ yum install centreon-plugin-Applications-Podman-Restapi
 3. Apply the **App-Podman-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro              | Description                                                                                          | Default value     | Mandatory   |
-|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PODMANPROTO        | Specify https if needed (Default: 'https')                                                           | https             |             |
-| PODMANPORT         | Port used (Default: 443)                                                                             | 443               |             |
+| Macro              | Description                                                                                                                              | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PODMANPROTO        | Specify https if needed                                                                                                                  | https             |             |
+| PODMANPORT         | Port used                                                                                                                                | 443               |             |
 | PODMANEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -220,62 +220,62 @@ yum install centreon-plugin-Applications-Podman-Restapi
 <Tabs groupId="sync">
 <TabItem value="Container-Usage" label="Container-Usage">
 
-| Macro               | Description                                                                                        | Default value          | Mandatory   |
-|:--------------------|:---------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| CONTAINERNAME       | Container name                                                                                     |                        | X           |
-| WARNINGCPUUSAGE     | Threshold warning for CPU usage                                                                    |                        |             |
-| CRITICALCPUUSAGE    | Threshold critical for CPU usage                                                                   |                        |             |
-| WARNINGMEMORYUSAGE  | Threshold warning for memory usage                                                                 |                        |             |
-| CRITICALMEMORYUSAGE | Threshold critical for memory usage                                                                |                        |             |
-| WARNINGNETWORKIN    | Threshold warning for network in                                                                   |                        |             |
-| CRITICALNETWORKIN   | Threshold critical for network in                                                                  |                        |             |
-| WARNINGNETWORKOUT   | Threshold warning for network out                                                                  |                        |             |
-| CRITICALNETWORKOUT  | Threshold critical for network out                                                                 |                        |             |
-| WARNINGREADIO       | Threshold warning for read IO                                                                      |                        |             |
-| CRITICALREADIO      | Threshold critical for read IO                                                                     |                        |             |
-| WARNINGSTATE        |                                                                                                    | %\{state\} =~ /Paused/ |             |
-| CRITICALSTATE       |                                                                                                    | %\{state\} =~ /Exited/ |             |
-| WARNINGWRITEIO      | Threshold warning for write IO                                                                     |                        |             |
-| CRITICALWRITEIO     | Threshold critical for write IO                                                                    |                        |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose              |             |
+| Macro               | Description                                                                                                                            | Default value          | Mandatory |
+|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:---------:|
+| CONTAINERNAME       | Container name                                                                                                                         |                        |     X     |
+| WARNINGCPUUSAGE     | Threshold warning for CPU usage                                                                                                        |                        |           |
+| CRITICALCPUUSAGE    | Threshold critical for CPU usage                                                                                                       |                        |           |
+| WARNINGMEMORYUSAGE  | Threshold warning for memory usage                                                                                                     |                        |           |
+| CRITICALMEMORYUSAGE | Threshold critical for memory usage                                                                                                    |                        |           |
+| WARNINGNETWORKIN    | Threshold warning for network in                                                                                                       |                        |           |
+| CRITICALNETWORKIN   | Threshold critical for network in                                                                                                      |                        |           |
+| WARNINGNETWORKOUT   | Threshold warning for network out                                                                                                      |                        |           |
+| CRITICALNETWORKOUT  | Threshold critical for network out                                                                                                     |                        |           |
+| WARNINGREADIO       | Threshold warning for read IO                                                                                                          |                        |           |
+| CRITICALREADIO      | Threshold critical for read IO                                                                                                         |                        |           |
+| WARNINGSTATE        | Threshold warning for state                                                                                                            | %\{state\} =~ /Paused/ |           |
+| CRITICALSTATE       | Threshold critical for state                                                                                                           | %\{state\} =~ /Exited/ |           |
+| WARNINGWRITEIO      | Threshold warning for write IO                                                                                                         |                        |           |
+| CRITICALWRITEIO     | Threshold critical for write IO                                                                                                        |                        |           |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose              |           |
 
 </TabItem>
 <TabItem value="Pod-Status" label="Pod-Status">
 
-| Macro                     | Description                                                                                                                                                  | Default value            | Mandatory   |
-|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| PODNAME                   | Pod name                                                                                                                                                     |                          | X           |
-| WARNINGCPUUSAGE           | Threshold warning for CPU usage                                                                                                                              |                          |             |
-| CRITICALCPUUSAGE          | Threshold critical for CPU usage                                                                                                                             |                          |             |
-| WARNINGMEMORYUSAGE        | Threshold warning for memory usage                                                                                                                           |                          |             |
-| CRITICALMEMORYUSAGE       | Threshold critical for memory usage                                                                                                                          |                          |             |
-| WARNINGPAUSEDCONTAINERS   | Threshold warning for paused containers                                                                                                                      |                          |             |
-| CRITICALPAUSEDCONTAINERS  | Threshold critical for paused containers                                                                                                                     |                          |             |
-| WARNINGRUNNINGCONTAINERS  | Threshold warning for running containers                                                                                                                     |                          |             |
-| CRITICALRUNNINGCONTAINERS | Threshold critical for running containers                                                                                                                    |                          |             |
-| WARNINGSTATE              | Define the conditions to match for the state to be WARNING (default: C\<'%\{state\} =~ /Exited/'\>). You can use the following variables: C\<%\{state\}\>    | %\{state\} =~ /Exited/   |             |
-| CRITICALSTATE             | Define the conditions to match for the state to be CRITICAL (default: C\<'%\{state\} =~ /Degraded/'\>). You can use the following variables: C\<%\{state\}\> | %\{state\} =~ /Degraded/ |             |
-| WARNINGSTOPPEDCONTAINERS  | Threshold warning for stopped containers                                                                                                                     |                          |             |
-| CRITICALSTOPPEDCONTAINERS | Threshold critical for stopped containers                                                                                                                    |                          |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                           | --verbose                |             |
+| Macro                     | Description                                                                                                                            | Default value            | Mandatory |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------:|
+| PODNAME                   | Pod name                                                                                                                               |                          |     X     |
+| WARNINGCPUUSAGE           | Threshold warning for CPU usage                                                                                                        |                          |           |
+| CRITICALCPUUSAGE          | Threshold critical for CPU usage                                                                                                       |                          |           |
+| WARNINGMEMORYUSAGE        | Threshold warning for memory usage                                                                                                     |                          |           |
+| CRITICALMEMORYUSAGE       | Threshold critical for memory usage                                                                                                    |                          |           |
+| WARNINGPAUSEDCONTAINERS   | Threshold warning for paused containers                                                                                                |                          |           |
+| CRITICALPAUSEDCONTAINERS  | Threshold critical for paused containers                                                                                               |                          |           |
+| WARNINGRUNNINGCONTAINERS  | Threshold warning for running containers                                                                                               |                          |           |
+| CRITICALRUNNINGCONTAINERS | Threshold critical for running containers                                                                                              |                          |           |
+| WARNINGSTATE              | Define the conditions to match for the state to be WARNING . You can use the following variables: C\<%\{state\}\>                      | %\{state\} =~ /Exited/   |           |
+| CRITICALSTATE             | Define the conditions to match for the state to be CRITICAL. You can use the following variables: C\<%\{state\}\>                      | %\{state\} =~ /Degraded/ |           |
+| WARNINGSTOPPEDCONTAINERS  | Threshold warning for stopped containers                                                                                               |                          |           |
+| CRITICALSTOPPEDCONTAINERS | Threshold critical for stopped containers                                                                                              |                          |           |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                |           |
 
 </TabItem>
 <TabItem value="System-Status" label="System-Status">
 
-| Macro                     | Description                                                                                        | Default value     | Mandatory   |
-|:--------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCONTAINERSRUNNING  | Threshold warning for the number of running containers                                             |                   |             |
-| CRITICALCONTAINERSRUNNING | Threshold critical for the number of running containers                                            |                   |             |
-| WARNINGCONTAINERSSTOPPED  | Threshold warning for the number of stopped containers                                             |                   |             |
-| CRITICALCONTAINERSSTOPPED | Threshold critical for the number of stopped containers                                            |                   |             |
-| WARNINGCPUUSAGE           | Threshold warning in percent for CPU usage                                                         |                   |             |
-| CRITICALCPUUSAGE          | Threshold critical in percent for CPU usage                                                        |                   |             |
-| WARNINGMEMORYUSAGE        | Threshold warning in bytes for memory usage                                                        |                   |             |
-| CRITICALMEMORYUSAGE       | Threshold critical in bytes for memory usage                                                       |                   |             |
-| WARNINGSWAPUSAGE          | Threshold warning in bytes for swap usage                                                          |                   |             |
-| CRITICALSWAPUSAGE         | Threshold critical in bytes for swap usage                                                         |                   |             |
-| WARNINGUPTIME             | Threshold warning for uptime in seconds                                                            |                   |             |
-| CRITICALUPTIME            | Threshold critical for uptime in seconds                                                           |                   |             |
+| Macro                     | Description                                                                                                                            | Default value     | Mandatory   |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCONTAINERSRUNNING  | Threshold warning for the number of running containers                                                                                 |                   |             |
+| CRITICALCONTAINERSRUNNING | Threshold critical for the number of running containers                                                                                |                   |             |
+| WARNINGCONTAINERSSTOPPED  | Threshold warning for the number of stopped containers                                                                                 |                   |             |
+| CRITICALCONTAINERSSTOPPED | Threshold critical for the number of stopped containers                                                                                |                   |             |
+| WARNINGCPUUSAGE           | Threshold warning in percent for CPU usage                                                                                             |                   |             |
+| CRITICALCPUUSAGE          | Threshold critical in percent for CPU usage                                                                                            |                   |             |
+| WARNINGMEMORYUSAGE        | Threshold warning in bytes for memory usage                                                                                            |                   |             |
+| CRITICALMEMORYUSAGE       | Threshold critical in bytes for memory usage                                                                                           |                   |             |
+| WARNINGSWAPUSAGE          | Threshold warning in bytes for swap usage                                                                                              |                   |             |
+| CRITICALSWAPUSAGE         | Threshold critical in bytes for swap usage                                                                                             |                   |             |
+| WARNINGUPTIME             | Threshold warning for uptime in seconds                                                                                                |                   |             |
+| CRITICALUPTIME            | Threshold critical for uptime in seconds                                                                                               |                   |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
