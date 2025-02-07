@@ -104,9 +104,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+L'API REST de Podman doit être activée sur l'hôte Podman : [Documentation de l'API REST de Podman](https://docs.podman.io/en/latest/_static/api.html).
+L'API REST de Podman doit être accessible depuis le collecteur Centreon.
 
 ## Installer le connecteur de supervision
 
@@ -232,8 +231,8 @@ yum install centreon-plugin-Applications-Podman-Restapi
 | CRITICALNETWORKOUT  | Threshold critical for network out                                                                                                               |                        |             |
 | WARNINGREADIO       | Threshold warning for read IO                                                                                                                    |                        |             |
 | CRITICALREADIO      | Threshold critical for read IO                                                                                                                   |                        |             |
-| WARNINGSTATE        | Threshold warning for state                                                                                                                      | %\{state\} =~ /Paused/ |             |
-| CRITICALSTATE       | Threshold critical for state                                                                                                                     | %\{state\} =~ /Exited/ |             |
+| WARNINGSTATE        | Define the conditions to match for the state to be WARNING. You can use the following variables: C<%{state}>                                     | %\{state\} =~ /Paused/ |             |
+| CRITICALSTATE       | Define the conditions to match for the state to be CRITICAL. You can use the following variables: C<%{state}>                                    | %\{state\} =~ /Exited/ |             |
 | WARNINGWRITEIO      | Threshold warning for write IO                                                                                                                   |                        |             |
 | CRITICALWRITEIO     | Threshold critical for write IO                                                                                                                  |                        |             |
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose              |             |
@@ -291,32 +290,33 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_podman_restapi.pl \
-	--plugin=apps::podman::restapi::plugin \
-	--mode=system-status \
-	--custommode=api \
-	--hostname='10.0.0.1' \
-	--port='443' \
-	--proto='https'  \
-	--warning-cpu-usage='' \
-	--critical-cpu-usage='' \
-	--warning-memory-usage='' \
-	--critical-memory-usage='' \
-	--warning-swap-usage='' \
-	--critical-swap-usage='' \
-	--warning-containers-running='' \
-	--critical-containers-running='' \
-	--warning-containers-stopped='' \
-	--critical-containers-stopped='' \
-	--warning-uptime='' \
-	--critical-uptime='' \
-	--verbose
+/usr/lib/centreon/plugins/centreon_podman_restapi.pl
+    --plugin=apps::podman::restapi::plugin
+    --mode=pod-status \
+    --custommode=api \
+    --hostname='127.0.0.1' \
+    --port='12375' \
+    --proto='http' \
+    --pod-name='frontend' \
+    --warning-cpu-usage='' \
+    --critical-cpu-usage='' \
+    --warning-memory-usage='' \
+    --critical-memory-usage='' \
+    --warning-running-containers='' \
+    --critical-running-containers='' \
+    --warning-stopped-containers='' \
+    --critical-stopped-containers='' \
+    --warning-paused-containers='' \
+    --critical-paused-containers='' \
+    --warning-state='%{state} =~ /Exited/' \
+    --critical-state='%{state} =~ /Degraded/' \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: CPU: 37659% Memory: 5451654516 Swap: 6869768697 Running containers: 5755 Stopped containers: 90949 Uptime: 16180 s | 'podman.system.cpu.usage.percent'=37659%;;;0;100 'podman.system.memory.usage.bytes'=54516B;;;0; 'podman.system.swap.usage.bytes'=68697B;;;0; 'podman.system.containers.running.count'=5755;;;0;total_containers 'podman.system.containers.stopped.count'=90949;;;0;total_containers 'podman.system.uptime.seconds'=16180s;;;0; 
+OK: CPU: 3.81%, Memory: 2.53MB, Running containers: 2, Stopped containers: 0, Paused containers: 0, State: Running | 'podman.pod.cpu.usage.percent'=3.81%;;;0;100 'podman.pod.memory.usage.bytes'=2657089.536B;;;0; 'podman.pod.containers.running.count'=2;;;0; 'podman.pod.containers.stopped.count'=0;;;0; 'podman.pod.containers.paused.count'=0;;;0;
 ```
 
 ### Diagnostic des erreurs communes
