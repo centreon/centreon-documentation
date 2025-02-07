@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
 - [**HAProxy Web**](../procedures/applications-haproxy-web.md) - Initial release of HAProxy Web.
-- [**Podman API**](../procedures/application-podman-api.md) - Initial release of Podman API.
+- [**Podman API**](../procedures/applications-podman-restapi.md) - Initial release of Podman API.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
