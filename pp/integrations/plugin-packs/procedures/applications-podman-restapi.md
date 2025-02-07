@@ -1,13 +1,13 @@
 ---
-id: network-fortinet-fortigate-restapi
-title: Fortinet Fortigate Rest API
+id: applications-podman-restapi
+title: Podman Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Fortinet Fortigate Rest API** connector through the
+The following monitoring connectors will be installed when you install the **Podman REST API** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,88 +15,100 @@ The following monitoring connectors will be installed when you install the **For
 
 ### Templates
 
-The Monitoring Connector **Fortinet Fortigate Rest API** brings a host template:
+The Monitoring Connector **Podman REST API** brings a host template:
 
-* **Net-Fortinet-Fortigate-Restapi-custom**
+* **App-Podman-Restapi-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Net-Fortinet-Fortigate-Restapi-custom" label="Net-Fortinet-Fortigate-Restapi-custom">
+<TabItem value="App-Podman-Restapi-custom" label="App-Podman-Restapi-custom">
 
-| Service Alias | Service Template                               | Service Description                           |
-|:--------------|:-----------------------------------------------|:----------------------------------------------|
-| Health        | Net-Fortinet-Fortigate-Health-Restapi-custom   | Check firewall health                         |
-| Licenses      | Net-Fortinet-Fortigate-Licenses-Restapi-custom | Check licenses                                |
-| System        | Net-Fortinet-Fortigate-System-Restapi-custom   | Check VDOM systems (cpu, memory and sessions) |
+| Service Alias | Service Template                        | Service Description            |
+|:--------------|:----------------------------------------|:-------------------------------|
+| System-Status | App-Podman-System-Status-Restapi-custom | Monitor Podman's overall state |
 
-> The services listed above are created automatically when the **Net-Fortinet-Fortigate-Restapi-custom** host template is used.
+> The services listed above are created automatically when the **App-Podman-Restapi-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                         | Service Description                                     |
-|:--------------|:-----------------------------------------|:--------------------------------------------------------|
-| Ha            | Net-Fortinet-Fortigate-Ha-Restapi-custom | Check cluster members system (cpu, memory and sessions) |
+| Service Alias   | Service Template                          | Service Description         | Discovery  |
+|:----------------|:------------------------------------------|:----------------------------|:----------:|
+| Container-Usage | App-Podman-Container-Usage-Restapi-custom | Monitor a container's state | X          |
+| Pod-Status      | App-Podman-Pod-Status-Restapi-custom      | Monitor a pod's state       | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
+
 </TabItem>
 </Tabs>
+
+### Discovery rules
+
+#### Service discovery
+
+| Rule name                     | Description                                 |
+|:------------------------------|:--------------------------------------------|
+| App-Podman-Restapi-Containers | Discover containers and monitor their state |
+| App-Podman-Restapi-Pods       | Discover pods and monitor their state       |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
 ### Collected metrics & status
 
 Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Ha" label="Ha">
+<TabItem value="Container-Usage" label="Container-Usage">
 
-| Name                                        | Unit  |
-|:--------------------------------------------|:------|
-| members.detected.count                      | count |
-| *members*~member.cpu.utilization.percentage | %     |
-| *members*~member.memory.usage.percentage    | %     |
-| *members*~member.sessions.active.count      | count |
-
-</TabItem>
-<TabItem value="Health" label="Health">
-
-| Name   | Unit  |
-|:-------|:------|
-| health | N/A   |
+| Name                                | Unit  |
+|:------------------------------------|:------|
+| podman.container.cpu.usage.percent  | %     |
+| podman.container.memory.usage.bytes | B     |
+| podman.container.io.read            | B     |
+| podman.container.io.write           | B     |
+| podman.container.network.in         | B     |
+| podman.container.network.out        | B     |
+| state                               | N/A   |
 
 </TabItem>
-<TabItem value="Licenses" label="Licenses">
+<TabItem value="Pod-Status" label="Pod-Status">
 
-| Name                               | Unit  |
-|:-----------------------------------|:------|
-| status                             | N/A   |
-| *licenses*#license.expires.seconds | s     |
-| last-update                        | N/A   |
+| Name                                | Unit  |
+|:------------------------------------|:------|
+| podman.pod.cpu.usage.percent        | %     |
+| podman.pod.memory.usage.bytes       | B     |
+| podman.pod.containers.running.count | count |
+| podman.pod.containers.stopped.count | count |
+| podman.pod.containers.paused.count  | count |
+| state                               | N/A   |
 
 </TabItem>
-<TabItem value="System" label="System">
+<TabItem value="System-Status" label="System-Status">
 
-| Name                               | Unit  |
-|:-----------------------------------|:------|
-| *vdoms*~cpu.utilization.percentage | %     |
-| *vdoms*~memory.usage.percentage    | %     |
-| *vdoms*~sessions.active.count      | count |
+| Name                                   | Unit  |
+|:---------------------------------------|:------|
+| podman.system.cpu.usage.percent        | %     |
+| podman.system.memory.usage.bytes       | B     |
+| podman.system.swap.usage.bytes         | B     |
+| podman.system.containers.running.count | count |
+| podman.system.containers.stopped.count | count |
+| podman.system.uptime.seconds           | s     |
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-To control your Fortinet Fortigate, the Rest API must be configured.
-See: https://docs.fortinet.com/document/fortigate/7.2.1/administration-guide/399023/rest-api-administrator
+The Podman REST API must be enabled on the Podman host: [Podman REST API Documentation](https://docs.podman.io/en/latest/_static/api.html).
+The Podman REST API must be reachable from the Centreon poller.
 
 ## Installing the monitoring connector
 
 ### Pack
-
- The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
@@ -108,34 +120,34 @@ with the command corresponding to the operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-network-fortinet-fortigate-restapi
+dnf install centreon-pack-applications-podman-restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-network-fortinet-fortigate-restapi
+dnf install centreon-pack-applications-podman-restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-network-fortinet-fortigate-restapi
+apt install centreon-pack-applications-podman-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-network-fortinet-fortigate-restapi
+yum install centreon-pack-applications-podman-restapi
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Fortinet Fortigate Rest API** connector through
+2. Whatever the license type (*online* or *offline*), install the **Podman REST API** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -155,28 +167,28 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Network-Fortinet-Fortigate-Restapi
+dnf install centreon-plugin-Applications-Podman-Restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Network-Fortinet-Fortigate-Restapi
+dnf install centreon-plugin-Applications-Podman-Restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-plugin-network-fortinet-fortigate-restapi
+apt install centreon-plugin-applications-podman-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
+yum install centreon-plugin-Applications-Podman-Restapi
 ```
 
 </TabItem>
@@ -188,15 +200,14 @@ yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **Net-Fortinet-Fortigate-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+3. Apply the **App-Podman-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro           | Description                                                                                                                              | Default value     | Mandatory |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:---------:|
-| APIACCESSTOKEN  | API token                                                                                                                                |                   |     X     |
-| APIPROTO        | Specify https if needed                                                                                                                  | https             |           |
-| APIPORT         | Port used                                                                                                                                | 443               |           |
-| APIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |           |
+| Macro              | Description                                                                                                                              | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PODMANPROTO        | Specify https if needed                                                                                                                  | https             |             |
+| PODMANPORT         | Port used                                                                                                                                | 443               |             |
+| PODMANEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -206,59 +217,65 @@ yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Ha" label="Ha">
+<TabItem value="Container-Usage" label="Container-Usage">
 
-| Macro                   | Description                                                                                                                            | Default value     | Mandatory   |
-|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME              | Filter members by name                                                                                                                 |                   |             |
-| WARNINGCPUUTILIZATION   | Threshold                                                                                                                              |                   |             |
-| CRITICALCPUUTILIZATION  | Threshold                                                                                                                              |                   |             |
-| WARNINGMEMBERSDETECTED  | Threshold                                                                                                                              |                   |             |
-| CRITICALMEMBERSDETECTED | Threshold                                                                                                                              |                   |             |
-| WARNINGMEMORYUSAGE      | Threshold                                                                                                                              |                   |             |
-| CRITICALMEMORYUSAGE     | Threshold                                                                                                                              |                   |             |
-| WARNINGSESSIONSACTIVE   | Threshold                                                                                                                              |                   |             |
-| CRITICALSESSIONSACTIVE  | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
-
-</TabItem>
-<TabItem value="Health" label="Health">
-
-| Macro          | Description                                                                                                                            | Default value             | Mandatory   |
-|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
-| FILTERVDOM     | Filter vdom by name                                                                                                                    |                           |             |
-| CRITICALHEALTH | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}              | %\{status\} !~ /success/i |             |
-| WARNINGHEALTH  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}               |                           |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                 |             |
+| Macro               | Description                                                                                                                            | Default value          | Mandatory |
+|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:---------:|
+| CONTAINERNAME       | Container name                                                                                                                         |                        |     X     |
+| WARNINGCPUUSAGE     | Warning threshold for CPU usage                                                                                                        |                        |           |
+| CRITICALCPUUSAGE    | Critical threshold for CPU usage                                                                                                       |                        |           |
+| WARNINGMEMORYUSAGE  | Warning threshold for memory usage                                                                                                     |                        |           |
+| CRITICALMEMORYUSAGE | Critical threshold for memory usage                                                                                                    |                        |           |
+| WARNINGNETWORKIN    | Warning threshold for network in                                                                                                       |                        |           |
+| CRITICALNETWORKIN   | Critical threshold for network in                                                                                                      |                        |           |
+| WARNINGNETWORKOUT   | Warning threshold for network out                                                                                                      |                        |           |
+| CRITICALNETWORKOUT  | Critical threshold for network out                                                                                                     |                        |           |
+| WARNINGREADIO       | Warning threshold for read IO                                                                                                          |                        |           |
+| CRITICALREADIO      | Critical threshold for read IO                                                                                                         |                        |           |
+| WARNINGSTATE        | Define the conditions to match for the state to be WARNING. You can use the following variables: %\{state}>                           | %\{state\} =~ /Paused/ |           |
+| CRITICALSTATE       | Define the conditions to match for the state to be CRITICAL. You can use the following variables: %\{state}>                          | %\{state\} =~ /Exited/ |           |
+| WARNINGWRITEIO      | Warning threshold for write IO                                                                                                         |                        |           |
+| CRITICALWRITEIO     | Critical threshold for write IO                                                                                                        |                        |           |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose              |           |
 
 </TabItem>
-<TabItem value="Licenses" label="Licenses">
+<TabItem value="Pod-Status" label="Pod-Status">
 
-| Macro              | Description                                                                                                                                                 | Default value             | Mandatory   |
-|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
-| FILTERNAME         | Filter licenses by name (can be a regexp)                                                                                                                   |                           |             |
-| UNIT               | Select the time unit for the expiration thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds |                           |             |
-| WARNINGEXPIRES     | Threshold                                                                                                                                                   |                           |             |
-| CRITICALEXPIRES    | Threshold                                                                                                                                                   |                           |             |
-| WARNINGLASTUPDATE  | Threshold                                                                                                                                                   |                           |             |
-| CRITICALLASTUPDATE | Threshold                                                                                                                                                   |                           |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{status\}                                   | %\{status\} =~ /expired/i |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}                                    |                           |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                      | --verbose                 |             |
+| Macro                     | Description                                                                                                                            | Default value            | Mandatory |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------:|
+| PODNAME                   | Pod name                                                                                                                               |                          |     X     |
+| WARNINGCPUUSAGE           | Warning threshold for CPU usage                                                                                                        |                          |           |
+| CRITICALCPUUSAGE          | Critical threshold for CPU usage                                                                                                       |                          |           |
+| WARNINGMEMORYUSAGE        | Warning threshold for memory usage                                                                                                     |                          |           |
+| CRITICALMEMORYUSAGE       | Critical threshold for memory usage                                                                                                    |                          |           |
+| WARNINGPAUSEDCONTAINERS   | Warning threshold for paused containers                                                                                                |                          |           |
+| CRITICALPAUSEDCONTAINERS  | Critical threshold for paused containers                                                                                               |                          |           |
+| WARNINGRUNNINGCONTAINERS  | Warning threshold for running containers                                                                                               |                          |           |
+| CRITICALRUNNINGCONTAINERS | Critical threshold for running containers                                                                                              |                          |           |
+| WARNINGSTATE              | Define the conditions to match for the state to be WARNING . You can use the following variables: C\<%\{state\}\>                      | %\{state\} =~ /Exited/   |           |
+| CRITICALSTATE             | Define the conditions to match for the state to be CRITICAL. You can use the following variables: C\<%\{state\}\>                      | %\{state\} =~ /Degraded/ |           |
+| WARNINGSTOPPEDCONTAINERS  | Warning threshold for stopped containers                                                                                               |                          |           |
+| CRITICALSTOPPEDCONTAINERS | Critical threshold for stopped containers                                                                                              |                          |           |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                |           |
 
 </TabItem>
-<TabItem value="System" label="System">
+<TabItem value="System-Status" label="System-Status">
 
-| Macro                  | Description                                                                                                                            | Default value     | Mandatory   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERVDOM             | Filter vdom by name                                                                                                                    |                   |             |
-| WARNINGCPUUTILIZATION  | Threshold                                                                                                                              |                   |             |
-| CRITICALCPUUTILIZATION | Threshold                                                                                                                              |                   |             |
-| WARNINGMEMORYUSAGE     | Threshold                                                                                                                              |                   |             |
-| CRITICALMEMORYUSAGE    | Threshold                                                                                                                              |                   |             |
-| WARNINGSESSIONSACTIVE  | Threshold                                                                                                                              |                   |             |
-| CRITICALSESSIONSACTIVE | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro                     | Description                                                                                                                            | Default value     | Mandatory   |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCONTAINERSRUNNING  | Warning threshold for the number of running containers                                                                                 |                   |             |
+| CRITICALCONTAINERSRUNNING | Critical threshold for the number of running containers                                                                                |                   |             |
+| WARNINGCONTAINERSSTOPPED  | Warning threshold for the number of stopped containers                                                                                 |                   |             |
+| CRITICALCONTAINERSSTOPPED | Critical threshold for the number of stopped containers                                                                                |                   |             |
+| WARNINGCPUUSAGE           | Warning threshold in percent for CPU usage                                                                                             |                   |             |
+| CRITICALCPUUSAGE          | Critical threshold in percent for CPU usage                                                                                            |                   |             |
+| WARNINGMEMORYUSAGE        | Warning threshold in bytes for memory usage                                                                                            |                   |             |
+| CRITICALMEMORYUSAGE       | Critical threshold in bytes for memory usage                                                                                           |                   |             |
+| WARNINGSWAPUSAGE          | Warning threshold in bytes for swap usage                                                                                              |                   |             |
+| CRITICALSWAPUSAGE         | Critical threshold in bytes for swap usage                                                                                             |                   |             |
+| WARNINGUPTIME             | Warning threshold for uptime in seconds                                                                                                |                   |             |
+| CRITICALUPTIME            | Critical threshold for uptime in seconds                                                                                               |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 </Tabs>
@@ -272,27 +289,33 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_fortinet_fortigate_restapi.pl \
-	--plugin=network::fortinet::fortigate::restapi::plugin \
-	--mode=system \
-	--hostname='10.0.0.1' \
-	--port='443' \
-	--proto='https' \
-	--access-token='xxxxxx'  \
-	--filter-vdom='' \
-	--warning-cpu-utilization='' \
-	--critical-cpu-utilization='' \
-	--warning-sessions-active='' \
-	--critical-sessions-active='' \
-	--warning-memory-usage='' \
-	--critical-memory-usage='' \
-	--verbose
+/usr/lib/centreon/plugins/centreon_podman_restapi.pl
+    --plugin=apps::podman::restapi::plugin
+    --mode=pod-status \
+    --custommode=api \
+    --hostname='127.0.0.1' \
+    --port='12375' \
+    --proto='http' \
+    --pod-name='frontend' \
+    --warning-cpu-usage='' \
+    --critical-cpu-usage='' \
+    --warning-memory-usage='' \
+    --critical-memory-usage='' \
+    --warning-running-containers='' \
+    --critical-running-containers='' \
+    --warning-stopped-containers='' \
+    --critical-stopped-containers='' \
+    --warning-paused-containers='' \
+    --critical-paused-containers='' \
+    --warning-state='%{state} =~ /Exited/' \
+    --critical-state='%{state} =~ /Degraded/' \
+    --verbose
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: All vdom systems are ok | 'ABS#cpu.utilization.percentage'=0.00%;;;0;100 'ABS#memory.usage.percentage'=0.00%;;;0;100 'ABS#sessions.active.count'=155;;;0; 'ADV#cpu.utilization.percentage'=0.00%;;;0;100 'ADV#memory.usage.percentage'=1.00%;;;0;100 'ADV#sessions.active.count'=553;;;0; 'BGN#cpu.utilization.percentage'=0.00%;;;0;100 'BGN#memory.usage.percentage'=0.00%;;;0;100 'BGN#sessions.active.count'=244;;;0; 'LHE#cpu.utilization.percentage'=0.00%;;;0;100 'LHE#memory.usage.percentage'=0.00%;;;0;100 'LHE#sessions.active.count'=100;;;0; 'MED#cpu.utilization.percentage'=3.00%;;;0;100 'MED#memory.usage.percentage'=11.00%;;;0;100 'MED#sessions.active.count'=6280;;;0; 'MIC#cpu.utilization.percentage'=0.00%;;;0;100 'MIC#memory.usage.percentage'=5.00%;;;0;100 'MIC#sessions.active.count'=3244;;;0; 'MLC#cpu.utilization.percentage'=0.00%;;;0;100 'MLC#memory.usage.percentage'=0.00%;;;0;100 'MLC#sessions.active.count'=431;;;0; 'PRN#cpu.utilization.percentage'=0.00%;;;0;100 'PRN#memory.usage.percentage'=0.00%;;;0;100 'PRN#sessions.active.count'=0;;;0; 'SSTRN#cpu.utilization.percentage'=5.00%;;;0;100 'SSTRN#memory.usage.percentage'=12.00%;;;0;100 'SSTRN#sessions.active.count'=6559;;;0; 'root#cpu.utilization.percentage'=2.00%;;;0;100 'root#memory.usage.percentage'=4.00%;;;0;100 'root#sessions.active.count'=228;;;0;
+OK: CPU: 3.81%, Memory: 2.53MB, Running containers: 2, Stopped containers: 0, Paused containers: 0, State: Running | 'podman.pod.cpu.usage.percent'=3.81%;;;0;100 'podman.pod.memory.usage.bytes'=2657089.536B;;;0; 'podman.pod.containers.running.count'=2;;;0; 'podman.pod.containers.stopped.count'=0;;;0; 'podman.pod.containers.paused.count'=0;;;0;
 ```
 
 ### Troubleshooting
@@ -311,19 +334,20 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_fortinet_fortigate_restapi.pl \
-	--plugin=network::fortinet::fortigate::restapi::plugin \
+/usr/lib/centreon/plugins/centreon_podman_restapi.pl \
+	--plugin=apps::podman::restapi::plugin \
 	--list-mode
 ```
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                                 | Linked service template                        |
-|:-------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|
-| ha [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/ha.pm)]             | Net-Fortinet-Fortigate-Ha-Restapi-custom       |
-| health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/health.pm)]     | Net-Fortinet-Fortigate-Health-Restapi-custom   |
-| licenses [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/licenses.pm)] | Net-Fortinet-Fortigate-Licenses-Restapi-custom |
-| system [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/system.pm)]     | Net-Fortinet-Fortigate-System-Restapi-custom   |
+| Mode                                                                                                                               | Linked service template                   |
+|:-----------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|
+| container-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/podman/restapi/mode/containerusage.pm)] | App-Podman-Container-Usage-Restapi-custom |
+| list-containers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/podman/restapi/mode/listcontainers.pm)] | Used for service discovery                |
+| list-pods [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/podman/restapi/mode/listpods.pm)]             | Used for service discovery                |
+| pod-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/podman/restapi/mode/podstatus.pm)]           | App-Podman-Pod-Status-Restapi-custom      |
+| system-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/podman/restapi/mode/systemstatus.pm)]     | App-Podman-System-Status-Restapi-custom   |
 
 ### Available options
 
@@ -375,54 +399,73 @@ All generic options are listed here:
 | --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --hostname                                 |   Set hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --port                                     |   Port used (default: 443)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --proto                                    |   Specify https if needed (default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --access-token                             |   API token.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --timeout                                  |   Set timeout in seconds (default: 50).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --hostname                                 |   Podman Rest API hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --port                                     |   Port used (Default: 443)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proto                                    |   Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --url-path                                 |   Set path to get Podman Rest API information (Default: '/v5.0.0/libpod/')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --timeout                                  |   Set timeout in seconds (Default: 30)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 #### Modes options
 
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-<TabItem value="Ha" label="Ha">
+<TabItem value="Container-Usage" label="Container-Usage">
 
-| Option                   | Description                                                                                                |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------------|
-| --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='memory-usage'               |
-| --filter-name            |   Filter members by name.                                                                                  |
-| --warning-* --critical-* |   Thresholds. Can be: 'members-detected', 'cpu-utilization' (%), 'memory-usage' (%), 'sessions-active'.    |
-
-</TabItem>
-<TabItem value="Health" label="Health">
-
-| Option            | Description                                                                                                                                                           |
-|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-vdom     |   Filter vdom by name.                                                                                                                                                |
-| --unknown-health  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                                            |
-| --warning-health  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                            |
-| --critical-health |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /success/i'). You can use the following variables: %\{status\}, %\{name\}    |
-
-</TabItem>
-<TabItem value="Licenses" label="Licenses">
-
-| Option                   | Description                                                                                                                                                           |
-|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-name            |   Filter licenses by name (can be a regexp).                                                                                                                          |
-| --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}.                                           |
-| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /expired/i'). You can use the following variables: %\{name\}, %\{status\}.   |
-| --unit                   |   Select the time unit for the expiration thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.        |
-| --warning-* --critical-* |   Thresholds. Can be: 'expires', 'last-update'                                                                                                                        |
+| Option                     | Description                                                                                                                                                     |
+|:---------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --container-name           |   Container name.                                                                                                                                               |
+| --warning-cpu-usage        |   Warning threshold for CPU usage.                                                                                                                              |
+| --critical-cpu-usage       |   Critical threshold for CPU usage.                                                                                                                             |
+| --warning-memory-usage     |   Warning threshold for memory usage.                                                                                                                           |
+| --critical-memory-usage    |   Critical threshold for memory usage.                                                                                                                          |
+| --warning-read-io          |   Warning threshold for read IO.                                                                                                                                |
+| --critical-read-io         |   Critical threshold for read IO.                                                                                                                               |
+| --warning-write-io         |   Warning threshold for write IO.                                                                                                                               |
+| --critical-write-io        |   Critical threshold for write IO.                                                                                                                              |
+| --warning-network-in       |   Warning threshold for network in.                                                                                                                             |
+| --critical-network-in      |   Critical threshold for network in.                                                                                                                            |
+| --warning-network-out      |   Warning threshold for network out.                                                                                                                            |
+| --critical-network-out     |   Critical threshold for network out.                                                                                                                           |
+| --warning-container-state  |   Define the conditions to match for the state to be WARNING (default: C\<'%\{state\} =~ /Paused/'\>). You can use the following variables: C\<%\{state\}\>     |
+| --critical-container-state |   Define the conditions to match for the state to be CRITICAL (default: C\<'%\{state\} =~ /Exited/'\>). You can use the following variables: C\<%\{state\}\>    |
 
 </TabItem>
-<TabItem value="System" label="System">
+<TabItem value="Pod-Status" label="Pod-Status">
 
-| Option                   | Description                                                                                    |
-|:-------------------------|:-----------------------------------------------------------------------------------------------|
-| --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='memory-usage'   |
-| --filter-vdom            |   Filter vdom by name.                                                                         |
-| --warning-* --critical-* |   Thresholds. Can be: 'cpu-utilization' (%), 'memory-usage' (%), 'sessions-active'.            |
+| Option                        | Description                                                                                                                                                       |
+|:------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --pod-name                    |   Pod name.                                                                                                                                                       |
+| --warning-cpu-usage           |   Warning threshold for CPU usage.                                                                                                                                |
+| --critical-cpu-usage          |   Critical threshold for CPU usage.                                                                                                                               |
+| --warning-memory-usage        |   Warning threshold for memory usage.                                                                                                                             |
+| --critical-memory-usage       |   Critical threshold for memory usage.                                                                                                                            |
+| --warning-running-containers  |   Warning threshold for running containers.                                                                                                                       |
+| --critical-running-containers |   Critical threshold for running containers.                                                                                                                      |
+| --warning-stopped-containers  |   Warning threshold for stopped containers.                                                                                                                       |
+| --critical-stopped-containers |   Critical threshold for stopped containers.                                                                                                                      |
+| --warning-paused-containers   |   Warning threshold for paused containers.                                                                                                                        |
+| --critical-paused-containers  |   Critical threshold for paused containers.                                                                                                                       |
+| --warning-state               |   Define the conditions to match for the state to be WARNING (default: C\<'%\{state\} =~ /Exited/'\>). You can use the following variables: C\<%\{state\}\>       |
+| --critical-state              |   Define the conditions to match for the state to be CRITICAL (default: C\<'%\{state\} =~ /Degraded/'\>). You can use the following variables: C\<%\{state\}\>    |
+
+</TabItem>
+<TabItem value="System-Status" label="System-Status">
+
+| Option                        | Description                                                  |
+|:------------------------------|:-------------------------------------------------------------|
+| --warning-cpu-usage           |   Warning threshold in percent for CPU usage.                |
+| --critical-cpu-usage          |   Critical threshold in percent for CPU usage.               |
+| --warning-memory-usage        |   Warning threshold in bytes for memory usage.               |
+| --critical-memory-usage       |   Critical threshold in bytes for memory usage.              |
+| --warning-swap-usage          |   Warning threshold in bytes for swap usage.                 |
+| --critical-swap-usage         |   Critical threshold in bytes for swap usage.                |
+| --warning-containers-running  |   Warning threshold for the number of running containers.    |
+| --critical-containers-running |   Critical threshold for the number of running containers.   |
+| --warning-containers-stopped  |   Warning threshold for the number of stopped containers.    |
+| --critical-containers-stopped |   Critical threshold for the number of stopped containers.   |
+| --warning-uptime              |   Warning threshold for uptime in seconds.                   |
+| --critical-uptime             |   Critical threshold for uptime in seconds.                  |
 
 </TabItem>
 </Tabs>
@@ -431,8 +474,8 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_fortinet_fortigate_restapi.pl \
-	--plugin=network::fortinet::fortigate::restapi::plugin \
-	--mode=system \
+/usr/lib/centreon/plugins/centreon_podman_restapi.pl \
+	--plugin=apps::podman::restapi::plugin \
+	--mode=system-status \
 	--help
 ```

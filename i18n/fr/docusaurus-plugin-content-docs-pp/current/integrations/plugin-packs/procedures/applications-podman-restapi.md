@@ -1,13 +1,13 @@
 ---
-id: applications-monitoring-iplabel-ekara-restapi
-title: IP-Label Ekara Rest API
+id: applications-podman-restapi
+title: Podman Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **IP-Label Ekara Rest API** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Podman REST API** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,78 +15,101 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **IP-Label Ekara Rest API** apporte un modèle d'hôte :
+Le connecteur de supervision **Podman REST API** apporte un modèle d'hôte :
 
-* **App-Monitoring-Iplabel-Ekara-Restapi-custom**
+* **App-Podman-Restapi-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="App-Monitoring-Iplabel-Ekara-Restapi-custom" label="App-Monitoring-Iplabel-Ekara-Restapi-custom">
+<TabItem value="App-Podman-Restapi-custom" label="App-Podman-Restapi-custom">
 
-| Alias           | Modèle de service                                           | Description                           |
-|:----------------|:------------------------------------------------------------|:--------------------------------------|
-| Incidents       | App-Monitoring-Iplabel-Ekara-Incidents-Restapi-custom       | Contrôle les incidents IP-Label Ekara |
-| Scenario-Status | App-Monitoring-Iplabel-Ekara-Scenario-Status-Restapi-custom | Contrôle les scénarios IP-Label Ekara |
+| Alias         | Modèle de service                       | Description                          |
+|:--------------|:----------------------------------------|:-------------------------------------|
+| System-Status | App-Podman-System-Status-Restapi-custom | Contrôle l'état général de Podman |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Iplabel-Ekara-Restapi-custom** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Podman-Restapi-custom** est utilisé.
+
+</TabItem>
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+
+| Alias           | Modèle de service                         | Description                       | Découverte |
+|:----------------|:------------------------------------------|:----------------------------------|:----------:|
+| Container-Usage | App-Podman-Container-Usage-Restapi-custom | Contrôle l'état d'un conteneur |     X      |
+| Pod-Status      | App-Podman-Pod-Status-Restapi-custom      | Contrôle l'état d'un pod       |     X      |
+
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
 </Tabs>
 
 ### Règles de découverte
 
-#### Découverte d'hôtes
+#### Découverte de services
 
-| Nom de la règle | Description                           |
-|:----------------|:--------------------------------------|
-| IP-Label Ekara  | Découvre les scénarios IP-Label Ekara |
+| Nom de la règle               | Description                                    |
+|:------------------------------|:-----------------------------------------------|
+| App-Podman-Restapi-Containers | Découvre les conteneurs et supervise leur état |
+| App-Podman-Restapi-Pods       | Découvre les pods et supervise leur état       |
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 ### Métriques & statuts collectés
 
 Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Incidents" label="Incidents">
+<TabItem value="Container-Usage" label="Container-Usage">
 
-| Nom                                         | Unité |
-|:--------------------------------------------|:------|
-| ekara.incidents.current.total.count         | count |
-| incident-status                             | N/A   |
-| incident-severity                           | N/A   |
-| *incidents*~ekara.incident.duration.seconds | s     |
-| trigger-status                              | N/A   |
+| Nom                                 | Unité |
+|:------------------------------------|:------|
+| podman.container.cpu.usage.percent  | %     |
+| podman.container.memory.usage.bytes | B     |
+| podman.container.io.read            | B     |
+| podman.container.io.write           | B     |
+| podman.container.network.in         | B     |
+| podman.container.network.out        | B     |
+| state                               | N/A   |
 
 </TabItem>
-<TabItem value="Scenario-Status" label="Scenario-Status">
+<TabItem value="Pod-Status" label="Pod-Status">
 
-| Nom                                                         | Unité |
-|:------------------------------------------------------------|:------|
-| scenario-status                                             | N/A   |
-| *scenarios*~scenario.availability.percentage                | %     |
-| *scenarios*~scenario.time.allsteps.total.milliseconds       | ms    |
-| *scenarios*~scenario.time.interaction.milliseconds          | ms    |
-| *scenarios*~*steps1*#scenario.step.time.milliseconds        | ms    |
-| *scenarios*~*steps2*#scenario.step.time.milliseconds        | ms    |
-| *scenarios*~*steps1*#scenario.steps.time.total.milliseconds | ms    |
-| *scenarios*~*steps2*#scenario.steps.time.total.milliseconds | ms    |
+| Nom                                 | Unité |
+|:------------------------------------|:------|
+| podman.pod.cpu.usage.percent        | %     |
+| podman.pod.memory.usage.bytes       | B     |
+| podman.pod.containers.running.count | count |
+| podman.pod.containers.stopped.count | count |
+| podman.pod.containers.paused.count  | count |
+| state                               | N/A   |
+
+</TabItem>
+<TabItem value="System-Status" label="System-Status">
+
+| Nom                                    | Unité |
+|:---------------------------------------|:------|
+| podman.system.cpu.usage.percent        | %     |
+| podman.system.memory.usage.bytes       | B     |
+| podman.system.swap.usage.bytes         | B     |
+| podman.system.containers.running.count | count |
+| podman.system.containers.stopped.count | count |
+| podman.system.uptime.seconds           | s     |
 
 </TabItem>
 </Tabs>
 
 ## Prérequis
 
-* Un compte de service disposant de droits en lecture seule est requis pour l'accès à l'API Rest Ekara.
-* Le collecteur Centreon en charge de la supervision de ces ressources doit être en mesure de pouvoir joindre l'API Ekara sur Internet sur le port TCP/443.
+L'API REST de Podman doit être activée sur l'hôte Podman : [Documentation de l'API REST de Podman](https://docs.podman.io/en/latest/_static/api.html).
+L'API REST de Podman doit être accessible depuis le collecteur Centreon.
 
 ## Installer le connecteur de supervision
 
 ### Pack
-
-La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
@@ -98,34 +121,34 @@ associé à sa distribution :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-monitoring-iplabel-ekara-restapi
+dnf install centreon-pack-applications-podman-restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-monitoring-iplabel-ekara-restapi
+dnf install centreon-pack-applications-podman-restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-applications-monitoring-iplabel-ekara-restapi
+apt install centreon-pack-applications-podman-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-monitoring-iplabel-ekara-restapi
+yum install centreon-pack-applications-podman-restapi
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **IP-Label Ekara Rest API**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Podman REST API**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -143,28 +166,28 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
+dnf install centreon-plugin-Applications-Podman-Restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
+dnf install centreon-plugin-Applications-Podman-Restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-plugin-applications-monitoring-iplabel-ekara-restapi
+apt install centreon-plugin-applications-podman-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
+yum install centreon-plugin-Applications-Podman-Restapi
 ```
 
 </TabItem>
@@ -176,22 +199,14 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **App-Monitoring-Iplabel-Ekara-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+3. Appliquez le modèle d'hôte **App-Podman-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                | Description                                                                                                                                        | Valeur par défaut      | Obligatoire |
-|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| EKARAAPIHOSTNAME     | Set hostname                                                                                                                                       | api.ekara.ip-label.net |      X      |
-| EKARAAPIUSERNAME     | Set username                                                                                                                                       |                        |      X      |
-| EKARAAPIPASSWORD     | Set password                                                                                                                                       |                        |      X      |
-| EKARAAPIPROTO        | Specify https if needed                                                                                                                            | https                  |             |
-| EKARAAPIPORT         | Port used                                                                                                                                          | 443                    |             |
-| FILTERID             | Filter by monitor ID (can be a regexp)                                                                                                             |                        |             |
-| FILTERNAME           | Filter by monitor name (can be a regexp)                                                                                                           |                        |             |
-| FILTERSITEID         | Filter scenario to check by site ID                                                                                                                |                        |             |
-| FILTERWORKSPACEID    | Filter scenario to check by workspace ID                                                                                                           |                        |             |
-| PROXYURL             | Proxy URL. Example: http://my.proxy:3128                                                                                                           |                        |             |
-| EKARAAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                        |             |
+| Macro              | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PODMANPROTO        | Specify https if needed                                                                                                                            | https             |             |
+| PODMANPORT         | Port used                                                                                                                                          | 443               |             |
+| PODMANEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -201,45 +216,65 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Incidents" label="Incidents">
+<TabItem value="Container-Usage" label="Container-Usage">
 
-| Macro                    | Description                                                                                                                                                                                          | Valeur par défaut           | Obligatoire |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
-| TIMEFRAME                | Set timeframe period in seconds. Example: --timeframe='3600' will check the last hour                                                                                                                | 900                         |             |
-| WARNINGINCIDENTDURATION  | Warning threshold for duration of any incidents                                                                                                                                                                             |                             |             |
-| CRITICALINCIDENTDURATION | Critical threshold for number of incident                                                                                                                                                                                |                             |             |
-| CRITICALINCIDENTSEVERITY | Critical threshold for incident severity. Syntax: --critical-incident-severity='%\{severity\} =~ "xxx"'                                                                                              | %\{severity\} =~ "Critical" |             |
-| WARNINGINCIDENTSEVERITY  | Warning threshold for incident severity. Syntax: --warning-incident-severity='%\{severity\} =~ "xxx"'                                                                                                |                             |             |
-| CRITICALINCIDENTSTATUS   | Critical threshold for incident status. Syntax: --critical-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                          | %\{status\} =~ "Open"       |             |
-| WARNINGINCIDENTSTATUS    | Warning threshold for incident status. Syntax: --warning-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                            |                             |             |
-| WARNINGINCIDENTSTOTAL    | Warning threshold for number of incident                                                                                                                                                                                |                             |             |
-| CRITICALINCIDENTSTOTAL   | Critical threshold for number of incident                                                                                                                                                                                 |                             |             |
-| CRITICALTRIGGERSTATUS    | Critical threshold for trigger status. Syntax: --critical-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded' | %\{severity\} =~ "Failure"  |             |
-| WARNINGTRIGGERSTATUS     | Warning threshold for trigger status. Syntax: --warning-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded'   |                             |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                     | --ignore-closed --verbose   |             |
+| Macro               | Description                                                                                                                                      | Valeur par défaut      | Obligatoire |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
+| CONTAINERNAME       | Container name                                                                                                                                   |                        |      X      |
+| WARNINGCPUUSAGE     | Warning threshold for CPU usage                                                                                                                  |                        |             |
+| CRITICALCPUUSAGE    | Critical threshold for CPU usage                                                                                                                 |                        |             |
+| WARNINGMEMORYUSAGE  | Warning threshold for memory usage                                                                                                               |                        |             |
+| CRITICALMEMORYUSAGE | Critical threshold for memory usage                                                                                                              |                        |             |
+| WARNINGNETWORKIN    | Warning threshold for network in                                                                                                                 |                        |             |
+| CRITICALNETWORKIN   | Critical threshold for network in                                                                                                                |                        |             |
+| WARNINGNETWORKOUT   | Warning threshold for network out                                                                                                                |                        |             |
+| CRITICALNETWORKOUT  | Critical threshold for network out                                                                                                               |                        |             |
+| WARNINGREADIO       | Warning threshold for read IO                                                                                                                    |                        |             |
+| CRITICALREADIO      | Critical threshold for read IO                                                                                                                   |                        |             |
+| WARNINGSTATE        | Define the conditions to match for the state to be WARNING. You can use the following variables: %\{state}                                     | %\{state\} =~ /Paused/ |             |
+| CRITICALSTATE       | Define the conditions to match for the state to be CRITICAL. You can use the following variables: %\{state}                                    | %\{state\} =~ /Exited/ |             |
+| WARNINGWRITEIO      | Warning threshold for write IO                                                                                                                   |                        |             |
+| CRITICALWRITEIO     | Critical threshold for write IO                                                                                                                  |                        |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose              |             |
 
 </TabItem>
-<TabItem value="Scenario-Status" label="Scenario-Status">
+<TabItem value="Pod-Status" label="Pod-Status">
 
-| Macro                     | Description                                                                                                                                                                                                                                     | Valeur par défaut                                       | Obligatoire |
-|:--------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| TIMEFRAME                 | Set timeframe period in seconds. Example: C\<--timeframe='3600'\> will check the last hour. Note: If the API/Poller is overloaded, it is preferable to refine this value according to the highest check frequency in the scenario               | 7500                                                    |             |
-| UNKNOWNSCENARIOSTATUS     | Unknown threshold for scenario status. Syntax: --unknown-scenario-status='%\{status\} =~ "xxx"'                                                                                                                                                 | %\{status\} !~ /(Unknown\|No execution)/                |             |
-| FILTERSTATUS              | Filter by numeric status (can be multiple). 0 =\> 'Unknown', 1 =\> 'Success', 2 =\> 'Failure', 3 =\> 'Aborted', 4 =\> 'No execution', 5 =\> 'No execution', 6 =\> 'Stopped', 7 =\> 'Excluded', 8 =\> 'Degraded'  Example: --filter-status='1,2' |                                                         |             |
-| FILTERTYPE                | Filter by scenario type. Can be: 'WEB', 'HTTPR', 'BROWSER PAGE LOAD'                                                                                                                                                                            |                                                         |             |
-| WARNINGAVAILABILITY       | Threshold                                                                                                                                                                                                                                       |                                                         |             |
-| CRITICALAVAILABILITY      | Threshold                                                                                                                                                                                                                                       |                                                         |             |
-| WARNINGSCENARIOSTATUS     | Warning threshold for scenario status. Syntax: --warning-scenario-status='%\{status\} =~ "xxx"'                                                                                                                                                 | %\{status\} =~ /(Aborted\|Stopped\|Excluded\|Degraded)/ |             |
-| CRITICALSCENARIOSTATUS    | Critical threshold for scenario status. Syntax: --critical-scenario-status='%\{status\} =~ "xxx"'                                                                                                                                               | %\{status\} =~ "Failure"                                |             |
-| WARNINGTIMEINTERACTION    | Threshold                                                                                                                                                                                                                                       |                                                         |             |
-| CRITICALTIMEINTERACTION   | Threshold                                                                                                                                                                                                                                       |                                                         |             |
-| WARNINGTIMESTEP           | Threshold                                                                                                                                                                                                                                       |                                                         |             |
-| CRITICALTIMESTEP          | Threshold                                                                                                                                                                                                                                       |                                                         |             |
-| WARNINGTIMETOTAL          | Threshold                                                                                                                                                                                                                                       |                                                         |             |
-| CRITICALTIMETOTAL         | Threshold                                                                                                                                                                                                                                       |                                                         |             |
-| WARNINGTIMETOTALALLSTEPS  | Threshold                                                                                                                                                                                                                                       |                                                         |             |
-| CRITICALTIMETOTALALLSTEPS | Threshold                                                                                                                                                                                                                                       |                                                         |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                | --verbose                                               |             |
+| Macro                     | Description                                                                                                                                      | Valeur par défaut        | Obligatoire |
+|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
+| PODNAME                   | Pod name                                                                                                                                         |                          |      X      |
+| WARNINGCPUUSAGE           | Warning threshold for CPU usage                                                                                                                  |                          |             |
+| CRITICALCPUUSAGE          | Critical threshold for CPU usage                                                                                                                 |                          |             |
+| WARNINGMEMORYUSAGE        | Warning threshold for memory usage                                                                                                               |                          |             |
+| CRITICALMEMORYUSAGE       | Critical threshold for memory usage                                                                                                              |                          |             |
+| WARNINGPAUSEDCONTAINERS   | Warning threshold for paused containers                                                                                                          |                          |             |
+| CRITICALPAUSEDCONTAINERS  | Critical threshold for paused containers                                                                                                         |                          |             |
+| WARNINGRUNNINGCONTAINERS  | Warning threshold for running containers                                                                                                         |                          |             |
+| CRITICALRUNNINGCONTAINERS | Critical threshold for running containers                                                                                                        |                          |             |
+| WARNINGSTATE              | Define the conditions to match for the state to be WARNING. You can use the following variables: C\<%\{state\}\>                                 | %\{state\} =~ /Exited/   |             |
+| CRITICALSTATE             | Define the conditions to match for the state to be CRITICAL. You can use the following variables: C\<%\{state\}\>                                | %\{state\} =~ /Degraded/ |             |
+| WARNINGSTOPPEDCONTAINERS  | Warning threshold for stopped containers                                                                                                         |                          |             |
+| CRITICALSTOPPEDCONTAINERS | Critical threshold for stopped containers                                                                                                        |                          |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                |             |
+
+</TabItem>
+<TabItem value="System-Status" label="System-Status">
+
+| Macro                     | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCONTAINERSRUNNING  | Warning threshold for the number of running containers                                                                                           |                   |             |
+| CRITICALCONTAINERSRUNNING | Critical threshold for the number of running containers                                                                                          |                   |             |
+| WARNINGCONTAINERSSTOPPED  | Warning threshold for the number of stopped containers                                                                                           |                   |             |
+| CRITICALCONTAINERSSTOPPED | Critical threshold for the number of stopped containers                                                                                          |                   |             |
+| WARNINGCPUUSAGE           | Warning threshold in percent for CPU usage                                                                                                       |                   |             |
+| CRITICALCPUUSAGE          | Critical threshold in percent for CPU usage                                                                                                      |                   |             |
+| WARNINGMEMORYUSAGE        | Warning threshold in bytes for memory usage                                                                                                      |                   |             |
+| CRITICALMEMORYUSAGE       | Critical threshold in bytes for memory usage                                                                                                     |                   |             |
+| WARNINGSWAPUSAGE          | Warning threshold in bytes for swap usage                                                                                                        |                   |             |
+| CRITICALSWAPUSAGE         | Critical threshold in bytes for swap usage                                                                                                       |                   |             |
+| WARNINGUPTIME             | Warning threshold for uptime in seconds                                                                                                          |                   |             |
+| CRITICALUPTIME            | Critical threshold for uptime in seconds                                                                                                         |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 </Tabs>
@@ -255,42 +290,33 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_monitoring_iplabel_ekara_restapi.pl \
-	--plugin=apps::monitoring::iplabel::ekara::restapi::plugin \
-	--mode=scenarios \
-	--hostname='api.ekara.ip-label.net' \
-	--api-username='XXXX' \
-	--api-password='XXXX' \
-	--port='443' \
-	--proto='https' \
-	--proxyurl=''  \
-	--timeframe='7500' \
-	--filter-name='' \
-	--filter-id='' \
-	--filter-status='' \
-	--filter-type='' \
-	--filter-workspaceid='' \
-	--filter-siteid='' \
-	--unknown-scenario-status='%\{status\} !~ /(Unknown|No execution)/' \
-	--warning-scenario-status='%\{status\} =~ /(Aborted|Stopped|Excluded|Degraded)/' \
-	--critical-scenario-status='%\{status\} =~ "Failure"' \
-	--warning-availability='' \
-	--critical-availability='' \
-	--warning-time-total-allsteps='' \
-	--critical-time-total-allsteps='' \
-	--warning-time-interaction='' \
-	--critical-time-interaction='' \
-	--warning-time-step='' \
-	--critical-time-step='' \
-	--warning-time-total='' \
-	--critical-time-total='' \
-	--verbose
+/usr/lib/centreon/plugins/centreon_podman_restapi.pl
+    --plugin=apps::podman::restapi::plugin
+    --mode=pod-status \
+    --custommode=api \
+    --hostname='127.0.0.1' \
+    --port='12375' \
+    --proto='http' \
+    --pod-name='frontend' \
+    --warning-cpu-usage='' \
+    --critical-cpu-usage='' \
+    --warning-memory-usage='' \
+    --critical-memory-usage='' \
+    --warning-running-containers='' \
+    --critical-running-containers='' \
+    --warning-stopped-containers='' \
+    --critical-stopped-containers='' \
+    --warning-paused-containers='' \
+    --critical-paused-containers='' \
+    --warning-state='%{state} =~ /Exited/' \
+    --critical-state='%{state} =~ /Degraded/' \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: availability: 100% time total all steps: 6849ms time interaction: 36880ms All steps are ok | 'scenarios~scenario.availability.percentage'=100%;;;0;100 'scenarios~scenario.time.allsteps.total.milliseconds'=6849ms;;;0; 'scenarios~scenario.time.interaction.milliseconds'=36880ms;;;0; 'scenarios~steps1#scenario.step.time.milliseconds'=16964ms;;;0; 'scenarios~steps2#scenario.step.time.milliseconds'=82538ms;;;0; 'scenarios~steps1#scenario.steps.time.total.milliseconds'=87197ms;;;0; 'scenarios~steps2#scenario.steps.time.total.milliseconds'=64961ms;;;0; 
+OK: CPU: 3.81%, Memory: 2.53MB, Running containers: 2, Stopped containers: 0, Paused containers: 0, State: Running | 'podman.pod.cpu.usage.percent'=3.81%;;;0;100 'podman.pod.memory.usage.bytes'=2657089.536B;;;0; 'podman.pod.containers.running.count'=2;;;0; 'podman.pod.containers.stopped.count'=0;;;0; 'podman.pod.containers.paused.count'=0;;;0;
 ```
 
 ### Diagnostic des erreurs communes
@@ -309,18 +335,20 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_monitoring_iplabel_ekara_restapi.pl \
-	--plugin=apps::monitoring::iplabel::ekara::restapi::plugin \
+/usr/lib/centreon/plugins/centreon_podman_restapi.pl \
+	--plugin=apps::podman::restapi::plugin \
 	--list-mode
 ```
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                      | Modèle de service associé                                   |
-|:------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|
-| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/iplabel/ekara/restapi/mode/discovery.pm)] | Used for host discovery                                     |
-| incidents [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/iplabel/ekara/restapi/mode/incidents.pm)] | App-Monitoring-Iplabel-Ekara-Incidents-Restapi-custom       |
-| scenarios [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/iplabel/ekara/restapi/mode/scenarios.pm)] | App-Monitoring-Iplabel-Ekara-Scenario-Status-Restapi-custom |
+| Mode                                                                                                                               | Modèle de service associé                 |
+|:-----------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|
+| container-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/podman/restapi/mode/containerusage.pm)] | App-Podman-Container-Usage-Restapi-custom |
+| list-containers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/podman/restapi/mode/listcontainers.pm)] | Used for service discovery                |
+| list-pods [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/podman/restapi/mode/listpods.pm)]             | Used for service discovery                |
+| pod-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/podman/restapi/mode/podstatus.pm)]           | App-Podman-Pod-Status-Restapi-custom      |
+| system-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/podman/restapi/mode/systemstatus.pm)]     | App-Podman-System-Status-Restapi-custom   |
 
 ### Options disponibles
 
@@ -372,60 +400,73 @@ Les options génériques sont listées ci-dessous :
 | --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --memcached                                |   Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --redis-server                             |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --redis-attribute                          |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --redis-db                                 |   Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --failback-file                            |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --memexpiration                            |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --statefile-dir                            |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --statefile-suffix                         |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --statefile-concat-cwd                     |   If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --statefile-format                         |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --statefile-key                            |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --statefile-cipher                         |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --hostname                                 |   Set hostname (default: 'api.ip-label.net').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --port                                     |   Port used (default: 443)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --proto                                    |   Specify https if needed (default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --api-username                             |   Set username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --api-password                             |   Set password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --filter-id                                |   Filter by monitor ID (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-name                              |   Filter by monitor name (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --filter-status                            |   Filter by numeric status (can be multiple). 0 =\> 'Unknown', 1 =\> 'Success', 2 =\> 'Failure', 3 =\> 'Aborted', 4 =\> 'No execution', 5 =\> 'No execution', 6 =\> 'Stopped', 7 =\> 'Excluded', 8 =\> 'Degraded'  Example: --filter-status='1,2'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --filter-workspaceid                       |   Filter scenario to check by workspace id.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --filter-siteid                            |   Filter scenario to check by site id.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --timeout                                  |   Set timeout in seconds (default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --hostname                                 |   Podman Rest API hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --port                                     |   Port used (Default: 443)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proto                                    |   Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --url-path                                 |   Set path to get Podman Rest API information (Default: '/v5.0.0/libpod/')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --timeout                                  |   Set timeout in seconds (Default: 30)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 #### Options des modes
 
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Incidents" label="Incidents">
+<TabItem value="Container-Usage" label="Container-Usage">
 
-| Option                       | Description                                                                                                                                                                                                                                      |
-|:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --timeframe                  |   Set timeframe period in seconds. (default: 900) Example: --timeframe='3600' will check the last hour                                                                                                                                           |
-| --ignore-closed              |   Ignore solved incidents within the timeframe.                                                                                                                                                                                                  |
-| --warning-incident-status    |   Warning threshold for incident status (default: none). Syntax: --warning-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                                                      |
-| --critical-incident-status   |   Critical threshold for incident status (default: '%\{status\} =~ "Open"'). Syntax: --critical-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                                 |
-| --warning-incident-severity  |   Warning threshold for incident severity (default: none). Syntax: --warning-incident-severity='%\{severity\} =~ "xxx"'                                                                                                                          |
-| --critical-incident-severity |   Critical threshold for incident severity (default: '%\{severity\} =~ "Critical"'). Syntax: --critical-incident-severity='%\{severity\} =~ "xxx"'                                                                                               |
-| --warning-trigger-status     |   Warning threshold for trigger status (default: none). Syntax: --warning-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded'                             |
-| --critical-trigger-status    |   Critical threshold for trigger status (default: '%\{severity\} =~ "Failure"'). Syntax: --critical-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded'   |
-| --warning-* --critical-*     |   Thresholds. Can be: 'warning-incidents-total' (count) 'critical-incidents-total' (count), 'warning-incident-duration' (s), 'critical-incident-duration' (s).                                                                                   |
+| Option                     | Description                                                                                                                                                     |
+|:---------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --container-name           |   Container name.                                                                                                                                               |
+| --warning-cpu-usage        |   Warning threshold for CPU usage.                                                                                                                              |
+| --critical-cpu-usage       |   Critical threshold for CPU usage.                                                                                                                             |
+| --warning-memory-usage     |   Warning threshold for memory usage.                                                                                                                           |
+| --critical-memory-usage    |   Critical threshold for memory usage.                                                                                                                          |
+| --warning-read-io          |   Warning threshold for read IO.                                                                                                                                |
+| --critical-read-io         |   Critical threshold for read IO.                                                                                                                               |
+| --warning-write-io         |   Warning threshold for write IO.                                                                                                                               |
+| --critical-write-io        |   Critical threshold for write IO.                                                                                                                              |
+| --warning-network-in       |   Warning threshold for network in.                                                                                                                             |
+| --critical-network-in      |   Critical threshold for network in.                                                                                                                            |
+| --warning-network-out      |   Warning threshold for network out.                                                                                                                            |
+| --critical-network-out     |   Critical threshold for network out.                                                                                                                           |
+| --warning-container-state  |   Define the conditions to match for the state to be WARNING (default: C\<'%\{state\} =~ /Paused/'\>). You can use the following variables: C\<%\{state\}\>     |
+| --critical-container-state |   Define the conditions to match for the state to be CRITICAL (default: C\<'%\{state\} =~ /Exited/'\>). You can use the following variables: C\<%\{state\}\>    |
 
 </TabItem>
-<TabItem value="Scenario-Status" label="Scenario-Status">
+<TabItem value="Pod-Status" label="Pod-Status">
 
-| Option                     | Description                                                                                                                                                                                                                                            |
-|:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --timeframe                |   Set timeframe period in seconds. (default: 7500) Example: C\<--timeframe='3600'\> will check the last hour. Note: If the API/Poller is overloaded, it is preferable to refine this value according to the highest check frequency in the scenario.   |
-| --filter-type              |   Filter by scenario type. Can be: 'WEB', 'HTTPR', 'BROWSER PAGE LOAD'                                                                                                                                                                                 |
-| --unknown-scenario-status  |  Unknown threshold for scenario status (default: '%\{status\} !~ /(Unknown\|No execution)/'). Syntax: --unknown-scenario-status='%\{status\} =~ "xxx"'                                                                                                 |
-| --warning-scenario-status  |   Warning threshold for scenario status (default: '%\{status\} !~ /(Aborted\|Stopped\|Excluded\|Degraded)/'). Syntax: --warning-scenario-status='%\{status\} =~ "xxx"'                                                                                 |
-| --critical-scenario-status |   Critical threshold for scenario status (default: '%\{status\} =~ "Failure"'). Syntax: --critical-scenario-status='%\{status\} =~ "xxx"'                                                                                                              |
-| --warning-* --critical-*   |   Thresholds. Common: 'availability' (%), For WEB scenarios: 'time-total-allsteps' (ms), 'time-step' (ms), For HTTPR scenarios: 'time-total' (ms), FOR BPL scenarios: 'time-interaction' (ms), 'time-total' (ms).                                      |
+| Option                        | Description                                                                                                                                                       |
+|:------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --pod-name                    |   Pod name.                                                                                                                                                       |
+| --warning-cpu-usage           |   Warning threshold for CPU usage.                                                                                                                                |
+| --critical-cpu-usage          |   Critical threshold for CPU usage.                                                                                                                               |
+| --warning-memory-usage        |   Warning threshold for memory usage.                                                                                                                             |
+| --critical-memory-usage       |   Critical threshold for memory usage.                                                                                                                            |
+| --warning-running-containers  |   Warning threshold for running containers.                                                                                                                       |
+| --critical-running-containers |   Critical threshold for running containers.                                                                                                                      |
+| --warning-stopped-containers  |   Warning threshold for stopped containers.                                                                                                                       |
+| --critical-stopped-containers |   Critical threshold for stopped containers.                                                                                                                      |
+| --warning-paused-containers   |   Warning threshold for paused containers.                                                                                                                        |
+| --critical-paused-containers  |   Critical threshold for paused containers.                                                                                                                       |
+| --warning-state               |   Define the conditions to match for the state to be WARNING (default: C\<'%\{state\} =~ /Exited/'\>). You can use the following variables: C\<%\{state\}\>       |
+| --critical-state              |   Define the conditions to match for the state to be CRITICAL (default: C\<'%\{state\} =~ /Degraded/'\>). You can use the following variables: C\<%\{state\}\>    |
+
+</TabItem>
+<TabItem value="System-Status" label="System-Status">
+
+| Option                        | Description                                                  |
+|:------------------------------|:-------------------------------------------------------------|
+| --warning-cpu-usage           |   Warning threshold in percent for CPU usage.                |
+| --critical-cpu-usage          |   Critical threshold in percent for CPU usage.               |
+| --warning-memory-usage        |   Warning threshold in bytes for memory usage.               |
+| --critical-memory-usage       |   Critical threshold in bytes for memory usage.              |
+| --warning-swap-usage          |   Warning threshold in bytes for swap usage.                 |
+| --critical-swap-usage         |   Critical threshold in bytes for swap usage.                |
+| --warning-containers-running  |   Warning threshold for the number of running containers.    |
+| --critical-containers-running |   Critical threshold for the number of running containers.   |
+| --warning-containers-stopped  |   Warning threshold for the number of stopped containers.    |
+| --critical-containers-stopped |   Critical threshold for the number of stopped containers.   |
+| --warning-uptime              |   Warning threshold for uptime in seconds.                   |
+| --critical-uptime             |   Critical threshold for uptime in seconds.                  |
 
 </TabItem>
 </Tabs>
@@ -434,8 +475,8 @@ Pour un mode, la liste de toutes les options disponibles et leur signification p
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_monitoring_iplabel_ekara_restapi.pl \
-	--plugin=apps::monitoring::iplabel::ekara::restapi::plugin \
-	--mode=scenarios \
+/usr/lib/centreon/plugins/centreon_podman_restapi.pl \
+	--plugin=apps::podman::restapi::plugin \
+	--mode=system-status \
 	--help
 ```
