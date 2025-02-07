@@ -231,8 +231,8 @@ yum install centreon-plugin-Applications-Podman-Restapi
 | CRITICALNETWORKOUT  | Critical threshold for network out                                                                                                               |                        |             |
 | WARNINGREADIO       | Warning threshold for read IO                                                                                                                    |                        |             |
 | CRITICALREADIO      | Critical threshold for read IO                                                                                                                   |                        |             |
-| WARNINGSTATE        | Define the conditions to match for the state to be WARNING. You can use the following variables: C<%{state}>                                     | %\{state\} =~ /Paused/ |             |
-| CRITICALSTATE       | Define the conditions to match for the state to be CRITICAL. You can use the following variables: C<%{state}>                                    | %\{state\} =~ /Exited/ |             |
+| WARNINGSTATE        | Define the conditions to match for the state to be WARNING. You can use the following variables: C<\%{state}>                                     | %\{state\} =~ /Paused/ |             |
+| CRITICALSTATE       | Define the conditions to match for the state to be CRITICAL. You can use the following variables: C<\%{state}>                                    | %\{state\} =~ /Exited/ |             |
 | WARNINGWRITEIO      | Warning threshold for write IO                                                                                                                   |                        |             |
 | CRITICALWRITEIO     | Critical threshold for write IO                                                                                                                  |                        |             |
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose              |             |
@@ -308,8 +308,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
     --critical-stopped-containers='' \
     --warning-paused-containers='' \
     --critical-paused-containers='' \
-    --warning-state='%{state} =~ /Exited/' \
-    --critical-state='%{state} =~ /Degraded/' \
+    --warning-state='\%{state} =~ /Exited/' \
+    --critical-state='\%{state} =~ /Degraded/' \
     --verbose
 ```
 
