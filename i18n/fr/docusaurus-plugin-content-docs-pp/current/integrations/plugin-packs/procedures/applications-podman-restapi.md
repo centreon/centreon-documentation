@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias         | Modèle de service                       | Description                          |
 |:--------------|:----------------------------------------|:-------------------------------------|
-| System-Status | App-Podman-System-Status-Restapi-custom | Contrôle de l'état général de Podman |
+| System-Status | App-Podman-System-Status-Restapi-custom | Contrôle l'état général de Podman |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Podman-Restapi-custom** est utilisé.
 
@@ -36,8 +36,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                         | Description                       | Découverte |
 |:----------------|:------------------------------------------|:----------------------------------|:----------:|
-| Container-Usage | App-Podman-Container-Usage-Restapi-custom | Contrôle de l'état d'un conteneur |     X      |
-| Pod-Status      | App-Podman-Pod-Status-Restapi-custom      | Contrôle de l'état d'un pod       |     X      |
+| Container-Usage | App-Podman-Container-Usage-Restapi-custom | Contrôle l'état d'un conteneur |     X      |
+| Pod-Status      | App-Podman-Pod-Status-Restapi-custom      | Contrôle l'état d'un pod       |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
