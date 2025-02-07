@@ -170,7 +170,7 @@ Only one TCP flow must be open from the host to the poller.
 
 ### Configure Engine
 
-Read [this page](../getting-started/how-to-guides/cma.md#configure-engine) to learn how to configure Engine for compatibility with CMA.
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma.md#configure-engine).
 
 ### System prerequisites on the monitored host
 
@@ -184,6 +184,9 @@ The installation and configuration procedure of Centreon Monitoring Agent for Wi
 ## Installing the monitoring connector
 
 ### Pack
+
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the

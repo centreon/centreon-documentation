@@ -50,6 +50,10 @@ module.exports = {
             {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/windows-winrm-wsman-tutorial'
+            },
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/connectors-licenses'
             }
           ]
         },
@@ -495,6 +499,9 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-podman-restapi'
+        },
+        {
+          id: 'integrations/plugin-packs/procedures/cloud-prometheus-api'
         },
         {
           type: 'doc',
@@ -1133,10 +1140,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-ovh-restapi'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/cloud-prometheus-api'
         },
         {
           type: 'doc',

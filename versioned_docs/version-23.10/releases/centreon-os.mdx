@@ -23,6 +23,38 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 23.10.20
+
+Release date: `January 27, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added missing configuration change logs for host severities configuration.
+- [API] Added missing configuration change logs for service severities configuration.
+- [API] Added missing configuration change logs for host template configuration.
+- [API] Added missing configuration change logs written when the configuration of services is deployed.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Authentication] Fixed an issue preventing LDAP users with more than one email address to log in to Centreon.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed a vulnerability in the contact creation form.
+- [Security] Fixed SQLi in "Host Monitoring" widget in Custom Views, for authenticated users having sufficient rights to export data in CSV.
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to export data in CSV.
+- [Security] Fixed SQLi in "Service Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Updated Symfony **Security-Http** component.
+
+</details>
+
 ### 23.10.19
 
 Release date: `January 9, 2025`
@@ -982,6 +1014,17 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon DSM
+
+### 23.10.2
+
+Release date: `January 27, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [DSM] Fixed an issue where a blank page could be displayed when accessing the "Administration > Extensions > Configure" menu.
+
+</details>
 
 ### 23.10.1
 
