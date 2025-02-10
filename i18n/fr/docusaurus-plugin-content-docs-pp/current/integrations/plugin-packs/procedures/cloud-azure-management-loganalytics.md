@@ -177,7 +177,7 @@ yum install centreon-plugin-Cloud-Azure-Management-Log-Analytics-Api
 
 | Macro         | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| KUSTOQUERY    | Set query (required). Syntax: https://docs.microsoft.com/en-us/azure/kusto/query/                                                                |                   |             |
+| KUSTOQUERY    | Set query. Syntax: https://docs.microsoft.com/en-us/azure/kusto/query/                                                                |                   | X           |
 | WARNINGMATCH  | Thresholds                                                                                                                                       |                   |             |
 | CRITICALMATCH | Thresholds                                                                                                                                       |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
@@ -207,7 +207,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--client-id='XXXX' \
 	--client-secret='XXXX' \
 	--proxyurl=''  \
-	--query='' \
+	--query='XXXX' \
 	--warning-match='' \
 	--critical-match='' \
 	--verbose
