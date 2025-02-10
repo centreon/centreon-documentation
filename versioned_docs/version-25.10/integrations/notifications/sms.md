@@ -7,6 +7,14 @@ You can send notification SMS using an SMS provider and a custom notification co
 
 ## Configuring SMS notifications
 
+### Prerquisites
+
+In our example, with OVH SMS, we need:
+
+* an OVH SMS account. Its name will look like **sms-ab1234-1**.
+* the credentials to access this account
+* A [properly configured OVH SMS user](https://help.ovhcloud.com/csm/en-gb-sms-users?id=kb_article_view&sysparm_article=KB0051415), that is authorized to use this account.
+
 ### Step 1: Install the Centreon SMS notifications plugin
 
 1. Install Git on each poller that will send SMS notifications.
@@ -27,17 +35,20 @@ chown -R centreon-engine. /usr/lib/centreon/git-plugins
    * Example for a host:
 
    ```bash
-   $CENTREONPLUGINS$/centreon_plugins.pl --plugin=notification::ovhsms::plugin --mode=alert --account=sms-ab1234-1 --login=XXXX --password=XXXX --from="Centreon" --to="0033123456789" --message="Alert on a host" --host-name='$HOSTNAME$' --host-state='$HOSTSTATE$' --host-output='$HOSTOUTPUT$' --priority='$_HOSTCRITICALITY_LEVEL$'
+   $CENTREONPLUGINS$/centreon_plugins.pl --plugin=notification::ovhsms::plugin --mode=alert --account=sms-ab1234-1 --login=XXXX --password=XXXX --from="Centreon" --to="0033123456789" --message='Alert on host $HOSTNAME$. Status: $HOSTSTATE$, $HOSTOUTPUT$'
    ```
 
    * Example for a service:
 
    ```bash
-   $CENTREONPLUGINS$/centreon_plugins.pl --plugin=notification::ovhsms::plugin --mode=alert --account=sms-ab1234-1 --login=XXXX --password=XXXX --from="Centreon" --to="0033123456789" --message="Alert on a service" --host-name='$HOSTNAME$' --service-description='$SERVICEDESC$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --priority='$_SERCVICECRITICALITY_LEVEL$'
+   $CENTREONPLUGINS$/centreon_plugins.pl --plugin=notification::ovhsms::plugin --mode=alert --account=sms-ab1234-1 --login=XXXX --password=XXXX --from="Centreon" --to="0033123456789" --message='Alert on service $SERVICEDESC$ for host $HOSTNAME$. Status: $SERVICESTATE$, $SERVICEOUTPUT$'
    ```
 
 * **$CENTREONPLUGINS$** must be the complete path to the **centreon_plugins.pl** script (it varies according to where you have cloned the repository). If you cloned the repository like instructed above, the path is likely to be **/usr/lib/centreon/git-plugins/centreon-plugins/src**.
 * **--account**: in our example, this is the name of the OVH account used to send SMS.
+* **--from** : in our example, an SMS user that is authorized for this account.
+
+3. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 ### Step 3: Configure the user and host
 
@@ -45,3 +56,17 @@ chown -R centreon-engine. /usr/lib/centreon/git-plugins
 2. Create a dedicated user (e.g., **sms**) and in the **Host Notification Commands** and **Service Notification Commands** fields, select the commands your have created at step 2. Also select values for the **Host/service Notification Options** and **Host/service Notification Period** fields.
 3. For the hosts you want, on the **Notification** tab, in the **Linked contacts** field, select the dedicated user you just created.
 4. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md). A notification SMS will now be sent to the number you defined when the status changes you have configured go to HARD.
+
+![image](../../assets/integrations/notifications/sms.png)
+
+> The sms process is not parallelized. This means that no check will processed until the last SMS is sent by the server.
+
+## Troubleshooting
+
+* If you are not receiving SMS notifications, check **centengine**'s log file:
+
+```shell
+tail -f /var/log/centreon-engine/centengine.log
+```
+
+* You can also try to execute your notification command from the command line (run the command as user **centreon-engine**) and see if you receive the SMS instantly or not.
