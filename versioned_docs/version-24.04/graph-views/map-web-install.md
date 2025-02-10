@@ -594,8 +594,6 @@ mysql_secure_installation
 * Answer **yes** to all questions except "Disallow root login remotely?".
 * It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../installation/web-and-post-installation.md).
 
-> For more information, please see the [official MySQL documentation](link to add).
-
 </TabItem>
 </Tabs>
 
@@ -688,7 +686,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    </TabItem>
    </Tabs>
 
-4. Answer **Y** when prompted. Then restart MySQL:
+4. Answer **Y** when prompted. Then restart MariaDB:
    
    ```shell
    systemctl restart mariadb
@@ -720,7 +718,7 @@ When installing Centreon MAP Engine server, it will automatically install java
 </TabItem>
 <TabItem value="MySQL" label="MySQL"> 
 
-> If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the **New MAP Engine server** tab.
+> If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the [step 3 - Option 1](#step-3---option-1-map-engine-server-installation-on-a-new-server).
 
 > You can use the existing MySQL database of Centreon MAP Legacy for the new MAP Engine server. So it's not necessary to install a new database.
 
@@ -807,7 +805,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
 4. Answer **Y** when prompted. Then restart MySQL:
    
    ```shell
-   to add
+   systemctl restart mysql
    ```
 
 When installing Centreon MAP Engine server, it will automatically install java
@@ -883,8 +881,6 @@ mysql_secure_installation
 
 * Answer **yes** to all questions except "Disallow root login remotely?".
 * It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../installation/web-and-post-installation.md).
-
-> For more information, please see the [official MySQL documentation](link to add).
 
 </TabItem>
 </Tabs>

@@ -415,13 +415,6 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
-```
-
-</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
@@ -448,7 +441,7 @@ dnf install MariaDB-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update && apt install mariadb-server
@@ -494,34 +487,30 @@ mariadb-secure-installation
 
 > You need to have a MySQL database to store your Centreon MAP data.
 
-First you need to add the MySQL repository:
+Depending on your operating system, you may need to add the MySQL repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-```shell
-to add
-```
+You have nothing to do, as MySQL 8.0 is already available in the official repository.
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-```shell
-to add
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-to add
-```
+You have nothing to do, as MySQL 8.0 is already available in the official repository.
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-to add
+wget -P /tmp/ https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
+apt install /tmp/mysql-apt-config_0.8.29-1_all.deb
+```
+
+Select OK to validate the installation of **MySQL Tools & Connectors**. Then enter the following command:
+
+```shell
+apt update
 ```
 
 </TabItem>
@@ -533,33 +522,33 @@ Then install MySQL server:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-to add
+dnf install centreon-map-engine
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-to add
+dnf install centreon-map-engine
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-to add
+apt update && apt install centreon-map-engine
 ```
 
 > MySQL must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
 > 
 > ```shell
-> to add
+> /etc/mysql/mysql.conf.d/mysqld.cnf
 > ```
 > 
-> Set the **bind-address** parameter to **0.0.0.0** and restart MySQL.
+> Set the **bind-address** parameter to **0.0.0.0** and restart MySQL:
 > 
 > ```shell
-> to add
+> sudo service mysql restart
 > ```
 
 </TabItem>
@@ -568,8 +557,8 @@ to add
 Then enable and restart MySQL.
 
 ```shell
-systemctl enable mariadb
-systemctl restart mariadb
+systemctl enable mysql
+systemctl restart mysql
 ```
 
 It is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the Map server:
@@ -580,8 +569,6 @@ mysql_secure_installation
 
 * Answer **yes** to all questions except "Disallow root login remotely?".
 * It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../installation/web-and-post-installation.md).
-
-> For more information, please see the [official MySQL documentation](link to add).
 
 </TabItem>
 </Tabs>
@@ -614,7 +601,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    cp /etc/mysql/map.cnf /etc/mysql/map.cnf.bk
@@ -640,7 +627,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
@@ -666,7 +653,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    cp /etc/mysql/map.cnf.bk /etc/mysql/map.cnf
@@ -675,7 +662,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    </TabItem>
    </Tabs>
 
-4. Answer **Y** when prompted. Then restart MySQL:
+4. Answer **Y** when prompted. Then restart MariaDB:
    
    ```shell
    systemctl restart mariadb
@@ -730,7 +717,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    cp /etc/mysql/map.cnf /etc/mysql/map.cnf.bk
@@ -756,7 +743,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
@@ -782,7 +769,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    cp /etc/mysql/map.cnf.bk /etc/mysql/map.cnf
@@ -794,7 +781,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
 4. Answer **Y** when prompted. Then restart MySQL:
    
    ```shell
-   to add
+   systemctl restart mysql
    ```
 
 When installing Centreon MAP Engine server, it will automatically install java
@@ -859,7 +846,7 @@ mariadb-secure-installation
 Then, restart MySQL:
 
 ```shell
-to add
+systemctl restart mysql
 ```
 
 It is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
@@ -870,8 +857,6 @@ mysql_secure_installation
 
 * Answer **yes** to all questions except "Disallow root login remotely?".
 * It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../installation/web-and-post-installation.md).
-
-> For more information, please see the [official MySQL documentation](link to add).
 
 </TabItem>
 </Tabs>
