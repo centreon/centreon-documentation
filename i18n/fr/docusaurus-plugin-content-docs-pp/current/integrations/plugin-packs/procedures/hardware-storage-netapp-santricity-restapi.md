@@ -153,8 +153,8 @@ Centreon avec l'utilisateur *centreon-engine*:
     --api-password='xxxx' \
     --mode=storage-volumes \
     --verbose \
-    --warning-volume-status='%{status} =~ /degraded/i' \
-    --critical-volume-status='%{status} =~ /failed/i'
+    --warning-volume-status='%\{status\} =~ /degraded/i' \
+    --critical-volume-status='%\{status\} =~ /failed/i'
 ```
 
 La commande doit retourner un résultat de la forme:

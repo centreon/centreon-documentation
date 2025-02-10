@@ -6,9 +6,11 @@ title: Configurer l'envoi d'emails
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Pour que votre Centreon puisse envoyer des emails de notification, un serveur smtp local doit être configuré. Si votre système d'exploitation est RHEL ou Oracle Linux, Postfix est déjà installé.
+Pour que votre Centreon puisse envoyer des emails de notification, un serveur SMTP local doit être configuré.
 
 Cette page donne un exemple de configuration. Consultez la  [documentation officielle Postfix](https://www.postfix.org/BASIC_CONFIGURATION_README.html) pour plus d'informations.
+
+Sur certaines distributions, Postfix peut déjà être installé.
 
 Les commandes de notifications sont exécutées par le collecteur qui supervise la ressource : il est nécessaire de configurer le relais mail sur tous les collecteurs.
 
@@ -19,14 +21,28 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
 1. Dans le terminal de votre serveur, entrez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma 8" label="Alma 8">
+
+``` shell
+dnf install postfix mailx cyrus-sasl-plain
+```
+
+</TabItem>
+<TabItem value="Alma 9" label="Alma 9">
+
+``` shell
+dnf install postfix mailx cyrus-sasl-plain
+```
+
+</TabItem>
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ``` shell
 dnf install mailx cyrus-sasl-plain
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="RHEL / Oracle Linux 9" label="RHEL / Oracle Linux 9">
 
 ``` shell
 dnf install s-nail cyrus-sasl-plain
@@ -36,7 +52,7 @@ dnf install s-nail cyrus-sasl-plain
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ``` shell
-apt install mailx cyrus-sasl-plain
+apt install postfix bsd-mailx libsasl2-modules
 ```
 
 </TabItem>
@@ -61,6 +77,9 @@ apt install mailx cyrus-sasl-plain
     ```
 
 4. Ajoutez les informations suivantes :
+
+<Tabs groupId="sync">
+<TabItem value="Avec authentification/TLS" label="With authentification/TLS">
 
     ```shell
     myhostname = hostname
@@ -88,6 +107,19 @@ apt install mailx cyrus-sasl-plain
     smtp_sasl_security_options = noanonymous
     smtp_sasl_tls_security_options = noanonymous
     ```
+
+</TabItem>
+<TabItem value="Without authentication/TLS" label="Without authentication/TLS">
+
+    ```shell
+    myhostname = centreon-central
+    relayhost = [smtp.gmail.com]:587
+    smtp_use_tls = no
+    smtp_sasl_auth_enable = no
+    ```
+
+</TabItem>
+</Tabs>
 
 ## Étape 2 : Configurer les identifiants du compte qui enverra les emails
 
@@ -140,11 +172,28 @@ apt install mailx cyrus-sasl-plain
 
     Remplacez `utilisateur@fai.com` par une véritable adresse email : le destinataire devrait recevoir l'email de test.
 
-- Si le destinataire n'a pas reçu l'email, vérifiez le fichier de log suivant :
+- Si le destinataire n'a pas reçu l'email, vérifiez le fichier de log suivant (s'il existe) :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
     ```shell
     tail -f /var/log/maillog
     ```
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+    ```shell
+    tail -f /var/log/maillog
+    ```
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+    ```shell
+    tail -f /var/log/mail.log
+    ```
+</TabItem>
+</Tabs>
 
 - Pour vérifier si votre service Postfix tourne, entrez:
 
@@ -158,4 +207,4 @@ apt install mailx cyrus-sasl-plain
 
 ## Configuration spécifique à Gmail
 
-Si vous souhaitez envoyer des emails en utilisant un compte Gmail, vous devrez activer l'option **Accès pour les applications moins sécurisées** sur celui-ci : voir la page [Autoriser les applications moins sécurisées à accéder à votre compte](https://support.google.com/accounts/answer/6010255).
+Pour utiliser Postfix avec Gmail, vous devez utiliser un [mot de passe d'application](https://support.google.com/mail/answer/185833?hl=fr&sjid=15941614565763159471-EU).

@@ -39,7 +39,7 @@ disponibles afin de rendre compte de l'état d'une BA:
     **Cluster** en spécifiant un pourcentage ou un nombre de resources
     maximum en statut Critique que vous ne voulez pas dépassez
 -   **Impact**: Lorsque vous souhaitez définir finement l'impact de
-    chaque indicateur en fonction de leurs poids (<=> sévérité)
+    chaque indicateur en fonction de leurs poids (\<=\> sévérité)
 
 Ci-dessous des explications et exemples pour chacune des méthodes
 

@@ -47,7 +47,9 @@ les prérequis nécessaires pour interroger les API d'Azure.
 
 ## Installation
 
-### Pack de supervision
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md). de supervision
 
 Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
@@ -169,7 +171,7 @@ Une fois le modèle appliqué, les macros ci-dessous indiquées comme requises (
 |             | RESOURCELOCATION             | Set resource location (Optional)                                                                                                                                               |                                       |
 |             | RESOURCETYPE                 | Set resource type (Optional)                                                                                                                                                   |                                       |
 |             | POLICYNAME                   | Set policy name (Optional)                                                                                                                                                     |                                       |
-|             | CRITICALCOMPLIANCESTATE      |                                                                                                                                                                                | %{compliance_state} eq "NonCompliant" |
+|             | CRITICALCOMPLIANCESTATE      |                                                                                                                                                                                | %\{compliance_state\} eq "NonCompliant" |
 |             | WARNINGCOMPLIANCESTATE       |                                                                                                                                                                                |                                       |
 |             | WARNINGNONCOMPLIANTPOLICIES  |                                                                                                                                                                                |                                       |
 |             | CRITICALNONCOMPLIANTPOLICIES |                                                                                                                                                                                |                                       |

@@ -75,7 +75,9 @@ Il apporte les modèles de service suivants :
 
 ## Installation
 
-### Pack de supervision
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md). de supervision
 
 Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
@@ -311,10 +313,10 @@ Les options spécifiques aux modes sont listées ci-dessus :
 | --filter-acked            | Hide acknowledged alarms.                                                                                                                                                                                                                      | Mode |
 | --filter-active           | Only show active alarms.                                                                                                                                                                                                                       | Mode |
 | --filter-severity         | Only show alarms with a given severity level. Can be: 'critical', 'major', 'minor', 'warning', 'cleared'. Only one value can be set (no multiple values).                                                                                      | Mode |
-| --warning-active-status   | Set warning threshold for active status (Default: ''). Typical syntax: --warning-active-status='%{active} =~ "true"'                                                                                                                           | Mode |
-| --critical-active-status  | Set critical threshold for active status (Default: '%{active} =~ "true"'). Typical syntax: --critical-active-status='%{active} =~ "true"'                                                                                                      | Mode |
-| --warning-acked-status    | Set warning threshold for acked status (Default: '%{acked} =~ "false"'). Typical syntax: --warning-acked-status='%{acked} =~ "false"'                                                                                                          | Mode |
-| --critical-acked-status   | Set critical threshold for acked status (Default: ''). Typical syntax: --critical-acked-status='%{acked} =~ "false"'                                                                                                                           | Mode |
+| --warning-active-status   | Set warning threshold for active status (Default: ''). Typical syntax: --warning-active-status='%\{active\} =~ "true"'                                                                                                                           | Mode |
+| --critical-active-status  | Set critical threshold for active status (Default: '%\{active\} =~ "true"'). Typical syntax: --critical-active-status='%\{active\} =~ "true"'                                                                                                      | Mode |
+| --warning-acked-status    | Set warning threshold for acked status (Default: '%\{acked\} =~ "false"'). Typical syntax: --warning-acked-status='%\{acked\} =~ "false"'                                                                                                          | Mode |
+| --critical-acked-status   | Set critical threshold for acked status (Default: ''). Typical syntax: --critical-acked-status='%\{acked\} =~ "false"'                                                                                                                           | Mode |
 | --warning-* --critical-*  | Thresholds. Can be: 'warning-alarms-total' (count) 'critical-alarms-total' (count), 'warning-alarm-duration' (s), 'critical-alarm-duration' (s), 'warning-alarm-severity' (level from 0 to 5), critical-alarm-severity (level from 0 to 5).    | Mode |
 
 </TabItem>

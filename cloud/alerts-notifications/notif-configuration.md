@@ -40,12 +40,12 @@ Resources are checked according to the following parameters:
 	
     | Macro | Description | Example |
     | ----- | ----------- |-------- |
-	|{{NOTIFICATIONTYPE}}| **Recovery**, **Warning**, **Critical** or **Unknown** for a service; **Recovery**, **Down** or **Unreachable** for a host. | CRITICAL |
-	{{NAME}}| The name of the service or host. For a service, the name of the host it is attached to is also given. | central/proc-ntpd |
-	{{ID}}| An internal ID for the resource. This can be used for API calls. | 41:209 |
-	{{STATE}}| The [status](./concepts.md) that the resource has just entered. | CRITICAL |
-	{{SHORTDATETIME}}| Date and time in the following format: MM/DD/YY h:mm:ss | 10/18/23 12:20:42 |
-    {{LONGDATETIME}}| Date and time, including the day of the week.  | Wednesday October 18, 2023, 12:20:42 |
-	{{OUTPUT}}| The output of the check command, i.e. the text that is displayed in the **Information** column in the **Resources status** page. | CRITICAL: Number of current processes running: 0 |
+	|\{\{NOTIFICATIONTYPE\}\}| **Recovery**, **Warning**, **Critical** or **Unknown** for a service; **Recovery**, **Down** or **Unreachable** for a host. | CRITICAL |
+	\{\{NAME\}\}| The name of the service or host. For a service, the name of the host it is attached to is also given. | central/proc-ntpd |
+	\{\{ID\}\}| An internal ID for the resource. This can be used for API calls. | 41:209 |
+	\{\{STATE\}\}| The [status](./concepts.md) that the resource has just entered. | CRITICAL |
+	\{\{SHORTDATETIME\}\}| Date and time in the following format: MM/DD/YY h:mm:ss | 10/18/23 12:20:42 |
+    \{\{LONGDATETIME\}\}| Date and time, including the day of the week.  | Wednesday October 18, 2023, 12:20:42 |
+	\{\{OUTPUT\}\}| The output of the check command, i.e. the text that is displayed in the **Information** column in the **Resources status** page. | CRITICAL: Number of current processes running: 0 |
 
 3. Click the **Save** button at the top right of the panel. The new notification rule appears in the list. You may have to wait up to 5 minutes before the rule starts being applied.

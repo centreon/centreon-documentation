@@ -23,7 +23,7 @@ Pour cette erreur, vérifiez la ligne de commande qui a été exécutée et vér
 
 Pour les systèmes basés sur RPM, vous pouvez utiliser la commande `yum whatprovides "*/the_binary_name"` pour identifier quel paquet fournit le binaire manquant.
 
-### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/<cache_file_name>'
+### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/\<cache_file_name\>'
 
 La raison la plus commune de cette erreur sont des droits incorrects dans le répertoire de cache (`/var/lib/centreon/centplugins`)  ou dans le fichier cache lui-même. Cela peut aussi être dû à une installation incohérente ou au fait que le répertoire n'existe tout simplement pas.
 
@@ -45,7 +45,7 @@ Si les droits du répertoire sont corrects, vérifiez les droits du fichier de c
 Le résultat devrait être : 
 
 ```bash
-File: '/var/lib/centreon/centplugins/<cache_file_name>'
+File: '/var/lib/centreon/centplugins/\<cache_file_name\>'
 [...]
 Access: (0664/-rw-rw-r--)  Uid: (  994/centreon-engine)   Gid: (  991/centreon-engine)
 [...]
@@ -99,7 +99,6 @@ Configurez les options SNMP additionnelles dans la macro SNMPEXTRAOPTIONS de l'h
 | -e        | --securityengineid     |
 | -E        | --contextengineid      |
 
-
 ### UNKNOWN: SNMP GET Request : Timeout
 
 Généralement, un "timeout" est causé par : 
@@ -136,7 +135,78 @@ La supervision de la bande passante et des statuts des interfaces sont un exempl
 
 Pour les contrôles d'interface et de stockage, des options permettent de demander à la sonde d'utiliser un autre OID (par exemple `--oid-filter='ifDesc' --oid-display='ifDesc'`).
 
-## Contrôles HTTP et API
+
+### Problème d'uptime
+
+### Contexte sur le sysUpTime dans SNMP
+
+Lorsque l'uptime dépasse 497 jours, un problème spécifique peut se produire en raison de la 
+manière dont l'uptime est représenté dans le format TimeTicks utilisé par SNMP. Le `sysUpTime` 
+dans SNMP est un nombre exprimé en TimeTicks, qui représente le nombre de centi-secondes 
+écoulées depuis le dernier démarrage du système. Ce nombre est stocké dans un format de 
+32 bits, ce qui signifie qu'il peut stocker des valeurs comprises  entre 0 et 4 294 967 295. 
+Ainsi l'uptime atteint sa valeur maximale après environ 497 jours 
+(environ 4 294 967 295 centi-secondes). Lorsque cette limite est dépassée, un débordement 
+(overflow) se produit, ce qui signifie que le compteur recommence à zéro. 
+
+### Comment identifier le problème ?
+
+Vous pouvez identifier que l'uptime a dépassé la limite de 497 jours en vérifiant directement 
+sur l'équipement (si c'est possible) son uptime (sans interroger via SNMP). Par exemple
+pour Linux, utilisez la commande suivante :
+
+```commandline
+uptime
+14:32:12 up 500 days,  3:04,  2 users,  load average: 0.15, 0.10, 0.09
+```
+
+Ce qui indique que le système est en fonctionnement depuis 500 jours, 3 heures et 4 minutes.
+
+### Solution proposée en amont : l'option --check-overload
+
+La majorité des modèles de services associés à l'uptime via SNMP utilisent l'option ` --check-overload`
+qui va permettre de gérer le débordement de l'uptime après 497 jours. Pour cela ils vont utiliser le cache
+du plugin pour déterminer l'ancien uptime et calculer le dépassement qui a eu lieu afin d'ajuster la 
+valeur d'uptime retournée par le plugin. Ainsi le débordement est transparent et ne génère pas de 
+fausse alerte vis-à-vis de l'uptime et l'utilisateur n'a rien à faire de particulier.
+
+### Si le dépassement a eu lieu mais l'option --check-overload n'était pas présente dans la commande du plugin
+
+Dans le cas où l'option ` --check-overload` n'était pas présente dans la commande du plugin avant que le 
+dépassement ait lieu, il est possible de corriger la situation de la façon suivante : 
+
+Lancez la commande du plugin en ajoutant l'option ` --check-overload`:
+
+```commandline
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=uptime --hostname=XXXX --snmp-version='2c' --snmp-community='public' --check-overload
+OK: System uptime is: 11h 28m 39s | 'uptime'=41319.00s;;;0;
+```
+
+Ensuite vérifiez que l'option s'est ajoutée dans le cache du plugin :
+
+```commandline
+cat /var/lib/centreon/centplugins/cache_<hostname>_uptime 
+{"last_time":170905862051,"overload":0,"uptime":"4131920"}
+```
+
+Remplacez la valeur de l'option "overload" par 1 et vérifiez que cela a fonctionné :
+
+```commandline
+sed -i 's/"overload":0/"overload":1/g' /var/lib/centreon/centplugins/cache_<hostname>_uptime
+cat /var/lib/centreon/centplugins/cache_<hostname>_uptime 
+{"last_time":170905862051,"overload":1,"uptime":"4131920"}
+```
+
+Vous pouvez ensuite relancer la commande du plugin avec l'option ` --check-overload` : le 
+résultat devrait tenir compte du dépassement et correspondre aux informations d'uptime du
+système que vous avez pu vérifier manuellement :
+
+```commandline
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=uptime --hostname=XXXX --snmp-version='2c' --snmp-community='public' --check-overload
+OK: System uptime is: 497d 13h 58m 41s | 'uptime'=42991121.00s;;;0;
+```
+
+## HTTP and API checks
 
 ### UNKNOWN: Cannot decode response (add --debug option to display returned content)
 
@@ -149,7 +219,7 @@ La raison la plus commune de ce problème est qu'un proxy bloque la requête pri
 Il est également possible que l'API renvoie une erreur au lieu de la structure des données attendue.
 Vous pouvez investiguer cela en ajoutant le flag `--debug` à votre ligne de commande pour obtenir plus d'informations à propos de la requête et des données reçues.
 
-### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (<extra_reason_if_available>)
+### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (\<extra_reason_if_available\>)
 
 Lorsque vous récupérez des métriques ou des données d'une API, divers problèmes peuvent apparaître. Ils sont souvent causés par des proxys, des appareils distants, des certificats ou tout simplement la configuration du contrôle.
 
@@ -190,7 +260,29 @@ Indépendamment du backend HTTP que vous employez, il est possible d'ignorer les
 
 Parfois, l'hôte distant ne supporte pas la négociation de l'implémentation SSL. Vous devez alors spécifier explicitement au plugin lequel utiliser avec l'option `--ssl` (e.g. `--ssl='tlsv1'`). Référez-vous à la documentation du fabricant ou de l'éditeur du logiciel.
 
-## Contrôles SSH et CLI
+## Troubleshooting AWS
+
+### `UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values`
+
+Le résultat de cette commande signifie qu'Amazon Cloudwatch ne dispose d'aucune valeur pour la période demandée.
+
+Ce résultat peut être annulé en ajoutant l'option --zeroed dans la commande. 
+Cela forcera une valeur de 0 lorsqu'aucune métrique n'a été collectée et évitera le message d'erreur UNKNOWN.
+
+### `UNKNOWN: Command error: - An error occurred (AuthFailure) [...] `
+
+Le résultat de cette commande signifie que les informations d'identification fournies 
+n'ont pas les privilèges suffisants pour exécuter l'opération AWS sous-jacente.
+
+### `UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |`
+
+Ce message d'erreur signifie que le plugin Centreon n'a pas pu se connecter avec succès à l'API AWS Cloudwatch. 
+Vérifiez qu'aucun dispositif tiers (tel qu'un pare-feu) ne bloque la demande. 
+Une connexion proxy peut également être nécessaire pour se connecter à l'API. 
+Pour ce faire, utilisez l'option suivante dans la commande : --proxyurl='http://proxy.mycompany:8080'.
+
+## SSH and CLI checks
+
 
 ### UNKNOWN: Command error: `<interpreter>`: `<command_name>`: command not found
 
@@ -220,7 +312,7 @@ Vérifiez que la directive `allowed_hosts` définie dans le fichier de configura
 
 Pensez à redémarrer votre daemon NRPE pour mettre à jour la configuration.
 
-### NRPE: Command <a_command> not defined
+### NRPE: Command \<a_command\> not defined
 
 Le serveur NRPE renvoie cette erreur lorsque le client tente d'exécuter une commande qu'il ne comprend pas.
 
