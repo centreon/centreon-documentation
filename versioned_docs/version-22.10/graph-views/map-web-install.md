@@ -625,7 +625,7 @@ Restart MariaDB if you make changes:
 systemctl restart mariadb
 ```
 
-### Step 5 : Execute the configure.sh script
+### Step 5: Execute the configure.sh script
 
 Execute the Centreon MAP Engine server configuration script.
 
