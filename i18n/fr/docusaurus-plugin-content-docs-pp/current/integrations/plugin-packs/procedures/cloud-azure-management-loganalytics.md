@@ -27,7 +27,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias       | Modèle de service                                           | Description                                           |
 |:------------|:------------------------------------------------------------|:------------------------------------------------------|
-| Kusto-Query | Cloud-Azure-Management-Log-Analytics-Kusto-Query-Api-custom | Execute une requête KQL/Kusto via l'API Log Analytics |
+| Kusto-Query | Cloud-Azure-Management-Log-Analytics-Kusto-Query-Api-custom | Exécute une requête KQL/Kusto via l'API Log Analytics |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-Management-Log-Analytics-custom** est utilisé.
 
