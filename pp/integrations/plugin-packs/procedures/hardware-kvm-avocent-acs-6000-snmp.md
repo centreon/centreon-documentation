@@ -300,7 +300,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: User 34947 % Nice 51577 % System 62701 % Idle 36054 % Wait 40431 % Kernel 52232 % Interrupt 72826 % Soft Irq 37513 % Steal 81789 % Guest 76641 % Guest Nice 46537 % | 'cpu.user.utilization.percentage'=34947%;;;0;100 'cpu.nice.utilization.percentage'=51577%;;;0;100 'cpu.system.utilization.percentage'=62701%;;;0;100 'cpu.idle.utilization.percentage'=36054%;;;0;100 'cpu.wait.utilization.percentage'=40431%;;;0;100 'cpu.kernel.utilization.percentage'=52232%;;;0;100 'cpu.interrupt.utilization.percentage'=72826%;;;0;100 'cpu.softirq.utilization.percentage'=37513%;;;0;100 'cpu.steal.utilization.percentage'=81789%;;;0;100 'cpu.guest.utilization.percentage'=76641%;;;0;100 'cpu.guestnice.utilization.percentage'=46537%;;;0;100
+OK: User 25.3% Nice 1.7% System 12.5% Idle 58.9% Wait 0.2% Kernel 1.1% Interrupt 0.4% Soft Irq 0.2% Steal 0.0% Guest 0.0% Guest Nice 0.0% | 'cpu.user.utilization.percentage'=25.3%;;;0;100 'cpu.nice.utilization.percentage'=1.7%;;;0;100 'cpu.system.utilization.percentage'=12.5%;;;0;100 'cpu.idle.utilization.percentage'=58.9%;;;0;100 'cpu.wait.utilization.percentage'=0.2%;;;0;100 'cpu.kernel.utilization.percentage'=1.1%;;;0;100 'cpu.interrupt.utilization.percentage'=0.4%;;;0;100 'cpu.softirq.utilization.percentage'=0.2%;;;0;100 'cpu.steal.utilization.percentage'=0.0%;;;0;100 'cpu.guest.utilization.percentage'=0.0%;;;0;100 'cpu.guestnice.utilization.percentage'=0.0%;;;0;100
 ```
 
 ### Troubleshooting
