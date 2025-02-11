@@ -602,7 +602,7 @@ mysql_secure_installation
 <Tabs groupId="sync">
 <TabItem value="MariaDB" label="MariaDB"> 
 
-> If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the **New MAP Engine server** tab.
+> If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the [step 3 - Option 1: MAP Engine server installation on a new server](#step-3---option-1-map-engine-server-installation-on-a-new-server).
 
 > You can use the existing MariaDB database of Centreon MAP Legacy for the new MAP Engine server. So it's not necessary to install a new database.
 
@@ -718,7 +718,7 @@ When installing Centreon MAP Engine server, it will automatically install java
 </TabItem>
 <TabItem value="MySQL" label="MySQL"> 
 
-> If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the [step 3 - Option 1](#step-3---option-1-map-engine-server-installation-on-a-new-server).
+> If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the [step 3 - Option 1: MAP Engine server installation on a new server](#step-3---option-1-map-engine-server-installation-on-a-new-server).
 
 > You can use the existing MySQL database of Centreon MAP Legacy for the new MAP Engine server. So it's not necessary to install a new database.
 
