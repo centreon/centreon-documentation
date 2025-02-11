@@ -120,7 +120,7 @@ Statut sous forme de chaîne.
 |:------------------------------------------|:-------|
 | *trunk*#trunk.channels.outofservice.count | count  |
 | *trunk*#trunk.channels.current.count      | count  |
-| %{trunkstatus}                            | string |
+| %\{trunkstatus\}                            | string |
 
 </TabItem>
 </Tabs>

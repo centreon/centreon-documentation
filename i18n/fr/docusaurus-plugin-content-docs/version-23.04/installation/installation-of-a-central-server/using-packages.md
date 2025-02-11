@@ -533,11 +533,11 @@ GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<IP_SERVEUR_CENTRAL>' WITH GRANT OPTIO
 FLUSH PRIVILEGES;
 ```
 
-> Remplacez **<IP_SERVEUR_CENTRAL\>** par l'adresse IP du serveur central qui se connectera au serveur de bases de données.
+> Remplacez **\<IP_SERVEUR_CENTRAL\>** par l'adresse IP du serveur central qui se connectera au serveur de bases de données.
 >
-> Remplacez **<UTILISATEUR\>** et **<MOT_DE_PASSE\>** par les identifiants de l'utilisateur.
+> Remplacez **\<UTILISATEUR\>** et **\<MOT_DE_PASSE\>** par les identifiants de l'utilisateur.
 
-Cet utilisateur ne sera utilisé que pour le processus d'installation. Une fois [l'installation web](../web-and-post-installation.md/) terminée, vous pouvez supprimer cet utilisateur via la commande suivante :
+Cet utilisateur ne sera utilisé que pour le processus d'installation. Une fois [l'installation web](../web-and-post-installation.md) terminée, vous pouvez supprimer cet utilisateur via la commande suivante :
 
 ```SQL
 DROP USER '<UTILISATEUR>'@'<IP_SERVEUR_CENTRAL>';

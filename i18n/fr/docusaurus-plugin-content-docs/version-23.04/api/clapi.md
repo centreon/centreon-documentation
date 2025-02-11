@@ -997,23 +997,35 @@ ipv4:
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>buffering_timeout</p></td>
-<td><p>Buffering timeout</p></td>
-<td><p>Time in seconds to wait before launching failover.</p></td>
+<td>
+<p>buffering_timeout</p>
+</td>
+<td>
+<p>Buffering timeout</p>
+</td>
+<td>
+<p>Time in seconds to wait before launching failover.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>compression</p>
+<td>
+<p>compression</p>
 <p>compression_buffer</p>
-<p>compression_level</p></td>
-<td><p>Compression (zlib)</p>
+<p>compression_level</p>
+</td>
+<td>
+<p>Compression (zlib)</p>
 <p>Compression buffer size</p>
-<p>Compression level</p></td>
-<td><p>Enable or not data stream compression.</p>
+<p>Compression level</p>
+</td>
+<td>
+<p>Enable or not data stream compression.</p>
 <p>The higher the buffer size is, the best compression. This however increase data streaming latency. Use with caution.</p>
-<p>Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)</p></td>
+<p>Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)</p>
+</td>
 <td><ul>
 <li></li>
 <li></li>
@@ -1021,71 +1033,121 @@ ipv4:
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>retry_interval</p></td>
-<td><p>Retry interval</p></td>
-<td><p>Time in seconds to wait between each connection attempt.</p></td>
+<td>
+<p>retry_interval</p>
+</td>
+<td>
+<p>Retry interval</p>
+</td>
+<td>
+<p>Time in seconds to wait between each connection attempt.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>category</p></td>
-<td><p>Filter category</p></td>
-<td><p>Category filter for flux in input</p></td>
+<td>
+<p>category</p>
+</td>
+<td>
+<p>Filter category</p>
+</td>
+<td>
+<p>Category filter for flux in input</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>ca_certificate</p>
-<p>host</p></td>
-<td><p>Trusted CA's certificate</p>
-<p>Host to connect to</p></td>
-<td><p>Trusted CA's certificate.</p>
-<p>IP address or hostname of the host to connect to (leave blank for listening mode).</p></td>
+<td>
+<p>ca_certificate</p>
+<p>host</p>
+</td>
+<td>
+<p>Trusted CA's certificate</p>
+<p>Host to connect to</p>
+</td>
+<td>
+<p>Trusted CA's certificate.</p>
+<p>IP address or hostname of the host to connect to (leave blank for listening mode).</p>
+</td>
 <td><ul>
 <li></li>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>one_peer_retention_mode</p>
-<p>port</p></td>
-<td><p>One peer retention</p>
-<p>Connection port</p></td>
-<td><p>This allows the retention to work even if the socket is listening</p>
-<p>Port to listen on (empty host) or to connect to (with host filled).</p></td>
+<td>
+<p>one_peer_retention_mode</p>
+<p>port</p>
+</td>
+<td>
+<p>One peer retention</p>
+<p>Connection port</p>
+</td>
+<td>
+<p>This allows the retention to work even if the socket is listening</p>
+<p>Port to listen on (empty host) or to connect to (with host filled).</p>
+</td>
 <td><ul>
 <li></li>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>private_key</p></td>
-<td><p>Private key file.</p></td>
-<td><p>Private key file path when TLS encryption is used.</p></td>
+<td>
+<p>private_key</p>
+</td>
+<td>
+<p>Private key file.</p>
+</td>
+<td>
+<p>Private key file path when TLS encryption is used.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>protocol</p></td>
-<td><p>Serialization protocol</p></td>
-<td><p>Serialization protocol.</p></td>
-<td><p>ndo</p></td>
+<td>
+<p>protocol</p>
+</td>
+<td>
+<p>Serialization protocol</p>
+</td>
+<td>
+<p>Serialization protocol.</p>
+</td>
+<td>
+<p>ndo</p>
+</td>
 </tr>
 <tr class="odd">
-<td><p>public_cert</p></td>
-<td><p>Public certificate</p></td>
-<td><p>Public certificate file path when TLS encryption is used.</p></td>
+<td>
+<p>public_cert</p>
+</td>
+<td>
+<p>Public certificate</p>
+</td>
+<td>
+<p>Public certificate file path when TLS encryption is used.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>tls</p></td>
-<td><p>Enable TLS encryption</p></td>
-<td><p>Enable TLS encryption.</p></td>
+<td>
+<p>tls</p>
+</td>
+<td>
+<p>Enable TLS encryption</p>
+</td>
+<td>
+<p>Enable TLS encryption.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
@@ -1106,23 +1168,35 @@ ipv6:
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>buffering_timeout</p></td>
-<td><p>Buffering timeout</p></td>
-<td><p>Time in seconds to wait before launching failover.</p></td>
+<td>
+<p>buffering_timeout</p>
+</td>
+<td>
+<p>Buffering timeout</p>
+</td>
+<td>
+<p>Time in seconds to wait before launching failover.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>compression</p>
+<td>
+<p>compression</p>
 <p>compression_buffer</p>
-<p>compression_level</p></td>
-<td><p>Compression (zlib)</p>
+<p>compression_level</p>
+</td>
+<td>
+<p>Compression (zlib)</p>
 <p>Compression buffer size</p>
-<p>Compression level</p></td>
-<td><p>Enable or not data stream compression.</p>
+<p>Compression level</p>
+</td>
+<td>
+<p>Enable or not data stream compression.</p>
 <p>The higher the buffer size is, the best compression. This however increase data streaming latency. Use with caution.</p>
-<p>Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)</p></td>
+<p>Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)</p>
+</td>
 <td><ul>
 <li></li>
 <li></li>
@@ -1130,71 +1204,121 @@ ipv6:
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>retry_interval</p></td>
-<td><p>Retry interval</p></td>
-<td><p>Time in seconds to wait between each connection attempt.</p></td>
+<td>
+<p>retry_interval</p>
+</td>
+<td>
+<p>Retry interval</p>
+</td>
+<td>
+<p>Time in seconds to wait between each connection attempt.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>category</p></td>
-<td><p>Filter category</p></td>
-<td><p>Category filter for flux in input</p></td>
+<td>
+<p>category</p>
+</td>
+<td>
+<p>Filter category</p>
+</td>
+<td>
+<p>Category filter for flux in input</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>ca_certificate</p>
-<p>host</p></td>
-<td><p>Trusted CA's certificate</p>
-<p>Host to connect to</p></td>
-<td><p>Trusted CA's certificate.</p>
-<p>IP address or hostname of the host to connect to (leave blank for listening mode).</p></td>
+<td>
+<p>ca_certificate</p>
+<p>host</p>
+</td>
+<td>
+<p>Trusted CA's certificate</p>
+<p>Host to connect to</p>
+</td>
+<td>
+<p>Trusted CA's certificate.</p>
+<p>IP address or hostname of the host to connect to (leave blank for listening mode).</p>
+</td>
 <td><ul>
 <li></li>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>one_peer_retention_mode</p>
-<p>port</p></td>
-<td><p>One peer retention</p>
-<p>Connection port</p></td>
-<td><p>This allows the retention to work even if the socket is listening</p>
-<p>Port to listen on (empty host) or to connect to (with host filled).</p></td>
+<td>
+<p>one_peer_retention_mode</p>
+<p>port</p>
+</td>
+<td>
+<p>One peer retention</p>
+<p>Connection port</p>
+</td>
+<td>
+<p>This allows the retention to work even if the socket is listening</p>
+<p>Port to listen on (empty host) or to connect to (with host filled).</p>
+</td>
 <td><ul>
 <li></li>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>private_key</p></td>
-<td><p>Private key file.</p></td>
-<td><p>Private key file path when TLS encryption is used.</p></td>
+<td>
+<p>private_key</p>
+</td>
+<td>
+<p>Private key file.</p>
+</td>
+<td>
+<p>Private key file path when TLS encryption is used.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>protocol</p></td>
-<td><p>Serialization protocol</p></td>
-<td><p>Serialization protocol.</p></td>
-<td><p>ndo</p></td>
+<td>
+<p>protocol</p>
+</td>
+<td>
+<p>Serialization protocol</p>
+</td>
+<td>
+<p>Serialization protocol.</p>
+</td>
+<td>
+<p>ndo</p>
+</td>
 </tr>
 <tr class="odd">
-<td><p>public_cert</p></td>
-<td><p>Public certificate</p></td>
-<td><p>Public certificate file path when TLS encryption is used.</p></td>
+<td>
+<p>public_cert</p>
+</td>
+<td>
+<p>Public certificate</p>
+</td>
+<td>
+<p>Public certificate file path when TLS encryption is used.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>tls</p></td>
-<td><p>Enable TLS encryption</p></td>
-<td><p>Enable TLS encryption.</p></td>
+<td>
+<p>tls</p>
+</td>
+<td>
+<p>Enable TLS encryption</p>
+</td>
+<td>
+<p>Enable TLS encryption.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
@@ -1215,23 +1339,35 @@ file:
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>buffering_timeout</p></td>
-<td><p>Buffering timeout</p></td>
-<td><p>Time in seconds to wait before launching failover.</p></td>
+<td>
+<p>buffering_timeout</p>
+</td>
+<td>
+<p>Buffering timeout</p>
+</td>
+<td>
+<p>Time in seconds to wait before launching failover.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>compression</p>
+<td>
+<p>compression</p>
 <p>compression_buffer</p>
-<p>compression_level</p></td>
-<td><p>Compression (zlib)</p>
+<p>compression_level</p>
+</td>
+<td>
+<p>Compression (zlib)</p>
 <p>Compression buffer size</p>
-<p>Compression level</p></td>
-<td><p>Enable or not data stream compression.</p>
+<p>Compression level</p>
+</td>
+<td>
+<p>Enable or not data stream compression.</p>
 <p>The higher the buffer size is, the best compression. This however increase data streaming latency. Use with caution.</p>
-<p>Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)</p></td>
+<p>Ranges from 0 (no compression) to 9 (best compression). Default is -1 (zlib compression)</p>
+</td>
 <td><ul>
 <li></li>
 <li></li>
@@ -1239,34 +1375,60 @@ file:
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>retry_interval</p></td>
-<td><p>Retry interval</p></td>
-<td><p>Time in seconds to wait between each connection attempt.</p></td>
+<td>
+<p>retry_interval</p>
+</td>
+<td>
+<p>Retry interval</p>
+</td>
+<td>
+<p>Time in seconds to wait between each connection attempt.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>max_size</p></td>
-<td><p>Maximum size of file</p></td>
-<td><p>Maximum size in bytes.</p></td>
+<td>
+<p>max_size</p>
+</td>
+<td>
+<p>Maximum size of file</p>
+</td>
+<td>
+<p>Maximum size in bytes.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>path</p></td>
-<td><p>File path</p></td>
-<td><p>Path to the file.</p></td>
+<td>
+<p>path</p>
+</td>
+<td>
+<p>File path</p>
+</td>
+<td>
+<p>Path to the file.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>protocol</p></td>
-<td><p>Serialization protocol</p></td>
-<td><p>Serialization protocol.</p></td>
-<td><p>ndo</p></td>
+<td>
+<p>protocol</p>
+</td>
+<td>
+<p>Serialization protocol</p>
+</td>
+<td>
+<p>Serialization protocol.</p>
+</td>
+<td>
+<p>ndo</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1286,50 +1448,88 @@ file:
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>config</p></td>
-<td><p>Configuration messages</p></td>
-<td><p>Enable or not configuration messages logging.</p></td>
+<td>
+<p>config</p>
+</td>
+<td>
+<p>Configuration messages</p>
+</td>
+<td>
+<p>Enable or not configuration messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>debug</p></td>
-<td><p>Debug messages</p></td>
-<td><p>Enable or not debug messages logging.</p></td>
+<td>
+<p>debug</p>
+</td>
+<td>
+<p>Debug messages</p>
+</td>
+<td>
+<p>Enable or not debug messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>error</p></td>
-<td><p>Error messages</p></td>
-<td><p>Enable or not error messages logging.</p></td>
+<td>
+<p>error</p>
+</td>
+<td>
+<p>Error messages</p>
+</td>
+<td>
+<p>Enable or not error messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>info</p></td>
-<td><p>Informational messages</p></td>
-<td><p>Enable or not informational messages logging.</p></td>
+<td>
+<p>info</p>
+</td>
+<td>
+<p>Informational messages</p>
+</td>
+<td>
+<p>Enable or not informational messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>level</p></td>
-<td><p>Logging level</p></td>
-<td><p>How much messages must be logged.</p></td>
-<td><p>high,low,medium</p></td>
+<td>
+<p>level</p>
+</td>
+<td>
+<p>Logging level</p>
+</td>
+<td>
+<p>How much messages must be logged.</p>
+</td>
+<td>
+<p>high,low,medium</p>
+</td>
 </tr>
 <tr class="even">
-<td><p>max_size</p>
-<p>name</p></td>
-<td><p>Max file size in bytes</p>
-<p>Name of the logger</p></td>
-<td><p>The maximum size of log file.</p>
-<p>For a file logger this is the path to the file. For a standard logger, one of 'stdout' or 'stderr'.</p></td>
+<td>
+<p>max_size</p>
+<p>name</p>
+</td>
+<td>
+<p>Max file size in bytes</p>
+<p>Name of the logger</p>
+</td>
+<td>
+<p>The maximum size of log file.</p>
+<p>For a file logger this is the path to the file. For a standard logger, one of 'stdout' or 'stderr'.</p>
+</td>
 <td><ul>
 <li></li>
 <li></li>
@@ -1351,45 +1551,76 @@ standard:
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>config</p></td>
-<td><p>Configuration messages</p></td>
-<td><p>Enable or not configuration messages logging.</p></td>
+<td>
+<p>config</p>
+</td>
+<td>
+<p>Configuration messages</p>
+</td>
+<td>
+<p>Enable or not configuration messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>debug</p></td>
-<td><p>Debug messages</p></td>
-<td><p>Enable or not debug messages logging.</p></td>
+<td>
+<p>debug</p>
+</td>
+<td>
+<p>Debug messages</p>
+</td>
+<td>
+<p>Enable or not debug messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>error</p></td>
-<td><p>Error messages</p></td>
-<td><p>Enable or not error messages logging.</p></td>
+<td>
+<p>error</p>
+</td>
+<td>
+<p>Error messages</p>
+</td>
+<td>
+<p>Enable or not error messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>info</p></td>
-<td><p>Informational messages</p></td>
-<td><p>Enable or not informational messages logging.</p></td>
+<td>
+<p>info</p>
+</td>
+<td>
+<p>Informational messages</p>
+</td>
+<td>
+<p>Enable or not informational messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>level</p>
-<p>name</p></td>
-<td><p>Logging level</p>
-<p>Name of the logger</p></td>
-<td><p>How much messages must be logged.</p>
-<p>For a file logger this is the path to the file. For a standard logger, one of 'stdout' or 'stderr'.</p></td>
-<td><p>high,low,medium</p>
+<td>
+<p>level</p>
+<p>name</p>
+</td>
+<td>
+<p>Logging level</p>
+<p>Name of the logger</p>
+</td>
+<td>
+<p>How much messages must be logged.</p>
+<p>For a file logger this is the path to the file. For a standard logger, one of 'stdout' or 'stderr'.</p>
+</td>
+<td>
+<p>high,low,medium</p>
 <ul>
 <li></li>
 </ul></td>
@@ -1410,42 +1641,74 @@ syslog:
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>config</p></td>
-<td><p>Configuration messages</p></td>
-<td><p>Enable or not configuration messages logging.</p></td>
+<td>
+<p>config</p>
+</td>
+<td>
+<p>Configuration messages</p>
+</td>
+<td>
+<p>Enable or not configuration messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>debug</p></td>
-<td><p>Debug messages</p></td>
-<td><p>Enable or not debug messages logging.</p></td>
+<td>
+<p>debug</p>
+</td>
+<td>
+<p>Debug messages</p>
+</td>
+<td>
+<p>Enable or not debug messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>error</p></td>
-<td><p>Error messages</p></td>
-<td><p>Enable or not error messages logging.</p></td>
+<td>
+<p>error</p>
+</td>
+<td>
+<p>Error messages</p>
+</td>
+<td>
+<p>Enable or not error messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>info</p></td>
-<td><p>Informational messages</p></td>
-<td><p>Enable or not informational messages logging.</p></td>
+<td>
+<p>info</p>
+</td>
+<td>
+<p>Informational messages</p>
+</td>
+<td>
+<p>Enable or not informational messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>level</p></td>
-<td><p>Logging level</p></td>
-<td><p>How much messages must be logged.</p></td>
-<td><p>high,low,medium</p></td>
+<td>
+<p>level</p>
+</td>
+<td>
+<p>Logging level</p>
+</td>
+<td>
+<p>How much messages must be logged.</p>
+</td>
+<td>
+<p>high,low,medium</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1463,45 +1726,76 @@ monitoring:
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>config</p></td>
-<td><p>Configuration messages</p></td>
-<td><p>Enable or not configuration messages logging.</p></td>
+<td>
+<p>config</p>
+</td>
+<td>
+<p>Configuration messages</p>
+</td>
+<td>
+<p>Enable or not configuration messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>debug</p></td>
-<td><p>Debug messages</p></td>
-<td><p>Enable or not debug messages logging.</p></td>
+<td>
+<p>debug</p>
+</td>
+<td>
+<p>Debug messages</p>
+</td>
+<td>
+<p>Enable or not debug messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>error</p></td>
-<td><p>Error messages</p></td>
-<td><p>Enable or not error messages logging.</p></td>
+<td>
+<p>error</p>
+</td>
+<td>
+<p>Error messages</p>
+</td>
+<td>
+<p>Enable or not error messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>info</p></td>
-<td><p>Informational messages</p></td>
-<td><p>Enable or not informational messages logging.</p></td>
+<td>
+<p>info</p>
+</td>
+<td>
+<p>Informational messages</p>
+</td>
+<td>
+<p>Enable or not informational messages logging.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>level</p>
-<p>name</p></td>
-<td><p>Logging level</p>
-<p>Name of the logger</p></td>
-<td><p>How much messages must be logged.</p>
-<p>For a file logger this is the path to the file. For a standard logger, one of 'stdout' or 'stderr'.</p></td>
-<td><p>high,low,medium</p>
+<td>
+<p>level</p>
+<p>name</p>
+</td>
+<td>
+<p>Logging level</p>
+<p>Name of the logger</p>
+</td>
+<td>
+<p>How much messages must be logged.</p>
+<p>For a file logger this is the path to the file. For a standard logger, one of 'stdout' or 'stderr'.</p>
+</td>
+<td>
+<p>high,low,medium</p>
 <ul>
 <li></li>
 </ul></td>
@@ -1577,33 +1871,57 @@ rrd:
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>buffering_timeout</p></td>
-<td><p>Buffering timeout</p></td>
-<td><p>Time in seconds to wait before launching failover.</p></td>
+<td>
+<p>buffering_timeout</p>
+</td>
+<td>
+<p>Buffering timeout</p>
+</td>
+<td>
+<p>Time in seconds to wait before launching failover.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>failover</p></td>
-<td><p>Failover name</p></td>
-<td><p>Name of the output which will act as failover</p></td>
+<td>
+<p>failover</p>
+</td>
+<td>
+<p>Failover name</p>
+</td>
+<td>
+<p>Name of the output which will act as failover</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>retry_interval</p></td>
-<td><p>Retry interval</p></td>
-<td><p>Time in seconds to wait between each connection attempt.</p></td>
+<td>
+<p>retry_interval</p>
+</td>
+<td>
+<p>Retry interval</p>
+</td>
+<td>
+<p>Time in seconds to wait between each connection attempt.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>category</p></td>
-<td><p>Filter category</p></td>
-<td><p>Category filter for flux in output.</p></td>
+<td>
+<p>category</p>
+</td>
+<td>
+<p>Filter category</p>
+</td>
+<td>
+<p>Category filter for flux in output.</p>
+</td>
 <td><blockquote>
 <ul>
 <li></li>
@@ -1611,15 +1929,21 @@ rrd:
 </blockquote></td>
 </tr>
 <tr class="odd">
-<td><p>metrics_path</p>
+<td>
+<p>metrics_path</p>
 <p>path</p>
-<p>port</p></td>
-<td><p>RRD file directory for metrics</p>
+<p>port</p>
+</td>
+<td>
+<p>RRD file directory for metrics</p>
 <p>Unix socket</p>
-<p>TCP port</p></td>
-<td><p>RRD file directory, for example /var/lib/centreon/metrics</p>
+<p>TCP port</p>
+</td>
+<td>
+<p>RRD file directory, for example /var/lib/centreon/metrics</p>
 <p>The Unix socket used to communicate with rrdcached. This is a global option, go to Administration &gt; Options &gt; RRDTool to modify it.</p>
-<p>The TCP port used to communicate with rrdcached. This is a global option, go to Administration &gt; Options &gt; RRDTool to modify it.</p></td>
+<p>The TCP port used to communicate with rrdcached. This is a global option, go to Administration &gt; Options &gt; RRDTool to modify it.</p>
+</td>
 <td><ul>
 <li></li>
 <li></li>
@@ -1627,33 +1951,57 @@ rrd:
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>status_path</p></td>
-<td><p>RRD file directory for statuses</p></td>
-<td><p>RRD file directory, for example /var/lib/centreon/status</p></td>
+<td>
+<p>status_path</p>
+</td>
+<td>
+<p>RRD file directory for statuses</p>
+</td>
+<td>
+<p>RRD file directory, for example /var/lib/centreon/status</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>write_metrics</p></td>
-<td><p>Enable write_metrics</p></td>
-<td><p>Enable or not write_metrics.</p></td>
+<td>
+<p>write_metrics</p>
+</td>
+<td>
+<p>Enable write_metrics</p>
+</td>
+<td>
+<p>Enable or not write_metrics.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>write_status</p></td>
-<td><p>Enable write_status</p></td>
-<td><p>Enable or not write_status.</p></td>
+<td>
+<p>write_status</p>
+</td>
+<td>
+<p>Enable write_status</p>
+</td>
+<td>
+<p>Enable or not write_status.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>store_in_data_bin</p></td>
-<td><p>Enable store_in_data_bin</p></td>
-<td><p>Enable or not store in performance data in data_bin.</p></td>
+<td>
+<p>store_in_data_bin</p>
+</td>
+<td>
+<p>Enable store_in_data_bin</p>
+</td>
+<td>
+<p>Enable or not store in performance data in data_bin.</p>
+</td>
 <td><blockquote>
 <ul>
 <li></li>
@@ -1676,36 +2024,60 @@ storage:
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>buffering_timeout</p></td>
-<td><p>Buffering timeout</p></td>
-<td><p>Time in seconds to wait before launching failover.</p></td>
+<td>
+<p>buffering_timeout</p>
+</td>
+<td>
+<p>Buffering timeout</p>
+</td>
+<td>
+<p>Time in seconds to wait before launching failover.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>failover</p></td>
-<td><p>Failover name</p></td>
-<td><p>Name of the output which will act as failover</p></td>
+<td>
+<p>failover</p>
+</td>
+<td>
+<p>Failover name</p>
+</td>
+<td>
+<p>Name of the output which will act as failover</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>retry_interval</p></td>
-<td><p>Retry interval</p></td>
-<td><p>Time in seconds to wait between each connection attempt.</p></td>
+<td>
+<p>retry_interval</p>
+</td>
+<td>
+<p>Retry interval</p>
+</td>
+<td>
+<p>Time in seconds to wait between each connection attempt.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>category</p>
-<p>check_replication</p></td>
-<td><p>Filter category</p>
-<p>Replication enabled</p></td>
-<td><p>Category filter for flux in output.</p>
-<p>When enabled, the broker engine will check whether or not the replication is up to date before attempting to update data.</p></td>
+<td>
+<p>category</p>
+<p>check_replication</p>
+</td>
+<td>
+<p>Filter category</p>
+<p>Replication enabled</p>
+</td>
+<td>
+<p>Category filter for flux in output.</p>
+<p>When enabled, the broker engine will check whether or not the replication is up to date before attempting to update data.</p>
+</td>
 <td><blockquote>
 <ul>
 <li></li>
@@ -1716,91 +2088,159 @@ storage:
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>db_host</p></td>
-<td><p>DB host</p></td>
-<td><p>IP address or hostname of the database server.</p></td>
+<td>
+<p>db_host</p>
+</td>
+<td>
+<p>DB host</p>
+</td>
+<td>
+<p>IP address or hostname of the database server.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>db_name</p></td>
-<td><p>DB name</p></td>
-<td><p>Database name.</p></td>
+<td>
+<p>db_name</p>
+</td>
+<td>
+<p>DB name</p>
+</td>
+<td>
+<p>Database name.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>db_password</p></td>
-<td><p>DB password</p></td>
-<td><p>Password of database user.</p></td>
+<td>
+<p>db_password</p>
+</td>
+<td>
+<p>DB password</p>
+</td>
+<td>
+<p>Password of database user.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>db_port</p></td>
-<td><p>DB port</p></td>
-<td><p>Port on which the DB server listens</p></td>
+<td>
+<p>db_port</p>
+</td>
+<td>
+<p>DB port</p>
+</td>
+<td>
+<p>Port on which the DB server listens</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>db_type</p></td>
-<td><p>DB type</p></td>
-<td><p>Target DBMS.</p></td>
-<td><p>db2,ibase,mysql,oci,odbc,postgresql,sqlite,tds</p></td>
+<td>
+<p>db_type</p>
+</td>
+<td>
+<p>DB type</p>
+</td>
+<td>
+<p>Target DBMS.</p>
+</td>
+<td>
+<p>db2,ibase,mysql,oci,odbc,postgresql,sqlite,tds</p>
+</td>
 </tr>
 <tr class="even">
-<td><p>db_user</p></td>
-<td><p>DB user</p></td>
-<td><p>Database user.</p></td>
+<td>
+<p>db_user</p>
+</td>
+<td>
+<p>DB user</p>
+</td>
+<td>
+<p>Database user.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>interval</p></td>
-<td><p>Interval length</p></td>
-<td><p>Interval length in seconds.</p></td>
+<td>
+<p>interval</p>
+</td>
+<td>
+<p>Interval length</p>
+</td>
+<td>
+<p>Interval length in seconds.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>length</p></td>
-<td><p>RRD length</p></td>
-<td><p>RRD storage duration in seconds.</p></td>
+<td>
+<p>length</p>
+</td>
+<td>
+<p>RRD length</p>
+</td>
+<td>
+<p>RRD storage duration in seconds.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>queries_per_transaction</p></td>
-<td><p>Maximum queries per transaction</p></td>
-<td><p>The maximum queries per transaction before commit.</p></td>
+<td>
+<p>queries_per_transaction</p>
+</td>
+<td>
+<p>Maximum queries per transaction</p>
+</td>
+<td>
+<p>The maximum queries per transaction before commit.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>read_timeout</p>
-<p>rebuild_check_interval</p></td>
-<td><p>Transaction commit timeout</p>
-<p>Rebuild check interval in seconds</p></td>
-<td><p>The transaction timeout before running commit.</p>
-<p>The interval between check if some metrics must be rebuild. The default value is 300s</p></td>
+<td>
+<p>read_timeout</p>
+<p>rebuild_check_interval</p>
+</td>
+<td>
+<p>Transaction commit timeout</p>
+<p>Rebuild check interval in seconds</p>
+</td>
+<td>
+<p>The transaction timeout before running commit.</p>
+<p>The interval between check if some metrics must be rebuild. The default value is 300s</p>
+</td>
 <td><ul>
 <li></li>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>store_in_data_bin</p></td>
-<td><p>Enable store_in_data_bin</p></td>
-<td><p>Enable or not store in performance data in data_bin.</p></td>
+<td>
+<p>store_in_data_bin</p>
+</td>
+<td>
+<p>Enable store_in_data_bin</p>
+</td>
+<td>
+<p>Enable or not store in performance data in data_bin.</p>
+</td>
 <td><blockquote>
 <ul>
 <li></li>
@@ -1823,36 +2263,60 @@ sql:
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>buffering_timeout</p></td>
-<td><p>Buffering timeout</p></td>
-<td><p>Time in seconds to wait before launching failover.</p></td>
+<td>
+<p>buffering_timeout</p>
+</td>
+<td>
+<p>Buffering timeout</p>
+</td>
+<td>
+<p>Time in seconds to wait before launching failover.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>failover</p></td>
-<td><p>Failover name</p></td>
-<td><p>Name of the output which will act as failover</p></td>
+<td>
+<p>failover</p>
+</td>
+<td>
+<p>Failover name</p>
+</td>
+<td>
+<p>Name of the output which will act as failover</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>retry_interval</p></td>
-<td><p>Retry interval</p></td>
-<td><p>Time in seconds to wait between each connection attempt.</p></td>
+<td>
+<p>retry_interval</p>
+</td>
+<td>
+<p>Retry interval</p>
+</td>
+<td>
+<p>Time in seconds to wait between each connection attempt.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>category</p>
-<p>check_replication</p></td>
-<td><p>Filter category</p>
-<p>Replication enabled</p></td>
-<td><p>Category filter for flux in output.</p>
-<p>When enabled, the broker engine will check whether or not the replication is up to date before attempting to update data.</p></td>
+<td>
+<p>category</p>
+<p>check_replication</p>
+</td>
+<td>
+<p>Filter category</p>
+<p>Replication enabled</p>
+</td>
+<td>
+<p>Category filter for flux in output.</p>
+<p>When enabled, the broker engine will check whether or not the replication is up to date before attempting to update data.</p>
+</td>
 <td><blockquote>
 <ul>
 <li></li>
@@ -1863,63 +2327,113 @@ sql:
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>db_host</p></td>
-<td><p>DB host</p></td>
-<td><p>IP address or hostname of the database server.</p></td>
+<td>
+<p>db_host</p>
+</td>
+<td>
+<p>DB host</p>
+</td>
+<td>
+<p>IP address or hostname of the database server.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>db_name</p></td>
-<td><p>DB name</p></td>
-<td><p>Database name.</p></td>
+<td>
+<p>db_name</p>
+</td>
+<td>
+<p>DB name</p>
+</td>
+<td>
+<p>Database name.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>db_password</p></td>
-<td><p>DB password</p></td>
-<td><p>Password of database user.</p></td>
+<td>
+<p>db_password</p>
+</td>
+<td>
+<p>DB password</p>
+</td>
+<td>
+<p>Password of database user.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>db_port</p></td>
-<td><p>DB port</p></td>
-<td><p>Port on which the DB server listens</p></td>
+<td>
+<p>db_port</p>
+</td>
+<td>
+<p>DB port</p>
+</td>
+<td>
+<p>Port on which the DB server listens</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>db_type</p></td>
-<td><p>DB type</p></td>
-<td><p>Target DBMS.</p></td>
-<td><p>db2,ibase,mysql,oci,odbc,postgresql,sqlite,tds</p></td>
+<td>
+<p>db_type</p>
+</td>
+<td>
+<p>DB type</p>
+</td>
+<td>
+<p>Target DBMS.</p>
+</td>
+<td>
+<p>db2,ibase,mysql,oci,odbc,postgresql,sqlite,tds</p>
+</td>
 </tr>
 <tr class="even">
-<td><p>db_user</p></td>
-<td><p>DB user</p></td>
-<td><p>Database user.</p></td>
+<td>
+<p>db_user</p>
+</td>
+<td>
+<p>DB user</p>
+</td>
+<td>
+<p>Database user.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><p>queries_per_transaction</p></td>
-<td><p>Maximum queries per transaction</p></td>
-<td><p>The maximum queries per transaction before commit.</p></td>
+<td>
+<p>queries_per_transaction</p>
+</td>
+<td>
+<p>Maximum queries per transaction</p>
+</td>
+<td>
+<p>The maximum queries per transaction before commit.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><p>read_timeout</p></td>
-<td><p>Transaction commit timeout</p></td>
-<td><p>The transaction timeout before running commit.</p></td>
+<td>
+<p>read_timeout</p>
+</td>
+<td>
+<p>Transaction commit timeout</p>
+</td>
+<td>
+<p>The transaction timeout before running commit.</p>
+</td>
 <td><ul>
 <li></li>
 </ul></td>

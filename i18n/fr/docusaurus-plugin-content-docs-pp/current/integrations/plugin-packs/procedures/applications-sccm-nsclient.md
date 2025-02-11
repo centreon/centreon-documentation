@@ -154,7 +154,7 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     -p 5666 \
     -t 30 \
     -u -m 8192 \
-    -c check_centreon_plugins -a 'apps::sccm::local::plugin' 'site-status' '--critical-status="%{status} eq FAILED"'
+    -c check_centreon_plugins -a 'apps::sccm::local::plugin' 'site-status' '--critical-status="%\{status\} eq FAILED"'
 ```
 
 La commande devrait retourner un message de sortie de la forme ci-dessous:
@@ -191,7 +191,7 @@ en ajoutant le paramètre ```--help``` à la commande:
     --command=check_centreon_plugins  \
     --arg='apps::sccm::local::plugin'  \
     --arg='site-status' \
-    --arg='--critical-status="%{status} eq FAILED"'
+    --arg='--critical-status="%\{status\} eq FAILED"'
 
 ```
 La commande devrait retourner un message de sortie de la forme ci-dessous:

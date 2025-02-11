@@ -78,7 +78,7 @@ dnf update
    rsync -avz -e "ssh -i /root/.ssh/id_rsa_custom" <command>
    ```
 
-   > Replace **<IP_NEW_CENTREON>** by the IP address of the new Centreon server.
+   > Replace **\<IP_NEW_CENTREON\>** by the IP address of the new Centreon server.
 
 ### Step 3: Retrieve the databases
 
@@ -149,7 +149,7 @@ create them again:
    systemctl start mariadb
    ```
 
-> Replace **<IP_NEW_CENTREON>** by the IP address of the new Centreon server.
+> Replace **\<IP_NEW_CENTREON\>** by the IP address of the new Centreon server.
 
 ### Step 4: Synchronize the plugins
 

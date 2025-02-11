@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect } from '@docusaurus/router';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -109,25 +109,6 @@ function BannerBlock() {
   );
 }
 
-function SearchForm() {
-  function handleClick(e) {
-    e.preventDefault()
-    document.querySelector('.DocSearch').click()
-  }
-  return (
-    <form className={clsx(styles.searchForm)} onClick={handleClick}>
-      <div className={clsx(styles.searchForm_input)}>
-        <img src={basePathImg + "search.svg"}/>
-        <input type="search" placeholder="Rechercher dans la documentation" ></input>
-      </div>
-      <button className={clsx(styles.button, styles.buttonBig)}>
-        Rechercher
-        <img src={basePathImg + "arrow.svg"}/>
-      </button>
-    </form>
-  )
-}
-
 function HeadingCard(props) {
   return(
     <div className={clsx(styles.headingCard)}>
@@ -167,7 +148,6 @@ function HeadingBlock() {
     <div className={clsx(styles.headingContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <h1>Bienvenue dans la Documentation Centreon !</h1>
-        <SearchForm/>
         <HeadingCards cards={cards}/>
       </div>
     </div>
