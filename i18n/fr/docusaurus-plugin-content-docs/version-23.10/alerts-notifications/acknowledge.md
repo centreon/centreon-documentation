@@ -54,7 +54,9 @@ Pour acquitter une alerte, plusieurs solutions sont possibles :
     
     - Si la case **Notifier** est cochée, alors une notification est envoyée aux contacts liés à l'objet pour les avertir que l'incident sur la ressource a été acquitté (dans le cas où le filtre de notification d'acquittement est activé pour ce contact).
 
-    - Si la case **Persistant (non-OK)** est cochée, alors l'acquittement sera conservé en cas de changement de statut non-OK (Exemple DOWN à UNREACHABLE ou bien WARNING à CRITICAL). Sinon, l'acquittement disparaît et le processus de notification est réactivé.
+    - Si la case **Sticky** est cochée, alors l'acquittement sera conservé en cas de changement de statut non-OK (Exemple DOWN à UNREACHABLE ou bien WARNING à CRITICAL). Sinon, l'acquittement disparaît et le processus de notification est réactivé.
+    
+    - Si, pour un hôte, la case **Acquitter les services attachés à l'hôte** est cochée, acquitter une alerte sur l'hôte acquittera tous les services liés à cet hôte automatiquement.
 
 </TabItem>
 <TabItem value="Supervision temps réel" label="Supervision temps réel">
