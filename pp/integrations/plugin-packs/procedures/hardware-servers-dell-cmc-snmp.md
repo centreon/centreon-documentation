@@ -51,7 +51,14 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Name                  | Unit  |
+|:----------------------|:------|
+| hardware.chassis | W     |
+| disk.status | N/A     |
+| health.status | N/A     |
+| hardware.psu | V - A - W     |
+| hardware.temperature.celsius | C     |
+| vdisk.status | N/A     |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
