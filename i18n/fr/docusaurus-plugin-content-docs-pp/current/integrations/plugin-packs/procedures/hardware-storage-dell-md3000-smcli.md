@@ -67,8 +67,7 @@ Lors de l'installation du package, choisissez l'option 'Management Station':
       4- Customize...
 ```      
 
-> ENTREZ LE NUMÉRO DE L'ENSEMBLE D'INSTALLATION, OU APPUYEZ SUR \<ENTRÉE>\
-> POUR ACCEPTER LA VALEUR PAR DÉFAUT : 2
+> ENTREZ LE NUMÉRO DE L'ENSEMBLE D'INSTALLATION, OU APPUYEZ SUR \<ENTRÉE>\ POUR ACCEPTER LA VALEUR PAR DÉFAUT : 2
 
 Après l'installation, l'utilisateur du moteur de supervision a besoin des privilèges root pour exécuter la commande:
 
