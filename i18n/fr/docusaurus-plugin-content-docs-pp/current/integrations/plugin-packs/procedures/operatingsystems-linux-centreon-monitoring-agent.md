@@ -323,7 +323,7 @@ minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la vers
 
 ### Configuration de Centreon Engine
 
-Référez-vous à [cette page](../getting-started/how-to-guides/cma.md#configurez-engine) pour la procédure de configuration de centreon-engine.
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma.md#configurez-engine).
 
 ### Prérequis système sur l'hôte à superviser
 
@@ -486,6 +486,8 @@ apt-get install centreon-plugin-operatingsystems-linux-Local
 ## Installer le connecteur de supervision
 
 ### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.

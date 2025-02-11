@@ -501,6 +501,7 @@ Ce compte utilisateur doit avoir la permission de lecture/READ (Oracle 12+) ou d
   - v_$rollstat
   - v_$resource\_limit
   - v_$tablespace
+  - v_$tempfile
   - v_$event\_name
   - v_$waitstat
   
@@ -508,6 +509,8 @@ Ce compte utilisateur doit avoir la permission de lecture/READ (Oracle 12+) ou d
 ## Installer le connecteur de supervision
 
 ### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.

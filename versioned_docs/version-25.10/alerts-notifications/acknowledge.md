@@ -44,6 +44,7 @@ To acknowledge an alert, there are several solutions:
 2. Use one of the following methods:
     - Select the object(s) that you want to acknowledge, then click the **Acknowledge** button above the list of resources.
     - Hover over the resource you want to acknowledge, then click the **Acknowledge** icon that appears on the left.
+    - Click on the resource to open its **Detail panel** and click the **Acknowledge** button below the tabs.
 
         ![image](../assets/alerts/resources-status/ack-hover.gif)
 

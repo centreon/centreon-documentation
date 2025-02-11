@@ -371,9 +371,7 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 
 ### Configuration de Centreon Engine
 
-1. Dans le menu **Configuration > Collecteurs > Configuration de Centreon Engine**, sous l'onglet **Données**, ajoutez une entrée dans les modules Broker à charger et inscrivez-y la directive `/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json`. Sauvegardez le formulaire.
-
-2. Exportez la configuration du collecteur, en sélectionnant l'option **Redémarrer**.
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/telegraf.md#configurez-engine).
 
 ### Prérequis système sur l'hôte à superviser
 
@@ -647,6 +645,8 @@ systemctl restart telegraf
 ## Installer le connecteur de supervision
 
 ### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.

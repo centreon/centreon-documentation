@@ -154,9 +154,7 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 
 ### Configure Engine
 
-1. In the **Configuration > Pollers > Engine configuration** menu, on the **Data** tab, add an entry to the Broker modules to load and enter the `/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json` directive. Save the form.
-
-2. Export the poller's configuration, selecting the **Restart** option.
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/telegraf.md#configure-engine).
 
 ### System prerequisites on the monitored host
 
@@ -202,6 +200,9 @@ if you followed the procedure to the letter.
 ## Installing the monitoring connector
 
 ### Pack
+
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the

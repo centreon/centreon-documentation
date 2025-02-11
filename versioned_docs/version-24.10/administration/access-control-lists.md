@@ -73,9 +73,6 @@ To create an access filter on resources:
 
 4. Click **Save**.
 
-> Once the filters on the resources are defined, you can view the results
-> using the **Check User View** button on page **Administration > ACL > Resources Access**.
-
 #### Reference
 
 
