@@ -40,29 +40,23 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Health-Status" label="Health-Status">
 
-| Name                                                        | Unit |
+| Name                                                       | Unit |
 |:-----------------------------------------------------------|:------|
-| health.status                                                     | N/A   |
+| health.status                                              | N/A   |
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-### Centreon plugin
-
-Install this plugin on each poller that will monitor Dell MD3000 servers:
-
-``` shell
-yum install centreon-plugin-Hardware-Storage-Dell-Md3000-Smcli
-```
-
-The plugin needs the SMcli command to be installed.
+The plugin needs the SMcli command to be installed on each pollers.
 
 When you install the package, choose 'Management Station'. After installing it, give the monitoring engine user root privileges to execute the
 command:
 
-    # chmod 4775 /opt/dell/mdstoragemanager/client/SMcli
+```bash
+    chmod 4775 /opt/dell/mdstoragemanager/client/SMcli
+```
 
 Please ask your support for the package. You can have following error if the
 storage firmware and SMcli client are not compatible:
