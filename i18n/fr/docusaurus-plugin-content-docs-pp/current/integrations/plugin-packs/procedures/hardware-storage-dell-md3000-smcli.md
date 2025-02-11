@@ -51,23 +51,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Ce chapitre décrit l'installation des prérequis nécessaires au bon fonctionnement des plugins.
-
 Le plugin nécessite l'installation de la commande SMcli sur chaque collecteur.
 
-Lors de l'installation du package, choisissez l'option 'Management Station':
-
-```bash
-    Veuillez choisir l'ensemble d'installation à installer avec cet installateur.
-    
-    ->1- Typical (Full Installation)
-      2- Management Station
-      3- Host
-      
-      4- Customize...
-```      
-
-ENTREZ LE NUMÉRO DE L'ENSEMBLE D'INSTALLATION, OU APPUYEZ SUR \<ENTRÉE>\ POUR ACCEPTER LA VALEUR PAR DÉFAUT : 2
+Lors de l'installation du paquet, choisissez l'option 'Management Station'.
 
 Après l'installation, l'utilisateur du moteur de supervision a besoin des privilèges root pour exécuter la commande:
 
@@ -75,15 +61,15 @@ Après l'installation, l'utilisateur du moteur de supervision a besoin des privi
     chmod 4775 /opt/dell/mdstoragemanager/client/SMcli
 ```
 
-Veuillez contacter votre support pour obtenir le package. Vous pouvez rencontrer l'erreur suivante si le firmware du stockage et le client SMcli ne sont pas compatibles :
+Veuillez contacter votre support pour obtenir le paquet. Vous pouvez rencontrer l'erreur suivante si le firmware du stockage et le client SMcli ne sont pas compatibles :
 
 ```text
-    Le logiciel de gestion du stockage modulaire XXXXX (version 11.10.0G06.0020) que vous tentez d'utiliser n'est pas compatible avec le firmware des modules de contrôleur RAID du stockage ANG1-D90002.
+The XXXXX Modular Disk storage management software (version 11.10.0G06.0020) you are attempting to use is not compatible with the firmware on the RAID controller modules in Storage Array ANG1-D90002.
  ```    
 
-    Si vous avez récemment mis à jour le firmware de votre module contrôleur RAID, assurez-vous que le logiciel de gestion PowerVault Modular Disk compatible a également été installé sur tous les clients connectés à cette baie de stockage.
+Si vous avez récemment mis à jour le firmware de votre module contrôleur RAID, assurez-vous que le logiciel de gestion PowerVault Modular Disk compatible a également été installé sur tous les clients connectés à cette baie de stockage.
     
-    Si la version appropriée n'est pas disponible, veuillez fournir à votre représentant du support client les informations suivantes :
+Si la version appropriée n'est pas disponible, veuillez fournir à votre représentant du support client les informations suivantes :
 
 ```text
     RAID Controller Module firmware version: 06.60.34.00 RAID Controller
@@ -91,10 +77,10 @@ Veuillez contacter votre support pour obtenir le package. Vous pouvez rencontrer
     Device API version required: devmgr.v0960api00.Manager
 ```
 
-Le client SMcli d'IBM ou de Dell peut être utilisé pour gérer le stockage. Si vous utilisez le package IBM, définissez les macros suivantes :
+Le client SMcli d'IBM ou de Dell peut être utilisé pour gérer le stockage. Si vous utilisez le paquet IBM, définissez les macros suivantes :
 
-  - Host macro 'CLIEXTRAOPTIONS' = `--smcli-path='/opt/IBM_DS/client'`
-  - Service macro 'EXTRAOPTIONS' = `--verbose --storage-command='show
+  - Macro d'hôte 'CLIEXTRAOPTIONS' = `--smcli-path='/opt/IBM_DS/client'`
+  - Macro de service 'EXTRAOPTIONS' = `--verbose --storage-command='show
     storageSubsystem healthstatus;'`
 
 ## Installer le connecteur de supervision
