@@ -65,10 +65,10 @@ Lors de l'installation du package, choisissez l'option 'Management Station':
       3- Host
       
       4- Customize...
-      
-     ENTREZ LE NUMÉRO DE L'ENSEMBLE D'INSTALLATION, OU APPUYEZ SUR \<ENTRÉE>\
-     POUR ACCEPTER LA VALEUR PAR DÉFAUT : 2
-```
+```      
+
+> ENTREZ LE NUMÉRO DE L'ENSEMBLE D'INSTALLATION, OU APPUYEZ SUR \<ENTRÉE>\
+> POUR ACCEPTER LA VALEUR PAR DÉFAUT : 2
 
 Après l'installation, l'utilisateur du moteur de supervision a besoin des privilèges root pour exécuter la commande:
 
@@ -78,13 +78,15 @@ Après l'installation, l'utilisateur du moteur de supervision a besoin des privi
 
 Veuillez contacter votre support pour obtenir le package. Vous pouvez rencontrer l'erreur suivante si le firmware du stockage et le client SMcli ne sont pas compatibles :
 
-```bash
+```text
     Le logiciel de gestion du stockage modulaire XXXXX (version 11.10.0G06.0020) que vous tentez d'utiliser n'est pas compatible avec le firmware des modules de contrôleur RAID du stockage ANG1-D90002.
-    
+ ```    
+
     Si vous avez récemment mis à jour le firmware de votre module contrôleur RAID, assurez-vous que le logiciel de gestion PowerVault Modular Disk compatible a également été installé sur tous les clients connectés à cette baie de stockage.
     
     Si la version appropriée n'est pas disponible, veuillez fournir à votre représentant du support client les informations suivantes :
-    
+
+```text
     RAID Controller Module firmware version: 06.60.34.00 RAID Controller
     RAID Controller Module appware version: 06.60.34.00 Device API version required:
     Device API version required: devmgr.v0960api00.Manager
