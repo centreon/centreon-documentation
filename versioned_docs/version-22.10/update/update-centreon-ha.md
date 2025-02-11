@@ -186,4 +186,4 @@ You should now check that everything works fine:
 
 ## Updating the pollers
 
-Pollers can then be updated by following the [procedure indicated here](https://docs.centreon.com/docs/update/update-centreon-platform/#update-the-pollers).
+Pollers can then be updated by following the [step 6 of the procedure indicated here](../monitoring/monitoring-servers/add-a-remote-server-to-configuration/#step-1-configure-a-new-remote-server).
