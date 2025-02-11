@@ -51,8 +51,21 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 The plugin needs the SMcli command to be installed on each pollers.
 
-When you install the package, choose 'Management Station'. After installing it, give the monitoring engine user root privileges to execute the
-command:
+When you install the package, choose 'Management Station':
+
+```bash
+   Please choose the Install Set to be installed by this installer.
+    
+    ->1- Typical (Full Installation)
+      2- Management Station
+      3- Host
+      
+      4- Customize...
+```      
+
+> ENTER THE NUMBER FOR THE INSTALL SET, OR PRESS <ENTER> TO ACCEPT THE DEFAULT : 2
+
+After install, monitoring engine user needs root privileges to execute the command :
 
 ```bash
     chmod 4775 /opt/dell/mdstoragemanager/client/SMcli
