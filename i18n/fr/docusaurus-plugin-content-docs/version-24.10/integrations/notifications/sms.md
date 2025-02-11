@@ -53,7 +53,7 @@ chown -R centreon-engine. /usr/lib/centreon/git-plugins
 ### Étape 3 : Configurer l'utilisateur et l'hôte
 
 1. Allez à la page **Configuration > Utilisateurs > Contacts/Utilisateurs**.
-2. Créez un utilisateur dédié (par exemple **sms**) et dans les champs **Host Notification Commands** et **Service Notification Commands**, sélectionnez les commandes que vous avez crées à l'étape 2. Définissez également des valeurs pour les champs **Host/service Notification Options** et **Host/service Notification Period**.
+2. Créez un utilisateur dédié (par exemple **sms**) et dans les champs **Host Notification Commands** et **Service Notification Commands**, sélectionnez les commandes que vous avez crées à l'étape 2. Définissez également des valeurs pour les champs **Options de notification d'hôte/service** et **Période de notification d'hôte/service**.
 3. Pour les hôtes désirés, dans l'onglet **Notification**, dans le champ **Linked contacts**, sélectionnez l'utilisateur dédié que vous venez de créer.
 4. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md). Une notification sera maintenant envoyée par SMS au numéro configuré lorsque l'un des changements de statut configurés passeront à HARD.
 
