@@ -49,38 +49,26 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The plugin needs the SMcli command to be installed on each pollers.
+The plugin needs the SMcli command to be installed on each poller.
 
-When you install the package, choose 'Management Station':
+When you install the package, choose 'Management Station'.
 
-```bash
-   Please choose the Install Set to be installed by this installer.
-    
-    ->1- Typical (Full Installation)
-      2- Management Station
-      3- Host
-      
-      4- Customize...
-```      
-
-> ENTER THE NUMBER FOR THE INSTALL SET, OR PRESS <ENTER> TO ACCEPT THE DEFAULT : 2
-
-After install, monitoring engine user needs root privileges to execute the command :
+After installing, the monitoring engine user needs root privileges to execute the command :
 
 ```bash
     chmod 4775 /opt/dell/mdstoragemanager/client/SMcli
 ```
 
-Please ask your support for the package. You can have following error if the
+Please ask your support for the package. You can have the following error if the
 storage firmware and SMcli client are not compatible:
 
     ```text
     The XXXXX Modular Disk storage management software (version 11.10.0G06.0020) you are attempting to use is not compatible with the firmware on the RAID controller modules in Storage Array ANG1-D90002.
     ```
     
-    If you have recently updated your RAID controller module firmware, you need to make sure that its compatible PowerVault Modular Disk storage management software has also been installed on all clients connected to this Storage Array.
+If you have recently updated your RAID controller module firmware, you need to make sure that its compatible PowerVault Modular Disk storage management software has also been installed on all clients connected to this Storage Array.
     
-    If the appropriate version is not available, please provide your Customer Support Representative with the following information:
+If the appropriate version is not available, please provide your Customer Support Representative with the following information:
 
     ```text
     RAID Controller Module firmware version: 06.60.34.00 RAID Controller
