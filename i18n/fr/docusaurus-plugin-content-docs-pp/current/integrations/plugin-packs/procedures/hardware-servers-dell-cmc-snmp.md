@@ -52,7 +52,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Nom                   | Unité |
+|:----------------------|:------|
+| hardware.chassis | W     |
+| disk.status | N/A     |
+| health.status | N/A     |
+| hardware.psu | V - A - W     |
+| hardware.temperature.celsius | C     |
+| vdisk.status | N/A     |
+
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
