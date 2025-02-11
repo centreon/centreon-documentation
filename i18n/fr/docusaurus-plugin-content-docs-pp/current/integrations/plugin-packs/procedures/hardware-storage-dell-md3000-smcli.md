@@ -53,15 +53,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 Ce chapitre décrit l'installation des prérequis nécessaires au bon fonctionnement des plugins.
 
-### Centreon Plugin
-
-Installez ce plugin sur chaque poller requis :
-
-``` shell
-yum install centreon-plugin-Hardware-Storage-Dell-Md3000-Smcli
-```
-
-Le plugin nécessite l'installation de la commande SMcli.
+Le plugin nécessite l'installation de la commande SMcli sur chaque collecteur.
 
 Lors de l'installation du package, choisissez l'option 'Management Station':
 
