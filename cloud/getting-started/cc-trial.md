@@ -25,7 +25,7 @@ There are three steps to setting up your Centreon Cloud trial platform for an or
 
 - Your platform will then be automatically created. This process can take a few minutes, you will be notified by email once the platform has finished building.
 
-- Once the platform is ready, Once the platform is ready, the administrator invites other users to create their own accounts on Centreon CIAM and join the trial
+- Once the platform is ready, the administrator invites other users to create their own accounts on Centreon CIAM and join the trial.
 
 Once the platform is set up, you can try out Centreon Cloud for 7 days, monitoring up to 125 hosts.
 
