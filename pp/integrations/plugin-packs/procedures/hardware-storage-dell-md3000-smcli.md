@@ -49,50 +49,39 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-This chapter describes the prerequisites installation needed by plugins to run.
+### Centreon plugin
 
-### Centreon Plugin
-
-Install this plugin on each needed poller:
+Install this plugin on each poller that will monitor Dell MD3000 servers:
 
 ``` shell
 yum install centreon-plugin-Hardware-Storage-Dell-Md3000-Smcli
 ```
 
-The plugin need the installation of SMcli command.
+The plugin needs the SMcli command to be installed.
 
-When you install the package, choose 'Management Station':
-
-    Please choose the Install Set to be installed by this installer.
-    
-    ->1- Typical (Full Installation)
-      2- Management Station
-      3- Host
-      
-      4- Customize...
-      
-    ENTER THE NUMBER FOR THE INSTALL SET, OR PRESS \<ENTER\> TO ACCEPT THE
-    DEFAULT : 2
-
-After install, monitoring engine user needs root privileges to execute the
-command :
+When you install the package, choose 'Management Station'. After installing it, give the monitoring engine user root privileges to execute the
+command:
 
     # chmod 4775 /opt/dell/mdstoragemanager/client/SMcli
 
-Please ask to your support for the package. You can have following error if the
-storage firmware and SMcli client are not accurate :
+Please ask your support for the package. You can have following error if the
+storage firmware and SMcli client are not compatible:
 
+    ```text
     The XXXXX Modular Disk storage management software (version 11.10.0G06.0020) you are attempting to use is not compatible with the firmware on the RAID controller modules in Storage Array ANG1-D90002.
+    ```
     
     If you have recently updated your RAID controller module firmware, you need to make sure that its compatible PowerVault Modular Disk storage management software has also been installed on all clients connected to this Storage Array.
     
-    If the appropriate version is not available, please provide your Customer Support Representative with the following information.
-    
+    If the appropriate version is not available, please provide your Customer Support Representative with the following information:
+
+    ```text
     RAID Controller Module firmware version: 06.60.34.00 RAID Controller
     RAID Controller Module appware version: 06.60.34.00 Device API version required:
     Device API version required: devmgr.v0960api00.Manager
+    ```
 
-SMcli from IBM or Dell can work with the storage. If you use IBM package, set
+SMcli from IBM or Dell can work with the storage. If you use the IBM package, set the
 following macros:
 
   - Host macro 'CLIEXTRAOPTIONS' = `--smcli-path='/opt/IBM_DS/client'`
