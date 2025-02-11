@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Sizing
 
-See the [general sizing infomation](https://docs.centreon.com/docs/installation/prerequisites/) for a standard Centreon platform. In addition, you **must** have at least 5 Go available on the VG that contains the **/var/lib/mysql** partition, otherwise you will not be able to set up the replication.
+See the [general sizing information](../prerequisites.md) for a standard Centreon platform. In addition, you **must** have at least 5 Go available on the VG that contains the **/var/lib/mysql** partition, otherwise you will not be able to set up the replication.
 
 ## Table of HA network flows
 
@@ -22,4 +22,4 @@ See the [general sizing infomation](https://docs.centreon.com/docs/installation/
 | Central servers + DB + QDevice | Central servers + DB + QDevice | TCP 2224 | Communication inside the cluster |
 | Central servers + DB + QDevice | Central servers + DB + QDevice | TCP 5403 | Communication with the QDevice |
 
-See also the general [tables of network flows](https://docs.centreon.com/docs/installation/technical/#tables-of-network-flows).
+See also the general [tables of network flows](../technical.md#tables-of-network-flows).
