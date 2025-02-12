@@ -78,7 +78,7 @@ The fields for the first entry are already present. Click on the **+Add a new en
 | string | client_id     | The Oauth client_id                  |               |
 | string | client_secret | The Oauth client_secret              |               |
 | string | username      | The Oauth user                       |               |
-| string | password      | The Oauth pasword                    |               |
+| string | password      | The Oauth password                    |               |
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 
@@ -97,7 +97,7 @@ The fields for the first entry are already present. Click on the **+Add a new en
    systemctl restart centengine
    ```
 
-   ServiceNow Event Manager should now receive data from Centreon. To test if it is working, see [Curl commands: testing the stream connector](#curl-commands-testing-the-stream-connector).
+ServiceNow Event Manager should now receive data from Centreon. To test if it is working, see [Curl commands: testing the stream connector](#curl-commands-testing-the-stream-connector).
 
 ### Filtering or adapting the data you want to send to ServiceNow Event Manager
 

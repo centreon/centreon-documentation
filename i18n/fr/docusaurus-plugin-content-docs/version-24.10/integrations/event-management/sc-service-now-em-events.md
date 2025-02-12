@@ -79,18 +79,18 @@ La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-
 
 | Type   | Nom           | Explication                          | Exemple de valeur |
 | ------ |---------------|--------------------------------------|-------------------|
-| string | instance      | The name of the service now instance | MyCompany         |
-| string | client_id     | The Oauth client_id                  |                   |
-| string | client_secret | The Oauth client_secret              |                   |
-| string | username      | The Oauth user                       |                   |
-| string | password      | The Oauth pasword                    |                   |
+| string | instance        | Nom de l'instance service now instance | MyCompany         |
+| string | client_id        | Le client_id Oauth                                   |                               |
+| string | client_secret  | Le client_secret Oauth                            |                               |
+| string | username      | L'utilisateur Oauth                                  |                               |
+| string | password      | Le mot de passe                                     |                               |
 
 6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
 | Type   | Nom       | Explication                                | Valeur par défaut                                           |
 | ------ | --------- |--------------------------------------------|-------------------------------------------------------------|
-| string | logfile   | The file in which logs are written         | /var/log/centreon-broker/servicenow-em-stream-connector.log |
-| number | log_level | Logging level from 1 (errors) to 3 (debug) | 1                                                           |
+| string | logfile   | Le fichier dans lequel les logs sont écrites         | /var/log/centreon-broker/servicenow-em-stream-connector.log |
+| number | log_level | Niveau de logging allant de 1 (errors) à 3 (debug) | 1                                                           |
 
 7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à ServiceNow Event Manager](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-servicenow-em).
 
@@ -208,7 +208,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" 'https://<inst
 
 ### Rafraîchissement des tokens OAuth
 
-Si vous voulez tester que le rafraîchissement des tokens 0Auth :
+Si vous voulez tester le rafraîchissement des tokens 0Auth :
 
 1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à ServiceNow Event Manager (le serveur central, un serveur distant ou un collecteur)
 2. Exécutez la commande suivante :
