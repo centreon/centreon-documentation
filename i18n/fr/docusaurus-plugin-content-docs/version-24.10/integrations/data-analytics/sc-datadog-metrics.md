@@ -186,6 +186,6 @@ Si vous voulez tester que les évènements sont envoyés correctement à Datadog
 curl -X POST -H "content-type: application/json" -H "DD-API-KEY: <api_key>" '<http_server_url><datadog_metric_endpoint>' -d '{"host":"my_host","metric":"database.used.percent","points":[[1630590530,80]],"tags":["service:my_service","instance:my_instance","subinstance:sub_1","subinstance:sub_2"]}'
 ```
 
-Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. *<http_server_url>* pourra être remplacé par *https://api.datadoghq.com*.
+Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. `http_server_url` pourra être remplacé par *https://api.datadoghq.com*.
 
 3. Vérifiez que l'évènement a bien été reçu par Datadog.
