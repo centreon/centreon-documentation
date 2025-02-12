@@ -5,6 +5,17 @@ title: Azure App Configuration
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Vue d'ensemble
+
+App Configuration permet de gérer les paramètres des applications et à en 
+contrôler l'accès de manière centralisée en stockant  leurs configurations dans 
+un emplacement hébergé universel.
+
+Le connecteur de supervision Centreon *Azure App Configuration* s'appuie sur les API Azure Monitor 
+afin de récuperer les métriques relatives au service
+App Configuration. Il est possible d'utiliser les 2 modes proposés par 
+Microsoft: RestAPI ou Azure CLI.
+
 ## Dépendances du Connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure App Configuration**
