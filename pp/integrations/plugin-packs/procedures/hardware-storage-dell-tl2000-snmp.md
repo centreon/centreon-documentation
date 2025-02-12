@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                | Service Description                  |
 |:--------------|:------------------------------------------------|:-------------------------------------|
-| GlobalStatus  | HW-Storage-Dell-TL2000-GlobalStatus-SNMP-custom | Check global status of the equipment |
+| GlobalStatus  | HW-Storage-Dell-TL2000-GlobalStatus-SNMP-custom | Check the global status of the device |
 
 > The services listed above are created automatically when the **HW-Storage-Dell-TL2000-SNMP-custom** host template is used.
 
