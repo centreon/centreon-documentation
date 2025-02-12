@@ -93,7 +93,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de contrôler votre équipement Dell PowerStore, l'API Rest doit être configurée (cf: https://downloads.dell.com/manuals/common/pwrstr-apig_en-us.pdf).
+Afin de superviser votre équipement Dell PowerStore, l'API Rest doit être configurée (cf: https://downloads.dell.com/manuals/common/pwrstr-apig_en-us.pdf).
 
 ## Installer le connecteur de supervision
 
