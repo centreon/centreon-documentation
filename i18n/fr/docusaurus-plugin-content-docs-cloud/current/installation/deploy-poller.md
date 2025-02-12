@@ -27,7 +27,7 @@ Avant de déployer un collecteur, assurez-vous que votre machine hôte répond a
 
 6. Sur le serveur qui deviendra un collecteur, dans le terminal, copiez la commande d'installation et exécutez-la (cela devrait prendre environ 10 minutes).
 
-7. Une fois le script exécuté, déconnectez-vous et reconnectez-vous afin que les informations concernant le poller soient actualisées.
+7. Une fois le script exécuté, déconnectez-vous et reconnectez-vous afin que les informations concernant le collecteur soient actualisées.
 
 8. Dans l'interface utilisateur, allez à la page **Configuration > Collecteurs > Collecteurs**. Le nouveau collecteur apparaît dans la liste des collecteurs.
    * Dans la colonne **Adresse IP**, l'adresse indiquée est celle du collecteur vu par la plateforme SaaS.
