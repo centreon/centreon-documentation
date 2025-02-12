@@ -27,7 +27,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias        | Modèle de service                               | Description                             |
 |:-------------|:------------------------------------------------|:----------------------------------------|
-| GlobalStatus | HW-Storage-Dell-TL2000-GlobalStatus-SNMP-custom | Contrôle l'état globale de l'équipement |
+| GlobalStatus | HW-Storage-Dell-TL2000-GlobalStatus-SNMP-custom | Contrôle l'état global de l'équipement |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Dell-TL2000-SNMP-custom** est utilisé.
 
