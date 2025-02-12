@@ -5,6 +5,18 @@ title: Azure Event Grid
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Vue d'ensemble
+
+Azure Event Grid simplifie les applications basées sur des événements en gérant
+le routage de tous les événements de n’importe quelle source vers n’importe
+quelle destination. Conçu pour offrir une haute disponibilité, des performances
+constantes et une mise à l’échelle dynamique, Event Grid permet de se concentrer
+sur la logique de vos applications plutôt que sur l’infrastructure.
+
+Le connecteur de supervision Centreon *Azure Event Grid* s'appuie sur les API Azure Monitor 
+afin de récuperer les métriques relatives au service Event Grid. Il est possible
+d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
+
 ## Dépendances du Connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure Event Grid**
