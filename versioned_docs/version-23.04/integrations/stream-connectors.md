@@ -17,7 +17,7 @@ Stream connectors transfer in real time the flow of monitoring data coming from 
 <TabItem value="Fix" label="Fix">
 
 - [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Fixed downtimes.
-- [**ServiceNow Incident**](data-analytics/sc-service-now-incident-events.md) - Fixed oauth refresh token parameters.
+- [**ServiceNow Incident**](event-management/sc-service-now-em-events.md) - Fixed oauth refresh token parameters.
 - [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Fixed subinstances.
 
 </TabItem>

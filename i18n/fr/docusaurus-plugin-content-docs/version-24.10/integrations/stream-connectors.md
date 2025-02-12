@@ -17,7 +17,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 <TabItem value="Fix" label="Fix">
 
 - [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Fixed downtimes.
-- [**ServiceNow Incident**](data-analytics/sc-service-now-incident-events.md) - Fixed oauth refresh token parameters.
+- [**ServiceNow Incident**](event-management/sc-service-now-em-events.md) - Fixed oauth refresh token parameters.
 - [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Fixed subinstances.
 
 </TabItem>
