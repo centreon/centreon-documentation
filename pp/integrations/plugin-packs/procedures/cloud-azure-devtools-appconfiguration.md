@@ -5,6 +5,14 @@ title: Azure App Configuration
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Overview
+
+Azure App Configuration helps manage application settings and control their 
+access centrally by storing their configuration in a universal hosted location. 
+
+The Centreon Monitoring Connector *Azure App Configuration* can rely on Azure API or Azure CLI 
+to collect the metrics related to the App Configuration service.
+
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Azure App Configuration** connector through the
