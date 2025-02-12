@@ -72,15 +72,15 @@ Connectez-vous à votre ancien serveur Centreon et synchronisez les répertoires
 suivants :
 
 ```shell
-rsync -avz /etc/centreon root@<IP_NOUVEAU_CENTREON>:/etc
-rsync -avz /etc/centreon-broker root@<IP_NOUVEAU_CENTREON>:/etc
-rsync -avz /var/log/centreon-engine/archives/ root@<IP_NOUVEAU_CENTREON>:/var/log/centreon-engine
-rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@<IP_NOUVEAU_CENTREON>:/var/lib
-rsync -avz /var/spool/centreon/.ssh root@<IP_NOUVEAU_CENTREON>:/var/spool/centreon
+rsync -avz /etc/centreon root@\<IP_NOUVEAU_CENTREON\>:/etc
+rsync -avz /etc/centreon-broker root@\<IP_NOUVEAU_CENTREON\>:/etc
+rsync -avz /var/log/centreon-engine/archives/ root@\<IP_NOUVEAU_CENTREON\>:/var/log/centreon-engine
+rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@\<IP_NOUVEAU_CENTREON\>:/var/lib
+rsync -avz /var/spool/centreon/.ssh root@\<IP_NOUVEAU_CENTREON\>:/var/spool/centreon
 rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img
 ```
 
-> Remplacez **<IP_NOUVEAU_CENTREON>** par l'adresse IP de votre nouveau serveur
+> Remplacez **\<IP_NOUVEAU_CENTREON\>** par l'adresse IP de votre nouveau serveur
 Centreon.
 
 ### Récupération des bases de données
@@ -102,8 +102,8 @@ Centreon.
 24.04 :
 
     ```shell
-    rsync -avz /tmp/centreon.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
-    rsync -avz /tmp/centreon_storage.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
+    rsync -avz /tmp/centreon.sql root@\<IP_NOUVEAU_CENTREON\>:/tmp/
+    rsync -avz /tmp/centreon_storage.sql root@\<IP_NOUVEAU_CENTREON\>:/tmp/
     ```
 
 4. Sur le serveur de base de données Centreon 24.04, supprimer les bases de
@@ -151,7 +151,7 @@ données vierges et les recréer :
     systemctl start mariadb
     ```
 
-> Remplacez **<IP_NOUVEAU_CENTREON>** par l'adresse IP de votre nouveau serveur
+> Remplacez **\<IP_NOUVEAU_CENTREON\>** par l'adresse IP de votre nouveau serveur
 Centreon.
 
 ### Synchronisation des plugins

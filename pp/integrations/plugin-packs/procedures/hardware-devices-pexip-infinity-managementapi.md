@@ -117,8 +117,8 @@ Once the Plugin installed, log into your poller using the *centreon-engine* user
     --api-username='myapiusername' \
     --api-password='myapipassword' \
     --filter-name='mycall1.centreon.com' \
-    --warning-status='%{level} =~ /warning|minor/i' \
-    --critical-status='%{level} =~ /critical|major|error/i' \
+    --warning-status='%\{level\} =~ /warning|minor/i' \
+    --critical-status='%\{level\} =~ /critical|major|error/i' \
     --verbose
 ```
 

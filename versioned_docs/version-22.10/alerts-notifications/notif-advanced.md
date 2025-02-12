@@ -19,12 +19,6 @@ commands.
 > pollers, add a command to use this plugin and change the command of your
 > contacts.
 
-## Chatops
-
-A [Centreon-Chatops](https://github.com/centreon/centreon-chatops) community
-project has been develop to allows communication between a Team chat like
-Mattermost or Slack and Centreon throught slash command
-
 ## Stream connector
 
 You can also forward event to a third party application using the **Centreon

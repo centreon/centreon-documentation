@@ -236,7 +236,7 @@ The "Tuning" menu contains three parameters:
 
 After a scheduled job is executed, a new report is generated and then
 stored on the **Centreon** server. You can then view or download it
-using the following menu **Reporting > Monitoring Business Intelligence > Archives**
+using the following menu **Reporting  >  Monitoring Business Intelligence  >  Report view**
 
 The following table lists the reports generated:
 

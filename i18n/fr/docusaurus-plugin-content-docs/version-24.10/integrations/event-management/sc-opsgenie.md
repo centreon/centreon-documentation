@@ -23,6 +23,9 @@ Ces formats d'événement sont décrits **[ici](#event-format)**.
 dédiés vous permettent de [ne pas envoyer certains évènements](#filtering-or-adapting-the-data-you-want-to-send-to-opsgenie).
 
 ## Compatibilité
+* A chaque fois que le statut d'un service, hôte ou BA est contrôlé, l'évènement passe par Centreon Broker qui utilise le Stream Connector pour envoyer ce changement d'état.
+* Un changement d'état peut survenir en cas de détection d'anomalie
+* Un alias est généré pour chaque alerte afin de profiter de la déduplication d'Opsgenie
 
 > Attention, cette documentation a été écrite en février 2021, il est possible que des changements sur Opsgenie rendent obsolète des éléments décrits ci-dessous.
 Vous pouvez nous le signaler en utilisant les outils de feedback de documentation en bas à droite de cette page.
@@ -53,7 +56,7 @@ dnf install centreon-stream-connector-opsgenie
 
 </TabItem>
 
-<TabItem value="Debian 11" label="Debian_11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install centreon-stream-connector-opsgenie

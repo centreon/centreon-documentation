@@ -136,7 +136,7 @@ will allow for all person using Centreon to have access to your translation on t
 
 * Create an account on GitHub
 * Fork centreon/centreon project on GitHub
-* Add your translated \*.mo and \*.po files to lang/<your_lang>/LC_MESSAGES directory
+* Add your translated \*.mo and \*.po files to lang\<your_lang\>/LC_MESSAGES directory
 * Commit your change on your project
 * Create a pull request on centreon/centreon project
 * We will add your translation to Centreon.
