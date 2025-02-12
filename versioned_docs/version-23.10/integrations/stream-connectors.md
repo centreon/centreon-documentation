@@ -9,6 +9,20 @@ Stream connectors transfer in real time the flow of monitoring data coming from 
 
 ## Release notes
 
+## 2025
+
+### February
+
+<Tabs groupId="sync">
+<TabItem value="Fix" label="Fix">
+
+- [**SC Events Canopsis**](data-analytics/sc-canopsis-events.md) - Fixed downtimes.
+- [**SC Events ServiceNow**](data-analytics/sc-service-now-incident-events.md) - Fixed oauth refresh token params.
+- [**SC Metrics InfluxDB2**](data-analytics/sc-influxdb2-metrics.md) - Fixed subinstances.
+
+</TabItem>
+</Tabs>
+
 ## 2024
 
 ### September
@@ -16,7 +30,7 @@ Stream connectors transfer in real time the flow of monitoring data coming from 
 <Tabs groupId="sync">
 <TabItem value="Fix" label="Fix">
 
-- [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - fixed return code when payload is empty.
+- [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - Fixed return code when payload is empty.
 
 </TabItem>
 </Tabs>
