@@ -12,7 +12,7 @@ In the central cluster, all Centreon processes ("resources") are managed by the 
 1. Everything is OK : central node 1 (the current active node) receives data from the pollers, and all relevant files are synchronized by a dedicated script  (**centreon_central_sync**) onto central node 2 (the current passive node) so that the passive node is ready to become the active node at all times.
 2. An incident occurs and central node 1 (the active node) goes down.
    - Corosync detects that it is down: after consulting with the quorum device, it tells central node 2 to become the active node.
-   - An operator is notified that central node 1 is down, thanks to the Centreon monitoring that has been set up on the poller.
+   - An operator is notified that central node 1 is down, [thanks to the Centreon monitoring that has been set up on the poller](../../administration/centreon-ha/monitoring-guide.md).
 3. Central node 2 is now the active node. It receives data from the pollers. During this time, the operator tries to understand why central node 1 is down. They must fix the problem, then restart the processes using the cluster management tool **pcs**, not by manipulating central node 1 directly.
 4. Central node 1 is fixed and comes back online. The **centreon_central_sync** script synchronizes all relevant files from central node 2 to central node 1, so that central node 1 can catch up on what has happened during its down time. Central node 1 is ready to become the active node if central node 2 goes down.
 

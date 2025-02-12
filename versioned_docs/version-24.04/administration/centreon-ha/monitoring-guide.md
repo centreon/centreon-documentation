@@ -9,7 +9,7 @@ Monitoring your HA setup using Centreon itself helps you keep track of the healt
 
 All elements of the cluster must be monitored by a poller, not by a central (to avoid having resources in a **Pending** status when the cluster fails over). For the same reason, each poller should be monitored by another poller.
 
-* Create 1 host for the VIP, and monitor it with:
+* Create 1 host for the central VIP, and monitor it with:
    * the [Centron Central monitoring connector](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-central).
    * the [HTTP Server monitoring connector](/pp/integrations/plugin-packs/procedures/applications-protocol-http) to check the interface's response time.
 * Create 1 host for each central node, and monitor it with:

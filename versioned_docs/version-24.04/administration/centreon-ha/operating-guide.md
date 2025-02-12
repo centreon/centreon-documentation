@@ -3,7 +3,7 @@ id: operating-guide
 title: Operating guide
 ---
 
-> Unless otherwise stated, all commands in this page must be passed as `root`.
+> Unless otherwise stated, all commands in this page must be run as `root`.
 
 ## Logging in to Centreon on the active node
 
@@ -62,9 +62,9 @@ Migration Summary:
 
 ### Using the Centreon interface
 
-The installation process includes the monitoring of the members of the cluster by a poller. This way, you can be notified if a member of the cluster goes down.
+The installation process includes [the monitoring of the members of the cluster by a poller](monitoring-guide.md). This way, you can be notified if a member of the cluster goes down.
 
-The Resource Status page gives you the following information:
+The **Resource Status** page gives you the following information:
 
 * On both central nodes, the **PCS-Status** service gives you the detailed state of the cluster. The output of the service in the details panel is the output of the `pcs status` command.
 * You can know which central node is the active node by looking at which node is carrying the cluster resources in the output of the **PCS-Status** service on each central.
@@ -146,7 +146,7 @@ Position Status [OK]
 
 If the synchronization shows `KO`, you must fix it. The procedure below explains how to manually re-enable MariaDB replication.
 
-### Restore MariaDB master-slave replication
+### Restore MariaDB active-passive replication
 
 > This procedure should be applied in the event of a breakdown in the MariaDB databases' replication thread or a server crash if it cannot be recovered by running `pcs resource cleanup ms_mysql` or `pcs resource restart ms_mysql`.
 
@@ -162,13 +162,13 @@ Connect to the MariaDB slave server and shut down the MariaDB service:
 mysqladmin -p shutdown
 ```
 
-Connect to the MariaDB master server and run the following command to overwrite the slave's data with the master's:
+Connect to the active database node and run the following command to overwrite the passive node's data with the active's:
 
 ```bash
 /usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
 ```
 
-Re-enable the cluster to manage the MariaDB resource:
+Re-enable the cluster to manage the **ms_mysql** resource:
 
 ```bash
 pcs resource manage ms_mysql
