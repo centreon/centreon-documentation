@@ -23,6 +23,59 @@ Read more about version 24.10 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 24.10.4
+
+Release date: `February 12, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Additional Connector Configuration] The Poller filter now displays an error message if users try to create a second configuration for the same poller.
+- [API] Added missing configuration change logs for command configuration (ADD).
+- [API] Added missing configuration change logs for host categories configuration.
+- [API] Added missing configuration change logs for service categories configuration.
+- [Authentification] Improved the way errors are logged for authentications with OpenID.
+- [CEIP] Added telemetry to the Poller/Agent configuration feature.
+- [Dashboards] Added the possibility to mark a dashboard as a favorite one, and to list all favorites.
+- [Resource status] In the details panel, the interface of the Export button has been improved.
+- [Resource status] In the Resource Status page, custom order for filters can now be saved.
+- [Resource Status] Renamed "Edit filters" to "Manage filters" to better reflect what the command does.
+- [UI] Centered the reset password form.
+- [UI] Login page customizations now also apply to the reset password form.
+- [UX] Enhanced translation and user experience for the Additional Connectors Configuration feature.
+- [VMWare] Improved the interface for the Additional Connectors Configuration feature.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Administration] Empty values for the "Retention duration for downtimes" parameter are now correctly detected.
+- [Cron] The script that deletes expired tokens is now run with the apache user to avoid invalid permissions on the web log file.
+- [Dashboards] Selecting multiple resources of the same type now works correctly.
+- [Discovery] Fixed incorrect rights on centreon_vmware.json, that triggered an error when executing host discovery jobs.
+- [Install] Fixed issue with SQL schema missing when upgrading version.
+- [Metrics Graph widget] Legends are now displayed correctly when a lot of metrics are selected.
+- [Poller/Agent configuration] Fixed an issue where the listing page was replaced by the default page when searching for an unknown value.
+- [Public Playlists] Fixed an issue preventing public playlists to be displayed on some browsers.
+- [Resource Status] Linked contacts now appear in the detail panel for hosts and services, even if a timeperiod is not explicitly configured for both of them.
+- [Resource status] Fixed an issue with the notification tab for services, where the corresponding contacts were not displayed.
+- [Resource Status] Fixed an issue where the notification icon was not displayed in the corresponding column in the Resource Status page.
+- [Status Chart/Grid widgets] Passive hosts and hosts without services are now displayed correctly in these widgets.
+- [Status Chart widget] Optimized the responsiveness of stacked bars.
+- [Top counter] Fixed an issue that prevented users from deploying the configuration on more than 10 pollers.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Event Logs] Fixed access issue with non admin users.
+- [Security] Fixed a security vulnerability in API Token management.
+- [Security] Fixed a vulnerability in the contact management form.
+
+</details>
+
 ### 24.10.3
 
 Release date: `December 19, 2024`
