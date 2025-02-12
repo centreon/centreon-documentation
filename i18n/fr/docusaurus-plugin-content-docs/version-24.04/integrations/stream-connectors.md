@@ -11,7 +11,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 
 ## 2025
 
-### February
+### Février
 
 <Tabs groupId="sync">
 <TabItem value="Fix" label="Fix">
@@ -25,7 +25,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 
 ## 2024
 
-### September
+### Septembre
 
 <Tabs groupId="sync">
 <TabItem value="Fix" label="Fix">
@@ -35,7 +35,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### August
+### Août
 
 <Tabs groupId="sync">
 <TabItem value="Fix" label="Fix">
@@ -54,7 +54,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### May
+### Mai
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -67,7 +67,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### April
+### Avril
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -78,7 +78,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### February
+### Février
 
 <Tabs groupId="sync">
 <TabItem value="New Stream connector" label="New Stream connector">
@@ -102,7 +102,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 
 ## 2023
 
-### November
+### Novembre
 
 <Tabs groupId="sync">
 <TabItem value="Breaking-change" label="Breaking-change">
@@ -117,7 +117,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### October
+### Octobre
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -127,7 +127,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### September
+### Septembre
 
 <Tabs groupId="sync">
 <TabItem value="New Stream connector" label="New Stream connector">
@@ -137,7 +137,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### July
+### Juillet
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -154,7 +154,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### February
+### Février
 
 <Tabs groupId="sync">
 <TabItem value="Fix" label="Fix">
