@@ -73,7 +73,7 @@ apt install --only-upgrade centreon\*
 </TabItem>
 </Tabs>
 
-Une fois les mises à jour des paquets terminées sur les deux centraux, il reste à appliquer la mise à jour via l'interface web **uniquement sur le central actif** en fermant la session en cours ou en rafraîchissant la page de login ou en API [comme indiqué ici](update-centreon-platform/#update-the-centreon-central-server) .
+Une fois les mises à jour des paquets terminées sur les deux centraux, il reste à appliquer la mise à jour via l'interface web **uniquement sur le central actif** en fermant la session en cours ou en rafraîchissant la page de login ou en API [comme indiqué ici](update-centreon-platform.md#update-the-centreon-central-server) .
 
 En parallèle, sur le **central passif**, il faut déplacer le répertoire **"install"** et regénérer le cache Symfony pour éviter d'afficher à nouveau l'interface de mise à jour suite à une bascule :
 
@@ -186,4 +186,4 @@ Il est toujours recommandé, après une mise à jour, de contrôler que tout fon
 
 ## Mise à jour des collecteurs
 
-Les collecteurs peuvent être mis à jour par la suite en suivant la [procédure indiquée ici](update-centreon-platform/#update-the-pollers).
+Les collecteurs peuvent être mis à jour par la suite en suivant la [procédure indiquée ici](update-centreon-platform.md#update-the-pollers).
