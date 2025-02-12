@@ -1,6 +1,6 @@
 ---
 id: sc-service-now-em-events
-title: ServiceNow Event Manager 
+title: ServiceNow Event Manager Events
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
