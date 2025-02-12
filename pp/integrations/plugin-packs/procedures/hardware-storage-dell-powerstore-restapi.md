@@ -92,7 +92,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To control your Dell PowerStore, the Rest API must be configured.
+To monitor your Dell PowerStore, the Rest API must be configured.
 https://downloads.dell.com/manuals/common/pwrstr-apig_en-us.pdf
 
 ## Installing the monitoring connector
