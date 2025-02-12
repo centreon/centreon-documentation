@@ -5,6 +5,17 @@ title: Azure Event Grid
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Overview
+
+Azure Event Grid Service simplifies event-based apps by managing routing of all
+events from any source to any destination. Designed for high availability, 
+consistent performance, and dynamic scale, Event Grid lets clients focus on
+their app logic rather than infrastructure.
+
+The Centreon Monitoring Connector *Azure Event Grid* can rely on Azure API or Azure CLI 
+to collect the metrics related to the
+Event Grid service.
+
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Azure Event Grid** connector through the
