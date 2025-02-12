@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                            | Service Description                           |
 |:--------------|:--------------------------------------------|:----------------------------------------------|
-| Getreason     | HW-Storage-EMC-Celerra-Getreason-SSH-custom | Check control stations and data movers status |
+| Getreason     | HW-Storage-EMC-Celerra-Getreason-SSH-custom | Check the status of control stations and data movers |
 
 > The services listed above are created automatically when the **HW-Storage-EMC-Celerra-SSH-custom** host template is used.
 
