@@ -185,4 +185,4 @@ You should now check that everything works fine:
 
 ## Updating the pollers
 
-Pollers can then be updated by following the [procedure indicated here](update-centreon-platform/#update-the-pollers).
+Pollers can then be updated by following the [procedure indicated here](update-centreon-platform.md#update-the-pollers).
