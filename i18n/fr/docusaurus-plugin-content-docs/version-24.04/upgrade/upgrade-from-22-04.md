@@ -120,13 +120,13 @@ systemctl stop php8.0-fpm
 
 1. Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
 
-2. Si vous avez des extensions Business installées, eliminez la configuration du dépôt 21.10 :
+2. Si vous avez des extensions Business installées, éliminez la configuration du dépôt 22.04 :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-rm /etc/yum.repos.d/centreon-business-21.10.repo
+rm /etc/yum.repos.d/centreon-business-22.04.repo
 ```
 
 </TabItem>
@@ -134,7 +134,7 @@ rm /etc/yum.repos.d/centreon-business-21.10.repo
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-rm /etc/yum.repos.d/centreon-business-21.10.repo
+rm /etc/yum.repos.d/centreon-business-22.04.repo
 ```
 
 </TabItem>
@@ -158,7 +158,7 @@ rm /etc/apt/sources.list.d/centreon-business.list
 systemctl stop cbd
 ```
 
-6. Supprimer les fichiers de rétention présents :
+6. Supprimez les fichiers de rétention présents :
 
 ```shell
 rm /var/lib/centreon-broker/* -f

@@ -150,7 +150,7 @@ rm /etc/apt/sources.list.d/centreon-business.list
 systemctl stop cbd
 ```
 
-6. Supprimer les fichiers de rétention présents :
+6. Supprimez les fichiers de rétention présents :
 
 ```shell
 rm /var/lib/centreon-broker/* -f
