@@ -141,13 +141,13 @@ dnf module install php:remi-8.1
 
 1. Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
 
-2. Si vous avez des extensions Business installées, éliminez la configuration du dépôt 21.10 :
+2. Si vous avez des extensions Business installées, éliminez la configuration du dépôt 20.10 :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-rm /etc/yum.repos.d/centreon-business-21.10.repo
+rm /etc/yum.repos.d/centreon-business-20.10.repo
 ```
 
 </TabItem>
@@ -155,7 +155,7 @@ rm /etc/yum.repos.d/centreon-business-21.10.repo
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-rm /etc/yum.repos.d/centreon-business-21.10.repo
+rm /etc/yum.repos.d/centreon-business-20.10.repo
 ```
 
 </TabItem>
