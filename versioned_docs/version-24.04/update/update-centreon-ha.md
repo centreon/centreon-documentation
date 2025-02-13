@@ -5,7 +5,7 @@ title: Updating a Centreon HA platform
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This procedure is intended to be used to perform minor updates of Centreon when Engine/Broker compatibility between the old version and the new version is assured. No service downtime is necessary in this case; only a short outage of the ogin interface.
+This procedure is intended to be used to perform minor updates of Centreon when Engine/Broker compatibility between the old version and the new version is assured. No service downtime is necessary in this case; only a short outage of the login interface.
 
 ## Suspend cluster resource management
 
