@@ -86,9 +86,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name          | Description                                                   |
 |:-------------------|:--------------------------------------------------------------|
-| Nutanix VM         | Discover Nutanix virtal machines by requesting its SNMP agent |
-| Nutanix Container  | Discover Nutanix containers by requesting its SNMP agent      |
-| Nutanix Hypervisor | Discover Nutanix hypervisors by requesting its SNMP agent     |
+| Nutanix VM         | Discover Nutanix virtual machines by querying its SNMP agent |
+| Nutanix Container  | Discover Nutanix containers by querying its SNMP agent      |
+| Nutanix Hypervisor | Discover Nutanix hypervisors by querying its SNMP agent     |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -96,8 +96,8 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                       | Description                                               |
 |:--------------------------------|:----------------------------------------------------------|
-| Virt-Nutanix-SNMP-Disk-Name     | Discover the disk partitions and monitor space occupation |
-| Virt-Nutanix-SNMP-Storage-Pools | Discover the storage pools and their usage                |
+| Virt-Nutanix-SNMP-Disk-Name     | Discover disk partitions and monitor space occupation |
+| Virt-Nutanix-SNMP-Storage-Pools | Discover storage pools and their usage                |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).

@@ -55,7 +55,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias              | Modèle de service                           | Description                                    | Découverte |
 |:-------------------|:--------------------------------------------|:-----------------------------------------------|:----------:|
 | Cluster-Usage      | Virt-Nutanix-Cluster-Usage-SNMP-custom      | Contrôle l'utilisation du cluster              |            |
-| Container-Usage    | Virt-Nutanix-Container-Usage-SNMP-custom    | Contrôle l'utilisation du containers           |            |
+| Container-Usage    | Virt-Nutanix-Container-Usage-SNMP-custom    | Contrôle l'utilisation du container           |            |
 | Disk-Usage         | Virt-Nutanix-Disk-Usage-SNMP-custom         | Contrôle l'utilisation des disques             |     X      |
 | Hypervisor-Usage   | Virt-Nutanix-Hypervisor-Usage-SNMP-custom   | Contrôle l'utilisation des hyperviseurs        |            |
 | Storage-Pool-Usage | Virt-Nutanix-Storage-Pool-Usage-SNMP-custom | Contrôle l'utilisation des 'storage pools'     |     X      |
@@ -74,7 +74,7 @@ Le connecteur apporte les modèles de service suivants
 | Iops        | Virt-Nutanix-VM-Iops-SNMP-custom            | Contrôle les opérations de lecture et d'écriture des machines virtuelles Nutanix |
 | Latency     | Virt-Nutanix-VM-Latency-SNMP-custom         | Contrôle la latence des machines virtuelles Nutanix                              |
 | Power-State | Virt-Nutanix-VM-Power-State-SNMP-custom     | Contrôle l'état d'alimentation des machines virtuelles Nutanix                   |
-| Traffic     | Virt-Nutanix-VM-Traffic-SNMP-custom         | Contrôle le traffic des machines virtuelles Nutanix                              |
+| Traffic     | Virt-Nutanix-VM-Traffic-SNMP-custom         | Contrôle le trafic des machines virtuelles Nutanix                              |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-Nutanix-VM-SNMP-custom** est utilisé.
 
