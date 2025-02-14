@@ -140,7 +140,7 @@ rm /etc/apt/sources.list.d/centreon-business.list
 </TabItem>
 </Tabs>
 
-3. Install the 23.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+3. Install the 24.04 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 4. If your OS is Debian and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
 
