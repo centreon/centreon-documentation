@@ -359,7 +359,7 @@ Si le connecteur est utilisé par un hôte ou un service, pour pouvoir le désin
 Si un modèle fourni par le connecteur est utilisé par autre modèle, vous devrez supprimer le lien entre modèles avant de pouvoir supprimer le connecteur.
 
 De plus, si vous tentez de désinstaller un connecteur dont un autre connecteur dépend, la désinstallation ne pourra être faite que
-si et seulement si ce connecteur et celui dont il dépend ne sont pas utilisés. 
+si et seulement si les deux connecteurs ne sont pas utilisés. 
 Supprimer un connecteur dont dépend un autre connecteur supprime également celui-ci.
 Exemple : le connecteur Centreon central utilise en dépendance le connecteur SNMP.
 
