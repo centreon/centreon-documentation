@@ -24,7 +24,6 @@ In our example, with OVH SMS, we need:
 mkdir /usr/lib/centreon/git-plugins
 cd /usr/lib/centreon/git-plugins
 git clone https://github.com/centreon/centreon-plugins.git
-chown -R centreon-engine. /usr/lib/centreon/git-plugins
 ```
 
 ### Step 2: Create notification commands

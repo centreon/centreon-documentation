@@ -34,7 +34,6 @@ Follow Slack's official documentation to [set up an incoming webhook](https://ap
 mkdir /usr/lib/centreon/git-plugins
 cd /usr/lib/centreon/git-plugins
 git clone https://github.com/centreon/centreon-plugins.git
-chown -R centreon-engine. /usr/lib/centreon/git-plugins
 ```
 
 ### Step 3: Create notification commands
