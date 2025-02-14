@@ -31,8 +31,6 @@ Suivez la documentation officielle de Slack pour [créer un webhook Slack](https
 2. Sur chaque collecteur, exécutez les commandes suivantes :
 
 ```bash
-mkdir /usr/lib/centreon/git-plugins
-cd /usr/lib/centreon/git-plugins
 git clone https://github.com/centreon/centreon-plugins.git /usr/lib/centreon/plugins/git-plugins
 ```
 
@@ -44,13 +42,13 @@ git clone https://github.com/centreon/centreon-plugins.git /usr/lib/centreon/plu
    * Exemple pour un hôte :
 
    ```bash
-   $CENTREONPLUGINS$/centreon_plugins.pl --plugin=notification::slack::plugin --mode alert --slack-url='https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX' --slack-channel='#votre_canal_slack' --slack-username='Notifications Centreon' --slack-emoji=':ghost:' --host-name='$HOSTNAME$' --host-state='$HOSTSTATE$' --host-output='$HOSTOUTPUT$' --priority='$_HOSTCRITICALITY_LEVEL$'
+   $CENTREONPLUGINS$/git-plugins/src/centreon_plugins.pl --plugin=notification::slack::plugin --mode alert --slack-url='https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX' --slack-channel='#votre_canal_slack' --slack-username='Notifications Centreon' --slack-emoji=':ghost:' --host-name='$HOSTNAME$' --host-state='$HOSTSTATE$' --host-output='$HOSTOUTPUT$' --priority='$_HOSTCRITICALITY_LEVEL$'
    ```
 
    * Exemple pour un service:
 
    ```bash
-   $CENTREONPLUGINS$/centreon_plugins.pl --plugin=notification::slack::plugin --mode alert --slack-url='https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX' --slack-channel='#votre_canal_slack' --slack-username='Notifications Centreon' --slack-emoji=':ghost:' --host-name='$HOSTNAME$' --service-description='$SERVICEDESC$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --priority='$_SERCVICECRITICALITY_LEVEL$'
+   $CENTREONPLUGINS$/git-plugins/src/centreon_plugins.pl --plugin=notification::slack::plugin --mode alert --slack-url='https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX' --slack-channel='#votre_canal_slack' --slack-username='Notifications Centreon' --slack-emoji=':ghost:' --host-name='$HOSTNAME$' --service-description='$SERVICEDESC$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --priority='$_SERCVICECRITICALITY_LEVEL$'
    ```
 
 * **--slack-url**: l'URL du webhook que vous avez récupérée à la fin de l'étape 1.

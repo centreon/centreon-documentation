@@ -20,8 +20,6 @@ Dans notre exemple, avec OVH SMS, nous aurons besoin :
 2. Sur chaque collecteur, exécutez les commandes suivantes :
 
 ```bash
-mkdir /usr/lib/centreon/git-plugins
-cd /usr/lib/centreon/git-plugins
 git clone https://github.com/centreon/centreon-plugins.git /usr/lib/centreon/plugins/git-plugins
 ```
 
@@ -33,13 +31,13 @@ git clone https://github.com/centreon/centreon-plugins.git /usr/lib/centreon/plu
    * Exemple pour un hôte :
 
    ```bash
-   $CENTREONPLUGINS$/centreon_plugins.pl --plugin=notification::ovhsms::plugin --mode=alert --account=sms-ab1234-1 --login=XXXX --password=XXXX --from="Centreon" --to="0033123456789" --message='Alert on host $HOSTNAME$. Status: $HOSTSTATE$, $HOSTOUTPUT$'
+   $CENTREONPLUGINS$/git-plugins/src/centreon_plugins.pl --plugin=notification::ovhsms::plugin --mode=alert --account=sms-ab1234-1 --login=XXXX --password=XXXX --from="Centreon" --to="0033123456789" --message='Alert on host $HOSTNAME$. Status: $HOSTSTATE$, $HOSTOUTPUT$'
    ```
 
    * Exemple pour un service:
 
    ```bash
-   $CENTREONPLUGINS$/centreon_plugins.pl --plugin=notification::ovhsms::plugin --mode=alert --account=sms-ab1234-1 --login=XXXX --password=XXXX --from="Centreon" --to="0033123456789" --message='Alert on service $SERVICEDESC$ for host $HOSTNAME$. Status: $SERVICESTATE$, $SERVICEOUTPUT$'
+   $CENTREONPLUGINS$/git-plugins/src/centreon_plugins.pl --plugin=notification::ovhsms::plugin --mode=alert --account=sms-ab1234-1 --login=XXXX --password=XXXX --from="Centreon" --to="0033123456789" --message='Alert on service $SERVICEDESC$ for host $HOSTNAME$. Status: $SERVICESTATE$, $SERVICEOUTPUT$'
 
    ```
 
