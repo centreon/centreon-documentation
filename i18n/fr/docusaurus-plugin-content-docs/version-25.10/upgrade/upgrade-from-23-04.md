@@ -139,27 +139,53 @@ systemctl disable php8.1-fpm
 
 ### Montée de version de la solution Centreon
 
-> Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
-> la procédure de mise à jour.
+1. Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
 
-Si vous avez des extensions Business installées, mettez à jour le dépôt business en 24.10.
-Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
+2. Si vous avez des extensions Business installées, eliminez la configuration du dépôt 23.04 :
 
-Si votre OS est Debian 12 et que vous avez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Arrêtez le processus Centreon Broker :
+```shell
+rm /etc/yum.repos.d/centreon-business-23.04.repo
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-23.04.repo
+```
+
+</TabItem>
+
+<TabItem value="Debian" label="Debian">
+
+```shell
+rm /etc/apt/sources.list.d/centreon-business.list
+```
+
+</TabItem>
+</Tabs>
+
+3. Installez le dépôt business en 25.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
+
+4. Si votre système d'exploitation est Debian et que vous utilisez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
+
+5. Arrêtez le processus Centreon Broker :
 
 ```shell
 systemctl stop cbd
 ```
 
-Supprimez les fichiers de rétention présents :
+6. Supprimez les fichiers de rétention présents :
 
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
 
-Videz le cache :
+7. Videz le cache :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -176,7 +202,7 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian" label="Debian">
 
 ```shell
 apt clean all
@@ -186,7 +212,7 @@ apt update
 </TabItem>
 </Tabs>
 
-Mettez à jour l'ensemble des composants :
+8. Mettez à jour l'ensemble des composants :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -468,8 +494,6 @@ accéder à la page de connexion :
 
   ![image](../assets/upgrade/web_update_5.png)
 
-> Nous avons des articles dédiés pour les procédures de montée de version pour [Centreon BAM](../service-mapping/update.md), [Centreon MBI](../reporting/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md).
-
 </TabItem>
 <TabItem value="Avec une API dédiée" label="Avec une API dédiée">
 
@@ -565,6 +589,7 @@ usermod -a -G www-data centreon-broker
 </TabItem>
 </Tabs>
 
+Référez-vous à la documentation de mise à jour pour [Centreon BAM](../service-mapping/upgrade.md), [Centreon MBI](../reporting/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md) pour mettre à jour ces modules.
 
 ### Actions post montée de version
 
