@@ -361,8 +361,8 @@ Si un modèle fourni par le connecteur est utilisé par autre modèle, vous devr
 De plus, si vous tentez de désinstaller un connecteur dont un autre connecteur dépend, la désinstallation ne pourra être faite que
 si et seulement si les deux connecteurs ne sont pas utilisés. 
 Supprimer un connecteur dont dépend un autre connecteur supprime également celui-ci.
-Exemple : le connecteur Centreon central utilise en dépendance le connecteur SNMP.
+Exemple : le connecteur **Centreon central** utilise en dépendance le connecteur **SNMP**. (Le connecteur **Centreon Central** dépend du connecteur **SNMP**.)
 
-* Si vous tentez de désinstaller le connecteur SNMP, une erreur vous signalera que celui-ci est utilisé par le connecteur Centreon.
-* Si ni le connecteur Centreon ni le connecteur SNMP n'étaient utilisés, la désinstallation sera possible.
-* Désinstaller le connecteur Centreon désinstallera le connecteur SNMP.
+* Si vous tentez de désinstaller le connecteur **SNMP**, une erreur vous signalera que celui-ci est utilisé par le connecteur **Centreon central**.
+* Si ni le connecteur **Centreon central** ni le connecteur **SNMP** n'étaient utilisés, la désinstallation sera possible.
+* Désinstaller le connecteur **Centreon central** désinstallera le connecteur **SNMP**.
