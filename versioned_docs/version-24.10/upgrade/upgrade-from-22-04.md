@@ -129,7 +129,7 @@ systemctl stop php8.0-fpm
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-rm /etc/yum.repos.d/centreon-business-21.10.repo
+rm /etc/yum.repos.d/centreon-business-22.04.repo
 ```
 
 </TabItem>
