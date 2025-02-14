@@ -354,7 +354,7 @@ Si des modèles d’hôtes ou de services fournis par le connecteur de supervisi
 Si le connecteur est utilisé par un hôte ou un service, pour pouvoir le désinstaller, vous devrez :
 
 * soit supprimer les hôtes ou services liés aux modèles fournis par ce connecteur de supervision
-* délier les hôtes liés aux modèles fournis par ce connecteur de supervision (attention, s'il s'agissait du seul modèle d'hôte appliqué à cet hôte, cela rendra celui-ci inutilisable).
+* soit délier les hôtes liés aux modèles fournis par ce connecteur de supervision (attention, s'il s'agissait du seul modèle d'hôte appliqué à cet hôte, cela rendra celui-ci inutilisable).
 
 Si un modèle fourni par le connecteur est utilisé par autre modèle, vous devrez supprimer le lien entre modèles avant de pouvoir supprimer le connecteur.
 
