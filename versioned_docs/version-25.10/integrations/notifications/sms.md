@@ -23,7 +23,7 @@ In our example, with OVH SMS, we need:
 ```bash
 mkdir /usr/lib/centreon/git-plugins
 cd /usr/lib/centreon/git-plugins
-git clone https://github.com/centreon/centreon-plugins.git
+git clone https://github.com/centreon/centreon-plugins.git /usr/lib/centreon/plugins/git-plugins
 ```
 
 ### Step 2: Create notification commands
@@ -43,7 +43,6 @@ git clone https://github.com/centreon/centreon-plugins.git
    $CENTREONPLUGINS$/centreon_plugins.pl --plugin=notification::ovhsms::plugin --mode=alert --account=sms-ab1234-1 --login=XXXX --password=XXXX --from="Centreon" --to="0033123456789" --message='Alert on service $SERVICEDESC$ for host $HOSTNAME$. Status: $SERVICESTATE$, $SERVICEOUTPUT$'
    ```
 
-* **$CENTREONPLUGINS$** must be the complete path to the **centreon_plugins.pl** script (it varies according to where you have cloned the repository). If you cloned the repository like instructed above, the path is likely to be **/usr/lib/centreon/git-plugins/centreon-plugins/src**.
 * **--account**: in our example, this is the name of the OVH account used to send SMS.
 * **--from** : in our example, an SMS user that is authorized for this account.
 
