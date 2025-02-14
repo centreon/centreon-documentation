@@ -535,6 +535,10 @@
                 },
                 {
                   "type": "doc",
+                  "id": "alerts-notifications/notif-config-for-teams"
+                },
+                {
+                  "type": "doc",
                   "id": "integrations/notifications/slack-notifications"
                 },
                 {
