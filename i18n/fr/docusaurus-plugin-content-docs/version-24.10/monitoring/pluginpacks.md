@@ -364,4 +364,5 @@ Supprimer un connecteur dont dépend un autre connecteur supprime également cel
 Exemple : le connecteur Centreon central utilise en dépendance le connecteur SNMP.
 
 * Si vous tentez de désinstaller le connecteur SNMP, une erreur vous signalera que celui-ci est utilisé par le connecteur Centreon.
-* Si ni le connecteur Centreon ni le connecteur SNMP n'étaient utilisés, la désinstallation sera possible, et désinstaller le connecteur Centreon désinstallera le connecteur SNMP.
+* Si ni le connecteur Centreon ni le connecteur SNMP n'étaient utilisés, la désinstallation sera possible.
+* Désinstaller le connecteur Centreon désinstallera le connecteur SNMP.
