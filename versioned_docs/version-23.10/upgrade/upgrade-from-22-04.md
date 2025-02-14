@@ -118,47 +118,80 @@ systemctl stop php8.0-fpm
 
 ### Upgrade the Centreon solution
 
-> Make sure all users are logged out from the Centreon web interface
-> before starting the upgrade procedure.
+1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
 
-If you have installed Business extensions, update the Business repository to version 23.10.
-Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
-
-If your OS is Debian 11 and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
-
-Stop the Centreon Broker process:
-
-```shell
-systemctl stop cbd
-```
-
-Delete existing retention files:
-
-```shell
-rm /var/lib/centreon-broker/* -f
-```
-
-Clean the cache:
+2. If you have installed Business extensions, delete the configuration of repository 22.04 : 
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
+rm /etc/yum.repos.d/centreon-business-22.04.repo
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-22.04.repo
+```
+
+</TabItem>
+
+<TabItem value="Debian" label="Debian">
+
+```shell
+rm /etc/apt/sources.list.d/centreon-business.list
+```
+
+</TabItem>
+</Tabs>
+
+3. Install the 23.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+
+4. If your OS is Debian and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
+
+5. Stop the Centreon Broker process:
+
+```shell
+systemctl stop cbd
+```
+
+6. Delete existing retention files:
+
+```shell
+rm /var/lib/centreon-broker/* -f
+```
+
+7. Clean the cache:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
+```shell
 dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   
 ```shell
-apt clean
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+   
+```shell
+apt clean all
 apt update
 ```
 
 </TabItem>
 </Tabs>
 
-Then upgrade all the components with the following command:
+8. Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -369,8 +402,6 @@ page:
 
   ![image](../assets/upgrade/web_update_5.png)
 
-> Refer to the [Centreon BAM](../service-mapping/update.md), [Centreon MBI](../reporting/update.md)  and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
-
 6. Deploy the central's configuration from the Centreon web UI by following [this
 procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   
@@ -460,6 +491,8 @@ usermod -a -G www-data centreon-broker
 </Tabs>
 
 > As the interface layout has changed in version 22.10, you need to clear your browser cache to display the new theme.
+
+Refer to the [Centreon BAM](../service-mapping/update.md), [Centreon MBI](../reporting/update.md)  and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
 
 ### Post-upgrade actions
 
