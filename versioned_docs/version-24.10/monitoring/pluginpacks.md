@@ -346,15 +346,20 @@ Your Monitoring Connector is now uninstalled.
 
 #### Managing dependencies
 
-You will not be able remove a pack if host and service templates created by the Monitoring Connector are being used by any
-monitored hosts and services.
+If host or service templates provided by the monitoring connector are used by a host, service or template, the monitoring connector cannot be uninstalled.
 
 ![image](../assets/configuration/pluginpacks/uninstall_pp_used.png)
 
-To uninstall the pack you will need to either:
+If the connector is used by a host or service, in order to uninstall it, you will need to:
 
-* delete the hosts and services linked to the templates provided by the Monitoring Connector,
-* or unlink the hosts and services from the corresponding templates.
+* either delete the hosts or services linked to the templates provided by this monitoring connector
+* unlink hosts linked to templates provided by this monitoring connector (note that if this was the only host template applied to this host, it will no longer be monitored).
 
-Attempting to uninstall a pack that is a dependency of another pack will cause the uninstallation process to stop if
-the pack or its dependency is used by any hosts and services. Otherwise, the pack and its dependencies can be removed.
+If a template provided by the connector is used by another template, you will need to remove the link between templates before you can remove the connector, even if the other template is not used by any host or service.
+
+Besides, if you try to uninstall a connector on which another connector depends, the uninstallation can only be performed if
+neither connector is in use. 
+Example: the **Centreon Central** connector uses the **SNMP** connector as a dependency. (The **Centreon Central** connector depends on the **SNMP** connector.)
+
+* If you attempt to uninstall the **Linux SNMP** connector, you will get an error indicating that it is being used by the **Centreon Central** connector.
+* If neither the **Centreon Central** nor the **Linux SNMP** connector are in use, uninstallation will be possible.
