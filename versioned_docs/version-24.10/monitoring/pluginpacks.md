@@ -353,7 +353,7 @@ If host or service templates provided by the monitoring connector are used by a 
 If the connector is used by a host or service, in order to uninstall it, you will need to:
 
 * either delete the hosts or services linked to the templates provided by this monitoring connector
-* unlink hosts linked to templates provided by this monitoring connector (note that if this was the only host template applied to this host, it will no longer be monitored).
+* or unlink hosts linked to templates provided by this monitoring connector (note that if this was the only host template applied to this host, it will no longer be monitored).
 
 If a template provided by the connector is used by another template, you will need to remove the link between templates before you can remove the connector, even if the other template is not used by any host or service.
 
