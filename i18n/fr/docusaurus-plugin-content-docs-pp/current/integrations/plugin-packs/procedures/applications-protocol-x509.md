@@ -156,7 +156,7 @@ yum install centreon-plugin-Applications-Protocol-X509
 
 | Macro          | Description                                                                                                                                                                                                                                                                                                                                                                                           | Valeur par défaut   | Obligatoire |
 |:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
-| CUSTOMMODE     |                                                                                                                                                                                                                                                                                                                                                                                                       | tcp                 |             |
+| CUSTOMMODE     | Set the way to get information, it can be: file, https, opensslcli or tcp                                                                                                                                                                                                                                                                                                                                                                                                       | tcp                 |             |
 | PORT           | Port used by host                                                                                                                                                                                                                                                                                                                                                                                     | 443                 | X           |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. (Default: '%\{expiration\} \< 60'). Can use special variables like: %\{expiration\}, %\{subject\}, %\{issuer\}, %\{alt_subjects\}                                                                                                                                                                                                                 | %\{expiration\} \< 60 |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. (Default: '%\{expiration\} \< 30'). Can use special variables like: %\{expiration\}, %\{subject\}, %\{issuer\}, %\{alt_subjects\}.  Examples :  Raise a critical alarm if certificate expires in less than 30 days or does not cover alternative name 'my.app.com' --critical-status='%\{expiration\} \< 30 \|\| %\{alt_subjects\} !~ /my.app.com/' | %\{expiration\} \< 30 |             |
@@ -182,8 +182,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--custommode='tcp' \
 	--hostname='www.google.com' \
 	--port=443 \
-	--warning-status='%\{expiration\} < 60' \
-	--critical-status='%\{expiration\} < 30'
+	--warning-status='%{expiration\} < 60' \
+	--critical-status='%{expiration\} < 30'
 ```
 
 La commande devrait retourner un message de sortie similaire à :
