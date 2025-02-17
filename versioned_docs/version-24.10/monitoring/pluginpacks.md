@@ -359,7 +359,7 @@ If a template provided by the connector is used by another template, you will ne
 
 Besides, if you try to uninstall a connector on which another connector depends, the uninstallation can only be performed if
 neither connector is in use. 
-Example: the **Centreon Central** connector uses the **SNMP** connector as a dependency. (The **Centreon Central** connector depends on the **SNMP** connector.)
+Example: the **Centreon Central** connector uses the **Linux SNMP** connector as a dependency. (The **Centreon Central** connector depends on the **Linux SNMP** connector.)
 
 * If you attempt to uninstall the **Linux SNMP** connector, you will get an error indicating that it is being used by the **Centreon Central** connector.
 * If neither the **Centreon Central** nor the **Linux SNMP** connector are in use, uninstallation will be possible.
