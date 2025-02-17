@@ -3,16 +3,6 @@ id: poller-display-to-remote-server
 title: Migrate a platform with Poller Display module
 ---
 
-### Perform a backup
-
-Be sure that you have fully backed up your environment for the following
-servers:
-
-- Central server
-- Database server
-
-If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
-
 ## Migrate your Centreon Central server
 
 If the module **centreon-poller-display-central-1.6.x** is installed:
