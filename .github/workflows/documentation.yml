@@ -41,7 +41,7 @@ jobs:
               - package.json
               - versions.json
               - nextVersion.json
-              - yarn.lock
+              - pnpm-lock.yaml
               - 'src/**'
               - 'static/**'
               - 'i18n/**/(code|footer|navbar).json'

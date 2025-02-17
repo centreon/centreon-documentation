@@ -133,7 +133,41 @@ const config = {
     ],
   ],
 
-  themes: [],
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      ({
+        hashed: true,
+        indexBlog: false,
+        docsRouteBasePath: ["docs", "cloud", "pp"],
+        docsDir: ["i18n", "versioned_docs", "cloud", "pp"],
+        explicitSearchResultPath: true,
+        // searchContextByPaths: [
+        //   {
+        //     label: {
+        //       en: "monitoring connectors",
+        //       fr: "connecteurs de supervision",
+        //     },
+        //     path: "pp"
+        //   },
+        //   {
+        //     label: "cloud",
+        //     path: "cloud",
+        //   },
+        //   // {
+        //   //   label: "onPrem",
+        //   //   path: "i18n",
+        //   // },
+        //   // {
+        //   //   label: "onPrem",
+        //   //   path: "versioned_docs",
+        //   // },
+        // ],
+        language: ["en", "fr"],
+      }),
+    ],
+  ],
 
   plugins: (() => {
     let plugins = [
@@ -150,19 +184,6 @@ const config = {
       ],
       'docusaurus-plugin-image-zoom',
     ];
-
-    if (archivedVersion) {
-      plugins = [
-        ...plugins,
-        [
-          '@cmfcmf/docusaurus-search-local',
-          {
-            indexBlog: false,
-            language: ["en", "fr"],
-          },
-        ],
-      ];
-    }
 
     if (cloud) {
       plugins = [
@@ -208,15 +229,6 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: archivedVersion
-        ? undefined
-        : {
-          appId: '3WEC6XPLDB',
-          apiKey: 'be499306058f3e54012bab278e6e6d86',
-          indexName: 'centreon',
-          contextualSearch: true,
-        },
-
       zoom: {
         selector: '.markdown img',
         background: {
