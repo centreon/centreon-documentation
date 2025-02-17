@@ -21,6 +21,46 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 23.10.17
+
+Release date: `February 10, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [URL widget]
+  - Links are now always opened in a dedicated tab.
+  - Labels are now centered vertically.
+  - Fixed an issue that prevented border from being removed.
+  - Fixed an issue that made the URL accessible only when clicking two times, instead of one.
+  - Added a pointer cursor when hovering the widget, to clearly identify that the link is clickable.
+- [Viewer] You can now display the status as the background color for a resource in weather or icon style.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed issue that prevented user from editing data of the status link.
+- [Geoviews] Fixed an issue that ignored ACLs when listing Business Activities.
+- [Metric links] Fixed an issue that could prevent graph metrics from loading.
+- [Migration from Legacy] Fixed an incorrect value in identifier generation.
+- [Migration from Legacy] Fixed an issue with deleted resources that were still appearing when migrating from MAP Legacy.
+- [Upgrade] Fixed a crash that could occur after upgrading the MAP version.
+- [Viewer] Fixed an issue where links to triangle shapes were shifted in view mode.
+- [Viewer] Fixed wrong call to get the details of a resource.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Removed commons-logging (including Log4j).
+- [Security] Upgraded DOM purify.
+- [Security] Upgraded Apache Tomcat version.
+
+</details>
+
 ### 23.10.16
 
 Release date: `January 13, 2025`
@@ -388,6 +428,18 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon MAP Legacy
+
+### 23.10.17
+
+Release date: `February 10, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Migration from Legacy] Fixed an incorrect value in identifier generation.
+- [Migration from Legacy] Fixed an issue with deleted resources that were still appearing when migrating from MAP Legacy.
+
+</details>
 
 ### 23.10.16
 

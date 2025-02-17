@@ -164,11 +164,6 @@ le pack.
 
 La plupart du temps, il est nécessaire de mettre à jour votre plate-forme Centreon, puis de réinstaller votre pack.
 
-Dans l’exemple ci-dessus, l’objet “autodiscover” concerne une règle de découverte pour le module “Centreon Auto Discovery”,
-mais celles-ci ne sont disponibles que pour Centreon en version 18.10.x :
-
-![image](../assets/configuration/pluginpacks/objects_not_installed.png)
-
 ### Vérifier la procédure de supervision
 
 Certains connecteurs de supervision demandent des étapes de configuration supplémentaires. Consultez la procédure de supervision associée à chaque pack installé pour comprendre le contenu du pack ainsi
