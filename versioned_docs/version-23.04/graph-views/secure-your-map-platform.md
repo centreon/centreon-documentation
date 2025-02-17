@@ -231,7 +231,7 @@ Centreon MAP server is now configured to respond to requests from HTTPS at port 
 </Tabs>
 
 To change the default port, refer to the [dedicated
-procedure](advanced-configuration.md#change-the-centreon-map-servers-port).
+procedure](advanced-configuration.md#change-centreon-map-servers-port).
 
 > Don't forget to modify the URL on Centreon side in the **Map server address**
 > field in the **Administration > Extensions > Map > Options** menu.
