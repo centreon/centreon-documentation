@@ -66,7 +66,6 @@ curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.ipv6_prefixes[]
 curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ip_prefix' 
 ```
 
-## Allowing traffic to/from FQDN
 
 If opening traffic to IP addresses is not suitable for you, it is also possible to open routes based on FQDN. The FQDN that should be authorized are the following:
 

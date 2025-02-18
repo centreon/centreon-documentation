@@ -66,7 +66,6 @@ curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.ipv6_prefixes[]
 curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ip_prefix' 
 ```
 
-## Autoriser le trafic vers ou en provenance de FQDN
 
 s'il n'est pas possible pour vous de faire du filtrage sur les adresseS IP, vous pouvez faire du filtrage par FQDN. Les FQDN à autoriser sont les suivants :
 
