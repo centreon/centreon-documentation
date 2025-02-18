@@ -5,7 +5,7 @@ title: EMC Unisphere Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **EMC Unisphere Rest API**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -115,7 +115,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Un identifiant et un mot de passe API sont requis pour surveiller EMC Unisphere via REST API.
+Un identifiant et un mot de passe API sont requis pour superviser EMC Unisphere via son API REST.
 
 ## Installer le connecteur de supervision
 
