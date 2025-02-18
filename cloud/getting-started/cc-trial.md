@@ -13,7 +13,7 @@ Centreon Cloud offers the Centreon monitoring platform in a SaaS version, for an
 
 ## About users and organizations
 
-### User accounts information
+### User accounts
 
 User accounts are managed in the [Centreon CIAM](../ciam/ciam.md) (Customer Identity and Access Management) module, Centreon’s access management tool. Your administrator needs to create an organization and invite the other users to it so that all team members can work on the same Centreon platform. 
 
