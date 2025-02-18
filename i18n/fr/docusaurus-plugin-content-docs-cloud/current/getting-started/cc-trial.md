@@ -23,6 +23,8 @@ La mise en place de la plateforme d'essai de Centreon Cloud se fait en trois ét
 
 - Il faut premièrement que votre administrateur remplisse le [formulaire disponible sur notre site web](https://www.centreon.com/free-trial/) en utilisant une adresse email professionnelle.
 
+- Un email est envoyé à cette adresse pour créer son mot de passe sur le Centreon CIAM.
+
 - Votre plateforme sera alors créée automatiquement. Cette étape peut prendre quelques minutes, vous serez notifié par email lorsque la plateforme aura fini d'être construite.
 
 - Une fois la plateforme prête, l'administrateur invite d'autres utilisateurs à créer leurs propres comptes sur Centreon CIAM et rejoindre la plateforme d'essai
