@@ -15,6 +15,8 @@ servers:
 - central server,
 - database server.
 
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
+
 ## Update the Centreon central server
 
 ### Update the Centreon solution
@@ -228,7 +230,7 @@ This procedure is the same as to update a Centreon central server.
 2. Then upgrade all the components with the following command:
 
   ```shell
-  apt-get update && apt-mark hold centreon-pack* && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*' 
+  apt-get update && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*'
   ```
 
 </TabItem>
@@ -262,7 +264,7 @@ Nothing to do for this OS.
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
   ```shell
-  apt-mark unhold centreon-pack* && apt-mark unhold centreon-plugin*
+  apt-mark unhold centreon-plugin*
   ```
 
 </TabItem>

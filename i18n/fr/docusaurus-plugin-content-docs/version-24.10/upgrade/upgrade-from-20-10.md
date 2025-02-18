@@ -25,6 +25,14 @@ Vous ne pouvez pas simplement monter de version depuis une version antérieure �
 > d'arrêter l'insertion en base de données des données collectées le temps de la mise à jour. Celles-ci seront stockées
 > dans des fichiers temporaires puis insérées à la fin du processus de mise à jour.
 
+> Attention, si vous utilisiez les connecteurs suivants, à partir de la version 24.10 il est obligatoire de déclarer la configuration de tous ceux-ci [**à la page Configuration > Additional connector configurations**](/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration) avant de déployer la configuration du collecteur correspondant :
+> * [VMware ESX](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/)
+> * [VMware vCenter](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-generic/)
+> * [VMware VM](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vm/)
+> * [VMware vCenter v4](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-4/)
+> * [VMware vCenter v5](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-5/)
+> * [VMware vCenter v6](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-6/)
+
 ## Prérequis
 
 > Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
@@ -36,6 +44,8 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
+
+Si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les avant de mettre à jour Centreon](../alerts-notifications/ticketing-install.md#sauvegarder-votre-configuration-personnalisée-de-fournisseur-openticket).
 
 ### Mettre à jour la clé de signature RPM
 

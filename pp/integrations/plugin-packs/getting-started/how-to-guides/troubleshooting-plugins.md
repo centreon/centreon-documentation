@@ -16,7 +16,7 @@ most common pitfalls.
 The Centreon Pollers run a scheduler responsible for planning and executing checks. 
 To troubleshoot a Plugin, you must always:
 
-* Copy/Paste the command from the Centreon Web UI to troubleshoot it from the CLI
+* Copy/paste the command from the Centreon Web UI to troubleshoot it from the CLI
 * Use the centreon-engine user to execute the Plugin manually (and never root!).
 
 ## Common problems
@@ -26,10 +26,10 @@ To troubleshoot a Plugin, you must always:
 When getting this error, please focus on the command line executed and ensure that 
 the binary it uses exists or doesn't contain a typo.
 
-On RPM-based systems, you can use the following command to identify what's the 
-package is providing the missing binary: `yum whatprovides "*/the_binary_name"`
+On RPM-based systems, you can use the following command to identify which package provides the missing binary: 
+`yum whatprovides "*/the_binary_name"`
 
-### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/<cache_file_name>'
+### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/\<cache_file_name\>'
 
 The most common cause is inappropriate rights on the cache directory (`/var/lib/centreon/centplugins`) 
 or the cache file itself.  It can also be the result of an inconsistent installation 
@@ -49,7 +49,7 @@ If directory rights are ok, check also the rights of the cache file:
 `stat /var/lib/centreon/centplugins/<cache_file_name>`. The expected result is: 
 
 ```bash
-File: '/var/lib/centreon/centplugins/<cache_file_name>'
+File: '/var/lib/centreon/centplugins/\<cache_file_name\>'
 [...]
 Access: (0664/-rw-rw-r--)  Uid: (  994/centreon-engine)   Gid: (  991/centreon-engine)
 [...]
@@ -76,7 +76,7 @@ To apply it, export the Poller's configuration and **restart** it.
 
 ### Check output or metrics is not complete
 
-When a Plugin execution looks partial or incomplete, it usually means that there's 
+When a Plugin execution looks incomplete, it usually means that there's 
 a bug somewhere in the code. If this is the case, you will likely see some *stderr*
 lines printed when executing the check through the CLI. 
 
@@ -154,7 +154,75 @@ behavior uses the `ifName` OID to build its cache. If it cannot find it then you
 run into this error. 
 
 For interfaces and storage checks, options exist to ask the probe to use 
-an other OID (e.g. `--oid-filter='ifDesc' --oid-display='ifDesc'`).
+another OID (e.g. `--oid-filter='ifDesc' --oid-display='ifDesc'`).
+
+### Uptime issue
+
+### Context on sysUpTime in SNMP
+
+When the uptime exceeds 497 days, a specific issue can occur due to how uptime is represented 
+in the TimeTicks format used by SNMP. The `sysUpTime` in SNMP is a number expressed in TimeTicks, 
+which represents the number of centi-seconds that have passed since the system was last rebooted. 
+This number is stored in a 32-bit format, which means it can hold values between 0 and 4,294,967,295. 
+Thus, the uptime reaches its maximum value after approximately 497 days of uptime 
+(about 4,294,967,295 centi-seconds). When this limit is exceeded, an overflow occurs, meaning 
+the counter resets to zero. 
+
+### How to identify the issue?
+
+You can identify that the uptime has exceeded the 497-day limit by checking the uptime directly 
+on the device (if possible) without querying via SNMP. For example, on Linux, use the following command:
+
+```commandline
+uptime
+14:32:12 up 500 days,  3:04,  2 users,  load average: 0.15, 0.10, 0.09
+```
+
+This indicates that the system has been running for 500 days, 3 hours, and 4 minutes.
+
+### Proposed solution: the --check-overload option
+
+Most service templates associated with uptime in SNMP use the `--check-overload` option, 
+which allows for managing the overflow of uptime after 497 days. It utilizes the plugin’s 
+cache to determine the previous uptime and calculate the overflow that occurred, adjusting 
+the uptime value returned by the plugin. Thus, the overflow becomes transparent and does 
+not generate a false alert regarding uptime, and the user does not need to take any specific action.
+
+### If the overflow occurred but the --check-overload option was not used in the plugin command
+
+In cases where the `--check-overload` option was not included in the plugin command 
+before the overflow occurred, you can correct the situation by following these steps:
+
+Run the plugin command by adding the -`--check-overload` option:
+
+```commandline
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=uptime --hostname=XXXX --snmp-version='2c' --snmp-community='public' --check-overload
+OK: System uptime is: 11h 28m 39s | 'uptime'=41319.00s;;;0;
+```
+
+Then, check that the option has been added to the plugin’s cache:
+
+```commandline
+cat /var/lib/centreon/centplugins/cache_<hostname>_uptime 
+{"last_time":170905862051,"overload":0,"uptime":"4131920"}
+```
+
+Replace the "overload" value with 1 and check that the change worked:
+
+```commandline
+sed -i 's/"overload":0/"overload":1/g' /var/lib/centreon/centplugins/cache_<hostname>_uptime
+cat /var/lib/centreon/centplugins/cache_<hostname>_uptime 
+{"last_time":170905862051,"overload":1,"uptime":"4131920"}
+```
+
+You can then rerun the plugin command with the `--check-overload` option, and the result 
+should account for the overflow and reflect the correct system uptime information, as 
+you manually checked:
+
+```commandline
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=uptime --hostname=XXXX --snmp-version='2c' --snmp-community='public' --check-overload
+OK: System uptime is: 497d 13h 58m 41s | 'uptime'=42991121.00s;;;0;
+```
 
 ## HTTP and API checks
 
@@ -188,15 +256,15 @@ the `--http-backend` option. The default value is `lwp`, though `curl` is also
 available and generally easier to debug.
 
 In the same way, if you use a proxy, you can tell the Plugin how to go through 
-by adding the `--proxyurl` option to your command line. The expecte format is: 
+by adding the `--proxyurl` option to your command line. The expected format is: 
 `--proxyurl='<proto>://<proxy_addr>:<proxy_port>`. 
 
 #### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (Connection refused)
 
-This issue generally means that the port or protocol used by the Plugin is incorrect, 
+This issue generally means that the port or protocol used by the plugin is incorrect, 
 misconfigured, or unsupported. 
 
-In this situation, at the Host configuration level, double-check that:
+In this situation, at the host configuration level, double-check that:
 * the port used is correct, primarily if you use a non-standard port for security reasons
 * the protocol used (http or https) matches the one configured on the API-side
 
@@ -217,7 +285,7 @@ The primary cause could be the certificate used. In this case, the best practice
 would be either to: 
 * renew the certificate when it expired 
 * sign the remote certificate officially
-* deploy the certificate locally so the Plugin can recognize it
+* deploy the certificate locally so the plugin can recognize it
 
 Regardless of what HTTP backend you're using, it's possible to ignore SSL certificate 
 errors by adding specific flags: 
@@ -226,14 +294,33 @@ errors by adding specific flags:
 * curl backend: `--curl-opt='CURLOPT_SSL_VERIFYPEER => 0'`
 
 Sometimes, the remote host doesn't support negotiation about the SSL implementation, 
-so you must specify explicitly which one the Plugin has to use thanks to the `--ssl` 
+so you must specify explicitly which one the plugin has to use thanks to the `--ssl` 
 option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer or software publisher documentation.
+
+## Troubleshooting AWS
+
+### `UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values`
+
+This command result means that Amazon Cloudwatch does not have any value for the requested period.
+
+This result can be overriden by adding the --zeroed option to the command. 
+This will force a value of 0 when no metric has been collected and will prevent the UNKNOWN error message.
+
+### `UNKNOWN: Command error: - An error occurred (AuthFailure) [...] `
+
+This command result means that the credentials provided don't have enough privileges to perform the underlying AWS Operation.
+
+### `UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |`
+
+This error message means that the Centreon Plugin couldn't successfully connect to the AWS Cloudwatch API. 
+Check that no third party device (such as a firewall) is blocking the request. 
+A proxy connection may also be necessary to connect to the API. This can be done by using this option in the command: --proxyurl='http://proxy.mycompany:8080'.
 
 ## SSH and CLI checks
 
-### UNKNOWN: Command error: `<interpreter>`: <command_name>: command not found
+### UNKNOWN: Command error: `<interpreter>`: \<command_name\>: command not found
 
-This error warns that the Plugin is not able to execute the <command_name> because it 
+This error warns that the plugin is not able to execute the \<command_name\> because it 
 doesn't exist in PATH or is not installed.
 
 Depending on how the check is performed (locally or remotely), make sure that the 
@@ -243,7 +330,7 @@ utility the Plugin uses is available to your monitoring user.
 
 SSH-Based checks can use several *backends*. Whether you use the `ssh` or `plink` backend, 
 you have to manually validate the remote system fingerprint from the *centreon-engine*
-user on the monitoring Poller. If you don't do that, the Plugin will hang and cause a timeout
+user on the monitoring poller. If you don't do that, the plugin will hang and cause a timeout
 because it cannot accept the fingerprint for obvious security reasons.
 
 ## NRPE checks
@@ -269,7 +356,7 @@ allows your monitoring server to send remote command execution.
 
 Do not forget to restart your NRPE daemon to update the configuration.
 
-### NRPE: Command <a_command> not defined
+### NRPE: Command \<a_command\> not defined
 
 The NRPE Server throws this error when the client asks to run a command it doesn't understand. 
 
@@ -284,7 +371,7 @@ Do not forget to restart your NRPE daemon to update the configuration.
 
 ### NRPE: unable to read output
 
-This error can occur when the NRPE server fails to execute the command for some reason.
+This error can occur when the NRPE server fails to execute the command.
 In this situation, connect to the server running the NRPE server and execute the 
 command manually with the NRPE user.
 

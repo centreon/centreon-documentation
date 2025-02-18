@@ -2,6 +2,8 @@
 id: migrate-from-3-4
 title: Migrate from a Centreon 3.4 platform
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
@@ -59,7 +61,7 @@ rsync -avz /var/spool/centreon/.ssh root@<IP_NEW_CENTREON>:/var/spool/centreon
 rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img
 ```
 
-> Replace **<IP_NEW_CENTREON>** by the IP or the new Centreon server.
+> Replace **\<IP_NEW_CENTREON\>** by the IP or the new Centreon server.
 
 ### Retrieve databases
 
@@ -129,7 +131,7 @@ create them again:
     systemctl start mariadb
     ```
 
-> Replace **<IP_NEW_CENTREON>** by the IP or the new Centreon server.
+> Replace **\<IP_NEW_CENTREON\>** by the IP or the new Centreon server.
 
 ### Synchronize the plugins
 

@@ -296,7 +296,7 @@ Graphs display metric evolution over a given period. This can be defined in the 
 
 - A selection of preconfigured periods is available in the graph header: Last Day, Last 7 Days, Last 31 Days
 - Datetime pickers are available for Start and End points in time. Whenever the displayed period changes, this element is updated accordingly
-- Using the side [<] and [>] buttons that appear upon hovering the graph's border, you can translate in time by half your current timespan (backward and forward in time, respectively)
+- Using the side [\<] and [>] buttons that appear upon hovering the graph's border, you can translate in time by half your current timespan (backward and forward in time, respectively)
 - Selecting a period of time within the graph will zoom in on this period
 
 ![image](../assets/alerts/resources-status/resources-status-graph-time-selection.gif)
@@ -323,4 +323,4 @@ The graph opens on the **Monitoring > Performances > Graphs** page, allowing you
 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
-You can also export the data for the graph as a CSV file. This will include all metrics.
+You can also export the data for the graph as a CSV file (this will include all metrics), or as a PNG file in various sizes.

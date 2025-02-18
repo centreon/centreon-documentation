@@ -62,7 +62,7 @@ complete the installation process by connecting to the Centreon web interface.
    rsync -avz -e "ssh -i /root/.ssh/id_rsa_custom" <command>
    ```
 
-   > Replace **<IP_NEW_CENTREON>** by the IP address of the new Centreon server.
+   > Replace **\<IP_NEW_CENTREON\>** by the IP address of the new Centreon server.
 
 5. On the new server, change the following user rights:
 
@@ -146,7 +146,7 @@ create them again::
    systemctl start mariadb
    ```
 
-> Replace **<IP_NEW_CENTREON>** by the IP address of the new Centreon server.
+> Replace **\<IP_NEW_CENTREON\>** by the IP address of the new Centreon server.
 
 ### Step 4: Synchronize the plugins
 

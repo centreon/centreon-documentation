@@ -177,8 +177,9 @@ wmic useraccount where name="@USERNAME@" get name,sid
 ```
 
 Output:
-><p>Name&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;SID</p>
->@USRNAME@&ensp;&ensp;S-1-5-21-3051596711-3341658857-577043467-1000
+> Name&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;SID
+>
+> @USRNAME@&ensp;&ensp;S-1-5-21-3051596711-3341658857-577043467-1000
 
 #### Récupérer le SDDL actuel pour Service Control Manager
 
@@ -396,17 +397,17 @@ $Thumbprint=Invoke-Command -ComputerName $FQDN `
 
 
 Set-WSManInstance -ResourceURI winrm/config/Listener `
-                  -SelectorSet @{Address="*";Transport="HTTPS"} `
+                  -SelectorSet @\{Address="*";Transport="HTTPS"\} `
                   -ComputerName $FQDN `
-                  -ValueSet @{CertificateThumbprint=$Thumbprint}
+                  -ValueSet @\{CertificateThumbprint=$Thumbprint\}
 
-winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@{Hostname=".$FQDN.".;CertificateThumbprint=".$Thumbprint."}"
+winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@\{Hostname=".$FQDN.".;CertificateThumbprint=".$Thumbprint."\}"
 ```
 
 * Copiez ce script à l'emplacement suivant pour pouvoir le déployer massivement :
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 Dans notre cas, voilà le résultat :
@@ -619,7 +620,7 @@ $RootSecurity.PsBase.InvokeMethod("SetSd",$SdList)
 * Copiez ce script à l'emplacement suivant pour pouvoir déployer massivement ce script.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 Dans notre cas, le résultat est le suivant :
@@ -720,7 +721,7 @@ Invoke-Expression -Command:$SetPermissionsCommand
 * Copiez ce script à l'emplacement suivant pour pouvoir le déployer massivement.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 * Retournez dans votre politique **Enable WinRM**.
@@ -822,7 +823,7 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 * Copiez ce script à l'emplacement suivant pour pouvoir le déployer massivement.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 * Retournez dans votre politique **Enable WinRM**.
@@ -865,9 +866,9 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 * Spécifiez les paramètres suivants :
     * Action : **Start a program**
     * Programme/script : **PowerShell.exe**
-    * Ajouter arguments : **-file C:\Windows\Temp\RootSDDL-Permision.ps1**<span style={{color:'#FF0000'}}>**@SERVICE_USERNAME@**</span>
+    * Ajouter arguments : **-file C:\Windows\Temp\RootSDDL-Permision.ps1**\<span style=\{\{color:'#FF0000'\}\}\>**@SERVICE_USERNAME@**\</span\>
         * Ajustez ce paramètre pour qu'il corresponde au paramètre "Destination du fichier" précédemment configuré
-        * Dans notre exemple, l'argument est **-file C:\Windows\Temp\RootSDDL-Permision.ps1<span style={{color:'#FF0000'}}>sa_centreon</span>**.
+        * Dans notre exemple, l'argument est **-file C:\Windows\Temp\RootSDDL-Permision.ps1\<span style=\{\{color:'#FF0000'\}\}\>sa_centreon\</span\>**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-rootsddl-2.png)
 

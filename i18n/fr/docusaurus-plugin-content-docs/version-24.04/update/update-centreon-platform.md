@@ -16,6 +16,8 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
 
+Si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les avant de mettre à jour Centreon](../alerts-notifications/ticketing-install.md#sauvegarder-votre-configuration-personnalisée-de-fournisseur-openticket).
+
 ## Mise à jour du serveur Centreon Central
 
 ### Mise à jour de la solution Centreon
@@ -233,7 +235,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt-get update && apt-mark hold centreon-pack* && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*' 
+  apt-get update && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*'
   ```
 
 </TabItem>
@@ -267,7 +269,7 @@ Rien à faire pour cet OS.
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
   ```shell
-  apt-mark unhold centreon-pack* && apt-mark unhold centreon-plugin*
+  apt-mark unhold centreon-plugin*
   ```
 
 </TabItem>

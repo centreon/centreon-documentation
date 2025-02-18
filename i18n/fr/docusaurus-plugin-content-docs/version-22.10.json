@@ -274,5 +274,9 @@
   "sidebar.docs.category.Getting started with Centreon OnPrem": {
     "message": "Démarrer avec Centreon OnPrem",
     "description": "The label for category Getting started with Centreon OnPrem in sidebar docs"
+  },
+  "sidebar.docs.category.Types of notifications": {
+    "message": "Types de notifications",
+    "description": "The label for category Types of notifications in sidebar docs"
   }
 }

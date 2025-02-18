@@ -83,10 +83,11 @@ Deux types d'actions de contrôle sont disponibles :
 - L'action **Vérifier** : un contrôle que vous effectuez uniquement durant la période de vérification configurée.
 - L'action **Vérification forcée** : un contrôle que vous pouvez effectuer à tout moment (pendant ou en dehors de la période de vérification configurée).
 
-Vous pouvez contrôler vos ressources et rafraîchir leur statut de deux manières :
+Vous pouvez contrôler vos ressources et rafraîchir leur statut de trois manières :
 
 - En lançant le contrôle directement via le bouton qui s'affiche au survol de la ligne (**Vérification forcée** uniquement).
 - En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton **Vérifier** au-dessus du tableau.
+- En cliquant le bouton **Vérifier** ou le bouton **Vérification forcée** dans le **Panneau de détail** de la ressource.
 
 ### Soumettre un statut
 
@@ -231,7 +232,7 @@ Utilisez l'icône "Options de filtre" à droite de la barre de recherche pour :
 - Enregistrer la recherche actuelle comme un nouveau filtre
 - Mettre à jour le filtre actuel avec la recherche en cours
 
-Une fois qu'un filtre est enregistré, il apparaîtra dans la liste des filtres sous la section **Mes filtres** et vous pourrez utiliser l'icône **Éditer les filtres** pour les manipuler (les renommer, les ré-ordonner ou les supprimer).
+Une fois qu'un filtre est enregistré, il apparaîtra dans la liste des filtres sous la section **Mes filtres** et vous pourrez utiliser l'icône **Gérer les filtres** pour les manipuler (les renommer, les ré-ordonner ou les supprimer).
 
 
 ## Panneau de détail
@@ -245,7 +246,7 @@ En fonction du type de ressource, différents onglets sont disponibles.
 
 Le panneau d'hôte contient les éléments suivants :
 
-- Onglet **Détails** : Informations détaillées sur le statut courant. Vous pouvez glisser-déposer les tuiles pour changer leur disposition.
+- Onglet **Détails** : Informations détaillées sur le statut courant. Vous pouvez glisser-déposer les tuiles pour changer leur disposition. Vous y trouverez également des boutons pour [**Acquitter**](acknowledge.md) une alerte, [**planifier une maintenance**](downtimes.md) et [**relancer un contrôle**](#relancer-un-contrôle).
 - Onglet **Services** : La liste des services rattachés à cet hôte avec leur statut (et de leurs graphiques, quand le mode correspondant est sélectionné),
 - Onglet **Historique** : La chronologie des évènements survenus pour cet hôte,
 - Onglet **Notification** : Affiche si les notifications sont activées pour cette hôte, ainsi que les contacts et groupes de contacts qui seront notifiés.
@@ -308,7 +309,7 @@ Les graphiques affichent l'évolution des métriques sur une période donnée. L
 
 - Des sélecteurs de date et d'heure sont disponibles pour les points de début et de fin. Ils sont mis à jour lorsque la période affichée change.
 
-- Utilisez les boutons [<] et [>] qui apparaissent sur les côtés au survol du bord du graphique pour avancer ou reculer dans le temps de la moitié de la période de temps affichée.
+- Utilisez les boutons [\<] et [>] qui apparaissent sur les côtés au survol du bord du graphique pour avancer ou reculer dans le temps de la moitié de la période de temps affichée.
 
 - Sélectionnez une période dans le graphique pour zoomer sur cette période.
 
@@ -336,7 +337,7 @@ Le graphique s'ouvre dans la page **Supervision > Informations de performance > 
 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
-Vous pouvez aussi exporter les données du graphique au format CSV. Toutes les métriques seront incluses.
+Vous pouvez aussi exporter les données du graphique au format CSV (toutes les métriques seront incluses), ou bien au format PNG en différentes tailles.
 
 ### Onglet Notification
 

@@ -22,6 +22,8 @@ servers:
 - Central server
 - Database server
 
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
+
 ## Upgrade the Centreon Central server
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
@@ -468,7 +470,7 @@ Finally, restart Broker, Engine and Gorgone on the central server by running thi
   systemctl restart cbd centengine gorgoned
   ```
 
-Update the permissions on the centreon-broker configuration files.
+Add the **apache** user to the **centreon-broker** group and vice versa.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

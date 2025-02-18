@@ -18,7 +18,7 @@ already installed on your pollers.
 For each type of equipment,
  the templates determine which indicators will be
 monitored and set default warning and critical thresholds (these may be
-fine-tuned later on). If you want to use a pack, you must install it on the central server.
+fine-tuned later on). If you want to use a pack, you must install it through the user interface.
 
   Some packs also contain discovery rules.
 
@@ -57,11 +57,6 @@ During installation, some objects in the pack may not be installed. These object
 objects and are not required to deploy the configuration templates provided by the pack.
 
 Most of the time, it is necessary to update your Centreon platform and then reinstall your pack.
-
-In the following example, the "autodiscover" object is a discovery rule for the "Centreon Auto Discovery" module, but
-this one is only available for Centreon in version 18.10.x:
-
-![image](../assets/configuration/pluginpacks/objects_not_installed.png)
 
 ## How do I use a Monitoring Connector?
 

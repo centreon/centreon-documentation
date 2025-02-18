@@ -31,7 +31,7 @@ $ chmod 644 /var/spool/centreon/.gorgone/pubkey.pem
 $ chmod 600 /var/spool/centreon/.gorgone/privkey.pem
 ```
 
-Copiez la clé publique du serveur dans un répertoire spécifique côté client (par exemple **/var/spool/centreon/.gorgone/<target_id>**).
+Copiez la clé publique du serveur dans un répertoire spécifique côté client (par exemple **/var/spool/centreon/.gorgone/\<target_id\>**).
 
 ## Récupérer l'empreinte au format JWK
 

@@ -259,10 +259,6 @@
     "message": "Connecteurs de supervision",
     "description": "The label for link Plugin Packs in sidebar docs, linking to /pp/integrations/plugin-packs/getting-started/introduction"
   },
-  "sidebar.docs.category.Graphical views.link.generated-index.description": {
-    "message": "Les capacités de visualisation graphique de Centreon reposent sur le module Centreon MAP.",
-    "description": "The generated-index page description for category Graphical views in sidebar docs"
-  },
   "sidebar.docs.category.Centreon MAP": {
     "message": "Centreon MAP",
     "description": "The label for category Centreon MAP in sidebar docs"
@@ -302,5 +298,13 @@
   "sidebar.docs.category.Data Visualization": {
     "message": "Visualisation des données",
     "description": "The label for category Data Visualization in sidebar docs"
+  },
+  "sidebar.docs.category.Graphical views (maps).link.generated-index.description": {
+    "message": "Les vues graphiques dans Centreon sont fournies par le module Centreon MAP.",
+    "description": "The generated-index page description for category Graphical views (maps). in sidebar docs"
+  },
+  "sidebar.docs.category.Types of notifications": {
+    "message": "Types de notifications",
+    "description": "The label for category Types of notifications in sidebar docs"
   }
   }
