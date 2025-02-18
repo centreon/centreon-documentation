@@ -5,7 +5,7 @@ title: EMC Data Domain
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **EMC Data Domain SNMP**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -30,10 +30,10 @@ Le connecteur apporte les modèles de service suivants
 | Alerts          | HW-Storage-EMC-DataDomain-Alerts-SNMP-custom          | Contrôle des alertes en cours                                                                      |            |
 | Cleaning        | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom        | Contrôle du dernier nettoyage des systèmes de fichiers                                             |            |
 | Filesystems     | HW-Storage-EMC-DataDomain-Filesystems-SNMP-custom     | Contrôle des systèmes de fichiers                                                                  | X          |
-| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Contrôle l'ensemble du matériel (ventilateurs, températures, disques, batteries nvram) du stockage |            |
+| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Contrôle l'ensemble du matériel de stockage (ventilateurs, températures, disques, batteries nvram) |            |
 | Mtrees          | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom          | Contrôle des MTrees                                                                                | X          |
 | Process         | HW-Storage-EMC-DataDomain-Process-SNMP-custom         | Contrôle de l'état des processus                                                                   |            |
-| Replications    | HW-Storage-EMC-DataDomain-Replications-SNMP-custom    | Contrôle des réplications'                                                                         | X          |
+| Replications    | HW-Storage-EMC-DataDomain-Replications-SNMP-custom    | Contrôle des réplications                                                                         | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-EMC-DataDomain-SNMP-custom** est utilisé.
 
@@ -73,9 +73,9 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Nom de la règle                             | Description                                                                         |
 |:--------------------------------------------|:------------------------------------------------------------------------------------|
 | HW-Storage-EMC-DataDomain-SNMP-Filesystems  | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
-| HW-Storage-EMC-DataDomain-SNMP-Interfaces   | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
-| HW-Storage-EMC-DataDomain-SNMP-Mtrees       | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
-| HW-Storage-EMC-DataDomain-SNMP-Replications | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
+| HW-Storage-EMC-DataDomain-SNMP-Interfaces   | Découvre des interfaces réseau et supervise l'utilisation de la bande passante      |
+| HW-Storage-EMC-DataDomain-SNMP-Mtrees       | Découvre les MTrees                                                                 |
+| HW-Storage-EMC-DataDomain-SNMP-Replications | Découvre les réplications |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -324,7 +324,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 
 | Macro                 | Description                                                                                             | Valeur par défaut                                       | Obligatoire |
 |:----------------------|:--------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| TRULYALERT            | Expression to define a truly alert (default: '%\{severity\} =~ /emergency\|alert\|warning\|critical/i') | %\{severity\} =~ /emergency\|alert\|warning\|critical/i |             |
+| TRULYALERT            | Expression to define an actual alert (default: '%\{severity\} =~ /emergency\|alert\|warning\|critical/i') | %\{severity\} =~ /emergency\|alert\|warning\|critical/i |             |
 | WARNINGALERTSCURRENT  | Threshold                                                                                               |                                                         |             |
 | CRITICALALERTSCURRENT | Threshold                                                                                               |                                                         |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).      |                                                         |             |
@@ -385,7 +385,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 
 | Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'psu', 'fan', 'disk', 'temperature', 'battery'   | temperature       |             |
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'psu', 'fan', 'disk', 'temperature', 'battery'   | psu       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -417,7 +417,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 
 | Macro           | Description                                                                                                               | Valeur par défaut | Obligatoire |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERMTREENAME | Check MTress by name                                                                                                      |                   |             |
+| FILTERMTREENAME | Check MTrees by name                                                                                                      |                   |             |
 | WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}  |                   |             |
 | CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\} |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                        |                   |             |
@@ -594,7 +594,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
 | --display-alerts         |   Display alerts in verbose output.                                                                                           |
-| --truly-alert            |   Expression to define a truly alert (default: '%\{severity\} =~ /emergency\|alert\|warning\|critical/i').                    |
+| --truly-alert            |   Expression to define an actual alert (default: '%\{severity\} =~ /emergency\|alert\|warning\|critical/i').                    |
 | --warning-* --critical-* |   Thresholds. Can be: 'alerts-current'.                                                                                       |
 
 </TabItem>
@@ -746,7 +746,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                   | Description                                                                                                                                                             |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                                  |
-| --filter-mtree-name      |   Check MTress by name.                                                                                                                                                 |
+| --filter-mtree-name      |   Check MTrees by name.                                                                                                                                                 |
 | --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{status\}, %\{source\}, %\{destination\}, %\{type\}   |
 | --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                              |
 | --critical-status        |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                                             |

@@ -27,9 +27,9 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias   | Service Template                                      | Service Description                                                                        | Discovery  |
 |:----------------|:------------------------------------------------------|:-------------------------------------------------------------------------------------------|:----------:|
 | Alerts          | HW-Storage-EMC-DataDomain-Alerts-SNMP-custom          | Check current alerts                                                                       |            |
-| Cleaning        | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom        | Check last time filesystems had been cleaned                                               |            |
+| Cleaning        | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom        | Check last time filesystems have been cleaned                                               |            |
 | Filesystems     | HW-Storage-EMC-DataDomain-Filesystems-SNMP-custom     | Check filesystems                                                                          | X          |
-| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Check all hardware (fans, power supplies, temperatures, disks, nvram batteries) of storage |            |
+| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Check all storage hardware (fans, power supplies, temperatures, disks, nvram batteries) |            |
 | Mtrees          | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom          | Check MTrees                                                                               | X          |
 | Process         | HW-Storage-EMC-DataDomain-Process-SNMP-custom         | Check process status                                                                       |            |
 | Replications    | HW-Storage-EMC-DataDomain-Replications-SNMP-custom    | Check replications                                                                         | X          |
@@ -72,9 +72,9 @@ More information about discovering hosts automatically is available on the [dedi
 | Rule name                                   | Description                                               |
 |:--------------------------------------------|:----------------------------------------------------------|
 | HW-Storage-EMC-DataDomain-SNMP-Filesystems  | Discover the disk partitions and monitor space occupation |
-| HW-Storage-EMC-DataDomain-SNMP-Interfaces   | Discover the disk partitions and monitor space occupation |
-| HW-Storage-EMC-DataDomain-SNMP-Mtrees       | Discover the disk partitions and monitor space occupation |
-| HW-Storage-EMC-DataDomain-SNMP-Replications | Discover the disk partitions and monitor space occupation |
+| HW-Storage-EMC-DataDomain-SNMP-Interfaces   | Discover network interfaces and monitor bandwidth utilization |
+| HW-Storage-EMC-DataDomain-SNMP-Mtrees       | Discover the mtrees to monitor                                |
+| HW-Storage-EMC-DataDomain-SNMP-Replications | Discover the replications to monitor |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -325,7 +325,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 
 | Macro                 | Description                                                                                             | Default value                                           | Mandatory   |
 |:----------------------|:--------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| TRULYALERT            | Expression to define a truly alert (default: '%\{severity\} =~ /emergency\|alert\|warning\|critical/i') | %\{severity\} =~ /emergency\|alert\|warning\|critical/i |             |
+| TRULYALERT            | Expression to define an actual alert (default: '%\{severity\} =~ /emergency\|alert\|warning\|critical/i') | %\{severity\} =~ /emergency\|alert\|warning\|critical/i |             |
 | WARNINGALERTSCURRENT  | Threshold                                                                                               |                                                         |             |
 | CRITICALALERTSCURRENT | Threshold                                                                                               |                                                         |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).      |                                                         |             |
@@ -386,7 +386,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'psu', 'fan', 'disk', 'temperature', 'battery'   | temperature       |             |
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'psu', 'fan', 'disk', 'temperature', 'battery'   | psu       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -418,7 +418,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 
 | Macro           | Description                                                                                                               | Default value     | Mandatory   |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERMTREENAME | Check MTress by name                                                                                                      |                   |             |
+| FILTERMTREENAME | Check MTrees by name                                                                                                      |                   |             |
 | WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}  |                   |             |
 | CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\} |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                        |                   |             |
@@ -745,7 +745,7 @@ All available options for each service template are listed below:
 | Option                   | Description                                                                                                                                                             |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                                  |
-| --filter-mtree-name      |   Check MTress by name.                                                                                                                                                 |
+| --filter-mtree-name      |   Check MTrees by name.                                                                                                                                                 |
 | --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{status\}, %\{source\}, %\{destination\}, %\{type\}   |
 | --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                              |
 | --critical-status        |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                                             |
