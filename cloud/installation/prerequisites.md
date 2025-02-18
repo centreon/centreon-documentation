@@ -65,3 +65,17 @@ AWS provides a [list of their IP ranges](https://ip-ranges.amazonaws.com/ip-rang
 curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.ipv6_prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ipv6_prefix' 
 curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ip_prefix' 
 ```
+
+## Allowing traffic to/from FQDN
+
+If opening traffic to IP addresses is not suitable for you, it is also possible to open routes based on FQDN. The FQDN that should be authorized are the following:
+
+On poller network:
+- api.euwest1.prod1.centreon.cloud
+- api.a.prod.mycentreon.com
+- broker-centreon-${CLOUD_ORG}.euwest1.centreon.cloud
+- gorgone-centreon-${CLOUD_ORG}.euwest1.centreon.cloud
+
+On user browser network:
+- https://${CLOUD_ORG}.euwest1.centreon.cloud/centreon/login
+
