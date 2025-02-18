@@ -72,8 +72,8 @@ s'il n'est pas possible pour vous de faire du filtrage sur les adresseS IP, vous
 Sur le réseau de collecteurs :
 - api.euwest1.prod1.centreon.cloud
 - api.a.prod.mycentreon.com
-- broker-centreon-${CLOUD_ORG}.euwest1.centreon.cloud
-- gorgone-centreon-${CLOUD_ORG}.euwest1.centreon.cloud
+- broker-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
+- gorgone-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
 
 Sur le réseau du navigateur de l'utilisateur :
 - https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/centreon/login

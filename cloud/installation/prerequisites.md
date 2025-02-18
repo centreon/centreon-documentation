@@ -72,8 +72,8 @@ If opening traffic to IP addresses is not suitable for you, it is also possible 
 On poller network:
 - api.euwest1.prod1.centreon.cloud
 - api.a.prod.mycentreon.com
-- broker-centreon-${CLOUD_ORG}.euwest1.centreon.cloud
-- gorgone-centreon-${CLOUD_ORG}.euwest1.centreon.cloud
+- broker-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
+- gorgone-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
 
 On user browser network:
 - https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/centreon/login
