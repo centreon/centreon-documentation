@@ -12,7 +12,7 @@ est dédiée à la ressource jusqu’à ce que vous annuliez son attribution. Un
 Le connecteur de supervision Centreon *Azure Public IP* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Public IP. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure Public IP**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
