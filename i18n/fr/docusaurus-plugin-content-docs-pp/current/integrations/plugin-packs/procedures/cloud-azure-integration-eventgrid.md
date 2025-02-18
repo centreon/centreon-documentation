@@ -17,7 +17,7 @@ Le connecteur de supervision Centreon *Azure Event Grid* s'appuie sur les API Az
 afin de récuperer les métriques relatives au service Event Grid. Il est possible
 d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure Event Grid**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
