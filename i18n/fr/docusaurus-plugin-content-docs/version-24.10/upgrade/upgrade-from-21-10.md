@@ -103,7 +103,7 @@ dnf module install php:remi-8.2
 
 1. Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
 
-2. Si vous avez des extensions Business installées, éliminez la configuration du dépôt 21.10 :
+2. Si vous avez des extensions Business installées, supprimez la configuration du dépôt 21.10 :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -310,7 +310,7 @@ accéder à la page de connexion :
 
 > La présentation de l'interface ayant été modifiée dans la version 22.10, vous devez vider le cache de votre navigateur pour afficher le nouveau thème.
 
-Référez-vous à la documentation de mise à jour pour [Centreon BAM](../service-mapping/upgrade.md), [Centreon MBI](../reporting/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md) pour mettre à jour ces modules.
+Référez-vous à la documentation de mise à jour pour [Centreon BAM](../service-mapping/update.md), [Centreon MBI](../reporting/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md) pour mettre à jour ces modules.
 
 ### Actions post montée de version
 

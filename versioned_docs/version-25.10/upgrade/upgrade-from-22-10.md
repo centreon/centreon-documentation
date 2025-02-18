@@ -134,7 +134,7 @@ systemctl disable php8.1-fpm
 
 1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
 
-2. If you have installed Business extensions, delete the configuration of repository 22.10 : 
+2. If you have installed Business extensions, delete the configuration of the 22.10 repository: 
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
