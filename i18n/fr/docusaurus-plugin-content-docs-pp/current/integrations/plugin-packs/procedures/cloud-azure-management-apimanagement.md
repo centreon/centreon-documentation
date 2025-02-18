@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 Azure API Management (Gestion des API) permet de créer, gérer et publier des API pour
 des services back-ends existants.
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure API Management**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
