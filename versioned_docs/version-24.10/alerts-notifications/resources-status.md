@@ -219,7 +219,7 @@ Use the **Filter options** icon next to the search bar to:
     applied
 
 Once a filter is saved, it can be reused from the Filter dropdown list,
-categorized under **My Filter** and you'll be able to use the **Edit filters** icon to manage your existing filters (rename, re-order and delete).
+categorized under **My Filters** and you'll be able to use the **Manage filters** icon to manage your existing filters (rename, re-order and delete them).
 
 ## Detail panel
 
