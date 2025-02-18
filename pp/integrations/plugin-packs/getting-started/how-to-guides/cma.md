@@ -82,11 +82,11 @@ On your central server:
 
 <PollerAgentConfiguration />
 
-2. If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), enable **Connection initiated by poller**. Then, in **Host configurations**, define all the hosts on which the agent will be installed. Here the certificates are optional, but if you use them, store them in the **/etc/pki/** directory of the poller.
+5. If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), enable **Connection initiated by poller**. Then, in **Host configurations**, define all the hosts on which the agent will be installed. Here the certificates are optional, but if you use them, store them in the **/etc/pki/** directory of the poller.
 > If you configure several pollers at once, make sure all certificate files have the same name.
 
-3. Deploy the configuration.
-4. Restart the monitoring engine:
+6. Deploy the configuration.
+7. Restart the monitoring engine:
 
    ```bash
    systemctl restart centengine
@@ -133,7 +133,7 @@ echo "deb https://packages.centreon.com/apt-standard-24.10-stable $(lsb_release 
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
-Then, import repository key :
+Then, import the repository key :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
@@ -257,11 +257,11 @@ systemctl status centagent
 <TabItem value="Interactive mode" label="Interactive mode">
 
 1. Start the installer (during the configuration, you can click on the (i) icons for help).
-   If you choose to install centreon-plugins, installer will try to download and install latest version of centreon plugins. If he can't (no web connection, network issue..), a popup is displayed to ask confirmation before using embedded plugins
-  * Is yes : they are installed
-  * If no : no plugins are installed
+   If you choose to install centreon-plugins, the installer will try to download and install the latest version of the Centreon plugins. If it can't (no web connection, network issue...), a popup is displayed to ask confirmation before using embedded plugins.
+  * If yes: the plugins are installed
+  * If no: no plugins are installed
   
-  Results are displayed in installer detail frame.
+  Results are displayed in the installer's window.
    
 2. Configure the endpoint and the connection:
    * **Host name in Centreon**. This must be the host name you have defined in the Centreon interface.
@@ -269,8 +269,8 @@ systemctl status centagent
    * In case of a poller-initiated connection (the poller connects to the agent), you have to choose a host interface (0.0.0.0 for all interfaces) and the listening port on which poller will connect, usually 4317.
 
 3. Configure logging options. You can configure two kinds of log output:
-* File: the CMA logs into a file
-* EventLog: the CMA logs in the [event logs page](/docs/alerts-notifications/event-log).
+* file: the CMA logs into a file
+* eventlog: the CMA logs in the [event logs page](/docs/alerts-notifications/event-log)
 
 If you choose to log into a file, log rotation can be customized using the **Max File Size** and **Max number of files** options.
 
@@ -281,14 +281,15 @@ Encryption is activated by default. In case of a **Poller-initiated connection**
 
 <TabItem value="Silent mode" label="Silent mode (console)">
 
-In this mode no UI is started. As this installer is not a console program, it returns immediately despite he hasn't finished. You have to wait for message telling that all is finished.
-If you need to have exit status, you can launch it in a powershell session and wait for exit code. Exit code will be 0 if all isright
+In this mode, there is no interface. As this installer is not a console program, it returns immediately despite not 
+ having finished. You have to wait for a message telling you that all is finished.
+If you wnat to have an exit status, you can launch the installer in a powershell session and wait for the exit code. The exit code will be 0 if all is right.
 
 | flag                       | description                                                                                                                                                                                                                                                               |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| --install_cma              | Set this flag if you want to install centreon monitoring agent                                                                                                                                                                                                            |
-| --install_plugins          | Set this flag if you want to install latest version of centreon plugins that will be downloaded and installed                                                                                                                                                             |
-| --install_embedded_plugins | Set this flag if you want to install centreon plugins embedded in the installer (case of a host that can access to the web)                                                                                                                                               |
+| --install_cma              | Set this flag if you want to install the Centreon Monitoring Agent                                                                                                                                                                                                            |
+| --install_plugins          | Set this flag if you want to download and install the latest version of Centreon plugins                                                                                                                                                            |
+| --install_embedded_plugins | Set this flag if you want to install Centreon plugins embedded in the installer (case of a host that cannot access the internet)                                                                                                                                               |
 | --hostname                 | The name of the host as defined in the Centreon interface.                                                                                                                                                                                                                |
 | --endpoint                 | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode, it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) |
 | --reverse                  | Add this flag for Poller-initiated connection mode.                                                                                                                                                                                                                       |
@@ -301,10 +302,11 @@ If you need to have exit status, you can launch it in a powershell session and w
 | --private_key              | Private key file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                                |
 | --public_cert              | Public certificate file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                         |
 | --ca                       | Trusted CA's certificate file path.                                                                                                                                                                                                                                       |
-| --ca_name                  | Expected TLS certificate common name (CN). Don't use it if unsure.                                                                                                                                                                                                        |
+| --ca_name                  | Expected TLS certificate common name (CN).                                                                                                           |
 | --reverse                  | Add this flag to make the agent accept connections from poller (agent in DMZ for example).                                                                                                                                                                                |
 </TabItem>
 </Tabs>
+
 Allowed log levels are:
 * off: no logs
 * critical: critical errors
