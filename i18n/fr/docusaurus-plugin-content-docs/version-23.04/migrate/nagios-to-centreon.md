@@ -17,8 +17,7 @@ Avant toute chose vous devez avoir une plate-forme Centreon installée et prête
 l'emploi. Se référer à la documentation
 [d'installation de Centreon](../installation/installation-of-a-central-server/using-packages.md).
 
-Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
-des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
+Avant toute chose, effectuez une sauvegarde de l’ensemble des serveurs de votre plateforme :
 
 - Serveur Centreon central,
 - Serveur de gestion de base de données.

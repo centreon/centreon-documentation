@@ -17,8 +17,7 @@ et disposant des prérequis suivants :
 | Centreon Broker | 3.0.x   |
 | Centreon Engine | 1.8.x   |
 
-Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
-des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
+Avant toute chose, effectuez une sauvegarde de l’ensemble des serveurs de votre plateforme :
 
 - Serveur Centreon central,
 - Serveur de gestion de base de données.

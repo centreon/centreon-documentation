@@ -15,8 +15,7 @@ Tous les serveurs de votre architecture (serveur central, serveurs distants et c
 > Centreon, il est nécessaire de contacter le
 > [support Centreon](https://support.centreon.com).
 
-Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
-des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
+Avant toute chose, effectuez une sauvegarde de l’ensemble des serveurs de votre plateforme :
 
 - Serveur Centreon central,
 - Serveur de gestion de base de données.
