@@ -29,8 +29,7 @@ There are different types of optional event handlers that you can define to hand
 * Host-specific event handlers
 * Service-specific event handlers
 
-Global host and service event handlers are run for every host or service state change that occurs, immediately prior to
-any host- or service-specific event handler that may be run.
+Global host and service event handlers are executed for every host or service state change that occurs, right before any host- or service-specific event handler is triggered.
 
 ### Enabling Event Handlers
 
