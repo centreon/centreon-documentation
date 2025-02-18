@@ -45,9 +45,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                                    | Description                                                                         |
 |:---------------------------------------------------|:------------------------------------------------------------------------------------|
-| HW-Storage-EMC-Unisphere-Restapi-Pools             | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
-| HW-Storage-EMC-Unisphere-Restapi-Replications      | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
-| HW-Storage-EMC-Unisphere-Restapi-Storage-Resources | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
+| HW-Storage-EMC-Unisphere-Restapi-Pools             | Découvre les pools et les supervise |
+| HW-Storage-EMC-Unisphere-Restapi-Replications      | Découvre les réplications et supervise leurs statuts |
+| HW-Storage-EMC-Unisphere-Restapi-Storage-Resources | Découvre les ressources de stockage et les supervise |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).

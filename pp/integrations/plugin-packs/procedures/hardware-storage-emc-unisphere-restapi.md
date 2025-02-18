@@ -44,9 +44,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                                          | Description                                               |
 |:---------------------------------------------------|:----------------------------------------------------------|
-| HW-Storage-EMC-Unisphere-Restapi-Pools             | Discover the disk partitions and monitor space occupation |
-| HW-Storage-EMC-Unisphere-Restapi-Replications      | Discover the disk partitions and monitor space occupation |
-| HW-Storage-EMC-Unisphere-Restapi-Storage-Resources | Discover the disk partitions and monitor space occupation |
+| HW-Storage-EMC-Unisphere-Restapi-Pools             | Discover pools and monitor them |
+| HW-Storage-EMC-Unisphere-Restapi-Replications      | Discover replication resources and monitor their status |
+| HW-Storage-EMC-Unisphere-Restapi-Storage-Resources | Discover storage resources and monitor them |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
