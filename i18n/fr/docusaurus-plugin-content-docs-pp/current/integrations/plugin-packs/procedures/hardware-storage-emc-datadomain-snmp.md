@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-emc-datadomain-snmp
-title: EMC Data Domain
+title: EMC Data Domain SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -252,7 +252,7 @@ yum install centreon-pack-hardware-storage-emc-datadomain-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **EMC Data Domain SNMP**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur ** SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
