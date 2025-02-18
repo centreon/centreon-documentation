@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 Azure Applications Insights étend les fonction d'Azure Monitor permettant de
 superviser des applications en temps réel.
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure Application Insights**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
