@@ -16,7 +16,6 @@ Les plugins Centreon comme les plugins personnalisés basés sur Nagios sont com
 L'Agent de supervision Centreon est en phase Beta. Les limitations suivantes s'appliquent : 
 
 * Le périmètre de supervision supporté est limité, de nouveaux contrôles (natifs) seront apportés dans la version définitive.
-* Une configuration manuelle est à réaliser. Dans la version définitive, celle-ci sera possible via l'interface utilisateur, et largement automatisée.
 
 ### OS supportés
 
@@ -83,7 +82,7 @@ Sur votre serveur central :
 
 <PollerAgentConfiguration />
 
-2. Si l'agent n'est pas autorisé à se connecter au collecteur pour des raisons de sécurité (par exemple lorsque le collecteur est situé dans une DMZ), activez l'option **Connection initiée par le collecteur**. Puis, dans la section **Configuration des hôtes**, définissez tous les hôtes sur lesquels l'agent sera installé. Ici, les certificats sont optionnels, mais si vous les utilisez, mettez-les dans le répertoire **/etc/pki/** du collecteur.
+5. Si l'agent n'est pas autorisé à se connecter au collecteur pour des raisons de sécurité (par exemple lorsque le collecteur est situé dans une DMZ), activez l'option **Connection initiée par le collecteur**. Puis, dans la section **Configuration des hôtes**, définissez tous les hôtes sur lesquels l'agent sera installé. Ici, les certificats sont optionnels, mais si vous les utilisez, mettez-les dans le répertoire **/etc/pki/** du collecteur.
 > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
 
 3. Exportez la configuration.
