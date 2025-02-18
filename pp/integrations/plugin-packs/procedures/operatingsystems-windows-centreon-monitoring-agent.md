@@ -25,10 +25,12 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                                           | Service Description                                                                                                                                  |
 |:---------------|:-----------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| CMA-Health     | OS-Windows-Health-Centreon-Monitoring-Agent-custom         | Check Centreon monitoring agent health                                                                                                               |
 | CPU            | OS-Windows-CPU-Centreon-Monitoring-Agent-custom            | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
 | Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Check the rate of the utilization of memory                                                                                                          |
 | Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Check the synchronization with a NTP server.                                                                                                         |
 | Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Check if Windows needs rebooting.                                                                                                                    |
+| Services-Auto  | OS-Windows-Services-Auto-Centreon-Monitoring-Agent-custom  | CCheck if all auto-start Windows services are running                                                                                                |
 | Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Check the number of active sessions.                                                                                                                 |
 | Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Check virtual memory usage                                                                                                                           |
 | Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Check if there are pending updates.                                                                                                                  |
@@ -43,6 +45,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Certificates  | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom | Check the local certificates.                                                                                                                                 |
 | CPU-detailed  | OS-Windows-CPU-detailed-Centreon-Monitoring-Agent-custom | Check the detailed rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
+| Services      | OS-Windows-Services-Centreon-Monitoring-Agent-custom     | Check Windows services states                                                                                                                                   |
 | Storage       | OS-Windows-Storage-Centreon-Monitoring-Agent-custom      | Check storage usages                                                                                                                                          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
@@ -65,23 +68,23 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="CPU" label="CPU">
 
-| Metric                                       | Unit  |
-|:---------------------------------------------|:------|
-| *core_index*#core.cpu.utilization.percentage | %     |
-| user#cpu.utilization.percentage              | %     |
+| Metric                                       | Unit |
+|:---------------------------------------------|:-----|
+| *core_index*#core.cpu.utilization.percentage | %    |
+| user#cpu.utilization.percentage              | %    |
 
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
 
 | Metric                                                      | Unit |
 |:------------------------------------------------------------|:-----|
-| *core_index*\~user#core.cpu.utilization.percentage          | %     |
-| user#cpu.utilization.percentage                             | %     |
- | *core_index*\~system#core.cpu.utilization.percentage        | %     |
- | *core_index*\~idle#core.cpu.utilization.percentage          | %     |
- | *core_index*\~interrupt#core.cpu.utilization.percentage     | %     |
- | *core_index*\~dpc_interrupt#core.cpu.utilization.percentage | %     |
- | *core_index*\~used#core.cpu.utilization.percentage          | %     |
+| *core_index*\~user#core.cpu.utilization.percentage          | %    |
+| user#cpu.utilization.percentage                             | %    |
+ | *core_index*\~system#core.cpu.utilization.percentage        | %    |
+ | *core_index*\~idle#core.cpu.utilization.percentage          | %    |
+ | *core_index*\~interrupt#core.cpu.utilization.percentage     | %    |
+ | *core_index*\~dpc_interrupt#core.cpu.utilization.percentage | %    |
+ | *core_index*\~used#core.cpu.utilization.percentage          | %    |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -128,14 +131,14 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Metric                  | Unit  |
-|:------------------------|:------|
-| memory.usage.bytes      | B     |
-| memory.free.bytes       | B     |
-| memory.usage.percentage | %     |
-| swap.usage.bytes        | B     |
-| swap.free.bytes         | B     |
-| swap.usage.percentage   | %     |
+| Metric                  | Unit |
+|:------------------------|:-----|
+| memory.usage.bytes      | B    |
+| memory.free.bytes       | B    |
+| memory.usage.percentage | %    |
+| swap.usage.bytes        | B    |
+| swap.free.bytes         | B    |
+| swap.usage.percentage   | %    |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
@@ -280,46 +283,55 @@ This connector relies on an integration supported by Centreon Engine and does no
 | EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                    |               |           |
 
 </TabItem>
+<TabItem value="CMA-Health" label="CMA-Health">
+
+| Macro            | Description                                                                 | Default value | Mandatory |
+|:-----------------|:----------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGRUNTIME   | Warning threshold on runtime (duration of all checks)                       |               |           |
+| CRITICALRUNTIME  | Critical threshold on runtime (duration of all checks)                      |               |           |
+| WARNINGINTERVAL  | Warning threshold on interval (time between two execution of a same check)  |               |           |
+| CRITICALINTERVAL | Critical threshold on interval (time between two execution of a same check) |               |           |
+</TabItem>
 <TabItem value="CPU" label="CPU">
 
-| Macro           | Description                                                                                                                              | Default value | Mandatory |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGCORE     | Threshold for warning status on core usage in percentage                                                                                 |               |           |
-| CRITICALCORE    | Threshold for critical status on core usage in percentage                                                                                |               |           |
-| WARNINGAVERAGE  | Threshold for warning status on average usage in percentage                                                                              |               |           |
-| CRITICALAVERAGE | Threshold for critical status on average usage in percentage                                                                             |               |           |
+| Macro           | Description                                                  | Default value | Mandatory |
+|:----------------|:-------------------------------------------------------------|:--------------|:---------:|
+| WARNINGCORE     | Threshold for warning status on core usage in percentage     |               |           |
+| CRITICALCORE    | Threshold for critical status on core usage in percentage    |               |           |
+| WARNINGAVERAGE  | Threshold for warning status on average usage in percentage  |               |           |
+| CRITICALAVERAGE | Threshold for critical status on average usage in percentage |               |           |
 
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
 
-| Macro                 | Description                                                                                                                              | Default value | Mandatory |
-|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGCORE           | Threshold for warning status on core usage in percentage                                                                                 |               |           |
-| CRITICALCORE          | Threshold for critical status on core usage in percentage                                                                                |               |           |
-| WARNINGAVERAGE        | Threshold for warning status on average usage in percentage                                                                              |               |           |
-| CRITICALAVERAGE       | Threshold for critical status on average usage in percentage                                                                             |               |           |
-| WARNINGCOREUSER       | Threshold for warning status on core user usage in percentage                                                                            |               |           |
-| CRITICALCOREUSER      | Threshold for critical status on core user usage in percentage                                                                           |               |           |
-| WARNINGAVERAGEUSER    | Threshold for warning status on average user usage in percentage                                                                         |               |           |
-| CRITICALAVERAGEUSER   | Threshold for critical status on average user usage in percentage                                                                        |               |           |
-| WARNINGCORESYSTEM     | Threshold for warning status on core system usage in percentage                                                                          |               |           |
-| CRITICALCORESYSTEM    | Threshold for critical status on core system usage in percentage                                                                         |               |           |
-| WARNINGAVERAGESYSTEM  | Threshold for warning status on average system usage in percentage                                                                       |               |           |
-| CRITICALAVERAGESYSTEM | Threshold for critical status on average system usage in percentage                                                                      |               |           |
+| Macro                 | Description                                                         | Default value | Mandatory |
+|:----------------------|:--------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGCORE           | Threshold for warning status on core usage in percentage            |               |           |
+| CRITICALCORE          | Threshold for critical status on core usage in percentage           |               |           |
+| WARNINGAVERAGE        | Threshold for warning status on average usage in percentage         |               |           |
+| CRITICALAVERAGE       | Threshold for critical status on average usage in percentage        |               |           |
+| WARNINGCOREUSER       | Threshold for warning status on core user usage in percentage       |               |           |
+| CRITICALCOREUSER      | Threshold for critical status on core user usage in percentage      |               |           |
+| WARNINGAVERAGEUSER    | Threshold for warning status on average user usage in percentage    |               |           |
+| CRITICALAVERAGEUSER   | Threshold for critical status on average user usage in percentage   |               |           |
+| WARNINGCORESYSTEM     | Threshold for warning status on core system usage in percentage     |               |           |
+| CRITICALCORESYSTEM    | Threshold for critical status on core system usage in percentage    |               |           |
+| WARNINGAVERAGESYSTEM  | Threshold for warning status on average system usage in percentage  |               |           |
+| CRITICALAVERAGESYSTEM | Threshold for critical status on average system usage in percentage |               |           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro                 | Description                                                                                                                              | Default value | Mandatory |
-|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGUSAGE          | Threshold for warning status on physical memory usage in bytes                                                                           |               |           |
-| CRITICALUSAGE         | Threshold for critical status on physical memory usage in bytes                                                                          |               |           |
-| WARNINGUSAGEFREE      | Threshold for warning status on free physical memory in bytes                                                                            |               |           |
-| CRITICALUSAGEFREE     | Threshold for critical status on free physical memory in bytes                                                                           |               |           |
-| WARNINGUSAGEPRCT      | Threshold for warning status on physical memory usage in percentage                                                                      |               |           |
-| CRITICALUSAGEPRCT     | Threshold for critical status on physical memory usage in percentage                                                                     |               |           |
-| WARNINGUSAGEFREEPRCT  | Threshold for warning status on free physical memory in percentage                                                                       |               |           |
-| CRITICALUSAGEFREEPRCT | Threshold for critical status on free physical memory in percentage                                                                      |               |           |
+| Macro                 | Description                                                          | Default value | Mandatory |
+|:----------------------|:---------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGUSAGE          | Threshold for warning status on physical memory usage in bytes       |               |           |
+| CRITICALUSAGE         | Threshold for critical status on physical memory usage in bytes      |               |           |
+| WARNINGUSAGEFREE      | Threshold for warning status on free physical memory in bytes        |               |           |
+| CRITICALUSAGEFREE     | Threshold for critical status on free physical memory in bytes       |               |           |
+| WARNINGUSAGEPRCT      | Threshold for warning status on physical memory usage in percentage  |               |           |
+| CRITICALUSAGEPRCT     | Threshold for critical status on physical memory usage in percentage |               |           |
+| WARNINGUSAGEFREEPRCT  | Threshold for warning status on free physical memory in percentage   |               |           |
+| CRITICALUSAGEFREEPRCT | Threshold for critical status on free physical memory in percentage  |               |           |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
@@ -336,12 +348,50 @@ This connector relies on an integration supported by Centreon Engine and does no
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
 
-| Macro          | Description                                                                                                                                                                                                                                              | Default value                 | Mandatory |
-|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\} | `%{RebootPending} =~ /true/i` |           |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}                           |                               |           |
-| TIMEOUT        | Set timeout time for command execution                                                                                                                                                                                                | 10                            |           |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                           |                               |           |
+| Macro          | Description                                                                                                                                                                                                                  | Default value                 | Mandatory |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}  | `%{RebootPending} =~ /true/i` |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\} |                               |           |
+| TIMEOUT        | Set timeout time for command execution                                                                                                                                                                                       | 10                            |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                               |                               |           |
+
+</TabItem>
+<TabItem value="Services" label="Services">
+
+| Macro                | Description                                                                                                                                                    | Default value | Mandatory |
+|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| STARTAUTO            | If set true, activate a filter on services load automatically                                                                                                  | false         |           |
+| FILTERNAME           | Filter by service name (can be a regexp)                                                                                                                       | .*            |           |
+| EXCLUDENAME          | A list of services to ignore (can be a regexp)                                                                                                                 |               |           |
+| WARNINGSTATUS        | Regex to match service state that will trigger a warning (states are: stopped, start-pending, stop-pending, running, continue-pending, pause-pending, paused)  |               |           |
+| CRITICALSTATUS       | Regex to match service state that will trigger a critical (states are: stopped, start-pending, stop-pending, running, continue-pending, pause-pending, paused) |               |           |
+| WARNINGTOTALRUNNING  | Warning threshold on total-running                                                                                                                             |               |           |
+| CRITICALTOTALRUNNING | Critical threshold on total-running                                                                                                                            |               |           |
+| WARNINGTOTALDEAD     | Warning threshold on total-dead                                                                                                                                |               |           |
+| CRITICALTOTALDEAD    | Critical threshold on total-dead                                                                                                                               |               |           |
+| WARNINGTOTALEXITED   | Warning threshold on total-exited                                                                                                                              |               |           |
+| CRITICALTOTALEXITED  | Critical threshold on total-exited                                                                                                                             |               |           |
+| WARNINGTOTALFAILED   | Warning threshold on total-failed                                                                                                                              |               |           |
+| CRITICALTOTALFAILED  | Critical threshold on total-failed                                                                                                                             |               |           |
+
+</TabItem>
+<TabItem value="Services-Auto" label="Services-Auto">
+
+| Macro                | Description                                                                                                                                                    | Default value | Mandatory |
+|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| STARTAUTO            | If set true, activate a filter on services load automatically                                                                                                  | true          |           |
+| FILTERNAME           | Filter by service name (can be a regexp)                                                                                                                       | .*            |           |
+| EXCLUDENAME          | A list of services to ignore (can be a regexp)                                                                                                                 |               |           |
+| WARNINGSTATUS        | Regex to match service state that will trigger a warning (states are: stopped, start-pending, stop-pending, running, continue-pending, pause-pending, paused)  |               |           |
+| CRITICALSTATUS       | Regex to match service state that will trigger a critical (states are: stopped, start-pending, stop-pending, running, continue-pending, pause-pending, paused) |               |           |
+| WARNINGTOTALRUNNING  | Warning threshold on total-running                                                                                                                             |               |           |
+| CRITICALTOTALRUNNING | Critical threshold on total-running                                                                                                                            |               |           |
+| WARNINGTOTALDEAD     | Warning threshold on total-dead                                                                                                                                |               |           |
+| CRITICALTOTALDEAD    | Critical threshold on total-dead                                                                                                                               |               |           |
+| WARNINGTOTALEXITED   | Warning threshold on total-exited                                                                                                                              |               |           |
+| CRITICALTOTALEXITED  | Critical threshold on total-exited                                                                                                                             |               |           |
+| WARNINGTOTALFAILED   | Warning threshold on total-failed                                                                                                                              |               |           |
+| CRITICALTOTALFAILED  | Critical threshold on total-failed                                                                                                                             |               |           |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
@@ -360,7 +410,7 @@ This connector relies on an integration supported by Centreon Engine and does no
 | CRITICALSESSIONSRECONNECTED         | Thresholds.                                                                                                                                          |               |           |
 | WARNINGSESSIONSDISCONNECTEDCURRENT  | Thresholds.                                                                                                                                          |               |           |
 | CRITICALSESSIONSDISCONNECTEDCURRENT | Thresholds.                                                                                                                                          |               |           |
-| TIMEOUT                             | Timeout in seconds for the command                                                                                                  | 10            |           |
+| TIMEOUT                             | Timeout in seconds for the command                                                                                                                   | 10            |           |
 | EXTRAOPTIONS                        | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                       |               |           |
 
 </TabItem>
@@ -376,16 +426,16 @@ This connector relies on an integration supported by Centreon Engine and does no
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Macro                | Description                                                                                                                              | Default value | Mandatory |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGSWAP          | Threshold for warning status on swap memory usage in bytes                                                                               |               |           |
-| CRITICALSWAP         | Threshold for critical status on swap memory usage in bytes                                                                              |               |           |
-| WARNINGSWAPFREE      | Threshold for warning status on free swap memory in bytes                                                                                |               |           |
-| CRITICALSWAPFREE     | Threshold for critical status on free swap memory in bytes                                                                               |               |           |
-| WARNINGSWAPPRCT      | Threshold for warning status on swap memory usage in percentage                                                                          |               |           |
-| CRITICALSWAPPRCT     | Threshold for critical status on swap memory usage in percentage                                                                         |               |           |
-| WARNINGSWAPFREEPRCT  | Threshold for warning status on free swap memory in percentage                                                                           |               |           |
-| CRITICALSWAPFREEPRCT | Threshold for critical status on free swap memory in percentage                                                                          |               |           |
+| Macro                | Description                                                      | Default value | Mandatory |
+|:---------------------|:-----------------------------------------------------------------|:--------------|:---------:|
+| WARNINGSWAP          | Threshold for warning status on swap memory usage in bytes       |               |           |
+| CRITICALSWAP         | Threshold for critical status on swap memory usage in bytes      |               |           |
+| WARNINGSWAPFREE      | Threshold for warning status on free swap memory in bytes        |               |           |
+| CRITICALSWAPFREE     | Threshold for critical status on free swap memory in bytes       |               |           |
+| WARNINGSWAPPRCT      | Threshold for warning status on swap memory usage in percentage  |               |           |
+| CRITICALSWAPPRCT     | Threshold for critical status on swap memory usage in percentage |               |           |
+| WARNINGSWAPFREEPRCT  | Threshold for warning status on free swap memory in percentage   |               |           |
+| CRITICALSWAPFREEPRCT | Threshold for critical status on free swap memory in percentage  |               |           |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
@@ -400,10 +450,10 @@ This connector relies on an integration supported by Centreon Engine and does no
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro          | Description                                                                                                                              | Default value | Mandatory |
-|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state                                     | 3600          |           |
-| CRITICALUPTIME | Critical threshold                                                                                                                       |               | 600       |
+| Macro          | Description                                                                                          | Default value | Mandatory |
+|:---------------|:-----------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state | 3600          |           |
+| CRITICALUPTIME | Critical threshold                                                                                   | 600           |           |
 
 </TabItem>
 </Tabs>
