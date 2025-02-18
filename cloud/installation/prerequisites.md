@@ -76,5 +76,5 @@ On poller network:
 - gorgone-centreon-${CLOUD_ORG}.euwest1.centreon.cloud
 
 On user browser network:
-- https://${CLOUD_ORG}.euwest1.centreon.cloud/centreon/login
+- https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/centreon/login
 
