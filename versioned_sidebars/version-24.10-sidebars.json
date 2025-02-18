@@ -534,6 +534,10 @@
                 },
                 {
                   "type": "doc",
+                  "id": "integrations/notifications/sms-notifications"
+                },
+                {
+                  "type": "doc",
                   "id": "integrations/notifications/slack-notifications"
                 },
                 {
