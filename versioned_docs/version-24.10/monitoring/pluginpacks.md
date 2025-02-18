@@ -350,7 +350,7 @@ If host or service templates provided by the monitoring connector are used by a 
 
 ![image](../assets/configuration/pluginpacks/uninstall_pp_used.png)
 
-If the connector is used by a host or service, in order to uninstall it, you will need to:
+If the connector is used by a host or by a service, in order to uninstall it, you will need to:
 
 * either delete the hosts or services linked to the templates provided by this monitoring connector
 * or unlink hosts linked to templates provided by this monitoring connector (note that if this was the only host template applied to this host, it will no longer be monitored).
