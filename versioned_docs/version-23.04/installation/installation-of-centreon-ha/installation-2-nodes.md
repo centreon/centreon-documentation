@@ -17,7 +17,7 @@ Before applying this procedure, you should have a good knowledge of Linux OS, of
 
 ### Network Flows
 
-In addition of necessary flows describe on the [official documentation](../architectures.md#Tables_of_network_flows),
+In addition of necessary flows describe on the [official documentation](../architectures.md#tables-of-network-flows),
 you will need to open the following flows:
 
 | From                      | Destination               | Protocol | Port     | Application                                                                                |
