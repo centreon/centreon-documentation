@@ -17,7 +17,7 @@ autres pour offrir les avantages suivants :
 Le connecteur de supervision Centreon *Azure ServiceBus* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 ServiceBus. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure ServiceBus**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
