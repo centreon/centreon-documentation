@@ -344,20 +344,20 @@ Votre Plugin Pack est désinstallé.
 
 #### Gestion des dépendances
 
-Si des modèles d’hôtes ou de services fournis par le connecteur de supervision sont utilisés par un hôte, un service ou un modèle, le connecteur de supervision ne pourra pas être désinstallé. 
+Si des modèles d’hôtes ou de services fournis par le plugin pack sont utilisés par un hôte, un service ou un modèle, le plugin pack ne pourra pas être désinstallé. 
 
 ![image](../assets/configuration/pluginpacks/uninstall_pp_used.png)
 
-Si le connecteur est utilisé par un hôte ou un service, pour pouvoir le désinstaller, vous devrez :
+Si le plugin pack est utilisé par un hôte ou un service, pour pouvoir le désinstaller, vous devrez :
 
-* soit supprimer les hôtes ou services liés aux modèles fournis par ce connecteur de supervision
-* soit délier les hôtes liés aux modèles fournis par ce connecteur de supervision (attention, s'il s'agissait du seul modèle d'hôte appliqué à cet hôte, cela rendra celui-ci inutilisable).
+* soit supprimer les hôtes ou services liés aux modèles fournis par ce plugin pack
+* soit délier les hôtes liés aux modèles fournis par ce plugin pack (attention, s'il s'agissait du seul modèle d'hôte appliqué à cet hôte, cela rendra celui-ci inutilisable).
 
-Si un modèle fourni par le connecteur est utilisé par autre modèle, vous devrez supprimer le lien entre modèles avant de pouvoir supprimer le connecteur, même si l'autre modèle n'est utilisé par aucun hôte ou service.
+Si un modèle fourni par le plugin pack est utilisé par autre modèle, vous devrez supprimer le lien entre modèles avant de pouvoir supprimer le plugin pack, même si l'autre modèle n'est utilisé par aucun hôte ou service.
 
-De plus, si vous tentez de désinstaller un connecteur dont un autre connecteur dépend, la désinstallation ne pourra être faite que
-si et seulement si les deux connecteurs ne sont pas utilisés. 
-Exemple : le connecteur **Centreon central** utilise en dépendance le connecteur **Linux SNMP**. (Le connecteur **Centreon Central** dépend du connecteur **Linux SNMP**.)
+De plus, si vous tentez de désinstaller un plugin pack dont un autre plugin pack dépend, la désinstallation ne pourra être faite que
+si et seulement si les deux plugin packs ne sont pas utilisés. 
+Exemple : le plugin pack **Centreon central** utilise en dépendance le plugin pack **Linux SNMP**. (Le plugin pack **Centreon Central** dépend du plugin pack **Linux SNMP**.)
 
-* Si vous tentez de désinstaller le connecteur **Linux SNMP**, une erreur vous signalera que celui-ci est utilisé par le connecteur **Centreon Central**.
-* Si ni le connecteur **Centreon Central** ni le connecteur **Linux SNMP** n'étaient utilisés, la désinstallation sera possible.
+* Si vous tentez de désinstaller le plugin pack **Linux SNMP**, une erreur vous signalera que celui-ci est utilisé par le plugin pack **Centreon Central**.
+* Si ni le plugin pack **Centreon Central** ni le plugin pack **Linux SNMP** n'étaient utilisés, la désinstallation sera possible.
