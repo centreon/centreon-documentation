@@ -76,5 +76,5 @@ Sur le réseau de collecteurs :
 - gorgone-centreon-${CLOUD_ORG}.euwest1.centreon.cloud
 
 Sur le réseau du navigateur de l'utilisateur :
-- https://${CLOUD_ORG}.euwest1.centreon.cloud/centreon/login
+- https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/centreon/login
 
