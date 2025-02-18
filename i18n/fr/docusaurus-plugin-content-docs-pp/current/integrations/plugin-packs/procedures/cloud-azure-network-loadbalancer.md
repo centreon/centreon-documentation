@@ -17,7 +17,7 @@ Le connecteur de supervision Centreon *Azure Load Balancer* s'appuie sur les API
 Load Balancer. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure Load Balancer**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
