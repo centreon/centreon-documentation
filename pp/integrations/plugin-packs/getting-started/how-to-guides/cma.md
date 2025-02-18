@@ -287,9 +287,9 @@ If you wnat to have an exit status, you can launch the installer in a powershell
 
 | flag                       | description                                                                                                                                                                                                                                                               |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| --install_cma              | Set this flag if you want to install the Centreon Monitoring Agent                                                                                                                                                                                                            |
-| --install_plugins          | Set this flag if you want to download and install the latest version of Centreon plugins                                                                                                                                                            |
-| --install_embedded_plugins | Set this flag if you want to install Centreon plugins embedded in the installer (case of a host that cannot access the internet)                                                                                                                                               |
+| --install_cma              | Set this flag if you want to install the Centreon Monitoring Agent                                                                                                                                                                                                        |
+| --install_plugins          | Set this flag if you want to download and install the latest version of Centreon plugins                                                                                                                                                                                  |
+| --install_embedded_plugins | Set this flag if you want to install Centreon plugins embedded in the installer (case of a host that cannot access the internet)                                                                                                                                          |
 | --hostname                 | The name of the host as defined in the Centreon interface.                                                                                                                                                                                                                |
 | --endpoint                 | IP address of DNS name of the poller the agent will connect to. In case of Poller-initiated connection mode, it is the interface and port on which the agent will accept connections from the poller. 0.0.0.0 means all interfaces. The format is (IP or DNS name):(port) |
 | --reverse                  | Add this flag for Poller-initiated connection mode.                                                                                                                                                                                                                       |
@@ -302,8 +302,10 @@ If you wnat to have an exit status, you can launch the installer in a powershell
 | --private_key              | Private key file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                                |
 | --public_cert              | Public certificate file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                         |
 | --ca                       | Trusted CA's certificate file path.                                                                                                                                                                                                                                       |
-| --ca_name                  | Expected TLS certificate common name (CN).                                                                                                           |
+| --ca_name                  | Expected TLS certificate common name (CN).                                                                                                                                                                                                                                |
 | --reverse                  | Add this flag to make the agent accept connections from poller (agent in DMZ for example).                                                                                                                                                                                |
+
+If you use --install_plugins option and plugins download fail, installer will install plugins embedded in the installer.
 </TabItem>
 </Tabs>
 
@@ -315,7 +317,17 @@ Allowed log levels are:
 * debug: more information about connections
 * trace: the most verbose trace level showing messages sent and received to the poller
 
-If encryption is activated but no **Poller-initiated connection**, the agent will use certificates stored in Windows Certificate Store to connect to poller.
+As far as encryption is concerned, several cases are possible:
+  * reverse (**Poller-initiated connection**): the agent accepts connections from the poller.
+    The agent needs a file containing the private key and a file containing the certificate (public key). 
+    Please note that the CN field in the certificate must match the name that will be used by the poller to connect to the host. For example, if you have entered **myhostname** in the CN, the poller must be able to connect to the host **myhostname** without using the IP address (a solution if **myhostname** is not in the DNS: add the IP myhostname mapping in the /etc/hosts file).
+  * not reverse: the agent connects to the poller
+    You have two solutions for the certificate:
+    * You have stored the poller's certificate in the Certificate Store, you have no file to fill in for the public key.
+    * Otherwise, you need to provide the path to the file containing the public key of the poller's opentelemetry server.
+    As with reverse mode, the DNS name that the agent will use to connect to the poller must be identical to the CN of the certificate.
+    If this is not possible, you can add an IP collector_host_name mapping in the C:\Windows\System32\drivers\etc\hosts file.
+
 
 </TabItem>
 </Tabs>
