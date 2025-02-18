@@ -11,7 +11,7 @@ Le Pack Centreon *Azure InsightsMetrics* permet de superviser des métriques add
 elle se base sur l'API *LogAnalytics* d'Azure et exécutes des requêtes KustoQL sur la base de données InsightsMetrics.
 Ce Pack permet par exemple de récupérer et de superviser les indicateurs système (CPU, mémoire, disques...) de Virtual Machines directement sur Azure.
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure InsightsMetrics**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
