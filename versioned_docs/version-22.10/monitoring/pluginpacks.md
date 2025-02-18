@@ -342,20 +342,20 @@ Your Plugin Pack is now uninstalled.
 
 #### Managing dependencies
 
-If host or service templates provided by the monitoring connector are used by a host, service or template, the monitoring connector cannot be uninstalled.
+If host or service templates provided by the plugin pack are used by a host, service or template, the plugin pack cannot be uninstalled.
 
 ![image](../assets/configuration/pluginpacks/uninstall_pp_used.png)
 
-If the connector is used by a host or by a service, in order to uninstall it, you will need to:
+If the plugin pack is used by a host or by a service, in order to uninstall it, you will need to:
 
-* either delete the hosts or services linked to the templates provided by this monitoring connector
-* or unlink hosts linked to templates provided by this monitoring connector (note that if this was the only host template applied to this host, it will no longer be monitored).
+* either delete the hosts or services linked to the templates provided by this plugin pack
+* or unlink hosts linked to templates provided by this plugin pack (note that if this was the only host template applied to this host, it will no longer be monitored).
 
-If a template provided by the connector is used by another template, you will need to remove the link between templates before you can remove the connector, even if the other template is not used by any host or service.
+If a template provided by the plugin pack is used by another template, you will need to remove the link between templates before you can remove the plugin pack, even if the other template is not used by any host or service.
 
-Besides, if you try to uninstall a connector on which another connector depends, the uninstallation can only be performed if
-neither connector is in use. 
-Example: the **Centreon Central** connector uses the **Linux SNMP** connector as a dependency. (The **Centreon Central** connector depends on the **Linux SNMP** connector.)
+Besides, if you try to uninstall a plugin pack on which another plugin pack depends, the uninstallation can only be performed if
+neither plugin pack is in use. 
+Example: the **Centreon Central** plugin pack uses the **Linux SNMP** plugin pack as a dependency. (The **Centreon Central** plugin pack depends on the **Linux SNMP** plugin pack.)
 
-* If you attempt to uninstall the **Linux SNMP** connector, you will get an error indicating that it is being used by the **Centreon Central** connector.
-* If neither the **Centreon Central** nor the **Linux SNMP** connector are in use, uninstallation will be possible.
+* If you attempt to uninstall the **Linux SNMP** plugin pack, you will get an error indicating that it is being used by the **Centreon Central** plugin pack.
+* If neither the **Centreon Central** nor the **Linux SNMP** plugin pack are in use, uninstallation will be possible.
