@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-emc-datadomain-snmp
-title: EMC Data Domain
+title: EMC Data Domain SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
