@@ -98,16 +98,36 @@ Here is the list of services for this connector, detailing all metrics and statu
 | sure_backup.jobs.failed.count   | count |
 | sure_backup.jobs.warning.count  | count |
 | status                          | N/A   |
-| status                          | N/A   |
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+### Network flow
+
+Only one TCP flow must be open from the host to the poller.
+
+| Source         | Destination | Protocol | Port | Purpose                                          |
+|----------------|-------------|----------|------|--------------------------------------------------|
+| Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval OpenTelemetry data flow. |
+
+### System prerequisites on the poller
+
+> To be able to use the Centreon Monitoring agent, you must use a poller with at least version `24.09.0` for Centreon Cloud users and version `24.04.6` or `24.10.0` for On Prem users of `centreon-engine`. The Centreon Monitoring agent will configure itself by connecting to Centreon Engine.
+
+### Configure Engine
+
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma.md#configure-engine).
+
+### System prerequisites on the monitored host
+
+The installer can be downloaded from the [centreon-collect's releases page](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true).
+
+#### Installing the Centreon Monitoring Agent
+
+The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in 
+[this dedicated page](../getting-started/how-to-guides/cma.md#step-2-prepare-the-host).
 
 ## Installing the monitoring connector
 
@@ -209,25 +229,10 @@ yum install
 3. Apply the **App-Veeam-Centreon-Monitoring-Agent-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                | Description | Default value                     | Mandatory   |
-|:---------------------|:------------|:----------------------------------|:-----------:|
-| CENTREONAGENTPLUGINS |             | C:/Program Files/Centreon/Plugins |             |
-| SYSTEMLANGUAGE       |             | en                                |             |
-
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
-
-</TabItem>
-<TabItem value="generic-passive-host-custom" label="generic-passive-host-custom">
-
-1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **generic-passive-host-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
-4. Fill in the macros you want. Some macros are mandatory.
-
-| Macro       | Description | Default value     | Mandatory   |
-|:------------|:------------|:------------------|:-----------:|
-| DUMMYOUTPUT |             | Host is OK        |             |
-| DUMMYSTATUS |             | OK                |             |
+| Macro                | Description                                             | Default value                     | Mandatory  |
+|:---------------------|:--------------------------------------------------------|:----------------------------------|:----------:|
+| CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |     X      |
+| SYSTEMLANGUAGE       | Language installed on the Windows system                | en                                |            |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -242,105 +247,89 @@ yum install
 <Tabs groupId="sync">
 <TabItem value="Job-Status" label="Job-Status">
 
-| Macro           | Description                                                                                                                                                                                                                                    | Default value                                           | Mandatory   |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| FILTERENDTIME   | Filter job with end time greater than current time less value in seconds (default: 86400)                                                                                                                                                      | 86400                                                   |             |
-| FILTERNAME      | Filter job name (can be a regexp)                                                                                                                                                                                                              |                                                         |             |
-| FILTERSTARTTIME | Filter job with start time greater than current time less value in seconds                                                                                                                                                                     |                                                         |             |
-| FILTERCOUNTERS  | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                      |                                                         |             |
-| OKSTATUS        | Define the conditions to match for the status to be OK. You can use the following variables: %\{display\}, %\{status\}, %\{type\}, %\{is\_running\}, %\{scheduled\}                                                                            |                                                         |             |
-| WARNINGLONG     | Set warning threshold for long jobs. You can use the following variables:  %\{display\}, %\{status\}, %\{type\}, %\{elapsed\}                                                                                                                  |                                                         |             |
-| CRITICALLONG    | Set critical threshold for long jobs. You can use the following variables:  %\{display\}, %\{status\}, %\{type\}, %\{elapsed\}                                                                                                                 |                                                         |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%\{is\_running\} == 0 and not %\{status\} =~ /Success/i'). You can use the following variables: %\{display\}, %\{status\}, %\{type\}, %\{is\_running\}, %\{scheduled\} | %\{is\_running\} == 0 and not %\{status\} =~ /Success/i |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{status\}, %\{type\}, %\{is\_running\}, %\{scheduled\}                                                                       |                                                         |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                             | --verbose                                               |             |
+| Macro           | Description                                                                                                                                                               | Default value                                           | Mandatory   |
+|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
+| FILTERENDTIME   | Filter job with end time greater than current time less value in seconds                                                                                                  | 86400                                                   |             |
+| FILTERNAME      | Filter job name (can be a regexp)                                                                                                                                         |                                                         |             |
+| FILTERSTARTTIME | Filter job with start time greater than current time less value in seconds                                                                                                |                                                         |             |
+| FILTERCOUNTERS  | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                 |                                                         |             |
+| OKSTATUS        | Define the conditions to match for the status to be OK. You can use the following variables: %\{display\}, %\{status\}, %\{type\}, %\{is\_running\}, %\{scheduled\}       |                                                         |             |
+| WARNINGLONG     | Set warning threshold for long jobs. You can use the following variables:  %\{display\}, %\{status\}, %\{type\}, %\{elapsed\}                                             |                                                         |             |
+| CRITICALLONG    | Set critical threshold for long jobs. You can use the following variables:  %\{display\}, %\{status\}, %\{type\}, %\{elapsed\}                                            |                                                         |             |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{display\}, %\{status\}, %\{type\}, %\{is\_running\}, %\{scheduled\} | %\{is\_running\} == 0 and not %\{status\} =~ /Success/i |             |
+| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{status\}, %\{type\}, %\{is\_running\}, %\{scheduled\}  |                                                         |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                    | --verbose                                               |             |
 
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
 
-| Macro                             | Description                                                                                                                                                                        | Default value                      | Mandatory   |
-|:----------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:-----------:|
-| FILTERTO                          | Filter licenses by person/organization (can be a regexp)                                                                                                                           |                                    |             |
-| FILTERTYPE                        | Filter licenses by type (can be a regexp)                                                                                                                                          |                                    |             |
-| FILTERSTATUS                      | Filter licenses by status (can be a regexp)                                                                                                                                        |                                    |             |
-| UNIT                              | Select the time unit for the expiration thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds                        |                                    |             |
-| WARNINGEXPIRES                    | Threshold                                                                                                                                                                          |                                    |             |
-| CRITICALEXPIRES                   | Threshold                                                                                                                                                                          |                                    |             |
-| WARNINGLICENSEINSTANCESFREE       | Threshold                                                                                                                                                                          |                                    |             |
-| CRITICALLICENSEINSTANCESFREE      | Threshold                                                                                                                                                                          |                                    |             |
-| WARNINGLICENSEINSTANCESUSAGE      | Threshold                                                                                                                                                                          |                                    |             |
-| CRITICALLICENSEINSTANCESUSAGE     | Threshold                                                                                                                                                                          |                                    |             |
-| WARNINGLICENSEINSTANCESUSAGEPRCT  | Threshold                                                                                                                                                                          |                                    |             |
-| CRITICALLICENSEINSTANCESUSAGEPRCT | Threshold                                                                                                                                                                          |                                    |             |
-| CRITICALSTATUS                    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /expired\|invalid/i'). You can use the following variables: %\{to\}, %\{status\}, %\{type\} | %\{status\} =~ /expired\|invalid/i |             |
-| WARNINGSTATUS                     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{to\}, %\{status\}, %\{type\}                                                  |                                    |             |
-| WARNINGTOTAL                      | Threshold                                                                                                                                                                          |                                    |             |
-| CRITICALTOTAL                     | Threshold                                                                                                                                                                          |                                    |             |
-| EXTRAOPTIONS                      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                 | --verbose                          |             |
+| Macro                             | Description                                                                                                                                                 | Default value                      | Mandatory   |
+|:----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:-----------:|
+| FILTERTO                          | Filter licenses by person/organization (can be a regexp)                                                                                                    |                                    |             |
+| FILTERTYPE                        | Filter licenses by type (can be a regexp)                                                                                                                   |                                    |             |
+| FILTERSTATUS                      | Filter licenses by status (can be a regexp)                                                                                                                 |                                    |             |
+| UNIT                              | Select the time unit for the expiration thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds |                                    |             |
+| WARNINGEXPIRES                    | Threshold                                                                                                                                                   |                                    |             |
+| CRITICALEXPIRES                   | Threshold                                                                                                                                                   |                                    |             |
+| WARNINGLICENSEINSTANCESFREE       | Threshold                                                                                                                                                   |                                    |             |
+| CRITICALLICENSEINSTANCESFREE      | Threshold                                                                                                                                                   |                                    |             |
+| WARNINGLICENSEINSTANCESUSAGE      | Threshold                                                                                                                                                   |                                    |             |
+| CRITICALLICENSEINSTANCESUSAGE     | Threshold                                                                                                                                                   |                                    |             |
+| WARNINGLICENSEINSTANCESUSAGEPRCT  | Threshold                                                                                                                                                   |                                    |             |
+| CRITICALLICENSEINSTANCESUSAGEPRCT | Threshold                                                                                                                                                   |                                    |             |
+| CRITICALSTATUS                    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{to\}, %\{status\}, %\{type\}                          | %\{status\} =~ /expired\|invalid/i |             |
+| WARNINGSTATUS                     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{to\}, %\{status\}, %\{type\}                           |                                    |             |
+| WARNINGTOTAL                      | Threshold                                                                                                                                                   |                                    |             |
+| CRITICALTOTAL                     | Threshold                                                                                                                                                   |                                    |             |
+| EXTRAOPTIONS                      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                      | --verbose                          |             |
 
 </TabItem>
 <TabItem value="Repositories" label="Repositories">
 
-| Macro                  | Description                                                                                                                                                                                  | Default value                              | Mandatory   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------|:-----------:|
-| FILTERNAME             | Filter repositories by name (can be a regexp)                                                                                                                                                |                                            |             |
-| FILTERTYPE             | Filter repositories by type (can be a regexp)                                                                                                                                                |                                            |             |
-| WARNINGSPACEUSAGE      | Threshold                                                                                                                                                                                    |                                            |             |
-| CRITICALSPACEUSAGE     | Threshold                                                                                                                                                                                    |                                            |             |
-| WARNINGSPACEUSAGEFREE  | Threshold                                                                                                                                                                                    |                                            |             |
-| CRITICALSPACEUSAGEFREE | Threshold                                                                                                                                                                                    |                                            |             |
-| WARNINGSPACEUSAGEPRCT  | Threshold                                                                                                                                                                                    |                                            |             |
-| CRITICALSPACEUSAGEPRCT | Threshold                                                                                                                                                                                    |                                            |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (default: 'not %\{status\} =~ /ordinal\|maintenance/i'). You can use the following variables: %\{status\}, %\{name\}, %\{type\} | not %\{status\} =~ /ordinal\|maintenance/i |             |
-| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{type\}                                                          |                                            |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                           | --verbose                                  |             |
+| Macro                  | Description                                                                                                                            | Default value                              | Mandatory   |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------|:-----------:|
+| FILTERNAME             | Filter repositories by name (can be a regexp)                                                                                          |                                            |             |
+| FILTERTYPE             | Filter repositories by type (can be a regexp)                                                                                          |                                            |             |
+| WARNINGSPACEUSAGE      | Threshold                                                                                                                              |                                            |             |
+| CRITICALSPACEUSAGE     | Threshold                                                                                                                              |                                            |             |
+| WARNINGSPACEUSAGEFREE  | Threshold                                                                                                                              |                                            |             |
+| CRITICALSPACEUSAGEFREE | Threshold                                                                                                                              |                                            |             |
+| WARNINGSPACEUSAGEPRCT  | Threshold                                                                                                                              |                                            |             |
+| CRITICALSPACEUSAGEPRCT | Threshold                                                                                                                              |                                            |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}, %\{type\}   | not %\{status\} =~ /ordinal\|maintenance/i |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{type\}    |                                            |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                                  |             |
 
 </TabItem>
 <TabItem value="Tape-Jobs" label="Tape-Jobs">
 
-| Macro          | Description                                                                                                                                                                                                                                                | Default value                                                   | Mandatory   |
-|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|:-----------:|
-| FILTERNAME     | Filter job name (can be a regexp)                                                                                                                                                                                                                          |                                                                 |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{enabled\} == 1 and not %\{last\_result\} =~ /Success\|None/i'). You can use the following variables: %\{display\}, %\{enabled\}, %\{type\}, %\{last\_result\}, %\{last\_state\} | %\{enabled\} == 1 and not %\{last\_result\} =~ /Success\|None/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %\{display\}, %\{enabled\}, %\{type\}, %\{last\_result\}, %\{last\_state\}                                                                  |                                                                 |             |
-| WARNINGTOTAL   | Set warning threshold for total jobs                                                                                                                                                                                                                       |                                                                 |             |
-| CRITICALTOTAL  | Set critical threshold for total jobs                                                                                                                                                                                                                      |                                                                 |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                         | --verbose                                                       |             |
-
-</TabItem>
-<TabItem value="Veeam Centreon-Monitoring-Agent" label="Veeam Centreon-Monitoring-Agent">
-
-| Macro       | Description                                                                                                  | Default value      | Mandatory   |
-|:------------|:-------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
-| DUMMYSTATUS | Status to be returned (Should be numeric value between 0 and 3, or string in ok, warning, critical, unknown) | UNKNOWN            | X           |
-| DUMMYOUTPUT | Output to be returned                                                                                        | Service is UNKNOWN | X           |
+| Macro          | Description                                                                                                                                                                   | Default value                                                   | Mandatory   |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|:-----------:|
+| FILTERNAME     | Filter job name (can be a regexp)                                                                                                                                             |                                                                 |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{display\}, %\{enabled\}, %\{type\}, %\{last\_result\}, %\{last\_state\} | %\{enabled\} == 1 and not %\{last\_result\} =~ /Success\|None/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{enabled\}, %\{type\}, %\{last\_result\}, %\{last\_state\}  |                                                                 |             |
+| WARNINGTOTAL   | Set warning threshold for total jobs                                                                                                                                          |                                                                 |             |
+| CRITICALTOTAL  | Set critical threshold for total jobs                                                                                                                                         |                                                                 |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                        | --verbose                                                       |             |
 
 </TabItem>
 <TabItem value="Vsb-Jobs" label="Vsb-Jobs">
 
-| Macro                | Description                                                                                                                                                                                    | Default value                 | Mandatory   |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
-| FILTERNAME           | Filter job name (can be a regexp)                                                                                                                                                              |                               |             |
-| FILTERTYPE           | Filter job type (can be a regexp)                                                                                                                                                              |                               |             |
-| WARNINGJOBSWARNING   | Threshold                                                                                                                                                                                      |                               |             |
-| CRITICALJOBSWARNING  | Threshold                                                                                                                                                                                      |                               |             |
-| WARNINGJOBSDETECTED  | Threshold                                                                                                                                                                                      |                               |             |
-| CRITICALJOBSDETECTED | Threshold                                                                                                                                                                                      |                               |             |
-| WARNINGJOBSFAILED    | Threshold                                                                                                                                                                                      |                               |             |
-| CRITICALJOBSFAILED   | Threshold                                                                                                                                                                                      |                               |             |
-| WARNINGJOBSSUCCESS   | Threshold                                                                                                                                                                                      |                               |             |
-| CRITICALJOBSSUCCESS  | Threshold                                                                                                                                                                                      |                               |             |
-| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: 'not %\{status\} =~ /success/i'). You can use the following variables: %\{name\}, %\{type\}, %\{status\}, %\{duration\} | not %\{status\} =~ /success/i |             |
-| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{type\}, %\{status\}, %\{duration\}                                             |                               |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                             | --verbose                     |             |
-
-</TabItem>
-<TabItem value="generic-passive-service" label="generic-passive-service">
-
-| Macro       | Description                                                                                                  | Default value     | Mandatory   |
-|:------------|:-------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DUMMYSTATUS | Status to be returned (Should be numeric value between 0 and 3, or string in ok, warning, critical, unknown) | OK                | X           |
-| DUMMYOUTPUT | Output to be returned                                                                                        | Service is OK     | X           |
+| Macro                | Description                                                                                                                                         | Default value                 | Mandatory   |
+|:---------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
+| FILTERNAME           | Filter job name (can be a regexp)                                                                                                                   |                               |             |
+| FILTERTYPE           | Filter job type (can be a regexp)                                                                                                                   |                               |             |
+| WARNINGJOBSWARNING   | Threshold                                                                                                                                           |                               |             |
+| CRITICALJOBSWARNING  | Threshold                                                                                                                                           |                               |             |
+| WARNINGJOBSDETECTED  | Threshold                                                                                                                                           |                               |             |
+| CRITICALJOBSDETECTED | Threshold                                                                                                                                           |                               |             |
+| WARNINGJOBSFAILED    | Threshold                                                                                                                                           |                               |             |
+| CRITICALJOBSFAILED   | Threshold                                                                                                                                           |                               |             |
+| WARNINGJOBSSUCCESS   | Threshold                                                                                                                                           |                               |             |
+| CRITICALJOBSSUCCESS  | Threshold                                                                                                                                           |                               |             |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{type\}, %\{status\}, %\{duration\} | not %\{status\} =~ /success/i |             |
+| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{type\}, %\{status\}, %\{duration\}  |                               |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).              | --verbose                     |             |
 
 </TabItem>
 </Tabs>
