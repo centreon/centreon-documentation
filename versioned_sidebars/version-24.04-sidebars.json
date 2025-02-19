@@ -534,6 +534,10 @@
                 },
                 {
                   "type": "doc",
+                  "id": "integrations/notifications/sms-notifications"
+                },
+                {
+                  "type": "doc",
                   "id": "integrations/notifications/slack-notifications"
                 },
                 {
@@ -730,142 +734,87 @@
             "type": "generated-index",
             "description": "The graphical view capabilities in Centreon rely on the Centreon MAP module."
           },
-          "collapsed": true,
           "items": [
             {
+              "type": "doc",
+              "id": "graph-views/introduction-map"
+            },
+            {
               "type": "category",
-              "label": "Centreon MAP",
+              "label": "Information for MAP Legacy users",
               "link": {
                 "type": "generated-index"
               },
               "items": [
                 {
                   "type": "doc",
-                  "id": "graph-views/introduction-map"
+                  "id": "graph-views/map-legacy-eol"
                 },
                 {
                   "type": "doc",
-                  "id": "graph-views/map-web-install"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-install-remote"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-update"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-upgrade"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-migrate"
+                  "id": "graph-views/upgrading-map-legacy"
                 },
                 {
                   "type": "doc",
                   "id": "graph-views/import-into-map-web"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-access"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-manage"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-create-standard-map"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-create-geoview"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-advanced"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-known-issues"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-troubleshooting"
-                },
-                {
-                  "type": "doc",
-                  "id": "api/map-api"
                 }
               ]
             },
             {
-              "type": "category",
-              "label": "Centreon MAP (legacy)",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "graph-views/introduction"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/install"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/remote-server"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/update"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/upgrade"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/migrate"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/configuration"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/advanced-configuration"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/create-standard-view"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/create-geo-view"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/display-view"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/share-view"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/known-issues"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/troubleshooter"
-                },
-                {
-                  "type": "doc",
-                  "id": "api/graph-views-api"
-                }
-              ]
+              "type": "doc",
+              "id": "graph-views/map-web-install"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-install-remote"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-update"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-upgrade"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-access"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-manage"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-create-standard-map"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-create-geoview"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-migrate"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-advanced-configuration"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-advanced"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-known-issues"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-troubleshooting"
+            },
+            {
+              "type": "doc",
+              "id": "api/map-api"
             }
           ]
         },
@@ -1116,6 +1065,10 @@
             },
             {
               "type": "doc",
+              "id": "upgrade/upgrade-from-24-04"
+            },
+            {
+              "type": "doc",
               "id": "upgrade/upgrade-from-23-10"
             },
             {
@@ -1166,6 +1119,10 @@
             {
               "type": "doc",
               "id": "migrate/migrate-from-el-to-debian"
+            },
+            {
+              "type": "doc",
+              "id": "migrate/migrate-from-debian-to-debian"
             },
             {
               "type": "doc",
@@ -1254,7 +1211,7 @@
             },
             {
               "type": "doc",
-              "id": "integrations/event-management/sc-opsgenie"
+              "id": "integrations/event-management/sc-opsgenie-events"
             },
             {
               "type": "doc",
@@ -1397,7 +1354,7 @@
         },
         {
           "type": "link",
-          "href": "https://docs-api.centreon.com/api/centreon-web/24.04/",
+          "href": "https://docs-api.centreon.com/api/centreon-web/24.10/",
           "label": "Centreon Web RestAPI v2"
         },
         {
@@ -1407,10 +1364,6 @@
         {
           "type": "doc",
           "id": "api/map-api"
-        },
-        {
-          "type": "doc",
-          "id": "api/graph-views-api"
         },
         {
           "type": "doc",
@@ -1488,47 +1441,8 @@
       ]
     },
     {
-      "type": "category",
-      "label": "Centreon HA",
-      "link": {
-        "type": "doc",
-        "id": "installation/installation-of-centreon-ha/overview"
-      },
-      "items": [
-        {
-          "type": "category",
-          "label": "Upgrading Centreon HA",
-          "link": {
-            "type": "generated-index"
-          },
-          "items": [
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-23-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
-            }
-          ]
-        }
-      ]
+      "type": "doc",
+      "id": "installation/installation-of-centreon-ha/overview"
     },
     {
       "type": "category",
