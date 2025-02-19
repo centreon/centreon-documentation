@@ -90,7 +90,7 @@ d'alertes depuis Centreon vers Opsgenie. Cette **API Key** correspond au champ
 2. Depuis le menu **Settings**, allez dans la sous-catégorie **APP SETTINGS** pour y trouver le menu **API key management**.
 3. Dans le menu **API key management** ajoutez une nouvelle **API key** avec les droits **Create and Update**.
 4. Sauvegardez votre configuration et votre **Api key** qui est obligatoire pour envoyer des incidents depuis 
-Centreon vers Opsgenie. Cette **API key** correspond au champs **app_api_token** dans le configuration Centreon.
+Centreon vers Opsgenie. Cette **API key** correspond au champ **app_api_token** dans la configuration Centreon.
 
 Assurez-vous que Opsgenie puisse recevoir les données envoyées par Centreon : les flux 
 ne doivent pas être bloqués par la configuration de Opsgenie ou par un équipement de sécurité.
