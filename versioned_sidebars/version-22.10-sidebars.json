@@ -64,7 +64,7 @@
           "collapsed": true,
           "items": [
             "getting-started/actions",
-            "getting-started/create-dashboard"
+            "getting-started/create-custom-view"
           ]
         },
         {
@@ -103,10 +103,6 @@
         },
         {
           "type": "doc",
-          "id": "installation/inside-centreon"
-        },
-        {
-          "type": "doc",
           "id": "installation/prerequisites"
         },
         {
@@ -136,7 +132,7 @@
               "type": "doc",
               "id": "installation/installation-of-a-central-server/using-virtual-machines"
             }
-          ]
+                      ]
         },
         {
           "type": "doc",
@@ -208,6 +204,52 @@
         {
           "type": "doc",
           "id": "installation/offline"
+        },
+        {
+          "type": "category",
+          "label": "Installation of Centreon HA",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "installation/installation-of-centreon-ha/overview"
+            },
+            {
+              "type": "doc",
+              "id": "installation/installation-of-centreon-ha/installation-2-nodes"
+            },
+            {
+              "type": "doc",
+              "id": "installation/installation-of-centreon-ha/installation-4-nodes"
+            },
+            {
+              "type": "doc",
+              "id": "installation/installation-of-centreon-ha/integrating-pollers"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Installation of a manual Centreon HA",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "installation/installation-of-centreon-ha-manual/centreon-ha-2-nodes-installation-manual-failover"
+            },
+            {
+              "type": "doc",
+              "id": "installation/installation-of-centreon-ha-manual/centreon-ha-4-nodes-installation-manual-failover"
+            },
+            {
+              "type": "doc",
+              "id": "installation/installation-of-centreon-ha-manual/integrating-pollers"
+            }
+          ]
         }
       ]
     },
@@ -474,6 +516,10 @@
             {
               "type": "doc",
               "id": "alerts-notifications/event-log"
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/custom-views"
             }
           ]
         },
@@ -531,10 +577,6 @@
                 {
                   "type": "doc",
                   "id": "alerts-notifications/notif-config-for-teams"
-                },
-                {
-                  "type": "doc",
-                  "id": "integrations/notifications/sms-notifications"
                 },
                 {
                   "type": "doc",
@@ -596,6 +638,10 @@
         },
         {
           "type": "doc",
+          "id": "monitoring/basic-objects/customization"
+        },
+        {
+          "type": "doc",
           "id": "monitoring/basic-objects/contacts-create"
         },
         {
@@ -609,10 +655,35 @@
         {
           "type": "doc",
           "id": "administration/access-control-lists"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Performance graphs",
+      "link": {
+        "type": "generated-index"
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "metrology/chart-management"
         },
         {
           "type": "doc",
-          "id": "monitoring/basic-objects/customization"
+          "id": "metrology/chart-template"
+        },
+        {
+          "type": "doc",
+          "id": "metrology/chart-curves"
+        },
+        {
+          "type": "doc",
+          "id": "metrology/chart-virtual-metrics"
+        },
+        {
+          "type": "doc",
+          "id": "metrology/grafana"
         }
       ]
     },
@@ -689,76 +760,23 @@
     },
     {
       "type": "category",
-      "label": "Data Visualization",
+      "label": "Graphical views",
       "link": {
-        "type": "generated-index"
+        "type": "generated-index",
+        "description": "The graphical view capabilities in Centreon relies on the Centreon MAP module."
       },
+      "collapsed": true,
       "items": [
         {
-          "type": "doc",
-          "id": "alerts-notifications/dashboards"
-        },
-        {
           "type": "category",
-          "label": "Performance graphs",
+          "label": "Centreon MAP",
           "link": {
             "type": "generated-index"
           },
           "items": [
             {
               "type": "doc",
-              "id": "metrology/chart-management"
-            },
-            {
-              "type": "doc",
-              "id": "metrology/chart-template"
-            },
-            {
-              "type": "doc",
-              "id": "metrology/chart-curves"
-            },
-            {
-              "type": "doc",
-              "id": "metrology/chart-virtual-metrics"
-            },
-            {
-              "type": "doc",
-              "id": "metrology/grafana"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Graphical views (maps)",
-          "link": {
-            "type": "generated-index",
-            "description": "The graphical view capabilities in Centreon rely on the Centreon MAP module."
-          },
-          "items": [
-            {
-              "type": "doc",
               "id": "graph-views/introduction-map"
-            },
-            {
-              "type": "category",
-              "label": "Information for MAP Legacy users",
-              "link": {
-                "type": "generated-index"
-              },
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-legacy-eol"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/upgrading-map-legacy"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/import-into-map-web"
-                }
-              ]
             },
             {
               "type": "doc",
@@ -778,6 +796,10 @@
             },
             {
               "type": "doc",
+              "id": "graph-views/import-into-map-web"
+            },
+            {
+              "type": "doc",
               "id": "graph-views/map-web-access"
             },
             {
@@ -794,14 +816,6 @@
             },
             {
               "type": "doc",
-              "id": "graph-views/map-web-migrate"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-advanced-configuration"
-            },
-            {
-              "type": "doc",
               "id": "graph-views/map-web-advanced"
             },
             {
@@ -815,12 +829,75 @@
             {
               "type": "doc",
               "id": "api/map-api"
+                }
+              ]
             }
-          ]
-        },
+          ,
+            {
+        "type": "category",
+      "label": "Centreon MAP (Legacy)",
+      "items": [
         {
           "type": "doc",
-          "id": "alerts-notifications/custom-views"
+              "id": "graph-views/introduction"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/install"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/remote-server"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/update"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/upgrade"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/migrate"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/configuration"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/advanced-configuration"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/create-standard-view"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/create-geo-view"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/display-view"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/share-view"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/known-issues"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/troubleshooter"
+            },
+            {
+              "type": "doc",
+              "id": "api/graph-views-api"
+            }
+          ]
         }
       ]
     },
@@ -944,10 +1021,6 @@
           ]
         },
         {
-          "type": "doc",
-          "id": "administration/customize-centreon"
-        },
-        {
           "type": "category",
           "label": "Configuring the connection to Centreon",
           "link": {
@@ -972,11 +1045,32 @@
             },
             {
               "type": "doc",
-              "id": "connect/saml"
+              "id": "connect/autologin"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Centreon HA",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/acceptance-guide"
             },
             {
               "type": "doc",
-              "id": "connect/autologin"
+              "id": "administration/centreon-ha/monitoring-guide"
+            },
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/operating-guide"
+            },
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/troubleshooting-guide"
             }
           ]
         },
@@ -993,22 +1087,8 @@
           "id": "administration/database-partitioning"
         },
         {
-          "type": "category",
-          "label": "Disaster recovery",
-          "link": {
-            "type": "doc",
-            "id": "administration/disaster-recovery"
-          },
-          "items": [
-            {
-              "type": "doc",
-              "id": "administration/backup"
-            },
-            {
-              "type": "doc",
-              "id": "administration/backup-poller"
-            }
-          ]
+          "type": "doc",
+          "id": "administration/backup"
         },
         {
           "type": "doc",
@@ -1049,6 +1129,10 @@
             {
               "type": "doc",
               "id": "update/update-centreon-platform"
+            },
+            {
+              "type": "doc",
+              "id": "update/update-centreon-ha"
             }
           ]
         },
@@ -1065,22 +1149,6 @@
             },
             {
               "type": "doc",
-              "id": "upgrade/upgrade-from-24-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-23-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-23-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-22-10"
-            },
-            {
-              "type": "doc",
               "id": "upgrade/upgrade-from-22-04"
             },
             {
@@ -1094,6 +1162,50 @@
             {
               "type": "doc",
               "id": "upgrade/upgrade-from-20-10"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-from-20-04"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-from-19-10"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-from-19-04"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-from-18-10"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-from-3-4"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-20-04"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-20-10"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-from-centreon-failover"
             },
             {
               "type": "doc",
@@ -1122,10 +1234,6 @@
             },
             {
               "type": "doc",
-              "id": "migrate/migrate-from-debian-to-debian"
-            },
-            {
-              "type": "doc",
               "id": "migrate/migrate-from-3-4"
             },
             {
@@ -1147,7 +1255,7 @@
     {
       "type": "link",
       "href": "/pp/integrations/plugin-packs/getting-started/introduction",
-      "label": "Monitoring Connectors"
+      "label": "Plugin Packs"
     },
     {
       "type": "category",
@@ -1265,10 +1373,6 @@
             },
             {
               "type": "doc",
-              "id": "integrations/itsm/ot-easyvista-rest-api"
-            },
-            {
-              "type": "doc",
               "id": "integrations/itsm/ot-glpi"
             },
             {
@@ -1278,6 +1382,10 @@
             {
               "type": "doc",
               "id": "integrations/itsm/ot-itop"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-iws-isilog"
             },
             {
               "type": "doc",
@@ -1354,7 +1462,7 @@
         },
         {
           "type": "link",
-          "href": "https://docs-api.centreon.com/api/centreon-web/24.10/",
+          "href": "https://docs-api.centreon.com/api/centreon-web/22.10/",
           "label": "Centreon Web RestAPI v2"
         },
         {
@@ -1367,7 +1475,7 @@
         },
         {
           "type": "doc",
-          "id": "api/api-tokens"
+          "id": "api/graph-views-api"
         }
       ]
     },
@@ -1378,6 +1486,10 @@
         "type": "generated-index"
       },
       "items": [
+        {
+          "type": "doc",
+          "id": "developer/about-developer-resources"
+        },
         {
           "type": "doc",
           "id": "developer/developer-stream-connector"
@@ -1398,8 +1510,7 @@
           "type": "category",
           "label": "Centreon Broker",
           "link": {
-            "type": "doc",
-            "id": "developer/centreon-broker"
+            "type": "generated-index"
           },
           "items": [
             {
@@ -1420,8 +1531,7 @@
           "type": "category",
           "label": "Centreon Gorgone",
           "link": {
-            "type": "doc",
-            "id": "developer/centreon-gorgone"
+            "type": "generated-index"
           },
           "items": [
             {
@@ -1441,10 +1551,6 @@
       ]
     },
     {
-      "type": "doc",
-      "id": "installation/installation-of-centreon-ha/overview"
-    },
-    {
       "type": "category",
       "label": "Monitoring your platform",
       "link": {
@@ -1454,6 +1560,31 @@
         {
           "type": "doc",
           "id": "health/helios"
+        },
+        {
+          "type": "category",
+          "label": "Centreon HA",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/acceptance-guide"
+            },
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/monitoring-guide"
+            },
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/operating-guide"
+            },
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/troubleshooting-guide"
+            }
+          ]
         }
       ]
     },
