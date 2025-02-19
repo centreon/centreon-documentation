@@ -26,7 +26,7 @@ dédiés vous permettent de [ne pas envoyer certains évènements](#filtering-or
 
 * À chaque fois que le statut d'un service, hôte ou BA est contrôlé, l'évènement passe par Centreon Broker qui utilise le Stream Connector pour envoyer ce changement d'état à Opsgenie.
 * Un changement d'état peut survenir en cas de détection d'anomalie
-* Un alias est généré pour chaque alerte afin de profiter de la déduplication d'Opsgenie
+* Un alias est généré pour chaque alerte afin de profiter de la déduplication d'Opsgenie.
 
 > Attention, cette documentation a été écrite en février 2021, il est possible que des changements sur Opsgenie rendent obsolète des éléments décrits ci-dessous.
 > Vous pouvez nous le signaler en utilisant les outils de feedback de documentation en bas à droite de cette page.
@@ -81,8 +81,8 @@ d'API provenant des **APP Settings**. Cette clé doit avoir les droits d'accès 
 3. Rendez vous dans le menu **Configured integrations** et éditez votre intégration **API** pour 
 l'activer si elle ne l'est pas. Vous devez aussi donner les droits **Create and Update Access**. 
 Sauvegardez votre configuration ainsi que votre **API Key** qui est obligatoire pour l'envoi 
-d'alertes depuis Centreon vers Opsgenie. Cette **API Key** est référrée en tant 
-qu'**integration_api_token** dans la configuration Centreon
+d'alertes depuis Centreon vers Opsgenie. Cette **API Key** correspond au champs
+ **integration_api_token** dans la configuration Centreon
 
 ### Intégration Opsgenie : incidents
 
@@ -90,7 +90,7 @@ qu'**integration_api_token** dans la configuration Centreon
 2. Depuis le menu **Settings**, allez dans la sous-catégorie **APP SETTINGS** pour y trouver le menu **API key management**.
 3. Dans le menu **API key management** ajoutez une nouvelle **API key** avec les droits **Create and Update**.
 4. Sauvegardez votre configuration et votre **Api key** qui est obligatoire pour envoyer des incidents depuis 
-Centreon vers Opsgenie. Cette **API key** est référrée en tant qu'**app_api_token** dans le configuration Centreon.
+Centreon vers Opsgenie. Cette **API key** correspond au champs **app_api_token** dans le configuration Centreon.
 
 Assurez-vous que Opsgenie puisse recevoir les données envoyées par Centreon : les flux 
 ne doivent pas être bloqués par la configuration de Opsgenie ou par un équipement de sécurité.

@@ -107,15 +107,15 @@ another one.
 
 | Type   | Name                  | Description                                                                          | Example of value |
 | ------ |-----------------------|--------------------------------------------------------------------------------------|------------------|
-| string | app_api_token         | Clé d'authentification à l'API pour les alertes                                      | `an_authkey`     |
-| string | integration_api_token | Clé d'authentification à l'API pour les incidents (nécessite le module Centreon BAM) | `an_authkey`     |
+| string | app_api_token         | API Authentication key for alerts                                       | `an_authkey`     |
+| string | integration_api_token | API Authentication key for incidents (require Centreon BAM module) | `an_authkey`     |
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 
 | Type   | Name      | Description                                               | Default value                                      |
 |--------|-----------|-----------------------------------------------------------|----------------------------------------------------|
-| string | logfile   | Fichier dans lequel les logs sont écrits                  | /var/log/centreon-broker/opsgenie-events-apiv2.log |
-| number | log_level | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug) | 1                                                  |
+| string | logfile   | File in which logs are written                  | /var/log/centreon-broker/opsgenie-events-apiv2.log |
+| number | log_level | Logging level from 1 (errors) to 3 (debug) | 1                                                  |
 
 7. Use the stream connector's optional parameters to [filter or adapt the data you want 
 Centreon to send to Opsgenie](#filtering-or-adapting-the-data-you-want-to-send-to-opsgenie).
