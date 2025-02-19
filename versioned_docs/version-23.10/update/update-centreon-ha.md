@@ -160,7 +160,7 @@ In addition, the `cbd-sql` service must be restarted **on the central master ser
 service cbd-sql restart
 ```
 
-The `cbd` service must also be restarted on [Centreon Remote Servers](../installation/architectures.md#description):
+The `cbd` service must also be restarted on [Centreon Remote Servers](../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md#step-1-configure-a-new-remote-server):
 
 ```bash
 service cbd restart
