@@ -469,7 +469,7 @@ page:
 
 > As the interface layout has changed in version 23.04, you need to clear your browser cache to display the new theme.
 
-Refer to the [Centreon MBI](../reporting/update.md)  and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
+Refer to the [Centreon MBI](../reporting/update.md) and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
 
 ### Post-upgrade actions
 
