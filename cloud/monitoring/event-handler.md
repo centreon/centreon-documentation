@@ -20,32 +20,6 @@ Event handlers are executed when a service or host:
 
 [SOFT and HARD states are described here](../alerts-notifications/concepts.md#status-types).
 
-### Event Handler Types
-
-There are different types of optional event handlers that you can define to handle host and state changes:
-
-* Global host event handler
-* Global service event handler
-* Host-specific event handlers
-* Service-specific event handlers
-
-Global host and service event handlers are run for every host or service state change that occurs, immediately prior to
-any host- or service-specific event handler that may be run.
-
-### Enabling Event Handlers
-
-Event handlers can be enabled or disabled on a poller.
-
-Host- and service-specific event handlers can be enabled or disabled in your host and service definitions. Host- and
-service-specific event handlers will not be executed if the global option is disabled on your poller.
-
-### Event Handler Execution Order
-
-As already mentioned, global host and service event handlers are executed immediately before host- or service-specific
-event handlers.
-
-Event handlers are executed for HARD problem and recovery states immediately after notifications are sent out.
-
 ## Configuration
 
 ### Step 1: Create a command
@@ -55,8 +29,6 @@ command prompt. As a minimum, the scripts should take the following macros as ar
 
 * For Services: $SERVICESTATE$, $SERVICESTATETYPE$, $SERVICEATTEMPT$
 * For Hosts: $HOSTSTATE$, $HOSTSTATETYPE$, $HOSTATTEMPT$
-
-The scripts should examine the values of the arguments passed to it and take any necessary action based upon those values.
 
 Event handler commands will normally be executed with the same permissions as the user under which Centreon Engine
 (the **centreon-engine** user) is running on your machine. This can present a problem if you want to write an event handler that
@@ -69,25 +41,7 @@ the Centreon Engine user to execute the necessary system commands. You might wan
 2. [Create your command as described here](./basic-objects/commands.md#creating-a-custom-check-command).
 3. Make sure to [add your new command to the command whitelist of the poller](./basic-objects/commands.md#command-whitelist) that will monitor the resources you want.
 
-### Step 2: Enable event handlers on your platform
-
-1. Go to **Configuration > Pollers > Engine configuration** and edit the Centreon Engine configurations for all the servers that will monitor resources with event handlers.
-
-2. In the **Check Options** tab, in the **Misc Options** section, make sure **Event Handler Option** is enabled.
-
-### Step 3: Configure event handlers for resources
-
-#### For all resources monitored by a specific poller
-
-To define an event handler command for all hosts and/or services monitored by a specific poller:
-
-1. Go to **Configuration > Pollers > Engine configuration** and edit the Centreon Engine configuration for this poller.
-
-2. In the **Check Options** tab, in the **Event Handler** section, select one of the commands you created at step 1 (in the **Global host event handler** or **Global service event handler** fields).
-
-3. Click **Save**.
-
-#### For selected resources
+### Step 2: Configure event handlers for resources
 
 1. Go to **Configuration > Hosts > Hosts** or to **Configuration > Services > Services by host** and edit your hosts or services.
 
