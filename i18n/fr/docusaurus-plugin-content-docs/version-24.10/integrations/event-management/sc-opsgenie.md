@@ -23,12 +23,13 @@ Ces formats d'événement sont décrits **[ici](#event-format)**.
 dédiés vous permettent de [ne pas envoyer certains évènements](#filtering-or-adapting-the-data-you-want-to-send-to-opsgenie).
 
 ## Compatibilité
-* A chaque fois que le statut d'un service, hôte ou BA est contrôlé, l'évènement passe par Centreon Broker qui utilise le Stream Connector pour envoyer ce changement d'état.
+
+* À chaque fois que le statut d'un service, hôte ou BA est contrôlé, l'évènement passe par Centreon Broker qui utilise le Stream Connector pour envoyer ce changement d'état à Opsgenie.
 * Un changement d'état peut survenir en cas de détection d'anomalie
 * Un alias est généré pour chaque alerte afin de profiter de la déduplication d'Opsgenie
 
 > Attention, cette documentation a été écrite en février 2021, il est possible que des changements sur Opsgenie rendent obsolète des éléments décrits ci-dessous.
-Vous pouvez nous le signaler en utilisant les outils de feedback de documentation en bas à droite de cette page.
+> Vous pouvez nous le signaler en utilisant les outils de feedback de documentation en bas à droite de cette page.
 
 ## Installation
 
@@ -65,29 +66,29 @@ apt install centreon-stream-connector-opsgenie
 </TabItem>
 </Tabs>
 
-## Configuration de Opsgenie 
+## Configuration d'Opsgenie 
 
 Vous devrez paramétrer votre interface Opsgenie pour qu'elle puisse recevoir des données 
 de la part de Centreon. L'intégration d'Opsgenie nécessite deux clé d'API différentes. 
 La première est une clé d'intégration provenant de l'intégration **Rest API HTTPS over JSON**. 
-Cette intégration doit avoir les droits **Create and Update Access**. la seconde clé est une clé 
+Cette intégration doit avoir les droits **Create and Update Access**. La seconde clé est une clé 
 d'API provenant des **APP Settings**. Cette clé doit avoir les droits d'accès **Create and Update**.
 
-### Opsgenie intégration : alerts
+### Intégration Opsgenie : alerts
 
-1. Depuis le menu **Setting**, selectionnez **Integration list**
-2. Dans la liste des intégrations, ajoutez l'intégraiton **API** (Rest API HTTPS over JSON)
+1. Depuis le menu **Settings**, sélectionnez **Integration list**
+2. Dans la liste des intégrations, ajoutez l'intégration **API** (Rest API HTTPS over JSON)
 3. Rendez vous dans le menu **Configured integrations** et éditez votre intégration **API** pour 
 l'activer si elle ne l'est pas. Vous devez aussi donner les droits **Create and Update Access**. 
 Sauvegardez votre configuration ainsi que votre **API Key** qui est obligatoire pour l'envoi 
 d'alertes depuis Centreon vers Opsgenie. Cette **API Key** est référrée en tant 
 qu'**integration_api_token** dans la configuration Centreon
 
-### Opsgenie intégration : incidents
+### Intégration Opsgenie : incidents
 
-1. Avant de commencer, cette intégration ne marchera que si vous utilisez le module Centreon BAM
-2. Depuis le menu **Settings**, allez dans la sous catégorie **APP SETTINGS** pour y trouver le menu **API key management**
-3. Dans le menu **API key management** ajoutez une nouvelle **API key** avec les droits **Create and Update**
+1. Avant de commencer, cette intégration ne marchera que si vous utilisez le module Centreon BAM.
+2. Depuis le menu **Settings**, allez dans la sous-catégorie **APP SETTINGS** pour y trouver le menu **API key management**.
+3. Dans le menu **API key management** ajoutez une nouvelle **API key** avec les droits **Create and Update**.
 4. Sauvegardez votre configuration et votre **Api key** qui est obligatoire pour envoyer des incidents depuis 
 Centreon vers Opsgenie. Cette **API key** est référrée en tant qu'**app_api_token** dans le configuration Centreon.
 
@@ -128,7 +129,7 @@ a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre
 
 7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les 
 données que vous voulez que Centreon envoie à Opsgenie](#filtering-or-adapting-the-data-you-want-to-send-to-opsgenie).
-8. [Déployez la configuration](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/deploying-a-configuration/). 
+8. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). 
 9. Redémarrez **centengine** sur tous les collecteurs :
 
    ```shell
@@ -167,12 +168,12 @@ plages de maintenance à la variable **accepted_elements**).
 | Type   | Nom                         | Description                                                                                                                                                                                                  | Valeur par défaut pour le stream connector Opsgenie | Valeur(s) possibles                 |
 |--------|-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|-------------------------------------|
 | string | accepted_categories         | Chaque événement est lié à une catégorie de broker qui peut être utilisée pour filtrer les événements                                                                                                        | neb                                                 | neb ou bam                          |
-| string | accepted_elements           | Élément Centreon géré par ce connecteur (pour en ajouter, vous devez regarder la section des format d'événement personnalisé, voir ci-dessous), la liste de éléments à séparer par des virgules sans espaces | host_status,service_status                          | host_status ou service_status ou ba_status |
+| string | accepted_elements           | Élément Centreon géré par ce connecteur (pour en ajouter, vous devez regarder la section des formats d'événements personnalisés, voir ci-dessous), la liste de éléments à séparer par des virgules sans espaces | host_status,service_status                          | host_status ou service_status ou ba_status |
 | string | api_url                     | Adresse API d'Opsgenie, utilisez https://api.eu.opsgenie.com si votre instance est en Europe                                                                                                                 | https://api.opsgenie.com                            | -                                   |
 | string | alerts_api_endpoint         | Adresse API d'Opsgenie pour les alertes                                                                                                                                                                      | /v2/alerts                                          | -                                   |
 | string | incident_api_endpoint       | Adresse API d'Opsgenie pour les incidents                                                                                                                                                                    | /v1/incidents/create                                | -                                   |
 | string | ba_incident_tags            | Liste de tags pour un incident. Doit utiliser la virgule comme séparateur. Les noms des BV seront ajoutés automatiquement dans les tags                                                                     | centreon,application                                | -                                   |
-| number | enable_incident_tags        | Ajoute les tags pour les incidents si est à ` 1`                                                                                                                                                             | 1                                                   | 1 ou 0                              |
+| number | enable_incident_tags        | Ajoute les tags pour les incidents si la valeur est ` 1`                                                                                                                                                             | 1                                                   | 1 ou 0                              |
 | number | get_bv                      | Ajoute le nom des BV dans les tags si `enable_incident_tags` est à `1`                                                                                                                                       | 1                                                   | 1 ou 0                              |
 | string | enable_severity             | Si positionné à 1, essaie de lier une sévérité de Centreon à une priorité d'Opsgenie                                                                                                                         | 0                                                   | 1 ou 0                              |
 | string | default_priority            |  Priorité par défaut utilisée pour le ticket Opsgenie                                                                                                                                                                                                            |                                                     |                                     |

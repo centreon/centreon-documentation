@@ -23,8 +23,8 @@ you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-opsg
 
 ## Compatibility
 
-> Warning, this documentation was written in February 2021, it is possible that certain elements described below became obsoletes due to changes on Opsgenie.
-You can let us know by using the documentation feedback tools at the bottom right of this page.
+> Warning: this documentation was written in February 2021. It is possible that some elements described below have become obsolete due to changes to Opsgenie.
+> You can let us know by using the documentation feedback tools at the bottom right of this page.
 
 ## Installation
 
@@ -64,26 +64,26 @@ apt install centreon-stream-connector-opsgenie
 ## Configuring Opsgenie
 
 You will need to configure your Opsgenie instance to receive data from Centreon. Opsgenie integration 
-requires two different API key. The first one is an integration API key coming from the **Rest API HTTPS over JSON**
-integration. This integration must have the **Create and Update Access**. The second access is an 
+requires two different API keys. The first one is an integration API key coming from the **Rest API HTTPS over JSON**
+integration. This integration must have the **Create and Update Access** right. The second key is an 
 API key coming from the **APP Settings**. This key must have the **Create and Update** access right.
 
 ### Opsgenie integration: alerts
 
-1. From the **Settings** menu, select **Integration list**.
-2. In the integration list, add an **API** integration (Rest API HTTPS over JSON).
-3. Head over the **Configured integrations** menu and edit your **API** integration to enable 
-it if it is not. You also must to give it a **Create and Update Access**. Save your configuration 
+1. In the **Settings** menu, select **Integration list**.
+2. In the integration list, add an **API** integration (**Rest API HTTPS over JSON**).
+3. Go to **Configured integrations** and edit your **API** integration to enable 
+it (if it is not enabled already). You also must give it a **Create and Update Access** right. Save your configuration 
 and the **API Key** that is mandatory to send alerts from Centreon to Opsgenie. This **API key** 
-is referred as **integration_api_token** in the Centreon configuration.
+is referred to as **integration_api_token** in the Centreon configuration.
 
 ### Opsgenie integration: incidents
 
-1. Before starting, this integration will only work if you are using the Centreon BAM module.
-2. From the **Settings** menu, select **API key management** in the subcategory **APP SETTINGS**.
-3. In the **API key management** menu, add a new API key with **Create and Update** access
+1. Before starting, be aware that this integration will only work if you are using the Centreon BAM module.
+2. In the **Settings** menu, select **API key management** in the **APP SETTINGS** subcategory.
+3. In the **API key management** menu, add a new API key with **Create and Update** access.
 4. Save your configuration and your **Api key** that is mandatory to send incidents from Centreon 
-to Opsgenie. This **API key** is referred as **app_api_token** in the Centreon configuration.
+to Opsgenie. This **API key** is referred to as **app_api_token** in the Centreon configuration.
 
 ## Configuring the stream connector in Centreon
 
@@ -100,7 +100,7 @@ click **Add**. A new output appears in the list.
 | Path            | /usr/share/centreon-broker/lua/opsgenie-events-apiv2.lua |
 | Filter category | Neb                                                      |
 
-5. To enable Centreon to connect to your Opsgenie equipment, fill in the following 
+5. To enable Centreon to connect to your Opsgenie device, fill in the following 
 mandatory parameters. The fields for the first entry are already present. Click on 
 the **+Add a new entry** link located below the **Filter category** table to add 
 another one.
@@ -132,7 +132,7 @@ Centreon to send to Opsgenie](#filtering-or-adapting-the-data-you-want-to-send-t
 ### Filtering or adapting the data you want to send to Opsgenie
 
 All stream connectors have a set of [optional parameters](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters)
-, that allow you to filter the data you will send to your Opsgenie equipment, to reformat 
+, that allow you to filter the data you will send to your Opsgenie device, to reformat 
 the data, to define a proxy...
 
 Each optional parameter has a default value, that is indicated in the corresponding 
@@ -155,22 +155,22 @@ change their values (for example to remove the downtimes in the **accepted_eleme
 | Type   | Name                        | Value explanation                                                                                                                                                                 | Default value for the stream connector              | Possible values                                              |
 |--------|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|--------------------------------------------------------------|
 | string | accepted_categories         | Each event is linked to a broker category, which can be used to filter events                                                                                                     | neb                                                 | neb ou bam                          |
-| string | accepted_elements           | Centreon item managed by this connector (to add more, you need to look at the custom event format section, see below), the list of items to be separated by commas without spaces | host_status,service_status                          | host_status or service_status or ba_status |
+| string | accepted_elements           | Centreon item managed by this connector (to add more, you need to look at the custom event format section, see below), the list of items must be separated by commas without spaces | host_status,service_status                          | host_status or service_status or ba_status |
 | string | api_url                     | Opsgenie API address, use https://api.eu.opsgenie.com if your instance is in Europe                                                                                               | https://api.opsgenie.com                            | -                                   |
 | string | alerts_api_endpoint         | Opsgenie API address for alerts                                                                                                                                                   | /v2/alerts                                          | -                                   |
 | string | incident_api_endpoint       | Opsgenie API address for incidents                                                                                                                                                | /v1/incidents/create                                | -                                   |
-| string | ba_incident_tags            | List of tags for an incident. Must use comma as separator. BV names will be automatically added to the tags                                                                       | centreon,application                                | -                                   |
+| string | ba_incident_tags            | List of tags for an incident. Must use a comma as a separator. BV names will be automatically added to the tags                                                                       | centreon,application                                | -                                   |
 | number | enable_incident_tags        | Adds tags for incidents if set to ` 1`                                                                                                                                            | 1                                                   | 1 ou 0                              |
 | number | get_bv                      | Adds BV name to tags if `enable_incident_tags` is set to `1`                                                                                                                      | 1                                                   | 1 ou 0                              |
 | string | enable_severity             | If set to 1, tries to link a Centreon severity to an Opsgenie priority                                                                                                            | 0                                                   | 1 ou 0                              |
-| string | default_priority            |  Default priority use for Opsgenie ticket                                                                                                                                                                                 |                                                     |                                     |
+| string | default_priority            |  Default priority used for Opsgenie tickets                                                                                                                                                                                 |                                                     |                                     |
 | string | priority_mapping            | Allows to match Opsgenie priorities with a priority order in the stream connector                                                                                                 | P1=1,P2=2,P3=3,P4=4,P5=5                            | -                                   |
 | string | opsgenie_priorities         | List of Opsgenie priorities with comma separator                                                                                                                                  | P1,P2,P3,P4,P5                                      | -                                   |
 | string | timestamp_conversion_format | Indicates timestamp display format                                                                                                                                                | %Y-%m-%d %H:%M:%S                                   | -                                   |
 
 ## Event bulking
 
-This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the EOpsgenie REST API.
+This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the Opsgenie REST API.
 
 To use this feature you must add the following parameter in the configuration of your stream connector.
 
