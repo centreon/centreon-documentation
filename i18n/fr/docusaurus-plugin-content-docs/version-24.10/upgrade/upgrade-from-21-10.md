@@ -276,7 +276,7 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
+Avant de démarrer la montée de version via l'interface web, mettez à jour [Centreon BAM avec cette procédure](../service-mapping/upgrade.md) puis rechargez le serveur Apache avec la commande suivante :
 ```shell
 systemctl reload httpd
 ```
@@ -310,7 +310,7 @@ accéder à la page de connexion :
 
 > La présentation de l'interface ayant été modifiée dans la version 22.10, vous devez vider le cache de votre navigateur pour afficher le nouveau thème.
 
-Référez-vous à la documentation de mise à jour pour [Centreon BAM](../service-mapping/update.md), [Centreon MBI](../reporting/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md) pour mettre à jour ces modules.
+Référez-vous à la documentation de mise à jour pour [Centreon MBI](../reporting/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md) pour mettre à jour ces modules.
 
 ### Actions post montée de version
 
