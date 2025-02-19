@@ -81,7 +81,7 @@ d'API provenant des **APP Settings**. Cette clé doit avoir les droits d'accès 
 3. Rendez vous dans le menu **Configured integrations** et éditez votre intégration **API** pour 
 l'activer si elle ne l'est pas. Vous devez aussi donner les droits **Create and Update Access**. 
 Sauvegardez votre configuration ainsi que votre **API Key** qui est obligatoire pour l'envoi 
-d'alertes depuis Centreon vers Opsgenie. Cette **API Key** correspond au champs
+d'alertes depuis Centreon vers Opsgenie. Cette **API Key** correspond au champ
  **integration_api_token** dans la configuration Centreon
 
 ### Intégration Opsgenie : incidents
