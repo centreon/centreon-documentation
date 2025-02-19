@@ -30,9 +30,7 @@ command prompt. As a minimum, the scripts should take the following macros as ar
 * For Services: $SERVICESTATE$, $SERVICESTATETYPE$, $SERVICEATTEMPT$
 * For Hosts: $HOSTSTATE$, $HOSTSTATETYPE$, $HOSTATTEMPT$
 
-Event handler commands will normally be executed with the same permissions as the user under which Centreon Engine
-(the **centreon-engine** user) is running on your machine. This can present a problem if you want to write an event handler that
-restarts system services, as **root** privileges are generally required to perform tasks of that kind.
+Event handler commands are typically executed with the same permissions as the user running Centreon Engine (the `centreon-engine` user) on your machine. This means that the executed file must have the appropriate execution permissions for this user. If your event handler needs to restart system services, be cautious, as such tasks generally require `root` privileges, and improper handling could lead to security risks or execution failures.
 
 Ideally you should evaluate the types of event handlers you will be implementing and grant just enough permissions to
 the Centreon Engine user to execute the necessary system commands. You might want to try using sudo to accomplish this.

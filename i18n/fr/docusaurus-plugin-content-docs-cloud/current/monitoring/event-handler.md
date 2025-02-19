@@ -32,10 +32,7 @@ prendre les macros suivantes comme arguments :
 * Pour les services : $SERVICESTATE$, $SERVICESTATETYPE$, $SERVICEATTEMPT$
 * Pour les hôtes : $HOSTSTATE$, $HOSTSTATETYPE$, $HOSTATTEMPT$
 
-Les commandes du gestionnaire d'évènements s'exécuteront normalement avec les mêmes autorisations que l'utilisateur sous
-lequel Centreon Engine (utilisateur **centreon-engine**) s'exécute sur votre machine. Cela peut poser un problème si vous
-souhaitez écrire un gestionnaire d'évènements qui redémarre les services système, car les privilèges **root** sont
-généralement requis pour effectuer ce type de tâches.
+Les commandes de gestion d'évènements sont généralement exécutées avec les mêmes permissions que l'utilisateur exécutant Centreon Engine (l'utilisateur `centreon-engine`) sur votre machine. Cela signifie que le fichier exécuté doit disposer des permissions d'exécution appropriées pour cet utilisateur. Si une commande doit redémarrer des services système, soyez prudent, car ces actions nécessitent généralement des privilèges `root`, et une mauvaise gestion pourrait entraîner des risques de sécurité ou des échecs d'exécution.
 
 Idéalement, vous devez évaluer les types de gestionnaires d'évènements que vous allez implémenter et accorder juste
 assez de permissions à l'utilisateur Centreon Engine pour exécuter les commandes système nécessaires. Vous voudrez
