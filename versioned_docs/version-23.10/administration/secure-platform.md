@@ -1294,7 +1294,7 @@ If everything is ok, you should have:
 Now you can access your platform with your browser in HTTPS mode.
 
 > Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you must set it to HTTPS mode too, otherwise
-> recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#configure-httpstls-on-the-map-server).
+> recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#configure-httpstls-on-the-map-or-map-legacy-server).
 
 9. Gorgone API configuration
 
