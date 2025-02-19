@@ -451,7 +451,7 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 
 ### Finalisation de la mise à jour
 
-Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec les commandes suivantes :
+Avant de démarrer la montée de version via l'interface web, mettez à jour [Centreon BAM avec cette procédure](../service-mapping/upgrade.md) puis rechargez le serveur Apache avec les commandes suivantes :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -602,7 +602,7 @@ usermod -a -G www-data centreon-broker
 </TabItem>
 </Tabs>
 
-Référez-vous à la documentation de mise à jour pour [Centreon BAM](../service-mapping/update.md), [Centreon MBI](../reporting/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md) pour mettre à jour ces modules.
+Référez-vous à la documentation de mise à jour pour [Centreon MBI](../reporting/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md) pour mettre à jour ces modules.
 
 ### Actions post montée de version
 
