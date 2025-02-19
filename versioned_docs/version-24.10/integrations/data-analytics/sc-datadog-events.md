@@ -50,10 +50,10 @@ apt install centreon-stream-connector-datadog
 </TabItem>
 </Tabs>
 
-## Configuring your Datadog equipment
+## Configuring your Datadog server
 
-You may need to configure your Datadog equipment so that it can receive data from Centreon. Please refer to Datadog's documentation.
-Make sure Datadog is able to receive data sent by Centreon: flows must not be blocked by Datadog's configuration or by a security equipment.
+You may need to configure your Datadog server so that it can receive data from Centreon. Please refer to Datadog's documentation.
+Make sure Datadog is able to receive data sent by Centreon: flows must not be blocked by Datadog's configuration or by a security device.
 
 The correct sourcetype for the stream connector is "_json". Other useful information may be for example "source": "http:my_index", "index": "my_index", "host": "Central". You can also add this information to your stream connector's configuration if you need to.
 
@@ -74,7 +74,7 @@ The correct sourcetype for the stream connector is "_json". Other useful informa
 
 | Type   | Name    | Value explanation   | Value exemple                    |
 | ------ | ------- | ------------------- |----------------------------------|
-| string | api_key | the datadog api key | OGwOM8nse3FHjxyGw5ODLWWXS1oEpcPs |
+| string | api_key | the datadog api key | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx |
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 
@@ -93,7 +93,7 @@ The correct sourcetype for the stream connector is "_json". Other useful informa
    systemctl restart centengine
    ```
 
-   Datadog should now receive data from Centreon. To test if it is working, see [Curl commands: testing the stream connector](#curl-commands-testing-the-stream-connector).
+Datadog should now receive data from Centreon. To test if it is working, see [Curl commands: testing the stream connector](#curl-commands-testing-the-stream-connector).
 
 ### Filtering or adapting the data you want to send to Datadog
 

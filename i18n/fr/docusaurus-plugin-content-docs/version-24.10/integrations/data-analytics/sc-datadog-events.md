@@ -73,14 +73,14 @@ Le sourcetype correspondant au stream connector est "_json". D'autres informatio
 
 | Type   | Nom     | Explication         | Exemple de valeur                |
 | ------ |---------|---------------------|----------------------------------|
-| string | api_key | the datadog api key | OGwOM8nse3FHjxyGw5ODLWWXS1oEpcPs |
+| string | api_key | Clé API datadog | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx |
 
 6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
 | Type   | Nom       | Explication                                | Valeur par défaut                           |
 |--------|-----------|--------------------------------------------|---------------------------------------------|
-| string | logfile   | The file in which logs are written         | /var/log/centreon-broker/datadog-events.log |
-| number | log_level | Logging level from 1 (errors) to 3 (debug) | 1                                           |
+| string | logfile   | Fichier dans lequel les logs sont écrits         | /var/log/centreon-broker/datadog-events.log |
+| number | log_level | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug) | 1                                           |
 
 7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à Datadog](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-datadog).
 
@@ -92,7 +92,7 @@ Le sourcetype correspondant au stream connector est "_json". D'autres informatio
    systemctl restart centengine
    ```
 
-   Datadog reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector).
+Datadog reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector).
 
 ### Filtrer ou adapter les données que vous voulez envoyer à Datadog
 
