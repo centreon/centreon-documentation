@@ -73,14 +73,14 @@ Assurez-vous que Datadog puisse recevoir les données envoyées par Centreon : l
 
 | Type   | Nom        | Explication            | Exemple de valeur                |
 | ------ |------------|------------------------|----------------------------------|
-| string | api_key    | The datadog api key    | OGwOM8nse3FHjxyGw5ODLWWXS1oEpcPs |
+| string | api_key    | Clé API datadog   | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx |
 
 6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
 | Type   | Nom       | Explication                                | Valeur par défaut                            |
 | ------ |-----------|--------------------------------------------|----------------------------------------------|
-| string | logfile   | The file in which logs are written         | /var/log/centreon-broker/datadog-metrics.log |
-| number | log_level | Logging level from 1 (errors) to 3 (debug) | 1                                            |
+| string | logfile   | Fichier dans lequel les logs sont écrits         | /var/log/centreon-broker/datadog-metrics.log |
+| number | log_level | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug) | 1                                            |
 
 7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à Datadog](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-datadog).
 
@@ -126,7 +126,7 @@ Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la 
 
 ## Event bulking
 
-Ce stream connector est compatible avec l'event bulking. Cela signifie qu'il est capable d'envoyer plus d'un évènement lors de chaque appel à l'API REST Spunk.
+Ce stream connector est compatible avec l'event bulking. Cela signifie qu'il est capable d'envoyer plus d'un évènement lors de chaque appel à l'API REST Datadog.
 
 Pour utiliser cette fonctionnalité, vous devez ajouter le paramètre suivant à la configuration de votre stream connector.
 

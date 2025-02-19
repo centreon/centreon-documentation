@@ -51,10 +51,10 @@ apt install centreon-stream-connector-datadog
 </TabItem>
 </Tabs>
 
-## Configuring your Datadog equipment
+## Configuring your Datadog server
 
-You may need to configure your Datadog equipment so that it can receive data from Centreon. Please refer to Datadog's documentation.
-Make sure Datadog is able to receive data sent by Centreon: flows must not be blocked by the configuration of Datadog or by a security equipment.
+You may need to configure your Datadog server so that it can receive data from Centreon. Please refer to Datadog's documentation.
+Make sure Datadog is able to receive data sent by Centreon: flows must not be blocked by the configuration of Datadog or by a security device.
 
 ## Configuring the stream connector in Centreon
 
@@ -74,7 +74,7 @@ Click on the **+Add a new entry** link located below the **Filter category** tab
 
 | Type   | Name         | Value explanation   | Value exemple                    |
 | ------ |--------------|---------------------|----------------------------------|
-| string | api_key      | The datadog api key | OGwOM8nse3FHjxyGw5ODLWWXS1oEpcPs |
+| string | api_key      | The datadog api key | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx |
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 
@@ -93,11 +93,11 @@ Click on the **+Add a new entry** link located below the **Filter category** tab
    systemctl restart centengine
    ```
 
-   Datadog should now receive data from Centreon. To test if it is working, see [Curl commands: testing the stream connector](#curl-commands-testing-the-stream-connector).
+Datadog should now receive data from Centreon. To test if it is working, see [Curl commands: testing the stream connector](#curl-commands-testing-the-stream-connector).
 
 ### Filtering or adapting the data you want to send to Datadog
 
-All stream connectors have a set of [optional parameters](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters), that allow you to filter the data you will send to your Datadog device, to reformat the data, to define a proxy...
+All stream connectors have a set of [optional parameters](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters), that allow you to filter the data you will send to your Datadog server, to reformat the data, to define a proxy...
 
 Each optional parameter has a default value, that is indicated in the corresponding documentation.
 
