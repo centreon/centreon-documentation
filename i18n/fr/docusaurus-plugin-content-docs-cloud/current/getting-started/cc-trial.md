@@ -27,7 +27,7 @@ La mise en place de la plateforme d'essai de Centreon Cloud se fait en trois ét
 
 - Votre plateforme sera alors créée automatiquement. Cette étape peut prendre quelques minutes, vous serez notifié par email lorsque la plateforme aura fini d'être construite.
 
-- Une fois la plateforme prête, l'administrateur invite d'autres utilisateurs à créer leurs propres comptes sur Centreon CIAM et rejoindre la plateforme d'essai
+- La plateforme prête : l'administrateur invite d'autres utilisateurs à créer leurs propres comptes sur Centreon CIAM et rejoindre la plateforme d'essai.
 
 Une fois la plateforme mise en place, vous pouvez tester la version d'essai de Centreon Cloud pendant 7 jours et superviser jusqu'à 125 hôtes.
 
