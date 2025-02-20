@@ -15,13 +15,13 @@ Centreon Cloud offers the Centreon monitoring platform in a SaaS version, for an
 
 ### User accounts
 
-User accounts are managed in the [Centreon CIAM](../ciam/ciam.md) (Customer Identity and Access Management) module, Centreon’s access management tool. Your administrator needs to create an organization and invite the other users to it so that all team members can work on the same Centreon platform. 
+User accounts are managed in the [Centreon CIAM](../ciam/ciam.md) (Customer Identity and Access Management) module, Centreon’s access management tool. The person who first requests the Cloud Trial using the form becomes the "administrator". They will invite other users to the platform.
 
 ### How to create an organization for your trial platform?
 
 There are three steps to setting up your Centreon Cloud trial platform for an organization:
 
-- Your administrator fills in [the form available on our website](https://www.centreon.com/free-trial/) using a professional email address.
+- Your future administrator fills in [the form available on our website](https://www.centreon.com/free-trial/) using a professional email address.
 
 - An email will be sent to that address to activate the account and create a password for it on Centreon CIAM.
 
