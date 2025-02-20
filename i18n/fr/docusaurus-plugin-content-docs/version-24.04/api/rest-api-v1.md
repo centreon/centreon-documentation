@@ -2371,7 +2371,7 @@ For the service submission please provide the following information :
 | ------------------- | -------------------------------------------------------- |
 | host                | host name                                                |
 | service             | service description                                      |
-| status              | status id (0, 1, 2, 3) or ok, warning, critical, unknown |
+| status              | status ID (0, 1, 2, 3) or ok, warning, critical, unknown |
 | output              | a specific message                                       |
 | perfdata (optional) | all performance metric following the nagios plugin API   |
 | updatetime          | the check time (timestamp)                               |
@@ -2381,7 +2381,7 @@ For the host submission please provide the following information :
 | Fields     | Description                |
 | ---------- | -------------------------- |
 | host       | host name                  |
-| status     | status id (0, 1, 2, 3)     |
+| status     | status ID (0, 1, 2, 'up', 'down', 'unknown')     |
 | output     | a specific message         |
 | updatetime | the check time (timestamp) |
 
