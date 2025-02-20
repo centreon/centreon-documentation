@@ -582,7 +582,7 @@ Par défaut, la communication entre le serveur Central et les Pollers ou les
 Remote Servers utilisera toujours SSH.
 
 Considérez changer le protocole de communication en suivant la procédure
-[Changer la communication de SSH à ZMQ](../monitoring/monitoring-servers/communications.md#changer-la-communication-de-ssh-a-zmq).
+[Changer la communication de SSH à ZMQ](../monitoring/monitoring-servers/communications.md#changer-la-communication-de-ssh-à-zmq).
 
 ## Sécurisez votre plateforme
 
