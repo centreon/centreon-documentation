@@ -1,13 +1,13 @@
 ---
 id: hardware-storage-emc-datadomain-snmp
-title: EMC Data Domain
+title: EMC Data Domain SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **EMC Data Domain** connector through the
+The following monitoring connectors will be installed when you install the **EMC Data Domain SNMP** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **EMC
 
 ### Templates
 
-The Monitoring Connector **EMC Data Domain** brings a host template:
+The Monitoring Connector **EMC Data Domain SNMP** brings a host template:
 
 * **HW-Storage-EMC-DataDomain-SNMP-custom**
 
@@ -24,15 +24,15 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-EMC-DataDomain-SNMP-custom" label="HW-Storage-EMC-DataDomain-SNMP-custom">
 
-| Service Alias   | Service Template                                      | Service Description                          | Discovery  |
-|:----------------|:------------------------------------------------------|:---------------------------------------------|:----------:|
-| Alerts          | HW-Storage-EMC-DataDomain-Alerts-SNMP-custom          | Check current alerts                         |            |
-| Cleaning        | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom        | Check last time filesystems have been cleaned |            |
-| Filesystems     | HW-Storage-EMC-DataDomain-Filesystems-SNMP-custom     | Check filesystems                            | X          |
-| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Check all hardware                           |            |
-| Mtrees          | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom          | Check MTrees                                 | X          |
-| Process         | HW-Storage-EMC-DataDomain-Process-SNMP-custom         | Check process status                         |            |
-| Replications    | HW-Storage-EMC-DataDomain-Replications-SNMP-custom    | Check replications                           | X          |
+| Service Alias   | Service Template                                      | Service Description                                                                        | Discovery  |
+|:----------------|:------------------------------------------------------|:-------------------------------------------------------------------------------------------|:----------:|
+| Alerts          | HW-Storage-EMC-DataDomain-Alerts-SNMP-custom          | Check current alerts                                                                       |            |
+| Cleaning        | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom        | Check last time filesystems have been cleaned                                               |            |
+| Filesystems     | HW-Storage-EMC-DataDomain-Filesystems-SNMP-custom     | Check filesystems                                                                          | X          |
+| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Check all storage hardware (fans, power supplies, temperatures, disks, nvram batteries) |            |
+| Mtrees          | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom          | Check MTrees                                                                               | X          |
+| Process         | HW-Storage-EMC-DataDomain-Process-SNMP-custom         | Check process status                                                                       |            |
+| Replications    | HW-Storage-EMC-DataDomain-Replications-SNMP-custom    | Check replications                                                                         | X          |
 
 > The services listed above are created automatically when the **HW-Storage-EMC-DataDomain-SNMP-custom** host template is used.
 
@@ -47,6 +47,7 @@ The connector brings the following service templates (sorted by the host templat
 | Hardware-Disk    | HW-Storage-EMC-DataDomain-Hardware-Disk-SNMP-custom    | Check disks of storage           |            |
 | Hardware-Fan     | HW-Storage-EMC-DataDomain-Hardware-Fan-SNMP-custom     | Check fans of storage            |            |
 | Hardware-Psu     | HW-Storage-EMC-DataDomain-Hardware-Psu-SNMP-custom     | Check power supplies of storage  |            |
+| Hardware-Psu     | HW-Storage-EMC-DataDomain-Hardware-Temperature-custom  | Check temperatures               |            |
 | Interfaces       | HW-Storage-EMC-DataDomain-Interfaces-SNMP-custom       | Check interfaces                 | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
@@ -68,12 +69,12 @@ More information about discovering hosts automatically is available on the [dedi
 
 #### Service discovery
 
-| Rule name                                   | Description                                                   |
-|:--------------------------------------------|:--------------------------------------------------------------|
-| HW-Storage-EMC-DataDomain-SNMP-Filesystems  | Discover the disk partitions and monitor space occupation     |
+| Rule name                                   | Description                                               |
+|:--------------------------------------------|:----------------------------------------------------------|
+| HW-Storage-EMC-DataDomain-SNMP-Filesystems  | Discover the disk partitions and monitor space occupation |
 | HW-Storage-EMC-DataDomain-SNMP-Interfaces   | Discover network interfaces and monitor bandwidth utilization |
 | HW-Storage-EMC-DataDomain-SNMP-Mtrees       | Discover the mtrees to monitor                                |
-| HW-Storage-EMC-DataDomain-SNMP-Replications | Discover the replications to monitor                          |
+| HW-Storage-EMC-DataDomain-SNMP-Replications | Discover the replications to monitor |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -111,68 +112,58 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Hardware-Battery" label="Hardware-Battery">
 
-| Name                                               | Unit |
-|:---------------------------------------------------|:-----|
-| status                                             | N/A  |
-| *battery*~hardware.battery.nvram.charge.percentage | %    |
-| hardware.battery.count                             | N/A  |
+| Name                                               | Unit  |
+|:---------------------------------------------------|:------|
+| status                                             | N/A   |
+| *battery*~hardware.battery.nvram.charge.percentage | %     |
+| hardware.battery.count                             | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Disk" label="Hardware-Disk">
 
-| Name                | Unit |
-|:--------------------|:-----|
-| status              | N/A  |
-| hardware.disk.count | N/A  |
+| Name                | Unit  |
+|:--------------------|:------|
+| status              | N/A   |
+| hardware.disk.count | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Fan" label="Hardware-Fan">
 
-| Name               | Unit |
-|:-------------------|:-----|
-| status             | N/A  |
-| hardware.fan.count | N/A  |
+| Name               | Unit  |
+|:-------------------|:------|
+| status             | N/A   |
+| hardware.fan.count | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Name               | Unit |
-|:-------------------|:-----|
-| battery.status     | N/A  |
-| disk.status        | N/A  |
-| fan.status         | N/A  |
-| psu.status         | N/A  |
-| temperature.status | N/A  |
+| Name               | Unit  |
+|:-------------------|:------|
+| battery.status     | N/A   |
+| disk.status        | N/A   |
+| fan.status         | N/A   |
+| psu.status         | N/A   |
+| temperature.status | N/A   |
 
 </TabItem>
-<TabItem value="Hardware-Psu" label="Hardware-Psu">
+<TabItem value="Hardware-Psu*" label="Hardware-Psu*">
 
-| Name               | Unit |
-|:-------------------|:-----|
-| status             | N/A  |
-| hardware.psu.count | N/A  |
-
-</TabItem>
-<TabItem value="Hardware-Temperature" label="Hardware-Temperature">
-
-| Name                                       | Unit |
-|:-------------------------------------------|:-----|
-| status                                     | N/A  |
-| *temperature*~hardware.temperature.celsius | C    |
-| hardware.temperature.count                 | N/A  |
+| Name                | Unit |
+|:-------------------|:------|
+| psu.status     | N/A   |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Name                                                      | Unit |
-|:----------------------------------------------------------|:-----|
-| *interface_name*#status                                   | N/A  |
-| *interface_name*#interface.traffic.in.bitspersecond       | b/s  |
-| *interface_name*#interface.traffic.out.bitspersecond      | b/s  |
-| *interface_name*#interface.packets.in.discard.percentage  | %    |
-| *interface_name*#interface.packets.in.error.percentage    | %    |
-| *interface_name*#interface.packets.out.discard.percentage | %    |
-| *interface_name*#interface.packets.out.error.percentage   | %    |
+| Name                                                      | Unit  |
+|:----------------------------------------------------------|:------|
+| *interface_name*#status                                   | N/A   |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
+| *interface_name*#interface.packets.in.discard.percentage  | %     |
+| *interface_name*#interface.packets.in.error.percentage    | %     |
+| *interface_name*#interface.packets.out.discard.percentage | %     |
+| *interface_name*#interface.packets.out.error.percentage   | %     |
 
 </TabItem>
 <TabItem value="Mtrees" label="Mtrees">
@@ -223,6 +214,9 @@ SNMP port.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
 **Configuration > Monitoring Connector Manager** menu.
@@ -260,7 +254,7 @@ yum install centreon-pack-hardware-storage-emc-datadomain-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **EMC Data Domain** connector through
+2. Whatever the license type (*online* or *offline*), install the **EMC Data Domain SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -313,7 +307,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **HW-Storage-EMC-DataDomain-SNMP-custom** template to the host. 
+3. Apply the **HW-Storage-EMC-DataDomain-SNMP-custom** template to the host.
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
@@ -332,12 +326,12 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 <Tabs groupId="sync">
 <TabItem value="Alerts" label="Alerts">
 
-| Macro                 | Description                                                                                           | Default value                                         | Mandatory   |
-|:----------------------|:------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+| Macro                 | Description                                                                                             | Default value                                           | Mandatory   |
+|:----------------------|:--------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
 | TRULYALERT            | Expression to define an actual alert (default: '%\{severity\} =~ /emergency\|alert\|warning\|critical/i') | %\{severity\} =~ /emergency\|alert\|warning\|critical/i |             |
-| WARNINGALERTSCURRENT  | Threshold                                                                                             |                                                       |             |
-| CRITICALALERTSCURRENT | Threshold                                                                                             |                                                       |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).    |                                                       |             |
+| WARNINGALERTSCURRENT  | Threshold                                                                                               |                                                         |             |
+| CRITICALALERTSCURRENT | Threshold                                                                                               |                                                         |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).      |                                                         |             |
 
 </TabItem>
 <TabItem value="Cleaning" label="Cleaning">
@@ -395,67 +389,67 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'psu', 'fan', 'disk', 'temperature', 'battery'   | psu               |             |
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'psu', 'fan', 'disk', 'temperature', 'battery'   | psu       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro              | Description                                                                                                                                                                                                         | Default value                                | Mandatory   |
-|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
-| OIDFILTER          | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                          | ifname                                       |             |
-| OIDDISPLAY         | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                 | ifname                                       |             |
-| INTERFACENAME      | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                           |                                              |             |
-| WARNINGINDISCARD   | Threshold                                                                                                                                                                                                           |                                              |             |
-| CRITICALINDISCARD  | Threshold                                                                                                                                                                                                           |                                              |             |
-| WARNINGINERROR     | Threshold                                                                                                                                                                                                           |                                              |             |
-| CRITICALINERROR    | Threshold                                                                                                                                                                                                           |                                              |             |
-| WARNINGINTRAFFIC   | Threshold                                                                                                                                                                                                           |                                              |             |
-| CRITICALINTRAFFIC  | Threshold                                                                                                                                                                                                           |                                              |             |
-| WARNINGOUTDISCARD  | Threshold                                                                                                                                                                                                           |                                              |             |
-| CRITICALOUTDISCARD | Threshold                                                                                                                                                                                                           |                                              |             |
-| WARNINGOUTERROR    | Threshold                                                                                                                                                                                                           |                                              |             |
-| CRITICALOUTERROR   | Threshold                                                                                                                                                                                                           |                                              |             |
-| WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                                                                           |                                              |             |
-| CRITICALOUTTRAFFIC | Threshold                                                                                                                                                                                                           |                                              |             |
+| Macro              | Description                                                                                                                                                                                                                     | Default value                                    | Mandatory   |
+|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-----------:|
+| OIDFILTER          | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                                      | ifname                                           |             |
+| OIDDISPLAY         | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                             | ifname                                           |             |
+| INTERFACENAME      | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                                       |                                                  |             |
+| WARNINGINDISCARD   | Threshold                                                                                                                                                                                                                       |                                                  |             |
+| CRITICALINDISCARD  | Threshold                                                                                                                                                                                                                       |                                                  |             |
+| WARNINGINERROR     | Threshold                                                                                                                                                                                                                       |                                                  |             |
+| CRITICALINERROR    | Threshold                                                                                                                                                                                                                       |                                                  |             |
+| WARNINGINTRAFFIC   | Threshold                                                                                                                                                                                                                       |                                                  |             |
+| CRITICALINTRAFFIC  | Threshold                                                                                                                                                                                                                       |                                                  |             |
+| WARNINGOUTDISCARD  | Threshold                                                                                                                                                                                                                       |                                                  |             |
+| CRITICALOUTDISCARD | Threshold                                                                                                                                                                                                                       |                                                  |             |
+| WARNINGOUTERROR    | Threshold                                                                                                                                                                                                                       |                                                  |             |
+| CRITICALOUTERROR   | Threshold                                                                                                                                                                                                                       |                                                  |             |
+| WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                                                                                       |                                                  |             |
+| CRITICALOUTTRAFFIC | Threshold                                                                                                                                                                                                                       |                                                  |             |
 | CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up/ |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                            |                                              |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                  | --verbose                                    |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                |                                                  |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                              | --verbose                                        |             |
 
 </TabItem>
 <TabItem value="Mtrees" label="Mtrees">
 
-| Macro           | Description                                                                                                           | Default value     | Mandatory   |
-|:----------------|:----------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERMTREENAME | Check MTress by name                                                                                                  |                   |             |
+| Macro           | Description                                                                                                               | Default value     | Mandatory   |
+|:----------------|:--------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERMTREENAME | Check MTrees by name                                                                                                      |                   |             |
 | WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}  |                   |             |
 | CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\} |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                    |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                        |                   |             |
 
 </TabItem>
 <TabItem value="Process" label="Process">
 
-| Macro                 | Description                                                                                                                                                                       | Default value     | Mandatory   |
-|:----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCIFSSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{cifsStatus\}                                                                   |                   |             |
-| CRITICALCIFSSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{cifsStatus\} =~ /enabledNotRunning/'). You can use the following variables: %\{cifsStatus\}                |                   |             |
-| WARNINGDDBOOSTSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ddboostStatus\}                                                                |                   |             |
-| CRITICALDDBOOSTSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ddboostStatus\}                                                               |                   |             |
-| WARNINGNFSSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{nfsStatus\}                                                                    |                   |             |
-| CRITICALNFSSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{nfsStatus\}                                                                   |                   |             |
-| WARNINGVTLSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vtlAdminState\}, %\{vtlProcessState\}                                            |                   |             |
+| Macro                 | Description                                                                                                                                                                             | Default value     | Mandatory   |
+|:----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCIFSSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{cifsStatus\}                                                                       |                   |             |
+| CRITICALCIFSSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{cifsStatus\} =~ /enabledNotRunning/'). You can use the following variables: %\{cifsStatus\}                  |                   |             |
+| WARNINGDDBOOSTSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ddboostStatus\}                                                                    |                   |             |
+| CRITICALDDBOOSTSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ddboostStatus\}                                                                   |                   |             |
+| WARNINGNFSSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{nfsStatus\}                                                                        |                   |             |
+| CRITICALNFSSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{nfsStatus\}                                                                       |                   |             |
+| WARNINGVTLSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vtlAdminState\}, %\{vtlProcessState\}                                              |                   |             |
 | CRITICALVTLSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%\{vtlAdminState\} =~ /failed/'). You can use the following variables: %\{vtlAdminState\}, %\{vtlProcessState\} |                   |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                      |                   |             |
 
 </TabItem>
 <TabItem value="Replications" label="Replications">
 
-| Macro               | Description                                                                                                                                                                                                               | Default value                                     | Mandatory   |
-|:--------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------|:-----------:|
-| CUSTOMINSTANCESNAME | Customize the name composition rule for the instances the metrics will be attached to (default: '%(type) %(source) %(destination)'). You can use the following variables: %(type) %(source) %(destination)                | %(type) %(source) %(destination)                  |             |
+| Macro               | Description                                                                                                                                                                                                                           | Default value                                       | Mandatory   |
+|:--------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-----------:|
+| CUSTOMINSTANCESNAME | Customize the name composition rule for the instances the metrics will be attached to (default: '%(type) %(source) %(destination)'). You can use the following variables: %(type) %(source) %(destination)                            | %(type) %(source) %(destination)                    |             |
 | WARNINGSTATUS       | Define the conditions to match for the status to be WARNING (default: '%\{state\} =~ /initializing\|recovering/i'). You can use the following variables: %\{state\}, %\{status\}, %\{source\}, %\{destination\}, %\{type\}            | %\{state\} =~ /disabledNeedsResync\|uninitialized/i |             |
 | CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /disabledNeedsResync\|uninitialized/i'). You can use the following variables: %\{state\}, %\{status\}, %\{source\}, %\{destination\}, %\{type\} | %\{state\} =~ /initializing\|recovering/i           |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                        | --verbose                                         |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                    | --verbose                                           |             |
 
 </TabItem>
 </Tabs>
@@ -465,7 +459,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
@@ -477,13 +471,14 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--snmp-community='my-snmp-community'  \
 	--filter-mtree-name='' \
 	--warning-status='' \
-	--critical-status=''  
+	--critical-status=''
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: detected: 33552 space precompression used: 20257 20257 precompression: 52436 52436 postcompression: 56937 56937 | 'mtrees.detected.count'=33552;;;0; 'mtrees~mtree.precompression.space.usage.bytes'=20257B;;;0; 'mtrees~mtree.daily.precompression.data.written.bytes'=52436B;;;0; 'mtrees~mtree.daily.postcompression.data.written.bytes'=56937B;;;0; 
+OK: detected: 33552 space precompression used: 20257 20257 precompression: 52436 52436 postcompression: 56937 56937 | 'mtrees.detected.count'=33552;;;0; 'mtrees~mtree.precompression.space.usage.bytes'=20257B;;;0; 'mtrees~mtree.daily.precompression.data.written.bytes'=52436B;;;0; 'mtrees~mtree.daily.postcompression.data.written.bytes'=56937B;;;0;
+
 ```
 
 ### Troubleshooting
@@ -495,7 +490,7 @@ for Centreon Plugins typical issues.
 
 In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
 In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
 connector in your terminal.
 
 All available modes can be displayed by adding the `--list-mode` parameter to
@@ -509,20 +504,20 @@ the command:
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                                           | Linked service template                                                                                                                                                                                                                                                                    |
-|:-----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| alerts [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/alerts.pm)]                      | HW-Storage-EMC-DataDomain-Alerts-SNMP-custom                                                                                                                                                                                                                                               |
-| cleaning [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/cleaning.pm)]                  | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom                                                                                                                                                                                                                                             |
-| filesystems [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/filesystems.pm)]            | HW-Storage-EMC-DataDomain-Filesystems-SNMP-custom                                                                                                                                                                                                                                          |
-| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/hardware.pm)]                  | HW-Storage-EMC-DataDomain-Hardware-Battery-SNMP-custom<br />HW-Storage-EMC-DataDomain-Hardware-Disk-SNMP-custom<br />HW-Storage-EMC-DataDomain-Hardware-Fan-SNMP-custom<br />HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom<br />HW-Storage-EMC-DataDomain-Hardware-Psu-SNMP-custom |
-| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/interfaces.pm)]              | HW-Storage-EMC-DataDomain-Interfaces-SNMP-custom                                                                                                                                                                                                                                           |
-| list-filesystems [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/listfilesystems.pm)]   | Used for service discovery                                                                                                                                                                                                                                                                 |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]                   | Used for service discovery                                                                                                                                                                                                                                                                 |
-| list-mtrees [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/listmtrees.pm)]             | Used for service discovery                                                                                                                                                                                                                                                                 |
-| list-replications [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/listreplications.pm)] | Used for service discovery                                                                                                                                                                                                                                                                 |
-| mtrees [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/mtrees.pm)]                      | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom                                                                                                                                                                                                                                               |
-| process [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/process.pm)]                    | HW-Storage-EMC-DataDomain-Process-SNMP-custom                                                                                                                                                                                                                                              |
-| replications [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/replications.pm)]          | HW-Storage-EMC-DataDomain-Replications-SNMP-custom                                                                                                                                                                                                                                         |
+| Mode                                                                                                                                           | Linked service template                                                                                                                                                                                                                                                                                                                               |
+|:-----------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| alerts [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/alerts.pm)]                      | HW-Storage-EMC-DataDomain-Alerts-SNMP-custom                                                                                                                                                                                                                                                                                                          |
+| cleaning [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/cleaning.pm)]                  | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom                                                                                                                                                                                                                                                                                                        |
+| filesystems [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/filesystems.pm)]            | HW-Storage-EMC-DataDomain-Filesystems-SNMP-custom                                                                                                                                                                                                                                                                                                     |
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/hardware.pm)]                  | HW-Storage-EMC-DataDomain-Hardware-Battery-SNMP-custom<br />HW-Storage-EMC-DataDomain-Hardware-Disk-SNMP-custom<br />HW-Storage-EMC-DataDomain-Hardware-Fan-SNMP-custom<br />HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom<br />HW-Storage-EMC-DataDomain-Hardware-Psu-SNMP-custom<br />HW-Storage-EMC-DataDomain-Hardware-Temperature-custom |
+| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/interfaces.pm)]              | HW-Storage-EMC-DataDomain-Interfaces-SNMP-custom                                                                                                                                                                                                                                                                                                      |
+| list-filesystems [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/listfilesystems.pm)]   | Used for service discovery                                                                                                                                                                                                                                                                                                                            |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]                   | Used for service discovery                                                                                                                                                                                                                                                                                                                            |
+| list-mtrees [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/listmtrees.pm)]             | Used for service discovery                                                                                                                                                                                                                                                                                                                            |
+| list-replications [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/listreplications.pm)] | Used for service discovery                                                                                                                                                                                                                                                                                                                            |
+| mtrees [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/mtrees.pm)]                      | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom                                                                                                                                                                                                                                                                                                          |
+| process [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/process.pm)]                    | HW-Storage-EMC-DataDomain-Process-SNMP-custom                                                                                                                                                                                                                                                                                                         |
+| replications [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/emc/datadomain/snmp/mode/replications.pm)]          | HW-Storage-EMC-DataDomain-Replications-SNMP-custom                                                                                                                                                                                                                                                                                                    |
 
 ### Available options
 
@@ -566,7 +561,7 @@ All generic options are listed here:
 | --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
 | --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
@@ -601,7 +596,7 @@ All available options for each service template are listed below:
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
 | --display-alerts         |   Display alerts in verbose output.                                                                                           |
-| --truly-alert            |   Expression to define a truly alert (default: '%\{severity\} =~ /emergency\|alert\|warning\|critical/i').                      |
+| --truly-alert            |   Expression to define a truly alert (default: '%\{severity\} =~ /emergency\|alert\|warning\|critical/i').                    |
 | --warning-* --critical-* |   Thresholds. Can be: 'alerts-current'.                                                                                       |
 
 </TabItem>
@@ -683,7 +678,7 @@ All available options for each service template are listed below:
 | --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                            |
 
 </TabItem>
-<TabItem value="Hardware-Psu" label="Hardware-Psu">
+<TabItem value="Hardware-Psu*" label="Hardware-Psu*">
 
 | Option               | Description                                                                                                                                                                                                                |
 |:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -711,9 +706,9 @@ All available options for each service template are listed below:
 | --add-cast                                      |   Check interface cast.                                                                                                                                                                                                                                                                      |
 | --add-speed                                     |   Check interface speed.                                                                                                                                                                                                                                                                     |
 | --add-volume                                    |   Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      |
-| --check-metrics                                 |   If the expression is true, metrics are checked (default: '%\{opstatus\} eq "up"').                                                                                                                                                                                                           |
-| --warning-status                                |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                                   |
-| --critical-status                               |   Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                        |
+| --check-metrics                                 |   If the expression is true, metrics are checked (default: '%\{opstatus\} eq "up"').                                                                                                                                                                                                         |
+| --warning-status                                |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                           |
+| --critical-status                               |   Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                            |
 | --warning-* --critical-*                        |   Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
 | --units-traffic                                 |   Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
 | --units-errors                                  |   Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |
@@ -738,7 +733,7 @@ All available options for each service template are listed below:
 | --redis-server                                  |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                            |
 | --redis-attribute                               |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                    |
 | --redis-db                                      |   Set Redis database index.                                                                                                                                                                                                                                                                  |
-| --failback-file                                 |   Failback on a local file if Redis connection fails.                                                                                                                                                                                                                                        |
+| --failback-file                                 |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                                                                       |
 | --memexpiration                                 |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                             |
 | --statefile-dir                                 |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                     |
 | --statefile-suffix                              |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                             |
@@ -750,49 +745,49 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Mtrees" label="Mtrees">
 
-| Option                   | Description                                                                                                                                                   |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                        |
-| --filter-mtree-name      |   Check MTress by name.                                                                                                                                       |
+| Option                   | Description                                                                                                                                                             |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                                  |
+| --filter-mtree-name      |   Check MTrees by name.                                                                                                                                                 |
 | --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{status\}, %\{source\}, %\{destination\}, %\{type\}   |
-| --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                        |
-| --critical-status        |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                                       |
-| --warning-* --critical-* |   Thresholds. Can be: 'mtrees-detected', 'space-precompression-usage'.                                                                                        |
+| --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                              |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                                             |
+| --warning-* --critical-* |   Thresholds. Can be: 'mtrees-detected', 'space-precompression-usage'.                                                                                                  |
 
 </TabItem>
 <TabItem value="Process" label="Process">
 
-| Option                    | Description                                                                                                                                                                            |
-|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters         |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                            |
-| --unknown-cifs-status     |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{cifsStatus\}                                                                      |
-| --warning-cifs-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{cifsStatus\}                                                                      |
-| --critical-cifs-status    |   Define the conditions to match for the status to be CRITICAL (default: '%\{cifsStatus\} =~ /enabledNotRunning/'). You can use the following variables: %\{cifsStatus\}                   |
-| --unknown-ddboost-status  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{ddboostStatus\}                                                                   |
-| --warning-ddboost-status  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ddboostStatus\}                                                                   |
-| --critical-ddboost-status |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ddboostStatus\}                                                                  |
-| --unknown-nfs-status      |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{nfsStatus\}                                                                       |
-| --warning-nfs-status      |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{nfsStatus\}                                                                       |
-| --critical-nfs-status     |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{nfsStatus\}                                                                      |
-| --unknown-vtl-status      |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{vtlAdminState\}, %\{vtlProcessState\}                                               |
-| --warning-vtl-status      |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vtlAdminState\}, %\{vtlProcessState\}                                               |
+| Option                    | Description                                                                                                                                                                                  |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters         |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                  |
+| --unknown-cifs-status     |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{cifsStatus\}                                                                          |
+| --warning-cifs-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{cifsStatus\}                                                                          |
+| --critical-cifs-status    |   Define the conditions to match for the status to be CRITICAL (default: '%\{cifsStatus\} =~ /enabledNotRunning/'). You can use the following variables: %\{cifsStatus\}                     |
+| --unknown-ddboost-status  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{ddboostStatus\}                                                                       |
+| --warning-ddboost-status  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ddboostStatus\}                                                                       |
+| --critical-ddboost-status |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ddboostStatus\}                                                                      |
+| --unknown-nfs-status      |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{nfsStatus\}                                                                           |
+| --warning-nfs-status      |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{nfsStatus\}                                                                           |
+| --critical-nfs-status     |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{nfsStatus\}                                                                          |
+| --unknown-vtl-status      |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{vtlAdminState\}, %\{vtlProcessState\}                                                 |
+| --warning-vtl-status      |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vtlAdminState\}, %\{vtlProcessState\}                                                 |
 | --critical-vtl-status     |   Define the conditions to match for the status to be CRITICAL (default: '%\{vtlAdminState\} =~ /failed/'). You can use the following variables: %\{vtlAdminState\}, %\{vtlProcessState\}    |
 
 </TabItem>
 <TabItem value="Replications" label="Replications">
 
-| Option                      | Description                                                                                                                                                                                                                   |
-|:----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters           |   Only display some counters (regexp can be used). Example: --filter-counters='^status$'                                                                                                                                      |
-| --filter-repl-index         |   Check replications by index.                                                                                                                                                                                                |
-| --filter-repl-source        |   Check replications by source.                                                                                                                                                                                               |
-| --filter-repl-destination   |   Check replications by destination.                                                                                                                                                                                          |
-| --custom-perfdata-instances |   Customize the name composition rule for the instances the metrics will be attached to (default: '%(type) %(source) %(destination)'). You can use the following variables: %(type) %(source) %(destination)                  |
-| --unit                      |   Select the time unit for thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks (default: 'd').                                                                                    |
-| --unknown-status            |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{status\}, %\{source\}, %\{destination\}, %\{type\}                                                                   |
+| Option                      | Description                                                                                                                                                                                                                               |
+|:----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters           |   Only display some counters (regexp can be used). Example: --filter-counters='^status$'                                                                                                                                                  |
+| --filter-repl-index         |   Check replications by index.                                                                                                                                                                                                            |
+| --filter-repl-source        |   Check replications by source.                                                                                                                                                                                                           |
+| --filter-repl-destination   |   Check replications by destination.                                                                                                                                                                                                      |
+| --custom-perfdata-instances |   Customize the name composition rule for the instances the metrics will be attached to (default: '%(type) %(source) %(destination)'). You can use the following variables: %(type) %(source) %(destination)                              |
+| --unit                      |   Select the time unit for thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks (default: 'd').                                                                                                |
+| --unknown-status            |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{status\}, %\{source\}, %\{destination\}, %\{type\}                                                                     |
 | --warning-status            |   Define the conditions to match for the status to be WARNING (default: '%\{state\} =~ /initializing\|recovering/i'). You can use the following variables: %\{state\}, %\{status\}, %\{source\}, %\{destination\}, %\{type\}              |
 | --critical-status           |   Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /disabledNeedsResync\|uninitialized/i'). You can use the following variables: %\{state\}, %\{status\}, %\{source\}, %\{destination\}, %\{type\}   |
-| --warning-* --critical-*    |   Thresholds. Can be: 'repl-detected', 'precompression-data-remaining', 'last-insync-time'.                                                                                                                                   |
+| --warning-* --critical-*    |   Thresholds. Can be: 'repl-detected', 'precompression-data-remaining', 'last-insync-time'.                                                                                                                                               |
 
 </TabItem>
 </Tabs>

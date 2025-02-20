@@ -164,39 +164,6 @@ EOF
 ```bash
 dnf install -y telegraf
 ```
-
-Puis :
-
-1. Arrêtez le service Telegraf : 
-
-```shell
-systemctl stop telegraf
-```
-
-2. Éditez le fichier **telegraf.service**.
-
-```shell
-vi /etc/systemd/system/telegraf.service
-```
-
-3. Remplacez :
-
-```shell
-/usr/bin/telegraf -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d $TELEGRAF_OPTS
-```
-
-Par (remplacez les exemples par vos propres valeurs) :
-
-```shell
-/usr/bin/telegraf -config http(s)://<ip poller>:<port poller>/engine?host=<host to monitor>
-```
-
-4. Démarrez le service Telegraf :
-
-```shell
-systemctl start telegraf
-```
-
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
@@ -212,6 +179,9 @@ apt-get update
 ```bash
 apt-get -y install telegraf
 ```
+
+</TabItem>
+</Tabs>
 
 Vous devez alors configurer la sortie OpenTelemetry de Telegraf.
 Vous devez décommenter ce paragraphe ou bien recréer un fichier de configuration avec juste les lignes suivantes :
@@ -255,10 +225,6 @@ Il vous reste maintenant à redémarrer Telegraf :
 ```shell
 systemctl restart telegraf
 ```
-
-</TabItem>
-</Tabs>
-
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
@@ -266,6 +232,8 @@ systemctl restart telegraf
 
 2. Vous devez alors configurer la sortie OpenTelemetry de Telegraf.
 Vous devez décommenter ce paragraphe ou bien recréer un fichier de configuration avec juste les lignes suivantes :
+
+```
 # [[outputs.opentelemetry]]
 #   ## Override the default (localhost:4317) OpenTelemetry gRPC service
 #   ## address:port

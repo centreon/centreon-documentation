@@ -15,6 +15,8 @@ servers:
 - central server,
 - database server.
 
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
+
 ## Update the Centreon central server
 
 ### Update the Centreon solution
