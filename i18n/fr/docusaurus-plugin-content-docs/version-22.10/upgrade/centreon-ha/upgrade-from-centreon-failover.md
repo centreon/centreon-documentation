@@ -53,7 +53,7 @@ pcs cluster destroy
 
 Centreon >= 21.10 est livré avec une compatibilité avec MariaDB 10.5.
 
-Mettez à niveau les deux nœuds de base de données en suivant la [procédure officielle de mise à niveau de MariaDB](../../upgrade/upgrade-from-19-10.md#Montée-de-version-du-serveur-MariaDB). 
+Mettez à niveau les deux nœuds de base de données en suivant la [procédure officielle de mise à niveau de MariaDB](../../upgrade/upgrade-from-19-10.md#montée-de-version-du-serveur-mariadb). 
 
 Une fois que les deux nœuds exécutent la version 10.5 de MariaDB, arrêtez les processus mysql/mariadb. 
 
@@ -68,8 +68,8 @@ Si vous mettez à jour depuis la version 19.10 :
 
 Si vous effectuez une mise à niveau depuis la version 19.04 : 
 * [Mettre à jour vos référentiels](../../upgrade/upgrade-from-19-04.md#Mise-à-jour-des-dépôts). Egalement ceux des modules Business Edition s'ils sont installés.
-* [Mettre à jour vos paquets](../../upgrade/upgrade-from-19-04.md#Montée-de-version-de-la-solution-Centreon)
-* [Prendre les mesures supplémentaires nécessaires](../../upgrade/upgrade-from-19-04.md#Actions-complémentaires)
+* [Mettre à jour vos paquets](../../upgrade/upgrade-from-19-04.md#montée-de-version-de-la-solution-centreon)
+* [Prendre les mesures supplémentaires nécessaires](../../upgrade/upgrade-from-19-04.md#actions-complémentaires)
 
 Arrêtez le processus apache après ces opérations et vérifiez à nouveau qu'aucun des processus gérés par le cluster n'est en cours d'exécution. 
 processus géré par le cluster est en cours d'exécution.
@@ -77,8 +77,8 @@ processus géré par le cluster est en cours d'exécution.
 ## Créer le nouveau cluster
 
 Selon l'architecture de votre Cluster, la procédure de création du cluster est différente. 
-* Si le serveur web et les bases de données sont exécutés sur le même noeud, suivez ce [guide d'installation de HA 2 noeuds](../../installation/installation-of-centreon-ha/installation-2-nodes.md#Mise-en-place-du-cluster-Centreon)
-* Si les bases de données sont exécutées sur un serveur dédié, suivez ce [guide d'installation de HA 4 nœuds](../../installation/installation-of-centreon-ha/installation-4-nodes.md#Mise-en-place-du-cluster-Centreon)
+* Si le serveur web et les bases de données sont exécutés sur le même noeud, suivez ce [guide d'installation de HA 2 noeuds](../../installation/installation-of-centreon-ha/installation-2-nodes.md#mise-en-place-du-cluster-centreon)
+* Si les bases de données sont exécutées sur un serveur dédié, suivez ce [guide d'installation de HA 4 nœuds](../../installation/installation-of-centreon-ha/installation-4-nodes.md#mise-en-place-du-cluster-centreon)
 
 Avant de passer aux étapes suivantes, assurez-vous que toutes les ressources fonctionnent sans problème et qu'aucune action n'a échoué.
 
@@ -87,14 +87,14 @@ Si un problème survient à cette étape, assurez-vous que les conditions préal
 <Tabs groupId="sync">
 <TabItem value="HA 2 nodes" label="HA 2 nodes">
 
-* [Échange de clés SSH](../../installation/installation-of-centreon-ha/installation-2-nodes.md#Échanges-de-clefs-SSH), Centreon-HA est plus sécurisé car il ne nécessite pas de privilèges root.
-* [Informations d'identification et privilèges de la base de données](../../installation/installation-of-centreon-ha/installation-2-nodes.md#Création-du-compte-centreon), comme ci-dessus, le compte SQL root n'est plus nécessaire.
+* [Échange de clés SSH](../../installation/installation-of-centreon-ha/installation-2-nodes.md#échanges-de-clefs-ssh), Centreon-HA est plus sécurisé car il ne nécessite pas de privilèges root.
+* [Informations d'identification et privilèges de la base de données](../../installation/installation-of-centreon-ha/installation-2-nodes.md#création-du-compte-centreon), comme ci-dessus, le compte SQL root n'est plus nécessaire.
 
 </TabItem>
 <TabItem value="HA 4 nodes" label="HA 4 nodes">
 
-* [Échange de clés SSH](../../installation/installation-of-centreon-ha/installation-4-nodes.md#Échanges-de-clefs-SSH), Centreon-HA est plus sécurisé car il ne nécessite pas de privilèges root.
-* [Informations d'identification et privilèges de la base de données](../../installation/installation-of-centreon-ha/installation-4-nodes.md#Création-du-compte-centreon), comme ci-dessus, le compte SQL root n'est plus nécessaire.
+* [Échange de clés SSH](../../installation/installation-of-centreon-ha/installation-4-nodes.md#échanges-de-clefs-ssh), Centreon-HA est plus sécurisé car il ne nécessite pas de privilèges root.
+* [Informations d'identification et privilèges de la base de données](../../installation/installation-of-centreon-ha/installation-4-nodes.md#création-du-compte-centreon), comme ci-dessus, le compte SQL root n'est plus nécessaire.
 
 </TabItem>
 </Tabs>
@@ -104,20 +104,20 @@ Une fois que les clés SSH de centreon et de mysql ont été échangées, vous p
 ### Finalisation de la mise à niveau
 
 Tout d'abord, effectuez les étapes de l'assistant Web pour terminer le processus de mise à niveau de Central :
-* Si vous effectuez une mise à niveau depuis la version 19.10, suivez ce [chapitre](../../upgrade/upgrade-from-19-10.md#Finalisation-de-la-mise-à-jour).
-* Si vous effectuez une mise à niveau depuis la version 19.04, suivez ce [chapitre](../../upgrade/upgrade-from-19-04.md#Finalisation-de-la-mise-à-jour).
+* Si vous effectuez une mise à niveau depuis la version 19.10, suivez ce [chapitre](../../upgrade/upgrade-from-19-10.md#finalisation-de-la-mise-à-jour).
+* Si vous effectuez une mise à niveau depuis la version 19.04, suivez ce [chapitre](../../upgrade/upgrade-from-19-04.md#finalisation-de-la-mise-à-jour).
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 nodes" label="HA 2 nodes">
 
-Ensuite, modifiez la commande de rechargement de Centreon-Broker de votre serveur central dans 'Configuration > Pollers' comme décrit [ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md#Modification-de-la-commande-de-rechargement-de-`cbd`).
+Ensuite, modifiez la commande de rechargement de Centreon-Broker de votre serveur central dans 'Configuration > Pollers' comme décrit [ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md#modification-de-la-commande-de-rechargement-de-`cbd`).
 
 </TabItem>
 <TabItem value="HA 4 nodes" label="HA 4 nodes">
 
-Ensuite, modifiez la commande de rechargement de Centreon-Broker de votre serveur central dans 'Configuration > Pollers' comme décrit [ici](../../installation/installation-of-centreon-ha/installation-4-nodes.md#Modification-de-la-commande-de-rechargement-de-`cbd`).
+Ensuite, modifiez la commande de rechargement de Centreon-Broker de votre serveur central dans 'Configuration > Pollers' comme décrit [ici](../../installation/installation-of-centreon-ha/installation-4-nodes.md#modification-de-la-commande-de-rechargement-de-`cbd`).
 
 </TabItem>
 </Tabs>
 
-Enfin, mettez à jour votre/vos poller(s) comme décrit [ici](../../upgrade/upgrade-from-19-04.md#Montée-de-version-des-Pollers)
+Enfin, mettez à jour votre/vos poller(s) comme décrit [ici](../../upgrade/upgrade-from-19-04.md#montée-de-version-des-pollers)
