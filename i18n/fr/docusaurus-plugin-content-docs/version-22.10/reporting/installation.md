@@ -330,13 +330,6 @@ Importez la clé du dépôt :
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
 
-Ajoutez le dépôt externe suivant (pour Java 8):
-
-```shell
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-```
-
 Puis installez Centreon MBI:
 
 ```shell

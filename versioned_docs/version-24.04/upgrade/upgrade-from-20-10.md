@@ -36,6 +36,8 @@ servers:
 - Central server
 - Database server
 
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
+
 ### Update the RPM signing key
 
 > For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation) to remove the old key and install the new one.
