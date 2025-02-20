@@ -62,9 +62,9 @@ Une fois que les deux nœuds exécutent la version 10.5 de MariaDB, arrêtez les
 Suivez ces étapes sur chaque nœud Centreon.
 
 Si vous mettez à jour depuis la version 19.10 : 
-* [Mettez à jour vos référentiels](../../upgrade/upgrade-from-19-10.md#Mettre-à-jour-le-dépôt-Centreon). Egalement ceux des modules de l'édition Business s'ils sont installés.
-* [Mettre à jour vos paquets](../../upgrade/upgrade-from-19-10.md#Montée-de-version-de-la-solution-Centreon)
-* [Prendre les mesures supplémentaires requises](../../upgrade/upgrade-from-19-10.md#Actions-complémentaires)
+* [Mettez à jour vos référentiels](../../upgrade/upgrade-from-19-10.md#mettre-à-jour-le-dépôt-centreon). Egalement ceux des modules de l'édition Business s'ils sont installés.
+* [Mettre à jour vos paquets](../../upgrade/upgrade-from-19-10.md#montée-de-version-de-la-solution-centreon)
+* [Prendre les mesures supplémentaires requises](../../upgrade/upgrade-from-19-10.md#actions-complémentaires)
 
 Si vous effectuez une mise à niveau depuis la version 19.04 : 
 * [Mettre à jour vos référentiels](../../upgrade/upgrade-from-19-04.md#Mise-à-jour-des-dépôts). Egalement ceux des modules Business Edition s'ils sont installés.
