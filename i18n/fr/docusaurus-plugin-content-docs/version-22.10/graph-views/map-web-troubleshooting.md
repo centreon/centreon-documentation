@@ -203,7 +203,7 @@ Voici les principales erreurs que vous pouvez rencontrer :
   }
   ```
   
-  > Si ce n'est pas le cas, veuillez envoyer une capture d'écran de l'erreur (voir la section [Toujours bloqué ?](#toujours-bloqué)).
+  > Si ce n'est pas le cas, veuillez envoyer une capture d'écran de l'erreur (voir la section [Toujours bloqué ?](#toujours-bloqué-)).
 
 ## Toujours bloqué ?
 
