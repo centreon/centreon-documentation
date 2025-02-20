@@ -238,7 +238,7 @@ systemctl start firewalld
 Ajoutez des règles pour firewalld :
 
 > La liste des flux réseau nécessaires pour chaque type de serveur est définie
-> [ici](../installation/technical.md#tableau-des-flux-réseau).
+> [ici](../installation/technical.md#tableaux-des-flux-réseau).
 
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
@@ -1482,7 +1482,7 @@ via la gestion de [liste de contrôle d'accès](./access-control-lists.md).
 Il est fortement recommandé de sécuriser les communications entre les différents serveurs de la plateforme Centreon si
 certains serveurs ne sont pas dans un réseau sécurisé.
 
-> Le tableau des flux réseau est disponible [ici](../installation/technical.md#tableau-des-flux-réseau).
+> Le tableau des flux réseau est disponible [ici](../installation/technical.md#tableaux-des-flux-réseau).
 
 ### Communication Centreon Broker
 
