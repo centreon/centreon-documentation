@@ -67,14 +67,14 @@ curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | se
 ```
 
 
-If opening traffic to IP addresses is not suitable for you, it is also possible to open routes based on FQDN. The FQDN that should be authorized are the following:
+If opening traffic to IP addresses is not suitable for you, it is also possible to open routes based on FQDNs. The FQDNs that should be authorized are the following:
 
-On poller network:
+On the network of each poller:
 - api.euwest1.prod1.centreon.cloud
 - api.a.prod.mycentreon.com
 - broker-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
 - gorgone-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
 
-On user browser network:
+On the network of the user's browser:
 - https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/centreon/login
 

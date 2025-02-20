@@ -67,9 +67,9 @@ curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | se
 ```
 
 
-s'il n'est pas possible pour vous de faire du filtrage sur les adresseS IP, vous pouvez faire du filtrage par FQDN. Les FQDN à autoriser sont les suivants :
+S'il n'est pas possible pour vous de faire du filtrage sur les adresses IP, vous pouvez faire du filtrage par FQDN. Les FQDN à autoriser sont les suivants :
 
-Sur le réseau de collecteurs :
+Sur le réseau de chaque collecteur :
 - api.euwest1.prod1.centreon.cloud
 - api.a.prod.mycentreon.com
 - broker-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
