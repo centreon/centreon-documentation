@@ -137,7 +137,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.md#enable-firewalld)
+> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.md#activer-firewalld)
 > pour configurer le pare-feu.
 
 ### Installer les dépôts
