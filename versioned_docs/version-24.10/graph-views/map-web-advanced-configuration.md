@@ -10,7 +10,7 @@ system.
 
 ## Monitoring your Centreon MAP server after installation
 
-Centreon provides a [Monitoring Connector and a plugin](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-map-engine-actuator) to monitor your Centreon MAP server.
+Centreon provides a [Monitoring Connector and a plugin](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-map-engine-actuator.md) to monitor your Centreon MAP server.
 
 ### Configure your services
 
