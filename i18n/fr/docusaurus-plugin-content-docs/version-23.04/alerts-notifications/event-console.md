@@ -193,7 +193,7 @@ contacts liés à l'hôte qui recevront notifications.
 
 > Cette interface est **dépréciée** et remplacée par la page
 > **Statut des ressources** et la [liste des
-> évènements](resources-status.md#lister-les-evenements).
+> évènements](resources-status.md#lister-les-évènements).
 
 Pour visualiser le statut des services, rendez-vous dans le menu
 **Monitoring > Status Details > Services**.
