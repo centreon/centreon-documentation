@@ -15,7 +15,7 @@ Centreon Cloud permet de profiter de la plateforme de supervision Centreon en ve
 
 ### Information sur les comptes utilisateurs
 
-Les comptes utilisateurs sont gérés dans le module [Centreon CIAM](../ciam/ciam.md) (Customer Identity and Access Management), l'application de gestion des accès à Centreon. La première personne qui fait la demande d'un Cloud Trial en utilisant le formulaire sera "l'administrateur". Cette personne invitera ensuite les autres utilisateurs à rejoindre la plateforme.
+Les comptes utilisateurs sont gérés dans le module [Centreon CIAM](../ciam/ciam.md) (Customer Identity and Access Management), l'application de gestion des accès à Centreon. La personne qui fait la demande d'un Cloud Trial pour votre entreprise devient l'administrateur et pourra inviter d'autres utilisateurs à rejoindre la plateforme.
 
 ### Comment créer une organisation pour votre plateforme d'essai ?
 
