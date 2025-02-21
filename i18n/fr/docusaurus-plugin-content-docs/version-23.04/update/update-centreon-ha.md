@@ -161,7 +161,7 @@ service cbd-sql restart
 ```
 
 
-Dans le cas où des [Remote Servers](../installation/architectures.md#description) seraient présents, il faut y redémarrer le service `cbd` :
+Dans le cas où des [Serveurs Distants](../getting-started/platform.md#serveur-distant) seraient présents, il faut y redémarrer le service `cbd` :
 
 ```bash
 service cbd restart
