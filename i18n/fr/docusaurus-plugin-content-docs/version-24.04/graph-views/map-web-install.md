@@ -46,7 +46,7 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 #### Logiciel
 
-Voir les [prérequis logiciels](../installation/prerequisites.md#cqrqctéristiques-des-serveurs).
+Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiques-des-serveurs).
 
 #### Matériel
 
