@@ -34,8 +34,8 @@ Vous devez disposer :
 6. Cliquez sur le `+` dans le coin supérieur droit du Plugin Pack. Le Plugin Pack a maintenant une bordure verte et une coche dans le coin supérieur droit : les modèles de configuration et les fournisseurs de découverte sont maintenant installés.
 
 7. Suivez [cette procédure](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2.md)
- (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#dépendances-du-plugin) et 
-[Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#privilèges-aws)) pour finir d'installer le Plugin Pack. (Vous pouvez également accéder à la documentation d'un Plugin Pack en cliquant sur le `i`.)
+ (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2.md#dépendances-du-plugin) et 
+[Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2.md#privilèges-aws)) pour finir d'installer le Plugin Pack. (Vous pouvez également accéder à la documentation d'un Plugin Pack en cliquant sur le `i`.)
 
   ![image](../assets/getting-started/aws-doc.png)
 
