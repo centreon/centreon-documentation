@@ -258,8 +258,8 @@ vgdisplay vg_data | grep -i free*
 
 #### Couche Interlogiciel et logiciel
 
-- OS : voir la compatibilité [ici](../installation/prerequisites.md#système-dexploitation)
-- SGBD : voir la compatibilité [ici](../installation/prerequisites.md#sgbd)
+- OS : voir la compatibilité [ici](../installation/compatibility.md#système-dexploitation)
+- SGBD : voir la compatibilité [ici](../installation/compatibility.md#sgbd)
 - Firewalld : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#configurer-ou-désactiver-le-pare-feu))
 - SELinux : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#désactiver-selinux))
 
