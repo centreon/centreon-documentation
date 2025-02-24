@@ -19,8 +19,9 @@ vérifie s'il a commencer ou arrêté de bagoter. Pour ce faire, il :
 Un hôte ou un service est considéré comme ayant commencé à bagoter lorsque son
 pourcentage de changement d'état **dépasse pour la première fois le seuil de bagotement haut**. Lorsqu'un hôte ou un service est en état de bagotement :
 
-* Il a un fond vert à la page **Statut des ressources**.
-* Il a une icône spécifique dans le panneau **Détails** et dans la colonne **État** de la page **Statut des ressources**.
+* À la page **Statut des ressources**, il est affiché sur fond vert.
+* À la page **Statut des ressources**, l'icône suivante est affichée dans son panneau **Détails** et dans la colonne **État** :
+    ![image](../assets/alerts/flapping_icon.png)
 * Si les notifications de bagotement sont activées, une notification est envoyée lorsque la ressource commence à bagoter, et une autre est envoyée lorsqu'elle cesse de bagoter. Les notifications d'alerte et de récupération sont temporairement désactivées.
 
 Dans la page **Statut des ressources**, vous pouvez filtrer la vue pour n'afficher que les ressources bagotantes.

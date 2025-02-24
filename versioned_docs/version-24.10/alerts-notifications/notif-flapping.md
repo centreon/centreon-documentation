@@ -25,7 +25,8 @@ A host or service is determined to have started flapping when its
 percent state change first **exceeds a high flapping threshold**. When a host or service is flapping:
 
 * it has a green background in the **Resources status** page.
-* it has a specific icon in its **Details** panel, and in the **State** column of the **Resource status** page.
+* it has the following icon in its **Details** panel and in the **State** column:
+    ![image](../assets/alerts/flapping_icon.png)
 * if flapping notifications are enabled, one notification is sent when the resource starts flapping, and another one is sent when it stops flapping. Alert and recovery notifications are temporarily disabled.
 
 In the **Resource status** page, you can filter the view to display only flapping resources.

@@ -54,8 +54,8 @@ You can filter the view on the [Resources Status](resources-status.md) page acco
 
 The status of a resource can be one of these two types:
 
-* SOFT: Means that an incident has just been detected and that it has to be confirmed.
-* HARD: Means that the status of the incident is confirmed. Once the status is confirmed, the notification process is triggered (sending of an email, SMS, etc.).
+* **SOFT**: Means that an incident has just been detected and that it has to be confirmed.
+* **HARD**: Means that the status of the incident is confirmed. Once the status is confirmed, the notification process is triggered (sending of an email, SMS, etc.).
 
 You can filter the view on the [Resources Status](resources-status.md) page according to the resources' status type.
 
