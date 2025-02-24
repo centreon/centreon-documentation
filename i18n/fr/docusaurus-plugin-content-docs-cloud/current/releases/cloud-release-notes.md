@@ -3,6 +3,175 @@ id: cloud-release-notes
 title: Centreon Cloud - notes de release
 ---
 
+## March 3rd, 2025
+
+### Centreon  Autodiscovery
+
+<details>
+  <summary>Bug fixes</summary>
+  
+- [Discovery] Fixed autodiscovery credentials lost during update.
+
+</details>
+
+### Centreon Bam
+
+<details>
+  <summary>Bug fixes</summary>
+  
+- [BA monitoring] Fixed issue preventing KPI Informations to be displayed.
+
+</details>
+
+### Centreon Centreon Cloud Extensions
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [Open tickets] Enabled Open Tickets feature.
+
+</details>
+
+### Centreon Collect
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [Broker] Adapted Broker to a new behavior of the MariaDB database concerning errors: Broker no longer fails to reconnect after an error.
+- [Broker]Broker can now read Engine configurations and if it already knows it, Engine knows it don't have to send it again.
+Usually, when Engine starts it reads it and sends it to Broker. Now, during the negociation, if broker already knows it, Engine doesn't send it anymore.
+This means a big evolution on the negociation between Engine and Broker.
+- [Broker] Broker is now Vault compatible, if its passwords to access databases are encrypted, it is able to ask the vault for the decrypted password.
+- [CMA] Added a silent mode (CLI) on Windows installer.
+- [CMA] Added a native Storage check for Windows.
+- [CMA] Added a native Health check for Windows & Linux.
+- [CMA] Added a native Services check for Windows.
+- [CMA] Added a native Uptime check for Windows.
+- [CMA] Added a native Memory check for Windows.
+- [CMA] Added a native CPU check for Windows & Linux.
+- [CMA] Added an option in Windows installer to use embedded plugins in case of offline execution.
+- [CMA] Agent checks scheduling has been optimized to avoid delay if checks take too long.
+- [CMA] Centreon Monitoring Agent & installer are now signed.
+- [gRPC API] GetService function have been improved to return more information.
+- [gRPC API] GetHostgroups function return information about hostgroups.
+- [gRPC API] GetTag function return information about Tag.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+  
+- [Broker] Adapted Broker parsing so as to avoid breaking a metric name ending with the ] character.
+- [Broker] Adapted Broker to a new behavior of the MariaDB database concerning errors: Broker no longer fails to reconnect after an error.
+- [Broker] Fixed errors in RRD logs that appeared following the upgrade to the new log engine in collect.
+- [Collect] Delivered the correct libraries for Collect, so as to avoid issues with template inheritance or Engine crashes.
+- Fixed a typo in an SQL query.
+- Fixed an issue where a segmentation fault could occur when host relations were modified.
+
+</details>
+
+### Centreon MBI
+
+<details>
+  <summary>Bug fixes</summary>
+  
+- [MBI] Fixed an issue preventing a report from being generated.
+
+</details>
+
+### Centreon Map
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [Database] Extended bend point limitations for links.
+- [Gauge widget] Added an option to display the name of the parent resource.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+  
+- [Engine] Updated dependency.
+- [Geoviews] Fixed an issue that ignored ACLs when listing Business Activities.
+- [Server] Fixed boot failure that may occur when using service templates.
+- [Viewer] Fixed wrong call to get the details of a resource.
+- [Migration from Legacy] Fixed an incorrect value in identifier generation.
+- [Viewer] The widgets and links are now propagating their status to their parent Map.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+  
+- [Security] Fixed log4j vulnerability.
+- [Security] Removed commons-logging (including Log4j).
+- [Security] Updated JSON in Java dependency.
+- [Security] Updated Symfony Security-Http component.
+- [Security] Upgraded Apache Tomcat version.
+- [Security] Upgraded dependency tomcat-embed-core.
+
+</details>
+
+### Centreon Gorgone
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [Gorgone] Added the ability to fetch configuration credentials from a Vault.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+  
+- [Packaging] Fixed centreon-engine restart issue on poller caused by a missing service binary.
+
+</details>
+
+### Centreon Web
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [ACC VMware] Enhanced translation and UX on Additional Connectors Configuration.
+- [Agents configuration] A new feature is available to manage agents configuration, including Centreon Monitoring Agent and Telegraf.
+- [API] Added missing configuration change logs for service categories configuration.
+- [Authentification] Improved the way errors are logged for authentications with OpenID.
+- [CEIP] Added telemetry on Poller/Agent configuration.
+- [Dashboards] Added default sizes for widgets, and optimized their default positioning on the grid of the dashboard.
+- [Dashboards] Added the possibility to mark a dashboard as a favorite one, and to list all favorites.
+- [Dashboards] Improved Status Grid widget responsiveness in condensed mode.
+- [Dashboards] It is now possible to expand an individual widget.
+- [Dashboards][Metrics Graph] Added new time periods: 14 days and 2 months.
+- [Dashboards][Resource Table widget] Added FQDN, Alias, Parent Alias and Monitoring Server columns.
+- [Install] added 24.10 support to unattended script.
+- [Library - view by card] Added thumbnail, that show a snapshot of your data, taken when the dashboard is saved.
+- [Resource status] In the Resource Status page, custom order for filters can now be saved.
+- [UI] Centered the reset password form.
+- [UI] Reset password form now take into account login page customization.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+  
+- [API Token] Fixed the list of contact with pagination.
+- [Configuration] Fixed incorrect mandatory field for mass change on services.
+- [Configuration] Fixed incorrect mandatory field for mass change on hosts.
+- [Dashboards] Fixed error when trying to share a dashboard.
+- [Notification] Options in the notifications panel are now saved correctly.
+- [Packaging] Fix an issue that prevented centreontrapd from starting properly due to perl dependencies.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+  
+- [Security] Updated Symfony Security-Http component.
+
+</details>
+
 ## December 17th, 2024
 
 This release contains numerous bug and vulnerability fixes but also the following improvements:
