@@ -353,7 +353,7 @@ MBI, menu **Rapports > Monitoring Business Intelligence > Paramètres globaux** 
 |----------------------------------------------------------------------------------------|----------------------------|--------------------------------------------------------------------------------------|
 | Options de  l'ordonnanceur                                                             | Hôte de CBIS               | Adresse IP du serveur de reporting                                                   |
 | Options de l'ETL | Une base de données MySQL dédiée au reporting a été mise en place | Oui                        |                                                                                      |
-| Widgets de reporting*                                                                  | Reporting MySQL database | Adresse IP de la base de reporting (par défaut = adresse IP du serveur de reporting) |
+| Widgets de reporting*                                                                  | Reporting MariaDB/MySQL database | Adresse IP de la base de reporting (par défaut = adresse IP du serveur de reporting) |
 
 \* *Le test de connexion ne fonctionnera pas encore à ce moment de l'installation*
 
