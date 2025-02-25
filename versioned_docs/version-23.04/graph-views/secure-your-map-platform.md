@@ -230,8 +230,7 @@ Centreon MAP server is now configured to respond to requests from HTTPS at port 
 </TabItem>
 </Tabs>
 
-To change the default port, refer to the [dedicated
-procedure](advanced-configuration.md#change-centreon-map-servers-port).
+To change the default port, refer to the [dedicated procedure](advanced-configuration.md#change-centreon-map-server-port).
 
 > Don't forget to modify the URL on Centreon side in the **Map server address**
 > field in the **Administration > Extensions > Map > Options** menu.
@@ -272,7 +271,7 @@ certificate as described below:
 
 > "Trusted CA's certificate" field is optional. If you activate Broker's client
 > authentication by setting this "ca\_certificate.crt", then you must setup a
-> [keystore for MAP server](#configure-httpstls-on-the-map-server)
+> [keystore for MAP server](#configure-httpstls-on-the-map-or-map-legacy-server)
 >
 > You MUST push the new broker configuration and restart the broker after
 > configuration.

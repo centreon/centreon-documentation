@@ -264,7 +264,7 @@ vgdisplay vg_data | grep -i free*
 - OS : RHEL / Oracle Linux / Alma 8 or 9, Debian 11
 - SGBD : MariaDB 10.5
 - Firewalld : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#configure-or-disable-the-firewall))
-- SELinux : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#disable-SELinux))
+- SELinux : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#disable-selinux))
 
 > Make sure that the time zone of the reporting server is the same as that of the central server, otherwise report publications will fail (link to download missing).
 > The same time zone must be displayed with the `timedatectl` command.

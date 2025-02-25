@@ -53,7 +53,8 @@ pcs cluster destroy
 
 Centreon >= 21.10 est livré avec une compatibilité avec MariaDB 10.5.
 
-Mettez à niveau les deux nœuds de base de données en suivant la [procédure officielle de mise à niveau de MariaDB](../../upgrade/upgrade-from-19-10.md#montée-de-version-du-serveur-mariadb). 
+Mettez à niveau les deux nœuds de base de données en suivant la 
+[procédure officielle de mise à niveau de MariaDB](../../upgrade/upgrade-from-19-10.md#montée-de-version-du-serveur-mariadb). 
 
 Une fois que les deux nœuds exécutent la version 10.5 de MariaDB, arrêtez les processus mysql/mariadb. 
 
@@ -67,7 +68,7 @@ Si vous mettez à jour depuis la version 19.10 :
 * [Prendre les mesures supplémentaires requises](../../upgrade/upgrade-from-19-10.md#actions-complémentaires)
 
 Si vous effectuez une mise à niveau depuis la version 19.04 : 
-* [Mettre à jour vos référentiels](../../upgrade/upgrade-from-19-04.md#Mise-à-jour-des-dépôts). Egalement ceux des modules Business Edition s'ils sont installés.
+* [Mettre à jour vos référentiels](../../upgrade/upgrade-from-19-04.md#mise-à-jour-des-dépôts). Egalement ceux des modules Business Edition s'ils sont installés.
 * [Mettre à jour vos paquets](../../upgrade/upgrade-from-19-04.md#montée-de-version-de-la-solution-centreon)
 * [Prendre les mesures supplémentaires nécessaires](../../upgrade/upgrade-from-19-04.md#actions-complémentaires)
 
@@ -77,8 +78,10 @@ processus géré par le cluster est en cours d'exécution.
 ## Créer le nouveau cluster
 
 Selon l'architecture de votre Cluster, la procédure de création du cluster est différente. 
-* Si le serveur web et les bases de données sont exécutés sur le même noeud, suivez ce [guide d'installation de HA 2 noeuds](../../installation/installation-of-centreon-ha/installation-2-nodes.md#mise-en-place-du-cluster-centreon)
-* Si les bases de données sont exécutées sur un serveur dédié, suivez ce [guide d'installation de HA 4 nœuds](../../installation/installation-of-centreon-ha/installation-4-nodes.md#mise-en-place-du-cluster-centreon)
+* Si le serveur web et les bases de données sont exécutés sur le même noeud, suivez ce 
+[guide d'installation de HA 2 noeuds](../../installation/installation-of-centreon-ha/installation-2-nodes.md#mise-en-place-du-cluster-centreon)
+* Si les bases de données sont exécutées sur un serveur dédié, suivez ce 
+[guide d'installation de HA 4 nœuds](../../installation/installation-of-centreon-ha/installation-4-nodes.md#mise-en-place-du-cluster-centreon)
 
 Avant de passer aux étapes suivantes, assurez-vous que toutes les ressources fonctionnent sans problème et qu'aucune action n'a échoué.
 
@@ -110,14 +113,14 @@ Tout d'abord, effectuez les étapes de l'assistant Web pour terminer le processu
 <Tabs groupId="sync">
 <TabItem value="HA 2 nodes" label="HA 2 nodes">
 
-Ensuite, modifiez la commande de rechargement de Centreon-Broker de votre serveur central dans 'Configuration > Pollers' comme décrit [ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md#modification-de-la-commande-de-rechargement-de-`cbd`).
+Ensuite, modifiez la commande de rechargement de Centreon-Broker de votre serveur central dans 'Configuration > Pollers' comme décrit [ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md#modification-de-la-commande-de-rechargement-de-cbd).
 
 </TabItem>
 <TabItem value="HA 4 nodes" label="HA 4 nodes">
 
-Ensuite, modifiez la commande de rechargement de Centreon-Broker de votre serveur central dans 'Configuration > Pollers' comme décrit [ici](../../installation/installation-of-centreon-ha/installation-4-nodes.md#modification-de-la-commande-de-rechargement-de-`cbd`).
+Ensuite, modifiez la commande de rechargement de Centreon-Broker de votre serveur central dans 'Configuration > Pollers' comme décrit [ici](../../installation/installation-of-centreon-ha/installation-4-nodes.md#modification-de-la-commande-de-rechargement-de-cbd).
 
 </TabItem>
 </Tabs>
 
-Enfin, mettez à jour votre/vos poller(s) comme décrit [ici](../../upgrade/upgrade-from-19-04.md#montée-de-version-des-pollers)
+Enfin, mettez à jour votre/vos poller(s) comme décrit [ici](../../upgrade/upgrade-from-19-04.md#montée-de-version-des-collecteurs)

@@ -139,8 +139,8 @@ systemctl start centreon-map
 > Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
 
 By default, the Centreon MAP server is listening and sending information
-through the port 8080. If you set the SSL (see [HTTPS/TLS
-Configuration](secure-your-map-platform.md#configure-httpstls-on-the-map-or-map-legacy-server)),
+through the port 8080. 
+If you set the SSL (see [HTTPS/TLS Configuration](secure-your-map-platform.md#configure-httpstls-on-the-map-server)),
 use port 8443.
 
 You can change this port (e.g., if you have a firewall on your network
