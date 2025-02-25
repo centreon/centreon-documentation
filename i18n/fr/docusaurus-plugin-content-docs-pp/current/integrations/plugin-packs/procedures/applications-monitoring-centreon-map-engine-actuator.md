@@ -5,7 +5,7 @@ title: Centreon Map Engine
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Map Engine est l'un des composants de [Centreon Map](https://docs.centreon.com/fr/docs/graph-views/introduction-map/).
+Map Engine est l'un des composants de [Centreon Map](/docs/graph-views/introduction-map).
 
 ## Contenu du pack
 
@@ -104,7 +104,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Vous devez avoir préalablement installé [Centreon Map](https://docs.centreon.com/fr/docs/graph-views/introduction-map/) et tout particulièrement [Centreon Map Engine server](https://docs.centreon.com/fr/docs/graph-views/map-web-install/).
+Vous devez avoir préalablement installé [Centreon Map](/docs/graph-views/introduction-map) et tout particulièrement [Centreon Map Engine server](/docs/graph-views/map-web-install).
 
 ## Installer le connecteur de supervision
 
