@@ -218,14 +218,12 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
     ```
     dnf install centreon-agent
     ```
-	
 </TabItem>
 <TabItem value="Debian" label="Debian">
 
     ```
     apt install centreon-agent
     ```
-	
 </TabItem>
 </Tabs>
 

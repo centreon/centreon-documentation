@@ -219,14 +219,12 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
     ```
     dnf install centreon-agent
     ```
-	
 </TabItem>
 <TabItem value="Debian" label="Debian">
 
     ```
     apt install centreon-agent
     ```
-	
 </TabItem>
 </Tabs>
 
