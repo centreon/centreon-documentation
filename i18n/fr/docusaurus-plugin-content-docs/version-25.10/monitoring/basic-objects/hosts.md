@@ -52,7 +52,7 @@ Si plusieurs modèles tentaient de modifier le même champ, les caractéristique
 * **Commande de vérification** : commande utilisée pour vérifier la disponibilité de l’hôte. Vous pouvez l'utiliser si vous n'avez pas appliqué de [modèles](../templates.md) à votre hôte, ou bien pour surcharger la commande définie dans le modèle.
 * **Arguments** : arguments donnés à la commande de vérification (chaque argument commence avec un ”!”).
 
-* **Macros personnalisées** : les macros apparaissent automatiquement si vous ajoutez des modèles, mais vous pouvez également ajouter vos [macros personnalisées](../macros/#custom-macros). Pour chaque macro, renseignez la valeur correspondant à votre équipement.
+* **Macros personnalisées** : les macros apparaissent automatiquement si vous ajoutez des modèles, mais vous pouvez également ajouter vos [macros personnalisées](macros.md#les-macros-personnalisées). Pour chaque macro, renseignez la valeur correspondant à votre équipement.
 
    * Les champs **Nom** et **Valeur** établissent le nom et la valeur de la macro.
    * Cocher la case **Mot de passe** cache la valeur de la macro.

@@ -342,7 +342,7 @@ chown centreon-engine: /etc/centreon-engine/conf-*
 > L'option `-days 365` limite la durée de validité du certificat à un an. Vous pouvez adapter celle-ci en fonction de vos préférences concernant la sécurité ou la maintenabilité.
 
 2. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
-3. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision **Windows Telegraf Agent**.
+3. [Installez](/docs/monitoring/pluginpacks#installer-un-connecteur-de-supervision) le connecteur de supervision **Windows Telegraf Agent**.
 
 ### Configuration de Centreon Engine
 

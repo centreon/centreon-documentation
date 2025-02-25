@@ -55,7 +55,7 @@ Provide the information needed to connect to the database instance.
    - if this is the default account (**root**), the root password of the database is the password 
    [you have defined](../installation/installation-of-a-central-server/using-packages.md#secure-the-database) when executing `mysql_secure_installation`.
    - if you have defined a custom user with root privileges on all databases (e.g. during the process of installing a
-   [remote database](../installation/installation-of-a-central-server/using-packages.md#installation)), use this one. This user can be deleted once the web installation process is finished.
+   [remote database](../installation/installation-of-a-central-server/using-packages.md#step-2-installation)), use this one. This user can be deleted once the web installation process is finished.
 
 - **Database user name/password**: the credentials of the account that will be used to interact with the Centreon databases. The account will be created when the database is installed.
 
