@@ -47,6 +47,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <TabItem value="Collection" label="Collection">
 
 The obtained metrics depend fully on the collection's configuration.
+Please refer to the [The Watch tutorial](https://thewatch.centreon.com/product-how-to-21/http-collections-tutorial-how-to-monitor-an-api-2634) dedicated to this mode.
 
 </TabItem>
 <TabItem value="HTTP-Expected-Content" label="HTTP-Expected-Content">
