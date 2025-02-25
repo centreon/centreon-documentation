@@ -124,7 +124,7 @@ chown centreon-engine: /etc/centreon-engine/conf-*
 > The `-days 365` option limits the certificate's validity to one year. You may choose a longer or shorter duration according to your security/maintainance preferences.
 
 2. On your central server, go to **Configuration > Monitoring Connector Manager**.
-3. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the **Windows Telegraf Agent** monitoring connector.
+3. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the **Windows Telegraf Agent** monitoring connector.
 
 ### Configure Engine
 
@@ -282,7 +282,7 @@ This connector relies on an integration supported by Centreon Engine and does no
 | CRITICALCERTIFICATEEXPIRES   | Thresholds.                                                                                                                                                 | 30:           |           |
 | WARNINGCERTIFICATESDETECTED  | Thresholds.                                                                                                                                                 |               |           |
 | CRITICALCERTIFICATESDETECTED | Thresholds.                                                                                                                                                 |               |           |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                    |               |           |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                    |               |           |
 
 
 </TabItem>
