@@ -179,7 +179,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | LANGUAGE     | Set the language used in config file                                                                                                                  | en                |             |
 | CONFIGFILE   | The command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file. |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).      |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).      |                   |             |
 
 </TabItem>
 <TabItem value="Dfsr-Backlog" label="Dfsr-Backlog">

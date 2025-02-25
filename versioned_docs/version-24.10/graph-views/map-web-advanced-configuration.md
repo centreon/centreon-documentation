@@ -10,7 +10,7 @@ system.
 
 ## Monitoring your Centreon MAP server after installation
 
-Centreon provides a [Monitoring Connector and a plugin](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-map-engine-actuator) to monitor your Centreon MAP server.
+Centreon provides a [Monitoring Connector and a plugin](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-map-engine-actuator.md) to monitor your Centreon MAP server.
 
 ### Configure your services
 
@@ -140,7 +140,7 @@ systemctl start centreon-map
 
 By default, the Centreon MAP server is listening and sending information
 through the port 8080. If you set the SSL (see [HTTPS/TLS
-Configuration](secure-your-map-platform.md#configure-httpstls-on-the-web-server)),
+Configuration](secure-your-map-platform.md#configure-httpstls-on-the-map-or-map-legacy-server)),
 use port 8443.
 
 You can change this port (e.g., if you have a firewall on your network

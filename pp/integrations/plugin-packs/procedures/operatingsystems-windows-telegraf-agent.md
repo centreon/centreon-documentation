@@ -261,6 +261,17 @@ This connector relies on an integration supported by Centreon Engine and does no
 <Tabs groupId="sync">
 <TabItem value="Certificates" label="Certificates">
 
+| Macro        | Description                                                                                         | Default value     | Mandatory   |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSUBJECT                | Filter certificate by subject (can be a regexp).                                                                                                            |                   |             |
+| FILTERTHUMBPRINT             | Filter certificate by thumbprint (can be a regexp).                                                                                                         |                   |             |
+| FILTERPATH                   | Filter certificate by path (can be a regexp).                                                                                                               |                   |             |
+| THRESHOLDSUNIT               | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. | d                 |             |
+| WARNINGCERTIFICATEEXPIRES    | Thresholds.                                                                                                                                                 | 60:               |             |
+| CRITICALCERTIFICATEEXPIRES   | Thresholds.                                                                                                                                                 | 30:               |             |
+| WARNINGCERTIFICATESDETECTED  | Thresholds.                                                                                                                                                 |                   |             |
+| CRITICALCERTIFICATESDETECTED | Thresholds.                                                                                                                                                 |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                    |                   |             |
 | Macro                        | Description                                                                                                                                                 | Default value | Mandatory |
 | :--------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------ | :-------: |
 | FILTERSUBJECT                | Filter certificate by subject (can be a regexp).                                                                                                            |               |           |

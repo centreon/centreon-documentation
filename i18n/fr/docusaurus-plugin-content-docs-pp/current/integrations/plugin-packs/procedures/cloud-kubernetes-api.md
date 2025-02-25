@@ -786,7 +786,7 @@ Pour accéder au cluster, kubectl a besoin d'un fichier de configuration
 contenant toutes les informations nécessaires.
 
 Voici un exemple de création de fichier de configuration basé sur un compte
-de service (créé au [chapitre précédent](#creer-un-compte-de-service)).
+de service (créé au [chapitre précédent](#créer-un-compte-de-service)).
 
 Vous devrez remplir les informations suivantes et exécuter les commandes
 sur le noeud maître:
@@ -940,7 +940,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Kubernetes-Api-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro                   | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -957,7 +957,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-> Pour la découverte d'hôte : définissez le jeton [récupéré plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du compte de service,
+> Pour la découverte d'hôte : définissez le jeton [récupéré plus tôt](#récupérer-le-jeton-du-compte-de-service) à partir du compte de service,
 
 </TabItem>
 <TabItem value="Cloud-Kubernetes-Kubectl-custom" label="Cloud-Kubernetes-Kubectl-custom">
@@ -965,7 +965,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Kubernetes-Kubectl-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro                   | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -978,7 +978,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-> Pour la découverte d'hôte : définissez le chemin vers le [fichier de configuration créé](#creer-une-configuration-kubectl) (utilisez le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
+> Pour la découverte d'hôte : définissez le chemin vers le [fichier de configuration créé](#créer-une-configuration-kubectl) (utilisez le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
 
 </TabItem>
 <TabItem value="Cloud-Kubernetes-Node-Api-custom" label="Cloud-Kubernetes-Node-Api-custom">
@@ -986,7 +986,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Kubernetes-Node-Api-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro                   | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -1003,7 +1003,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-> Pour la découverte d'hôte : définissez le jeton [récupéré plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du compte de service,
+> Pour la découverte d'hôte : définissez le jeton [récupéré plus tôt](#récupérer-le-jeton-du-compte-de-service) à partir du compte de service,
 
 </TabItem>
 <TabItem value="Cloud-Kubernetes-Node-Kubectl-custom" label="Cloud-Kubernetes-Node-Kubectl-custom">
@@ -1011,7 +1011,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Kubernetes-Node-Kubectl-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro                   | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -1024,7 +1024,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-> Pour la découverte d'hôte : définissez le chemin vers le [fichier de configuration créé](#creer-une-configuration-kubectl) (utilisez le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
+> Pour la découverte d'hôte : définissez le chemin vers le [fichier de configuration créé](#créer-une-configuration-kubectl) (utilisez le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
 
 </TabItem>
 </Tabs>
