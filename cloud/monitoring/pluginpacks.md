@@ -58,11 +58,6 @@ objects and are not required to deploy the configuration templates provided by t
 
 Most of the time, it is necessary to update your Centreon platform and then reinstall your pack.
 
-In the following example, the "autodiscover" object is a discovery rule for the "Centreon Auto Discovery" module, but
-this one is only available for Centreon in version 18.10.x:
-
-![image](../assets/configuration/pluginpacks/objects_not_installed.png)
-
 ## How do I use a Monitoring Connector?
 
 Apply a template from a Monitoring Connector to a host or service to start monitoring it:
