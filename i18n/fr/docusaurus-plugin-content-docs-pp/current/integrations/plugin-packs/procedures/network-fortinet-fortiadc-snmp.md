@@ -93,16 +93,16 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 | Metric name                      | Description       | Unité |
 |:---------------------------------|:------------------|:------|
-| fan status                       | Status of the fan |       |
+| fan status                       | Status of the fan | N/A   |
 | *fan_name*hardware.fan.speed.rpm | Current fan speed | rpm   |
-| temperature status               |                   |       |
+| temperature status               |                   | N/A   |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                               | Description                                            | Unité |
 |:----------------------------------------------------------|:-------------------------------------------------------|:------|
-| status                                                    | Status of the interface                                |       |
+| status                                                    | Status of the interface                                | N/A   |
 | *interface_name*#interface.traffic.in.bitspersecond       | Incoming traffic going through the interface           | b/s   |
 | *interface_name*#interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface           | b/s   |
 | *interface_name*#interface.packets.in.error.percentage    | Incoming errored packets going through the interface   | %     |
@@ -149,7 +149,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP
 
-L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la [documentation officielle](https://docs.fortinet.com/product/fortiac/) du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
