@@ -46,25 +46,25 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Metric name                                    | Unit  |
-| :--------------------------------------------- | :---- |
-| *psu_instance*#hardware.powersupply.temperature.celsius         | C   |
-| *psu_instance*#hardware.powersupply.fan.speed.rpm         | rpm   |
-| power supply status                            |       |
-| *fan_instance*#hardware.fan.speed.rpm | C     |
+| Metric name                                             | Unit |
+|:--------------------------------------------------------|:-----|
+| *psu_instance*#hardware.powersupply.temperature.celsius | C    |
+| *psu_instance*#hardware.powersupply.fan.speed.rpm       | rpm  |
+| power supply status                                     | N/A  |
+| *fan_instance*#hardware.fan.speed.rpm                   | C    |
 
 </TabItem>
 <TabItem value="Interface" label="Interface">
 
-| Metric name                                               | Unit  |
-| :-------------------------------------------------------- | :---- |
-| status                                                    |       |
-| *interface_name*#interface.traffic.in.bitspersecond       |  b/s  |
-| *interface_name*#interface.traffic.out.bitspersecond      |  b/s  |
-| *interface_name*#interface.packets.in.error.percentage    |  %    |
-| *interface_name*#interface.packets.in.discard.percentage  |  %    |
-| *interface_name*#interface.packets.out.error.percentage   |  %    |
-| *interface_name*#interface.packets.out.discard.percentage |  %    |
+| Metric name                                               | Unit |
+| :-------------------------------------------------------- |:-----|
+| status                                                    | N/A  |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s  |
+| *interface_name*#interface.packets.in.error.percentage    | %    |
+| *interface_name*#interface.packets.in.discard.percentage  | %    |
+| *interface_name*#interface.packets.out.error.percentage   | %    |
+| *interface_name*#interface.packets.out.discard.percentage | %    |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -91,8 +91,10 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ### Configuration SNMP
 
-Afin de superviser votre équipement **PICOS** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-https://docs.pica8.com/display/picos2102cg/Configuring+snmp
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the [official documentation](https://docs.pica8.com/display/picos2102cg/Configuring+snmp) from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Flux réseau
 

@@ -53,8 +53,8 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 <TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                               | Unit |
-|:--------------------------------------------------------- |:---- |
-| status                                                    |      |
+|:--------------------------------------------------------- |:-----|
+| status                                                    | N/A  |
 | *interface_name*#interface.traffic.in.bitspersecond       | b/s  |
 | *interface_name*#interface.traffic.out.bitspersecond      | b/s  |
 | *interface_name*#interface.packets.in.error.percentage    | %    |
@@ -75,10 +75,10 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 <TabItem value="Storage" label="Storage">
 
 | Metric name                                | Unit  |
-| :----------------------------------------- |:----- |
-| storage.partitions.count                   |       |
+| :----------------------------------------- |:------|
+| storage.partitions.count                   | count |
 | *partition_name*#storage.space.usage.bytes | B     |
-| *partition_name*#storage.access.count      |       |
+| *partition_name*#storage.access.count      | count |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -94,9 +94,10 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **VMware VCSA**
-server. Please refer to the official documentation:
-* https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcsa.doc/GUID-3695CE84-C6DF-497E-BA4E-2B341CC366C5.html
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la [documentation officielle](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcsa.doc/GUID-3695CE84-C6DF-497E-BA4E-2B341CC366C5.html) du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Network flow
 

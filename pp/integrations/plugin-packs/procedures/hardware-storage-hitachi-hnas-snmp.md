@@ -70,47 +70,47 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric Name                                       | Unit  |
 |:--------------------------------------------------|:------|
-| battery status                                    |       |
-| fan status                                        |       |
+| battery status                                    | N/A   |
+| fan status                                        | N/A   |
 | *node_name~fan_id*#hardware.fan.speed.rpm         | rpm   |
-| power supply status                               |       |
-| system drive status                               |       |
-| temperature status                                |       |
+| power supply status                               | N/A   |
+| system drive status                               | N/A   |
+| temperature status                                | N/A   |
 | *node_name~probe_id*#hardware.temperature.celsius | C     |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Metric Name                                               | Unit  |
-|:----------------------------------------------------------|:------|
-| status                                                    |       |
-| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
-| *interface_name*#interface.packets.in.error.percentage    | %     |
-| *interface_name*#interface.packets.in.discard.percentage  | %     |
-| *interface_name*#interface.packets.out.error.percentage   | %     |
-| *interface_name*#interface.packets.out.discard.percentage | %     |
+| Metric Name                                               | Unit |
+|:----------------------------------------------------------|:-----|
+| status                                                    | N/A  |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s  |
+| *interface_name*#interface.packets.in.error.percentage    | %    |
+| *interface_name*#interface.packets.in.discard.percentage  | %    |
+| *interface_name*#interface.packets.out.error.percentage   | %    |
+| *interface_name*#interface.packets.out.discard.percentage | %    |
 
 </TabItem>
 <TabItem value="Virtual-Volumes-Quotas" label="Virtual-Volumes-Quotas">
 
 | Metric Name                                                                 | Unit  |
 |:----------------------------------------------------------------------------|:------|
-| virtual_volumes.quotas.detected.count                                       |       |
+| virtual_volumes.quotas.detected.count                                       | count |
 | *volume_name~filesystem_label~target*#virtual_volume.quota.usage.bytes      | B     |
 | *volume_name~filesystem_label~target*#virtual_volume.quota.free.bytes       | B     |
 | *volume_name~filesystem_label~target*#virtual_volume.quota.usage.percentage | %     |
-| *volume_name~filesystem_label~target*#virtual_volume.quota.files.count      |       |
-| *volume_name~filesystem_label~target*#virtual_volume.quota.files.free.count |       |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.files.count      | count |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.files.free.count | count |
 | *volume_name~filesystem_label~target*#virtual_volume.quota.files.percentage | %     |
 
 </TabItem>
 <TabItem value="Volume-Usage-Global" label="Volume-Usage-Global">
 
-| Metric Name                            | Unit  |
-|:---------------------------------------|:------|
-| volume status                          |       |
-| *volume_name*#volume.space.usage.bytes | B     |
+| Metric Name                            | Unit |
+|:---------------------------------------|:-----|
+| volume status                          | N/A  |
+| *volume_name*#volume.space.usage.bytes | B    |
 
 </TabItem>
 </Tabs>
@@ -119,8 +119,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your ressource.
-Please refer to the official documentation from Hitachi.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 

@@ -127,9 +127,10 @@ Coming soon
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Alcatel Omniswitch**
-server. Please refer to the official documentation from Alcatel:
-* [OmniSwitch](https://www.al-enterprise.com/en/search#q=omniswitch&t=all&sort=relevancy)
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the [official documentation](https://www.al-enterprise.com/en/search#q=omniswitch&t=all&sort=relevancy) from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 

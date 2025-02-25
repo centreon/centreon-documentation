@@ -97,8 +97,10 @@ No metrics
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your ressource.
-Please refer to the official documentation of your equipement.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Network flow
 

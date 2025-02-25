@@ -71,12 +71,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                                          | Unité |
 |:--------------------------------------------------|:------|
-| battery status                                    |       |
-| fan status                                        |       |
+| battery status                                    | N/A   |
+| fan status                                        | N/A   |
 | *node_name~fan_id*#hardware.fan.speed.rpm         | rpm   |
-| power supply status                               |       |
-| system drive status                               |       |
-| temperature status                                |       |
+| power supply status                               | N/A   |
+| system drive status                               | N/A   |
+| temperature status                                | N/A   |
 | *node_name~probe_id*#hardware.temperature.celsius | C     |
 
 </TabItem>
@@ -84,7 +84,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                                                  | Unité |
 |:----------------------------------------------------------|:------|
-| status                                                    |       |
+| status                                                    | N/A   |
 | *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
 | *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
 | *interface_name*#interface.packets.in.error.percentage    | %     |
@@ -97,12 +97,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                                                                    | Unité |
 |:----------------------------------------------------------------------------|:------|
-| virtual_volumes.quotas.detected.count                                       |       |
+| virtual_volumes.quotas.detected.count                                       | count |
 | *volume_name~filesystem_label~target*#virtual_volume.quota.usage.bytes      | B     |
 | *volume_name~filesystem_label~target*#virtual_volume.quota.free.bytes       | B     |
 | *volume_name~filesystem_label~target*#virtual_volume.quota.usage.percentage | %     |
-| *volume_name~filesystem_label~target*#virtual_volume.quota.files.count      |       |
-| *volume_name~filesystem_label~target*#virtual_volume.quota.files.free.count |       |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.files.count      | count |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.files.free.count | count |
 | *volume_name~filesystem_label~target*#virtual_volume.quota.files.percentage | %     |
 
 </TabItem>
@@ -110,7 +110,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                               | Unité |
 |:---------------------------------------|:------|
-| volume status                          |       |
+| volume status                          | N/A   |
 | *volume_name*#volume.space.usage.bytes | B     |
 
 </TabItem>
@@ -120,8 +120,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent 
-sur le serveur comme indiqué sur la documentation officielle de Hitachi.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 

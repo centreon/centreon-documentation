@@ -67,7 +67,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Network flow
 
