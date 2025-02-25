@@ -59,7 +59,7 @@ apt install centreon-pack-*
 
 7. Suivez [cette procédure](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2)
  (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#dépendances-du-plugin) et 
-[Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2.md#privilèges-aws)) pour finir d'installer le connecteur de supervision. (Vous pouvez également accéder à la documentation d'un connecteur de supervision en cliquant sur le `i`.)
+[Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#privilèges-aws)) pour finir d'installer le Plugin Pack. (Vous pouvez également accéder à la documentation d'un Plugin Pack en cliquant sur le `i`.)
 
   ![image](../assets/getting-started/aws-doc.png)
 

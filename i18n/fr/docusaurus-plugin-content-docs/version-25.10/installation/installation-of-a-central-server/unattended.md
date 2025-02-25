@@ -83,7 +83,7 @@ Dans les deux cas, vous obtiendrez un fichier de log complet avec toutes les err
 4. Configurez Centreon
 
 Connectez-vous à l'interface web de Centreon avec l'URL `http://[SERVER_IP]/centreon` en remplaçant [SERVER_IP] par l'adresse IP de votre serveur.
-Une fois connecté, suivez les instructions décrites [ici](../../web-and-post-installation/#initialisation-de-la-supervision).
+Une fois connecté, suivez les instructions décrites [ici](../web-and-post-installation/#initialisation-de-la-supervision).
 
 5. Commencez à utiliser Centreon
 
