@@ -57,16 +57,16 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description                                                                                                                                                                                                                          |
 |:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resource through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-F5-Bigip-SNMP-custom** host template |
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-Device-Aeg-Acm-SNMP-custom**. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
 #### Découverte de service
 
-| Nom de la règle                       | Description |
-|:--------------------------------------|:------------|
-| App-F5-Bigip-Node-Status              | Découvre les nodes et supervise le statut                   |
-| App-F5-Bigip-Pool-Status              | Découvre les pools et supervise le statut                   |
+| Nom de la règle                       | Description                                               |
+|:--------------------------------------|:----------------------------------------------------------|
+| App-F5-Bigip-Node-Status              | Découvre les nodes et supervise le statut                 |
+| App-F5-Bigip-Pool-Status              | Découvre les pools et supervise le statut                 |
 | Net-F5-Bigip-SNMP-Virtualservers-Name | Découvre les serveurs virtuels et supervise l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
@@ -81,41 +81,41 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                                                          | Unité |
 |:------------------------------------------------------------------|:------|
-| system.sessions.created.count                                     |       |
-| system.sessions.active.count                                      |       |
-| system.sessions.pending.count                                     |       |
-| *vs_name~accessprofile_name*#accessprofile.sessions.created.count |       |
-| *vs_name~accessprofile_name*#accessprofile.sessions.active.count  |       |
-| *vs_name~accessprofile_name*#accessprofile.sessions.pending.count |       |
+| system.sessions.created.count                                     | count |
+| system.sessions.active.count                                      | count |
+| system.sessions.pending.count                                     | count |
+| *vs_name~accessprofile_name*#accessprofile.sessions.created.count | count |
+| *vs_name~accessprofile_name*#accessprofile.sessions.active.count  | count |
+| *vs_name~accessprofile_name*#accessprofile.sessions.pending.count | count |
 
 </TabItem>
 <TabItem value="Connections" label="Connections">
 
 | Métrique                             | Unité |
 |:-------------------------------------|:------|
-| connections.client.current.count     |       |
-| connections.client.ssl.current.count |       |
-| connections.client.ssl.persecond     |       |
-| connections.server.current.count     |       |
-| connections.server.ssl.current.count |       |
+| connections.client.current.count     | count |
+| connections.client.ssl.current.count | count |
+| connections.client.ssl.persecond     | count |
+| connections.server.current.count     | count |
+| connections.server.ssl.current.count | count |
 
 </TabItem>
 <TabItem value="Failover" label="Failover">
 
 | Métrique        | Unité |
 |:----------------|:------|
-| sync status     |       |
-| failover status |       |
+| sync status     | N/A   |
+| failover status | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
 | Métrique                                         | Unité |
 |:-------------------------------------------------|:------|
-| fan status                                       |       |
+| fan status                                       | N/A   |
 | *fan_index*#hardware.fan.speed.rpm               | rpm   |
-| power supply status                              |       |
-| temperature status                               |       |
+| power supply status                              | N/A   |
+| temperature status                               | N/A   |
 | *temperature_index*#hardware.temperature.celsius | C     |
 
 </TabItem>
@@ -123,19 +123,19 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                                          | Unité |
 |:--------------------------------------------------|:------|
-| node status                                       |       |
-| *node_name*#node.connections.server.current.count |       |
+| node status                                       | N/A   |
+| *node_name*#node.connections.server.current.count | count |
 
 </TabItem>
 <TabItem value="Pool-Status-Global" label="Pool-Status-Global">
 
 | Métrique                                          | Unité |
 |:--------------------------------------------------|:------|
-| pool  status                                      |       |
-| *pool_name*#pool.connections.server.current.count |       |
-| *pool_name*#ppool.members.active.count            |       |
-| *pool_name*#ppool.members.total.count             |       |
-| pool members status                               |       |
+| pool  status                                      | N/A   |
+| *pool_name*#pool.connections.server.current.count | count |
+| *pool_name*#ppool.members.active.count            | count |
+| *pool_name*#ppool.members.total.count             | count |
+| pool members status                               | N/A   |
 
 </TabItem>
 <TabItem value="Tmm-Usage" label="Tmm-Usage">
@@ -145,33 +145,33 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | *tmm_id*#tmm.memory.usage.bytes               | B     |
 | *tmm_id*#tmm.cpu.utilization.1m.percentage    | %     |
 | *tmm_id*#tmm.cpu.utilization.5m.percentage    | %     |
-| *tmm_id*#tmm.connections.client.curent.count  |       |
-| *tmm_id*#tmm.connections.client.total.count   |       |
-| *tmm_id*#tmm.connections.server.current.count |       |
-| *tmm_id*#tmm.connections.server.total.count   |       |
+| *tmm_id*#tmm.connections.client.curent.count  | count |
+| *tmm_id*#tmm.connections.client.total.count   | count |
+| *tmm_id*#tmm.connections.server.current.count | count |
+| *tmm_id*#tmm.connections.server.total.count   | count |
 
 </TabItem>
 <TabItem value="Trunk-Usage" label="Trunk-Usage">
 
 | Métrique                                          | Unité |
 |:--------------------------------------------------|:------|
-| trunk status                                      |       |
+| trunk status                                      | N/A   |
 | *trunk_name*trunk.traffic.in.bitspersecond        | b/s   |
 | *trunk_name*ttrunk.traffic.out.bitspersecond      | b/s   |
 | *trunk_name*ttrunk.packets.in.error.percentage    | %     |
 | *trunk_name*ttrunk.packets.out.error.percentage   | %     |
 | *trunk_name*ttrunk.packets.in.dropped.percentage  | %     |
 | *trunk_name*ttrunk.packets.out.dropped.percentage | %     |
-| *trunk_name*ttrunk.interfaces.total.count         |       |
-| trunk interface status                            |       |
+| *trunk_name*ttrunk.interfaces.total.count         | count |
+| trunk interface status                            | N/A   |
 
 </TabItem>
 <TabItem value="Virtualserver-Status-Global" label="Virtualserver-Status-Global">
 
 | Métrique                                                 | Unité |
 |:---------------------------------------------------------|:------|
-| virtual server status                                    |       |
-| *vs_name*#virtualserver.connections.client.current.count |       |
+| virtual server status                                    | N/A   |
+| *vs_name*#virtualserver.connections.client.current.count | count |
 
 </TabItem>
 </Tabs>
@@ -180,8 +180,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent SNMP
-sur la ressource comme indiqué sur la documentation officielle du constructeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 

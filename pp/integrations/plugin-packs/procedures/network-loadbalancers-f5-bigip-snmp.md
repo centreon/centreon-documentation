@@ -80,41 +80,41 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric name                                                       | Unit  |
 |:------------------------------------------------------------------|:------|
-| system.sessions.created.count                                     |       |
-| system.sessions.active.count                                      |       |
-| system.sessions.pending.count                                     |       |
-| *vs_name~accessprofile_name*#accessprofile.sessions.created.count |       |
-| *vs_name~accessprofile_name*#accessprofile.sessions.active.count  |       |
-| *vs_name~accessprofile_name*#accessprofile.sessions.pending.count |       |
+| system.sessions.created.count                                     | count |
+| system.sessions.active.count                                      | count |
+| system.sessions.pending.count                                     | count |
+| *vs_name~accessprofile_name*#accessprofile.sessions.created.count | count |
+| *vs_name~accessprofile_name*#accessprofile.sessions.active.count  | count |
+| *vs_name~accessprofile_name*#accessprofile.sessions.pending.count | count |
 
 </TabItem>
 <TabItem value="Connections" label="Connections">
 
 | Metric name                          | Unit  |
 |:-------------------------------------|:------|
-| connections.client.current.count     |       |
-| connections.client.ssl.current.count |       |
-| connections.client.ssl.persecond     |       |
-| connections.server.current.count     |       |
-| connections.server.ssl.current.count |       |
+| connections.client.current.count     | count |
+| connections.client.ssl.current.count | count |
+| connections.client.ssl.persecond     | count |
+| connections.server.current.count     | count |
+| connections.server.ssl.current.count | count |
 
 </TabItem>
 <TabItem value="Failover" label="Failover">
 
 | Metric name     | Unit  |
 |:----------------|:------|
-| sync status     |       |
-| failover status |       |
+| sync status     | N/A   |
+| failover status | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
 | Metric name                                      | Unit  |
 |:-------------------------------------------------|:------|
-| fan status                                       |       |
+| fan status                                       | N/A   |
 | *fan_index*#hardware.fan.speed.rpm               | rpm   |
-| power supply status                              |       |
-| temperature status                               |       |
+| power supply status                              | N/A   |
+| temperature status                               | N/A   |
 | *temperature_index*#hardware.temperature.celsius | C     |
 
 </TabItem>
@@ -122,19 +122,19 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric name                                       | Unit  |
 |:--------------------------------------------------|:------|
-| node status                                       |       |
-| *node_name*#node.connections.server.current.count |       |
+| node status                                       | N/A   |
+| *node_name*#node.connections.server.current.count | count |
 
 </TabItem>
 <TabItem value="Pool-Status-Global" label="Pool-Status-Global">
 
 | Metric name                                       | Unit  |
 |:--------------------------------------------------|:------|
-| pool  status                                      |       |
-| *pool_name*#pool.connections.server.current.count |       |
-| *pool_name*#ppool.members.active.count            |       |
-| *pool_name*#ppool.members.total.count             |       |
-| pool members status                               |       |
+| pool  status                                      | N/A   |
+| *pool_name*#pool.connections.server.current.count | count |
+| *pool_name*#ppool.members.active.count            | count |
+| *pool_name*#ppool.members.total.count             | count |
+| pool members status                               | N/A   |
 
 </TabItem>
 <TabItem value="Tmm-Usage" label="Tmm-Usage">
@@ -144,33 +144,32 @@ Here is the list of services for this connector, detailing all metrics linked to
 | *tmm_id*#tmm.memory.usage.bytes               | B     |
 | *tmm_id*#tmm.cpu.utilization.1m.percentage    | %     |
 | *tmm_id*#tmm.cpu.utilization.5m.percentage    | %     |
-| *tmm_id*#tmm.connections.client.curent.count  |       |
-| *tmm_id*#tmm.connections.client.total.count   |       |
-| *tmm_id*#tmm.connections.server.current.count |       |
-| *tmm_id*#tmm.connections.server.total.count   |       |
+| *tmm_id*#tmm.connections.client.curent.count  | count |
+| *tmm_id*#tmm.connections.client.total.count   | count |
+| *tmm_id*#tmm.connections.server.current.count | count |
+| *tmm_id*#tmm.connections.server.total.count   | count |
 
 </TabItem>
 <TabItem value="Trunk-Usage" label="Trunk-Usage">
 
 | Metric name                                       | Unit  |
 |:--------------------------------------------------|:------|
-| trunk status                                      |       |
 | *trunk_name*trunk.traffic.in.bitspersecond        | b/s   |
 | *trunk_name*ttrunk.traffic.out.bitspersecond      | b/s   |
 | *trunk_name*ttrunk.packets.in.error.percentage    | %     |
 | *trunk_name*ttrunk.packets.out.error.percentage   | %     |
 | *trunk_name*ttrunk.packets.in.dropped.percentage  | %     |
 | *trunk_name*ttrunk.packets.out.dropped.percentage | %     |
-| *trunk_name*ttrunk.interfaces.total.count         |       |
-| trunk interface status                            |       |
+| *trunk_name*ttrunk.interfaces.total.count         | count |
+| trunk interface status                            | N/A   |
 
 </TabItem>
 <TabItem value="Virtualserver-Status-Global" label="Virtualserver-Status-Global">
 
 | Metric name                                              | Unit  |
 |:---------------------------------------------------------|:------|
-| virtual server status                                    |       |
-| *vs_name*#virtualserver.connections.client.current.count |       |
+| virtual server status                                    | N/A   |
+| *vs_name*#virtualserver.connections.client.current.count | count |
 
 </TabItem>
 </Tabs>
@@ -179,8 +178,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your ressource.
-Please refer to the official documentation from the constructor.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
