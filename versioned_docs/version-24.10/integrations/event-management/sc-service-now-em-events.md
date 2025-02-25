@@ -74,7 +74,7 @@ The fields for the first entry are already present. Click on the **+Add a new en
 
 | Type   | Name          | Value explanation                    | Value exemple |
 | ------ | ------------- |--------------------------------------| ------------- |
-| string | instance      | The name of the service now instance | MyCompany     |
+| string | instance      | The name of the ServiceNow instance | MyCompany     |
 | string | client_id     | The Oauth client_id                  |               |
 | string | client_secret | The Oauth client_secret              |               |
 | string | username      | The Oauth user                       |               |

@@ -79,7 +79,7 @@ La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-
 
 | Type   | Nom           | Explication                          | Exemple de valeur |
 | ------ |---------------|--------------------------------------|-------------------|
-| string | instance        | Nom de l'instance service now instance | MyCompany         |
+| string | instance        | Nom de l'instance ServiceNow | MyCompany         |
 | string | client_id        | Le client_id Oauth                                   |                               |
 | string | client_secret  | Le client_secret Oauth                            |                               |
 | string | username      | L'utilisateur Oauth                                  |                               |
@@ -89,8 +89,8 @@ La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-
 
 | Type   | Nom       | Explication                                | Valeur par défaut                                           |
 | ------ | --------- |--------------------------------------------|-------------------------------------------------------------|
-| string | logfile   | Le fichier dans lequel les logs sont écrites         | /var/log/centreon-broker/servicenow-em-stream-connector.log |
-| number | log_level | Niveau de logging allant de 1 (errors) à 3 (debug) | 1                                                           |
+| string | logfile   | Le fichier dans lequel les logs sont écrits         | /var/log/centreon-broker/servicenow-em-stream-connector.log |
+| number | log_level | Niveau de log allant de 1 (errors) à 3 (debug) | 1                                                           |
 
 7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à ServiceNow Event Manager](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-servicenow-em).
 
@@ -184,7 +184,7 @@ Pour utiliser cette fonctionnalité, vous devez configurer un fichier json de fo
 | ------ | ----------- |-------------------------------------------------------|
 | string | format_file | /etc/centreon-broker/servicenow-em-events-format.json |
 
-> Le fichier de configuration du format des événements doit être lisible par l'utilisateur de centreon-broker.
+> Le fichier de configuration du format des événements doit être lisible par l'utilisateur **centreon-broker**.
 
 Pour en savoir plus sur les formats d'événements personnalisés et les fichiers modèles, 
 consultez **[cette page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
