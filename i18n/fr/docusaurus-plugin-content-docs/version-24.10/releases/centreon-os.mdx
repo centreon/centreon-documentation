@@ -29,30 +29,29 @@ Release date: `February 26, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [CEIP] Added LACCESS in metadata.
-- [Media][Image Synchronization] Added the handling of .svg files.
-- [Resource Status] Added Flapping state in "find ressource by parent" endpoint.
-- [Resource Status] Added Flapping state in listing of resources and details panel.
-- [Status Grid widget] Optimized the way the health of the Business Activities is calculated.
+- [Media - Image Synchronization] SVG files are now supported.
+- [Resource Status] Added Flapping state in "find resource by parent" endpoint.
+- [Resource Status] Added Flapping state in the list of resources and updated the icon in the details panel.
+- [Status Grid widget] Optimized the way the health of Business Activities is calculated.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [ACL] Fixed issue with hostgroup creation by a non admin user.
-- [Agent/Poller configuration] Fixed an issue on search.
-- [CLAPI] Fixed issue preventing the list of Business Activities to be displayed after creating a Business Activity using CLAPI.
-- [Configuration] Fixed an issue on remote Server where user loses contact group when edited.
-- [Media][Image Synchronization] Fixed issue with the case sensitivity of file extensions.
-- [Reports/Availability] Fixed an issue when downloading CSV if a day is UNDETERMINED on selected period.
-- [Resource status] Fixed an issue on host_category filter which doesn't work and returns an error.
-- [Resource status] Fixed an issue where the graph was not taking all available space in panel.
-- [Resource Status] Fixed issue preventing some services from being listed in the filters.
-- [Resource Status] Fixed issue preventing user from using compact mode.
+- [ACL] Fixed an issue where rights were not applied correctly to a hostgroup when it was created by a non admin user.
+- [Agent/Poller configuration] Fixed an issue where the list of configurations was still filtered but the search bar was empty.
+- [CLAPI] Fixed an issue preventing the list of Business Activities to be displayed after creating a Business Activity using CLAPI.
+- [Configuration] Fixed an issue on remote servers where users lost their contact groups when edited.
+- [Media - Image Synchronization] Fixed an issue with the case sensitivity of file extensions.
+- [Reports/Availability] Fixed an issue where CSV files could not be downloaded if a day was UNDETERMINED in the selected period.
+- [Resource status] The host_category filter now works correctly and returns no errors.
+- [Resource status] Fixed an issue where graphs were not taking all of the available space in the side panel.
+- [Resource Status] All services are now correctly listed in the filters.
+- [Resource Status] Using compact mode no longer causes an error.
 - [Top counter] Fixed an issue on refresh intervals.
-- [Top counter] Fixed an issue on refresh fields where negative values were allowed.
-- [Top counter] Fixed an issue where calls were performed even if user hadn't access.
+- [Top counter] Negative values are no longer allowed in the "Refresh interval for statistics" fields.
+- [Top counter] Unnecessary calls are no longer performed when users don't have access to the top counter.
 
 </details>
 
@@ -60,7 +59,6 @@ Release date: `February 26, 2025`
   <summary>Security fixes</summary>
 
 - [Image upload] Fixed a security issue on image upload.
-- [Image upload] Fixed a security vulnerability while uploading an image.
 - [Security] Fixed extends-tag vulnerability in Smarty.
 
 </details>
