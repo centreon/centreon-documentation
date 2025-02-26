@@ -18,9 +18,9 @@ sur un collecteur ou un serveur distant dans l'infratructure de votre client).
 - Par défaut, le stream connector Opsgenie Events envoie des évènements Broker 
 **[host_status](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#host-status)** et 
 **[service_status](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#service-status)**.
-Ces formats d'événement sont décrits **[ici](#event-format)**.
+Ces formats d'événement sont décrits **[ici](#format-des-évènements)**.
 - Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres 
-dédiés vous permettent de [ne pas envoyer certains évènements](#filtering-or-adapting-the-data-you-want-to-send-to-opsgenie).
+dédiés vous permettent de [ne pas envoyer certains évènements](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-opsgenie).
 
 ## Compatibilité
 
@@ -127,9 +127,9 @@ a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre
 | string | logfile   | Fichier dans lequel les logs sont écrits                  | /var/log/centreon-broker/opsgenie-events-apiv2.log |
 | number | log_level | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug) | 1                                                  |
 
-7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les 
-données que vous voulez que Centreon envoie à Opsgenie](#filtering-or-adapting-the-data-you-want-to-send-to-opsgenie).
-8. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). 
+7. Utilisez les paramètres optionnels du stream connector pour
+[filtrer ou adapter les données que vous voulez que Centreon envoie à Opsgenie](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-opsgenie).
+8. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
 9. Redémarrez **centengine** sur tous les collecteurs :
 
    ```shell

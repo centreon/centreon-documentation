@@ -292,7 +292,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | CRITICALAPPCPU    | Critical threshold for app-cpu                                                                      |                   |             |
 | WARNINGAPPMEMORY  | Warning threshold for app-memory                                                                    |                   |             |
 | CRITICALAPPMEMORY | Critical threshold for app-memory                                                                   |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Connections" label="Connections">

@@ -78,7 +78,7 @@ Si vous souhaitez apporter des changements à un certain nombre de fichiers (ou 
 
 Votre branche doit être basée sur la branche **staging**. Depuis cette branche, vous pouvez proposer des modifications à des documentations qui sont déjà publiées et toujours supportées :
 
-* pour Centreon OnPrem, [voir le tableau des versions supportées](../installation/prerequisites.md#système-dexploitation),
+* pour Centreon OnPrem, [voir le tableau des versions supportées](../installation/compatibility.md#système-dexploitation),
 * les sections “Centreon Cloud” et “connecteurs de supervision”.
 
 ### Procédure

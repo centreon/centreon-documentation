@@ -295,7 +295,7 @@ OK: availability: 100% time total all steps: 6849ms time interaction: 36880ms Al
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles

@@ -15,7 +15,8 @@ the stream connector on a poller or a remote server within your customer's infra
 - By default, the ServiceNow Event Manager Events stream connector sends data from [**host_status**](../../developer/developer-broker-mapping.md#host-status) 
 and [**service_status**](../../developer/developer-broker-mapping.md#service-status) Broker events. 
 The event format is shown **[here](#event-format)**.
-- These events are sent each time a host or a service is checked. Various parameters let you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-servicenow-em).
+- These events are sent each time a host or a service is checked. Various parameters let you 
+[filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-servicenow-event-manager).
 
 ## Installation
 
@@ -87,7 +88,8 @@ The fields for the first entry are already present. Click on the **+Add a new en
 | string | logfile   | The file in which logs are written         | /var/log/centreon-broker/servicenow-em-stream-connector.log |
 | number | log_level | Logging level from 1 (errors) to 3 (debug) | 1                                                           |
 
-7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to ServiceNow Event Manager](#filtering-or-adapting-the-data-you-want-to-send-to-servicenow-em).
+7. Use the stream connector's optional parameters to
+[filter or adapt the data you want Centreon to send to ServiceNow Event Manager](#filtering-or-adapting-the-data-you-want-to-send-to-servicenow-event-manager).
 
 8. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 

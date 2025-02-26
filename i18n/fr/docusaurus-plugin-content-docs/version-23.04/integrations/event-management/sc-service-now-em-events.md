@@ -18,7 +18,7 @@ ou bien si vous êtes un MSP et vous installez le stream connector sur un collec
 [**service_status**](../../developer/developer-broker-mapping.md#service-status). 
 Le format des évènements est décrit **[ici](#format-des-évènements)**.
 - Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres dédiés vous 
-permettent de [ne pas envoyer certains évènements](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-servicenow-em).
+permettent de [ne pas envoyer certains évènements](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-servicenow-event-manager).
 
 ## Installation
 
@@ -92,7 +92,8 @@ La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-
 | string | logfile   | Le fichier dans lequel les logs sont écrits         | /var/log/centreon-broker/servicenow-em-stream-connector.log |
 | number | log_level | Niveau de log allant de 1 (errors) à 3 (debug) | 1                                                           |
 
-7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à ServiceNow Event Manager](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-servicenow-em).
+7. Utilisez les paramètres optionnels du stream connector pour
+[filtrer ou adapter les données que vous voulez que Centreon envoie à ServiceNow Event Manager](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-servicenow-event-manager).
 
 8. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
@@ -217,7 +218,7 @@ Si vous voulez tester le rafraîchissement des tokens 0Auth :
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" 'https://<instance_name>.service-now.com/oauth_token.do' -d 'grant_type=refresh_token&client_id=<client_id>&client_secret=<client_secret>&username=<username>&password=<password>&refresh_token=<refresh_token>'
 ```
 
-Le *`<refresh_token>`* est obtenu grâce à **[cette commande curl](#get-oauth-tokens)**.
+Le *`<refresh_token>`* est obtenu grâce à **[cette commande curl](#obtention-des-tokens-oauth)**.
 
 ### Envoyer des évènements
 
@@ -230,6 +231,6 @@ Si vous voulez tester que les évènements sont envoyés correctement à Service
 curl -X POST -H 'content-type: application/json' -H 'Accept: application/json' -H 'Authorization: Bearer <access_token>' 'https://<instance_name>.service-now.com/api/global/em/jsonv2' -d '{"records":[{"source": "centreon","event_class": "centreon","severity": 5,"node": "my_host","resource": "my_service","time_of_event": "2022-09-06 11:52:12","description": "CRITICAL: USB cable behaving like a water hose"}]}'
 ```
 
-Le *`<access_token>`* est obtenu grâce à **[cette commande curl](#get-oauth-tokens)**.
+Le *`<access_token>`* est obtenu grâce à **[cette commande curl](#obtention-des-tokens-oauth)**.
 
 3. Vérifiez que l'évènement a bien été reçu par ServiceNow Event Manager.

@@ -138,7 +138,7 @@ apt install centreon-plugin-applications-pineapp-securemail-snmp
 * Appliquez le modèle d'hôte **App-Pineapp-Securemail-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Obligatoire | Macro            | Description                                  |
 |:------------|:-----------------|:---------------------------------------------|

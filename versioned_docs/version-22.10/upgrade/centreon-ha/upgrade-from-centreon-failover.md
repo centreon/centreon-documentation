@@ -53,7 +53,7 @@ At this step, none of the processes managed by the cluster should run on any nod
 
 Centreon >= 22.04 comes with a compatibility with MariaDB 10.5.
 
-Upgrade of both database nodes following [official MariaDB upgrade procedure](../../upgrade/upgrade-from-19-10.md#Upgrade-the-MariaDB-server). 
+Upgrade of both database nodes following [official MariaDB upgrade procedure](../../upgrade/upgrade-from-19-10.md#upgrade-the-mariadb-server). 
 
 Once both nodes are running the 10.5 MariaDB version, stop mysql/mariadb processes. 
 
@@ -120,4 +120,4 @@ Then, modify the Centreon-Broker reload command of your Central Server in 'Confi
 </TabItem>
 </Tabs>
 
-Finally, upgrade your Poller(s) as described [here](../../upgrade/upgrade-from-19-04.md#upgrade-the-poller)
+Finally, upgrade your Poller(s) as described [here](../../upgrade/upgrade-from-19-04.md#upgrade-the-pollers)
