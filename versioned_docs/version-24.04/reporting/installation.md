@@ -1018,34 +1018,34 @@ mariadb-secure-installation
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 
-4. Install the MariaDB repository:
+4. Install the MySQL repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
+To add
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.11"
+To add
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
+To add
 ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
+To add
 ```
 </TabItem>
 </Tabs>
@@ -1070,7 +1070,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+To add
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -1099,7 +1099,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+To add
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -1128,7 +1128,7 @@ dnf config-manager --set-enabled 'powertools'
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+To add
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -1157,7 +1157,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+To add
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -1186,7 +1186,7 @@ dnf config-manager --set-enabled ol9_codeready_builder
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+To add
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -1215,7 +1215,7 @@ dnf config-manager --set-enabled 'crb'
 Then launch the installation:
 
 ```shell
-dnf install centreon-bi-reporting-server mariadb-server MariaDB-client
+To add
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -1250,8 +1250,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 Then launch the installation:
 
 ```shell
-apt update
-apt install centreon-bi-reporting-server mariadb-server mariadb-client
+To add
 ```
 
 </TabItem>
@@ -1271,34 +1270,34 @@ systemctl start gorgoned && systemctl enable gorgoned
 
 ### Configure the reporting server
 
-#### MariaDB Optimizations
+#### MySQL Optimizations
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf) provided
-in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MariaDB service:
+in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MySQL service:
 
 ```shell
-systemctl restart mariadb
+systemctl restart mysql
 ```
 
 It is necessary to change the **LimitNOFILE** limitation. Changing this
 option in `/etc/my.cnf` will NOT work.
 
-```shell
+```shell (To update)
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-If the MariaDB service fails to start, remove the *ib_logfile* files
-(MariaDB must absolutely be stopped) and then restart MariaDB again:
+If the MySQL service fails to start, remove the *ib_logfile* files
+(MySQL must absolutely be stopped) and then restart MySQL again:
 
 ```shell
 rm -f /var/lib/mysql/ib_logfile*
-systemctl start mariadb
+systemctl start mysql
 ```
 
 If you are using a specific socket file for MariaDB, modify the file `/etc/my.cnf` and
@@ -1315,7 +1314,7 @@ Make sure that the optimized configuration [file](../assets/reporting/installati
 in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MariaDB service:
 
 ```shell
-systemctl restart mariadb
+systemctl restart mysql
 ```
 
 It is necessary to change the **LimitNOFILE** limitation. Changing this
@@ -1333,7 +1332,7 @@ If the MariaDB service fails to start, remove the *ib_logfile* files
 
 ```shell
 rm -f /var/lib/mysql/ib_logfile*
-systemctl start mariadb
+systemctl start mysql
 ```
 
 If you are using a specific socket file for MariaDB, modify the file `/etc/my.cnf` and
@@ -1355,17 +1354,17 @@ Rename the file to `80-centreon.cnf`:
 mv centreon.cnf 80-centreon.cnf
 ```
 
-MariaDB should listen to all interfaces instead of localhost/127.0.0.1, which is the default.
+MySQL should listen to all interfaces instead of localhost/127.0.0.1, which is the default.
 Edit the following file:
 
 ```shell
 /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
 
-Set the **bind-address** parameter to **0.0.0.0** and restart MariaDB.
+Set the **bind-address** parameter to **0.0.0.0** and restart MySQL.
 
 ```shell
-systemctl restart mariadb
+systemctl restart mysql
 ```
 
 It is necessary to change the **LimitNOFILE** limitation. Changing this option in `/etc/mysql/mariadb.cnf` will not work.
@@ -1377,12 +1376,12 @@ systemctl daemon-reload
 systemctl restart mariadb
 ```
 
-If the MariaDB service fails at the time of starting, remove the files *ib_logfile*
-(MariaDB must absolutely be stopped) and then restart MariaDB again:
+If the MySQL service fails at the time of starting, remove the files *ib_logfile*
+(MySQL must absolutely be stopped) and then restart MySQL again:
 
 ```shell
 rm -f /var/lib/mysql/ib_logfile*
-systemctl start mariadb
+systemctl start mysql
 ```
 
 If you are using a specific socket file for MariaDB, edit the
@@ -1401,7 +1400,7 @@ It is mandatory to secure the root access of the database before installing Cent
 If you use a local database, execute the following command on the central server, otherwise on the database server:
 
 ```shell
-mariadb-secure-installation
+mysql-secure-installation
 ```
 
 - Answer **yes** to all questions except "Disallow root login remotely?"
@@ -1414,7 +1413,7 @@ mariadb-secure-installation
 
 #### Start configuring
 
-Make sure the MariaDB reporting system is started and then run the commands below and answer the questions:
+Make sure the MariaDB/MySQL reporting system is started and then run the commands below and answer the questions:
 
 ```shell
 /usr/share/centreon-bi/config/install.sh
