@@ -37,4 +37,4 @@ To understand our limitations in terms of resource use, read our [Fair Use Polic
 ## Maintenance updates and upgrades
 
 * The Centreon Cloud platform (web application, data ingestion, transformation, storage...) is fully managed and updated by Centreon. No action is required on your part.
-* Your [pollers](../resources/glossary.md#poller) are in your infrastructure: it is your responsibility to [update or upgrade them](../installation/poller-update-upgrade.md).
+* Your [pollers](../resources/glossary.md#pollers) are in your infrastructure: it is your responsibility to [update or upgrade them](../installation/poller-update-upgrade.md).
