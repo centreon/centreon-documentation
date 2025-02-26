@@ -102,7 +102,7 @@ children which must be included in the count.
 
 #### Software
 
-See the [software requirements](../installation/prerequisites.md#software).
+See the [software requirements](../installation/prerequisites.md#characteristics-of-the-servers).
 
 #### Information required during configuration
 

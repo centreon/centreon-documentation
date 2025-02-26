@@ -335,7 +335,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 | WARNINGPSUSTATUS            | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{cage_id\}, %\{psu_id\}                                                                                                                  |                         |             |
 | CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{cage_id\}                                                  | %\{status\} !~ /Normal/i  |             |
 | WARNINGSTATUS               | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{cage_id\}                                                                                                                 |                         |             |
-| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                           | --verbose               |             |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).                           | --verbose               |             |
 
 </TabItem>
 <TabItem value="Capacity" label="Capacity">
@@ -422,7 +422,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 | WARNINGFANSTATUS               | Set warning threshold for fan status. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                                    |                    |             |
 | CRITICALSTATUS                 | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}            | %\{status\} !~ /ok/i |             |
 | WARNINGSTATUS                  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}             |                    |             |
-| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose          |             |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). | --verbose          |             |
 
 </TabItem>
 <TabItem value="Time" label="Time">
