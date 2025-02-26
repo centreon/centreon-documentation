@@ -58,7 +58,7 @@ defined in the host templates below.
 
 ### Classification
 
-* The **Host Groups** list defines the host groups to which the host belongs.
+* The **Host Groups** list defines the host groups to which the host belongs. You must link at least one hostgroup (mandatory field).
 * The **Host Categories** list defines the categories to which the host belongs.
 * The **Host severity** field indicates the severity level of the host.
 
