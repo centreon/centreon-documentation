@@ -475,7 +475,7 @@
               "type": "doc",
               "id": "alerts-notifications/event-log"
             }
-           
+
             ]
         },
         {
@@ -807,7 +807,7 @@
             },
             {
               "type": "doc",
-              
+
               "id": "graph-views/map-web-known-issues"
             },
             {
@@ -1214,7 +1214,7 @@
             },
             {
               "type": "doc",
-              "id": "integrations/event-management/sc-opsgenie"
+              "id": "integrations/event-management/sc-opsgenie-events"
             },
             {
               "type": "doc",
