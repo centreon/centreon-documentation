@@ -1373,7 +1373,7 @@ It is necessary to change the **LimitNOFILE** limitation. Changing this option i
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mariadb
+systemctl restart mysql
 ```
 
 If the MySQL service fails at the time of starting, remove the files *ib_logfile*
