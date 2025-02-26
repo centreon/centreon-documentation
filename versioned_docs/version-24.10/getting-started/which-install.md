@@ -12,7 +12,7 @@ There are several ways to install Centreon. Which one suits your needs best?
 ## To install Centreon in production
 
 - Use [RPM or DEB packages](../installation/installation-of-a-central-server/using-packages.md): if you already have the
-  OS and you only want to install Centreon. See the list of [supported operating systems](../installation/compatibility.md#operating-systems).
+  OS and you only want to install Centreon. See the list of [supported operating systems](../installation/compatibility.md#operating-system).
 
 ## See also
 
