@@ -57,7 +57,7 @@ identiques définies dans modèles d’hôtes en dessous.
 
 ### Classification
 
-* Le champ **Groupes d'hôtes** définit les groupes d’hôtes auxquels l’hôte appartient. Vous devez associer au moins un groupe d'hôtes (champ obligatoire).
+* Le champ **Groupes d'hôtes** définit les groupes d’hôtes auxquels l’hôte appartient. Vous devez associer au moins un groupe d'hôtes (champ obligatoire pour des raisons de gestion des ACLs).
 * Le champ **Catégories d'hôte** définit les catégories auxquelles l’hôte appartient.
 * Le champ **Criticité d'hôte** indique le niveau de criticité de l’hôte.
 
