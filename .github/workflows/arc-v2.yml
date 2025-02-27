@@ -59,7 +59,7 @@ jobs:
           aws s3 ls s3://centreon-documentation-preview-pr/previews/
           aws s3 ls s3://centreon-documentation-archive/
 
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_PREVIEW }} --paths "/previews/pr-${{ github.event.pull_request.number }}/staging/*"
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_PREVIEW }} --paths "/previews/pr-4143/*"
         shell: bash
 
       - name: test ssh
