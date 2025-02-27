@@ -1529,6 +1529,10 @@
           ]
         },
         {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/ha-small"
+        },
+        {
           "type": "category",
           "label": "Operating Centreon HA",
           "link": {
