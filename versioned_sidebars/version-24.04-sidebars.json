@@ -1511,6 +1511,10 @@
           "id": "installation/installation-of-centreon-ha/ha-prerequisites"
         },
         {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/ha-small"
+        },
+        {
           "type": "category",
           "label": "Completing your Centreon HA setup",
           "link": {
@@ -1527,10 +1531,6 @@
               "id": "administration/centreon-ha/monitoring-guide"
             }
           ]
-        },
-        {
-          "type": "doc",
-          "id": "installation/installation-of-centreon-ha/ha-small"
         },
         {
           "type": "category",
