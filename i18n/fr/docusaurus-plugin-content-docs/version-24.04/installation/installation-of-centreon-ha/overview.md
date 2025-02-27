@@ -31,4 +31,4 @@ Vous devez agir et résoudre le problème pour que le nœud central défaillant 
 
 * Le nœud central 1 est toujours le nœud passif : le cluster **ne bascule pas** automatiquement à nouveau.
 * Si vous utilisez EL8 ou Debian, vous devez effacer manuellement la contrainte créée par le basculement (en utilisant `pcs resource clear centreon`).
-* Dans un contexte de production, vous n'êtes pas **obligé** de revenir au nœud central 1 en tant que nœud actif - mais vous pouvez le faire si vous le souhaitez (par exemple, si le nœud central 2 a des performances limitées), en [effectuant un basculement](../../administration/centreon-ha/operating-guide.md#how-to-perform-a-manual-failover) sur le nœud central 2.
+* Dans un contexte de production, vous n'êtes pas **obligé** de revenir au nœud central 1 en tant que nœud actif - mais vous pouvez le faire si vous le souhaitez (par exemple, si le nœud central 2 a des performances limitées), en [effectuant un basculement](../../administration/centreon-ha/operating-guide.md#comment-effectuer-un-basculement-manuel) sur le nœud central 2.

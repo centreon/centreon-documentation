@@ -73,7 +73,7 @@ apt install --only-upgrade centreon\*
 </TabItem>
 </Tabs>
 
-Une fois les mises à jour des paquets terminées sur les deux centraux, il reste à appliquer la mise à jour via l'interface web **uniquement sur le central actif** en fermant la session en cours ou en rafraîchissant la page de login ou en API [comme indiqué ici](update-centreon-platform.md#update-the-centreon-central-server) .
+Une fois les mises à jour des paquets terminées sur les deux centraux, il reste à appliquer la mise à jour via l'interface web **uniquement sur le central actif** en fermant la session en cours ou en rafraîchissant la page de login ou en API [comme indiqué ici](update-centreon-platform.md#mise-à-jour-du-serveur-centreon-central) .
 
 En parallèle, sur le **central passif**, il faut déplacer le répertoire **"install"** et regénérer le cache Symfony pour éviter d'afficher à nouveau l'interface de mise à jour suite à une bascule :
 
@@ -160,7 +160,7 @@ En complément, dans le cas où `centreon-broker` a été mis à jour, il faut r
 service cbd-sql restart
 ```
 
-Dans le cas où des [serveurs distants](../installation/architectures.md#description) seraient présents, il faut y redémarrer le service `cbd` :
+Dans le cas où des serveurs distants seraient présents, il faut y redémarrer le service `cbd` :
 
 ```bash
 service cbd restart
@@ -186,4 +186,4 @@ Il est toujours recommandé, après une mise à jour, de contrôler que tout fon
 
 ## Mise à jour des collecteurs
 
-Les collecteurs peuvent être mis à jour par la suite en suivant la [procédure indiquée ici](update-centreon-platform.md#update-the-pollers).
+Les collecteurs peuvent être mis à jour par la suite en suivant la [procédure indiquée ici](update-centreon-platform.md#mise-à-jour-des-collecteurs).
