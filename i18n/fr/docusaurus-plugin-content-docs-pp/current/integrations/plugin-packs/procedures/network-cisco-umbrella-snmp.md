@@ -1,6 +1,6 @@
 ---
 id: network-cisco-umbrella-snmp
-title: Cisco Umbrella
+title: Cisco Umbrella SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Cisco Umbrella** apporte un modèle d'hôte :
+Le connecteur de supervision **Cisco Umbrella SNMP** apporte un modèle d'hôte :
 
 * **Net-Cisco-Umbrella-SNMP-custom**
 
@@ -188,7 +188,7 @@ yum install centreon-pack-network-cisco-umbrella-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Umbrella**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Umbrella SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -242,7 +242,7 @@ yum install centreon-plugin-Network-Cisco-Umbrella-Snmp
 3. Appliquez le modèle d'hôte **Net-Cisco-Umbrella-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -486,10 +486,10 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Connectivity" label="Connectivity">
 
-| Option       | Description                                                                                                                                                                                                                                          |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-*  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /yellow/'). Can be: 'dns-status', 'localdns-status', 'cloud-status', 'ad-status'.  Can use special variables like: %\{status\}, %\{display\}                        |
-| --critical-* | Define the conditions to match for the status to be CRITICAL. (default: %\{status\} =~ /red/). Can be: 'dns-connectivity', 'localdns-connectivity', 'cloud-connectivity', 'ad-connectivity'.  Can use special variables like: %\{status\}, %\{display\}    |
+| Option       | Description                                                                                                                                                                                                                         |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-*  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /yellow/'). Can be: 'dns-status', 'localdns-status', 'cloud-status', 'ad-status'.  Can use special variables like: %\{status\}, %\{display\} |
+| --critical-* | Define the conditions to match for the status to be CRITICAL. (default: %\{status\} =~ /red/). Can be: 'dns-status', 'localdns-status', 'cloud-status', 'ad-status'.  Can use special variables like: %\{status\}, %\{display\}     |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">

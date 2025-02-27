@@ -234,6 +234,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-haproxy-web'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-hashicorp-vault-restapi'
         },
         {
@@ -491,6 +495,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-pineapp-securemail-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-podman-restapi'
         },
         {
           type: 'doc',

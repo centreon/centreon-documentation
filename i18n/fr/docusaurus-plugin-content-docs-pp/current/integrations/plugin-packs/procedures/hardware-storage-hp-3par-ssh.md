@@ -305,7 +305,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 | CRITICALFLASHCACHEVOLUMEREADHITS | Define the CRITICAL threshold for the following component: 'flashcache-volume-readhits'                                                |                        |             |
 | CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{node_id\}              | %\{status\} !~ /normal/i |             |
 | WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{node_id\}               |                        |             |
-| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose              |             |
+| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). | --verbose              |             |
 
 </TabItem>
 <TabItem value="Cages" label="Cages">
@@ -365,7 +365,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 | CRITICALSPACEUSAGEFREE   | CRITICAL threshold                                                                                                                     |                   |             |
 | WARNINGSPACEUSAGEPRCT    | WARNING threshold                                                                                                                      |                   |             |
 | CRITICALSPACEUSAGEPRCT   | CRITICAL threshold                                                                                                                     |                   |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Components" label="Components">
@@ -389,7 +389,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 | CRITICALUSAGEFREE | Warning threshold                                                                                                                      |                        |             |
 | WARNINGUSAGEPRCT  | Warning threshold                                                                                                                      |                        |             |
 | CRITICALUSAGEPRCT | Warning threshold                                                                                                                      |                        |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose              |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). | --verbose              |             |
 
 </TabItem>
 <TabItem value="Nodes" label="Nodes">
@@ -401,7 +401,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 | CRITICALCPUUTILIZATION | Critical threshold                                                                                                                     |                    |             |
 | CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{node_id\}              | %\{status\} !~ /ok/i |             |
 | WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{node_id\}               |                    |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose          |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). | --verbose          |             |
 
 </TabItem>
 <TabItem value="Psu" label="Psu">
@@ -449,7 +449,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 | TIMEZONE       | Timezone options. Default is 'UTC'                                                                                                                                   |                   |             |
 | WARNINGUPTIME  | Warning threshold                                                                                                                                                    |                   |             |
 | CRITICALUPTIME | Critical threshold                                                                                                                                                   |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                               | --verbose         |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles).                               | --verbose         |             |
 
 </TabItem>
 <TabItem value="Volume-Usage" label="Volume-Usage">
@@ -463,7 +463,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 | CRITICALUSAGEFREE | Critical threshold                                                                                                                     |                   |             |
 | WARNINGUSAGEPRCT  | Warning threshold                                                                                                                      |                   |             |
 | CRITICALUSAGEPRCT | Critical threshold                                                                                                                     |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 </Tabs>

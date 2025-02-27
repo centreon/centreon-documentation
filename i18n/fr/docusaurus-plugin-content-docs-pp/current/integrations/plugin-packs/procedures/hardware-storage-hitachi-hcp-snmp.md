@@ -101,7 +101,7 @@ Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *HW-Storage-
 Il est nécessaire de remplir les valeurs des champs "SNMP Community" et "SNMP Version".
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3). 
 
 | Mandatory   | Name                    | Description                                                                 |
 | :---------- | :---------------------- | :-------------------------------------------------------------------------- |
