@@ -1491,7 +1491,8 @@
       "type": "category",
       "label": "Centreon HA",
       "link": {
-        "type": "generated-index"
+        "type": "doc",
+        "id": "installation/installation-of-centreon-ha/centreon-ha"
       },
       "items": [
         {

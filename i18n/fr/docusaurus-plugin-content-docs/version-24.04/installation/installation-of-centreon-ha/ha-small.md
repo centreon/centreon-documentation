@@ -5,7 +5,7 @@ title: Centreon HA pour les petites infrastructures
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Si votre plateforme ne gère que de petites volumétries de données, Centreon peut mettre en place une HA "simplifiée", où les bases de données sont hébergées sur les serveurs centraux. En cas de problème, le serveur central et la base de données basculent simultanément, grâce à une contrainte de colocation.
+Si votre plateforme ne gère que de petites volumétries de données, où les bases de données sont hébergées sur les serveurs centraux, Centreon peut mettre en place une HA "simplifiée". En cas de problème, le serveur central et la base de données basculent simultanément, grâce à une contrainte de colocation.
 
 Le seuil en-dessous duquel la base peut être intégrée au central est le même que pour une plateforme Centreon standard (voir [l'arbre de décision à la page **Architectures**](../architectures.md#de-quel-type-darchitecture-avez-vous-besoin-)).
 
@@ -21,7 +21,7 @@ Dans sa version simplifiée, le cluster HA est un cluster à 2 noeuds. Il compre
 
 ## Différences avec la HA 4 noeuds
 
-Toutes les procédures décrites dans la section HA de cette documentation sont également correctes pour une HA 2 noeuds, sauf les points suivants :
+Toutes les procédures décrites dans [la section HA de cette documentation](centreon-ha.md) sont également correctes pour une HA 2 noeuds, sauf les points suivants :
 
 * La commande `pcs status` retournera un message du type :
 

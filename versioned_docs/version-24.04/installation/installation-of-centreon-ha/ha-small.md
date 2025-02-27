@@ -5,7 +5,7 @@ title: Centreon HA for small infrastuctures
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-If your platform only handles small volumes of data, Centreon can set up a "simplified" HA, where the databases are hosted on the central servers. In case of a problem, the central server and the database switch over simultaneously, thanks to a colocation constraint.
+If your platform only handles small volumes of data, where databases are hosted on central servers, Centreon can set up a "simplified" HA. In the event of a problem, the central server and database switch over simultaneously, thanks to a colocation constraint.
 
 The threshold below which the databases can be integrated into the central servers is the same as for a standard Centreon platform (see [the decision tree on the **Architectures** page](../architectures.md#what-kind-of-architecture-do-you-need)).
 
@@ -21,7 +21,7 @@ In its simplified version, the HA cluster is a 2-node cluster. It includes:
 
 ## Differences with a 4-node HA architecture
 
-All the procedures described in the HA section of this documentation are also correct for a 2-node HA, except for the following points:
+All the procedures described [in the HA section of this documentation](centreon-ha.md) are also correct for a 2-node HA, except for the following points:
 
 * The `pcs status` command will return a message like this one:
 
