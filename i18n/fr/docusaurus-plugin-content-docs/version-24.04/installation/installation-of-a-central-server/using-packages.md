@@ -563,4 +563,4 @@ systemctl start apache2
 </Tabs>
 
 2. Pour terminer l'installation, suivez la procédure
-d'[installation web](../web-and-post-installation.md#web-installation).
+d'[installation web](../web-and-post-installation.md#installation-web).
