@@ -21,7 +21,7 @@ Dans sa version simplifiée, le cluster HA est un cluster à 2 noeuds. Il compre
 
 ## Différences avec la HA 4 noeuds
 
-Toutes les procédures décrites dans la section HA de cette documetation sont également correctes pour une HA 2 noeuds, sauf les points suivants :
+Toutes les procédures décrites dans la section HA de cette documentation sont également correctes pour une HA 2 noeuds, sauf les points suivants :
 
 * La commande `pcs status` retournera un message du type :
 
