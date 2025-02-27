@@ -12,7 +12,7 @@ on:
       - ".github/**"
 
 jobs:
-  actionlint:
+  action-lint:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout sources
