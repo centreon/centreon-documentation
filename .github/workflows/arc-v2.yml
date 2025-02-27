@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: [infrastructure, centreon-common, centeon-ubuntu-22.04, centreon-collect, centreon-collect-arm64]
+        runner: [infrastructure, centreon-common, centreon-ubuntu-22.04, centreon-collect, centreon-collect-arm64]
     runs-on: ${{ matrix.runner }}
     steps:
       - name: Checkout sources
@@ -56,8 +56,8 @@ jobs:
           --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
           --output text))
 
-          aws s3 ls s3://centreon-documentation-preview-pr/previews/
-          aws s3 ls s3://centreon-documentation-archive/
+          # aws s3 ls s3://centreon-documentation-preview-pr/previews/
+          # aws s3 ls s3://centreon-documentation-archive/
 
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_PREVIEW }} --paths "/previews/pr-4143/*"
         shell: bash
