@@ -1,4 +1,9 @@
-# Chain rules et commandes
+---
+id: ticketing-advanced-rule-commands
+title: Chain rules et commandes
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Introduction
 
@@ -22,7 +27,7 @@ Il est par exemple possible d'utiliser un simple script en renseignant l'informa
 bash /var/log/php-fpm/test_opt.sh
 ```
 
-Il est possible de passer des arguments à ce script. Il est notamment possible de renseigner du code Smarty dans ce champ commande. Les variables Smarty disponibles sont indiquées dans la documentation suivante : [documentation sur les variables](./variables_smarty.md)
+Il est possible de passer des arguments à ce script. Il est notamment possible de renseigner du code Smarty dans ce champ commande. Les variables Smarty disponibles sont indiquées dans la documentation suivante : [documentation sur les variables](./smarty_variables.md)
 
 En plus de celles évoquées, d'autres sont disponibles :
 

@@ -1,13 +1,18 @@
-# Fonctions open ticket pour Smarty
+---
+id: ticketing-advanced-smarty-functions
+title: Fonctions Smarty Open Ticket
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-Les fonctions open ticket pour Smarty sont des fonctions mises à disposition qui permettent d'accéder à un certain nombre d'information.
-Ces informations peuvent alors être accessibles pour compléter le corps du ticket.
+Les fonctions Smarty Open Ticket sont des fonctions mises à disposition qui permettent d'accéder à un certain nombre d'informations. >>>>> en quoi c'est différent des variables? c'est des données à valeurs multiples?
+Ces informations, issues de Centreon, peuvent alors être utilisées pour compléter le corps du ticket.
 
 ## Obtenir les groupes d'hôtes
 
-la fonction suivante va permettre de rajouter les groupes d'hôtes dans le corps du ticket
+La fonction suivante va permettre de rajouter les groupes d'hôtes dans le corps du ticket. >>>>> la liste de tous les groupes d'hôtes auquel appartient l'hôte sur lequel vous créez un ticket, ou auquel appartient l'hôte parent du service sur lequel vous créez un ticket.
 
 ```smarty
 {host_get_hostgroups host_id=$host.host_id}
@@ -16,7 +21,7 @@ la fonction suivante va permettre de rajouter les groupes d'hôtes dans le corps
 {/foreach}
 ```
 
-### exemple
+### Exemple de corps de ticket
 
 ```smarty
 {if $service_selected|@count gt 0}
@@ -36,7 +41,7 @@ Output: {$service.output|substr:0:1024}
 {/if}
 ```
 
-### résultat
+### Résultat possible
 
 ```txt
 Host: Api-Host
@@ -54,7 +59,7 @@ hostgroup_name: open-ticket-hg
 
 ## Obtenir la sévérité des hôtes
 
-la fonction suivante va permettre d'ajouter la sévérité des hôtes au corps du ticket.
+La fonction suivante va permettre d'ajouter la sévérité des hôtes au corps du ticket.
 
 ```smarty
 {host_get_severity host_id=$service.host_id}
@@ -64,7 +69,7 @@ la fonction suivante va permettre d'ajouter la sévérité des hôtes au corps d
 {/foreach}
 ```
 
-### exemple
+### Exemple de corps de ticket
 
 ```smarty
 {if $service_selected|@count gt 0}
@@ -84,7 +89,7 @@ Output: {$service.output|substr:0:1024}
 {/if}
 ```
 
-### résultat
+### Résultat possible
 
 ```txt
 Host: Api-Host
@@ -101,7 +106,7 @@ severity level: 1
 
 ## Obtenir les catégories des hôtes
 
-la fonction suivante va permettre d'ajouter les catégories des hôtes au corps du ticket.
+La fonction suivante va permettre d'ajouter les catégories des hôtes au corps du ticket.
 
 ```smarty
 {host_get_hostcategories host_id=$service.host_id}
@@ -110,7 +115,7 @@ la fonction suivante va permettre d'ajouter les catégories des hôtes au corps 
 {/foreach}
 ```
 
-### exemple
+### Exemple de corps de ticket
 
 ```smarty
 {if $service_selected|@count gt 0}
@@ -130,7 +135,7 @@ Output: {$service.output|substr:0:1024}
 {/if}
 ```
 
-### résultat
+### Résultat possible
 
 ```txt
 Host: Api-Host
@@ -147,7 +152,7 @@ category name: sql-category
 
 ## Obtenir les catégories des services
 
-la fonction suivante va permettre d'ajouter les catégories des services au corps du ticket.
+La fonction suivante va permettre d'ajouter les catégories des services au corps du ticket.
 
 ```smarty
 {service_get_servicecategories service_id=$service.service_id}
@@ -157,7 +162,7 @@ la fonction suivante va permettre d'ajouter les catégories des services au corp
 {/foreach}
 ```
 
-### exemple
+### Exemple de corps de ticket
 
 ```smarty
 {if $service_selected|@count gt 0}
@@ -178,7 +183,7 @@ Output: {$service.output|substr:0:1024}
 {/if}
 ```
 
-### résultat
+### Résultat possible
 
 ```txt
 Host: Api-Host
@@ -199,7 +204,7 @@ category description: service with P1 severity
 
 ## Obtenir les groupes de services
 
-la fonction suivante va permettre d'ajouter les groupes de services au corps du ticket.
+La fonction suivante va permettre d'ajouter les groupes de services au corps du ticket.
 
 ```smarty
 {service_get_servicegroups service_id=$service.service_id}
@@ -209,7 +214,7 @@ la fonction suivante va permettre d'ajouter les groupes de services au corps du 
 {/foreach}
 ```
 
-### exemple
+### Exemple de corps de ticket
 
 ```smarty
 {if $service_selected|@count gt 0}
@@ -230,7 +235,7 @@ Output: {$service.output|substr:0:1024}
 {/if}
 ```
 
-### résultat
+### Résultat possible
 
 ```txt
 Host: Api-Host
@@ -248,7 +253,7 @@ service group alias: second service group
 
 ## Obtenir la valeur d'une macro custom d'un hôte
 
-la fonction suivante va permettre d'ajouter la valeur d'une [custom macro](https://docs.centreon.com/docs/24.04/monitoring/basic-objects/macros/#custom-macros) d'un hôte au corps du ticket.
+La fonction suivante va permettre d'ajouter la valeur d'une [custom macro](../../monitoring/basic-objects/macros.md#custom-macros) d'un hôte au corps du ticket.
 
 ```smarty
 {host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}
@@ -256,7 +261,7 @@ macro value: {$host_get_macro_value_in_config_result}
 {/foreach}
 ```
 
-### exemple
+### Exemple de corps de ticket
 
 ```smarty
 {if $service_selected|@count gt 0}
@@ -274,7 +279,7 @@ macro value: {$host_get_macro_value_in_config_result}
 {/if}
 ```
 
-### résultat
+### Résultat possible
 
 ```txt
 Host: Api-Host
@@ -289,7 +294,7 @@ macro value: /var/lib/centreon-broker/central-rrd-master-stats.json
 
 ## Obtenir la valeur d'une macro custom sur les modèles d'hôtes associés à l'hôte
 
-la fonction suivante va permettre d'ajouter la valeur des [custom macro](https://docs.centreon.com/docs/24.04/monitoring/basic-objects/macros/#custom-macros) qui sont sur les modèles d'hôte associés à l'hôte dans le corps du ticket.
+La fonction suivante va permettre d'ajouter la valeur des [custom macro](../../monitoring/basic-objects/macros.md#custom-macros) appartenant aux modèles d'hôte associés à l'hôte dans le corps du ticket.
 
 ```smarty
 {host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}
@@ -299,7 +304,7 @@ la fonction suivante va permettre d'ajouter la valeur des [custom macro](https:/
 {/foreach}
 ```
 
-### exemple
+### Exemple de corps de ticket
 
 ```smarty
 {if $service_selected|@count gt 0}
@@ -320,7 +325,7 @@ Output: {$service.output|substr:0:1024}
 {/if}
 ```
 
-### résultat
+### Résultat possible
 
 ```txt
 Host: Api-Host

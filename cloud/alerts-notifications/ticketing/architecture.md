@@ -5,13 +5,11 @@ title: Architecture of Open Tickets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Architecture
-
 ## Schéma
 
 ![diagramme d'architecture](images/open_ticket_architecture.png)
 
-## Processus
+## Débuggage
 
 | étapes | processus | log utiles |
 | -- | -- | -- |

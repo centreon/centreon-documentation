@@ -1,30 +1,35 @@
-# Variables smarty
+---
+id: ticketing-advanced-smarty-variables
+title: Variables Smarty Open Ticket
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Liste des variables disponibles pour le corps des ticket
+Voici la liste des variables disponibles pour [personnaliser le corps des tickets](./advanced_config.md), via le champ **Body list definition** à la page **Configuration > Notifications > Open Tickets > Rules**. Vous pouvez y insérer des informations relatives à la ressource concernée par le ticket, ou à l'utilisateur créant le ticket. Ces informations sont issues de Centreon.
 
 ## Variables communes
 
-Les variables communes sont disponibles que ce soit pour l'ouverture d'un ticket sur des hôtes ou des services.
+Les variables communes peuvent être utilisées pour l'ouverture de tous types de tickets (sur des hôtes ou sur des services). Utilisez la variable directement dans le champ **Body list definition**.
 
-| nom de la variable | description | exemple de contenu |
+| Nom de la variable | Description | Exemple de contenu |
 | -- | -- | -- |
-| $custom_message | le message ajouté par l'utilisateur qui ouvre le ticket | |
-| $user.name | le nom de l'utilisateur qui ouvre le ticket | t.rex |
-| $user.alias | l'alias (login) de l'utilisateur qui ouvre le ticket | trex |
-| $user.email | l'adresse email de l'utilisateur qui ouvre le ticket | t.rex@jurassic.park |
+| $custom_message | Le message ajouté par l'utilisateur qui ouvre le ticket |>>>>>> défini où? |
+| $user.name | Le nom de l'utilisateur qui ouvre le ticket | t.rex |
+| $user.alias | L'alias (login) de l'utilisateur qui ouvre le ticket | trex |
+| $user.email | L'adresse email de l'utilisateur qui ouvre le ticket | `t.rex@jurassic.park` |
 
 ## Ticket sur des hôtes
 
-L'ouverture d'un ticket sur des hôtes génère un tableau de valeurs. C'est pourquoi il faut utiliser un boucle foreach Smarty pour accéder aux valeurs.
+L'ouverture d'un ticket sur des hôtes génère un tableau de valeurs. C'est pourquoi il faut utiliser un boucle **foreach** Smarty pour accéder aux valeurs (comme dans le [corps du ticket fourni par défaut](./advanced_config.md)). Entourez les variables désirées par la boucle suivante :
 
 ```smarty
 {foreach from=$host_selected item=host}
 {/foreach}
 ```
 
-Le code ci-dessus va créer une variable `{$host}`
+Le code ci-dessus va créer une variable `{$host}`. >>>>>>>>> à supprimer
 
-| nom de la variable | exemple de contenu |
+| Nom de la variable | Exemple de contenu |
 | -- | -- |
 | $host.host_id | 17 |
 | $host.name | "Api-Host" |
@@ -119,14 +124,14 @@ Le code ci-dessus va créer une variable `{$host}`
 
 ## Ticket sur des services
 
-L'ouverture d'un ticket sur des services génère un tableau de valeurs. C'est pourquoi il faut utiliser un boucle foreach Smarty pour accéder aux valeurs.
+L'ouverture d'un ticket sur des services génère un tableau de valeurs. C'est pourquoi il faut utiliser un boucle **foreach** Smarty pour accéder aux valeurs (comme dans le [corps du ticket fourni par défaut](./advanced_config.md)). Entourez les variables désirées par la boucle suivante :
 
 ```smarty
 {foreach from=$service_selected item=service}
 {/foreach}
 ```
 
-| nom de la variable | exemple de contenu |
+| Nom de la variable | Exemple de contenu |
 | -- | -- |
 | $service.host_id |  17 |
 | $service.description |  "Cpu" |

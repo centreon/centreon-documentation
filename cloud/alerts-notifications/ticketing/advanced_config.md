@@ -1,8 +1,15 @@
-# Configuration avancée
+---
+id: ticketing-body
+title: Customizing the body of the ticket
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Gestion du corps du ticket
+Le corps du ticket qui va être créé est géré par le bloc de texte situé dans le champ **Body list definition**, à la page **Configuration > Notifications > Open Tickets > Rules**. Il utilise la syntaxe du langage de templating Smarty.
 
-Le corps du ticket qui va être créé est géré par le bloc de texte situé dans la partie "Body list definition" Il est souvent sous la forme suivante :
+## Corps du ticket par défaut
+
+Par défaut, la définition du corps du ticket est la suivante (la même définition prend en charge le cas où l'on ouvre un ticket sur un hôte et le cas où l'on ouvre un ticket sur un service) :
 
 ```smarty
 {$user.alias} open ticket at {$smarty.now|date_format:"%d/%m/%y %H:%M:%S"}
@@ -31,9 +38,7 @@ Le corps du ticket qui va être créé est géré par le bloc de texte situé da
 {/if}
 ```
 
-Ce qui s'apparente à du pseudo-code n'est autre que la syntaxe du langage de templating Smarty.
-
-Si un ticket est ouvert sur un service, cela donnera le résultat suivant :
+Si un ticket est ouvert sur un service en utilisant ce modèle, cela pourra donner le résultat suivant :
 
 ```txt
 t.rex open ticket at 03/02/2025 16:50:35
@@ -51,10 +56,13 @@ Duration: 5m
 Output: a meteorite has just crashed on srv-Earth
 ```
 
-Il est possible d'adapter à sa convenance le contenu de ce corps de ticket. Pour cela, il est possible :
+## Personnalisation
 
-- d'utiliser les fonctionnalité standard de Smarty qui ne seront pas couvertes par cette documentation. (par exemple le @count de `$service_selected|@count`)
-- d'utiliser des variables créées et mises à disposition par le module open ticket (par exemple : `{$service_selected}`)
-- d'utiliser des fonctions créées et mises à disposition par le module open ticket (par exemple : `{host_get_severity}`)
+Il est possible d'adapter à sa convenance le contenu du corps du ticket. Vous pouvez :
 
-La liste des variables est disponible sur l
+- ajouter du texte statique dans le corps du ticket.
+- ajouter dans le corps du ticket des informations spécifiques à la ressource sur laquelle le ticket est créé ou à l'utilisateur créant le ticket, en utilisant [des variables préconfigurées par le module Open Ticket](smarty_variables.md) (par exemple : `{$service_selected}`)
+- utiliser [des fonctions créées et mises à disposition par le module open ticket](smarty_functions.md) (par exemple : `{host_get_severity}`)
+- utiliser les fonctionnalité standard de Smarty (non couvertes par cette documentation), par exemple le @count de `$service_selected|@count`.
+
+Dans tous les cas, les données doivent avoir été récupérées par Centreon (?) -> mapping?
