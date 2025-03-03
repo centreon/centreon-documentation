@@ -1,10 +1,17 @@
+---
+id: ticketing-advanced-overview
+title: Advanced configuration for Open Tickets
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Structure documentation
 
 ## Apprendre open ticket
 
-- Est ce que vous voulez en savoir plus sur la personnalisation du corps du ticket ? [doc](./ticketing/advanced_config.md)
-- Est ce que vous voulez changer la configuration des listes open ticket ? [doc](./ticketing/mapping.md)
-- Est ce que vous voulez en savoir plus sur l'architecture logicielle d'open ticket ? [doc](./ticketing/architecture.md)
+- Comment personnaliser le corps d'un ticket ? [doc](advanced_config.md)
+- Comment changer la configuration des listes open ticket ? [doc](mapping.md)
+- Est ce que vous voulez en savoir plus sur l'architecture logicielle d'open ticket ? [doc](architecture.md)
 
 [TODO] n'hésitez pas à vous réferer au Glosssaire ou à la FAQ 
 

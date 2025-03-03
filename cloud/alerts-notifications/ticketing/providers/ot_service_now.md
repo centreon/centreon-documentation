@@ -92,7 +92,7 @@ Service Now allow their users to create custom fields for their tickets form. Si
 
 ## Test commands
 
-The below Curl commands must be run from your central server. You need to replace everything between **<>** for example **<server_address>** may become **service-now.com**
+The below Curl commands must be run from your central server. You need to replace everything between **\<\>** for example **\<server_address\>** may become **service-now.com**
 
 ### Get oauth tokens
 

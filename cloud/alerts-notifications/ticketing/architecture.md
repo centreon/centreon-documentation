@@ -1,3 +1,10 @@
+---
+id: ticketing-advanced-architecture
+title: Architecture of Open Tickets
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Architecture
 
 ## Schéma
