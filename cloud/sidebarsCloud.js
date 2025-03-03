@@ -437,7 +437,7 @@ module.exports = {
             "items": [
               {
                 "type": "doc",
-                "id": "alerts-notifications/ticketing/ticketing-body"
+                "id": "alerts-notifications/ticketing/ticketing-advanced-body"
               },
               {
                 "type": "doc",

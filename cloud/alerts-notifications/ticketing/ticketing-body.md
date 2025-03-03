@@ -1,5 +1,5 @@
 ---
-id: ticketing-body
+id: ticketing-advanced-body
 title: Customizing the body of the ticket
 ---
 import Tabs from '@theme/Tabs';
