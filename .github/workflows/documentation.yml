@@ -333,6 +333,9 @@ jobs:
 
       - name: Deploy to https://docs-staging.int.centreon.com
         run: |
+          sudo apt-get update
+          sudo apt-get install -y rsync
+
           # Prepare ssh-key
           eval `ssh-agent`
           ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
