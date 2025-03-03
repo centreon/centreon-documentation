@@ -2,11 +2,11 @@
 
 ## Apprendre open ticket
 
-- Est ce que vous voulez en savoir plus sur la personnalisation du corps du ticket ?
-- Est ce que vous voulez changer la configuration des listes open ticket
-- Est ce que vous voulez en savoir plus sur l'architecture logicielle d'open ticket ?
+- Est ce que vous voulez en savoir plus sur la personnalisation du corps du ticket ? [doc](./ticketing/advanced_config.md)
+- Est ce que vous voulez changer la configuration des listes open ticket ? [doc](./ticketing/mapping.md)
+- Est ce que vous voulez en savoir plus sur l'architecture logicielle d'open ticket ? [doc](./ticketing/architecture.md)
 
-n'hésitez pas à vous réferer au Glosssaire ou à la FAQ 
+[TODO] n'hésitez pas à vous réferer au Glosssaire ou à la FAQ 
 
 
 
