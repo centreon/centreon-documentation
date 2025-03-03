@@ -111,9 +111,10 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Name | Unit  |
-|:-----|:------|
-|      | N/A   |
+| Name                     | Unit  |
+|:-------------------------|:------|
+| hardware.sensors.count   | count |
+| hardware.sensors.measure | N/A   |
 
 </TabItem>
 <TabItem value="Ips-Stats-Global" label="Ips-Stats-Global">

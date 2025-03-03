@@ -112,9 +112,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Nom  | Unité |
-|:-----|:------|
-|      | N/A   |
+| Nom                      | Unité |
+|:-------------------------|:------|
+| hardware.sensors.count   | count |
+| hardware.sensors.measure | N/A   |
 
 </TabItem>
 <TabItem value="Ips-Stats-Global" label="Ips-Stats-Global">
