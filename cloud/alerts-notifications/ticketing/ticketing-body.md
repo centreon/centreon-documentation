@@ -61,8 +61,6 @@ Output: a meteorite has just crashed on srv-Earth
 Il est possible d'adapter à sa convenance le contenu du corps du ticket. Vous pouvez :
 
 - ajouter du texte statique dans le corps du ticket.
-- ajouter dans le corps du ticket des informations spécifiques à la ressource sur laquelle le ticket est créé ou à l'utilisateur créant le ticket, en utilisant [des variables préconfigurées par le module Open Ticket](smarty_variables.md) (par exemple : `{$service_selected}`)
-- utiliser [des fonctions créées et mises à disposition par le module open ticket](smarty_functions.md) (par exemple : `{host_get_severity}`)
-- utiliser les fonctionnalité standard de Smarty (non couvertes par cette documentation), par exemple le @count de `$service_selected|@count`.
-
-Dans tous les cas, les données doivent avoir été récupérées par Centreon (?) -> mapping?
+- [définir des champs à afficher dans la popup de création de ticket](mapping.md), à remplir par l'utilisateur. Les informations saisies par l'utilisateur seront insérées dans le corps du ticket lors de sa création.
+- ajouter dans le corps du ticket des informations spécifiques à la ressource sur laquelle le ticket est créé ou à l'utilisateur créant le ticket, en utilisant [des variables](smarty_variables.md) ou [des fonctions](smarty_functions.md) Smarty préconfigurées.
+- utiliser les fonctionnalités standard de Smarty (non couvertes par cette documentation), par exemple le @count de `$service_selected|@count`.

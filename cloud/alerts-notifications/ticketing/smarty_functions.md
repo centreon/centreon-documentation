@@ -5,14 +5,11 @@ title: Fonctions Smarty Open Ticket
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Introduction
-
-Les fonctions Smarty Open Ticket sont des fonctions mises à disposition qui permettent d'accéder à un certain nombre d'informations. >>>>> en quoi c'est différent des variables? c'est des données à valeurs multiples?
-Ces informations, issues de Centreon, peuvent alors être utilisées pour compléter le corps du ticket.
+Voici la liste des fonctions disponibles pour [personnaliser le corps des tickets](ticketing-body.md), via le champ **Body list definition** à la page **Configuration > Notifications > Open Tickets > Rules**. Vous pouvez y insérer des informations relatives à la ressource concernée par le ticket. Ces informations sont issues de Centreon.
 
 ## Obtenir les groupes d'hôtes
 
-La fonction suivante va permettre de rajouter les groupes d'hôtes dans le corps du ticket. >>>>> la liste de tous les groupes d'hôtes auquel appartient l'hôte sur lequel vous créez un ticket, ou auquel appartient l'hôte parent du service sur lequel vous créez un ticket.
+La fonction suivante va permettre d'insérer dans le corps du ticket la liste de tous les groupes d'hôtes auquel appartient l'hôte sur lequel vous créez un ticket, ou auquel appartient l'hôte parent du service sur lequel vous créez un ticket.
 
 ```smarty
 {host_get_hostgroups host_id=$host.host_id}
@@ -59,7 +56,7 @@ hostgroup_name: open-ticket-hg
 
 ## Obtenir la sévérité des hôtes
 
-La fonction suivante va permettre d'ajouter la sévérité des hôtes au corps du ticket.
+La fonction suivante va permettre d'insérer dans le corps du ticket la sévérité affectée à l'hôte sur lequel vous créez un ticket, ou affectée à l'hôte parent du service sur lequel vous créez un ticket.
 
 ```smarty
 {host_get_severity host_id=$service.host_id}
@@ -106,7 +103,8 @@ severity level: 1
 
 ## Obtenir les catégories des hôtes
 
-La fonction suivante va permettre d'ajouter les catégories des hôtes au corps du ticket.
+La fonction suivante va permettre d'insérer dans le corps du ticket la liste de toutes les catégories d'hôtes auquel appartient l'hôte sur lequel vous créez un ticket, ou auquel appartient l'hôte parent du service sur lequel vous créez un ticket.
+
 
 ```smarty
 {host_get_hostcategories host_id=$service.host_id}
@@ -152,7 +150,7 @@ category name: sql-category
 
 ## Obtenir les catégories des services
 
-La fonction suivante va permettre d'ajouter les catégories des services au corps du ticket.
+La fonction suivante va permettre d'insérer dans le corps du ticket la liste de toutes les catégories de services auquel appartient le service sur lequel vous créez un ticket.
 
 ```smarty
 {service_get_servicecategories service_id=$service.service_id}
@@ -204,7 +202,7 @@ category description: service with P1 severity
 
 ## Obtenir les groupes de services
 
-La fonction suivante va permettre d'ajouter les groupes de services au corps du ticket.
+La fonction suivante va permettre d'insérer dans le corps du ticket la liste de tous les groupes de services auquel appartient le service sur lequel vous créez un ticket.
 
 ```smarty
 {service_get_servicegroups service_id=$service.service_id}
@@ -294,7 +292,7 @@ macro value: /var/lib/centreon-broker/central-rrd-master-stats.json
 
 ## Obtenir la valeur d'une macro custom sur les modèles d'hôtes associés à l'hôte
 
-La fonction suivante va permettre d'ajouter la valeur des [custom macro](../../monitoring/basic-objects/macros.md#custom-macros) appartenant aux modèles d'hôte associés à l'hôte dans le corps du ticket.
+La fonction suivante va permettre d'ajouter la valeur des [custom macros](../../monitoring/basic-objects/macros.md#custom-macros) appartenant aux modèles d'hôte associés à l'hôte dans le corps du ticket.
 
 ```smarty
 {host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}

@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Au-delà de la [procédure basique de création de règles de notification pour Open Ticket](../ticketing.md), vous pouvez :
 
-- [Personnaliser le corps d'un ticket](advanced_config.md)
+- [Personnaliser le corps d'un ticket](ticketing-body.md)
 - Comment changer la configuration des listes Open Ticket ? [doc](mapping.md)
 - Faire correspondre les champs de Centreon et ceux de votre outil ITSM
 - Faire correspondre les champs de Centreon et tout champ personnalisé que vous auriez créé dans votre outil ITSM.
