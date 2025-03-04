@@ -279,7 +279,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=cloud::google::gcp::compute::computeengine::plugin \
 	--mode=network \
 	--proxyurl='' \
-	--key-file='' \
+	--key-file='/var/lib/centreon-engine/centreon-dev-6e5531fc9e82.json' \
 	--scope-endpoint='https://www.googleapis.com/auth/cloud-platform' \
 	--dimension-name='resource.labels.instance\_id' \
 	--dimension-operator='equals' \
