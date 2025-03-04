@@ -403,7 +403,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
-<TabItem value="Hardware-Psu" label="Hardware-Temperature">
+<TabItem value="Hardware-Temperature" label="Hardware-Temperature">
 
 | Macro        | Description                                                                                                                            | Default value | Mandatory |
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
@@ -697,7 +697,22 @@ All available options for each service template are listed below:
 | --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                            |
 
 </TabItem>
-<TabItem value="Hardware-Psu*" label="Hardware-Psu*">
+<TabItem value="Hardware-Psu" label="Hardware-Psu">
+
+| Option               | Description                                                                                                                                                                                                                |
+|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'psu', 'fan', 'disk', 'temperature', 'battery'.                                                                                                                        |
+| --filter             |   Exclude the items given as a comma-separated list (example: --filter=fan --filter=psu). You can also exclude items from specific instances: --filter=psu,3.3                                                             |
+| --absent-problem     |   Return an error if an entity is not 'present' (default is skipping) Can be specific or global: --absent-problem=psu,1                                                                                                    |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                               |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='fan,CRITICAL,^(?!(ok)$)'   |
+| --warning            |   Set warning threshold for temperatures (syntax: type,regexp,threshold) Example: --warning='temperature,.*,20'                                                                                                            |
+| --critical           |   Set critical threshold for temperatures and battery charge (syntax: type,regexp,threshold) Example: --critical='temperature,1.1,25' --critical='battery,.*,20:'                                                          |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                             |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                            |
+
+</TabItem>
+<TabItem value="Hardware-Temperature" label="Temperature">
 
 | Option               | Description                                                                                                                                                                                                                |
 |:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
