@@ -2935,6 +2935,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-vmware2-vm'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/application-virtualization-vmware8-esx-restapi'
         }
       ]
     }
