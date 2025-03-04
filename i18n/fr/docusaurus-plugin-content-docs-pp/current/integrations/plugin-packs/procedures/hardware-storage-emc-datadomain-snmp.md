@@ -25,15 +25,15 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-EMC-DataDomain-SNMP-custom" label="HW-Storage-EMC-DataDomain-SNMP-custom">
 
-| Alias           | Modèle de service                                     | Description                                                                                        | Découverte |
-|:----------------|:------------------------------------------------------|:---------------------------------------------------------------------------------------------------|:----------:|
-| Alerts          | HW-Storage-EMC-DataDomain-Alerts-SNMP-custom          | Contrôle des alertes en cours                                                                      |            |
-| Cleaning        | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom        | Contrôle du dernier nettoyage des systèmes de fichiers                                             |            |
-| Filesystems     | HW-Storage-EMC-DataDomain-Filesystems-SNMP-custom     | Contrôle des systèmes de fichiers                                                                  |     X      |
-| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Contrôle l'ensemble du matériel de stockage (ventilateurs, températures, disques, batteries nvram) |            |
-| Mtrees          | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom          | Contrôle des MTrees                                                                                |     X      |
-| Process         | HW-Storage-EMC-DataDomain-Process-SNMP-custom         | Contrôle de l'état des processus                                                                   |            |
-| Replications    | HW-Storage-EMC-DataDomain-Replications-SNMP-custom    | Contrôle des réplications'                                                                         |     X      |
+| Alias           | Modèle de service                                     | Description                                            | Découverte |
+|:----------------|:------------------------------------------------------|:-------------------------------------------------------|:----------:|
+| Alerts          | HW-Storage-EMC-DataDomain-Alerts-SNMP-custom          | Contrôle des alertes en cours                          |            |
+| Cleaning        | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom        | Contrôle du dernier nettoyage des systèmes de fichiers |            |
+| Filesystems     | HW-Storage-EMC-DataDomain-Filesystems-SNMP-custom     | Contrôle des systèmes de fichiers                      |     X      |
+| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Contrôle l'ensemble du matériel de stockage            |            |
+| Mtrees          | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom          | Contrôle des MTrees                                    |     X      |
+| Process         | HW-Storage-EMC-DataDomain-Process-SNMP-custom         | Contrôle de l'état des processus                       |            |
+| Replications    | HW-Storage-EMC-DataDomain-Replications-SNMP-custom    | Contrôle des réplications                              |     X      |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-EMC-DataDomain-SNMP-custom** est utilisé.
 
@@ -42,14 +42,14 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias            | Modèle de service                                      | Description                              | Découverte |
-|:-----------------|:-------------------------------------------------------|:-----------------------------------------|:----------:|
-| Hardware-Battery | HW-Storage-EMC-DataDomain-Hardware-Battery-SNMP-custom | Contrôle les batteries nvram du stockage |            |
-| Hardware-Disk    | HW-Storage-EMC-DataDomain-Hardware-Disk-SNMP-custom    | Contrôle les disques du stockage         |            |
-| Hardware-Fan     | HW-Storage-EMC-DataDomain-Hardware-Fan-SNMP-custom     | Contrôle les ventilateurs du stockage    |            |
-| Hardware-Psu     | HW-Storage-EMC-DataDomain-Hardware-Psu-SNMP-custom     | Contrôle les alimentations du stockage   |            |
-| Hardware-Psu     | HW-Storage-EMC-DataDomain-Hardware-Temperature-custom  | Contrôle les températures                |            |
-| Interfaces       | HW-Storage-EMC-DataDomain-Interfaces-SNMP-custom       | Contrôle les interfaces                  |     X      |
+| Alias                | Modèle de service                                      | Description                              | Découverte |
+|:---------------------|:-------------------------------------------------------|:-----------------------------------------|:----------:|
+| Hardware-Battery     | HW-Storage-EMC-DataDomain-Hardware-Battery-SNMP-custom | Contrôle les batteries nvram du stockage |            |
+| Hardware-Disk        | HW-Storage-EMC-DataDomain-Hardware-Disk-SNMP-custom    | Contrôle les disques du stockage         |            |
+| Hardware-Fan         | HW-Storage-EMC-DataDomain-Hardware-Fan-SNMP-custom     | Contrôle les ventilateurs du stockage    |            |
+| Hardware-Psu         | HW-Storage-EMC-DataDomain-Hardware-Psu-SNMP-custom     | Contrôle les alimentations du stockage   |            |
+| Hardware-Temperature | HW-Storage-EMC-DataDomain-Hardware-Temperature-custom  | Contrôle les températures                |            |
+| Interfaces           | HW-Storage-EMC-DataDomain-Interfaces-SNMP-custom       | Contrôle les interfaces                  |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -147,9 +147,21 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | temperature.status | N/A   |
 
 </TabItem>
-<TabItem value="Hardware-Psu*" label="Hardware-Psu*">
+<TabItem value="Hardware-Psu" label="Hardware-Psu">
 
-Coming soon
+| Nom                | Unité |
+|:-------------------|:------|
+| status             | N/A   |
+| hardware.psu.count | N/A   |
+
+</TabItem>
+<TabItem value="Hardware-Temperature" label="Hardware-Temperature">
+
+| Nom                                        | Unité |
+|:-------------------------------------------|:------|
+| status                                     | N/A   |
+| *temperature*~hardware.temperature.celsius | C     |
+| hardware.temperature.count                 | N/A   |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
@@ -325,7 +337,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 
 | Macro                 | Description                                                                                                                                      | Valeur par défaut                                       | Obligatoire |
 |:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| TRULYALERT            | Expression to define a truly alert (default: '%\{severity\} =~ /emergency\ |alert\|warning\|critical/i') | %\{severity\} =~ /emergency\|alert\|warning\|critical/i |             |
+| TRULYALERT            | Expression to define an actual alert (default: '%\{severity\} =~ /emergency\ |alert\|warning\|critical/i') | %\{severity\} =~ /emergency\|alert\|warning\|critical/i |             |
 | WARNINGALERTSCURRENT  | Threshold                                                                                                                                        |                                                         |             |
 | CRITICALALERTSCURRENT | Threshold                                                                                                                                        |                                                         |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                                         |             |

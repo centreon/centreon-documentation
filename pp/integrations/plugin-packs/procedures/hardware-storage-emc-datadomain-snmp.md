@@ -24,15 +24,15 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-EMC-DataDomain-SNMP-custom" label="HW-Storage-EMC-DataDomain-SNMP-custom">
 
-| Service Alias   | Service Template                                      | Service Description                                                                     | Discovery |
-|:----------------|:------------------------------------------------------|:----------------------------------------------------------------------------------------|:---------:|
-| Alerts          | HW-Storage-EMC-DataDomain-Alerts-SNMP-custom          | Check current alerts                                                                    |           |
-| Cleaning        | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom        | Check last time filesystems had been cleaned                                            |           |
-| Filesystems     | HW-Storage-EMC-DataDomain-Filesystems-SNMP-custom     | Check filesystems                                                                       |     X     |
-| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Check all storage hardware (fans, power supplies, temperatures, disks, nvram batteries) |           |
-| Mtrees          | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom          | Check MTrees                                                                            |     X     |
-| Process         | HW-Storage-EMC-DataDomain-Process-SNMP-custom         | Check process status                                                                    |           |
-| Replications    | HW-Storage-EMC-DataDomain-Replications-SNMP-custom    | Check replications                                                                      |     X     |
+| Service Alias   | Service Template                                      | Service Description                          | Discovery |
+|:----------------|:------------------------------------------------------|:---------------------------------------------|:---------:|
+| Alerts          | HW-Storage-EMC-DataDomain-Alerts-SNMP-custom          | Check current alerts                         |           |
+| Cleaning        | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom        | Check last time filesystems had been cleaned |           |
+| Filesystems     | HW-Storage-EMC-DataDomain-Filesystems-SNMP-custom     | Check filesystems                            |     X     |
+| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Check all storage hardware                   |           |
+| Mtrees          | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom          | Check MTrees                                 |     X     |
+| Process         | HW-Storage-EMC-DataDomain-Process-SNMP-custom         | Check process status                         |           |
+| Replications    | HW-Storage-EMC-DataDomain-Replications-SNMP-custom    | Check replications                           |     X     |
 
 > The services listed above are created automatically when the **HW-Storage-EMC-DataDomain-SNMP-custom** host template is used.
 
@@ -41,14 +41,14 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias    | Service Template                                       | Service Description              | Discovery |
-|:-----------------|:-------------------------------------------------------|:---------------------------------|:---------:|
-| Hardware-Battery | HW-Storage-EMC-DataDomain-Hardware-Battery-SNMP-custom | Check nvram batteries of storage |           |
-| Hardware-Disk    | HW-Storage-EMC-DataDomain-Hardware-Disk-SNMP-custom    | Check disks of storage           |           |
-| Hardware-Fan     | HW-Storage-EMC-DataDomain-Hardware-Fan-SNMP-custom     | Check fans of storage            |           |
-| Hardware-Psu     | HW-Storage-EMC-DataDomain-Hardware-Psu-SNMP-custom     | Check power supplies of storage  |           |
-| Hardware-Psu     | HW-Storage-EMC-DataDomain-Hardware-Temperature-custom  | Check temperatures               |           |
-| Interfaces       | HW-Storage-EMC-DataDomain-Interfaces-SNMP-custom       | Check interfaces                 |     X     |
+| Service Alias        | Service Template                                       | Service Description              | Discovery |
+|:---------------------|:-------------------------------------------------------|:---------------------------------|:---------:|
+| Hardware-Battery     | HW-Storage-EMC-DataDomain-Hardware-Battery-SNMP-custom | Check nvram batteries of storage |           |
+| Hardware-Disk        | HW-Storage-EMC-DataDomain-Hardware-Disk-SNMP-custom    | Check disks of storage           |           |
+| Hardware-Fan         | HW-Storage-EMC-DataDomain-Hardware-Fan-SNMP-custom     | Check fans of storage            |           |
+| Hardware-Psu         | HW-Storage-EMC-DataDomain-Hardware-Psu-SNMP-custom     | Check power supplies of storage  |           |
+| Hardware-Temperature | HW-Storage-EMC-DataDomain-Hardware-Temperature-custom  | Check temperatures               |           |
+| Interfaces           | HW-Storage-EMC-DataDomain-Interfaces-SNMP-custom       | Check interfaces                 |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -146,9 +146,21 @@ Here is the list of services for this connector, detailing all metrics and statu
 | temperature.status | N/A   |
 
 </TabItem>
-<TabItem value="Hardware-Psu*" label="Hardware-Psu*">
+<TabItem value="Hardware-Psu" label="Hardware-Psu">
 
-Coming soon
+| Name               | Unit  |
+|:-------------------|:------|
+| status             | N/A   |
+| hardware.psu.count | N/A   |
+
+</TabItem>
+<TabItem value="Hardware-Temperature" label="Hardware-Temperature">
+
+| Name                                       | Unit  |
+|:-------------------------------------------|:------|
+| status                                     | N/A   |
+| *temperature*~hardware.temperature.celsius | C     |
+| hardware.temperature.count                 | N/A   |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
@@ -324,12 +336,12 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 <Tabs groupId="sync">
 <TabItem value="Alerts" label="Alerts">
 
-| Macro                 | Description                                                                                                                            | Default value                                           | Mandatory   |
-|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| TRULYALERT            | Expression to define a truly alert (default: '%\{severity\} =~ /emergency\                                                             |alert\|warning\|critical/i') | %\{severity\} =~ /emergency\|alert\|warning\|critical/i |             |
-| WARNINGALERTSCURRENT  | Threshold                                                                                                                              |                                                         |             |
-| CRITICALALERTSCURRENT | Threshold                                                                                                                              |                                                         |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                                         |             |
+| Macro                 | Description                                                                                                                              | Default value                                           | Mandatory   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
+| TRULYALERT            | Expression to define an actual alert (default: '%\{severity\} =~ /emergency\                                                             |alert\|warning\|critical/i') | %\{severity\} =~ /emergency\|alert\|warning\|critical/i |             |
+| WARNINGALERTSCURRENT  | Threshold                                                                                                                                |                                                         |             |
+| CRITICALALERTSCURRENT | Threshold                                                                                                                                |                                                         |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).   |                                                         |             |
 
 </TabItem>
 <TabItem value="Cleaning" label="Cleaning">
