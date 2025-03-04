@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 | Alerts          | HW-Storage-EMC-DataDomain-Alerts-SNMP-custom          | Contrôle des alertes en cours                          |            |
 | Cleaning        | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom        | Contrôle du dernier nettoyage des systèmes de fichiers |            |
 | Filesystems     | HW-Storage-EMC-DataDomain-Filesystems-SNMP-custom     | Contrôle des systèmes de fichiers                      |     X      |
-| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Contrôle l'ensemble du matériel de stockage            |            |
+| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Contrôle l'ensemble du matériel           |            |
 | Mtrees          | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom          | Contrôle des MTrees                                    |     X      |
 | Process         | HW-Storage-EMC-DataDomain-Process-SNMP-custom         | Contrôle de l'état des processus                       |            |
 | Replications    | HW-Storage-EMC-DataDomain-Replications-SNMP-custom    | Contrôle des réplications                              |     X      |

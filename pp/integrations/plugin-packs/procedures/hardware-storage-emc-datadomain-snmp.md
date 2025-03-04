@@ -29,7 +29,7 @@ The connector brings the following service templates (sorted by the host templat
 | Alerts          | HW-Storage-EMC-DataDomain-Alerts-SNMP-custom          | Check current alerts                         |           |
 | Cleaning        | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom        | Check last time filesystems had been cleaned |           |
 | Filesystems     | HW-Storage-EMC-DataDomain-Filesystems-SNMP-custom     | Check filesystems                            |     X     |
-| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Check all storage hardware                   |           |
+| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Check all hardware                   |           |
 | Mtrees          | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom          | Check MTrees                                 |     X     |
 | Process         | HW-Storage-EMC-DataDomain-Process-SNMP-custom         | Check process status                         |           |
 | Replications    | HW-Storage-EMC-DataDomain-Replications-SNMP-custom    | Check replications                           |     X     |
