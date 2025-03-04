@@ -318,7 +318,7 @@ is able to monitor a GCP Instance using a command like this one (replace the sam
 	--plugin=cloud::google::gcp::cloudsql::mysql::plugin \
 	--mode=storage \
 	--proxyurl='' \
-	--key-file='' \
+	--key-file='/var/lib/centreon-engine/centreon-dev-6e5531fc9e82.json' \
 	--scope-endpoint='https://www.googleapis.com/auth/cloud-platform' \
 	--dimension-name='resource.labels.database\_id' \
 	--dimension-operator='equals' \
