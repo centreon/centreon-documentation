@@ -503,7 +503,7 @@ mysql centreon < /tmp/view_creation.sql
 MySQL must listen on all interfaces instead of listening on localhost/127.0.0.1 (default value). Edit the following file:
 
 ```shell
-/etc/mysql/mariadb.conf.d/50-server.cnf
+/etc/mysql/mysql.conf.d/mysqld.cnf
 ```
 
 Set **bind-address** to **0.0.0.0** and restart **mysql**.
@@ -1020,33 +1020,50 @@ mariadb-secure-installation
 
 4. Install the MySQL repository:
 
+Depending on your operating system, you may need to add the MySQL repository:
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-To add
+You have nothing to do, as MySQL 8.0 is already available in the official repository.
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-To add
+You have nothing to do, as MySQL 8.0 is already available in the official repository.
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-To add
+wget -P /tmp/ https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
+apt install /tmp/mysql-apt-config_0.8.29-1_all.deb
+```
+
+Select OK to validate the installation of **MySQL Tools & Connectors**. Then enter the following command:
+
+```shell
+apt update
 ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-To add
+wget -P /tmp/ https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
+apt install /tmp/mysql-apt-config_0.8.29-1_all.deb
 ```
+
+Select OK to validate the installation of **MySQL Tools & Connectors**. Then enter the following command:
+
+```shell
+apt update
+```
+
 </TabItem>
 </Tabs>
 
@@ -1070,7 +1087,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 Then launch the installation:
 
 ```shell
-To add
+dnf install centreon-bi-reporting-server
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -1099,7 +1116,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 Then launch the installation:
 
 ```shell
-To add
+dnf install centreon-bi-reporting-server
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -1128,7 +1145,7 @@ dnf config-manager --set-enabled 'powertools'
 Then launch the installation:
 
 ```shell
-To add
+dnf install centreon-bi-reporting-server
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -1157,7 +1174,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 Then launch the installation:
 
 ```shell
-To add
+dnf install centreon-bi-reporting-server
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -1186,7 +1203,7 @@ dnf config-manager --set-enabled ol9_codeready_builder
 Then launch the installation:
 
 ```shell
-To add
+dnf install centreon-bi-reporting-server
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -1215,7 +1232,7 @@ dnf config-manager --set-enabled 'crb'
 Then launch the installation:
 
 ```shell
-To add
+dnf install centreon-bi-reporting-server
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -1250,7 +1267,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 Then launch the installation:
 
 ```shell
-To add
+apt update && apt install centreon-bi-reporting-server
 ```
 
 </TabItem>
@@ -1286,10 +1303,10 @@ It is necessary to change the **LimitNOFILE** limitation. Changing this
 option in `/etc/my.cnf` will NOT work.
 
 ```shell (To update)
-mkdir -p  /etc/systemd/system/mariadb.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+mkdir -p  /etc/systemd/system/mysql.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mariadb
+systemctl restart mysql
 ```
 
 If the MySQL service fails to start, remove the *ib_logfile* files
@@ -1300,8 +1317,8 @@ rm -f /var/lib/mysql/ib_logfile*
 systemctl start mysql
 ```
 
-If you are using a specific socket file for MariaDB, modify the file `/etc/my.cnf` and
-in the [client] section, add :
+If you are using a specific socket file for MySQL, modify the file `/etc/my.cnf` and
+in the [client] section, add:
 
 ```shell
 socket=$PATH_TO_SOCKET$
@@ -1311,7 +1328,7 @@ socket=$PATH_TO_SOCKET$
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf) provided
-in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MariaDB service:
+in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MySQL service:
 
 ```shell
 systemctl restart mysql
@@ -1321,22 +1338,22 @@ It is necessary to change the **LimitNOFILE** limitation. Changing this
 option in `/etc/my.cnf` will NOT work.
 
 ```shell
-mkdir -p  /etc/systemd/system/mariadb.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+mkdir -p  /etc/systemd/system/mysql.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mariadb
+systemctl restart mysql
 ```
 
-If the MariaDB service fails to start, remove the *ib_logfile* files
-(MariaDB must absolutely be stopped) and then restart MariaDB again:
+If the MySQL service fails to start, remove the *ib_logfile* files
+(MySQL must absolutely be stopped) and then restart MySQL again:
 
 ```shell
 rm -f /var/lib/mysql/ib_logfile*
 systemctl start mysql
 ```
 
-If you are using a specific socket file for MariaDB, modify the file `/etc/my.cnf` and
-in the [client] section, add :
+If you are using a specific socket file for MySQL, modify the file `/etc/my.cnf` and
+in the [client] section, add:
 
 ```shell
 socket=$PATH_TO_SOCKET$
@@ -1346,7 +1363,7 @@ socket=$PATH_TO_SOCKET$
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf)
-provided in the requirements is present in `/etc/mysql/mariadb.conf.d/`.
+provided in the requirements is present in `/etc/mysql/mysql.conf.d/`.
 
 Rename the file to `80-centreon.cnf`:
 
@@ -1358,7 +1375,7 @@ MySQL should listen to all interfaces instead of localhost/127.0.0.1, which is t
 Edit the following file:
 
 ```shell
-/etc/mysql/mariadb.conf.d/50-server.cnf
+/etc/mysql/mysql.conf.d/mysqld.cnf
 ```
 
 Set the **bind-address** parameter to **0.0.0.0** and restart MySQL.
@@ -1367,11 +1384,11 @@ Set the **bind-address** parameter to **0.0.0.0** and restart MySQL.
 systemctl restart mysql
 ```
 
-It is necessary to change the **LimitNOFILE** limitation. Changing this option in `/etc/mysql/mariadb.cnf` will not work.
+It is necessary to change the **LimitNOFILE** limitation. Changing this option in `/etc/mysql/mysql.cnf` will not work.
 
 ```shell
-mkdir -p  /etc/systemd/system/mariadb.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+mkdir -p  /etc/systemd/system/mysql.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
 systemctl daemon-reload
 systemctl restart mysql
 ```
@@ -1384,8 +1401,8 @@ rm -f /var/lib/mysql/ib_logfile*
 systemctl start mysql
 ```
 
-If you are using a specific socket file for MariaDB, edit the
-file `/etc/mysql/mariadb.cnf` and in the [client] section, add :
+If you are using a specific socket file for MySQL, edit the
+file `/etc/mysql/mysql.cnf` and in the [client] section, add:
 
 ```shell
 socket=$PATH_TO_SOCKET$
@@ -1405,8 +1422,6 @@ mysql-secure-installation
 
 - Answer **yes** to all questions except "Disallow root login remotely?"
 - It is mandatory to define a password for the **root** user of the database. You will need this password during the [web-installation](../installation/web-and-post-installation.md).
-
-> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 </TabItem>
 </Tabs>
