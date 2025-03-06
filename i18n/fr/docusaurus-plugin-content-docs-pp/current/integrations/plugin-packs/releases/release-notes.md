@@ -14,12 +14,12 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
 - [**VMware8 ESX REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - Initial release of VMWare 8 ESX.
-- [**Veeam Centreon Monitoring Agent**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Initial release of Veeam using Centreon Monitoring Agent from a [The Watch idea](https://thewatch.centreon.com/ideas/prepare-veeam-template-with-centreon-monitoring-agent-4024).
+- [**Veeam Centreon Monitoring Agent**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Initial release of Veeam using the Centreon Monitoring Agent, from a [The Watch idea](https://thewatch.centreon.com/ideas/prepare-veeam-template-with-centreon-monitoring-agent-4024).
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**ArubaOS-CX SNMP**](../procedures/network-aruba-aoscx-snmp.md) - Added **uptime**, **spanning tree** and **spanning tree discovery** modes, based on a community contribution [PR 5424](https://github.com/centreon/centreon-plugins/pull/5424).
+- [**ArubaOS-CX SNMP**](../procedures/network-aruba-aoscx-snmp.md) - Added **uptime**, **spanning tree** and **spanning tree discovery** modes, based on community contribution [PR 5424](https://github.com/centreon/centreon-plugins/pull/5424).
 - [**ChapsVision CrossinG SNMP**](../procedures/network-chapsvision-crossing-snmp.md) - Added handling of new OIDs for **antivirus** mode.
 - [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Added ` ipsec-tunnels-count` in **vpn** mode, from community contribution [PR 5382](https://github.com/centreon/centreon-plugins/pull/5382).
 - [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Added capability to use AS400 SSL connection.
@@ -32,15 +32,15 @@ import TabItem from '@theme/TabItem';
 - [**Cisco UCS SNMP**](../procedures/hardware-servers-cisco-ucs-snmp.md) - Fixed wrong count when memory component is not equipped in **equipment** mode.
 - [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Added `--timezone` option for equipment in **cleaning** mode to avoid misinterpreting the clean time frame.
 - [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Added missing mandatory parameter in SNMP collection discovery command.
-- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on a community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
-- [**HTTP Server**](../procedures/applications-protocol-http.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on a community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [**HTTP Server**](../procedures/applications-protocol-http.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
 - [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Fixed previous pending error.
 - [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Fixed step metrics when scenario failed in **scenario** mode.
 - [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed OS-Linux-SSH-Lvm command.
-- [**MongoDB**](../procedures/applications-databases-mongodb.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on a community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [**MongoDB**](../procedures/applications-databases-mongodb.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
 - [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on a community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
 - [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Fixed hardware API requests for bays.
-- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on a community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
 - [**Raritan PDU SNMP**](../procedures/hardware-pdu-raritan-snmp.md) - Fixed an issue with sensors when powerFactor value is missing.
 
 </TabItem>
