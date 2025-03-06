@@ -42,7 +42,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle      | Description                                                                                |
 |:---------------------|:-------------------------------------------------------------------------------------------|
-| VMware ESX vSphere 8 | Discover VMware ESX physical hosts by requesting  vCenter server using vSphere REST API v8 |
+| VMware ESX vSphere 8 | Discover VMware ESX physical hosts by querying a vCenter server using vSphere REST API v8 |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
