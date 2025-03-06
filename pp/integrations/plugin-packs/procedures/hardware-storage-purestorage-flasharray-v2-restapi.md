@@ -115,7 +115,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 ## Prerequisites
 
 A service account has to be created on the device. 
-This account must have at least a "read only" access to the storage array.
+This account must have at least a read only access to the storage array.
 
 ## Installing the monitoring connector
 

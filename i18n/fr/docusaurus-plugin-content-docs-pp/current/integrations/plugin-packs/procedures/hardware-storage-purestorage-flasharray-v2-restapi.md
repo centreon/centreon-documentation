@@ -116,7 +116,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 ## Prérequis
 
 Vous devez configurer un utilisateur pouvant se connecter à la baie de stockage. 
-Cet utilisateur doit avoir au moins un accès "en lecture seule" à la baie de stockage.
+Cet utilisateur doit avoir au moins un accès en lecture seule à la baie de stockage.
 
 ## Installer le connecteur de supervision
 
