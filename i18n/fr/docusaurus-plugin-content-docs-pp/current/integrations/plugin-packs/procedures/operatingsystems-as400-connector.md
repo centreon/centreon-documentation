@@ -448,8 +448,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--connector-port='8091' \
 	--connector-proto='http' \
 	--as400-hostname=10.0.0.1 \
-	--as400-username='' \
-	--as400-password=''  \
+	--as400-username='XXXX' \
+	--as400-password='XXXX'  \
 	--filter-counters='' \
 	--warning-processing-units-usage='' \
 	--warning-storage-pool-space-usage='' \
