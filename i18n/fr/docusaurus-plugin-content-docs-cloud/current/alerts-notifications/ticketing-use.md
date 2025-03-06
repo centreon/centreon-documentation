@@ -1,6 +1,6 @@
 ---
 id: ticketing-use
-title: Using Open Tickets
+title: Utiliser Open Tickets
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -12,7 +12,7 @@ Cette page s'adresse aux opérateurs qui créeront et fermeront des tickets dans
 En fonction de ce que votre administrateur a configuré, vous pourrez ouvrir et fermer des tickets à partir :
 
 * du widget **Tableau des ressources** [dans un tableau de bord](../alerts-notifications/dashboards.md)
-* du widget **Ouvrir des tickets** dans [une vue personnalisée](../alerts-notifications/vues-personnalisées.md) (legacy).
+* du widget **Ouvrir des tickets** dans [une vue personnalisée](../alerts-notifications/custom-views.md) (legacy).
 
 En règle générale, votre administrateur aura créé deux widgets, avec des titres parlants :
 

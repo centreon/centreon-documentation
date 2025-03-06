@@ -1,33 +1,33 @@
 ---
 id: ticketing-advanced-smarty-variables
-title: Variables Smarty Open Ticket
+title: Open Tickets Smarty Variables
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Voici la liste des variables disponibles pour [personnaliser le corps des tickets](ticketing-body.md), via le champ **Body list definition** à la page **Configuration > Notifications > Open Tickets > Rules**. Vous pouvez y insérer des informations relatives à la ressource concernée par le ticket, ou à l'utilisateur créant le ticket. Ces informations sont issues de Centreon.
+Here is the list of variables you can use to [customize the body of the ticket](ticketing-body.md) - via the **Body list definition** field on the **Configuration > Notifications > Open Tickets > Rules** page. You can insert information about the resource concerned by the ticket, or about the user creating the ticket. This information comes from Centreon.
 
-## Variables communes
+## Common variables
 
-Les variables communes peuvent être utilisées pour l'ouverture de tous types de tickets (sur des hôtes ou sur des services). Utilisez la variable directement dans le champ **Body list definition**.
+Common variables can be used to open all types of tickets (i.e. tickets on hosts or services). Use the variable directly in the **Body list definition** field.
 
-| Nom de la variable | Description | Exemple de contenu |
+| Variable name | Description | Example of contents |
 | -- | -- | -- |
-| $custom_message | Insère dans le ticket le message saisi par l'utilisateur dans la popup d'ouverture de ticket | |
-| $user.name | Insère dans le ticket le nom de l'utilisateur ouvrant le ticket | t.rex |
-| $user.alias | Insère dans le ticket l'alias (login) de l'utilisateur ouvrant le ticket | trex |
-| $user.email | Insère dans le ticket l'adresse email de l'utilisateur ouvrant le ticket | `t.rex@jurassic.park` |
+| $custom_message | Inserts into the ticket the message entered by the user in the ticket opening popup | |
+| $user.name | Inserts into the ticket the name of the user that opens the ticket | t.rex |
+| $user.alias | Inserts into the ticket the alias (login) of the user that opens the ticket | trex |
+| $user.email | Inserts into the ticket the email address of the user that opens the ticket | `t.rex@jurassic.park` |
 
-## Ticket sur des hôtes
+## Tickets on hosts
 
-L'ouverture d'un ticket sur des hôtes génère un tableau de valeurs. C'est pourquoi il faut utiliser un boucle **foreach** Smarty pour accéder aux valeurs (comme dans le [corps du ticket fourni par défaut](ticketing-body.md)). Entourez les variables désirées par la boucle suivante :
+Opening a ticket on a host generates a table of values. This means you need to use a Smarty **foreach** loop to access the values (like in the [default ticket body](ticketing-body.md)). Wrap the variables you want in the following loop:
 
 ```smarty
 {foreach from=$host_selected item=host}
 {/foreach}
 ```
 
-| Nom de la variable | Exemple de contenu |
+| Variable name | Description |
 | -- | -- |
 | $host.host_id | 17 |
 | $host.name | "Api-Host" |
@@ -120,16 +120,16 @@ L'ouverture d'un ticket sur des hôtes génère un tableau de valeurs. C'est pou
 | $host.last_state_change_duration | "2M 2w" |
 | $host.last_hard_state_change_duration | "2M 2w" |
 
-## Ticket sur des services
+## Tickets on services
 
-L'ouverture d'un ticket sur des services génère un tableau de valeurs. C'est pourquoi il faut utiliser un boucle **foreach** Smarty pour accéder aux valeurs (comme dans le [corps du ticket fourni par défaut](ticketing-body.md)). Entourez les variables désirées par la boucle suivante :
+Opening a ticket on a service generates a table of values. This means you need to use a Smarty **foreach** loop to access the values (like in the [default ticket body](ticketing-body.md)). Wrap the variables you want in the following loop:
 
 ```smarty
 {foreach from=$service_selected item=service}
 {/foreach}
 ```
 
-| Nom de la variable | Exemple de contenu |
+| Variable name | Description |
 | -- | -- |
 | $service.host_id |  17 |
 | $service.description |  "Cpu" |

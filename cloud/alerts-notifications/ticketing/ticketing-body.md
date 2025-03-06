@@ -1,15 +1,15 @@
 ---
 id: ticketing-advanced-body
-title: Customizing the body of the ticket
+title: Customizing tickets
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Le corps du ticket qui va être créé est géré par le bloc de texte situé dans le champ **Body list definition**, à la page **Configuration > Notifications > Open Tickets > Rules**. Il utilise la syntaxe du langage de templating Smarty.
+The body of the ticket to be created is managed by the text block located in the **Body list definition** field, on the **Configuration > Notifications > Open Tickets > Rules** page. It uses the syntax of the Smarty templating language.
 
-## Corps du ticket par défaut
+## Default ticket body
 
-Par défaut, la définition du corps du ticket est la suivante (la même définition prend en charge le cas où l'on ouvre un ticket sur un hôte et le cas où l'on ouvre un ticket sur un service) :
+By default, the ticket body definition is as follows (the same definition handles both opening a ticket on a host and opening a ticket on a service):
 
 ```smarty
 {$user.alias} open ticket at {$smarty.now|date_format:"%d/%m/%y %H:%M:%S"}
@@ -38,7 +38,7 @@ Par défaut, la définition du corps du ticket est la suivante (la même défini
 {/if}
 ```
 
-Si un ticket est ouvert sur un service en utilisant ce modèle, cela pourra donner le résultat suivant :
+If a ticket is opened on a service using this template, it may give the following results:
 
 ```txt
 t.rex open ticket at 03/02/2025 16:50:35
@@ -56,11 +56,11 @@ Duration: 5m
 Output: a meteorite has just crashed on srv-Earth
 ```
 
-## Personnalisation
+## Customization
 
-Il est possible d'adapter à sa convenance le contenu du corps du ticket. Vous pouvez :
+You can customize the contents of the ticket body. You can :
 
-- ajouter du texte statique dans le corps du ticket.
-- [définir des champs à afficher dans la popup de création de ticket](mapping.md), à remplir par l'utilisateur. Les informations saisies par l'utilisateur seront insérées dans le corps du ticket lors de sa création.
-- ajouter dans le corps du ticket des informations spécifiques à la ressource sur laquelle le ticket est créé ou à l'utilisateur créant le ticket, en utilisant [des variables](smarty_variables.md) ou [des fonctions](smarty_functions.md) Smarty préconfigurées.
-- utiliser les fonctionnalités standard de Smarty (non couvertes par cette documentation), par exemple le @count de `$service_selected|@count`.
+- add static text to the ticket body.
+- define fields to be displayed in the [ticket creation popup](mapping.md), to be filled in by the user. Information entered by the user will be inserted into the ticket body when the ticket is created.
+- add to the ticket body information specific to the resource on which the ticket is created or to the user creating the ticket, using pre-configured Smarty [variables](smarty_variables.md) or [functions](smarty_functions.md).
+- use standard Smarty functions (not covered by this documentation), e.g. @count like in `$service_selected|@count`.

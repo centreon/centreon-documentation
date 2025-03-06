@@ -1,15 +1,15 @@
 ---
 id: ticketing-advanced-smarty-functions
-title: Fonctions Smarty Open Ticket
+title: Open Tickets Smarty functions
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Voici la liste des fonctions disponibles pour [personnaliser le corps des tickets](ticketing-body.md), via le champ **Body list definition** à la page **Configuration > Notifications > Open Tickets > Rules**. Vous pouvez y insérer des informations relatives à la ressource concernée par le ticket. Ces informations sont issues de Centreon.
+Here is the list of functions available to [customize the body of the ticket](ticketing-body.md) - via the **Body list definition** field on the **Configuration > Notifications > Open Tickets > Rules** page. You can insert information about the resource concerned by the ticket. This information comes from Centreon.
 
-## Obtenir les groupes d'hôtes
+## Getting host groups
 
-La fonction suivante va permettre d'insérer dans le corps du ticket la liste de tous les groupes d'hôtes auquel appartient l'hôte sur lequel vous créez un ticket, ou auquel appartient l'hôte parent du service sur lequel vous créez un ticket.
+The following function inserts into the body of the ticket a list of all hostgroups to which the host on which you're creating a ticket belongs, or to which the parent host of the service on which you're creating a ticket belongs.
 
 ```smarty
 {host_get_hostgroups host_id=$host.host_id}
@@ -18,7 +18,7 @@ La fonction suivante va permettre d'insérer dans le corps du ticket la liste de
 {/foreach}
 ```
 
-### Exemple de corps de ticket
+### Example of ticket body
 
 ```smarty
 {if $service_selected|@count gt 0}
@@ -38,7 +38,7 @@ Output: {$service.output|substr:0:1024}
 {/if}
 ```
 
-### Résultat possible
+### Possible results
 
 ```txt
 Host: Api-Host
@@ -54,9 +54,9 @@ hostgroup_name: MyHosts
 hostgroup_name: open-ticket-hg
 ```
 
-## Obtenir la sévérité des hôtes
+## Getting host severities
 
-La fonction suivante va permettre d'insérer dans le corps du ticket la sévérité affectée à l'hôte sur lequel vous créez un ticket, ou affectée à l'hôte parent du service sur lequel vous créez un ticket.
+The following function will insert into the body of the ticket the severity assigned to the host on which you are creating a ticket, or assigned to the parent host of the service on which you are creating a ticket.
 
 ```smarty
 {host_get_severity host_id=$service.host_id}
@@ -66,7 +66,7 @@ La fonction suivante va permettre d'insérer dans le corps du ticket la sévéri
 {/foreach}
 ```
 
-### Exemple de corps de ticket
+### Example of ticket body
 
 ```smarty
 {if $service_selected|@count gt 0}
@@ -86,7 +86,7 @@ Output: {$service.output|substr:0:1024}
 {/if}
 ```
 
-### Résultat possible
+### Possible results
 
 ```txt
 Host: Api-Host
@@ -101,10 +101,9 @@ severity name: P1
 severity level: 1
 ```
 
-## Obtenir les catégories des hôtes
+## Getting host categories
 
-La fonction suivante va permettre d'insérer dans le corps du ticket la liste de toutes les catégories d'hôtes auquel appartient l'hôte sur lequel vous créez un ticket, ou auquel appartient l'hôte parent du service sur lequel vous créez un ticket.
-
+The following function will insert into the body of the ticket a list of all host categories to which the host on which you are creating a ticket belongs, or to which the parent host of the service on which you are creating a ticket belongs.
 
 ```smarty
 {host_get_hostcategories host_id=$service.host_id}
@@ -113,7 +112,7 @@ La fonction suivante va permettre d'insérer dans le corps du ticket la liste de
 {/foreach}
 ```
 
-### Exemple de corps de ticket
+### Example of ticket body
 
 ```smarty
 {if $service_selected|@count gt 0}
@@ -133,7 +132,7 @@ Output: {$service.output|substr:0:1024}
 {/if}
 ```
 
-### Résultat possible
+### Possible results
 
 ```txt
 Host: Api-Host
@@ -148,9 +147,9 @@ category name: P1
 category name: sql-category
 ```
 
-## Obtenir les catégories des services
+## Getting service categories
 
-La fonction suivante va permettre d'insérer dans le corps du ticket la liste de toutes les catégories de services auquel appartient le service sur lequel vous créez un ticket.
+The following function will insert into the body of the ticket a list of all the service categories to which the service for which you are creating a ticket belongs.
 
 ```smarty
 {service_get_servicecategories service_id=$service.service_id}
@@ -160,7 +159,7 @@ La fonction suivante va permettre d'insérer dans le corps du ticket la liste de
 {/foreach}
 ```
 
-### Exemple de corps de ticket
+### Example of ticket body
 
 ```smarty
 {if $service_selected|@count gt 0}
@@ -181,7 +180,7 @@ Output: {$service.output|substr:0:1024}
 {/if}
 ```
 
-### Résultat possible
+### Possible results
 
 ```txt
 Host: Api-Host
@@ -200,9 +199,9 @@ category name: P1
 category description: service with P1 severity
 ```
 
-## Obtenir les groupes de services
+## Getting service groups
 
-La fonction suivante va permettre d'insérer dans le corps du ticket la liste de tous les groupes de services auquel appartient le service sur lequel vous créez un ticket.
+The following function inserts into the body of the ticket a list of all the service groups to which the service for which you are creating a ticket belongs.
 
 ```smarty
 {service_get_servicegroups service_id=$service.service_id}
@@ -212,7 +211,7 @@ La fonction suivante va permettre d'insérer dans le corps du ticket la liste de
 {/foreach}
 ```
 
-### Exemple de corps de ticket
+### Example of ticket body
 
 ```smarty
 {if $service_selected|@count gt 0}
@@ -233,7 +232,7 @@ Output: {$service.output|substr:0:1024}
 {/if}
 ```
 
-### Résultat possible
+### Possible results
 
 ```txt
 Host: Api-Host
@@ -249,9 +248,9 @@ service group name: SG_2
 service group alias: second service group
 ```
 
-## Obtenir la valeur d'une macro custom d'un hôte
+## Getting the value of a host custom macro
 
-La fonction suivante va permettre d'ajouter la valeur d'une [custom macro](../../monitoring/basic-objects/macros.md#custom-macros) d'un hôte au corps du ticket.
+The following function will add to the body of the ticket the value of a [custom macro](../../monitoring/basic-objects/macros.md#custom-macros) for a host.
 
 ```smarty
 {host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}
@@ -259,7 +258,7 @@ macro value: {$host_get_macro_value_in_config_result}
 {/foreach}
 ```
 
-### Exemple de corps de ticket
+### Example of ticket body
 
 ```smarty
 {if $service_selected|@count gt 0}
@@ -277,7 +276,7 @@ macro value: {$host_get_macro_value_in_config_result}
 {/if}
 ```
 
-### Résultat possible
+### Possible results
 
 ```txt
 Host: Api-Host
@@ -290,9 +289,9 @@ Output: UNKNOWN: SNMP GET Request: Timeout
 macro value: /var/lib/centreon-broker/central-rrd-master-stats.json
 ```
 
-## Obtenir la valeur d'une macro custom sur les modèles d'hôtes associés à l'hôte
+## Getting the value of a custom macro defined on a host template linked to the host
 
-La fonction suivante va permettre d'ajouter la valeur des [custom macros](../../monitoring/basic-objects/macros.md#custom-macros) appartenant aux modèles d'hôte associés à l'hôte dans le corps du ticket.
+The following function will add to the body of the ticket the value of [custom macros](../../monitoring/basic-objects/macros.md#custom-macros) belonging to host templates linked to the host.
 
 ```smarty
 {host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}
@@ -302,7 +301,7 @@ La fonction suivante va permettre d'ajouter la valeur des [custom macros](../../
 {/foreach}
 ```
 
-### Exemple de corps de ticket
+### Example of ticket body
 
 ```smarty
 {if $service_selected|@count gt 0}
@@ -323,7 +322,7 @@ Output: {$service.output|substr:0:1024}
 {/if}
 ```
 
-### Résultat possible
+### Possible results
 
 ```txt
 Host: Api-Host

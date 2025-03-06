@@ -7,11 +7,11 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-Open Ticket permet d'exécuter des actions lors de l'ouverture d'un ticket, un peu à la manière des event handler dans Centreon.
+Open Tickets permet d'exécuter des actions lors de l'ouverture d'un ticket, un peu à la manière des event handler dans Centreon.
 
 Parmi ces actions, il en existe deux :
 
-- les chain rules : permettent d'activer une autre règle Open Ticket après avoir ouvert un ticket
+- les chain rules : permettent d'activer une autre règle Open Tickets après avoir ouvert un ticket
 - les commandes : permettent d'exécuter une commande lors de l'ouverture d'un ticket.
 
 ## Commandes

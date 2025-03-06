@@ -1,36 +1,36 @@
 ---
 id: glossary
-title: Glossaire
+title: Open tickets glossary
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Custom lists
 
-Les "custom lists" sont des listes de valeurs possibles pour un champ de l'outil ITSM. Elles sont généralement renseignées dans les cas suivants :
+Custom lists are lists of possible values for a field in the ITSM tool. They are generally used in the following cases:
 
-- Ces valeurs ne peuvent être récupérées depuis l'outil ITSM et sont donc configurées directement dans la règle Open Ticket.
-- On souhaite simplifier le module Open Ticket lorsqu'une valeur unique et/ou une paire de valeurs seulement seront utilisées (exemple: le compte utilisateur qui sera indiqué comme créateur du ticket).
+- These values cannot be retrieved from the ITSM tool and are therefore configured directly in the Open Tickets rule.
+- We want to simplify the Open Tickets module when only a single value and/or a pair of values are used (e.g. the user account which will be indicated as the ticket creator).
 
 ## Lists
 
-Les "lists" servent à définir la provenance des données qui seront mises à disposition des [**Mapping arguments**](#mapping-arguments). On retrouve trois types de données :
+Lists are used to define the source of data to be made available to [**Mapping arguments**](#mapping-arguments). There are three types of data:
 
-- Celles en provenance de l'outil ITSM (par exemple une liste de catégories ITSM)
-- Celles en provenance de Centreon (par exemple des groupes d'hôtes)
-- Celles définies par l'utilisateur directement dans la [règle Open Ticket](#rule), qui sont configurées via les [**custom lists**](#custom-lists)
+- data coming from the ITSM tool (for example, a list of ITSM categories)
+- data coming from Centreon (e.g. host groups)
+- data defined by users directly in the [Open Tickets rule](#rule), configured via [**custom lists**](#custom-lists).
 
 ## Mapping arguments
 
-Les "Mapping arguments" sont une liste d'informations qui seront transmises à l'outil ITSM. Ils sont composés de deux éléments.
+Mapping arguments are a list of information that will be transmitted to the ITSM tool. They consist of two elements.
 
-- Un "argument" qui correspond généralement à un champ de l'outil ITSM.
-- Une valeur, souvent de la forme `{$select.itsm_info.value}`. Cette information fait référence à une [**liste**](#lists).
+- An “argument”, which generally corresponds to a field in the ITSM tool.
+- A value, often in the form `{$select.itsm_info.value}`. This information refers to a [**list**](#lists).
 
 ## Provider
 
-Un provider est un connecteur du module Open Ticket qui permet de gérer la communication entre Centreon et un outil ITSM.
+A provider is a connector in the Open Tickets module that manages communication between Centreon and an ITSM tool.
 
 ## Rule
 
-Une règle Open Ticket sert à configurer le comportement que le module Open Ticket va avoir lorsqu'il ouvre des tickets ou les ferme.
+An Open Tickets rule is used to configure the behavior of the Open Tickets module when it opens or closes tickets.

@@ -1,6 +1,6 @@
 ---
 id: ticketing
-title: Configuration
+title: Configurer Open Tickets
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -11,7 +11,7 @@ Cette page s'adresse aux administrateurs qui mettront en place Open Tickets afin
 
 1. Pour créer une règle de notification, allez dans **Configuration > Notifications > Open Tickets > Règles** et cliquez sur **Ajouter**.
 2. Sélectionnez un fournisseur (l'outil dans lequel vous souhaitez ouvrir les tickets) : le formulaire est mis à jour avec les champs par défaut pour cette intégration.
-3. Adaptez le formulaire à vos besoins, en fonction du fonctionnement de [votre fournisseur](../integrations/itsm/itsm-overview/) : [faites correspondre les champs de Centreon et de votre outil ITSM](#faire-correspondre-les-champs-de-centreon-et-de-votre-outil-itsm), y compris [les champs personnalisés que vous avez pu créer dans votre outil ITSM](#créer-les-champs-personnalisés-de-votre-outil-itsm-dans-centreon).
+3. [Adaptez le formulaire à vos besoins](ticketing/ticketing-body.md#personnalisation), en fonction du fonctionnement de [votre fournisseur](../integrations/itsm/itsm-overview/).
 4. Remplissez le formulaire.
 
 ## Étape 2 : Ajouter une macro personnalisée à tous les modèles d'hôtes et de services
@@ -82,9 +82,3 @@ Votre vue personnalisée affiche maintenant deux widgets contenant vos deux vues
 
 </TabItem>
 </Tabs>
-
-## Configuration avancée
-
-### Faire correspondre les champs de Centreon et de votre outil ITSM
-
-### Créer les champs personnalisés de votre outil ITSM dans Centreon

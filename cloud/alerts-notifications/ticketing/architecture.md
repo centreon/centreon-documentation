@@ -1,23 +1,22 @@
 ---
 id: ticketing-advanced-architecture
-title: Architecture of Open Tickets
+title: Architecture and debugging of Open Tickets
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Schéma
+## Diagram
 
-![diagramme d'architecture](images/open_ticket_architecture.png)
+![architecture diagram](../../assets/alerts/ticketing/open_ticket_architecture.png)
 
-## Débuggage
+## Debugging
 
-| étapes | processus | log utiles |
+| Steps | Process | Useful logs |
 | -- | -- | -- |
-| Un utilisateur ouvre le ticket depuis l'interface | php-fpm | /var/log/php-fpm.log (/var/log/php**X.Y**-fpm.log pour debian), /var/log/centreon/sql-error.log, console du navigateur |
-| Le ticket est ouvert auprès de l'outil ITSM | php-fpm | /var/log/php-fpm.log (/var/log/php**X.Y**-fpm.log pour debian), /var/log/centreon/sql-error.log, log de l'outil ITSM |
-| Les informations du ticket sont enregistrées dans la base de données et le numéro de ticket est transmis au démon gorgoned du central par le biais de commandes externes (selon les configurations : ACKNOWLEDGE_[HOST\|SERVICE]_PROBLEM, SCHEDULE_FORCED_[HOST\|SERVICE]_CHECK et CHANGE_CUSTOM_[HOST\|SVC]_VAR) | php-fpm | /var/log/php-fpm.log (/var/log/php**X.Y**-fpm.log pour debian), /var/log/centreon/sql-error.log, /var/log/centreon-gorgone/gorgoned.log |
-| Gorgone du central transmet les commandes externes au gorgone du collecteur concerné | gorgoned (central et collecteur) | /var/log/centreon-gorgone/gorgoned.log (central et collecteur) |
-| Gorgone du collecteur transmet les commandes externes au démon centengine | gorgoned, centengine | /var/log/centreon-gorgone/gorgoned.log, /var/log/centreon-engine/centengine.log |
-| le démon centengine du collecteur transmet le résultat des commandes externes au démon cbd du central | centengine (collecteur), cbd (central) | /var/log/centreon-engine/centengine.log (collecteur), /var/log/centreon-broker/central-broker.log (central) |
-| le démon cbd enregistre les résultats des commandes externes dans la base de données | cbd | /var/log/centreon-broker/central-broker.log |
-
+| A user opens a ticket from the interface | php-fpm | /var/log/php-fpm.log (/var/log/php**X.Y**-fpm.log for Debian), /var/log/centreon/sql-error.log, browser console |
+| The ticket is opened in the ITSM tool | php-fpm | /var/log/php-fpm.log (/var/log/php**X.Y**-fpm.log for Debian), /var/log/centreon/sql-error.log, ITSM tool's logs |
+| The information concerning the ticket is recorded in the database and the ticket number is sent to the gorgoned daemon of the central server, using external commands (according to your configuration: ACKNOWLEDGE_[HOST\|SERVICE]_PROBLEM, SCHEDULE_FORCED_[HOST\|SERVICE]_CHECK et CHANGE_CUSTOM_[HOST\|SVC]_VAR) | php-fpm | /var/log/php-fpm.log (/var/log/php**X.Y**-fpm.log for Debian), /var/log/centreon/sql-error.log, /var/log/centreon-gorgone/gorgoned.log |
+| The Gorgone of the central server sends the external commands to the relevant poller | gorgoned (central server and poller) | /var/log/centreon-gorgone/gorgoned.log (central server and poller) |
+| The Gorgone of the poller sends the external commands to the centengine daemon | gorgoned, centengine | /var/log/centreon-gorgone/gorgoned.log, /var/log/centreon-engine/centengine.log |
+| The centengine daemon of the poller sends the results of the external commands to the cbd daemon of the central server | centengine (poller), cbd (central server) | /var/log/centreon-engine/centengine.log (poller), /var/log/centreon-broker/central-broker.log (central server) |
+| The cbd daemon saves the resultst of the externa commands to the database | cbd | /var/log/centreon-broker/central-broker.log |

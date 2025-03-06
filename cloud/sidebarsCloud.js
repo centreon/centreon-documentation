@@ -421,24 +421,15 @@ module.exports = {
             {
               "type": "doc",
               "id": "alerts-notifications/ticketing"
-            }
-            ,
-            {
-              "type": "doc",
-              "id": "alerts-notifications/ticketing-use"
             },
             {
               "type": "category",
-              "label": "Advanced configuration for Open Tickets",
+              "label": "Customizing tickets",
               "link": {
-              "type": "doc",
-              "id": "alerts-notifications/ticketing/ticketing-advanced-overview"
-            },
-            "items": [
-              {
                 "type": "doc",
                 "id": "alerts-notifications/ticketing/ticketing-advanced-body"
-              },
+            },
+            "items": [
               {
                 "type": "doc",
                 "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
@@ -457,13 +448,17 @@ module.exports = {
               },
               {
                 "type": "doc",
-                "id": "alerts-notifications/ticketing/ticketing-advanced-architecture"
-              },
-              {
-                "type": "doc",
                 "id": "alerts-notifications/ticketing/glossary"
               },
             ]
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing-use"
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing/ticketing-advanced-architecture"
             },
           ]
         }
