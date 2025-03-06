@@ -20,7 +20,7 @@ Les variables communes peuvent être utilisées pour l'ouverture de tous types d
 
 ## Ticket sur des hôtes
 
-L'ouverture d'un ticket sur des hôtes génère un tableau de valeurs. C'est pourquoi il faut utiliser un boucle **foreach** Smarty pour accéder aux valeurs (comme dans le [corps du ticket fourni par défaut](ticketing-body.md)). Entourez les variables désirées par la boucle suivante :
+L'ouverture d'un ticket sur des hôtes génère un tableau de valeurs. C'est pourquoi il faut utiliser une boucle **foreach** Smarty pour accéder aux valeurs (comme dans le [corps du ticket fourni par défaut](ticketing-body.md)). Entourez les variables désirées par la boucle suivante :
 
 ```smarty
 {foreach from=$host_selected item=host}
@@ -122,7 +122,7 @@ L'ouverture d'un ticket sur des hôtes génère un tableau de valeurs. C'est pou
 
 ## Ticket sur des services
 
-L'ouverture d'un ticket sur des services génère un tableau de valeurs. C'est pourquoi il faut utiliser un boucle **foreach** Smarty pour accéder aux valeurs (comme dans le [corps du ticket fourni par défaut](ticketing-body.md)). Entourez les variables désirées par la boucle suivante :
+L'ouverture d'un ticket sur des services génère un tableau de valeurs. C'est pourquoi il faut utiliser une boucle **foreach** Smarty pour accéder aux valeurs (comme dans le [corps du ticket fourni par défaut](ticketing-body.md)). Entourez les variables désirées par la boucle suivante :
 
 ```smarty
 {foreach from=$service_selected item=service}

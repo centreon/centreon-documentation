@@ -17,7 +17,7 @@ La personnalisation se fait via les sections suivantes :
 
 ## Mapping ticket arguments
 
-La section **Mapping ticket arguments** définit les données qui vont être envoyés par Centreon à l'outil ITSM lors de l'ouverture du ticket. Le détail des données correspondantes est défini dans les sections **Lists** et **Custom list definition**. Attention, si une donnée apparaît dans les autres listes mais pas dans celle-ci, elle ne sera simplement pas envoyée à l'outil ITSM.
+La section **Mapping ticket arguments** définit les données qui vont être envoyées par Centreon à l'outil ITSM lors de l'ouverture du ticket. Le détail des données correspondantes est défini dans les sections **Lists** et **Custom list definition**. Attention, si une donnée apparaît dans les autres listes mais pas dans celle-ci, elle ne sera simplement pas envoyée à l'outil ITSM.
 
 Chaque ligne comprend deux éléments :
 
