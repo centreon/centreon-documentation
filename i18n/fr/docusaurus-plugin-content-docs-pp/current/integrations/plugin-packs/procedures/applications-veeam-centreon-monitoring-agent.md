@@ -15,10 +15,9 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Veeam Centreon Monitoring Agent** apporte 2 modèles d'hôte :
+Le connecteur de supervision **Veeam Centreon Monitoring Agent** apporte 1 modèle d'hôte :
 
 * **App-Veeam-Centreon-Monitoring-Agent-custom**
-* **generic-passive-host-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :

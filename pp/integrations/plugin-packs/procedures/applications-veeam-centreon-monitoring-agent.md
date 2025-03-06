@@ -15,10 +15,9 @@ The following monitoring connectors will be installed when you install the **Vee
 
 ### Templates
 
-The Monitoring Connector **Veeam Centreon Monitoring Agent** brings 2 host templates:
+The Monitoring Connector **Veeam Centreon Monitoring Agent** brings one host template:
 
 * **App-Veeam-Centreon-Monitoring-Agent-custom**
-* **generic-passive-host-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
@@ -110,7 +109,7 @@ Only one TCP flow must be open from the host to the poller.
 
 | Source         | Destination | Protocol | Port | Purpose                                          |
 |----------------|-------------|----------|------|--------------------------------------------------|
-| Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval OpenTelemetry data flow. |
+| Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval, and OpenTelemetry data flow. |
 
 ### System prerequisites on the poller
 
