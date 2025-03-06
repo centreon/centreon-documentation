@@ -17,7 +17,7 @@ Event handlers are executed when a service or host:
 * Is in a SOFT problem state
 * Initially goes into a HARD problem state
 * Initially recovers from a SOFT or HARD problem state
-* SOFT and HARD states are described [here](../alerts-notifications/concepts.md#status-confirmation)
+* SOFT and HARD states are described [here](../alerts-notifications/concepts.md#status-types)
 
 ### Event Handler Types
 

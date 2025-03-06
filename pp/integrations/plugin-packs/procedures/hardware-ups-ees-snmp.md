@@ -238,7 +238,7 @@ yum install centreon-plugin-Hardware-Ups-Ees-Snmp
 | CRITICALNOMINALCAPACITY | Thresholds                                                                                                                                                                    |                                              |             |
 | WARNINGVOLTAGE          | Thresholds                                                                                                                                                                    |                                              |             |
 | CRITICALVOLTAGE         | Thresholds                                                                                                                                                                    |                                              |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                      |                                              |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                                      |                                              |             |
 </TabItem>
 <TabItem value="Input" label="Input">
 
@@ -250,7 +250,7 @@ yum install centreon-plugin-Hardware-Ups-Ees-Snmp
 | CRITICALLINEB | Thresholds                                                                                          |                   |             |
 | WARNINGLINEC  | Thresholds                                                                                          |                   |             |
 | CRITICALLINEC | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Rectifier" label="Rectifier">
@@ -265,7 +265,7 @@ yum install centreon-plugin-Hardware-Ups-Ees-Snmp
 | CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{installed\}, %\{communicating\}, %\{used_capacity\} |                                  |             |
 | WARNINGUSEDCAPACITY   | Thresholds                                                                                                                                           |                                  |             |
 | CRITICALUSEDCAPACITY  | Thresholds                                                                                                                                           |                                  |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)             |                                  |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)             |                                  |             |
 
 </TabItem>
 <TabItem value="System" label="System">

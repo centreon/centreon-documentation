@@ -22,6 +22,50 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 24.04.10
+
+Release date: `February 10, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Authentification] Improved the way errors are logged for authentications with OpenID.
+- [API] Added missing configuration change logs for command configuration (ADD).
+- [API] Added missing configuration change logs for service categories configuration.
+- [Core] Rectangular logos are now correctly displayed on the login page.
+- [Resource status] In the details panel, the interface of the Export button has been improved.
+- [Resource status] In the Resource Status page, custom order for filters can now be saved.
+- [Resource Status] Renamed "Edit filters" to "Manage filters" to better reflect what the command does.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Administration] Empty values for the "Retention duration for downtimes" parameter are now correctly detected.
+- [Custom Login page] Fixed the visibility of the text area border.
+- [Dashboards] Selecting multiple resources of the same type now works correctly.
+- [Discovery] Autodiscovery credentials are no longer lost during an update.
+- [Playlists] Fixed an issue where the order of dashboards in a playlist was not respected.
+- [Metrics Graph widget] Legends are now displayed correctly when a lot of metrics are selected.
+- [Resource status] Fixed an issue with the notification tab for services, where the corresponding contacts were not displayed.
+- [Resource Status] Linked contacts now appear in the detail panel for hosts and services, even if a timeperiod is not explicitly configured for both of them.
+- [Status Chart widget] Optimized the responsiveness of stacked bars.
+- [Status Chart/Grid widgets] Passive hosts and hosts without services are now displayed correctly in these widgets.
+- [Top counter] Fixed an issue that prevented users from deploying the configuration on more than 10 pollers.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Event Logs] Fixed access issue with non admin users.
+- [Security] Fixed a security vulnerability in API Token management.
+- [Security] Fixed a vulnerability in the contact management form.
+- [Security] Updated Symfony Security-Http component.
+
+</details>
+
 ### 24.04.9
 
 Release date: `December 19, 2024`
@@ -385,6 +429,29 @@ Many features have been added in this version.
 
 ## Centreon Collect
 
+### 24.04.10
+
+Release date: `March 5, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue where the wrong service state was restored when engine re-established its connection to broker after a disconnection.
+- [Broker] Fixed Broker crash that occurred if only a graphite output was configured.
+
+</details>
+
+### 24.04.9
+
+Release date: `January 11, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an SQL error that occurred when the configuration was deployed.
+
+</details>
+
 ### 24.04.8
 
 Release date: `December 18, 2024`
@@ -537,6 +604,29 @@ Release date: `April 30, 2024`
 
 ## Centreon Gorgone
 
+### 24.04.7
+
+Release date: `March 5, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed a bug where the gorgone API could not use a password containing a UTF-8 character.
+
+</details>
+
+### 24.04.6
+
+Release date: `January 11, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Database] Adapted queries for MySQL8 compatibility.
+- [Packaging] Fixed centreon-engine restart issue affecting pollers, caused by a missing service binary.
+
+</details>
+
 ### 24.04.5
 
 Release date: `December 18, 2024`
@@ -623,6 +713,17 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon DSM
+
+### 24.04.4 
+
+Release date: `February 10, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [DSM] Fixed white page issue when accessing to "Administration > Extensions > Configure" menu.
+
+</details>
 
 ### 24.04.3
 

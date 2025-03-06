@@ -296,7 +296,7 @@ OK: All vdom systems are ok | 'ABS#cpu.utilization.percentage'=0.00%;;;0;100 'AB
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles

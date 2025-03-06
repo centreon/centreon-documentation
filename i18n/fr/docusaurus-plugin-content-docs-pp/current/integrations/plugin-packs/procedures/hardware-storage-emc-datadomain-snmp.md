@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-emc-datadomain-snmp
-title: EMC Data Domain
+title: EMC Data Domain SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,6 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **EMC Data Domain SNMP** 
+
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -75,7 +76,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | HW-Storage-EMC-DataDomain-SNMP-Filesystems  | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
 | HW-Storage-EMC-DataDomain-SNMP-Interfaces   | Découvre des interfaces réseau et supervise l'utilisation de la bande passante      |
 | HW-Storage-EMC-DataDomain-SNMP-Mtrees       | Découvre les MTrees                                                                 |
-| HW-Storage-EMC-DataDomain-SNMP-Replications | Découvre les réplications                                                           |
+| HW-Storage-EMC-DataDomain-SNMP-Replications | Découvre les réplications |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -147,7 +148,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | temperature.status | N/A   |
 
 </TabItem>
-<TabItem value="Hardware-Psu" label="Hardware-Psu">
+<TabItem value="Hardware-Psu*" label="Hardware-Psu*">
 
 | Nom                | Unité |
 |:-------------------|:------|
@@ -318,7 +319,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 3. Appliquez le modèle d'hôte **HW-Storage-EMC-DataDomain-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                                                                                               | Valeur par défaut | Obligatoire |
 |:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -490,13 +491,14 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--snmp-community='my-snmp-community'  \
 	--filter-mtree-name='' \
 	--warning-status='' \
-	--critical-status=''  
+	--critical-status=''
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: detected: 33552 space precompression used: 20257 20257 precompression: 52436 52436 postcompression: 56937 56937 | 'mtrees.detected.count'=33552;;;0; 'mtrees~mtree.precompression.space.usage.bytes'=20257B;;;0; 'mtrees~mtree.daily.precompression.data.written.bytes'=52436B;;;0; 'mtrees~mtree.daily.postcompression.data.written.bytes'=56937B;;;0; 
+OK: detected: 33552 space precompression used: 20257 20257 precompression: 52436 52436 postcompression: 56937 56937 | 'mtrees.detected.count'=33552;;;0; 'mtrees~mtree.precompression.space.usage.bytes'=20257B;;;0; 'mtrees~mtree.daily.precompression.data.written.bytes'=52436B;;;0; 'mtrees~mtree.daily.postcompression.data.written.bytes'=56937B;;;0;
+
 ```
 
 ### Diagnostic des erreurs communes
@@ -506,7 +508,7 @@ pour le diagnostic des erreurs communes des plugins Centreon.
 
 ### Modes disponibles
 
-Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
 du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
 implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
 modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
@@ -698,7 +700,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                            |
 
 </TabItem>
-<TabItem value="Hardware-Psu" label="Hardware-Psu">
+<TabItem value="Hardware-Psu*" label="Hardware-Psu*">
 
 | Option               | Description                                                                                                                                                                                                                |
 |:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

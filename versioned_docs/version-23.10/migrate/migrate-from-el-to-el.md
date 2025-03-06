@@ -17,6 +17,14 @@ All servers (central, remote and pollers) in your architecture must have the sam
 > If your Centreon platform includes a Centreon redundancy system, please
 > contact [Centreon support](https://support.centreon.com).
 
+Be sure that you have fully backed up your environment for the following
+servers:
+
+- Central server
+- Database server
+
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
+
 ## Migrating a platform
 
 ### Step 1: Install the new central server

@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-emc-datadomain-snmp
-title: EMC Data Domain
+title: EMC Data Domain SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -69,9 +69,9 @@ More information about discovering hosts automatically is available on the [dedi
 
 #### Service discovery
 
-| Rule name                                   | Description                                                   |
-|:--------------------------------------------|:--------------------------------------------------------------|
-| HW-Storage-EMC-DataDomain-SNMP-Filesystems  | Discover the disk partitions and monitor space occupation     |
+| Rule name                                   | Description                                               |
+|:--------------------------------------------|:----------------------------------------------------------|
+| HW-Storage-EMC-DataDomain-SNMP-Filesystems  | Discover the disk partitions and monitor space occupation |
 | HW-Storage-EMC-DataDomain-SNMP-Interfaces   | Discover network interfaces and monitor bandwidth utilization |
 | HW-Storage-EMC-DataDomain-SNMP-Mtrees       | Discover the Mtrees to monitor                                |
 | HW-Storage-EMC-DataDomain-SNMP-Replications | Discover the replications to monitor                          |
@@ -154,7 +154,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | hardware.psu.count | N/A   |
 
 </TabItem>
-<TabItem value="Hardware-Temperature" label="Hardware-Temperature">
+<TabItem value="Hardware-Psu*" label="Hardware-Psu*">
 
 | Name                                       | Unit  |
 |:-------------------------------------------|:------|
@@ -316,7 +316,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **HW-Storage-EMC-DataDomain-SNMP-custom** template to the host. 
+3. Apply the **HW-Storage-EMC-DataDomain-SNMP-custom** template to the host.
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
@@ -477,7 +477,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
@@ -489,13 +489,14 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--snmp-community='my-snmp-community'  \
 	--filter-mtree-name='' \
 	--warning-status='' \
-	--critical-status=''  
+	--critical-status=''
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: detected: 33552 space precompression used: 20257 20257 precompression: 52436 52436 postcompression: 56937 56937 | 'mtrees.detected.count'=33552;;;0; 'mtrees~mtree.precompression.space.usage.bytes'=20257B;;;0; 'mtrees~mtree.daily.precompression.data.written.bytes'=52436B;;;0; 'mtrees~mtree.daily.postcompression.data.written.bytes'=56937B;;;0; 
+OK: detected: 33552 space precompression used: 20257 20257 precompression: 52436 52436 postcompression: 56937 56937 | 'mtrees.detected.count'=33552;;;0; 'mtrees~mtree.precompression.space.usage.bytes'=20257B;;;0; 'mtrees~mtree.daily.precompression.data.written.bytes'=52436B;;;0; 'mtrees~mtree.daily.postcompression.data.written.bytes'=56937B;;;0;
+
 ```
 
 ### Troubleshooting
@@ -507,7 +508,7 @@ for Centreon Plugins typical issues.
 
 In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
 In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
 connector in your terminal.
 
 All available modes can be displayed by adding the `--list-mode` parameter to
@@ -697,7 +698,7 @@ All available options for each service template are listed below:
 | --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                            |
 
 </TabItem>
-<TabItem value="Hardware-Psu" label="Hardware-Psu">
+<TabItem value="Hardware-Psu*" label="Hardware-Psu*">
 
 | Option               | Description                                                                                                                                                                                                                |
 |:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
