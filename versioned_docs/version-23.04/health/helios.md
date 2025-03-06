@@ -91,9 +91,29 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
 1. Install Helios:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
     ```
     dnf install centreon-agent
     ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+    ```
+    dnf install centreon-agent
+    ```
+	
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+    ```
+    apt install centreon-agent
+    ```
+	
+</TabItem>
+</Tabs>
 
 2. If this is the first time you are installing Helios on the server, generate the yaml configuration file with the following Shell command:
 
@@ -186,9 +206,27 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
 1. Install Helios:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
     ```
     dnf install centreon-agent
     ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+    ```
+    dnf install centreon-agent
+    ```
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+    ```
+    apt install centreon-agent
+    ```
+</TabItem>
+</Tabs>
 
 2. If this is the first time you are installing Helios on the machine, configure the `centreon-agent.yml` file:
 

@@ -176,7 +176,7 @@ yum install centreon-plugin-Applications-Monitoring-Quanta-Restapi
 | CRITICALSTEPRESPONSETIME  | Critical threshold on step average response time                                                                                                 |                   |             |
 | WARNINGTOTALRESPONSETIME  | Warning threshold on total response time                                                                                                         |                   |             |
 | CRITICALTOTALRESPONSETIME | Critical threshold on total response time                                                                                                        |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                   |             |
 
 </TabItem>
 </Tabs>

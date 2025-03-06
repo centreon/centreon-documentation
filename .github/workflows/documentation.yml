@@ -227,7 +227,7 @@ jobs:
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
     needs: [get-versions, build]
-    runs-on: [self-hosted, infra]
+    runs-on: infrastructure
 
     strategy:
       fail-fast: false
@@ -310,7 +310,7 @@ jobs:
   deploy-staging:
     if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'staging') }}
     needs: [get-versions, build]
-    runs-on: [self-hosted, infra]
+    runs-on: infrastructure
 
     name: Deploy to staging
 
@@ -333,6 +333,9 @@ jobs:
 
       - name: Deploy to https://docs-staging.int.centreon.com
         run: |
+          sudo apt-get update
+          sudo apt-get install -y rsync
+
           # Prepare ssh-key
           eval `ssh-agent`
           ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
@@ -344,7 +347,7 @@ jobs:
   deploy-next:
     if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'next') }}
     needs: [get-versions, build]
-    runs-on: [self-hosted, infra]
+    runs-on: infrastructure
 
     name: Deploy to next
 

@@ -120,7 +120,7 @@ systemctl start centreon-map-engine
 Centreon MAP server is now configured to respond to requests from HTTPS at port 9443.
 
 To change the default port, refer to the [dedicated
-procedure](map-web-advanced-configuration.md#change-centreon-map-server-port).
+procedure](map-web-advanced-configuration.md#change-the-centreon-map-servers-port).
 
 > Don't forget to modify the URL on Centreon side in the **MAP server address**
 > field in the **Administration > Extensions > Map > Options** menu.
@@ -160,7 +160,7 @@ certificate as described below:
 
 > "Trusted CA's certificate" field is optional. If you activate Broker's client
 > authentication by setting this "ca\_certificate.crt", then you must setup a
-> [keystore for MAP server](#configure-httpstls-on-the-web-server)
+> [keystore for MAP server](#configure-httpstls-on-the-map-server)
 >
 > You MUST push the new broker configuration and restart the broker after
 > configuration.

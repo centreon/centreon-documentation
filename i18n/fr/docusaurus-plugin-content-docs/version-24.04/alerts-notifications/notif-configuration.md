@@ -49,7 +49,7 @@ title: Configurer les notifications
     
         Si l'option est à **Défaut**, la valeur appliquée sera celle définie sur le modèle de l'hôte ou du service (voir [Règles d'héritage des modèles](#règles-dhéritage-des-modèles)). Si aucune valeur n'est définie sur aucun modèle parent, la valeur par défaut est **Non**.
 
-    - Dans le champ **Contacts liés/Groupes de contacts liés**, définissez quels contacts recevront les notifications. Les notifications doivent être activées pour ces contacts (voir [Étape 3](#étape-3-activer-les-notifications-pour-les-contacts-choisis)).
+    - Dans le champ **Contacts liés/Groupes de contacts liés**, définissez quels contacts recevront les notifications. Les notifications doivent être activées pour ces contacts (voir [Étape 3](#étape-3--activer-les-notifications-pour-les-contacts-choisis)).
 
         > Si les notifications sont activées pour un hôte et un contact est défini, alors les notifications seront également activées pour les services liés à cet hôte (sauf si l'option **Notification activée** du service est à **Non**).
 
