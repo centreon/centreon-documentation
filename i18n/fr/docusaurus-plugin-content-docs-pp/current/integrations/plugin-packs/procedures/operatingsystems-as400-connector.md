@@ -154,7 +154,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 ## Prérequis
 
 Ce plugin fonctionne un peu différemment des plugins plus communs. 
-Un connecteur est requis afin de pouvoir communiquer avec les systèmes AS400/iSeries. 
+Un connecteur est requis afin de pouvoir communiquer avec les systèmes AS400/iSeries.
 Installez le connecteur grâce à la commande suivante :
 
 <Tabs groupId="sync">
@@ -188,7 +188,8 @@ yum install centreon-plugin-Operatingsystems-AS400-daemon
 </TabItem>
 </Tabs>
 
-Un même connecteur peut servir de relais entre plusieurs hôtes et plusieurs systèmes AS400. 
+Un même connecteur peut servir de relais entre plusieurs hôtes et plusieurs systèmes AS400.
+Ce connecteur communique avec les serveurs AS400 sur le port TCP 449.
 
 > Attention, une mise à jour récente de la version java (8 -> 17) dans le daemon (versions 2.0.3 et supérieures)
 > implique que si java 8 était déjà installé sur votre système, vous devez forcer le passage en java 17 pour que le daemon fonctionne.

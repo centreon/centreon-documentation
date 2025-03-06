@@ -188,7 +188,8 @@ yum install centreon-plugin-Operatingsystems-AS400-daemon
 </TabItem>
 </Tabs>
 
-A connector can act as a relay between several Hosts and several AS400 systems. 
+A connector can act as a relay between several Hosts and several AS400 systems.
+This connector communicates with the AS400 servers on TCP port 449.
 
 > Please note that a recent update of the java version (8 -> 17) in the daemon (versions 2.0.3 and higher) 
 > means that if java 8 was already installed on your system, you must force the switch to java 17 for the 
