@@ -88,9 +88,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Pour pouvoir utiliser ce connecteur, il faut disposer d'un compte utilisateur pouvant accéder à l'[API vCenter](https://developer.broadcom.com/xapis/vsphere-automation-api/latest/)
+de version au moins égale à 8 et disposant des privilèges suivants :
+- Collecter les données statistiques
+- Interroger les données statistiques
+
+NB: Ce connecteur n'a été testé qu'avec une authentification de type `Basic` (de la forme `user@vsphere.local`).
 
 ## Installer le connecteur de supervision
 
@@ -154,11 +157,27 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 dnf install centreon-plugin-Virtualization-Vmware8-Esx-Restapi
 ```
 
+Si besoin, ajouter le certificat du serveur vCenter à la liste des certificats reconnus par le système d'exploitation du 
+collecteur.
+
+```
+openssl s_client -connect myvcenter.mydomain.tld:443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /etc/pki/ca-trust/source/anchors/my_vcenter.crt
+update-ca-trust
+```
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
 dnf install centreon-plugin-Virtualization-Vmware8-Esx-Restapi
+```
+
+Si besoin, ajouter le certificat du serveur vCenter à la liste des certificats reconnus par le système d'exploitation du 
+collecteur.
+
+```
+openssl s_client -connect myvcenter.mydomain.tld:443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /etc/pki/ca-trust/source/anchors/my_vcenter.crt
+update-ca-trust
 ```
 
 </TabItem>
@@ -168,11 +187,27 @@ dnf install centreon-plugin-Virtualization-Vmware8-Esx-Restapi
 apt install centreon-plugin-virtualization-vmware8-esx-restapi
 ```
 
+Si besoin, ajouter le certificat du serveur vCenter à la liste des certificats reconnus par le système d'exploitation du 
+collecteur.
+
+```
+openssl s_client -connect myvcenter.mydomain.tld:443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /usr/local/share/ca-certificates/my_vcenter.crt
+update-ca-certificates
+```
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-plugin-Virtualization-Vmware8-Esx-Restapi
+```
+
+Si besoin, ajouter le certificat du serveur vCenter à la liste des certificats reconnus par le système d'exploitation du 
+collecteur.
+
+```
+openssl s_client -connect myvcenter.mydomain.tld:443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /etc/pki/ca-trust/source/anchors/my_vcenter.crt
+update-ca-trust
 ```
 
 </TabItem>
