@@ -28,7 +28,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**Azure VPN Gateway**](../procedures/cloud-azure-network-vpngateway.md) - Fixed wong variable assignment in **vpn-gateway-status** mode.
+- [**Azure VPN Gateway**](../procedures/cloud-azure-network-vpngateway.md) - Fixed wrong variable assignment in **vpn-gateway-status** mode.
 - [**Cisco UCS SNMP**](../procedures/hardware-servers-cisco-ucs-snmp.md) - Fixed wrong count when memory component is not equipped in **equipment** mode.
 - [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Added `--timezone` option for equipment in **cleaning** mode to avoid misinterpreting the clean time frame.
 - [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Added missing mandatory parameter in snmp collection discovery command.
