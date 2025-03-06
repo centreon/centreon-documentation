@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                     | Service Description                                  |
 |:--------------|:-------------------------------------|:-----------------------------------------------------|
-| Cpu           | Net-Aruba-Aoscx-Cpu-SNMP-custom      | Check cpu                                            |
+| Cpu           | Net-Aruba-Aoscx-Cpu-SNMP-custom      | Check CPU                                            |
 | Hardware      | Net-Aruba-Aoscx-Hardware-SNMP-custom | Check hardware                                       |
 | Memory        | Net-Aruba-Aoscx-Memory-SNMP-custom   | Check memory                                         |
 | Uptime        | Net-Aruba-Aoscx-Uptime-SNMP-custom   | Time since the system has been working and available |
