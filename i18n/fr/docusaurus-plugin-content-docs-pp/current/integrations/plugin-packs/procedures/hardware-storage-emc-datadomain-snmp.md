@@ -615,7 +615,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
 | --display-alerts         |   Display alerts in verbose output.                                                                                           |
-| --truly-alert            |   Expression to define a truly alert (default: '%\{severity\} =~ /emergency\|alert\|warning\|critical/i').                    |
+| --truly-alert            |   Expression to define an actual alert (default: '%\{severity\} =~ /emergency\|alert\|warning\|critical/i').                    |
 | --warning-* --critical-* |   Thresholds. Can be: 'alerts-current'.                                                                                       |
 
 </TabItem>
