@@ -111,9 +111,10 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Name | Unit  |
-|:-----|:------|
-|      | N/A   |
+| Name                     | Unit  |
+|:-------------------------|:------|
+| hardware.sensors.count   | count |
+| hardware.sensors.measure | N/A   |
 
 </TabItem>
 <TabItem value="Ips-Stats-Global" label="Ips-Stats-Global">
@@ -145,15 +146,15 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="SDWan" label="SDWan">
 
-| Name                                    | Unit |
-|:----------------------------------------|:-----|
-| status                                  | N/A  |
-| *sdwan*~sdwan.traffic.in.bitspersecond  | kb/s |
-| *sdwan*~sdwan.traffic.out.bitspersecond | kb/s |
-| *sdwan*~sdwan.traffic.bi.bitspersecond  | kb/s |
-| *sdwan*~sdwan.latency.milliseconds      | ms   |
-| *sdwan*~sdwan.jitter.milliseconds       | ms   |
-| *sdwan*~sdwan.packetloss.percentage     | %    |
+| Name                                    | Unit  |
+|:----------------------------------------|:------|
+| status                                  | N/A   |
+| *sdwan*~sdwan.traffic.in.bitspersecond  | b/s   |
+| *sdwan*~sdwan.traffic.out.bitspersecond | b/s   |
+| *sdwan*~sdwan.traffic.bi.bitspersecond  | b/s   |
+| *sdwan*~sdwan.latency.milliseconds      | ms    |
+| *sdwan*~sdwan.jitter.milliseconds       | ms    |
+| *sdwan*~sdwan.packetloss.percentage     | %     |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
@@ -203,6 +204,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *vd*~vpn.users.logged.count              | users    |
 | *vd*~vpn.websessions.active.count        | sessions |
 | *vd*~vpn.tunnels.active.count            | tunnels  |
+| *vd*~vpn.ipsec.tunnels.state.count       | tunnels  |
 | status                                   | N/A      |
 | *vd*~*vpn*#vpn.traffic.in.bitspersecond  | b/s      |
 | *vd*~*vpn*#vpn.traffic.out.bitspersecond | b/s      |
@@ -229,16 +231,12 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Virus" label="Virus">
 
-| Name                                      | Unit  |
-|:------------------------------------------|:------|
-| *domain1*#domain.virus.detected.count     | count |
-| *domain2*#domain.virus.detected.count     | count |
-| *domain1*#domain.virus.detected.persecond | /s    |
-| *domain2*#domain.virus.detected.persecond | /s    |
-| *domain1*#domain.virus.blocked.count      | count |
-| *domain2*#domain.virus.blocked.count      | count |
-| *domain1*#domain.virus.blocked.persecond  | /s    |
-| *domain2*#domain.virus.blocked.persecond  | /s    |
+| Name                                     | Unit  |
+|:-----------------------------------------|:------|
+| *domain*#domain.virus.detected.count     | count |
+| *domain*#domain.virus.detected.persecond | /s    |
+| *domain*#domain.virus.blocked.count      | count |
+| *domain*#domain.virus.blocked.persecond  | /s    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -249,7 +247,10 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/editor.
+The SNMP service must be configured and activated on the host. 
+Please refer to the official documentation from the constructor/editor. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -259,9 +260,6 @@ SNMP port.
 ## Installing the monitoring connector
 
 ### Pack
-
- The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
@@ -358,9 +356,9 @@ yum install centreon-plugin-Network-Firewalls-Fortinet-Fortigate-Snmp
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                                                              | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro            | Description                                                                                                                              | Default value | Mandatory |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -372,218 +370,218 @@ yum install centreon-plugin-Network-Firewalls-Fortinet-Fortigate-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cluster-Status" label="Cluster-Status">
 
-| Macro                  | Description                                                                                                                                                                | Default value                                                       | Mandatory   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|:-----------:|
-| WARNINGCPUUTILIZATION  | Threshold                                                                                                                                                                  |                                                                     |             |
-| CRITICALCPUUTILIZATION | Threshold                                                                                                                                                                  |                                                                     |             |
-| WARNINGMEMORYUSAGE     | Threshold                                                                                                                                                                  |                                                                     |             |
-| CRITICALMEMORYUSAGE    | Threshold                                                                                                                                                                  |                                                                     |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{serial\}, %\{hostname\}, %\{sync\_status\}, %\{role\}, %\{roleLast\} | %\{role\} ne %\{roleLast\} or %\{sync\_status\} =~ /unsynchronized/ |             |
-| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{serial\}, %\{hostname\}, %\{sync\_status\}, %\{role\}, %\{roleLast\}  |                                                                     |             |
-| WARNINGSYNCHRONIZED    | Threshold                                                                                                                                                                  |                                                                     |             |
-| CRITICALSYNCHRONIZED   | Threshold                                                                                                                                                                  |                                                                     |             |
-| WARNINGTOTALCHECKSUMS  | Threshold                                                                                                                                                                  |                                                                     |             |
-| CRITICALTOTALCHECKSUMS | Threshold                                                                                                                                                                  |                                                                     |             |
-| WARNINGTOTALNODES      | Threshold                                                                                                                                                                  |                                                                     |             |
-| CRITICALTOTALNODES     | Threshold                                                                                                                                                                  |                                                                     |             |
-| WARNINGUNSYNCHRONIZED  | Threshold                                                                                                                                                                  |                                                                     |             |
-| CRITICALUNSYNCHRONIZED | Threshold                                                                                                                                                                  |                                                                     |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                     | --verbose                                                           |             |
+| Macro                  | Description                                                                                                                                                                | Default value                                                       | Mandatory |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|:---------:|
+| WARNINGCPUUTILIZATION  | Threshold                                                                                                                                                                  |                                                                     |           |
+| CRITICALCPUUTILIZATION | Threshold                                                                                                                                                                  |                                                                     |           |
+| WARNINGMEMORYUSAGE     | Threshold                                                                                                                                                                  |                                                                     |           |
+| CRITICALMEMORYUSAGE    | Threshold                                                                                                                                                                  |                                                                     |           |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{serial\}, %\{hostname\}, %\{sync\_status\}, %\{role\}, %\{roleLast\} | %\{role\} ne %\{roleLast\} or %\{sync\_status\} =~ /unsynchronized/ |           |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{serial\}, %\{hostname\}, %\{sync\_status\}, %\{role\}, %\{roleLast\}  |                                                                     |           |
+| WARNINGSYNCHRONIZED    | Threshold                                                                                                                                                                  |                                                                     |           |
+| CRITICALSYNCHRONIZED   | Threshold                                                                                                                                                                  |                                                                     |           |
+| WARNINGTOTALCHECKSUMS  | Threshold                                                                                                                                                                  |                                                                     |           |
+| CRITICALTOTALCHECKSUMS | Threshold                                                                                                                                                                  |                                                                     |           |
+| WARNINGTOTALNODES      | Threshold                                                                                                                                                                  |                                                                     |           |
+| CRITICALTOTALNODES     | Threshold                                                                                                                                                                  |                                                                     |           |
+| WARNINGUNSYNCHRONIZED  | Threshold                                                                                                                                                                  |                                                                     |           |
+| CRITICALUNSYNCHRONIZED | Threshold                                                                                                                                                                  |                                                                     |           |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                     | --verbose                                                           |           |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro                  | Description                                                                                                                            | Default value     | Mandatory   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGAVERAGE         | Threshold                                                                                                                              |                   |             |
-| CRITICALAVERAGE        | Threshold                                                                                                                              |                   |             |
-| WARNINGCLUSTERAVERAGE  | Threshold                                                                                                                              |                   |             |
-| CRITICALCLUSTERAVERAGE | Threshold                                                                                                                              |                   |             |
-| WARNINGCORE            | Threshold                                                                                                                              |                   |             |
-| CRITICALCORE           | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                  | Description                                                                                                                            | Default value | Mandatory |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGAVERAGE         | Threshold                                                                                                                              |               |           |
+| CRITICALAVERAGE        | Threshold                                                                                                                              |               |           |
+| WARNINGCLUSTERAVERAGE  | Threshold                                                                                                                              |               |           |
+| CRITICALCLUSTERAVERAGE | Threshold                                                                                                                              |               |           |
+| WARNINGCORE            | Threshold                                                                                                                              |               |           |
+| CRITICALCORE           | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Disk" label="Disk">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent                                                                                                           |                   |             |
-| CRITICAL     | Critical threshold in percent                                                                                                          |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING      | Warning threshold in percent                                                                                                           |               |           |
+| CRITICAL     | Critical threshold in percent                                                                                                          |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Ips-Stats-Global" label="Ips-Stats-Global">
 
-| Macro                      | Description                                                                                                                            | Default value     | Mandatory   |
-|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER                     | Filter virtual domain name (can be a regexp)                                                                                           | .*                |             |
-| WARNINGINTRUSIONSBLOCKED   | Threshold                                                                                                                              |                   |             |
-| CRITICALINTRUSIONSBLOCKED  | Threshold                                                                                                                              |                   |             |
-| WARNINGINTRUSIONSDETECTED  | Threshold                                                                                                                              |                   |             |
-| CRITICALINTRUSIONSDETECTED | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro                      | Description                                                                                                                            | Default value | Mandatory |
+|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTER                     | Filter virtual domain name (can be a regexp)                                                                                           | .*            |           |
+| WARNINGINTRUSIONSBLOCKED   | Threshold                                                                                                                              |               |           |
+| CRITICALINTRUSIONSBLOCKED  | Threshold                                                                                                                              |               |           |
+| WARNINGINTRUSIONSDETECTED  | Threshold                                                                                                                              |               |           |
+| CRITICALINTRUSIONSDETECTED | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro                    | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCLUSTERUSAGEPRCT  | Threshold                                                                                                                              |                   |             |
-| CRITICALCLUSTERUSAGEPRCT | Threshold                                                                                                                              |                   |             |
-| WARNINGUSAGE             | Threshold                                                                                                                                       |                   |             |
-| CRITICALUSAGE            | Threshold                                                                                                                                       |                   |             |
-| WARNINGUSAGEFREE         | Threshold                                                                                                                              |                   |             |
-| CRITICALUSAGEFREE        | Threshold                                                                                                                              |                   |             |
-| WARNINGUSAGEPRCT         | Threshold                                                                                                                              |                   |             |
-| CRITICALUSAGEPRCT        | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                    | Description                                                                                                                            | Default value | Mandatory |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGCLUSTERUSAGEPRCT  | Threshold                                                                                                                              |               |           |
+| CRITICALCLUSTERUSAGEPRCT | Threshold                                                                                                                              |               |           |
+| WARNINGUSAGE             | Threshold                                                                                                                              |               |           |
+| CRITICALUSAGE            | Threshold                                                                                                                              |               |           |
+| WARNINGUSAGEFREE         | Threshold                                                                                                                              |               |           |
+| CRITICALUSAGEFREE        | Threshold                                                                                                                              |               |           |
+| WARNINGUSAGEPRCT         | Threshold                                                                                                                              |               |           |
+| CRITICALUSAGEPRCT        | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="SDWan" label="SDWan">
 
-| Macro              | Description                                                                                                                                               | Default value        | Mandatory   |
-|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
-| FILTERVDOMAIN      | Filter sd-wan links by vdom name (can be a regexp)                                                                                                        |                      |             |
-| FILTERLINKNAME     | Filter sd-wan links by name (can be a regexp)                                                                                                             |                      |             |
-| FILTERLINKID       | Filter sd-wan links by ID (can be a regexp)                                                                                                               |                      |             |
-| WARNINGJITTER      | Threshold                                                                                                                                                 |                      |             |
-| CRITICALJITTER     | Threshold                                                                                                                                                 |                      |             |
-| WARNINGLATENCY     | Threshold                                                                                                                                                 |                      |             |
-| CRITICALLATENCY    | Threshold                                                                                                                                                 |                      |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{vdom\}, %\{id\}, %\{name\}, %\{ifName\} | %\{state\} eq "down" |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{vdom\}, %\{id\}, %\{name\}, %\{ifName\}  |                      |             |
-| WARNINGTRAFFICBI   | Threshold                                                                                                                                                 |                      |             |
-| CRITICALTRAFFICBI  | Threshold                                                                                                                                                 |                      |             |
-| WARNINGTRAFFICIN   | Threshold                                                                                                                                                 |                      |             |
-| CRITICALTRAFFICIN  | Threshold                                                                                                                                                 |                      |             |
-| WARNINGTRAFFICOUT  | Threshold                                                                                                                                                 |                      |             |
-| CRITICALTRAFFICOUT | Threshold                                                                                                                                                 |                      |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                    |                      |             |
+| Macro              | Description                                                                                                                                               | Default value        | Mandatory |
+|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:---------:|
+| FILTERVDOMAIN      | Filter sd-wan links by vdom name (can be a regexp)                                                                                                        |                      |           |
+| FILTERLINKNAME     | Filter sd-wan links by name (can be a regexp)                                                                                                             |                      |           |
+| FILTERLINKID       | Filter sd-wan links by ID (can be a regexp)                                                                                                               |                      |           |
+| WARNINGJITTER      | Threshold                                                                                                                                                 |                      |           |
+| CRITICALJITTER     | Threshold                                                                                                                                                 |                      |           |
+| WARNINGLATENCY     | Threshold                                                                                                                                                 |                      |           |
+| CRITICALLATENCY    | Threshold                                                                                                                                                 |                      |           |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{vdom\}, %\{id\}, %\{name\}, %\{ifName\} | %\{state\} eq "down" |           |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{vdom\}, %\{id\}, %\{name\}, %\{ifName\}  |                      |           |
+| WARNINGTRAFFICBI   | Threshold                                                                                                                                                 |                      |           |
+| CRITICALTRAFFICBI  | Threshold                                                                                                                                                 |                      |           |
+| WARNINGTRAFFICIN   | Threshold                                                                                                                                                 |                      |           |
+| CRITICALTRAFFICIN  | Threshold                                                                                                                                                 |                      |           |
+| WARNINGTRAFFICOUT  | Threshold                                                                                                                                                 |                      |           |
+| CRITICALTRAFFICOUT | Threshold                                                                                                                                                 |                      |           |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                    |                      |           |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Macro              | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGACTIVE      | Threshold                                                                                                                              |                   |             |
-| CRITICALACTIVE     | Threshold                                                                                                                              |                   |             |
-| WARNINGSETUP10MIN  | Threshold                                                                                                                              |                   |             |
-| CRITICALSETUP10MIN | Threshold                                                                                                                              |                   |             |
-| WARNINGSETUP1MIN   | Threshold                                                                                                                              |                   |             |
-| CRITICALSETUP1MIN  | Threshold                                                                                                                              |                   |             |
-| WARNINGSETUP30MIN  | Threshold                                                                                                                              |                   |             |
-| CRITICALSETUP30MIN | Threshold                                                                                                                              |                   |             |
-| WARNINGSETUP60MIN  | Threshold                                                                                                                              |                   |             |
-| CRITICALSETUP60MIN | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro              | Description                                                                                                                            | Default value | Mandatory |
+|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGACTIVE      | Threshold                                                                                                                              |               |           |
+| CRITICALACTIVE     | Threshold                                                                                                                              |               |           |
+| WARNINGSETUP10MIN  | Threshold                                                                                                                              |               |           |
+| CRITICALSETUP10MIN | Threshold                                                                                                                              |               |           |
+| WARNINGSETUP1MIN   | Threshold                                                                                                                              |               |           |
+| CRITICALSETUP1MIN  | Threshold                                                                                                                              |               |           |
+| WARNINGSETUP30MIN  | Threshold                                                                                                                              |               |           |
+| CRITICALSETUP30MIN | Threshold                                                                                                                              |               |           |
+| WARNINGSETUP60MIN  | Threshold                                                                                                                              |               |           |
+| CRITICALSETUP60MIN | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
-| Macro          | Description                                                                                                                                                       | Default value                                    | Mandatory   |
-|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-----------:|
-| FILTER         | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                         | .*                                               |             |
-| WARNINGIN      | Threshold                                                                                                                                                         |                                                  |             |
-| CRITICALIN     | Threshold                                                                                                                                                         |                                                  |             |
-| WARNINGOUT     | Threshold                                                                                                                                                         |                                                  |             |
-| CRITICALOUT    | Threshold                                                                                                                                                         |                                                  |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} ne "up" |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                            | --verbose                                        |             |
+| Macro          | Description                                                                                                                                                       | Default value                                    | Mandatory |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:---------:|
+| FILTER         | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                         | .*                                               |           |
+| WARNINGIN      | Threshold                                                                                                                                                         |                                                  |           |
+| CRITICALIN     | Threshold                                                                                                                                                         |                                                  |           |
+| WARNINGOUT     | Threshold                                                                                                                                                         |                                                  |           |
+| CRITICALOUT    | Threshold                                                                                                                                                         |                                                  |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} ne "up" |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                            | --verbose                                        |           |
 
 </TabItem>
 <TabItem value="Traffic-Id" label="Traffic-Id">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                              |                   |             |
-| WARNINGIN    | Threshold                                                                                                                              |                   |             |
-| CRITICALIN   | Threshold                                                                                                                              |                   |             |
-| WARNINGOUT   | Threshold                                                                                                                              |                   |             |
-| CRITICALOUT  | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INTERFACEID  | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                              |               |           |
+| WARNINGIN    | Threshold                                                                                                                              |               |           |
+| CRITICALIN   | Threshold                                                                                                                              |               |           |
+| WARNINGOUT   | Threshold                                                                                                                              |               |           |
+| CRITICALOUT  | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Traffic-Name" label="Traffic-Name">
 
-| Macro         | Description                                                                                                                            | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                              |                   |             |
-| WARNINGIN     | Threshold                                                                                                                              |                   |             |
-| CRITICALIN    | Threshold                                                                                                                              |                   |             |
-| WARNINGOUT    | Threshold                                                                                                                              |                   |             |
-| CRITICALOUT   | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro         | Description                                                                                                                            | Default value | Mandatory |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INTERFACENAME | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                              |               |           |
+| WARNINGIN     | Threshold                                                                                                                              |               |           |
+| CRITICALIN    | Threshold                                                                                                                              |               |           |
+| WARNINGOUT    | Threshold                                                                                                                              |               |           |
+| CRITICALOUT   | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="VPN-Global" label="VPN-Global">
 
-| Macro              | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | Threshold                                                                                                                              | .*                |             |
-| VDOMAIN            | Threshold                                                                                                                              |                   |             |
-| WARNINGSESSIONS    | Threshold                                                                                                                              |                   |             |
-| CRITICALSESSIONS   | Threshold                                                                                                                              |                   |             |
-| WARNINGTRAFFICIN   | Threshold                                                                                                                              |                   |             |
-| CRITICALTRAFFICIN  | Threshold                                                                                                                              |                   |             |
-| WARNINGTRAFFICOUT  | Threshold                                                                                                                              |                   |             |
-| CRITICALTRAFFICOUT | Threshold                                                                                                                              |                   |             |
-| WARNINGTUNNELS     | Threshold                                                                                                                              |                   |             |
-| CRITICALTUNNELS    | Threshold                                                                                                                              |                   |             |
-| WARNINGUSERS       | Threshold                                                                                                                              |                   |             |
-| CRITICALUSERS      | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro              | Description                                                                                                                            | Default value | Mandatory |
+|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTER             | Threshold                                                                                                                              | .*            |           |
+| VDOMAIN            | Threshold                                                                                                                              |               |           |
+| WARNINGSESSIONS    | Threshold                                                                                                                              |               |           |
+| CRITICALSESSIONS   | Threshold                                                                                                                              |               |           |
+| WARNINGTRAFFICIN   | Threshold                                                                                                                              |               |           |
+| CRITICALTRAFFICIN  | Threshold                                                                                                                              |               |           |
+| WARNINGTRAFFICOUT  | Threshold                                                                                                                              |               |           |
+| CRITICALTRAFFICOUT | Threshold                                                                                                                              |               |           |
+| WARNINGTUNNELS     | Threshold                                                                                                                              |               |           |
+| CRITICALTUNNELS    | Threshold                                                                                                                              |               |           |
+| WARNINGUSERS       | Threshold                                                                                                                              |               |           |
+| CRITICALUSERS      | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Vdom-Usage" label="Vdom-Usage">
 
-| Macro                    | Description                                                                                                                                    | Default value     | Mandatory   |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERVDOMAIN            | Filter by virtual domain name (can be a regexp)                                                                                                |                   |             |
-| WARNINGCPUUTILIZATION    | Threshold                                                                                                                                      |                   |             |
-| CRITICALCPUUTILIZATION   | Threshold                                                                                                                                      |                   |             |
-| WARNINGLICENSEFREE       | Threshold                                                                                                                                      |                   |             |
-| CRITICALLICENSEFREE      | Threshold                                                                                                                                      |                   |             |
-| WARNINGLICENSEUSAGE      | Threshold                                                                                                                                      |                   |             |
-| CRITICALLICENSEUSAGE     | Threshold                                                                                                                                      |                   |             |
-| WARNINGLICENSEUSAGEPRCT  | Threshold                                                                                                                                      |                   |             |
-| CRITICALLICENSEUSAGEPRCT | Threshold                                                                                                                                      |                   |             |
-| WARNINGMEMORYUSAGEPRCT   | Threshold                                                                                                                                      |                   |             |
-| CRITICALMEMORYUSAGEPRCT  | Threshold                                                                                                                                      |                   |             |
-| WARNINGSESSIONSACTIVE    | Threshold                                                                                                                                      |                   |             |
-| CRITICALSESSIONSACTIVE   | Threshold                                                                                                                                      |                   |             |
-| WARNINGSESSIONSRATE      | Threshold                                                                                                                                      |                   |             |
-| CRITICALSESSIONSRATE     | Threshold                                                                                                                                      |                   |             |
-| WARNINGSTATUS            | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{op\_mode\}, %\{ha\_state\}  |                   |             |
-| CRITICALSTATUS           | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %\{op\_mode\}, %\{ha\_state\} |                   |             |
-| WARNINGTRAFFICIN         | Threshold                                                                                                                                      |                   |             |
-| CRITICALTRAFFICIN        | Threshold                                                                                                                                      |                   |             |
-| WARNINGTRAFFICOUT        | Threshold                                                                                                                                      |                   |             |
-| CRITICALTRAFFICOUT       | Threshold                                                                                                                                      |                   |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).         | --verbose         |             |
+| Macro                    | Description                                                                                                                            | Default value | Mandatory |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERVDOMAIN            | Filter by virtual domain name (can be a regexp)                                                                                        |               |           |
+| WARNINGCPUUTILIZATION    | Threshold                                                                                                                              |               |           |
+| CRITICALCPUUTILIZATION   | Threshold                                                                                                                              |               |           |
+| WARNINGLICENSEFREE       | Threshold                                                                                                                              |               |           |
+| CRITICALLICENSEFREE      | Threshold                                                                                                                              |               |           |
+| WARNINGLICENSEUSAGE      | Threshold                                                                                                                              |               |           |
+| CRITICALLICENSEUSAGE     | Threshold                                                                                                                              |               |           |
+| WARNINGLICENSEUSAGEPRCT  | Threshold                                                                                                                              |               |           |
+| CRITICALLICENSEUSAGEPRCT | Threshold                                                                                                                              |               |           |
+| WARNINGMEMORYUSAGEPRCT   | Threshold                                                                                                                              |               |           |
+| CRITICALMEMORYUSAGEPRCT  | Threshold                                                                                                                              |               |           |
+| WARNINGSESSIONSACTIVE    | Threshold                                                                                                                              |               |           |
+| CRITICALSESSIONSACTIVE   | Threshold                                                                                                                              |               |           |
+| WARNINGSESSIONSRATE      | Threshold                                                                                                                              |               |           |
+| CRITICALSESSIONSRATE     | Threshold                                                                                                                              |               |           |
+| WARNINGSTATUS            | Define the conditions to match for the status to be WARNING . You can use the following variables: %\{op\_mode\}, %\{ha\_state\}       |               |           |
+| CRITICALSTATUS           | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{op\_mode\}, %\{ha\_state\}       |               |           |
+| WARNINGTRAFFICIN         | Threshold                                                                                                                              |               |           |
+| CRITICALTRAFFICIN        | Threshold                                                                                                                              |               |           |
+| WARNINGTRAFFICOUT        | Threshold                                                                                                                              |               |           |
+| CRITICALTRAFFICOUT       | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Virus" label="Virus">
 
-| Macro                     | Description                                                                                                                            | Default value     | Mandatory   |
-|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME                | Filter virtual domain name (can be a regexp)                                                                                           |                   |             |
-| WARNINGVIRUSBLOCKED       | Threshold                                                                                                                              |                   |             |
-| CRITICALVIRUSBLOCKED      | Threshold                                                                                                                              |                   |             |
-| WARNINGVIRUSBLOCKEDPSEC   | Threshold                                                                                                                              |                   |             |
-| CRITICALVIRUSBLOCKEDPSEC  | Threshold                                                                                                                              |                   |             |
-| WARNINGVIRUSDETECTED      | Threshold                                                                                                                              |                   |             |
-| CRITICALVIRUSDETECTED     | Threshold                                                                                                                              |                   |             |
-| WARNINGVIRUSDETECTEDPSEC  | Threshold                                                                                                                              |                   |             |
-| CRITICALVIRUSDETECTEDPSEC | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro                     | Description                                                                                                                            | Default value | Mandatory |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERNAME                | Filter virtual domain name (can be a regexp)                                                                                           |               |           |
+| WARNINGVIRUSBLOCKED       | Threshold                                                                                                                              |               |           |
+| CRITICALVIRUSBLOCKED      | Threshold                                                                                                                              |               |           |
+| WARNINGVIRUSBLOCKEDPSEC   | Threshold                                                                                                                              |               |           |
+| CRITICALVIRUSBLOCKEDPSEC  | Threshold                                                                                                                              |               |           |
+| WARNINGVIRUSDETECTED      | Threshold                                                                                                                              |               |           |
+| CRITICALVIRUSDETECTED     | Threshold                                                                                                                              |               |           |
+| WARNINGVIRUSDETECTEDPSEC  | Threshold                                                                                                                              |               |           |
+| CRITICALVIRUSDETECTEDPSEC | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 </Tabs>
@@ -952,8 +950,8 @@ All available options for each service template are listed below:
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                             |
 | --filter-*        |   Filter name with regexp. Can be ('vdomain', 'vpn')                                                                                                                    |
-| --warning-*       |   Warning on counters. Can be ('users', 'sessions', 'tunnels', 'traffic-in', 'traffic-out')                                                                             |
-| --critical-*      |   Warning on counters. Can be ('users', 'sessions', 'tunnels', 'traffic-in', 'traffic-out')                                                                             |
+| --warning-*       |   Warning on counters. Can be ('users', 'sessions', 'tunnels', 'traffic-in', 'traffic-out', 'ipsec-tunnels-count')                                                      |
+| --critical-*      |   Critical on counters. Can be ('users', 'sessions', 'tunnels', 'traffic-in', 'traffic-out', 'ipsec-tunnels-count'))                                                    |
 | --warning-status  |   Define the conditions to match for the status to be WARNING. Use "%\{state\}" as a special variable. Useful to be notified when tunnel is up "%\{state\} eq 'up'"     |
 | --critical-status |   Define the conditions to match for the status to be CRITICAL. Use "%\{state\}" as a special variable. Useful to be notified when tunnel is up "%\{state\} eq 'up'"    |
 
