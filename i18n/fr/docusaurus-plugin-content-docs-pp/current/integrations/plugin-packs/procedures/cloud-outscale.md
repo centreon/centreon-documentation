@@ -63,9 +63,9 @@ Le connecteur apporte les modèles de service suivants
 | Nom de la règle                             | Description                                      |
 |:--------------------------------------------|:-------------------------------------------------|
 | Cloud-Outscale-Osccli-Client-Gateway-Name   | Découvre les passerelles clientes et supervise le statut                                                 |
-| Cloud-Outscale-Osccli-Internet-Service-Name | Discover services and monitor their system usage |
+| Cloud-Outscale-Osccli-Internet-Service-Name | Découvre les services et supervise leur utilisation système |
 | Cloud-Outscale-Osccli-Load-Balancer-Name    | Découvre les load balancers et supervise le statut                                                 |
-| Cloud-Outscale-Osccli-Nat-Service-Name      | Discover services and monitor their system usage |
+| Cloud-Outscale-Osccli-Nat-Service-Name      | Découvre les services et supervise leur utilisation système |
 | Cloud-Outscale-Osccli-Net-Name              | Découvre les Nets et supervise le statut                                                 |
 | Cloud-Outscale-Osccli-Quota-Type-Name       | Découvre les quotas et supervise le statut                                                 |
 | Cloud-Outscale-Osccli-Route-Table-Id        | Découvre les tables de routage et supervise le statut                                                 |
