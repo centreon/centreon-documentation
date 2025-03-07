@@ -5,7 +5,7 @@ title: VMware8 ESX REST API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **VMware8 ESX REST API** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -313,7 +313,7 @@ OK: Power usage is 219 Watts | 'power.capacity.usage.watts'=219W;;;;
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
