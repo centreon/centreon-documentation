@@ -11,7 +11,7 @@ This page is intended for the administrators who will set up Open Tickets so tha
 
 1. To create a notification rule, go to **Configuration > Notifications > Open Tickets > Rules** and then click **Add**.
 2. Select a provider (the tool in which you want to open the tickets): the form is updated with default fields for this integration.
-3. Adapt the form to your needs, according to how [your provider](../integrations/itsm/itsm-overview/) works: [make the fields in Centreon and your ITSM tool match](#making-the-fields-in-centreon-and-your-itsm-tool-match), including [any custom fields you may have created in your ITSM tool](#creating-your-itsm-tools-custom-fields-in-centreon).
+3. [Adapt the form to your needs](./ticketing/ticketing-body.md#customization), according to how [your provider](../integrations/itsm/itsm-overview/) works.
 4. Fill in the form.
 
 ## Step 2: Add a custom macro to all host and service templates
@@ -83,9 +83,3 @@ Your custom view now displays two widgets containing your two views.
 
 </TabItem>
 </Tabs>
-
-## Advanced configuration
-
-### Making the fields in Centreon and your ITSM tool match
-
-### Creating your ITSM tool's custom fields in Centreon

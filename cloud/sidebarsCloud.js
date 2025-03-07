@@ -421,12 +421,41 @@ module.exports = {
             {
               "type": "doc",
               "id": "alerts-notifications/ticketing"
-            }
-            ,
+            },
+            {
+              "type": "category",
+              "label": "Customizing tickets",
+              "link": {
+                "type": "doc",
+                "id": "alerts-notifications/ticketing/ticketing-advanced-body"
+            },
+            "items": [
+              {
+                "type": "doc",
+                "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
+              },
+              {
+                "type": "doc",
+                "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
+              },
+              {
+                "type": "doc",
+                "id": "alerts-notifications/ticketing/ticketing-advanced-mapping"
+              },
+              {
+                "type": "doc",
+                "id": "alerts-notifications/ticketing/glossary"
+              },
+            ]
+            },
             {
               "type": "doc",
               "id": "alerts-notifications/ticketing-use"
-            }
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing/ticketing-advanced-architecture"
+            },
           ]
         }
       ]

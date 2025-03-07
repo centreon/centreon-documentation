@@ -1,6 +1,6 @@
 ---
 id: ticketing-overview
-title: Managing tickets
+title: Gérer des tickets
 ---
 
 Le module communautaire **Centreon Open Tickets** permet d'intégrer Centreon à un système de gestion de tickets d'incidents (outil ITSM, appelé « provider »).
