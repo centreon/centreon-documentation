@@ -444,10 +444,6 @@ module.exports = {
               },
               {
                 "type": "doc",
-                "id": "alerts-notifications/ticketing/ticketing-advanced-rule-commands"
-              },
-              {
-                "type": "doc",
                 "id": "alerts-notifications/ticketing/glossary"
               },
             ]
