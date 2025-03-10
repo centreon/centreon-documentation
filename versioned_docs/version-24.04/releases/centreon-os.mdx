@@ -24,6 +24,45 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+Release date: `March 10, 2025`
+
+### 24.04.11
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CEIP] Added LACCESS in metadata.
+- [Media][Image Synchronization] Added the handling of .svg files.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ACL] Fixed issue with hostgroup creation by a non admin user.
+- [CLAPI] Fixed issue preventing the list of Business Activities to be displayed after creating a Business Activity using CLAPI.
+- [Configuration] Fixed an issue on remote Server where user loses contact group when edited.
+- Fixed an issue where the outdated-token-removal cron wasn't working.
+- [Image upload] Fixed a security vulnerability while uploading an image.
+- [Media][Image Synchronization] Fixed issue with the case sensitivity of file extensions.
+- [Reports/Availability] Fixed an issue where CSV files could not be downloaded if a day was UNDETERMINED in the selected period.
+- [Resource status] Fixed an issue on host_category filter which doesn't work and returns an error.
+- [Resource status] Fixed an issue where the graph was not taking all available space in panel.
+- [Resource Status] Fixed issue preventing some services from being listed in the filters.
+- [Top counter] Fixed an issue on refresh intervals.
+- [Top counter] Fixed an issue on refresh fields where negative values were allowed.
+- [Translation] Fixed a translation issue on menu & breadcrumb and added a submenu for Monitoring Connectors and Additional configuration.
+- [Upgrade] Updated debian packages naming convention.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed extends-tag vulnerability in Smarty.
+
+</details>
+
 ### 24.04.10
 
 Release date: `February 10, 2025`
@@ -716,6 +755,24 @@ Release date: `April 30, 2024`
 
 ## Centreon DSM
 
+### 24.04.5
+
+Release date: `March 10, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [DSM] Fixed an issue where new pool configurations was disabled without possibility to enable them.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed extends-tag vulnerability in Smarty.
+
+</details>
+
 ### 24.04.4 
 
 Release date: `February 10, 2025`
@@ -773,6 +830,17 @@ Release date: `April 30, 2024`
 
 ## Centreon Open Tickets
 
+### 24.04.4
+
+Release date: `March 10, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed extends-tag vulnerability in Smarty.
+
+</details>
+
 ### 24.04.3
 
 Release date: `December 5, 2024`
@@ -821,5 +889,18 @@ Release date: `April 30, 2024`
   <summary>Compatibility</summary>
 
 - Compatibility with other 24.04 components.
+
+</details>
+
+## Centreon AWIE
+
+### 24.04.1
+
+Release date: `March 10, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed extends-tag vulnerability in Smarty.
 
 </details>
