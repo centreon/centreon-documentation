@@ -207,7 +207,7 @@ Position Status [OK]
 
 ### Changer le sens de la réplication MariaDB
 
-> Avant d'exécuter ces commandes, vous devez vous assurer que la réplication MariaDB est dans un état `correct`. Pour cela, se référer à [la procédure plus haut](#v%C3%A9rifier-l%C3%A9tat-de-la-r%C3%A9plication-mariadb).
+> Avant d'exécuter ces commandes, vous devez vous assurer que la réplication MariaDB est dans un état `correct`. Pour cela, se référer à [la procédure plus haut](#rétablir-manuellement-la-réplication-mariadb).
 
 > **Avertissement :** sur un cluster à 2 serveurs installé [comme décrit ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md), le groupe de ressources `centreon` basculera également pour suivre le serveur MariaDB maître.
 
