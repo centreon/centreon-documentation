@@ -227,7 +227,7 @@ pcs resource clear ms_mysql-clone
 
 ### Basculer le groupe de ressource Centreon
 
-> Tel que décrit dans [ce chapitre](#rétablir-manuellement-la-réplication-MariaDB), suivre cette procédure sur un cluster à 2 noeuds qui aurait été installé en suivant [cette procédure](../../installation/installation-of-centreon-ha/installation-2-nodes.md) fera également basculer MariaDB master. Il est essentiel que celle-ci soit sur le noeud qui possède l'attribut meta `ms_mysql-clone`.
+> Tel que décrit dans [ce chapitre](#rétablir-manuellement-la-réplication-mariadb), suivre cette procédure sur un cluster à 2 noeuds qui aurait été installé en suivant [cette procédure](../../installation/installation-of-centreon-ha/installation-2-nodes.md) fera également basculer MariaDB master. Il est essentiel que celle-ci soit sur le noeud qui possède l'attribut meta `ms_mysql-clone`.
 
 Pour basculer/déplacer le groupe de ressources exécuter la commande :
 
