@@ -23,6 +23,47 @@ Read more about version 24.10 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 24.10.5
+
+Release date: `March 10, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Media] Added the handling of .svg files for images.
+- [Resource Status] Added Flapping state in "find resource by parent" endpoint.
+- [Resource Status] Added Flapping state in the list of resources and updated the icon in the details panel.
+- [Status Grid widget] Optimized the way the health of Business Activities is calculated.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ACL] Fixed an issue where rights were not applied correctly to a hostgroup when it was created by a non admin user.
+- [Agent/Poller configuration] Fixed an issue where the list of configurations was still filtered but the search bar was empty.
+- [CLAPI] Fixed an issue preventing the list of Business Activities to be displayed after creating a Business Activity using CLAPI.
+- [Configuration] Fixed an issue on remote servers where users lost their contact groups when edited.
+- [Media - Image Synchronization] Fixed an issue with the case sensitivity of file extensions.
+- [Reports/Availability] Fixed an issue where CSV files could not be downloaded if a day was UNDETERMINED in the selected period.
+- [Resource status] The host_category filter now works correctly and returns no errors.
+- [Resource status] Fixed an issue where graphs were not taking all of the available space in the side panel.
+- [Resource Status] All services are now correctly listed in the filters.
+- [Resource Status] Using compact mode no longer causes an error.
+- [Top counter] Fixed an issue on refresh intervals.
+- [Top counter] Negative values are no longer allowed in the "Refresh interval for statistics" fields.
+- [Top counter] Unnecessary calls are no longer performed when users don't have access to the top counter.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Image upload] Fixed a security issue on image upload.
+- [Security] Fixed extends-tag vulnerability in Smarty.
+
+</details>
+
 ### 24.10.4
 
 Release date: `February 12, 2025`
@@ -455,6 +496,24 @@ Release date: `October 31, 2024`
 
 ## Centreon DSM
 
+### 24.10.1
+
+Release date: `March 10, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [DSM] Fixed an issue where new pool configurations were disabled, without any possibility to enable them.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed extends-tag vulnerability in Smarty.
+
+</details>
+
 ### 24.10.0
 
 Release date: `October 31, 2024`
@@ -467,6 +526,17 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Open Tickets
+
+### 24.10.2
+
+Release date: `March 10, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed extends-tag vulnerability in Smarty.
+
+</details>
 
 ### 24.10.1
 
@@ -487,5 +557,18 @@ Release date: `October 31, 2024`
   <summary>Bug fixes</summary>
 
 - [Open Tickets widget] Fixed redirection to monitoring pages according to the value of the "use deprecated pages" option.
+
+</details>
+
+## Centreon AWIE
+
+### 24.10.1
+
+Release date: `March 10, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed extends-tag vulnerability in Smarty.
 
 </details>
