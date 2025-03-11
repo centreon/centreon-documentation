@@ -5,22 +5,22 @@ title: Notifications Telegram
 
 ## Introduction
 
-This documentation is brought to you thanks to our partner YPSI:
+Cette documentation vous est présentée par notre partenaire YPSI :
 
 ![logo](../../assets/integrations/notifications/telegram/logo-YPSI.png)
 
-## How it works
+## Comment ça marche
 
-Telegram notifications connector uses the perl Centreon plugin to send notification through Telegram using their REST API
+Le connecteur des notificactions Telegram emploie le plugin Centreon perl pour envoyer des notifications via Telegram grâce à leur REST API.
 
 ![architecture](../../assets/integrations/notifications/telegram/architecture-telegram.png)
 
 ## Installation
 
-### centreon plugin with telegram
+### Plugin Centreon avec Telegram
 
-First of all, you need the Centreon Telegram plugin to be installed on your Centreon server.
-First, install Git, then execute the following commands:
+Avant toute chose, vous devez avoir installé le plugin Centreon Telegram sur votre serveur Centreon.
+Installez Git, puis executez les commandes suivantes :
 
 ```bash
 mkdir /usr/lib/centreon/git-plugins
@@ -28,48 +28,48 @@ cd /usr/lib/centreon/git-plugins
 git clone https://github.com/centreon/centreon-plugins.git
 ```
 
-### Telegram configuration
+### Configurer Telegram
 
-First of all, reach https://web.telegram.org and sign in
+Connectez-vous à votre compte sur https://web.telegram.org
 
 ![login](../../assets/integrations/notifications/telegram/login-telegram.png)
 
-Then, proceed to talk to the BotFather and tell him the following command
+Puis parlez au BotFather et donnez-lui la commande suivante :
 
 ```/newbot```
 
 ![newbot](../../assets/integrations/notifications/telegram/newbot-telegram.png)
 
-As asked by the BotFather, you need to give your bot a name and a username for your bot. This one must end with **_bot**.
-To avoid confusion, you can use the same name for both like shown in the picture below.
+Le BotFather vous demandera un prénom et un nom d'utilisateur pour votre bot. Le nom d'utilisateur doit se terminer par "**bot**".
+Il est possible d'utiliser le même nom pour les deux identifiants comme montré ci-dessous.
 
 ![token](../../assets/integrations/notifications/telegram/token-telegram.png)
 
-Like said by the BotFather, it is very important that you **save your token**. We are going to need it to send notifications later on.
+Comme vient de vous le dire le BotFather, il est très important que vous **reteniez votre token**, on en aura besoin pour envoyer les notifications plus tard.
 
-Now we need to create a new group. To do so, use the telegram menu as follow
+Il nous faut maintenant créer un nouveau groupe.
 
 ![newgroup](../../assets/integrations/notifications/telegram/newgroup-telegram.gif)
 
-When creating your group, add your bot to it
+Ajoutez votre bot au groupe que vous venez de créer.
 
 ![groupcreation](../../assets/integrations/notifications/telegram/groupcreation-telegram.gif)
 
 ## Configuration
 
-### Get your chat-id from telegram
+### Obtenir votre chat-id de Telegram
 
-On the telegram webapp page, click on the group previously created to obtain a chat-id from URL
+Allez sur l'application web de Telegram et cliquez sur le groupe que vous venez de créer pour obtenir le chat-id à partir de l'URL de la page.
 
 ![chatid](../../assets/integrations/notifications/telegram/chatid-telegram.png)
 
-for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456** then, your chat-id is **123456**.
+Par exemple, si votre URL est le suivant : **https://web.telegram.org/#/im?p=g123456** votre chat-id est **123456**.
 
-> Note that while 123456 is your chat-id, you'll need to use **-123456** in your configuration  otherwise it won't work
+> Si bien 123456 est le chat-id, vous devrez écrire **-123456** dans la configuration pour que ça marche.
 
-### Command creation in Centreon
+### Création des commandes sur Centreon
 
-#### Service notification command
+#### Commande pour le service de notifications
 
 ![service command](../../assets/integrations/notifications/telegram/service-command-telegram.png)
 
@@ -82,7 +82,7 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 --service-output='$SERVICEOUTPUT$'
 ``` 
 
-#### Host notification command
+#### Commande de notification d'hôte
 
 ![host command](../../assets/integrations/notifications/telegram/host-command-telegram.png)
 
@@ -98,7 +98,7 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 --host-output='$HOSTOUTPUT$'
 ```
 
-## Example
+## Exemple
 
 ```bash
 /usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \ 
@@ -129,21 +129,21 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 
 ![host notification](../../assets/integrations/notifications/telegram/host-notification-telegram.png)
 
-## Message options
+## Options de message
 
-When sending your notification you can add various options that you can list using the `--help` option of the Centreon plugin. 
+Lors de l'envoi de notifications, vous pouvez ajouter diverses options, vous pouvez consulter ces options avec l'option `--help` du plugin Centreon.
 
-Below are some of the available options:
+Voici quelques unes des options disponibles :
 
-| Options           | Explanation                                            | Example                                                                                                                                                                                   |
+| Options           | Explication                                            | Exemple                                                                                                                                                                                   |
 | ----------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \--centreon-token | an autologin token from centreon                       |                                                                                                                                                                                           |
-| \--centreon-url   | the centreon url                                       |                                                                                                                                                                                           |
-| \--graph-url      | graph url. You can use the above options as macro here | **%\{centreon_url\}**/include/views/graphs/generateGraphs/generateImage.php?username=myuser&token=**%\{centreon_token\}**&hostname=**%\{host_name\}**&service=**%\{service_description\}** |
-| \--link-url       | a link url                                             | **%\{centreon_url\}**/main.php?p=20201&o=svc&host\_search=**%\{host_name\}**&svc\_search=**%\{service_description\}**                                                                     |
-| \--proxyurl       | the url to your proxy if needed                        |                                                                                                                                                                                           |
+| \--centreon-token | un token d'autologin de Centreon                       |                                                                                                                                                                                           |
+| \--centreon-url   | le lien url Centreon                                   |                                                                                                                                                                                           |
+| \--graph-url      | url d'un graphique. Les options ce-dessus peuvent être utilisés comme macros ici | **%\{centreon_url\}**/include/views/graphs/generateGraphs/generateImage.php?username=myuser&token=**%\{centreon_token\}**&hostname=**%\{host_name\}**&service=**%\{service_description\}** |
+| \--link-url       | un lien url                                            | **%\{centreon_url\}**/main.php?p=20201&o=svc&host\_search=**%\{host_name\}**&svc\_search=**%\{service_description\}**                                                                     |
+| \--proxyurl       | l'url vers votre proxy (si nécessaire)                 |                                                                                                                                                                                           |
 
-All options can be displayed with the following command:
+Pour afficher toutes les options, utilisez la commande suivante :
 
 ```bash
 /usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \
