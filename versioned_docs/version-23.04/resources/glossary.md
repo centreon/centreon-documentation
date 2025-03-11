@@ -30,6 +30,7 @@ Acknowledging a resource does not mean that the incident is over: it will be ove
 Generally speaking, once Centreon is set up, the hosts and pollers periodically send their information to the central server without this information being actively requested by the Centreon, this is called **passive monitoring**.
 
 When certain conditions are met, for example, a host is down, an **active check** is sent from Centreon to try to force this host to provide its data, confirming whether or not it is functionning. When information is sent to the central server as a result of a check sent from it, we call it **active monitoring**.
+The same principles apply when talking about **passive** and **active** checks.
 
 ## Alert
 
