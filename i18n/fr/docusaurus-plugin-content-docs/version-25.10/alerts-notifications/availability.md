@@ -11,9 +11,8 @@ d'un groupe d'hôtes ou d'un groupe de services sur une période de temps donné
 
 Pour visualiser le rapport de disponibilité d'un 'hôte :
 
-- Rendez-vous dans le menu **Rapports > Tableau de bord**
-- Dans le menu de gauche, sélectionnez **Hôte**
-- Sélectionnez l'hôte désiré dans la liste déroulante **Hôte**
+- Rendez-vous dans le menu **Rapports > Disponibilité > Hôtes**
+- Sélectionnez l'hôte désiré dans la liste déroulante **Hôte** située en haut à gauche
 
 ![image](../assets/reporting/os-reporting/os-host-reporting.png)
 
@@ -30,8 +29,8 @@ De plus, en cliquant sur une journée de la frise chronologique, vous obtenez le
 
 Il est également possible de visualiser des rapports web pour :
 
-- Les groupes d'hôtes : Cliquez sur **Groupes d'hôtes** dans le menu de gauche
-- Les groupes de services : Cliquez sur **Groupes de services** dans le menu de gauche
+- Les groupes d'hôtes : Cliquez sur **Rapports > Disponibilité > Groupes d'hôtes** dans le menu de gauche
+- Les groupes de services : Cliquez sur **Rapports > Disponibilité > Groupes de services** dans le menu de gauche
 
 
 L'icône CSV permet d'exporter les données du rapport au format CSV.
