@@ -10,9 +10,8 @@ can display the availability rates of hosts, a hostgroup, or a servicegroup over
 
 To access the availability reports:
 
-- Go to **Reporting > Dashboard**.
-- In the left menu, click **Host**.
-- Select a host from the **Host** list.
+- Go to **Reporting > Availability > Hosts**.
+- Select a host from the **Host** list in the upper left.
 
 ![image](../assets/reporting/os-reporting/os-host-reporting.png)
 
@@ -29,10 +28,10 @@ Click a day in the timeline to obtain the report for that day:
 
 It is also possible to view web reports:
 
-* The groups of hosts: Click **Host Groups** in the left menu
-* The groups of services: Click **Service Groups** in the left menu
+* The groups of hosts: by clicking **Reporting > Availability > Hosts groups**.
+* The groups of services: by clicking **Reporting > Availability > Service groups**.
 
-The CSV icon is used to export data to a CSV file.
+The CSV icon in the upper right corner is used to export data as a CSV file.
 
 ![image](../assets/reporting/os-reporting/os-csv.png)
 
