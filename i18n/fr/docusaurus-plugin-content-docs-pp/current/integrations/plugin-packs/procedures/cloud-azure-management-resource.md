@@ -178,7 +178,7 @@ yum install centreon-plugin-Cloud-Azure-Management-Resource-Api
 |:-------------------|:------------|:------------------|:-----------:|
 | AZURECLIENTID      | Client ID            |                   |             |
 | AZURECLIENTSECRET  |             |                   |             |
-| AZURECUSTOMMODE    | Custom mode 'azcli'            | api               |             |
+| AZURECUSTOMMODE    | Custom mode            | api               |             |
 | AZURERESOURCEGROUP | Associated Resource Group if resource name is used            |                   |             |
 | AZURESUBSCRIPTION  | Subscription ID            |                   |             |
 | AZURETENANT        | Tenant ID            |                   |             |
