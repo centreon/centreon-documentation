@@ -1,9 +1,9 @@
 ---
 id: availability
-title: Availability
+title: Availability reports
 ---
 
-## Availability
+## Availability reports
 
 The availability reports concerning objects monitored via the Centreon Web interface 
 can display the availability rates of hosts, a hostgroup, or a servicegroup over a selected period.
