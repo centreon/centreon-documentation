@@ -80,7 +80,7 @@ On your central server:
 <Tabs groupId="sync">
 <TabItem value="Centreon Cloud or OnPrem 24.10.03 and newer" label="Centreon Cloud or OnPrem 24.10.03 and newer">
 
-1. Configure how the poller and the agent will communicate:
+Configure how the poller and the agent will communicate:
 
 <PollerAgentConfiguration />
 
