@@ -79,7 +79,7 @@ Sur votre serveur central :
 ### Configurez Engine
 
 <Tabs groupId="sync">
-<TabItem value="Centreon Cloud ou OnPrem à partir de 24.10.03" label="Centreon Cloud ou OnPrem à partir de 24.10.03"
+<TabItem value="Centreon Cloud ou OnPrem à partir de 24.10.03" label="Centreon Cloud ou OnPrem à partir de 24.10.03">
 
 Configurez la communication entre collecteur collecteur et agent :
 
