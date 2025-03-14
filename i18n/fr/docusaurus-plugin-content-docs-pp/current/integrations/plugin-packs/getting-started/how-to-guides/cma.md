@@ -81,7 +81,7 @@ Sur votre serveur central :
 <Tabs groupId="sync">
 <TabItem value="Centreon Cloud ou OnPrem à partir de 24.10.03" label="Centreon Cloud ou OnPrem à partir de 24.10.03"
 
-Configurez la communication entre collecteur et agent :
+Configurez la communication entre le collecteur collecteur et l'agent :
 
 <PollerAgentConfiguration />
 
