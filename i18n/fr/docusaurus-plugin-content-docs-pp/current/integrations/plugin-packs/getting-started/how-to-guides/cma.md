@@ -78,7 +78,10 @@ Sur votre serveur central :
 
 ### Configurez Engine
 
-1. Configurez la communication entre le collecteur et l'agent :
+<Tabs groupId="sync">
+<TabItem value="Centreon Cloud ou OnPrem à partir de 24.10.03" label="Centreon Cloud ou OnPrem à partir de 24.10.03"
+
+Configurez la communication entre le collecteur et l'agent :
 
 <PollerAgentConfiguration />
 
@@ -93,6 +96,144 @@ Sur votre serveur central :
    ```
 
 L'Agent de supervision Centreon est maintenant capable de communiquer avec Centreon. Vous pouvez mettre vos hôtes en supervision.
+
+</TabItem>
+<TabItem value="Versions antérieures à 24.10.03" label="Versions antérieures à 24.10.03">
+
+1. Sur le collecteur qui recevra les données de l'agent, installez le paquet **centreon-engine-opentelemetry**.
+   
+2. Sur le collecteur qui recevra les données de l'agent, créez le fichier suivant :
+
+   ```shell
+   touch /etc/centreon-engine/otl_server.json
+   ```
+
+3. Entrez le contenu suivant. Cela permettra au collecteur de recevoir les données en provenance de l'agent.
+   > Le collecteur permet de fonctionner dans les deux modes simultanément (certains agents se connectent au collecteur alors que le collecteur se connecte à d'autres agents).
+
+<Tabs groupId="sync">
+<TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">
+
+```json
+{
+   "otel_server":{
+      "host":"0.0.0.0",
+      "port":4317
+   },
+   "max_length_grpc_log":0,
+   "centreon_agent":{
+      "check_interval":60,
+      "export_period":10
+   }
+}
+```
+
+```bash
+chown centreon-engine: /etc/centreon-engine/otl_server.json
+```
+
+</TabItem>
+<TabItem value="Encryption, agent connects to poller" label="Encryption, agent connects to poller">
+
+```json
+{
+   "otel_server":{
+      "host":"0.0.0.0",
+      "port":4317,
+      "encryption":true,
+      "public_cert":"<CERTIFICATE PATH>",
+      "private_key":"<KEY PATH>",
+      "ca_certificate":"<CA PATH>"
+   },
+   "max_length_grpc_log":0,
+   "centreon_agent":{
+      "check_interval":60,
+      "export_period":10
+   }
+}
+```
+
+</TabItem>
+<TabItem value="No encryption, poller connects to agent" label="No encryption, poller connects to agent">
+
+Cette configuration est à utiliser lorsque l'agent ne peut pas se connecter au collecteur, pour des raisons de sécurité (ex : agent situé dans une DMZ).
+Dans ce mode, le collecteur se connecte à l'agent.
+
+```json
+{
+   "max_length_grpc_log":0,
+   "centreon_agent":{
+      "check_interval":60,
+      "export_period":15,
+      "reverse_connections":[
+         {
+            "host":"<HOST ADDRESS>",
+            "port":<PORT>
+         }
+      ]
+   }
+}
+```
+
+```bash
+chown centreon-engine: /etc/centreon-engine/otl_server.json
+```
+
+* Entrez l'adresse IP de l'hôte sur lequel est installé l'agent dans les champs **host** et **port**. Cette adresse doit être accessible depuis le collecteur.
+* Le champ **check_interval** correspond à la fréquence des contrôles effectués par l'Agent de supervision Centreon.
+
+</TabItem>
+<TabItem value="Encryption, poller connects to agent" label="Encryption, poller connects to agent">
+
+Cette configuration est à utiliser lorsque l'agent ne peut pas se connecter au collecteur, pour des raisons de sécurité (ex : agent situé dans une DMZ).
+Dans ce mode, le collecteur se connecte à l'agent.
+
+```json
+{
+   "max_length_grpc_log":0,
+   "centreon_agent":{
+      "check_interval":60,
+      "export_period":15,
+      "reverse_connections":[
+         {
+            "host":"localhost",
+            "port":4317,
+            "encryption":true,
+            "ca_certificate":"<CERTIFICATE PATH>",
+            "ca_name":"<CA NAME>"
+         }
+      ]
+   }
+}
+```
+
+* Entrez l'adresse IP de l'hôte sur lequel est installé l'agent dans les champs **host** et **port**. Cette adresse doit être accessible depuis le collecteur.
+* Le champ **check_interval** correspond à la fréquence des contrôles effectués par l'Agent de supervision Centreon.
+
+</TabItem>
+</Tabs>
+
+### Ajoutez un nouveau module Broker
+
+1. Allez à la page **Configuration > Collecteurs > Configuration du moteur de collecte**, puis cliquez sur le collecteur qui supervisera les ressources.
+2. Dans l'onglet **Données**, dans la section **Commande de lancement du module**, dans le paramètre **Multiple Broker Module**, cliquez sur **Ajouter une nouvelle entrée**.
+3. Ajoutez l'entrée suivante :
+
+   ```bash
+   /usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
+   ```
+
+4. Exportez la configuration.
+5. Redémarrez le moteur de collecte.
+
+   ```bash
+   systemctl restart centengine
+   ```
+
+L'Agent de supervision Centreon est maintenant capable de communiquer avec Centreon. Vous pouvez mettre vos hôtes en supervision.
+
+</TabItem>
+</Tabs>
 
 ## Étape 2 : Préparez l'hôte
 
