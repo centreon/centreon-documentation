@@ -43,7 +43,9 @@ Les limitations suivantes sont dues à des contraintes côté Telegraf ou côté
 </TabItem>
 </Tabs>
 
-Si vous êtes sur la version 24.10.5 ou une version plus récente, passez diréctement à [l'étape suivante](#configurez-engine).
+### Créez le connecteur Telegraf
+
+Si vous êtes sur la version 24.10.5 ou une version plus récente, passez directement à [l'étape suivante](#configurez-engine).
 Si vous êtes sur une version antérieure à la 24.10.5, vous devez installer le processeur Open Telemetry pour Telegraf sur votre serveur central :
 
 1. Allez à la page **Configuration > Commandes > Connecteurs**.

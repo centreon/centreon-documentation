@@ -61,7 +61,9 @@ L'agent peut être installé sur et superviser les OS suivants :
 </TabItem>
 </Tabs>
 
-Si vous êtes sur la version 24.10.5 ou une version plus récente, passez diréctement à [l'étape suivante](#configurez-engine).
+### Créez le connecteur Centreon Monitoring Agent
+
+Si vous êtes sur la version 24.10.5 ou une version plus récente, passez directement à [l'étape suivante](#configurez-engine).
 Si vous êtes sur une version antérieure à la 24.10.5, vous devez créer le connecteur Centreon Monitoring Agent sur votre serveur central :
 
 1. Allez à la page **Configuration > Commandes > Connecteurs**.
