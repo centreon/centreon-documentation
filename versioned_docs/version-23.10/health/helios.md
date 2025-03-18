@@ -55,30 +55,7 @@ The data is sent to the Centreon SaaS platform. No personal data is collected.
 
 - If a host machine does not have direct access to the outside, two options that complement each other are provided: [proxy configuration](#proxy-configuration) and [gateway configuration](#gateway-configuration).
 
-- The RPMs are available in the Centreon official repositories for the currently supported versions. The official Centreon repository must be installed:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
-dnf clean all --enablerepo=*
-dnf update
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
-dnf clean all --enablerepo=*
-dnf update
-```
-
-</TabItem>
-</Tabs>
+- The RPMs are available in the Centreon official repositories for the currently supported versions. The official [Centreon repository](installation/installation-of-a-central-server/using-packages/#centreon-repository) must be installed.
 
 - You must be in possession of your unique token that allows you to send data to our platform. This token is provided to you by our Support team.
 
