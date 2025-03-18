@@ -19,7 +19,7 @@ This connector is (at least) compatible with the following Glpi versions:
 ## Requirements
 
 Before going any further, make sure that you correctly setup
-[centreon-open-ticket](../../alerts-notifications/ticketing.md#advanced-configuration)
+[centreon-open-ticket](../../alerts-notifications/ticketing.md)
 into your Centreon instance.
 
 Our provider requires the following parameters:
