@@ -53,7 +53,7 @@ Make sure you give your two widgets relevant titles so that your users know whic
 Your dashboard now displays two **Resource table** widgets containing your two views.
 * When a user creates a ticket on a service, the service is automatically acknowledged.
 * When a user creates a ticket on a host, all services for this host will be included in the ticket and displayed in the "open tickets" widget.
-* When a user close a ticket, if your provider allows it, the ticket will be automtically closed in your ITSM tool too.
+* When a user closes a ticket, if your provider allows it, the ticket will be automtically closed in your ITSM tool too.
 
 </TabItem>
 <TabItem value="Custom Views (legacy)" label="Custom Views (legacy)">
