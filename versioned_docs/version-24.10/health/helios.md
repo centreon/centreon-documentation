@@ -57,6 +57,8 @@ The data is sent to the Centreon SaaS platform. No personal data is collected.
 
 - The RPMs are available in the Centreon official repositories for the currently supported versions. The official [Centreon repository](installation/installation-of-a-central-server/using-packages/#centreon-repository) must be installed.
 
+- You must be in possession of your unique token that allows you to send data to our platform. This token is provided to you by our Support team.
+
 ## Installing Helios
 
 All Centreon components you wish to monitor (Central, Poller, Remote Server, Database, etc.) must each have Helios installed on their host machine.
