@@ -56,7 +56,7 @@ Les données sont envoyées vers la plateforme Centreon SaaS. Aucune donnée per
 
 - Si une machine hôte n'a pas d'accès direct à l'extérieur, deux options complémentaires l'une de l'autre se présentent : la [configuration proxy](#configuration-proxy) et la [configuration passerelle](#configuration-en-mode-passerelle).
 
-- Les fichiers RPM sont disponibles sur les dépôts Centreon officiels des versions actuellement supportées. Le [dépôt Centreon officiel](../installation/installation-of-a-central-server/using-packages/#dépôt-centreon) doit être installé.
+- Les fichiers RPM sont disponibles sur les dépôts Centreon officiels des versions actuellement supportées. Le [dépôt Centreon officiel](../installation/installation-of-a-central-server/using-packages.md#dépôt-centreon) doit être installé.
 
 - Vous devez être en possession de votre jeton unique vous permettant d'envoyer des données vers notre plateforme. Ce jeton vous est fourni par notre équipe support.
 
