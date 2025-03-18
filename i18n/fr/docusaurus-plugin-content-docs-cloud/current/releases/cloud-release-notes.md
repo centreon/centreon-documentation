@@ -3,6 +3,42 @@ id: cloud-release-notes
 title: Centreon Cloud - notes de release
 ---
 
+## March 18th, 2025
+
+### Centreon IT Edition
+
+**Centreon Monitoring Agent Beta**
+
+The Beta version of the Centreon Monitoring Agent is now available for our Centreon Cloud customers.
+The Centreon Monitoring Agent (CMA) collects metrics and computes statuses on the servers it monitors, and sends them to Centreon. Centreon plugins as well as Nagios-compatible plugins can be used with this agent.
+More information about configuration is available in our [offical documentation](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/) and in a dedicated [TheWatch group](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
+
+**Open Ticket**
+
+Centreon Open Tickets, our module to create tickets into an ITSM platform directly from Centreon is now available.
+Once a provider is configured, the module allows for an operator to create tickets for hosts and services in a non-OK status, using the Resource table widget in dashboards.
+
+**Event Handler**
+
+Event handlers are optional system commands (scripts or executables) that are run whenever a resource status change occurs. 
+Define your event handler command in the Centreon interface and authorize it on your poller using whitelists.
+
+**Centreon Dashbaords**
+
+As usual, we continue to make improvements to our dashboard feature. 
+You can now mark a dashboard as favorite for immediate access.
+It is also possible to expand widgets to get a better visibility on specific data.
+The home page has also been improved with dashboard thumbnails which allows to identify dashboards easily.
+
+
+### Centreon Business Edition
+
+**Centreon MAP**
+
+This version brings significant performance enhancements.
+Other minor improvements have been made: improvements to the design of tooltips, a link to the Resource Status page, the ability to combine tile background color with weather icons to represent the status of a resource, the possibility to open the links in URL widgets to a new tab and the display of the resource's parent name in Gauge widgets.
+
+
 ## December 17th, 2024
 
 This release contains numerous bug and vulnerability fixes but also the following improvements:

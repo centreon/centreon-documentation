@@ -272,7 +272,7 @@ certificate as described below:
 
 > "Trusted CA's certificate" field is optional. If you activate Broker's client
 > authentication by setting this "ca\_certificate.crt", then you must setup a
-> [keystore for MAP server](#configure-httpstls-on-the-web-server)
+> [keystore for MAP server](#configure-httpstls-on-the-map-or-map-legacy-server)
 >
 > You MUST push the new broker configuration and restart the broker after
 > configuration.

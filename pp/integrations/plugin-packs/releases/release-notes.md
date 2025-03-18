@@ -8,6 +8,73 @@ import TabItem from '@theme/TabItem';
 
 ## 2025
 
+### Mars
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**VMware8 ESX REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - Initial release of VMWare 8 ESX.
+- [**Veeam Centreon Monitoring Agent**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Initial release of Veeam using the Centreon Monitoring Agent, from a [The Watch idea](https://thewatch.centreon.com/ideas/prepare-veeam-template-with-centreon-monitoring-agent-4024).
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**ArubaOS-CX SNMP**](../procedures/network-aruba-aoscx-snmp.md) - Added **uptime**, **spanning tree** and **spanning tree discovery** modes, based on community contribution [PR 5424](https://github.com/centreon/centreon-plugins/pull/5424).
+- [**ChapsVision CrossinG SNMP**](../procedures/network-chapsvision-crossing-snmp.md) - Added handling of new OIDs for **antivirus** mode.
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Added ` ipsec-tunnels-count` in **vpn** mode, from community contribution [PR 5382](https://github.com/centreon/centreon-plugins/pull/5382).
+- [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Added capability to use AS400 SSL connection.
+- [**Pure Storage FlashArray Rest API v2**](../procedures/hardware-storage-purestorage-flasharray-v2-restapi.md) - Added `flagged` status attribute in **alerts** mode, from community contribution [PR 5307](https://github.com/centreon/centreon-plugins/pull/5307).
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Azure VPN Gateway**](../procedures/cloud-azure-network-vpngateway.md) - Fixed wrong variable assignment in **vpn-gateway-status** mode.
+- [**Cisco UCS SNMP**](../procedures/hardware-servers-cisco-ucs-snmp.md) - Fixed wrong count when memory component is not equipped in **equipment** mode.
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Added `--timezone` option for equipment in **cleaning** mode to avoid misinterpreting the clean time frame.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Added missing mandatory parameter in SNMP collection discovery command.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [**HTTP Server**](../procedures/applications-protocol-http.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Fixed previous pending error.
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Fixed step metrics when scenario failed in **scenario** mode.
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed OS-Linux-SSH-Lvm command.
+- [**MongoDB**](../procedures/applications-databases-mongodb.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on a community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Fixed hardware API requests for bays.
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [**Raritan PDU SNMP**](../procedures/hardware-pdu-raritan-snmp.md) - Fixed an issue with sensors when powerFactor value is missing.
+
+</TabItem>
+</Tabs>
+
+### February
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**HAProxy Web**](../procedures/applications-haproxy-web.md) - Initial release of HAProxy Web.
+- [**Podman API**](../procedures/applications-podman-restapi.md) - Initial release of Podman API.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Cyberoam SNMP**](../procedures/network-cyberoam-snmp.md) - Added **HA**, **license**, **VPN** and **VPN discovery** modes, based on a community contribution ([PR 5144](https://github.com/centreon/centreon-plugins/pull/5144)).
+- [**Fortinet Fortigate Rest API**](../procedures/network-fortinet-fortigate-restapi.md) - Added threshold options `--warning-last-update` and `--critical-last-update` in **license** mode, from a community contribution ([PR 4964](https://github.com/centreon/centreon-plugins/pull/4964)).
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Changed status default thresholds and `--timeframe` option default value in **scenario** mode.
+- [**Windows NSClient 0.5 NRPE**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Changed pack display name to make it clear that it uses the NRPE protocol.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Azure Database for PostgreSQL**](../procedures/cloud-azure-database-postgresql.md) - Fixed **storage** command by adding spaces before warning options.
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed **sdwan** mode incorrect traffic calculation and units, based on a community contribution ([PR 5343](https://github.com/centreon/centreon-plugins/pull/5343)).
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Fixed **Interfaces** service template that had too many default macros.
+- [**MongoDB**](../procedures/applications-databases-mongodb.md) - Added missing dependencies to the plugin for Debian.
+- [**Moxa Switch SNMP**](../procedures/network-moxa-switch-snmp.md) - Fixed `--add-duplex-status` option in **interface** mode.
+- [**Proxmox Mail Gateway API**](../procedures/applications-proxmox-mg-api.md) - Fixed host macros typo.
+
+</TabItem>
+</Tabs>
+
 ### January
 
 <Tabs groupId="sync">
