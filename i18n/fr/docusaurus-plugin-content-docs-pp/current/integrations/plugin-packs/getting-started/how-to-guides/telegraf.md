@@ -45,7 +45,8 @@ Les limitations suivantes sont dues à des contraintes côté Telegraf ou côté
 
 ### Créez le connecteur Telegraf
 
-Installez le processeur Open Telemetry pour Telegraf sur votre serveur central :
+Si vous êtes sur la version 24.10.6 ou une version plus récente, passez directement à [l'étape suivante](#configurez-engine).
+Si vous êtes sur une version antérieure à la 24.10.6, vous devez installer le processeur Open Telemetry pour Telegraf sur votre serveur central :
 
 1. Allez à la page **Configuration > Commandes > Connecteurs**.
 2. Créez un nouveau connecteur avec les données suivantes :
