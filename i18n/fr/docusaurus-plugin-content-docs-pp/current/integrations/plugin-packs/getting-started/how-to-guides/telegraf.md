@@ -43,21 +43,6 @@ Les limitations suivantes sont dues à des contraintes côté Telegraf ou côté
 </TabItem>
 </Tabs>
 
-### Créez le connecteur Telegraf
-
-Installez le processeur Open Telemetry pour Telegraf sur votre serveur central :
-
-1. Allez à la page **Configuration > Commandes > Connecteurs**.
-2. Créez un nouveau connecteur avec les données suivantes :
-
-| Paramètre                  | Valeur                                                                                                                                                                                                                           |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nom du connecteur          | Telegraf                                                                                                                                                                                                                         |
-| Description du connecteurn | Telegraf                                                                                                                                                                                                                         |
-| Ligne de commande          | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resource_metrics.scope_metrics.data.data_points.attributes.host --service_path=resource_metrics.scope_metrics.data.data_points.attributes.service` |
-| Utilisé par la commande    | Entrez `Telegraf-Agent` et cliquez sur **Sélectionner tout**                                                                                                                                                                     |
-| Statut du connecteur       | Activé                                                                                                                                                                                                                           |
-
 ### Configurez Engine
 
 2. Configurez la communication entre le collecteur et l'agent :
