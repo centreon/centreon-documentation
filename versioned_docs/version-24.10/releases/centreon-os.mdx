@@ -330,6 +330,27 @@ Release date: `October 31, 2024`
 
 ## Centreon Collect
 
+### 24.10.5
+
+Release date: `March 12, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Broker] Added flapping state support for Resource Status.
+- [CMA] Added gRPC logs to the agent and the OpenTelemetry engine module.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed a regression with host name escaping in the Graphite Broker output.
+- [Broker] Fixed an issue where the wrong service state was restored when engine re-established its connection to broker after a disconnection.
+- [Broker] Fixed Broker crash that occurred if only a graphite output was configured.
+
+</details>
+
 ### 24.10.4
 
 Release date: `January 11, 2025`
@@ -435,6 +456,17 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.10.4
+
+Release date: `March 12, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug where the gorgone API could not use a password containing a UTF-8 character.
+
+</details>
 
 ### 24.10.3
 
