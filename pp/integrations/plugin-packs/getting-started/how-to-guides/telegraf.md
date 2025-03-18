@@ -46,7 +46,8 @@ Due to Telegraf or Centreon constraints, the following limitations need to be co
 
 ### Create the Telegraf connector
 
-If your Centreon is on version 24.10.6 or newer, skip this step and move on to the [next one](#configure-engine)
+If your Centreon is on version 24.10.6 or newer, skip this step and move on to the [next one](#configure-engine). 
+
 If your Centreon is a version older than 24.10.6, you need to install the Open Telemetry processor for Telegraf on your central server:
 
 1. Go to **Configuration > Commands > Connectors**.	
