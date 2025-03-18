@@ -44,21 +44,6 @@ Due to Telegraf or Centreon constraints, the following limitations need to be co
 </TabItem>
 </Tabs>
 
-### Create the Telegraf connector
-
-Install the Open Telemetry processor for Telegraf on your central server:
-
-1. Go to **Configuration > Commands > Connectors**.
-2. Create a new connector with the following values:
-
-| Parameter             | Value                                                                                                                                                                                                                            |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connector Name        | Telegraf                                                                                                                                                                                                                         |
-| Connector Description | Telegraf                                                                                                                                                                                                                         |
-| Command Line          | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resource_metrics.scope_metrics.data.data_points.attributes.host --service_path=resource_metrics.scope_metrics.data.data_points.attributes.service` |
-| Used by command       | Type `Telegraf-Agent` and click **Select all**                                                                                                                                                                                   |
-| Connector Status      | Enabled                                                                                                                                                                                                                          |
-
 ### Configure Engine
 
 Configure how the poller and the agent will communicate:
