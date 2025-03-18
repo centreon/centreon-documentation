@@ -40,7 +40,7 @@ peut-être essayer d'utiliser sudo pour ce faire.
 
 1. Pour créer une commande, allez à la page **Configuration > Commandes > Divers**.
 2. [Créez votre command comme décrit ici](./basic-objects/commands.md#créer-une-commande-personnalisée).
-3. [Ajoutez votre nouvelle commande à la liste blanche des commandes du collecteur](./basic-objects/commands.md#command-whitelist) qui supervisera les ressources désirées.
+3. [Ajoutez votre nouvelle commande à la liste blanche des commandes du collecteur](./basic-objects/commands.md#ajouter-une-commande-à-la-liste-blanche) qui supervisera les ressources désirées.
 
 ### Étape 2 : Configurer les gestionnaires d'évènements
 
