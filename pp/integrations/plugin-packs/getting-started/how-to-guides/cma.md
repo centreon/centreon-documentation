@@ -58,7 +58,7 @@ The CMA can be installed on and monitor the following OSs:
 2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the [**Windows Centreon Monitoring Agent**](../../procedures/operatingsystems-windows-centreon-monitoring-agent.md) monitoring connector.
 
 </TabItem>
-</Tabs>                                                                                                                                                                                  |
+</Tabs>
 
 ### Configure Engine
 
