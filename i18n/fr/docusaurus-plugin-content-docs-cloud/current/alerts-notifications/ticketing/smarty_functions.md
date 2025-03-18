@@ -251,7 +251,7 @@ service group alias: second service group
 
 ## Obtenir la valeur d'une macro custom d'un hôte
 
-La fonction suivante va permettre d'ajouter la valeur d'une [custom macro](../../monitoring/basic-objects/macros.md#custom-macros) d'un hôte au corps du ticket.
+La fonction suivante va permettre d'ajouter la valeur d'une [custom macro](../../monitoring/basic-objects/macros.md#les-macros-personnalisées) d'un hôte au corps du ticket.
 
 ```smarty
 {host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}
@@ -292,7 +292,7 @@ macro value: /var/lib/centreon-broker/central-rrd-master-stats.json
 
 ## Obtenir la valeur d'une macro custom sur les modèles d'hôtes associés à l'hôte
 
-La fonction suivante va permettre d'ajouter la valeur des [custom macros](../../monitoring/basic-objects/macros.md#custom-macros) appartenant aux modèles d'hôte associés à l'hôte dans le corps du ticket.
+La fonction suivante va permettre d'ajouter la valeur des [custom macros](../../monitoring/basic-objects/macros.md#les-macros-personnalisées) appartenant aux modèles d'hôte associés à l'hôte dans le corps du ticket.
 
 ```smarty
 {host_get_macro_value_in_config host_id=$service.host_id macro_name='RRDSTATSFILE'}
