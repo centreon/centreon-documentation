@@ -11,7 +11,7 @@ Cette page s'adresse aux administrateurs qui mettront en place Open Tickets afin
 
 1. Pour créer une règle de notification, allez dans **Configuration > Notifications > Open Tickets > Règles** et cliquez sur **Ajouter**.
 2. Sélectionnez un fournisseur (l'outil dans lequel vous souhaitez ouvrir les tickets) : le formulaire est mis à jour avec les champs par défaut pour cette intégration.
-3. [Adaptez le formulaire à vos besoins](ticketing/ticketing-body.md#personnalisation), en fonction du fonctionnement de [votre fournisseur](../integrations/itsm/itsm-overview/).
+3. [Adaptez le formulaire à vos besoins](ticketing/ticketing-body.md#personnalisation), en fonction du fonctionnement de [votre fournisseur](../integrations/itsm/itsm-overview.md).
 4. Remplissez le formulaire.
 
 ## Étape 2 : Ajouter une macro personnalisée à tous les modèles d'hôtes et de services
