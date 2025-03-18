@@ -61,21 +61,6 @@ L'agent peut être installé sur et superviser les OS suivants :
 </TabItem>
 </Tabs>
 
-### Créez le connecteur Centreon Monitoring Agent
-
-Sur votre serveur central :
-
-1. Allez à la page **Configuration > Commandes > Connecteurs**.
-2. Créez un nouveau connecteur avec les données suivantes :
-
-| Paramètre                 | Valeur                                                                                                                                                                                        |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nom du connecteur         | Centreon Monitoring Agent                                                                                                                                                                     |
-| Description du connecteur | Centreon Monitoring Agent                                                                                                                                                                     |
-| Ligne de commande         | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
-| Utilisé par la commande   | Entrez `Centreon-Monitoring-Agent` et cliquez sur **Sélectionner tout**                                                                                                                       |
-| Statut du connecteur      | Activé                                                                                                                                                                                        |
-
 ### Configurez Engine
 
 <Tabs groupId="sync">
