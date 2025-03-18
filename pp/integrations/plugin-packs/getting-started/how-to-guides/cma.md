@@ -58,22 +58,7 @@ The CMA can be installed on and monitor the following OSs:
 2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the [**Windows Centreon Monitoring Agent**](../../procedures/operatingsystems-windows-centreon-monitoring-agent.md) monitoring connector.
 
 </TabItem>
-</Tabs>
-
-### Create the CMA connector
-
-On your central server:
-
-1. Go to **Configuration > Commands > Connectors**.
-2. Create a new connector with the following values:
-
-| Parameter             | Value                                                                                                                                                                                         |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connector Name        | Centreon Monitoring Agent                                                                                                                                                                     |
-| Connector Description | Centreon Monitoring Agent                                                                                                                                                                     |
-| Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
-| Used by command       | Type `Centreon-Monitoring-Agent` and click **Select all**                                                                                                                                     |
-| Connector Status      | Enabled                                                                                                                                                                                       |
+</Tabs>                                                                                                                                                                                  |
 
 ### Configure Engine
 
