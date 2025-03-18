@@ -63,7 +63,7 @@ The CMA can be installed on and monitor the following OSs:
 ### Create the CMA connector	
 
 If your Centreon is on version 24.10.6 or newer, skip this step and move on to the [next one](#configure-engine)
-If your Centreon is a version older than 24.10.5, you need to create the CMA connector your central server:	
+If your Centreon is a version older than 24.10.6, you need to create the CMA connector your central server:	
 
 1. Go to **Configuration > Commands > Connectors**.	
 2. Create a new connector with the following values:	
