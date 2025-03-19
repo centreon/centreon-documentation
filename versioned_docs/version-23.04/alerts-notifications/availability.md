@@ -1,40 +1,38 @@
 ---
 id: availability
-title: Rapports de disponibilité
+title: Availability reports
 ---
 
-## Rapports de disponibilité
+## Availability reports
 
-Les rapports de disponibilités des objets accessibles via l'interface web Centreon
-permettent de visualiser de manière intuitive le taux de disponibilité d'un hôte,
-d'un groupe d'hôtes ou d'un groupe de services sur une période de temps donnée.
+The availability reports concerning objects monitored via the Centreon Web interface 
+can display the availability rates of hosts, a hostgroup, or a servicegroup over a selected period.
 
-Pour visualiser le rapport de disponibilité d'un 'hôte :
+To access the availability reports:
 
-- Rendez-vous dans le menu **Rapports > Disponibilité > Hôtes**
-- Sélectionnez l'hôte désiré dans la liste déroulante **Hôte** située en haut à gauche
+- Go to **Reporting > Availability > Hosts**.
+- Select a host from the **Host** list in the upper left.
 
 ![image](../assets/reporting/os-reporting/os-host-reporting.png)
 
-* La liste **Période de génération** permet de choisir la période de temps sur laquelle on souhaite visualiser le taux de disponibilité. Il est possible de sélectionner une période prédéfinie via la liste déroulante ou de sélectionner manuellement sa période en définissant les champs **Du** et **Au**
-* Le tableau **Etat de l'hôte** permet de visualiser le taux et la durée de disponibilité associé par état de l'objet
-* Le tableau **Statuts des éléments du rapport** permettent de visualiser la disponibilité des services associés à l'hôte suivant leurs statuts
-* La frise chronologique permet de visualiser de manière intuitive le statut de l'objet au court du temps
+- The **Reporting Period** lets you select a predefined period or define it manually using **From** to **to** fields.
+- The **Host state** table displays the availability rates of objects.
+- The **State Breakdowns For Host Services** table displays the availability of linked objects.
+- The timeline provides a quick and intuitive overview of the status of the object.
 
 ![image](../assets/reporting/os-reporting/os-host-timeline.png)
 
-De plus, en cliquant sur une journée de la frise chronologique, vous obtenez le rapport de la journée :
+Click a day in the timeline to obtain the report for that day:
 
 ![image](../assets/reporting/os-reporting/os-host-tooltip.png)
 
-Il est également possible de visualiser des rapports web pour :
+It is also possible to view web reports:
 
-- Les groupes d'hôtes : Cliquez sur **Rapports > Disponibilité > Groupes d'hôtes** dans le menu de gauche
-- Les groupes de services : Cliquez sur **Rapports > Disponibilité > Groupes de services** dans le menu de gauche
+* The groups of hosts: by clicking **Reporting > Availability > Hosts groups**.
+* The groups of services: by clicking **Reporting > Availability > Service groups**.
 
-
-L'icône CSV permet d'exporter les données du rapport au format CSV.
+The CSV icon in the upper right corner is used to export data as a CSV file.
 
 ![image](../assets/reporting/os-reporting/os-csv.png)
 
-> Cliquez sur le service d'un hôte dans le rapport de disponibilité de l'hôte pour obtenir un rapport détaillé du service.
+> You can also see the availability of a service by clicking the service name in the host or servicegroup report.
