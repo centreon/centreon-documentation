@@ -43,6 +43,11 @@ Here are a few examples:
 
 ![image](../../assets/configuration/05timeperiod.png)
 
+### Timeperiod templates
+
+The timeperiod templates feature can be found inside any timeperiod configuration screen. This allows you to select previously configured timeperiods to combine it with others including the one currently opened. You can select as many timeperiod templates as you wish, it is possible to use an otherwise blank timeperiod and configure it just by combining timeperiod tmeplates.
+Timeperiod templates prioritize active timeframes i.e. : if you combine a timeperiod template that excludes sundays and one that includes sundays, sundays will be included.
+
 ### Time Range Exceptions tab
 
 The **Time Range Exceptions** tab allows you to include exceptional days in the time period. The periods you define here override the definition of regular days defined in **Basic Settings**.
