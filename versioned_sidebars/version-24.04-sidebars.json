@@ -695,10 +695,6 @@
           "id": "alerts-notifications/dashboards"
         },
         {
-          "type": "doc",
-            "id": "availability"
-        },
-        {
           "type": "category",
           "label": "Performance graphs",
           "link": {
