@@ -25,7 +25,9 @@ To configure a time period, go to **Configuration \> Users \> Time periods**.
 
 4. Once you have created your time period, you can use it:
     - In the **Check Period** field for hosts, host templates, services and service templates.
-    - In the **Notification Period** field for notifications defined for hosts, host templates, services, service templates, contacts, or in the **Escalation Period** field for an escalation of notifications. 
+    - In the **Notification Period** field for notifications defined for hosts, host templates, services, service templates, contacts, or in the **Escalation Period** field for an escalation of notifications.
+  
+The **Reset** button deletes all unsaved changes.
 
 ### Syntax of a time period
 
