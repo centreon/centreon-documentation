@@ -22,7 +22,7 @@ The Monitoring Connector **EMC Xtremio** brings a host template:
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="HW-Storage-EMC-Xtremio-Restatpi-custom" label="HW-Storage-EMC-Xtremio-Restatpi-custom">
+<TabItem value="HW-Storage-EMC-Xtremio-Restapi-custom" label="HW-Storage-EMC-Xtremio-Restapi-custom">
 
 | Service Alias  | Service Template                                     | Service Description                   |
 |:---------------|:-----------------------------------------------------|:--------------------------------------|
