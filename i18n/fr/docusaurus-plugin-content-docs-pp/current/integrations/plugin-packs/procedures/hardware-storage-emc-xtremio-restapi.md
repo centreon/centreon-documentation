@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="HW-Storage-EMC-Xtremio-Restatpi-custom" label="HW-Storage-EMC-Xtremio-Restatpi-custom">
+<TabItem value="HW-Storage-EMC-Xtremio-Restapi-custom" label="HW-Storage-EMC-Xtremio-Restapi-custom">
 
 | Alias          | Modèle de service                                    | Description                                               |
 |:---------------|:-----------------------------------------------------|:----------------------------------------------------------|
