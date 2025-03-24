@@ -17,7 +17,7 @@ The following monitoring connectors will be installed when you install the **EMC
 
 The Monitoring Connector **EMC Xtremio** brings a host template:
 
-* **HW-Storage-EMC-Xtremio-Restatpi-custom**
+* **HW-Storage-EMC-Xtremio-Restapi-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
