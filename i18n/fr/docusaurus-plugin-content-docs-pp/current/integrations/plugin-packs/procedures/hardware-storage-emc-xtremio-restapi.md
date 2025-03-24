@@ -17,7 +17,7 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 
 Le connecteur de supervision **EMC Xtremio** apporte un modèle d'hôte :
 
-* **HW-Storage-EMC-Xtremio-Restatpi-custom**
+* **HW-Storage-EMC-Xtremio-Restapi-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
