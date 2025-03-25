@@ -31,7 +31,7 @@ Le connecteur apporte les modèles de service suivants
 | Physical-Disk | HW-Storage-Fujitsu-Eternus-DX-SSH-Physical-Disk-custom | Contrôle l'état des disques                   |
 | Port-Stats    | HW-Storage-Fujitsu-Eternus-DX-SSH-Port-Stats-custom    | Contrôle l'état des ports                     |
 | Psu           | HW-Storage-Fujitsu-Eternus-DX-SSH-Psu-custom           | Contrôle l'état de l'alimentation             |
-| Raid-Groups   | HW-Storage-Fujitsu-Eternus-DX-SSH-Raid-Groups-custom   | Contrôle de l'espace disques.                                              |
+| Raid-Groups   | HW-Storage-Fujitsu-Eternus-DX-SSH-Raid-Groups-custom   | Contrôle l'espace disque                                              |
 | Volume-Stats  | HW-Storage-Fujitsu-Eternus-DX-SSH-Stats-custom         | Contrôle de l'état général de la baie.                                              |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Fujitsu-Eternus-DX-SSH-custom** est utilisé.
