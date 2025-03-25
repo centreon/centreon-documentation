@@ -108,7 +108,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 To control your **EMC VPLEX**, the Rest API must be configured.
 
-The Centreon Pack supports the Rest APIv1 and APIv2. Services **Fans** and **Psus** are not supported by the Rest APIv2.
+The connector supports the Rest APIv1 and APIv2. The **Fans** and **Psus** services are not supported by the Rest APIv2.
 
 ## Installing the monitoring connector
 
