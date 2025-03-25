@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                       | Service Description                             |
 |:--------------|:-------------------------------------------------------|:------------------------------------------------|
-| Cpu           | HW-Storage-Fujitsu-Eternus-DX-SSH-Cpu-custom           | Check the rate of utilization of CPU of the bay |
+| Cpu           | HW-Storage-Fujitsu-Eternus-DX-SSH-Cpu-custom           | Check the CPU utilization rate of the bay |
 | Physical-Disk | HW-Storage-Fujitsu-Eternus-DX-SSH-Physical-Disk-custom | Check the state of the disks                    |
 | Port-Stats    | HW-Storage-Fujitsu-Eternus-DX-SSH-Port-Stats-custom    | Check the state of the ports                    |
 | Psu           | HW-Storage-Fujitsu-Eternus-DX-SSH-Psu-custom           | Check the state of the power supply             |
