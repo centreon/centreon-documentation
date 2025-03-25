@@ -333,8 +333,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--custommode='apiv1' \
 	--proto='https' \
 	--port='443' \
-	--vplex-username='' \
-	--vplex-password=''  \
+        --vplex-username='XXXX' \
+	--vplex-password='XXXX'  \
 	--filter-cluster-name='' \
 	--filter-volume-name='' \
 	--warning-health-status='' \

@@ -334,8 +334,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--custommode='apiv1' \
 	--proto='https' \
 	--port='443' \
-	--vplex-username='' \
-	--vplex-password=''  \
+	--vplex-username='XXXX' \
+	--vplex-password='XXXX'  \
 	--filter-cluster-name='' \
 	--filter-volume-name='' \
 	--warning-health-status='' \
