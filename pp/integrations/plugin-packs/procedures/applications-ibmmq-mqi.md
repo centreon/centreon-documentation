@@ -80,7 +80,7 @@ dnf install wget unzip gcc
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
 dnf install wget unzip gcc
