@@ -45,7 +45,8 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Certificates  | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom | Check the local certificates.                                                                                                                                 |
 | CPU-detailed  | OS-Windows-CPU-detailed-Centreon-Monitoring-Agent-custom | Check the detailed rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
-| Services      | OS-Windows-Services-Centreon-Monitoring-Agent-custom     | Check Windows services states                                                                                                                                   |
+| Eventlog      | OS-Windows-Eventlog-Centreon-Monitoring-Agent-custom     | Check event log errors                                                                                                                                        |
+| Services      | OS-Windows-Services-Centreon-Monitoring-Agent-custom     | Check Windows services states                                                                                                                                 |
 | Storage       | OS-Windows-Storage-Centreon-Monitoring-Agent-custom      | Check storage usages                                                                                                                                          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
@@ -64,6 +65,14 @@ Here is the list of services for this connector, detailing all metrics linked to
 |:-------------------------------------|:------|
 | certificates.detected.count          | count |
 | certificate#certificate.expires.days | d     |
+
+</TabItem>
+<TabItem value="CMA-Health" label="CMA-Health">
+
+| Metric   | Unit |
+|:---------|:-----|
+| runtime  | s    |
+| interval | s    |
 
 </TabItem>
 <TabItem value="CPU" label="CPU">
@@ -87,6 +96,14 @@ Here is the list of services for this connector, detailing all metrics linked to
  | *core_index*\~used#core.cpu.utilization.percentage          | %    |
 
 </TabItem>
+<TabItem value="Eventlog" label="Eventlog">
+
+| Metric         | Unit  |
+|:---------------|:------|
+| critical-count | count |
+| warning-count  | count |
+
+</TabItem>
 <TabItem value="Memory" label="Memory">
 
 | Metric                  | Unit |
@@ -106,6 +123,32 @@ Here is the list of services for this connector, detailing all metrics linked to
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
 
 No metrics for this service.
+
+</TabItem>
+<TabItem value="Services" label="Services">
+
+| Metric                    | Unit  |
+|:--------------------------|:------|
+| services.stopped.count    | count |
+| services.starting.count   | count |
+| services.stopping.count   | count |
+| services.running.count    | count |
+| services.continuing.count | count |
+| services.pausing.count    | count |
+| services.paused.count     | count |
+
+</TabItem>
+<TabItem value="Services-Auto" label="Services-Auto">
+
+| Metric                    | Unit  |
+|:--------------------------|:------|
+| services.stopped.count    | count |
+| services.starting.count   | count |
+| services.stopping.count   | count |
+| services.running.count    | count |
+| services.continuing.count | count |
+| services.pausing.count    | count |
+| services.paused.count     | count |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
@@ -285,12 +328,13 @@ This connector relies on an integration supported by Centreon Engine and does no
 </TabItem>
 <TabItem value="CMA-Health" label="CMA-Health">
 
-| Macro            | Description                                                                 | Default value | Mandatory |
-|:-----------------|:----------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGRUNTIME   | Warning threshold on runtime (duration of all checks)                       |               |           |
-| CRITICALRUNTIME  | Critical threshold on runtime (duration of all checks)                      |               |           |
-| WARNINGINTERVAL  | Warning threshold on interval (time between two execution of a same check)  |               |           |
-| CRITICALINTERVAL | Critical threshold on interval (time between two execution of a same check) |               |           |
+| Macro            | Description                                                  | Valeur par défaut | Obligatoire |
+|:-----------------|:-------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGRUNTIME   | Warning if a check duration is greater than this value (s)   |                   |             |
+| CRITICALRUNTIME  | Critical if a check duration is greater than this value (s)  |                   |             |
+| WARNINGINTERVAL  | Warning if a check interval is greater than this value (s)   |                   |             |
+| CRITICALINTERVAL | Critical if a check interval is greater than this value (s)  |                   |             |
+
 </TabItem>
 <TabItem value="CPU" label="CPU">
 
@@ -318,6 +362,25 @@ This connector relies on an integration supported by Centreon Engine and does no
 | CRITICALCORESYSTEM    | Threshold for critical status on core system usage in percentage    |               |           |
 | WARNINGAVERAGESYSTEM  | Threshold for warning status on average system usage in percentage  |               |           |
 | CRITICALAVERAGESYSTEM | Threshold for critical status on average system usage in percentage |               |           |
+
+</TabItem>
+<TabItem value="Eventlog" label="Eventlog">
+
+| Macro             | Description                                                                                                                                                   | Valeur par défaut                                           | Obligatoire |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:-----------:|
+| FILE              | Event log file to monitor                                                                                                                                     |                                                             |             |
+| FILTEREVENT       | Filter to apply on event log                                                                                                                                  | written > 60m and level in ('error', 'warning', 'critical') |             |
+| SCANRANGE         | Validity of events, can be s, second, m, minute, h, hour, d, day, w, week                                                                                     | 24h                                                         |             |
+| WARNINGSTATUS     | Filter to apply on event log to get warning events                                                                                                            | level = 'warning'                                           |             |
+| CRITICALSTATUS    | Filter to apply on event log to get critical events                                                                                                           | level in ('error', 'critical')                              |             |
+| WARNINGCOUNT      | Number of warning events to trigger a warning                                                                                                                 | 1                                                           |             |
+| CRITICALCOUNT     | Number of critical events to trigger a critical                                                                                                               | 1                                                           |             |
+| EMPTYSTATE        | Message to display when no event is found                                                                                                                     | Empty or no match for this filter                           |             |
+| OUTPUTSYNTAX      | Output format when status is not ok                                                                                                                           | {status}: {count} {problem_list                             |             |
+| OKSYNTAX          | Output format when status is ok                                                                                                                               | {status}: Event log seems fine                              |             |
+| EVENTDETAILSYNTAX | Output format for each event                                                                                                                                  | '{source} {id}'                                             |             |
+| UNIQUEINDEX       | Unique index for events, events are grouped by this index. For example is two events have the same provider and the same id, only latest is printed to output | {provider}{id}                                              |             |
+| VERBOSE           | Display all events in long plugins output format (one line per event)                                                                                         | true                                                        |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -358,40 +421,40 @@ This connector relies on an integration supported by Centreon Engine and does no
 </TabItem>
 <TabItem value="Services" label="Services">
 
-| Macro                | Description                                                                                                                                                    | Default value | Mandatory |
-|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| STARTAUTO            | If set true, activate a filter on services load automatically                                                                                                  | false         |           |
-| FILTERNAME           | Filter by service name (can be a regexp)                                                                                                                       | .*            |           |
-| EXCLUDENAME          | A list of services to ignore (can be a regexp)                                                                                                                 |               |           |
-| WARNINGSTATUS        | Regex to match service state that will trigger a warning (states are: stopped, start-pending, stop-pending, running, continue-pending, pause-pending, paused)  |               |           |
-| CRITICALSTATUS       | Regex to match service state that will trigger a critical (states are: stopped, start-pending, stop-pending, running, continue-pending, pause-pending, paused) |               |           |
-| WARNINGTOTALRUNNING  | Warning threshold on total-running                                                                                                                             |               |           |
-| CRITICALTOTALRUNNING | Critical threshold on total-running                                                                                                                            |               |           |
-| WARNINGTOTALDEAD     | Warning threshold on total-dead                                                                                                                                |               |           |
-| CRITICALTOTALDEAD    | Critical threshold on total-dead                                                                                                                               |               |           |
-| WARNINGTOTALEXITED   | Warning threshold on total-exited                                                                                                                              |               |           |
-| CRITICALTOTALEXITED  | Critical threshold on total-exited                                                                                                                             |               |           |
-| WARNINGTOTALFAILED   | Warning threshold on total-failed                                                                                                                              |               |           |
-| CRITICALTOTALFAILED  | Critical threshold on total-failed                                                                                                                             |               |           |
+| Macro                | Description                                                                                                                               | Valeur par défaut | Obligatoire |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| STARTAUTO            | Only services that start automatically will be counted                                                                                    | false             |             |
+| FILTERNAME           | Regex to filter service names                                                                                                             | .*                |             |
+| EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
+| FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
+| EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
+| WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
+| CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
+| WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
+| CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |                   |             |
+| WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |                   |             |
+| CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                   |             |
+| WARNINGTOTALSTOPPED  | Number of services in the stop state above which the service goes into the warning state                                                  |                   |             |
+| CRITICALTOTALSTOPPED | Nmber of services in the stop state above which the service goes into the critical state                                                  |                   |             |
 
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
 
-| Macro                | Description                                                                                                                                                    | Default value | Mandatory |
-|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| STARTAUTO            | If set true, activate a filter on services load automatically                                                                                                  | true          |           |
-| FILTERNAME           | Filter by service name (can be a regexp)                                                                                                                       | .*            |           |
-| EXCLUDENAME          | A list of services to ignore (can be a regexp)                                                                                                                 |               |           |
-| WARNINGSTATUS        | Regex to match service state that will trigger a warning (states are: stopped, start-pending, stop-pending, running, continue-pending, pause-pending, paused)  |               |           |
-| CRITICALSTATUS       | Regex to match service state that will trigger a critical (states are: stopped, start-pending, stop-pending, running, continue-pending, pause-pending, paused) |               |           |
-| WARNINGTOTALRUNNING  | Warning threshold on total-running                                                                                                                             |               |           |
-| CRITICALTOTALRUNNING | Critical threshold on total-running                                                                                                                            |               |           |
-| WARNINGTOTALDEAD     | Warning threshold on total-dead                                                                                                                                |               |           |
-| CRITICALTOTALDEAD    | Critical threshold on total-dead                                                                                                                               |               |           |
-| WARNINGTOTALEXITED   | Warning threshold on total-exited                                                                                                                              |               |           |
-| CRITICALTOTALEXITED  | Critical threshold on total-exited                                                                                                                             |               |           |
-| WARNINGTOTALFAILED   | Warning threshold on total-failed                                                                                                                              |               |           |
-| CRITICALTOTALFAILED  | Critical threshold on total-failed                                                                                                                             |               |           |
+| Macro                | Description                                                                                                                               | Valeur par défaut | Obligatoire |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| STARTAUTO            | Only services that start automatically will be counted                                                                                    | true              |             |
+| FILTERNAME           | Regex to filter service names                                                                                                             | .*                |             |
+| EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
+| FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
+| EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
+| WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
+| CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
+| WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
+| CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |                   |             |
+| WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |                   |             |
+| CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                   |             |
+| WARNINGTOTALSTOPPED  | Number of services in the stop state above which the service goes into the warning state                                                  |                   |             |
+| CRITICALTOTALSTOPPED | Nmber of services in the stop state above which the service goes into the critical state                                                  |                   |             |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
