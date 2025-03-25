@@ -5,7 +5,7 @@ title: Fujitsu Eternus DX
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Fujitsu Eternus DX**
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
