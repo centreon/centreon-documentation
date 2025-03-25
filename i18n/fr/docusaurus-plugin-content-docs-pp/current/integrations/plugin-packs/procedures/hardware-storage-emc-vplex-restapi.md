@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **EMC Vplex** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **EMC Vplex Rest API** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
