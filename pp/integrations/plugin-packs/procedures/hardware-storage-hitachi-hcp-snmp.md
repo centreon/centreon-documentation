@@ -59,8 +59,8 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                               | Description                                               |
 |:----------------------------------------|:----------------------------------------------------------|
-| HW-Storage-Hitachi-Hcp-SNMP-Node-Name   | Discover the disk partitions and monitor space occupation |
-| HW-Storage-Hitachi-Hcp-SNMP-Tenant-Name | Discover the disk partitions and monitor space occupation |
+| HW-Storage-Hitachi-Hcp-SNMP-Node-Name   | Discover nodes and monitor them |
+| HW-Storage-Hitachi-Hcp-SNMP-Tenant-Name | Discover tenants and monitor them |
 | HW-Storage-Hitachi-Hcp-SNMP-Volume-Name | Discover the disk partitions and monitor space occupation |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
@@ -110,8 +110,14 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To control your Hitachi HCP, the SNMP must be configured.
-(https://knowledge.hitachivantara.com/Documents/Storage/Content_Platform/9.0.x/Administering_HCP/System_monitoring/03_Configuring_SNMP)
+###SNMP Configuration
+The SNMP service must be configured and activated on the host. 
+Please refer to the [official documentation](https://knowledge.hitachivantara.com/Documents/Storage/Content_Platform/9.0.x/Administering_HCP/System_monitoring/03_Configuring_SNMP) from the constructor/editor. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
+
+###Network flow
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
