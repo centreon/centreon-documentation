@@ -28,8 +28,7 @@ Read-Only access.
 
 ### Troubleshooting
 
-Read [Troubleshooting
-SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).
+Read [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#dépannage-de-snmp).
 
 ## Centreon Configuration
 

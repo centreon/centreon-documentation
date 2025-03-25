@@ -534,6 +534,10 @@
                 },
                 {
                   "type": "doc",
+                  "id": "integrations/notifications/sms-notifications"
+                },
+                {
+                  "type": "doc",
                   "id": "integrations/notifications/slack-notifications"
                 },
                 {
@@ -1207,7 +1211,7 @@
             },
             {
               "type": "doc",
-              "id": "integrations/event-management/sc-opsgenie"
+              "id": "integrations/event-management/sc-opsgenie-events"
             },
             {
               "type": "doc",
