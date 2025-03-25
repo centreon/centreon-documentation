@@ -31,7 +31,7 @@ The connector brings the following service templates (sorted by the host templat
 | Port-Stats    | HW-Storage-Fujitsu-Eternus-DX-SSH-Port-Stats-custom    | Check the state of the ports                    |
 | Psu           | HW-Storage-Fujitsu-Eternus-DX-SSH-Psu-custom           | Check the state of the power supply             |
 | Raid-Groups   | HW-Storage-Fujitsu-Eternus-DX-SSH-Raid-Groups-custom   | Check the disk capacity                                                |
-| Volume-Stats  | HW-Storage-Fujitsu-Eternus-DX-SSH-Stats-custom         | Check global health of the bay.                                                |
+| Volume-Stats  | HW-Storage-Fujitsu-Eternus-DX-SSH-Stats-custom         | Check the global health of the bay                                                |
 
 > The services listed above are created automatically when the **HW-Storage-Fujitsu-Eternus-DX-SSH-custom** host template is used.
 
