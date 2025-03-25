@@ -28,7 +28,6 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias   | Service Template                                           | Service Description             |
 |:----------------|:-----------------------------------------------------------|:--------------------------------|
 | Hardware-Global | HW-Storage-EMC-Symmetrix-Dmx34-Hardware-Global-NRPE-custom | Check hardware components state |
-| Hardware-Global | HW-Storage-EMC-Symmetrix-Vmax-Hardware-Global-NRPE-custom  | Check hardware components state |
 
 > The services listed above are created automatically when the **HW-Storage-EMC-Symmetrix-Dmx34-NRPE-custom** host template is used.
 
@@ -37,7 +36,6 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                                           | Service Description             |
 |:----------------|:-----------------------------------------------------------|:--------------------------------|
-| Hardware-Global | HW-Storage-EMC-Symmetrix-Dmx34-Hardware-Global-NRPE-custom | Check hardware components state |
 | Hardware-Global | HW-Storage-EMC-Symmetrix-Vmax-Hardware-Global-NRPE-custom  | Check hardware components state |
 
 > The services listed above are created automatically when the **HW-Storage-EMC-Symmetrix-Vmax-NRPE-custom** host template is used.
