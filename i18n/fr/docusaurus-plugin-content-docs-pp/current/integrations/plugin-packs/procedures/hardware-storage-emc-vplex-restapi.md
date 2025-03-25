@@ -109,7 +109,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 Afin de contrôler votre équipement **EMC VPLEX**, l'API Rest doit être configurée.
 
-Le Pack Centreon supporte l'APIv1 et l'APIv2. Les services **Fans** et **Psus** ne sont pas fonctionnelles avec l'APIv2 (non supporté par l'APIv2).
+Le connecteur supporte l'APIv1 et l'APIv2. Les services **Fans** et **Psus** ne sont pas fonctionnels avec l'APIv2 (non supportés par l'APIv2).
 
 ## Installer le connecteur de supervision
 
