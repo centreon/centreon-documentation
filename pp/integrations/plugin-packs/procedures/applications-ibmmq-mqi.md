@@ -54,10 +54,68 @@ It brings the following Service Templates:
 
 ## Prerequisites
 
-To take advantage of this Monitoring Pack, you must deploy the Linux MQ client 
-library on the Poller expected to monitor IBM MQ servers. Please refer to the 
-official IBM documentation:
-* https://www.ibm.com/docs/en/ibm-mq/8.0?topic=server-installing-mq-linux. 
+### Dependencies
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install wget unzip gcc
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install wget unzip gcc
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install wget unzip gcc make
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install wget unzip gcc
+```
+
+</TabItem>
+</Tabs>
+
+### IBM MQ Client
+
+To take advantage of this Monitoring Pack, you must deploy the Linux MQ client library on the Poller expected to monitor IBM MQ servers. 
+Please refer to the official IBM documentation:
+* https://www.ibm.com/docs/en/ibm-mq/8.0?topic=server-installing-mq-linux.
+
+### Perl library for IBM MQ
+
+As **root**, run:
+
+```bash
+cd /usr/local/src 
+wget https://github.com/wphillipmoore/perl5-MQSeries/archive/refs/heads/master.zip
+unzip master.zip
+cd perl5-MQSeries-master
+perl Makefile.PL
+```
+
+Compile the library (there should be no error, but warnings are possible):
+
+```bash
+make
+```
+
+Then install it:
+
+```bash
+make install
+```
 
 ## Setup
 

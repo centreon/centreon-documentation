@@ -54,8 +54,64 @@ Il apporte les Modèles de Service suivants :
 
 ## Prérequis
 
-Afin de pouvoir exploiter ce Pack, vous devez installer le client IBM MQ pour 
-Linux. Une procédure est disponible ici: https://www.ibm.com/docs/en/ibm-mq/8.0?topic=server-installing-mq-linux. 
+### Dépendances
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install wget unzip gcc
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install wget unzip gcc
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install wget unzip gcc make
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install wget unzip gcc
+```
+
+</TabItem>
+</Tabs>
+
+### Client IBM MQ
+
+Afin de pouvoir exploiter ce Pack, vous devez installer le client IBM MQ pour Linux. 
+Une procédure est disponible ici : 
+* https://www.ibm.com/docs/en/ibm-mq/8.0?topic=server-installing-mq-linux.
+
+### Bibliothèque Perl pour IBM MQ
+
+En tant que **root** exécuter :
+
+```bash
+cd /usr/local/src 
+wget https://github.com/wphillipmoore/perl5-MQSeries/archive/refs/heads/master.zip
+unzip master.zip
+cd perl5-MQSeries-master
+perl Makefile.PL
+```
+Compiler la bibliothèque (il ne devrait pas y avoir d'erreur, mais des avertissements sont possibles) :
+```bash
+make
+```
+Puis l'installer :
+```bash
+make install
+```
 
 ## Installation
 
