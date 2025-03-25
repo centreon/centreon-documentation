@@ -86,7 +86,7 @@ yum install centreon-pack-applications-wallix-bastion-snmp
 * Appliquez le Modèle d'Hôte *App-Wallix-Bastion-SNMP-custom*
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3). 
 
 | Mandatory   | Name                    | Description                       |
 | :---------- | :---------------------- | :---------------------------------|
@@ -132,4 +132,4 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ## Diagnostique
 
-[Diagnostique des plugins](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp)
+[Diagnostique des plugins](../getting-started/how-to-guides/troubleshooting-plugins.md#dépannage-de-snmp)

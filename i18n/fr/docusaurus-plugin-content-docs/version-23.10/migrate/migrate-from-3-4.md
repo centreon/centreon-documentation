@@ -17,6 +17,12 @@ et disposant des prérequis suivants :
 | Centreon Broker | 3.0.x   |
 | Centreon Engine | 1.8.x   |
 
+Avant toute chose, effectuez une sauvegarde de l’ensemble des serveurs de votre plateforme :
+
+- Serveur Centreon central,
+- Serveur de gestion de base de données.
+
+Si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les avant de mettre à jour Centreon](../alerts-notifications/ticketing-install.md#sauvegarder-votre-configuration-personnalisée-de-fournisseur-openticket).
 
 ## Migration
 

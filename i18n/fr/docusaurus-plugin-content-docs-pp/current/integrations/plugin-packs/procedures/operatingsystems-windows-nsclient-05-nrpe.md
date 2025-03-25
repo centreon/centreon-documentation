@@ -1,6 +1,6 @@
 ---
 id: operatingsystems-windows-nsclient-05-nrpe
-title: Windows NRPE 0.5
+title: Windows NSClient 0.5 NRPE
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -201,4 +201,5 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 
 ## Dépannage
 
-Veuillez trouver la documentation de dépannage pour les contrôles NRPE dans le [chapitre dédié](../getting-started/how-to-guides/troubleshooting-plugins.md#nrpe-checks) de la documentation Centreon.
+Veuillez trouver la documentation de dépannage pour les contrôles NRPE dans le 
+[chapitre dédié](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-nrpe) de la documentation Centreon.

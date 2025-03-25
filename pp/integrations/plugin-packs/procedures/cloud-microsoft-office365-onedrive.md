@@ -90,6 +90,9 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
 **Configuration > Monitoring Connector Manager** menu.
@@ -224,7 +227,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 | CRITICALTOTALUSAGEINACTIVE     | Critical threshold                                                                                                                               |                     |             |
 | WARNINGUSAGE                   | Warning threshold                                                                                                                                |                     |             |
 | CRITICALUSAGE                  | Critical threshold                                                                                                                               |                     |             |
-| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                     |             |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                     |             |
 
 </TabItem>
 </Tabs>
