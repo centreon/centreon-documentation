@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **EMC
 
 ### Templates
 
-The Monitoring Connector **EMC Vplex** brings a host template:
+The Monitoring Connector **EMC Vplex Rest API** brings a host template:
 
 * **HW-Storage-EMC-Vplex-Restapi-custom**
 
