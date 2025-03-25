@@ -196,8 +196,8 @@ yum install centreon-plugin-Hardware-Storage-Emc-Xtremio-Restapi
 
 | Macro           | Description      | Valeur par défaut | Obligatoire |
 |:----------------|:-----------------|:------------------|:-----------:|
-| XTREMIOUSERNAME | Xtremio username |                   |             |
-| XTREMIOPASSWORD | Xtremio password |                   |             |
+| XTREMIOUSERNAME | Xtremio username |                   |      X      |
+| XTREMIOPASSWORD | Xtremio password |                   |       X     |
 | APIEXTRAOPTS    |                  |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -270,19 +270,19 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_emc_xtremio.pl \
-	--plugin storage::emc::xtremio::restapi::plugin \
-	--custommode xtremioapi \
-	--mode ssds-iops \
-	--hostname 10.0.0.1 \
-	--xtremio-username 'xxxxx' \
-	--xtremio-password 'xxxxx'  \
-	--filter-name '' \
-	--warning-read  \
-	--critical-read  \
-	--warning-write  \
-	--critical-write  \
-	--warning-global  \
-	--critical-global  \
+	--plugin=storage::emc::xtremio::restapi::plugin \
+	--custommode=xtremioapi \
+	--mode=ssds-iops \
+	--hostname='10.0.0.1' \
+	--xtremio-username='xxxxx' \
+	--xtremio-password='xxxxx'  \
+	--filter-name='' \
+	--warning-read='' \
+	--critical-read='' \
+	--warning-write='' \
+	--critical-write='' \
+	--warning-global='' \
+	--critical-global='' \
 	--verbose
 ```
 

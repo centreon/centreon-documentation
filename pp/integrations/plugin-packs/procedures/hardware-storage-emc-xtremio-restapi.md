@@ -197,8 +197,8 @@ yum install centreon-plugin-Hardware-Storage-Emc-Xtremio-Restapi
 
 | Macro           | Description      | Default value     | Mandatory   |
 |:----------------|:-----------------|:------------------|:-----------:|
-| XTREMIOUSERNAME | Xtremio username |                   |             |
-| XTREMIOPASSWORD | Xtremio password |                   |             |
+| XTREMIOUSERNAME | Xtremio username |                   |     X       |
+| XTREMIOPASSWORD | Xtremio password |                   |     X       |
 | APIEXTRAOPTS    |                  |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -270,18 +270,18 @@ is able to monitor a resource using a command like this one (replace the sample 
 ```bash
 /usr/lib/centreon/plugins/centreon_emc_xtremio.pl \
 	--plugin storage::emc::xtremio::restapi::plugin \
-	--custommode xtremioapi \
-	--mode ssds-iops \
-	--hostname 10.0.0.1 \
-	--xtremio-username 'xxxxx' \
-	--xtremio-password 'xxxxx'  \
-	--filter-name '' \
-	--warning-read  \
-	--critical-read  \
-	--warning-write  \
-	--critical-write  \
-	--warning-global  \
-	--critical-global  \
+	--custommode=xtremioapi \
+	--mode=ssds-iops \
+	--hostname='10.0.0.1' \
+	--xtremio-username='xxxxx' \
+	--xtremio-password='xxxxx'  \
+	--filter-name='' \
+	--warning-read='' \
+	--critical-read='' \
+	--warning-write='' \
+	--critical-write='' \
+	--warning-global='' \
+	--critical-global='' \
 	--verbose
 ```
 
