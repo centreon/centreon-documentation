@@ -88,6 +88,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Detections" label="Detections">
 
+> Cette branche d'OID n'existe pas nativement et n'est créée qu'à la suite d'une première détection d'éléments.
+Vous pouvez relancer la détection pour obtenir les métriques.
+
 | Nom                                               | Unité        |
 |:--------------------------------------------------|:-------------|
 | malwares.detected.persecond                       | detections/s |
