@@ -30,7 +30,7 @@ Le support pour les configurations HA n'est pas inclus dans le support standard 
 La HA peut être configurée sur :
 
 * Vos serveurs centraux (qui incluent automatiquement BAM).
-* Un serveur Centreon MAP : veuillez contacter votre représentant commercial Centreon si vous souhaitez implémenter cette solution.
+<!--* Un serveur Centreon MAP : veuillez contacter votre représentant commercial Centreon si vous souhaitez implémenter cette solution.-->
 * Il n'est pas nécessaire de mettre en place une redondance sur un serveur MBI car toutes les données de MBI sont déjà présentes dans la base de données connectée au serveur central.
 
 La HA n'est pas supportée sur les collecteurs.

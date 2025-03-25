@@ -30,7 +30,7 @@ Support for HA setups is not included in the Centreon standard support. If you w
 HA can be set up on:
 
 * Your central servers (that includes BAM automatically).
-* A Centreon MAP server: please contact your Centreon sales representative if you want to implement this.
+<!--* A Centreon MAP server: please contact your Centreon sales representative if you want to implement this.-->
 * It is unnecessary to set up redundancy on an MBI server as all of MBI's data is already present on the database connected to the central server.
 
 HA is not supported on pollers.

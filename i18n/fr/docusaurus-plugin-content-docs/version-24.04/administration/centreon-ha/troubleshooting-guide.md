@@ -8,35 +8,53 @@ import TabItem from '@theme/TabItem';
 ## Une "Failed action" est affichée dans `crm_mon` mais la ressource semble fonctionner correctement
 
 ```bash
+Cluster name: centreon_cluster
+
+WARNINGS:
+Following resources have been moved and their move constraints are still in place: 'centreon'
+Run 'pcs constraint location' or 'pcs resource clear ' to view or remove the constraints, respectively
+
 Cluster Summary:
-  * Stack: corosync
-  * Current DC: @CENTRAL_MASTER_NAME@ (version 2.0.5-9.0.1.el8_4.1-ba59be7122) - partition with quorum
-  * Last updated: Wed Sep 15 16:35:47 2021
-  * Last change:  Wed Sep 15 10:41:50 2021 by root via crm_attribute on @CENTRAL_MASTER_NAME@
-  * 2 nodes configured
-  * 14 resource instances configured
+* Stack: corosync (Pacemaker is running)
+* Current DC: @CENTRAL_NODE2_NAME@ (version 2.1.6-9.1.el8_9-6fdc9deea29) - MIXED-VERSION partition with quorum
+* Last updated: Tue Jun 4 05:41:08 2024 on @CENTRAL_NODE2_NAME@
+* Last change: Tue Jun 4 05:36:52 2024 by root via crm_resource on @CENTRAL_NODE1_NAME@
+* 4 nodes configured
+* 21 resource instances configured
+
 Node List:
-  * Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+* Online: [ @CENTRAL_NODE1_NAME@ @CENTRAL_NODE2_NAME@ @DATABASE_NODE1_NAME@ @DATABASE_NODE2_NAME@ ]
+
 Full List of Resources:
   * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
-    * Masters: [ @CENTRAL_MASTER_NAME@ ]
-    * Slaves: [ @CENTRAL_SLAVE_NAME@ ]
+    * Masters: [ @DATABASE_NODE1_NAME@ ]
+    * Slaves: [ @DATABASE_NODE2_NAME@ ]
+    * Stopped: [ @CENTRAL_NODE1_NAME@ @CENTRAL_NODE2_NAME@ ]
   * Clone Set: php-clone [php]:
-    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+    * Started: [ @CENTRAL_NODE1_NAME@ @CENTRAL_NODE2_NAME@ ]
+    * Stopped: [ @DATABASE_NODE1_NAME@ @DATABASE_NODE2_NAME@ ]
   * Clone Set: cbd_rrd-clone [cbd_rrd]:
-    * Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+    * Started: [ @CENTRAL_NODE1_NAME@ @CENTRAL_NODE2_NAME@ ]
+    * Stopped: [ @DATABASE_NODE1_NAME@ @DATABASE_NODE2_NAME@ ]
+    * vip_mysql (ocf::heartbeat:IPaddr2): Started @DATABASE_NODE1_NAME@
   * Resource Group: centreon:
-    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
-    * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
-    * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
-    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
-    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
-    * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
-    * centreontrapd     (systemd:centreontrapd):         Stopped
-    * snmptrapd (systemd:snmptrapd):     Stopped
+    * vip (ocf::heartbeat:IPaddr2): Started @CENTRAL_NODE2_NAME@
+    * http (systemd:httpd): Started @CENTRAL_NODE2_NAME@
+    * gorgone (systemd:gorgoned): Started @CENTRAL_NODE2_NAME@
+    * centreon_central_sync (systemd:centreon-central-sync): Started @CENTRAL_NODE2_NAME@
+    * cbd_central_broker (systemd:cbd-sql): Started @CENTRAL_NODE2_NAME@
+    * centengine (systemd:centengine): Started @CENTRAL_NODE2_NAME@
+    * centreontrapd (systemd:centreontrapd): Started @CENTRAL_NODE2_NAME@
+    * snmptrapd (systemd:snmptrapd): Started @CENTRAL_NODE2_NAME@
+
+Daemon Status:
+corosync: active/enabled
+pacemaker: active/enabled
+pcsd: active/enabled
+
 Failed Resource Actions:
-* centreontrapd_start_0 on @CENTRAL_MASTER_NAME@ 'not running' (7): call=82, status=complete, exitreason='',
-    last-rc-change='Wed Sep 15 13:42:19 2021', queued=1ms, exec=2122ms
+* centreontrapd_start_0 on @CENTRAL_NODE1_NAME@ 'not running' (7): call=82, status=complete, exitreason='',
+last-rc-change='Tue Jun 4 11:00:00 2024', queued=1ms, exec=2122ms
 ```
 
 ### Solution
@@ -82,50 +100,66 @@ pcs resource cleanup centreontrapd
 Si la situation suivante se produit après un basculement, qu'il s'agisse d'un basculement manuel ou d'un arrêt du serveur :
 
 ```bash
-Stack: corosync
-Current DC: @CENTRAL_SLAVE_NAME@ (version 1.1.20-5.el8_7.2-3c4c782f70) - partition with quorum
-Last updated: Thu Feb 20 14:48:12 2020
-Last change: Thu Feb 20 14:47:47 2020 by root via crm_resource on @CENTRAL_MASTER_NAME@
+* Stack: corosync (Pacemaker is running)
+  * Current DC: @CENTRAL_NODE1_NAME@ (version 2.1.8-3.el9-3980678f0) - partition with quorum
+  * Last updated: Fri Mar 21 16:36:16 2025 on @CENTRAL_NODE1_NAME@
+  * Last change:  Thu Mar 13 11:30:16 2025 by hacluster via hacluster on @CENTRAL_NODE1_NAME@
+  * 4 nodes configured
+  * 21 resource instances configured
 
-2 nodes configured
-14 resources configured
+Node List:
+  * Online: [ @CENTRAL_NODE1_NAME@ @CENTRAL_NODE2_NAME@ @DATABASE_NODE1_NAME@ @DATABASE_NODE2_NAME@ ]
 
-Online: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-
-Active resources:
-
- Master/Slave Set: ms_mysql-clone [ms_mysql]
-     Slaves: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: php-clone [php]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
+Active Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * Promoted: [ @DATABASE_NODE1_NAME@ ]
+    * Unpromoted: [ @DATABASE_NODE2_NAME@ ]
+  * vip_mysql   (ocf:heartbeat:IPaddr2):         Started @DATABASE_NODE1_NAME@
+  * Clone Set: php-clone [php]:
+    * Started: [ @CENTRAL_NODE1_NAME@ @CENTRAL_NODE2_NAME@ ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Started: [ @CENTRAL_NODE1_NAME@ @CENTRAL_NODE2_NAME@ ]    
 ```
 
-Aucune erreur n'est affichée, mais le groupe **centreon** n'apparaît plus dans la sortie et aucune de ses ressources n'est démarrée. Cela se produit surtout lorsqu'il y a eu plusieurs basculements (`pcs resource move ....`) sans supprimer la contrainte.
+Aucune erreur n'est affichée, mais le groupe de ressources **centreon** n'apparaît plus dans la sortie et aucune de ses ressources n'est démarrée. Cela se produit surtout lorsqu'il y a eu plusieurs basculements (`pcs resource move ....`) sans supprimer la contrainte.
 
 ### Solution
 
 Pour vérifier si certaines contraintes sont actives, exécutez la commande suivante :
 
 ```bash
-pcs constraint config
+pcs constraint
 ```
 
 Le résultat sera le suivant :
 
 ```bash
 Location Constraints:
-    Disabled on: @CENTRAL_SLAVE_NAME@ (score:-INFINITY) (role: Started)
-    Disabled on: @CENTRAL_MASTER_NAME@ (score:-INFINITY) (role: Started)
+Resource: cbd_rrd-clone
+Disabled on:
+Node: @DATABASE_NODE1_NAME@ (score:-INFINITY)
+Node: @DATABASE_NODE2_NAME@ (score:-INFINITY)
+Resource: centreon
+Disabled on:
+Node: @CENTRAL_NODE1_NAME@ (score:-INFINITY)
+Node: @CENTRAL_NODE2_NAME@ (score:-INFINITY)
+Node: @DATABASE_NODE1_NAME@ (score:-INFINITY)
+Node: @DATABASE_NODE2_NAME@ (score:-INFINITY)
+Resource: ms_mysql-clone
+Disabled on:
+Node: @CENTRAL_NODE1_NAME@ (score:-INFINITY)
+Node: @CENTRAL_NODE2_NAME@ (score:-INFINITY)
+Resource: php-clone
+Disabled on:
+Node: @DATABASE_NODE1_NAME@ (score:-INFINITY)
+Node: @DATABASE_NODE2_NAME@ (score:-INFINITY)
 Ordering Constraints:
 Colocation Constraints:
-  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
-  ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
-Ticket Constraints:
+vip_mysql with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
+ms_mysql-clone with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 ```
 
-Nous remarquons que le groupe **centreon** n'est autorisé à démarrer sur aucun nœud.
+Nous remarquons que le groupe de ressources **centreon** n'est autorisé à démarrer sur aucun nœud.
 
 Pour libérer le groupe de ressources de ses contraintes, exécutez la commande suivante (EL8 et Debian) :
 

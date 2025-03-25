@@ -27,7 +27,7 @@ La commande doit afficher un retour semblable à celui-ci :
 
 ## Ajout du collecteur à la configuration
 
-* Ajouter le collecteur de façon "standard" [en suivant cette procédure avec le protocole ZeroMQ](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
+* Ajouter le collecteur de façon "standard" [en suivant cette procédure avec le protocole ZeroMQ](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md). Attention à bien déclarer la VIP comme l'adresse du serveur central auquel le collecteur sera rattaché.
 
 * Le fichier `/etc/centreon-gorgone/config.d/40-gorgoned.yaml` doit avoir été réécrit et doit contenir des lignes de la forme suivante :
 

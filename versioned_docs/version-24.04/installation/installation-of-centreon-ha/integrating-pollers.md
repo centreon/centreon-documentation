@@ -25,7 +25,7 @@ The command output should look like this:
 
 * You must have two keys; one for each central node. Copy the last part of the printed lines (what is displayed after `JWK thumbprint:`) and keep it for [later](#configuring-gorgone-on-the-poller).
 
-## Adding the Poller to the configuration
+## Adding the poller to the configuration
 
 * Add your poller to the configuration "the standard way" [following these steps with the ZeroMQ protocol](https://docs.centreon.com/docs/monitoring/monitoring-servers/add-a-poller-to-configuration/). Make sure you declare the VIP as the address of the central server the poller will be attached to.
 
