@@ -27,8 +27,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                                      | Service Description                                                          |
 |:---------------|:------------------------------------------------------|:-----------------------------------------------------------------------------|
-| Scrape-Metrics | App-Monitoring-Openmetrics-Scrape-Metrics-File-custom | Allows to scrape metrics from an OpenMetrics formatted file on a remote host |
-| Scrape-Metrics | App-Monitoring-Openmetrics-Scrape-Metrics-Web-custom  | Allows to scrape metrics from a web page exposing OpenMetrics                |
+| Scrape-Metrics | App-Monitoring-Openmetrics-Scrape-Metrics-File-custom | Scrapes metrics from an OpenMetrics formatted file on a remote host |
+| Scrape-Metrics | App-Monitoring-Openmetrics-Scrape-Metrics-Web-custom  | Scrapes metrics from a web page exposing OpenMetrics                |
 
 > The services listed above are created automatically when the **App-Monitoring-Openmetrics-File-custom** host template is used.
 
@@ -37,8 +37,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                                      | Service Description                                                          |
 |:---------------|:------------------------------------------------------|:-----------------------------------------------------------------------------|
-| Scrape-Metrics | App-Monitoring-Openmetrics-Scrape-Metrics-File-custom | Allows to scrape metrics from an OpenMetrics formatted file on a remote host |
-| Scrape-Metrics | App-Monitoring-Openmetrics-Scrape-Metrics-Web-custom  | Allows to scrape metrics from a web page exposing OpenMetrics                |
+| Scrape-Metrics | App-Monitoring-Openmetrics-Scrape-Metrics-File-custom | Scrapes metrics from an OpenMetrics formatted file on a remote host |
+| Scrape-Metrics | App-Monitoring-Openmetrics-Scrape-Metrics-Web-custom  | Scrapes metrics from a web page exposing OpenMetrics                |
 
 > The services listed above are created automatically when the **App-Monitoring-Openmetrics-Web-custom** host template is used.
 
@@ -52,7 +52,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Scrape-Metrics*" label="Scrape-Metrics*">
 
-The values of the metrics collected depend on your Openmetrics equipment and the filters you choose.
+The values of the metrics collected depend on your Openmetrics device and the filters you choose.
 
 </TabItem>
 </Tabs>

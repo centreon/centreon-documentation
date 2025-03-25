@@ -74,7 +74,7 @@ OpenMetrics (généralement le port `80` pour `HTTP` ou `443` pour `HTTPS`).
 
 3. Authentification
 Si l'endpoint OpenMetrics nécessite une authentification (par exemple, un token ou des identifiants HTTP Basic), 
-vous devez configurer ces informations dans Centreon. Stockez les credentials dans les macros de l’hôte.
+vous devez configurer ces informations dans Centreon. Stockez les informations de connexion dans les macros de l’hôte.
 
 ## Installer le connecteur de supervision
 
