@@ -29,7 +29,6 @@ Le connecteur apporte les modèles de service suivants
 | Alias           | Modèle de service                                                        | Description                                                    |
 |:----------------|:-------------------------------------------------------------------------|:---------------------------------------------------------------|
 | Hardware-Global | HW-Storage-EMC-Symmetrix-Dmx34-Hardware-Global-NSClient05-Restapi-custom | Contrôle permettant de vérifier l'état des composants matériels |
-| Hardware-Global | HW-Storage-EMC-Symmetrix-Vmax-Hardware-Global-NSClient05-Restapi-custom  | Contrôle permettant de vérifier l'état des composants matériel |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-EMC-Symmetrix-Dmx34-NSClient-05-Restapi-custom** est utilisé.
 
@@ -38,7 +37,6 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                                                        | Description                                                    |
 |:----------------|:-------------------------------------------------------------------------|:---------------------------------------------------------------|
-| Hardware-Global | HW-Storage-EMC-Symmetrix-Dmx34-Hardware-Global-NSClient05-Restapi-custom | Contrôle permettant de vérifier l'état des composants matériels |
 | Hardware-Global | HW-Storage-EMC-Symmetrix-Vmax-Hardware-Global-NSClient05-Restapi-custom  | Contrôle permettant de vérifier l'état des composants matériels |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-EMC-Symmetrix-Vmax-NSClient-05-Restapi-custom** est utilisé.
