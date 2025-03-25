@@ -15,7 +15,7 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **EMC Vplex** apporte un modèle d'hôte :
+Le connecteur de supervision **EMC Vplex Rest API** apporte un modèle d'hôte :
 
 * **HW-Storage-EMC-Vplex-Restapi-custom**
 
