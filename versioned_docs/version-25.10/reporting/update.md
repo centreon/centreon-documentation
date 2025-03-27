@@ -12,6 +12,8 @@ Centreon MBI is updated in two steps:
 
 ## Update the extension interface
 
+> Please ensure that the ETL process has been completed before updating the extension.
+
 1. Update the package, run the following commands:
 
 <Tabs groupId="sync">
@@ -47,10 +49,16 @@ Update button to update the extension and the widgets.
 
 ## Update the reporting server
 
-Connect to your reporting server and stop the scheduler service (CBIS):
+Connect to your reporting server and stop the scheduler service **CBIS**:
 
 ```shell
 systemctl stop cbis
+```
+
+Then stop **gorgoned**:
+
+```shell
+systemctl stop gorgoned
 ```
 
 Then run the following commands: :
@@ -82,10 +90,16 @@ apt --only-upgrade install centreon-bi\*
 </TabItem>
 </Tabs>
 
-Start the scheduler service:
+Start the scheduler service **CBIS**:
 
 ```shell
 systemctl start cbis
+```
+
+Then start **gorgoned**:
+
+```shell
+systemctl start gorgoned
 ```
 
 MBI is now updated.
