@@ -53,7 +53,40 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-[Install the JMeter software](https://jmeter.apache.org/usermanual/get-started.html#install) on the poller(s) that will run the plugin. The plugin uses the `jmeter` command to execute the scenarios.
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+[Install the JMeter software](https://jmeter.apache.org/usermanual/get-started.html#install) on the poller(s) that will run the plugin.  
+You will need to specify the path to the JMeter executable in the **JMETERCOMMANDPATH** macro.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+[Install the JMeter software](https://jmeter.apache.org/usermanual/get-started.html#install) on the poller(s) that will run the plugin.  
+You will need to specify the path to the JMeter executable in the **JMETERCOMMANDPATH** macro.
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+Install the JMeter software on the poller(s) that will run the plugin.
+To do this, two methods are possible:
+
+1. Install JMeter from the official repositories:
+```bash
+apt install jmeter
+```
+
+2. Download JMeter from the official website [JMeter](https://jmeter.apache.org/download_jmeter.cgi) and install it manually.
+In this case, you will need to specify the path to the JMeter executable in the **JMETERCOMMANDPATH** macro.
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+[Install the JMeter software](https://jmeter.apache.org/usermanual/get-started.html#install) on the poller(s) that will run the plugin.  
+You will need to specify the path to the JMeter executable in the **JMETERCOMMANDPATH** macro.
+
+</TabItem>
+</Tabs>
 
 ## Installing the monitoring connector
 

@@ -54,7 +54,40 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-[Installez le logiciel JMeter](https://jmeter.apache.org/usermanual/get-started.html#install) sur le ou les collecteurs qui exécuteront le plugin. Le plugin utilise la commande `jmeter` pour exécuter les scénarios.
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+[Installez le logiciel JMeter](https://jmeter.apache.org/usermanual/get-started.html#install) sur le ou les collecteurs qui exécuteront le plugin.  
+Vous devrez indiquer le chemin d'accès à l'exécutable JMeter dans la macro **JMETERCOMMANDPATH**.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+[Installez le logiciel JMeter](https://jmeter.apache.org/usermanual/get-started.html#install) sur le ou les collecteurs qui exécuteront le plugin.  
+Vous devrez indiquer le chemin d'accès à l'exécutable JMeter dans la macro **JMETERCOMMANDPATH**.
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+Installez le logiciel JMeter sur le ou les collecteurs qui exécuteront le plugin.
+Pour cela 2 méthodes sont possibles :
+
+1. Installer JMeter depuis les dépôts officiels :
+```bash
+apt install jmeter
+```
+
+2. Télécharger JMeter depuis le site officiel [JMeter](https://jmeter.apache.org/download_jmeter.cgi) et l'installer manuellement.
+Vous devrez dans ce cas indiquer le chemin d'accès à l'exécutable JMeter dans la macro **JMETERCOMMANDPATH**.
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+[Installez le logiciel JMeter](https://jmeter.apache.org/usermanual/get-started.html#install) sur le ou les collecteurs qui exécuteront le plugin.  
+Vous devrez indiquer le chemin d'accès à l'exécutable JMeter dans la macro **JMETERCOMMANDPATH**.
+
+</TabItem>
+</Tabs>
 
 ## Installer le connecteur de supervision
 
