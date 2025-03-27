@@ -89,6 +89,32 @@ apt --only-upgrade install centreon-bi\*
 </TabItem>
 </Tabs>
 
+Vous devez également mettre à jour Centreon Gorgone :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-gorgone\*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon-gorgone\*
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt --only-upgrade install centreon-gorgone\*
+```
+
+</TabItem>
+</Tabs>
+
 Enfin, redémarrez le service d'ordonnancement **CBIS** :
 
 ```shell
