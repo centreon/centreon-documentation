@@ -17,7 +17,7 @@ Tous les éléments du cluster doivent être supervisés par un collecteur, et n
     * le [connecteur de supervision Centreon HA](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-ha), afin de contrôler les services de clustering.
 * Créez un hôte par collecteur et supervisez-les avec le [connecteur de supervision Centreon Poller](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-poller).
 * Créez un hôte par base de données et supervisez-les avec le [connecteur de supervision Centreon Database](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-database).
-* SUpervisez le quorum device:
+* Supervisez le quorum device:
    * si votre quorum device est un de vos collecteurs, créez un service avec un nom comme **proc-corosync-qnetd** et appliquez-lui le modèle de service **App-Monitoring-Centreon-HA-Process-corosync-qnetd-custom**.
    * si votre quorum device est hébergé sur un autre serveur, supervisez son système avec le [connecteur de supervision Linux SNMP](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp), puis ajoutez-y le service **proc-corosync-qnetd** mentionné ci-dessus.
 

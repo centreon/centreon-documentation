@@ -72,7 +72,7 @@ Les connecteurs pour lesquels une mise à jour est disponible sont affichés ave
 
 ## Installation automatique des plugins
 
-À la page **Configuration > Gestionnaire de connecteurs de supervision**, si **Installation automatique des plugins** est à **ON**, les plugins seront mis à jour automatiquement lorsque vous déploierez la configuration d'un collecteur qui supervise un hôte ou un service qui utilise ce plugin.
+À la page **Configuration > Connecteurs > Connecteurs de supervision**, si **Installation automatique des plugins** est à **ON**, les plugins seront mis à jour automatiquement lorsque vous déploierez la configuration d'un collecteur qui supervise un hôte ou un service qui utilise ce plugin.
 
 ## Types de licences disponibles sur OnPrem et Cloud
 
