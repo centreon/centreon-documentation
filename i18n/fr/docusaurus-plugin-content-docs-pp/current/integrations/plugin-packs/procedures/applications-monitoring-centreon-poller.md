@@ -97,7 +97,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### SNMP
 
-SNMP doit être configuré sur chaque collecteur supervisé. Vous pouvez vous aider de [cette documentation](operatingsystems-linux-snmp.md#prerequis) pour mettre en place rapidement une configuration SNMP simple. 
+SNMP doit être configuré sur chaque collecteur supervisé. Vous pouvez vous aider de [cette documentation](operatingsystems-linux-snmp.md#prérequis) pour mettre en place rapidement une configuration SNMP simple. 
 
 ### Échange de clef SSH
 
@@ -124,6 +124,8 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_POLLER>
 ## Installer le connecteur de supervision
 
 ### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.

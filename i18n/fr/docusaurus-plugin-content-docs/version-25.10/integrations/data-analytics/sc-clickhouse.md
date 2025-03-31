@@ -9,8 +9,8 @@ import TabItem from '@theme/TabItem';
 ## Avant de commencer
 
 - Dans la plupart des cas, vous enverrez les données depuis le serveur central. Il est également possible de les envoyer depuis un serveur distant ou un collecteur (par exemple si vous voulez éviter que le serveur central ne représente un point de défaillance unique, ou bien si vous êtes un MSP et vous installez le stream connector sur un collecteur ou un serveur distant dans l'infratructure de votre client).
-- Par défaut, le stream connector Clickhouse envoie des métriques des évènements Broker [**host_status**](../../developer/developer-broker-mapping.md#host-status) et [**service_status**](../../developer/developer-broker-mapping.md#service-status). Ces métriques sont contenues dans le champ **perf_data** des évènements. Le format des évènements est décrit **[ici](#event-format)**.
-- Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres dédiés vous permettent de [ne pas envoyer certains évènements](#filtering-or-adapting-the-data-you-want-to-send-to-clickhouse).
+- Par défaut, le stream connector Clickhouse envoie des métriques des évènements Broker [**host_status**](../../developer/developer-broker-mapping.md#host-status) et [**service_status**](../../developer/developer-broker-mapping.md#service-status). Ces métriques sont contenues dans le champ **perf_data** des évènements. Le format des évènements est décrit **[ici](#format-des-évènements)**.
+- Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres dédiés vous permettent de [ne pas envoyer certains évènements](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-clickhouse).
 
 ## Prérequis
 
@@ -180,7 +180,7 @@ Assurez-vous que Clickhouse puisse recevoir les données envoyées par Centreon 
    systemctl restart centengine
    ```
 
-   Clickhouse reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#curl-commands-testing-the-stream-connector).
+   Clickhouse reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector).
 
 ### Filtrer ou adapter les données que vous voulez envoyer à Clickhouse
 

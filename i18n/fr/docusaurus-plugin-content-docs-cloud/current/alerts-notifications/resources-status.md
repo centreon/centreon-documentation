@@ -236,7 +236,7 @@ Utilisez l'icône "roue dentée" à côté de **Filtre** pour :
 Une fois qu'un filtre est créé, il apparaîtra dans la liste des filtres
 sous la section **Mes filtres**.
 
-En cliquant sur le menu **Éditer les filtres**, il est possible de manipuler les filtres sauvegardés (en les renommant, ré-ordonnant et supprimant).
+En cliquant sur le menu **Gérer les filtres**, il est possible de manipuler les filtres sauvegardés (en les renommant, les ré-ordonnant et les supprimant).
 
 ## Panneau de détail
 
@@ -340,4 +340,4 @@ Le graphique s'ouvre dans la page **Supervision > Informations de performance > 
 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
-Vous pouvez aussi exporter les données du graphique au format CSV. Toutes les métriques seront incluses.
+Vous pouvez aussi exporter les données du graphique au format CSV (toutes les métriques seront incluses), ou bien au format PNG en différentes tailles.

@@ -139,6 +139,9 @@ SNMP port.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
 **Configuration > Monitoring Connector Manager** menu.
@@ -291,7 +294,7 @@ yum install centreon-plugin-Network-Huawei-Snmp
 | CRITICALOUTTRAFFIC        | Thresholds                                                                                                                                                                                                                      |                                                           |             |
 | CRITICALSTATUS            | Define the conditions to match for the status to be CRITICAL (default: `%{admstatus} eq "up" and %{opstatus} ne "up"`). You can use the following variables: `%{admstatus}`, `%{opstatus}`, `%{duplexstatus}`, `%{display}` | `%{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/` |             |
 | WARNINGSTATUS             | Define the conditions to match for the status to be WARNING. You can use the following variables: `%{admstatus}`, `%{opstatus}`, `%{duplexstatus}`, `%{display}`                                                                |                                                           |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                              | --verbose --no-skipped-counters                           |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).                                                                                                                              | --verbose --no-skipped-counters                           |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">

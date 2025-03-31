@@ -127,6 +127,8 @@ Centreon vers la ressource supervisée.
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
@@ -218,7 +220,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 3. Appliquez le modèle d'hôte **HW-Device-Camera-Avigilon-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -321,7 +323,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 | UNIT           | Select the time unit for thresholds. May be 's' for seconds, 'm'for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds | s                                                         |             |
 | WARNINGUPTIME  | Warning uptime threshold                                                                                                                    |                                                           |             |
 | CRITICALUPTIME | Critical uptime threshold                                                                                                                   |                                                           |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).      | --force-oid=.1.3.6.1.4.1.46202.1.1.1.3.0 --check-overload |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles).      | --force-oid=.1.3.6.1.4.1.46202.1.1.1.3.0 --check-overload |             |
 
 </TabItem>
 </Tabs>
