@@ -33,8 +33,8 @@ Le connecteur apporte les modèles de service suivants
 |:----------------------------------|:---------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
 | Account-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Availability-Api-custom | Contrôle le taux de disponibilité du stockage                                      |
 | Account-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Count-Api-custom        | Contrôle le nombre de transactions sur le stockage                                 |
-| Account-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Latency-Api-custom      | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage |
-| Account-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Throughput-Api-custom   | Contrôle le volume de données entrant et sortant sur le stockage                   |
+| Account-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Latency-Api-custom      | Contrôle la latence et le temps de traitement des requêtes réussies sur le stockage |
+| Account-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Throughput-Api-custom   | Contrôle le volume de données entrantes et sortantes sur le stockage                   |
 | Account-Used-Capacity             | Cloud-Azure-ClassicStorage-StorageAccount-Account-Used-Capacity-Api-custom             | Contrôle le volume utilisé sur le stockage                                         |
 | Health                            | Cloud-Azure-ClassicStorage-StorageAccount-Health-Api-custom                            | Contrôle le statut de l'instance de stockage                                       |
 
@@ -46,12 +46,12 @@ Le connecteur apporte les modèles de service suivants
 | Alias                          | Modèle de service                                                                   | Description                                                                        |
 |:-------------------------------|:------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
 | Blob-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Capacity-Api-custom                  | Contrôle le volume de type Blob utilisé sur le stockage                            |
-| Blob-Container-Count           | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Container-Count-Api-custom           | Contrôle le nombre de container Blob sur le stockage                               |
+| Blob-Container-Count           | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Container-Count-Api-custom           | Contrôle le nombre de containers Blob sur le stockage                               |
 | Blob-Count                     | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Count-Api-custom                     | Contrôle le nombre d'objets sur le stockage                                        |
 | Blob-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Availability-Api-custom | Contrôle le taux de disponibilité du stockage                                      |
 | Blob-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Count-Api-custom        | Contrôle le nombre de transactions sur le stockage                                 |
-| Blob-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Latency-Api-custom      | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage |
-| Blob-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Throughput-Api-custom   | Contrôle le volume de données entrant et sortant sur le stockage                   |
+| Blob-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Latency-Api-custom      | Contrôle la latence et le temps de traitement des requêtes réussies sur le stockage |
+| Blob-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Throughput-Api-custom   | Contrôle le volume de données entrantes et sortantes sur le stockage                   |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-ClassicStorage-StorageAccount-Blob-custom** est utilisé.
 
@@ -63,11 +63,11 @@ Le connecteur apporte les modèles de service suivants
 | File-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-File-Capacity-Api-custom                  | Contrôle le volume de type File utilisé sur le stockage                            |            |
 | File-Count                     | Cloud-Azure-ClassicStorage-StorageAccount-File-Count-Api-custom                     | Contrôle le nombre de fichiers sur le stockage                                     |            |
 | File-Share-Count               | Cloud-Azure-ClassicStorage-StorageAccount-File-Share-Count-Api-custom               | Contrôle le nombre de partage sur le stockage                                      |            |
-| File-Share-Quota               | Cloud-Azure-ClassicStorage-StorageAccount-File-Share-Quota-Api-custom               | Contrôle le nombre de partage sur le stockage                                      | X          |
+| File-Share-Quota               | Cloud-Azure-ClassicStorage-StorageAccount-File-Share-Quota-Api-custom               | Contrôle le nombre de partages sur le stockage                                      | X          |
 | File-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Availability-Api-custom | Contrôle le taux de disponibilité du stockage                                      |            |
 | File-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Count-Api-custom        | Contrôle le nombre de transactions sur le stockage                                 |            |
-| File-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Latency-Api-custom      | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage |            |
-| File-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Throughput-Api-custom   | Contrôle le volume de données entrant et sortant sur le stockage                   |            |
+| File-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Latency-Api-custom      | Contrôle la latence et le temps de traitement des requêtes réussies sur le stockage |            |
+| File-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Throughput-Api-custom   | Contrôle le volume de données entrantes et sortantes sur le stockage                   |            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-ClassicStorage-StorageAccount-File-custom** est utilisé.
 
@@ -79,12 +79,12 @@ Le connecteur apporte les modèles de service suivants
 | Alias                           | Modèle de service                                                                    | Description                                                                        |
 |:--------------------------------|:-------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
 | Queue-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Capacity-Api-custom                  | Contrôle le volume de type Queue utilisé sur le stockage                           |
-| Queue-Count                     | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Count-Api-custom                     | Contrôle le nombre de file d'attente sur le stockage                               |
-| Queue-Message-Count             | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Message-Count-Api-custom             | Contrôle le nombre de message dans la file d'attente sur le stockage               |
+| Queue-Count                     | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Count-Api-custom                     | Contrôle le nombre de files d'attente sur le stockage                               |
+| Queue-Message-Count             | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Message-Count-Api-custom             | Contrôle le nombre de messages dans la file d'attente sur le stockage               |
 | Queue-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Availability-Api-custom | Contrôle le taux de disponibilité du stockage                                      |
 | Queue-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Count-Api-custom        | Contrôle le nombre de transactions sur le stockage                                 |
-| Queue-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Latency-Api-custom      | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage |
-| Queue-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Throughput-Api-custom   | Contrôle le volume de données entrant et sortant sur le stockage                   |
+| Queue-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Latency-Api-custom      | Contrôle la latence et le temps de traitement des requêtes réussies sur le stockage |
+| Queue-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Throughput-Api-custom   | Contrôle le volume de données entrantes et sortantes sur le stockage                   |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-ClassicStorage-StorageAccount-Queue-custom** est utilisé.
 
@@ -94,12 +94,12 @@ Le connecteur apporte les modèles de service suivants
 | Alias                           | Modèle de service                                                                    | Description                                                                        |
 |:--------------------------------|:-------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
 | Table-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-Table-Capacity-Api-custom                  | Contrôle le volume de type Table utilisé sur le stockage                           |
-| Table-Count                     | Cloud-Azure-ClassicStorage-StorageAccount-Table-Count-Api-custom                     | Contrôle le nombre de table sur le stockage                                        |
-| Table-Entity-Count              | Cloud-Azure-ClassicStorage-StorageAccount-Table-Entity-Count-Api-custom              | Contrôle le nombre d'entrée dans les tables sur le stockage                        |
+| Table-Count                     | Cloud-Azure-ClassicStorage-StorageAccount-Table-Count-Api-custom                     | Contrôle le nombre de tables sur le stockage                                        |
+| Table-Entity-Count              | Cloud-Azure-ClassicStorage-StorageAccount-Table-Entity-Count-Api-custom              | Contrôle le nombre d'entrées dans les tables sur le stockage                        |
 | Table-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Availability-Api-custom | Contrôle le taux de disponibilité du stockage                                      |
 | Table-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Count-Api-custom        | Contrôle le nombre de transactions sur le stockage                                 |
-| Table-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Latency-Api-custom      | Contrôle la latence et le temps de traitement des requêtes réussis sur le stockage |
-| Table-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Throughput-Api-custom   | Contrôle le volume de données entrant et sortant sur le stockage                   |
+| Table-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Latency-Api-custom      | Contrôle la latence et le temps de traitement des requêtes réussies sur le stockage |
+| Table-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Throughput-Api-custom   | Contrôle le volume de données entrantes et sortantes sur le stockage                   |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-ClassicStorage-StorageAccount-Table-custom** est utilisé.
 
@@ -807,7 +807,7 @@ yum install centreon-plugin-Cloud-Azure-ClassicStorage-StorageAccount-Api
 | INTERVAL                    | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT1H              |             |
 | AGGREGATION                 | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | total             |             |
 | WARNINGFILECAPACITYAVERAGE  | Warning thresholds                                                                                                                                 |                   |             |
-| CRITICALFILECAPACITYAVERAGE | TCritical thresholds                                                                                                                               |                   |             |
+| CRITICALFILECAPACITYAVERAGE | Critical thresholds                                                                                                                               |                   |             |
 | EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).   | --verbose         |             |
 
 </TabItem>
@@ -1130,7 +1130,7 @@ OK: Resource 'storageaccountdev' (Account) average SuccessServerLatency: 10.00 m
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles

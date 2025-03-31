@@ -32,7 +32,7 @@ The connector brings the following service templates (sorted by the host templat
 |:----------------------------------|:---------------------------------------------------------------------------------------|:---------------------------------------------------------------|
 | Account-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Availability-Api-custom | Check storage account availability                             |
 | Account-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Count-Api-custom        | Check storage account transactions number                      |
-| Account-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Latency-Api-custom      | Check storage successfull requests latency and processing time |
+| Account-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Latency-Api-custom      | Check storage successful requests latency and processing time |
 | Account-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Account-Transactions-Throughput-Api-custom   | Check storage ingress and egress data thoughput                |
 | Account-Used-Capacity             | Cloud-Azure-ClassicStorage-StorageAccount-Account-Used-Capacity-Api-custom             | Check storage usage                                            |
 | Health                            | Cloud-Azure-ClassicStorage-StorageAccount-Health-Api-custom                            | Check storage account state                                    |
@@ -45,12 +45,12 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias                  | Service Template                                                                    | Service Description                                                 |
 |:-------------------------------|:------------------------------------------------------------------------------------|:--------------------------------------------------------------------|
 | Blob-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Capacity-Api-custom                  | Check Blob type storage usage                                       |
-| Blob-Container-Count           | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Container-Count-Api-custom           | Check Bloc container count on the storage                           |
+| Blob-Container-Count           | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Container-Count-Api-custom           | Check Blob container count on the storage                           |
 | Blob-Count                     | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Count-Api-custom                     | Check object count on the storage                                   |
-| Blob-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Availability-Api-custom | Check storage blob availability                                     |
-| Blob-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Count-Api-custom        | Check storage blob transactions number                              |
-| Blob-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Latency-Api-custom      | Check storage blob successfull requests latency and processing time |
-| Blob-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Throughput-Api-custom   | Check storage blob ingress and egress data thoughput                |
+| Blob-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Availability-Api-custom | Check blob storage availability                                     |
+| Blob-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Count-Api-custom        | Check blob storage transactions number                              |
+| Blob-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Latency-Api-custom      | Check blob storage successful requests latency and processing time |
+| Blob-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Throughput-Api-custom   | Check blob storage ingress and egress data thoughput                |
 
 > The services listed above are created automatically when the **Cloud-Azure-ClassicStorage-StorageAccount-Blob-custom** host template is used.
 
@@ -63,10 +63,10 @@ The connector brings the following service templates (sorted by the host templat
 | File-Count                     | Cloud-Azure-ClassicStorage-StorageAccount-File-Count-Api-custom                     | Check file count on the storage                                     |            |
 | File-Share-Count               | Cloud-Azure-ClassicStorage-StorageAccount-File-Share-Count-Api-custom               | Check share count on the storage                                    |            |
 | File-Share-Quota               | Cloud-Azure-ClassicStorage-StorageAccount-File-Share-Quota-Api-custom               | Check share count on the storage                                    | X          |
-| File-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Availability-Api-custom | Check storage file availability                                     |            |
-| File-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Count-Api-custom        | Check storage file transactions number                              |            |
-| File-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Latency-Api-custom      | Check storage file successfull requests latency and processing time |            |
-| File-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Throughput-Api-custom   | Check storage file ingress and egress data thoughput                |            |
+| File-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Availability-Api-custom | Check file storage availability                                     |            |
+| File-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Count-Api-custom        | Check file storage transactions number                              |            |
+| File-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Latency-Api-custom      | Check file storage successful requests latency and processing time |            |
+| File-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-File-Transactions-Throughput-Api-custom   | Check file storage ingress and egress data thoughput                |            |
 
 > The services listed above are created automatically when the **Cloud-Azure-ClassicStorage-StorageAccount-File-custom** host template is used.
 
@@ -80,10 +80,10 @@ The connector brings the following service templates (sorted by the host templat
 | Queue-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Capacity-Api-custom                  | Check Queue type storage usage                                       |
 | Queue-Count                     | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Count-Api-custom                     | Check queue count on the storage                                     |
 | Queue-Message-Count             | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Message-Count-Api-custom             | Check messages count queueing on the storage                         |
-| Queue-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Availability-Api-custom | Check storage queue availability                                     |
-| Queue-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Count-Api-custom        | Check storage queue transactions number                              |
-| Queue-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Latency-Api-custom      | Check storage queue successfull requests latency and processing time |
-| Queue-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Throughput-Api-custom   | Check storage queue ingress and egress data thoughput                |
+| Queue-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Availability-Api-custom | Check queue storage availability                                     |
+| Queue-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Count-Api-custom        | Check queue storage transactions number                              |
+| Queue-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Latency-Api-custom      | Check queue storage successful requests latency and processing time |
+| Queue-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Throughput-Api-custom   | Check queue storage ingress and egress data thoughput                |
 
 > The services listed above are created automatically when the **Cloud-Azure-ClassicStorage-StorageAccount-Queue-custom** host template is used.
 
@@ -95,10 +95,10 @@ The connector brings the following service templates (sorted by the host templat
 | Table-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-Table-Capacity-Api-custom                  | Check Table type storage usage                                       |
 | Table-Count                     | Cloud-Azure-ClassicStorage-StorageAccount-Table-Count-Api-custom                     | Check table count on the storage                                     |
 | Table-Entity-Count              | Cloud-Azure-ClassicStorage-StorageAccount-Table-Entity-Count-Api-custom              | Check entries count in tables on the storage                         |
-| Table-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Availability-Api-custom | Check storage table availability                                     |
-| Table-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Count-Api-custom        | Check storage table transactions number                              |
-| Table-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Latency-Api-custom      | Check storage table successfull requests latency and processing time |
-| Table-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Throughput-Api-custom   | Check storage table ingress and egress data thoughput                |
+| Table-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Availability-Api-custom | Check table storage availability                                     |
+| Table-Transactions-Count        | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Count-Api-custom        | Check table storage transactions number                              |
+| Table-Transactions-Latency      | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Latency-Api-custom      | Check table storage successful requests latency and processing time |
+| Table-Transactions-Throughput   | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Throughput-Api-custom   | Check table storage ingress and egress data thoughput                |
 
 > The services listed above are created automatically when the **Cloud-Azure-ClassicStorage-StorageAccount-Table-custom** host template is used.
 
