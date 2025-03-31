@@ -308,7 +308,7 @@ connect to address x.x.x.x port 5666: Connection refused
 
 It probably means that the IP address from which the request was sent is not allowed to dialog with the NRPE daemon.
 
-The `allowed_hosts` parameter, in the `/etc/nrpe/centreon-nrpe3.cfg` configuration file ([see above](#nrpe-configuration)).
+The `allowed_hosts` parameter, in the `/etc/nrpe/centreon-nrpe3.cfg` configuration file ([see above](#nrpe-daemon-configuration)).
 
 Then restart the service.
 

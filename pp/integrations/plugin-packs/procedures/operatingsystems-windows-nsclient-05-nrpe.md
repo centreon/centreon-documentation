@@ -1,6 +1,6 @@
 ---
 id: operatingsystems-windows-nsclient-05-nrpe
-title: Windows NRPE 0.5
+title: Windows NSClient 0.5 NRPE
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

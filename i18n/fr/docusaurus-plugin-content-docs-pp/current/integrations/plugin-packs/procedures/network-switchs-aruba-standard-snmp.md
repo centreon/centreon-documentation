@@ -303,7 +303,7 @@ yum install centreon-plugin-Network-Switchs-Aruba-Standard-Snmp
 3. Appliquez le modèle d'hôte **Net-Aruba-Standard-Ap-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro                   | Description                                                                                                                   | Valeur par défaut | Obligatoire |
 |:------------------------|:------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -323,7 +323,7 @@ yum install centreon-plugin-Network-Switchs-Aruba-Standard-Snmp
 3. Appliquez le modèle d'hôte **Net-Aruba-Standard-Controller-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                   | Valeur par défaut | Obligatoire |
 |:-----------------|:----------------------------------------------------------------------------------------------|:------------------|:-----------:|

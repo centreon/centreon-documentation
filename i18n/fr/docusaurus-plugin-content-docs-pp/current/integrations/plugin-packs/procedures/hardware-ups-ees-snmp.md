@@ -207,7 +207,7 @@ yum install centreon-plugin-Hardware-Ups-Ees-Snmp
 3. Appliquez le modèle d'hôte **HW-UPS-Ees-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                           | Valeur par défaut | Obligatoire |
 |:-----------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -280,7 +280,7 @@ yum install centreon-plugin-Hardware-Ups-Ees-Snmp
 | CRITICALUSEDCAPACITY | Thresholds                                                                                                                                     |                                                                                       |             |
 | WARNINGVOLTAGE       | Thresholds                                                                                                                                     |                                                                                       |             |
 | CRITICALVOLTAGE      | Thresholds                                                                                                                                     |                                                                                       |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                 |                                                                                       |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#options-disponibles)                 |                                                                                       |             |
 
 </TabItem>
 <TabItem value="Temperature" label="Temperature">
@@ -292,7 +292,7 @@ yum install centreon-plugin-Hardware-Ups-Ees-Snmp
 | CRITICALALARMSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{alarm_status\}, %\{type\}, %\{name\} | %\{alarm_status\} =~ /high/i |             |
 | WARNINGTEMPERATURE  | Thresholds                                                                                                                            |                             |             |
 | CRITICALTEMPERATURE | Thresholds                                                                                                                            |                             |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)        | --verbose                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#options-disponibles)        | --verbose                   |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">

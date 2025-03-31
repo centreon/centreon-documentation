@@ -234,6 +234,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-haproxy-web'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-hashicorp-vault-restapi'
         },
         {
@@ -494,6 +498,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-podman-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-prometheus-api'
         },
         {
@@ -635,6 +643,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-veeam-vbem-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-veeam-centreon-monitoring-agent'
         },
         {
           type: 'doc',
@@ -2927,6 +2939,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-vmware2-vm'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/application-virtualization-vmware8-esx-restapi'
         }
       ]
     }

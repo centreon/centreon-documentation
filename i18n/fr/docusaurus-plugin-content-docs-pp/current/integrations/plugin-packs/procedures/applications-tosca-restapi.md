@@ -166,7 +166,7 @@ yum install centreon-plugin-Applications-Tosca-Restapi
 | TOSCAAPIPASSWORD  | API password            |                   | X           |
 | TOSCAAPIPORT      | Port used               | 80                |             |
 | TOSCAAPIPROTOCOL  | Specify HTTPS if needed | http              |             |
-| TOSCAEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) | --insecure | |
+| TOSCAEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#options-disponibles) | --insecure | |
 
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -240,7 +240,7 @@ OK: Execution list 'Centreon' entries passed: 1, failed: 0, not executed: 0, unk
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles

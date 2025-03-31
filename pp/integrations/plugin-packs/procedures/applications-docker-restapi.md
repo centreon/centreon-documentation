@@ -238,7 +238,7 @@ yum install centreon-plugin-Applications-Docker-Restapi
 | CRITICALTRAFFICOUT      | Critical threshold                                                                                                                                     |                   |             |
 | WARNINGWRITEIOPS        | Warning threshold                                                                                                                                      |                   |             |
 | CRITICALWRITEIOPS       | Critical threshold                                                                                                                                     |                   |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).       | --verbose         |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).       | --verbose         |             |
 
 </TabItem>
 <TabItem value="Node-Status" label="Node-Status">

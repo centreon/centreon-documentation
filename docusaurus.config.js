@@ -61,6 +61,7 @@ const config = {
   baseUrl,
   onBrokenLinks: archivedVersion || !cloud || !pp ? 'log' : 'throw',
   onBrokenMarkdownLinks: archivedVersion || !cloud || !pp  ? 'log' : 'throw',
+  onBrokenAnchors: archivedVersion || !cloud || !pp ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',

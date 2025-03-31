@@ -343,7 +343,7 @@ Target 'http://10.244.2.5:9153/metrics' health is 'up' [pod = coredns-74ff55c5b-
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 #### UNKNOWN: 500 Can't connect to amzprometheus.int.centreon.com:9090 (\<error_text\>) |

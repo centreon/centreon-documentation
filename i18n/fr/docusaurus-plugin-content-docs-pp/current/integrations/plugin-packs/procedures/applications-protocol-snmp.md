@@ -203,7 +203,7 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 3. Appliquez le modèle d'hôte **App-Protocol-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 </TabItem>
 <TabItem value="App-Protocol-SNMP-Only-custom" label="App-Protocol-SNMP-Only-custom">
@@ -213,7 +213,7 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 3. Appliquez le modèle d'hôte **App-Protocol-SNMP-Only-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 </TabItem>
 </Tabs>

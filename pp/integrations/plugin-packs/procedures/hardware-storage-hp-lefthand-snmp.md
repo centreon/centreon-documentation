@@ -229,7 +229,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-Lefthand-Snmp
 | CRITICALWRITEIOPS         | Critical threshold                                                                                                                               |                        |           |
 | WARNINGWRITELATENCY       | Warning threshold                                                                                                                                |                        |           |
 | CRITICALWRITELATENCY      | Critical threshold                                                                                                                               |                        |           |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose              |           |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). | --verbose              |           |
 
 </TabItem>
 </Tabs>

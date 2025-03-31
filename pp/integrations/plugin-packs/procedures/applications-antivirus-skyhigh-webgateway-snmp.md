@@ -87,6 +87,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Detections" label="Detections">
 
+> This OID branch does not exist natively and is only created following an initial detection of elements.
+You can run the detection again to obtain the metrics.
+
 | Name                                              | Unit         |
 |:--------------------------------------------------|:-------------|
 | malwares.detected.persecond                       | detections/s |

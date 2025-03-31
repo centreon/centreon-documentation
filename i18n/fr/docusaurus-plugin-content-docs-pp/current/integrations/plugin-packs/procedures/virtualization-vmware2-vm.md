@@ -200,7 +200,7 @@ yum install centreon-plugin-Virtualization-VMWare-daemon
 <Tabs groupId="sync">
 <TabItem value="Centreon Cloud et OnPrem à partir de la 24.10" label="Centreon Cloud et OnPrem à partir de la 24.10">
 
-Allez à la page [**Configuration > Configurations supplémentaires de connecteurs**](../getting-started/how-to-guides/acc.md) pour configurer la connexion à votre vCenter.
+Allez à la page [**Configuration > Connecteurs > Configurations additionnelles**](../getting-started/how-to-guides/acc.md) pour configurer la connexion à votre vCenter.
 
 </TabItem>
 <TabItem value="Versions de Centreon OnPrem antérieures à la 24.10" label="Versions de Centreon OnPrem antérieures à la 24.10">

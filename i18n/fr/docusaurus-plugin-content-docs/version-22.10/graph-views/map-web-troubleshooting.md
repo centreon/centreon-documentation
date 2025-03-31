@@ -149,7 +149,7 @@ Si vous utilisez IPv6, vous devez forcer le serveur MAP à utiliser IPv4.
 
 2. Essayez de résoudre les erreurs en suivant les instructions ci-dessous.
 
-> Si l'erreur persiste, envoyez-nous les résultats complets du script (voir la section [Toujours bloqué ?](#toujours-bloqué)).
+> Si l'erreur persiste, envoyez-nous les résultats complets du script (voir la section [Toujours bloqué ?](#toujours-bloqué-)).
  
 Voici les principales erreurs que vous pouvez rencontrer :
 
@@ -203,7 +203,7 @@ Voici les principales erreurs que vous pouvez rencontrer :
   }
   ```
   
-  > Si ce n'est pas le cas, veuillez envoyer une capture d'écran de l'erreur (voir la section [Toujours bloqué ?](#toujours-bloqué)).
+  > Si ce n'est pas le cas, veuillez envoyer une capture d'écran de l'erreur (voir la section [Toujours bloqué ?](#toujours-bloqué-)).
 
 ## Toujours bloqué ?
 

@@ -181,4 +181,4 @@ La liste de toutes les options complémentaires et leur signification peut être
 
 ### Diagnostic des erreurs communes  
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks) des Plugins basés sur HTTP/API.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api) des Plugins basés sur HTTP/API.

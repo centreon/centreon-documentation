@@ -40,7 +40,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description                                                                                                                                                                                                                                         |
 |:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/applications-protocol-snmp/) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **App-DB-Informix-SNMP-custom** |
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **App-DB-Informix-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -228,7 +228,7 @@ yum install centreon-plugin-Applications-Databases-Informix-Snmp
 3. Appliquez le modèle d'hôte **App-DB-Informix-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
