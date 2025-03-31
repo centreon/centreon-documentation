@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                    | Service Description                                                                                                                                         |
 |:--------------|:------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu-Detailed  | OS-Solaris-Cpu-Detailed-SNMP-custom | Check the detailed rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
+| Cpu-Detailed  | OS-Solaris-Cpu-Detailed-SNMP-custom | Check the detailed rate of CPU utilization for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
 | Load          | OS-Solaris-Load-SNMP-custom         | Check the server load average                                                                                                                               |
 
 > The services listed above are created automatically when the **OS-Solaris-SNMP-custom** host template is used.
