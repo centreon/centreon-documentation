@@ -96,7 +96,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Configuration des accès à la base de données Sybase pour Centreon
+Configuration des accès à la base de données Sybase pour Centreon :
 - **Connexion réseau** : Assurez-vous que le serveur Centreon peut se connecter au serveur 
 Sybase via le port utilisé.
 - **Compte utilisateur Sybase** : Créer un utilisateur dédié pour Centreon dans Sybase. 
@@ -105,8 +105,8 @@ les requêtes nécessaires (par exemple, un compte avec des permissions pour con
 les performances, les sessions, etc.).
 
 > Si vous utilisez SAP Adaptive Server Enterprise v16.0 ou ultérieure comme base de 
-données Sybase, vous pouvez avoir besoin de désactiver la compression d'index (voir ce 
-[guide](https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/df8899896b364f6c880112f52e4d06c8/46b10a216e041014910aba7db0e91070.html))
+> données Sybase, vous pouvez avoir besoin de désactiver la compression d'index (voir ce 
+> [guide](https://help.sap.com/docs/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM/df8899896b364f6c880112f52e4d06c8/46b10a216e041014910aba7db0e91070.html)).
 
 ## Installer le connecteur de supervision
 

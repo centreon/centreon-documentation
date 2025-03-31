@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias     | Service Template                       | Service Description                                                    |
 |:------------------|:---------------------------------------|:-----------------------------------------------------------------------|
 | Blocked-Processes | App-DB-Sybase-Blocked-Processes-custom | Check blocked processes                                                |
-| Connected-Users   | App-DB-Sybase-Connected-Users-custom   | Check number of connected users on the database                        |
+| Connected-Users   | App-DB-Sybase-Connected-Users-custom   | Check the number of users connected to the database                        |
 | Connection-Time   | App-DB-Sybase-Connection-Time-custom   | Check the connection time to the server. This time is given in seconds |
 | Database-Size     | App-DB-Sybase-Database-Size-custom     | Check used space of databases on the server                            |
 
@@ -95,7 +95,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-Configuration of Access to the Sybase Database for Centreon
+Configure Centreon's access to the Sybase Database.
 
 - **Network Connection**: Ensure that the Centreon server can connect to 
 the Sybase server via the port being used.  
