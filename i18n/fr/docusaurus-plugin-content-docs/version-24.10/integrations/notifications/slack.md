@@ -31,10 +31,7 @@ Suivez la documentation officielle de Slack pour [créer un webhook Slack](https
 2. Sur chaque collecteur, exécutez les commandes suivantes :
 
 ```bash
-mkdir /usr/lib/centreon/git-plugins
-cd /usr/lib/centreon/git-plugins
-git clone https://github.com/centreon/centreon-plugins.git
-chown -R centreon-engine. /usr/lib/centreon/git-plugins
+git clone https://github.com/centreon/centreon-plugins.git /usr/lib/centreon/plugins/git-plugins
 ```
 
 ### Étape 3 : Créer des commandes de notification
@@ -45,16 +42,15 @@ chown -R centreon-engine. /usr/lib/centreon/git-plugins
    * Exemple pour un hôte :
 
    ```bash
-   $CENTREONPLUGINS$/centreon_plugins.pl --plugin=notification::slack::plugin --mode alert --slack-url='https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX' --slack-channel='#votre_canal_slack' --slack-username='Notifications Centreon' --slack-emoji=':ghost:' --host-name='$HOSTNAME$' --host-state='$HOSTSTATE$' --host-output='$HOSTOUTPUT$' --priority='$_HOSTCRITICALITY_LEVEL$'
+   $CENTREONPLUGINS$/git-plugins/src/centreon_plugins.pl --plugin=notification::slack::plugin --mode alert --slack-url='https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX' --slack-channel='#votre_canal_slack' --slack-username='Notifications Centreon' --slack-emoji=':ghost:' --host-name='$HOSTNAME$' --host-state='$HOSTSTATE$' --host-output='$HOSTOUTPUT$' --priority='$_HOSTCRITICALITY_LEVEL$'
    ```
 
    * Exemple pour un service:
 
    ```bash
-   $CENTREONPLUGINS$/centreon_plugins.pl --plugin=notification::slack::plugin --mode alert --slack-url='https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX' --slack-channel='#votre_canal_slack' --slack-username='Notifications Centreon' --slack-emoji=':ghost:' --host-name='$HOSTNAME$' --service-description='$SERVICEDESC$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --priority='$_SERCVICECRITICALITY_LEVEL$'
+   $CENTREONPLUGINS$/git-plugins/src/centreon_plugins.pl --plugin=notification::slack::plugin --mode alert --slack-url='https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX' --slack-channel='#votre_canal_slack' --slack-username='Notifications Centreon' --slack-emoji=':ghost:' --host-name='$HOSTNAME$' --service-description='$SERVICEDESC$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --priority='$_SERCVICECRITICALITY_LEVEL$'
    ```
 
-* **$CENTREONPLUGINS$** doit spécifier le chemin complet vers le script **centreon_plugins.pl** (celui-ci varie en fontion de l'emplacement où vous avez cloné le dépôt). Si vous avez cloné le dépôt comme décrit à l'étape 2, le chemin sera sans doute **/usr/lib/centreon/git-plugins/centreon-plugins/src**.
 * **--slack-url**: l'URL du webhook que vous avez récupérée à la fin de l'étape 1.
 * **--slack-channel**: le nom du canal où vous voulez que les notifications soient postées.
 * **--slack-username**: le nom qui sera affiché dans Slack en tant qu'auteur des posts. Il s'agit d'un simple libellé et non d'un vrai nom d'utilisateur Slack.

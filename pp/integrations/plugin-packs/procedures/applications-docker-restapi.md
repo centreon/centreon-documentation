@@ -108,6 +108,9 @@ ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
 **Configuration > Monitoring Connector Manager** menu.
@@ -235,7 +238,7 @@ yum install centreon-plugin-Applications-Docker-Restapi
 | CRITICALTRAFFICOUT      | Critical threshold                                                                                                                                     |                   |             |
 | WARNINGWRITEIOPS        | Warning threshold                                                                                                                                      |                   |             |
 | CRITICALWRITEIOPS       | Critical threshold                                                                                                                                     |                   |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).       | --verbose         |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).       | --verbose         |             |
 
 </TabItem>
 <TabItem value="Node-Status" label="Node-Status">

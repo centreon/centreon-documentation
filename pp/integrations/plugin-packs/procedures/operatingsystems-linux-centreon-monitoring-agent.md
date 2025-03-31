@@ -482,6 +482,9 @@ apt-get install centreon-plugin-operatingsystems-linux-Local
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
 **Configuration > Monitoring Connector Manager** menu.
@@ -549,7 +552,7 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 |:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
 | CENTREONAGENTPLUGINS      | Path where the Centreon Plugins can be found.                                                                                                      | `/usr/lib/centreon/plugins` |      X      |
 | CENTREONAGENTSTATEFILEDIR | Define the cache directory.                                                                                                                        | `/dev/shm/`                 |      X      |
-| CENTREONAGENTEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                             |             |
+| CENTREONAGENTEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                             |             |
 
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
