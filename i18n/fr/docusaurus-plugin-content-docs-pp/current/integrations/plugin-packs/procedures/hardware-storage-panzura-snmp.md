@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                   | Modèle de service                                      | Description                                                     | Découverte |
 |:------------------------|:-------------------------------------------------------|:----------------------------------------------------------------|:----------:|
-| Cpu-Cloud               | HW-Storage-Panzura-Cpu-Cloud-SNMP-custom               | Contrôle du taux d'utilisation CPU du cloud contrôleur          |            |
+| Cpu-Cloud               | HW-Storage-Panzura-Cpu-Cloud-SNMP-custom               | Contrôle du taux d'utilisation CPU du contrôleur cloud        |            |
 | Cpu-Detailed            | HW-Storage-Panzura-Cpu-Detailed-SNMP-custom            | Contrôle du taux d'utilisation détaillé CPU de la machine       |            |
 | Disk-Usage-Cloud-Global | HW-Storage-Panzura-Disk-Usage-Cloud-Global-SNMP-custom | Contrôle du taux d'espace libre disponible des disques cloud    |            |
 | Disk-Usage-Local        | HW-Storage-Panzura-Disk-Usage-Local-SNMP-custom        | Contrôle du taux d'espace libre disponible du disque local      |            |
@@ -35,7 +35,7 @@ Le connecteur apporte les modèles de service suivants
 | Memory                  | HW-Storage-Panzura-Memory-SNMP-custom                  | Contrôle du taux d'utilisation de la mémoire vive (RAM)         |            |
 | Ratios                  | HW-Storage-Panzura-Ratios-SNMP-custom                  | Contrôle les ratios de sauvegarde, déduplication et compression |            |
 | Swap                    | HW-Storage-Panzura-Swap-SNMP-custom                    | Contrôle du taux d'utilisation de la mémoire virtuelle (SWAP)   |            |
-| Traffic-Global          | HW-Storage-Panzura-Traffic-Global-SNMP-custom          | Contrôle le traffic réseau de plusieurs interfaces réseau       |      X     |
+| Traffic-Global          | HW-Storage-Panzura-Traffic-Global-SNMP-custom          | Contrôle le trafic réseau de plusieurs interfaces réseau       |      X     |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Panzura-SNMP-custom** est utilisé.
 
@@ -46,14 +46,14 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                         | Modèle de service                                            | Description                                                                                                                       | Découverte |
 |:------------------------------|:-------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Disk-Io-Generic-Name          | HW-Storage-Panzura-Disk-Io-Generic-Name-SNMP-custom          | Contrôle les accès disques du disque. Pour chaque contrôle apparaîtra le nom du disque (« label ») plutôt que la lettre attribuée |            |
-| Disk-Io-Global                | HW-Storage-Panzura-Disk-Io-Global-SNMP-custom                | Contrôle les accès disques des disques                                                                                            |            |
+| Disk-Io-Generic-Name          | HW-Storage-Panzura-Disk-Io-Generic-Name-SNMP-custom          | Contrôle les accès disque du disque. Pour chaque contrôle apparaîtra le nom du disque (« label ») plutôt que la lettre attribuée |            |
+| Disk-Io-Global                | HW-Storage-Panzura-Disk-Io-Global-SNMP-custom                | Contrôle les accès disque des disques                                                                                            |            |
 | Disk-Usage-Cloud-Generic-Name | HW-Storage-Panzura-Disk-Usage-Cloud-Generic-Name-SNMP-custom | Contrôle du taux d'espace libre disponible du disque cloud                                                                        |            |
 | Packet-Errors-Generic-Id      | HW-Storage-Panzura-Packet-Errors-Generic-Id-SNMP-custom      | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                               |            |
 | Packet-Errors-Generic-Name    | HW-Storage-Panzura-Packet-Errors-Generic-Name-SNMP-custom    | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                                                       |            |
 | Packet-Errors-Global          | HW-Storage-Panzura-Packet-Errors-Global-SNMP-custom          | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                               |     X      |
-| Traffic-Generic-Id            | HW-Storage-Panzura-Traffic-Generic-Id-SNMP-custom            | Contrôle le traffic réseau d'une interface réseau                                                                                 |            |
-| Traffic-Generic-Name          | HW-Storage-Panzura-Traffic-Generic-Name-SNMP-custom          | Contrôle le traffic réseau d'une interface réseau                                                                                 |            |
+| Traffic-Generic-Id            | HW-Storage-Panzura-Traffic-Generic-Id-SNMP-custom            | Contrôle le trafic réseau d'une interface réseau                                                                                 |            |
+| Traffic-Generic-Name          | HW-Storage-Panzura-Traffic-Generic-Name-SNMP-custom          | Contrôle le trafic réseau d'une interface réseau                                                                                 |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 

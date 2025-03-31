@@ -27,11 +27,11 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias           | Service Template                                       | Service Description                                           | Discovery |
 |:------------------------|:-------------------------------------------------------|:--------------------------------------------------------------|:---------:|
 | Cpu-Cloud               | HW-Storage-Panzura-Cpu-Cloud-SNMP-custom               | Check usage of cloud controller CPU                           |           |
-| Cpu-Detailed            | HW-Storage-Panzura-Cpu-Detailed-SNMP-custom            | Check the detailed rate of utilization of CPU for the machine |           |
-| Disk-Usage-Cloud-Global | HW-Storage-Panzura-Disk-Usage-Cloud-Global-SNMP-custom | Check cloud disk usages                                       |           |
+| Cpu-Detailed            | HW-Storage-Panzura-Cpu-Detailed-SNMP-custom            | Check the detailed rate of CPU utilization for the machine |           |
+| Disk-Usage-Cloud-Global | HW-Storage-Panzura-Disk-Usage-Cloud-Global-SNMP-custom | Check cloud disk usage                                       |           |
 | Disk-Usage-Local        | HW-Storage-Panzura-Disk-Usage-Local-SNMP-custom        | Check local disk usage                                        |           |
 | Load                    | HW-Storage-Panzura-Load-SNMP-custom                    | Check the server load average                                 |           |
-| Memory                  | HW-Storage-Panzura-Memory-SNMP-custom                  | Check the rate of the utilization of memory (RAM)             |           |
+| Memory                  | HW-Storage-Panzura-Memory-SNMP-custom                  | Check the rate of memory utilization (RAM)             |           |
 | Ratios                  | HW-Storage-Panzura-Ratios-SNMP-custom                  | Check deduplication, compression and save ratios              |           |
 | Swap                    | HW-Storage-Panzura-Swap-SNMP-custom                    | Check virtual memory usage (SWAP)                             |           |
 | Traffic-Global          | HW-Storage-Panzura-Traffic-Global-SNMP-custom          | Check traffic of multiple network interfaces                  |     X     |
@@ -45,14 +45,14 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias                 | Service Template                                             | Service Description                                                                                                    | Discovery |
 |:------------------------------|:-------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------|:---------:|
-| Disk-Io-Generic-Name          | HW-Storage-Panzura-Disk-Io-Generic-Name-SNMP-custom          | Check access disk of the disk. For each check the name of the disk will appear "label" rather than the letter assigned |           |
-| Disk-Io-Global                | HW-Storage-Panzura-Disk-Io-Global-SNMP-custom                | Check access disk of disks                                                                                             |           |
+| Disk-Io-Generic-Name          | HW-Storage-Panzura-Disk-Io-Generic-Name-SNMP-custom          | Check disk access for the disk. For each check the name of the disk will appear with the "label" rather than the letter assigned |           |
+| Disk-Io-Global                | HW-Storage-Panzura-Disk-Io-Global-SNMP-custom                | Check disk access for disks                                                                                             |           |
 | Disk-Usage-Cloud-Generic-Name | HW-Storage-Panzura-Disk-Usage-Cloud-Generic-Name-SNMP-custom | Check cloud disk usage                                                                                                 |           |
 | Packet-Errors-Generic-Id      | HW-Storage-Panzura-Packet-Errors-Generic-Id-SNMP-custom      | Check packets in error and discarded packets for multiple network interfaces                                           |           |
 | Packet-Errors-Generic-Name    | HW-Storage-Panzura-Packet-Errors-Generic-Name-SNMP-custom    | Check packets in error and discarded packets for a network interface                                                   |           |
 | Packet-Errors-Global          | HW-Storage-Panzura-Packet-Errors-Global-SNMP-custom          | Check packets in error and discarded packets for multiple network interfaces                                           |     X     |
-| Traffic-Generic-Id            | HW-Storage-Panzura-Traffic-Generic-Id-SNMP-custom            | Check traffic of an network interface                                                                                  |           |
-| Traffic-Generic-Name          | HW-Storage-Panzura-Traffic-Generic-Name-SNMP-custom          | Check traffic of an network interface                                                                                  |           |
+| Traffic-Generic-Id            | HW-Storage-Panzura-Traffic-Generic-Id-SNMP-custom            | Check traffic of a network interface                                                                                  |           |
+| Traffic-Generic-Name          | HW-Storage-Panzura-Traffic-Generic-Name-SNMP-custom          | Check traffic of a network interface                                                                                  |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
