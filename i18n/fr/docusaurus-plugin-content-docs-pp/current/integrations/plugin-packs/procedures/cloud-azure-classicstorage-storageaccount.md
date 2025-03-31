@@ -45,7 +45,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                          | Modèle de service                                                                   | Description                                                                        |
 |:-------------------------------|:------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
-| Blob-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Capacity-Api-custom                  | Contrôle le volume de type Blob utilisé sur le stockage                            |
+| Blob-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Capacity-Api-custom                  | Contrôle les volumes de type Blob utilisé sur le stockage                            |
 | Blob-Container-Count           | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Container-Count-Api-custom           | Contrôle le nombre de containers Blob sur le stockage                               |
 | Blob-Count                     | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Count-Api-custom                     | Contrôle le nombre d'objets sur le stockage                                        |
 | Blob-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Blob-Transactions-Availability-Api-custom | Contrôle le taux de disponibilité du stockage                                      |
@@ -60,7 +60,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                          | Modèle de service                                                                   | Description                                                                        | Découverte |
 |:-------------------------------|:------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:----------:|
-| File-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-File-Capacity-Api-custom                  | Contrôle le volume de type File utilisé sur le stockage                            |            |
+| File-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-File-Capacity-Api-custom                  | Contrôle les volumes de type File utilisé sur le stockage                            |            |
 | File-Count                     | Cloud-Azure-ClassicStorage-StorageAccount-File-Count-Api-custom                     | Contrôle le nombre de fichiers sur le stockage                                     |            |
 | File-Share-Count               | Cloud-Azure-ClassicStorage-StorageAccount-File-Share-Count-Api-custom               | Contrôle le nombre de partage sur le stockage                                      |            |
 | File-Share-Quota               | Cloud-Azure-ClassicStorage-StorageAccount-File-Share-Quota-Api-custom               | Contrôle le nombre de partages sur le stockage                                      | X          |
@@ -78,7 +78,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                           | Modèle de service                                                                    | Description                                                                        |
 |:--------------------------------|:-------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
-| Queue-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Capacity-Api-custom                  | Contrôle le volume de type Queue utilisé sur le stockage                           |
+| Queue-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Capacity-Api-custom                  | Contrôle les volumes de type Queue utilisé sur le stockage                           |
 | Queue-Count                     | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Count-Api-custom                     | Contrôle le nombre de files d'attente sur le stockage                               |
 | Queue-Message-Count             | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Message-Count-Api-custom             | Contrôle le nombre de messages dans la file d'attente sur le stockage               |
 | Queue-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Queue-Transactions-Availability-Api-custom | Contrôle le taux de disponibilité du stockage                                      |
@@ -93,7 +93,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                           | Modèle de service                                                                    | Description                                                                        |
 |:--------------------------------|:-------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
-| Table-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-Table-Capacity-Api-custom                  | Contrôle le volume de type Table utilisé sur le stockage                           |
+| Table-Capacity                  | Cloud-Azure-ClassicStorage-StorageAccount-Table-Capacity-Api-custom                  | Contrôle les volumes de type Table utilisé sur le stockage                           |
 | Table-Count                     | Cloud-Azure-ClassicStorage-StorageAccount-Table-Count-Api-custom                     | Contrôle le nombre de tables sur le stockage                                        |
 | Table-Entity-Count              | Cloud-Azure-ClassicStorage-StorageAccount-Table-Entity-Count-Api-custom              | Contrôle le nombre d'entrées dans les tables sur le stockage                        |
 | Table-Transactions-Availability | Cloud-Azure-ClassicStorage-StorageAccount-Table-Transactions-Availability-Api-custom | Contrôle le taux de disponibilité du stockage                                      |
