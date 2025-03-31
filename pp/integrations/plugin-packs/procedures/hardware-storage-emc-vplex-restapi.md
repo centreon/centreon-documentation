@@ -152,7 +152,7 @@ yum install centreon-pack-hardware-storage-emc-vplex-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **EMC Vplex Rest API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
