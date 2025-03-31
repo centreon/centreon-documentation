@@ -235,11 +235,11 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
 
 9. Si vous supervisiez votre ancienne machine Centreon, et que vous avez changé le nom d'utilisateur/mot de passe de la base pendant la migration, mettez à jour la configuration des ressources concernées (hôte, services dépendant de cet hôte).
 
-10. Allez à la page **Configuration > Gestionnaire de connecteurs de supervision**, puis [mettez à jour tous les connecteurs de supervision](../monitoring/pluginpacks.md#mettre-à-jour-un-ou-plusieurs-packs).
+10. Allez à la page **Configuration > Connecteurs > Connecteurs de supervision**, puis [mettez à jour tous les connecteurs de supervision](../monitoring/pluginpacks.md#mettre-à-jour-un-ou-plusieurs-packs).
 
 ### Étape 6: Mettre à jour les modules
 
-Pour finir la mise à jour des connecteurs de supervision, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**, puis cliquez sur
+Pour finir la mise à jour des connecteurs de supervision, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**, puis cliquez sur
 
 Pour mettre à jour les modules, allez à la page **Administration > Extensions > Gestionnaire** et cliquez sur **Update all**.
 Si vous avez un serveur MAP ou MBI, suivez les procédures de migration correspondantes :
