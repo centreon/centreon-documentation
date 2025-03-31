@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit les procédures avancées permettant de sécuriser votre plateforme MAP.
 
-> Si vous souhaitez utiliser MAP en HTTPS, vous devez sécuriser à la fois votre plateforme Centreon et MAP. Suivez cette [procédure](../administration/secure-platform.md) pour sécuriser votre plateforme Centreon.
+> Si vous souhaitez utiliser MAP en HTTPS, vous devez sécuriser à la fois votre plateforme Centreon et MAP (ou MAP Legacy). Suivez cette [procédure](../administration/secure-platform.md) pour sécuriser votre plateforme Centreon.
 
 > Des erreurs de modification de fichiers de configuration peuvent entraîner des dysfonctionnements du logiciel. Nous vous recommandons de faire une sauvegarde du fichier avant de le modifier et de ne changer que les paramètres conseillés par Centreon.
 
@@ -104,7 +104,13 @@ centreon-map.keystore-pass=xxx
     RUN_ARGS="--spring.profiles.active=prod,tls"
     ```
 
-3. Redémarrez le service Centreon MAP :
+3. Définissez le paramètre `centreon.url` dans **/etc/centreon-map/map-config.properties** pour activer le protocole de communication HTTPS avec le serveur Centreon :
+
+```shell
+centreon.url=https://<server-address>
+```
+
+4. Redémarrez le service Centreon MAP :
 
     ```shell
     systemctl start centreon-map-engine
