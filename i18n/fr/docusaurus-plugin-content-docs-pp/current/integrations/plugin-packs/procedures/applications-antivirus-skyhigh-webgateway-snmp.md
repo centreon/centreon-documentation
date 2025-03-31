@@ -88,6 +88,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Detections" label="Detections">
 
+> Cette branche d'OID n'existe pas nativement et n'est créée qu'à la suite d'une première détection d'éléments.
+Vous pouvez relancer la détection pour obtenir les métriques.
+
 | Nom                                               | Unité        |
 |:--------------------------------------------------|:-------------|
 | malwares.detected.persecond                       | detections/s |
@@ -257,7 +260,7 @@ yum install centreon-plugin-Applications-Antivirus-Skyhigh-Webgateway-Snmp
 3. Appliquez le modèle d'hôte **App-Antivirus-Skyhigh-Webgateway-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|

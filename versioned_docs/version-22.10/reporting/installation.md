@@ -69,7 +69,7 @@ reporting server for performance & isolation reasons.
 
 #### Software requirements
 
-See the [software requirements](../installation/prerequisites.md#software).
+See the [software requirements](../installation/prerequisites.md#characteristics-of-the-servers).
 
 You should install the MariaDB database at the same time. We highly recommend
 installing the database on the same server for performance & isolation
@@ -261,8 +261,8 @@ vgdisplay vg_data | grep -i free*
 
 - OS : CentOS / Redhat 7 ou 8 / Oracle Linux 8 / Alma 8 / Debian 11
 - SGBD : MariaDB 10.5
-- Firewalld : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#Configurer-ou-désactiver-le-pare-feu))
-- SELinux : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#Désactiver-SELinux))
+- Firewalld : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#configure-or-disable-the-firewall))
+- SELinux : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#disable-selinux))
 
 > Make sure that the time zone of the reporting server is the same as that of the central server, otherwise report publications will fail (link to download missing).
 > The same time zone must be displayed with the `timedatectl` command.
@@ -326,14 +326,6 @@ Import the repository key:
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-Add the following external repository (for Java 8):
-
-```shell
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
 ```
 
 Then install Centreon MBI:

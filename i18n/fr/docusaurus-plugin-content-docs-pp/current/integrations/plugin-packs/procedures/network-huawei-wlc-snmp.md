@@ -5,7 +5,7 @@ title: Huawei WLC SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Huawei WLC SNMP** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -64,12 +64,12 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 #### Découverte de services
 
-| Nom de la règle                    | Description                                                                  |
-|:-----------------------------------|:-----------------------------------------------------------------------------|
-| Net-Huawei-Wlc-SNMP-Ap-Health-Name | Découvre les points d'accès et supervise leur état de santé.                 |
-| Net-Huawei-Wlc-SNMP-Ap-Radio-Name  | Découvre les points d'accès et supervise leurs radios.                       |
-| Net-Huawei-Wlc-SNMP-Ap-Status-Name | Découvre les points d'accès et supervise leur status.                        |
-| Net-Huawei-Wlc-SNMP-Traffic-Name   | Découvre les interfaces réseau et supervise leur statut et leur utilisation. |
+| Nom de la règle                    | Description                                                                 |
+|:-----------------------------------|:----------------------------------------------------------------------------|
+| Net-Huawei-Wlc-SNMP-Ap-Health-Name | Découvre les points d'accès et supervise leur état de santé                 |
+| Net-Huawei-Wlc-SNMP-Ap-Radio-Name  | Découvre les points d'accès et supervise leurs radios                       |
+| Net-Huawei-Wlc-SNMP-Ap-Status-Name | Découvre les points d'accès et supervise leur status                        |
+| Net-Huawei-Wlc-SNMP-Traffic-Name   | Découvre les interfaces réseau et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -81,12 +81,30 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="Ap-Health" label="Ap-Health">
 
-Coming soon
+| Nom                                           | Unité |
+|:----------------------------------------------|:------|
+| *ap_name*#status                              | N/A   |
+| *ap_name*#ap.temperature.celsius              | C     |
+| *ap_name*#ap.online.time                      | s     |
+| *ap_name*#ap.boot.total.count                 | count |
+| *ap_name*#ap.memory.used.percentage           | %     |
+| *ap_name*#ap.cpu.used.percentage              | %     |
+| *ap_name*#ap.up.port.bitspersecond            | b/s   |
+| *ap_name*#ap.up.port.package.error.percentage | %     |
+| *ap_name*#ap.online.user.count                | count |
 
 </TabItem>
 <TabItem value="Ap-Radio" label="Ap-Radio">
 
-Coming soon
+| Nom                                                   | Unité |
+|:------------------------------------------------------|:------|
+| *radio_name*#status                                   | N/A   |
+| *radio_name*#ap.radio.packageerror.percentage         | %     |
+| *radio_name*#ap.radio.noise.dbm                       | dBm   |
+| *radio_name*#ap.radio.channel.utilization.percentage  | %     |
+| *radio_name*#ap.radio.channel.interference.percentage | %     |
+| *ap_name*#ap.radio.receive.bitspersecond              | b/s   |
+| *ap_name*#ap.radio.send.bitspersecond                 | b/s   |
 
 </TabItem>
 <TabItem value="Ap-Status" label="Ap-Status">
@@ -132,7 +150,15 @@ Coming soon
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-Coming soon
+| Nom                                                       | Unité |
+|:----------------------------------------------------------|:------|
+| *interface_name*#status                                   | N/A   |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
+| *interface_name*#interface.packets.in.discard.percentage  | %     |
+| *interface_name*#interface.packets.in.error.percentage    | %     |
+| *interface_name*#interface.packets.out.discard.percentage | %     |
+| *interface_name*#interface.packets.out.error.percentage   | %     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -282,7 +308,7 @@ yum install centreon-plugin-Network-Huawei-Wlc-Snmp
 3. Appliquez le modèle d'hôte **Net-Huawei-Wlc-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                                                                         | Valeur par défaut | Obligatoire |
 |:-----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|

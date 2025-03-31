@@ -256,7 +256,7 @@ mv broker_private.key /etc/centreon/broker_cert/
 mv broker_public.crt /etc/centreon/broker_cert/
 ```
 
-> Le champ "Trusted CA's certificate" est facultatif. Si vous activez l'authentification client de Broker en définissant ce "ca\_certificate.crt", vous devez alors configurer un [keystore pour le serveur MAP](#configurer-httpstls-sur-le-serveur-map)
+> Le champ "Trusted CA's certificate" est facultatif. Si vous activez l'authentification client de Broker en définissant ce "ca\_certificate.crt", vous devez alors configurer un [keystore pour le serveur MAP](#configurer-httpstls-sur-le-serveur-map-ou-map-legacy)
 >
 > Vous devez pousser la nouvelle configuration du broker et redémarrer le broker après la configuration.
 
