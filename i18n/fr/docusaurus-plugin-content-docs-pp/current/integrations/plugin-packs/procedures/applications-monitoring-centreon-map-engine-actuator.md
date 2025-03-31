@@ -5,7 +5,7 @@ title: Centreon Map Engine
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Map Engine est l'un des composants de [Centreon Map](https://docs.centreon.com/fr/docs/graph-views/introduction-map/).
+Map Engine est l'un des composants de [Centreon Map](/docs/graph-views/introduction-map).
 
 ## Contenu du pack
 
@@ -104,11 +104,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Vous devez avoir préalablement installé [Centreon Map](https://docs.centreon.com/fr/docs/graph-views/introduction-map/) et tout particulièrement [Centreon Map Engine server](https://docs.centreon.com/fr/docs/graph-views/map-web-install/).
+Vous devez avoir préalablement installé [Centreon Map](/docs/graph-views/introduction-map) et tout particulièrement [Centreon Map Engine server](/docs/graph-views/map-web-install).
 
 ## Installer le connecteur de supervision
 
 ### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
@@ -199,7 +201,7 @@ yum install centreon-plugin-Applications-Jvm-Actuator
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **App-Jvm-Centreon-Map-Engine-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro                   | Description                                                                                                                | Valeur par défaut      | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|

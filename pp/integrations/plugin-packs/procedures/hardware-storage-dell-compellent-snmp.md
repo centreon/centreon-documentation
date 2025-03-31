@@ -114,6 +114,9 @@ SNMP port.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
 **Configuration > Monitoring Connector Manager** menu.
@@ -238,7 +241,7 @@ yum install centreon-plugin-Hardware-Storage-Dell-Compellent-Snmp
 | WARNINGIN    | Warning thresholds                                                                                                                                 | 80                                           |             |
 | CRITICALOUT  | Critical thresholds                                                                                                                                | 90                                           |             |
 | WARNINGOUT   | Warning thresholds                                                                                                                                 | 80                                           |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).   | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).   | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
@@ -250,7 +253,7 @@ yum install centreon-plugin-Hardware-Storage-Dell-Compellent-Snmp
 | WARNINGIN     | Warning thresholds                                                                                                                               | 80                                           |             |
 | CRITICALOUT   | Critical thresholds                                                                                                                              | 90                                           |             |
 | WARNINGOUT    | Warning thresholds                                                                                                                               | 80                                           |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
@@ -263,7 +266,7 @@ yum install centreon-plugin-Hardware-Storage-Dell-Compellent-Snmp
 | CRITICALOUT    | Critical thresholds                                                                                                                                                                                                 | 90                                                 |             |
 | WARNINGOUT     | Warning thresholds                                                                                                                                                                                                  | 80                                                 |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                                                    |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                    | --verbose --oid-display=ifdesc --oid-filter=ifdesc |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).                                                                    | --verbose --oid-display=ifdesc --oid-filter=ifdesc |             |
 
 </TabItem>
 </Tabs>

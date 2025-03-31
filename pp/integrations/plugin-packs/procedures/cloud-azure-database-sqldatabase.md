@@ -140,6 +140,9 @@ on the [dedicated page](../getting-started/how-to-guides/azure-credential-config
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
 **Configuration > Monitoring Connector Manager** menu.
@@ -289,7 +292,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | CRITICALAPPCPU    | Critical threshold for app-cpu                                                                      |                   |             |
 | WARNINGAPPMEMORY  | Warning threshold for app-memory                                                                    |                   |             |
 | CRITICALAPPMEMORY | Critical threshold for app-memory                                                                   |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Connections" label="Connections">

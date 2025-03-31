@@ -43,6 +43,7 @@ Il existe plusieurs manières de définir un temps d'arrêt :
 1. Allez à la page **Supervision > Statut des ressources**.
 2. Utilisez une des méthodes suivantes :
     - Sélectionnez le ou les objets que vous souhaitez mettre en maintenance , puis cliquez sur le bouton **Planifier une maintenance** au-dessus de la liste des ressources.
+    - Cliquez sur la ressource pour ouvrir son **Panneau de détail** puis cliquez sur le bouton **Planifier une maintenance** sous les onglets.
     - Survolez la ressource désirée, puis cliquez sur l'icône **Planifier une maintenance** qui apparaît à gauche :
 
     ![image](../assets/alerts/resources-status/dt-hover.gif)
