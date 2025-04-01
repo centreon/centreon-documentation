@@ -37,7 +37,7 @@ dedicated built-in REST API.
 
 ## Prerequisites
 
-The users used in the Host Macro (more information [here](#Host) must be 
+The users used in the Host Macro (more information [here](#host) must be 
 assigned to one of the following Admin Groups and must be authenticated against 
 the credentials stored in the Cisco ISE internal database (internal admin 
 users):
@@ -63,7 +63,7 @@ https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-
 yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Cisco ISE* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+2. On the Centreon Web interface, install the *Cisco ISE* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -80,7 +80,7 @@ yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 yum install centreon-pack-applications-cisco-ise-restapi
 ```
 
-3. On the Centreon Web interface, install the *Cisco ISE* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+3. On the Centreon Web interface, install the *Cisco ISE* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 </Tabs>

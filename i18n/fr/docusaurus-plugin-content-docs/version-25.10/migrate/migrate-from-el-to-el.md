@@ -18,6 +18,13 @@ Tous les serveurs de votre architecture (serveur central, serveurs distants et c
 > Centreon, il est nécessaire de contacter le
 > [support Centreon](https://support.centreon.com).
 
+Avant toute chose, effectuez une sauvegarde de l’ensemble des serveurs de votre plateforme :
+
+- Serveur Centreon central,
+- Serveur de gestion de base de données.
+
+Si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les avant de mettre à jour Centreon](../alerts-notifications/ticketing-install.md#sauvegarder-votre-configuration-personnalisée-de-fournisseur-openticket).
+
 ## Migrer une plateforme
 
 ### Étape 1 : Installer le nouveau serveur central
@@ -244,7 +251,7 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
 
 9. Si vous supervisiez votre ancienne machine Centreon, et que vous avez changé le nom d'utilisateur/mot de passe de la base pendant la migration, mettez à jour la configuration des ressources concernées (hôte, services dépendant de cet hôte).
 
-10. Allez à la page **Configuration > Gestionnaire de connecteurs de supervision**, puis [mettez à jour tous les connecteurs de supervision](../monitoring/pluginpacks.md#mettre-à-jour-un-ou-plusieurs-packs).
+10. Allez à la page **Configuration > Connecteurs > Connecteurs de supervision**, puis [mettez à jour tous les connecteurs de supervision](../monitoring/pluginpacks.md#mettre-à-jour-un-ou-plusieurs-packs).
 
 ### Étape 6 (anciennes versions uniquement): Migrer vers Gorgone
 
