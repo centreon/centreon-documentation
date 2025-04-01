@@ -158,8 +158,10 @@ Centreon vers la ressource supervisée.
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -196,7 +198,7 @@ yum install centreon-pack-applications-trendmicro-iwsva-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **TrendMicro Iwsva**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -249,7 +251,7 @@ yum install centreon-plugin-Applications-TrendMicro-Iwsva
 3. Appliquez le modèle d'hôte **App-Trendmicro-Iwsva-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -271,7 +273,7 @@ yum install centreon-plugin-Applications-TrendMicro-Iwsva
 | CRITICALAVERAGE | Critical threshold for average CPU utilization                                                                                         | 90                |             |
 | WARNINGCORE     | Warning thresholds for each CPU core                                                                                                   |                   |             |
 | CRITICALCORE    | Critical thresholds for each CPU core                                                                                                  |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Disk-Global" label="Disk-Global">
@@ -285,7 +287,7 @@ yum install centreon-plugin-Applications-TrendMicro-Iwsva
 | CRITICALUSAGE  | Critical threshold for storage space usage                                                                                                                                                     | 90                |             |
 | WARNINGACCESS  | Warning threshold if storage is readOnly: --warning-access=readOnly                                                                                                                            |                   |             |
 | CRITICALACCESS | Critical threshold if storage is readOnly: --critical-access=readOnly                                                                                                                          |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                              | --verbose         |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles).                                              | --verbose         |             |
 
 </TabItem>
 <TabItem value="Load" label="Load">
@@ -303,7 +305,7 @@ yum install centreon-plugin-Applications-TrendMicro-Iwsva
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGUSAGE  | Warning threshold for memory usage                                                                                                     | 80                |             |
 | CRITICALUSAGE | Critical threshold for memory usage                                                                                                    | 90                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Proxy-Connections" label="Proxy-Connections">
@@ -321,7 +323,7 @@ yum install centreon-plugin-Applications-TrendMicro-Iwsva
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGUSAGE  | Warning threshold for swap usage                                                                                                       | 10                |             |
 | CRITICALUSAGE | Critical threshold for swap usage                                                                                                      | 30                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">

@@ -185,6 +185,9 @@ The installation and configuration procedure of Centreon Monitoring Agent for Wi
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
 **Configuration > Monitoring Connectors Manager** menu.
@@ -274,7 +277,7 @@ This connector relies on an integration supported by Centreon Engine and does no
 | CRITICALCERTIFICATEEXPIRES   | Thresholds.                                                                                                                                                 | 30:           |           |
 | WARNINGCERTIFICATESDETECTED  | Thresholds.                                                                                                                                                 |               |           |
 | CRITICALCERTIFICATESDETECTED | Thresholds.                                                                                                                                                 |               |           |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                    |               |           |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                    |               |           |
 
 </TabItem>
 <TabItem value="CPU" label="CPU">

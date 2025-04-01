@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Versa Director Restapi** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -123,8 +123,10 @@ La communication doit être possible sur le port TCP 9182 (en HTTPS) depuis le c
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -161,7 +163,7 @@ yum install centreon-pack-network-versa-director-restapi
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Versa Director Restapi**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -401,7 +403,7 @@ OK: up: 30634 down: 76298 up: 55523 down: 53572 sub-group paths are ok | 'paths.
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles

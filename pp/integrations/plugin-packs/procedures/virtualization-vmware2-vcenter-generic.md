@@ -582,7 +582,7 @@ yum install centreon-plugin-Virtualization-VMWare-daemon
 <Tabs groupId="sync">
 <TabItem value="Centreon Cloud and OnPrem from version 24.10" label="Centreon Cloud and OnPrem from version 24.10">
 
-Go to [**Configuration > Additional connector configuration**](../getting-started/how-to-guides/acc.md) to configure the connection to your vCenter.
+Go to [**Configuration > Connectors > Additional configurations**](../getting-started/how-to-guides/acc.md) to configure the connection to your vCenter.
 
 </TabItem>
 <TabItem value="Versions of Centreon OnPrem older than 24.10" label="Versions of Centreon OnPrem older than 24.10">
@@ -659,6 +659,9 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 ## Installing the monitoring connector
 
 ### Pack
+
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the

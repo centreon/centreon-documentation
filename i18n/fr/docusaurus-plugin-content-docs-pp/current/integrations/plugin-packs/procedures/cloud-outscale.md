@@ -223,10 +223,12 @@ Un utilisateur Outscale avec les droits suivants doit être utilisé :
 
 ## Installation
 
-### Pack de supervision
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md). de supervision
 
 Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
@@ -264,7 +266,7 @@ apt install centreon-pack-cloud-outscale
 </Tabs>
 
 Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Outscale**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 

@@ -231,7 +231,7 @@ Log options:
     Log level for `bam` log messages.
     Useful for troubleshooting [Business Activity Monitoring](../../service-mapping/introduction.md) issues.
 
-  - Write timestamp (applies to the [deprecated logger options](#broker-logger-configuration-page-deprecated))
+  - Write timestamp (applies to the deprecated logger options)
     If activated, each log entry is preceded by the timestamp of the time it was
     written. This is useful to know when an error has occurred. Best practice is
     *Yes*.
