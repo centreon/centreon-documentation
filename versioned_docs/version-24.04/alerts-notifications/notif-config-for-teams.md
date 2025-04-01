@@ -21,7 +21,14 @@ Go to this page to see how to [migrate your connectors to Workflows](https://dev
 
 Follow this Microsoft procedure that explains how to [Post a workflow when a webhook request is received in Microsoft Teams](https://support.microsoft.com/en-us/office/post-a-workflow-when-a-webhook-request-is-received-in-microsoft-teams-8ae491c7-0394-4861-ba59-055e33f75498#:~:text=You%20can%20post%20to%20a,a%20webhook%20request%20is%20received.&text=next%20to%20the%20channel%20or,that%20best%20suits%20your%20needs). It will allow Centreon to send an alert in a Teams channel.
 
-> You will obtain a URL that you can easily copy/paste. Store the URL carefully. You will need it when you go to the service that you want to send data to your group.
+You will obtain a URL that you can easily copy/paste. Store the URL carefully. You will need it when you go to the service that you want to send data to your group.
+
+> This URL is containing special characters such as "&". As this character is preventing the notification command from running, you have to remove it from the list of illegal characters in Centreon.
+> 
+>  - Go to **Configuration > Pollers > Engine configuration**.
+>  - Click the Engine configuration to edit it. Then open the **Admin** tab.
+>  - In the **Illegal Macro Output Characters** field, remove the "&" character.
+>  - Save your changes.
 
 You should receive a Teams notification confirming the configuration of the connector.
 

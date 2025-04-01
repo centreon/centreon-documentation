@@ -2345,7 +2345,7 @@ message Status {
 
 This event is emitted by Centreon Broker when a new service configuration is
 received. It associates an index ID (the one created for a service - see
-[Index mapping](#indexmapping)) to a metric ID.
+[Index mapping](#index-mapping)) to a metric ID.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">

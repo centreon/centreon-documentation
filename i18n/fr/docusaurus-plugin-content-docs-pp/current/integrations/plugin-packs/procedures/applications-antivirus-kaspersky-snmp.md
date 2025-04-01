@@ -104,7 +104,7 @@ SNMP (UDP/161) du Kaspersky Security Center.
 yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 ```
 
-2. Installer le connecteur de supervision 'Kaspersky' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
+2. Installer le connecteur de supervision 'Kaspersky' depuis la page **Configuration > Connecteurs > Connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -121,7 +121,7 @@ yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 yum install centreon-pack-applications-antivirus-kaspersky-snmp
 ```
 
-3. Installer le connecteur de supervision 'Kaspersky' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** de l'interface Web Centreon
+3. Installer le connecteur de supervision 'Kaspersky' depuis la page **Configuration > Connecteurs > Connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
 </Tabs>
@@ -133,7 +133,7 @@ yum install centreon-pack-applications-antivirus-kaspersky-snmp
 * Appliquez le Modèle d'Hôte *App-Antivirus-Kaspersky-SNMP-custom*
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Obligatoire | Nom              | Description                                 |
 |:----------- |:---------------- |:------------------------------------------- |

@@ -8,14 +8,14 @@ import TabItem from '@theme/TabItem';
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 20.10 vers la version 22.10.
 
-> Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
+> Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#changement-de-version-de-bbdo).
 
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux
 > / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-el-to-el.md)
 
 > Pour effectuer cette procédure, votre version de MariaDB doit être >= 10.3.22.
 > Si cela n'est pas le cas, merci de suivre avant le
-> [chapitre de mise à jour de MariaDB](./upgrade-from-19-10.md#upgrade-mariadb-server)
+> [chapitre de mise à jour de MariaDB](./upgrade-from-19-10.md#montée-de-version-du-serveur-mariadb)
 
 > Attention, suite à la correction d'un problème relatif au schéma de base de données, il sera nécessaire
 > d'arrêter l'insertion en base de données des données collectées le temps de la mise à jour. Celles-ci seront stockées

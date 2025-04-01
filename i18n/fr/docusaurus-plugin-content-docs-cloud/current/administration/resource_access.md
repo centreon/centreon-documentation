@@ -3,7 +3,7 @@ id: ram
 title: Attribuer des droits aux utilisateurs sur les ressources
 ---
 
-Les règles d'accès aux ressources vous permettent d'attribuer aux utilisateurs le droit de voir des [ressources](../resources/glossary.md#resource) spécifiques.
+Les règles d'accès aux ressources vous permettent d'attribuer aux utilisateurs le droit de voir des [ressources](../resources/glossary.md#ressource) spécifiques.
 
 Par défaut, tous les utilisateurs peuvent voir toutes les ressources. En effet, une règle par défaut nommée "ALL" est créée automatiquement à l'installation de la plateforme. Les utilisateurs ayant le rôle **Administrator** peuvent voir toutes les ressources dans tous les cas, même si aucune règle ne leur attribue explicitement ce droit.
 

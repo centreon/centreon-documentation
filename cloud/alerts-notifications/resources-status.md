@@ -219,9 +219,9 @@ Use the **gear icon** next to **Filter** to:
 - Edit filters so that you can rename, re-order or delete them
 
 As soon as a filter is saved, it can be reused in the Filter dropdown list,
-categorized under **My Filter**.
+categorized under **My Filters**.
 
-By clicking the **Edit filters** menu, you can manage your existing filters (rename, re-order and delete):
+By clicking the **Manage filters** menu, you can manage your existing filters (rename, re-order and delete them).
 
 ## Detail panel
 
@@ -323,4 +323,4 @@ The graph opens on the **Monitoring > Performances > Graphs** page, allowing you
 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
-You can also export the data for the graph as a CSV file. This will include all metrics.
+You can also export the data for the graph as a CSV file (this will include all metrics), or as a PNG file in various sizes.
