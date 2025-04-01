@@ -296,7 +296,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname='10.0.0.1' \
 	--port='443' \
 	--proto='https' \
-	--access-token=''  \
+	--access-token='xxxx'  \
 	--filter-vdom='' \
 	--warning-cpu-utilization='' \
 	--critical-cpu-utilization='' \

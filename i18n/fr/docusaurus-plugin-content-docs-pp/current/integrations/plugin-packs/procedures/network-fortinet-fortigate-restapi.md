@@ -39,7 +39,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias | Modèle de service                        | Description                                                                           |
 |:------|:-----------------------------------------|:--------------------------------------------------------------------------------------|
-| Ha    | Net-Fortinet-Fortigate-Ha-Restapi-custom | Contrôle l'utilisation système des members du cluster (processeur, mémoire, sessions) |
+| Ha    | Net-Fortinet-Fortigate-Ha-Restapi-custom | Contrôle l'utilisation système des membres du cluster (processeur, mémoire, sessions) |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -98,7 +98,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de contrôler votre équipement Fortinet Fortigate, l'API Rest doit être configurée comme indiquée dans la [documentation officielle](https://docs.fortinet.com/document/fortigate/7.2.1/administration-guide/399023/rest-api-administrator).
+Afin de contrôler votre équipement Fortinet Fortigate, l'API Rest doit être configurée comme indiqué dans la [documentation officielle](https://docs.fortinet.com/document/fortigate/7.2.1/administration-guide/399023/rest-api-administrator).
 
 ## Installer le connecteur de supervision
 
@@ -297,7 +297,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname='10.0.0.1' \
 	--port='443' \
 	--proto='https' \
-	--access-token=''  \
+	--access-token='xxxx'  \
 	--filter-vdom='' \
 	--warning-cpu-utilization='' \
 	--critical-cpu-utilization='' \
