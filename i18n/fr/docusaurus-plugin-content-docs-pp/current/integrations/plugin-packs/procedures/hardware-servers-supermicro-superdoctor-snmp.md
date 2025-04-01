@@ -49,7 +49,7 @@ https://www.supermicro.com/en/solutions/management-software/superdoctor
 yum install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Supermicro SuperDoctor SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le Pack *Supermicro SuperDoctor SNMP* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -66,7 +66,7 @@ yum install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
 yum install centreon-pack-hardware-servers-supermicro-superdoctor-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Supermicro SuperDoctor SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le Pack *Supermicro SuperDoctor SNMP* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
