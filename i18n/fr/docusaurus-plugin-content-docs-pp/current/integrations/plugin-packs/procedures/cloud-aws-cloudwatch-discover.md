@@ -167,7 +167,7 @@ nécessaire de les modifier dans le cadre d'un *job* de découverte *standard*. 
 [documentation des modificateurs](/docs/monitoring/discovery/hosts-discovery#comment-utiliser-les-modificateurs).
 
 Les étapes 5 & 6 permettent d'ajuster la politique de modélisation des résultats si besoin. Rendez-vous 
-[ici](/docs/monitoring/discovery/hosts-discovery#définir-les-politiques-danalyse-et-de-mise-à-jour) pour plus d'informations.
+[ici](/docs/monitoring/discovery/hosts-discovery#étape-5--définir-les-politiques-danalyse-et-de-mise-à-jour) pour plus d'informations.
 
 Une fois la découverte terminé, vous pouvez afficher les résultats en cliquant sur *job results*. Les modèles relatifs aux types de resources
 AWS sont automatiquement appliqués:

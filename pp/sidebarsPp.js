@@ -50,6 +50,10 @@ module.exports = {
             {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/windows-winrm-wsman-tutorial'
+            },
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/connectors-licenses'
             }
           ]
         },
@@ -227,6 +231,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-haproxy-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-haproxy-web'
         },
         {
           type: 'doc',
@@ -490,6 +498,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-podman-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-prometheus-api'
         },
         {
@@ -631,6 +643,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-veeam-vbem-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-veeam-centreon-monitoring-agent'
         },
         {
           type: 'doc',
@@ -2923,6 +2939,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-vmware2-vm'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/application-virtualization-vmware8-esx-restapi'
         }
       ]
     }
