@@ -219,7 +219,7 @@ yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
 | FILTERNAME      | Filter certificates by name (can be a regexp)                                                                                          |                            |           |
 | WARNINGEXPIRES  | Thresholds                                                                                                                             |                            |           |
 | CRITICALEXPIRES | Thresholds                                                                                                                             |                            |           |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{status\}              | %\{status\} =~ /expired/i' |           |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{status\}              | %\{status\} =~ /expired/i |           |
 | WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}               |                            |           |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                  |           |
 
