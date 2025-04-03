@@ -5,10 +5,9 @@ title: Windows Centreon Monitoring Agent
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 > At the moment, this monitoring connector is in a **BETA** version.
 
-You may refer to [this page](../getting-started/how-to-guides/cma.md) for more information about Centreon Monitoring Agent.
+Read [this page](../getting-started/how-to-guides/cma.md) for more information about the Centreon Monitoring Agent itself.
 
 ## Pack assets
 
@@ -23,27 +22,27 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="OS-Windows-Centreon-Monitoring-Agent-custom" label="OS-Windows-Centreon-Monitoring-Agent-custom">
 
-| Service Alias  | Service Template                                           | Service Description                                                                                                                                  |
-|:---------------|:-----------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| CPU            | OS-Windows-CPU-Centreon-Monitoring-Agent-custom            | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
-| Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Check the rate of the utilization of memory                                                                                                          |
-| Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Check the synchronization with a NTP server.                                                                                                         |
-| Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Check if Windows needs rebooting.                                                                                                                    |
-| Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Check the number of active sessions.                                                                                                                 |
-| Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Check virtual memory usage                                                                                                                           |
-| Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Check if there are pending updates.                                                                                                                  |
-| Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Check time since the server has been working and available                                                                                           |
+| Service Alias  | Service Template                                           | Service Description                                                                                                                                  | Type of check |
+|:---------------|:-----------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------| --- |
+| CPU            | OS-Windows-CPU-Centreon-Monitoring-Agent-custom            | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs | native |
+| Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Check the rate of memory utilization                                                                                                          | native |
+| Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Check the synchronization with a NTP server.                                                                                                         | non-native |
+| Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Check if Windows needs rebooting.                                                                                                                    | non-native |
+| Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Check the number of active sessions.                                                                                                                 | non-native |
+| Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Check virtual memory usage                                                                                                                           | native |
+| Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Check if there are pending updates.                                                                                                                  | non-native |
+| Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Check time since the server has been working and available                                                                                           | native |
 
 > The services listed above are created automatically when the **OS-Windows-Centreon-Monitoring-Agent-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                                         | Service Description                                                                                                                                           |
-|:--------------|:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Certificates  | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom | Check the local certificates.                                                                                                                                 |
-| CPU-detailed  | OS-Windows-CPU-detailed-Centreon-Monitoring-Agent-custom | Check the detailed rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
-| Storage       | OS-Windows-Storage-Centreon-Monitoring-Agent-custom      | Check storage usages                                                                                                                                          |
+| Service Alias | Service Template                                         | Service Description                                                                                                                                           | Type of check |
+|:--------------|:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
+| Certificates  | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom | Check the local certificates.                                                                                                                                 | non-native |
+| CPU-detailed  | OS-Windows-CPU-detailed-Centreon-Monitoring-Agent-custom | Check the detailed rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs | native |
+| Storage       | OS-Windows-Storage-Centreon-Monitoring-Agent-custom      | Check storage usages                                                                                                                                          | native |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -164,21 +163,17 @@ Only one TCP flow must be open from the host to the poller.
 |----------------|-------------|----------|------|--------------------------------------------------|
 | Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval OpenTelemetry data flow. |
 
-### System prerequisites on the poller
+### System prerequisites for the poller
 
-> To be able to use the Centreon Monitoring agent, you must use a poller with at least version `24.09.0` for Centreon Cloud users and version `24.04.6` or `24.10.0` for On Prem users of `centreon-engine`. The Centreon Monitoring agent will configure itself by connecting to Centreon Engine.
+> To be able to use the Centreon Monitoring agent, you must use a poller with at least version <!--`24.09.0` for Centreon Cloud users and version--> `24.04.6` or `24.10.0` for On Prem users of `centreon-engine`. The Centreon Monitoring agent will retrieve its configuration by connecting to Centreon Engine.
 
-### Configure Engine
+### Configure poller/agent communication
 
-[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma.md#configure-engine).
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma.md#configure-polleragent-communication).
 
-### System prerequisites on the monitored host
+### System prerequisites for the monitored host
 
-The installer can be downloaded from the [centreon-collect's releases page](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true).
-
-#### Installing the Centreon Monitoring Agent
-
-The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in 
+The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in
 [this dedicated page](../getting-started/how-to-guides/cma.md#step-2-prepare-the-host).
 
 ## Installing the monitoring connector
@@ -186,7 +181,6 @@ The installation and configuration procedure of Centreon Monitoring Agent for Wi
 ### Pack
 
  The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
@@ -226,9 +220,20 @@ apt install centreon-pack-operatingsystems-windows-centreon-monitoring-agent
 2. Whatever the license type (*online* or *offline*), install the **Windows Centreon Monitoring Agent** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
-3. Create the corresponding connector:
+3. According to your version of Centreon, skip to the next step or create a connector on your central server.
 
-In the **Configuration > Commands > Connectors** menu, click **Add** and fill the following fields:
+<Tabs groupId="sync">
+<TabItem value="OnPrem version 24.10.6 or newer" label="OnPrem version 24.10.6 or newer">
+
+For this version, no configuration is needed. Move on to the [next step](#plugin).
+
+</TabItem>
+<TabItem value="OnPrem version older than 24.10.6" label="OnPrem version older than 24.10.6">
+
+If your Centreon is in a version older than 24.10.6, you need to create the CMA connector on your central server:
+
+1. Go to **Configuration > Commands > Connectors**.
+2. Create a new connector with the following values:
 
 | Parameter             | Value                                                                                                                                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -238,6 +243,8 @@ In the **Configuration > Commands > Connectors** menu, click **Add** and fill th
 | Used by command       | Select all the commands named like `OS-Windows-Centreon-Monitoring-Agent-*`                                                                                                                   |
 | Connector Status      | Enabled                                                                                                                                                                                       |
 
+</TabItem>
+</Tabs>
 
 ### Plugin
 
