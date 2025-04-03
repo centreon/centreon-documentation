@@ -57,7 +57,6 @@ Here is the list of services for this connector, detailing all metrics and statu
 |:---------------------|:------|
 | pools.detected.count | count |
 | status               | N/A   |
-| status               | N/A   |
 
 </TabItem>
 </Tabs>
