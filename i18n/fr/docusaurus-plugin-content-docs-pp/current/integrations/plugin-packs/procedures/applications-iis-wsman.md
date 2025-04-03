@@ -58,7 +58,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:---------------------|:------|
 | pools.detected.count | count |
 | status               | N/A   |
-| status               | N/A   |
 
 </TabItem>
 </Tabs>
