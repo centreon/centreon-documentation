@@ -46,8 +46,8 @@ Le connecteur apporte les modèles de service suivants
 | Hardware-Fan         | Net-F5-Bigip-Hardware-Fan-SNMP-custom         | Contrôle les ventilateurs de l'équipement |            |
 | Hardware-Psu         | Net-F5-Bigip-Hardware-Psu-SNMP-custom         | Contrôle les ventilateurs de l'équipement |            |
 | Hardware-Temperature | Net-F5-Bigip-Hardware-Temperature-SNMP-custom | Contrôle les températures de l'équipement |            |
-| Node-Status-Global   | Net-F5-Bigip-Node-Status-Global-SNMP-custom   | Contrôle le statut des 'nodes'            |     X      |
-| Pool-Status-Global   | Net-F5-Bigip-Pool-Status-Global-SNMP-custom   | Contrôle le statut des 'pools'            |     X      |
+| Node-Status-Global   | Net-F5-Bigip-Node-Status-Global-SNMP-custom   | Contrôle le statut des nodes            |     X      |
+| Pool-Status-Global   | Net-F5-Bigip-Pool-Status-Global-SNMP-custom   | Contrôle le statut des pools            |     X      |
 | Tmm-Usage            | Net-F5-Bigip-Tmm-Usage-SNMP-custom            | Contrôle l'utilisation TMM                |            |
 | Trunk-Usage          | Net-F5-Bigip-Trunk-Usage-SNMP-custom          | Controle l'utilisation des trunks         |            |
 
