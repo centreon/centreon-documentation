@@ -5,7 +5,9 @@ title: Windows Centreon Monitoring Agent
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> At the moment, this monitoring connector is in a **BETA** version.
+The **Windows Centreon Monitoring Agent** connector supplies templates and commands to be used with the Centreon Monitoring Agent (this is an observability agent implementing the OpenTelemetry protocol).
+
+> For the moment, this monitoring connector and the agent are in **BETA** version.
 
 Read [this page](../getting-started/how-to-guides/cma.md) for more information about the Centreon Monitoring Agent itself.
 

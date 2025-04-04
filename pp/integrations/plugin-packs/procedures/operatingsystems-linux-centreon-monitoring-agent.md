@@ -5,9 +5,9 @@ title: Linux Centreon Monitoring Agent
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Centreon Monitoring Agent is an observability tool implementing the OpenTelemetry protocol.
+The **Linux Centreon Monitoring Agent** connector supplies templates and commands to be used with the Centreon Monitoring Agent (this is an observability agent implementing the OpenTelemetry protocol).
 
-> At the moment, the Centreon Monitoring Agent is in beta version.
+> For the moment, this monitoring connector and the agent are in **BETA** version.
 
 Read [this page](../getting-started/how-to-guides/cma.md) for more information about the Centreon Monitoring Agent itself.
 
@@ -323,7 +323,7 @@ Only one TCP flow must be open from the host to the poller.
 ### System prerequisites for the monitored host
 
 The installation and configuration procedure of Centreon Monitoring Agent for Linux is detailed in
-[this dedicated page](../getting-started/how-to-guides/cma.md#step-2-prepare-the-host). (This includes installing the agent, and installing the plugins that will excute the non-native checks.)
+[this dedicated page](../getting-started/how-to-guides/cma.md#step-2-prepare-the-host). (This includes installing the agent, and installing the plugins that will execute the non-native checks.)
 
 ## Installing the monitoring connector
 

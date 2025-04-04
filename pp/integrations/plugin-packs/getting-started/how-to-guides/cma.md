@@ -534,6 +534,12 @@ systemctl status centagent
 In this mode, there is no interface. As this installer is not a console program, it returns immediately despite not having finished. You have to wait for a message telling you that all is finished.
 If you want to have an exit status, you can launch the installer in a powershell session and wait for the exit code. The exit code will be 0 if all is right.
 
+To run it in silent mode, you need to set /S as the first argument. You can display a list of arguments with the following command:
+
+```shell
+centreon-monitoring-agent.exe /S --help
+```
+
 | flag                       | description                                                                                                                                                                                                                                                               |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | --install_cma              | Set this flag if you want to install the Centreon Monitoring Agent                                                                                                                                                                                                        |
