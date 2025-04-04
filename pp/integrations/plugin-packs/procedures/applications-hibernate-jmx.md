@@ -60,7 +60,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-Please deploy the Jolokia agent on your AWA Server ([Jolokia download page](https://jolokia.org/download.html)).
+Please deploy the Jolokia agent on your JVM ([Jolokia download page](https://jolokia.org/download.html)).
 Ask your admin to deploy it and give you the URL.
 
 ## Installing the monitoring connector
