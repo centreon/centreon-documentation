@@ -61,7 +61,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Veuillez installer l'agent Jolokia sur votre serveur AWA ([Jolokia download page](https://jolokia.org/download.html)).
+Veuillez installer l'agent Jolokia sur votre serveur JVM ([Jolokia download page](https://jolokia.org/download.html)).
 Demandez à votre administrateur de le déployer et de vous en fournir l'URL.
 
 ## Installer le connecteur de supervision
