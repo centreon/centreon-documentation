@@ -74,9 +74,21 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+* The Centreon poller must have network access to the Exense Step server: Make sure the REST API is manually accessible using curl or a web browser.
+
+```
+http://<step-host>:<port>/step/rest
+```
+
+* Verify that the Centreon poller can authenticate with the API. The account used must have read permissions on the following resources:
+- Plans
+- Tenants (if multi-tenancy is enabled)
+
+* If you encounter any issues, you can manually check API access using the centreon-engine user with the following curl command:
+
+```
+curl -u user:pass http://<step-host>:<port>/step/rest/plans
+```
 
 ## Installing the monitoring connector
 
