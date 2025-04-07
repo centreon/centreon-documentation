@@ -72,12 +72,12 @@ Vous devrez indiquer le chemin d'accès à l'exécutable JMeter dans la macro **
 Installez le logiciel JMeter sur le ou les collecteurs qui exécuteront le plugin.
 Pour cela 2 méthodes sont possibles :
 
-1. Installer JMeter depuis les dépôts officiels :
+* Installez JMeter depuis les dépôts officiels :
 ```bash
 apt install jmeter
 ```
 
-2. Télécharger JMeter depuis le site officiel [JMeter](https://jmeter.apache.org/download_jmeter.cgi) et l'installer manuellement.
+* Téléchargez JMeter depuis le site officiel [JMeter](https://jmeter.apache.org/download_jmeter.cgi) et l'installer manuellement.
 Vous devrez dans ce cas indiquer le chemin d'accès à l'exécutable JMeter dans la macro **JMETERCOMMANDPATH**.
 
 </TabItem>
@@ -201,7 +201,7 @@ yum install centreon-plugin-Applications-Jmeter
 
 | Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DIRECTORY    | Directory where scenarii are stored                                                                |                   |             |
+| DIRECTORY    | Directory where scenarios are stored                                                                |                   |             |
 | SCENARIO     | Scenario used by JMeter (without extension)                                                        |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
