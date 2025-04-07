@@ -71,7 +71,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
+### Client IBM MQ
+
+Afin de pouvoir exploiter ce Pack, vous devez installer le client IBM MQ pour Linux. 
+Une procédure est disponible ici : 
+* https://www.ibm.com/docs/en/ibm-mq/8.0?topic=server-installing-mq-linux.
+
 ### Dépendances
+
+Pour installer la librairie Perl, vous devez installer les dépendances suivantes :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -103,12 +111,6 @@ yum install wget unzip gcc
 
 </TabItem>
 </Tabs>
-
-### Client IBM MQ
-
-Afin de pouvoir exploiter ce connecteur, vous devez installer le client IBM MQ pour Linux. 
-Une procédure est disponible ici : 
-* https://www.ibm.com/docs/en/ibm-mq/8.0?topic=server-installing-mq-linux.
 
 ### Bibliothèque Perl pour IBM MQ
 

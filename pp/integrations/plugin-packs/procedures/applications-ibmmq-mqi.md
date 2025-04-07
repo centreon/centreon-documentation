@@ -70,7 +70,15 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
+### IBM MQ Client
+
+To take advantage of this Monitoring Pack, you must deploy the Linux MQ client library on the Poller expected to monitor IBM MQ servers. 
+Please refer to the official IBM documentation:
+* https://www.ibm.com/docs/en/ibm-mq/8.0?topic=server-installing-mq-linux.
+
 ### Dependencies
+
+To install the perl library, you need to install the following packages:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -102,12 +110,6 @@ yum install wget unzip gcc
 
 </TabItem>
 </Tabs>
-
-### IBM MQ Client
-
-To take advantage of this Monitoring Pack, you must deploy the Linux MQ client library on the Poller expected to monitor IBM MQ servers. 
-Please refer to the official IBM documentation:
-* https://www.ibm.com/docs/en/ibm-mq/8.0?topic=server-installing-mq-linux.
 
 ### Perl library for IBM MQ
 
