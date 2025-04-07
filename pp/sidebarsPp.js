@@ -646,6 +646,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-veeam-centreon-monitoring-agent'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-veeam-nsclient-05-restapi'
         },
         {
@@ -2935,6 +2939,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-vmware2-vm'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/application-virtualization-vmware8-esx-restapi'
         }
       ]
     }
