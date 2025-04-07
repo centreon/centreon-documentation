@@ -186,7 +186,7 @@ yum install centreon-pack-hardware-ups-apc-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **APC UPS** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

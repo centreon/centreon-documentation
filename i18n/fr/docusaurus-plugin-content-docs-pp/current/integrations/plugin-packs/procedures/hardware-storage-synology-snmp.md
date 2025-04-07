@@ -218,7 +218,7 @@ yum install centreon-pack-hardware-storage-synology-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Synology**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 

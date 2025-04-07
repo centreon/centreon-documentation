@@ -230,7 +230,7 @@ accessTokens.json qui sera utilisé automatiquement par le Plugin.
 yum install centreon-plugin-Cloud-Azure-Analytics-EventHubs-Api
 ```
 
-2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Event Hubs* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Event Hubs* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -247,7 +247,7 @@ yum install centreon-plugin-Cloud-Azure-Analytics-EventHubs-Api
 yum install centreon-pack-cloud-azure-analytics-eventhubs.noarch
 ```
 
-3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Event Hubs* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Azure Event Hubs* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>

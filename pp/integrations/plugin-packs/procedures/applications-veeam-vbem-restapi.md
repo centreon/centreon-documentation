@@ -136,7 +136,7 @@ yum install centreon-pack-applications-veeam-vbem-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Veeam Backup Enterprise Manager Rest API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
