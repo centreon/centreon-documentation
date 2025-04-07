@@ -25,11 +25,12 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="Net-Fortinet-Fortigate-Restapi-custom" label="Net-Fortinet-Fortigate-Restapi-custom">
 
-| Alias    | Modèle de service                              | Description                                                             |
-|:---------|:-----------------------------------------------|:------------------------------------------------------------------------|
-| Health   | Net-Fortinet-Fortigate-Health-Restapi-custom   | Contrôle l'état de santé du firewall                                   |
-| Licenses | Net-Fortinet-Fortigate-Licenses-Restapi-custom | Contrôle le statut des licences                                         |
-| System   | Net-Fortinet-Fortigate-System-Restapi-custom   | Contrôle l'utilisation système des VDOM (processeur, mémoire, sessions) |
+| Alias        | Modèle de service                                  | Description                                                             |
+|:-------------|:---------------------------------------------------|:------------------------------------------------------------------------|
+| Certificates | Net-Fortinet-Fortigate-Certificates-Restapi-custom | Contrôle la validité des certificats                                    |
+| Health       | Net-Fortinet-Fortigate-Health-Restapi-custom       | Contrôle l'état de santé du firewall                                   |
+| Licenses     | Net-Fortinet-Fortigate-Licenses-Restapi-custom     | Contrôle le statut des licences                                         |
+| System       | Net-Fortinet-Fortigate-System-Restapi-custom       | Contrôle l'utilisation système des VDOM (processeur, mémoire, sessions) |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Fortinet-Fortigate-Restapi-custom** est utilisé.
 
@@ -50,6 +51,14 @@ Le connecteur apporte les modèles de service suivants
 Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Nom                                        | Unité |
+|:-------------------------------------------|:------|
+| status                                     | N/A   |
+| *certificates*#certificate.expires.seconds | s     |
+
+</TabItem>
 <TabItem value="Ha" label="Ha">
 
 | Nom                                         | Unité |
@@ -89,7 +98,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de contrôler votre équipement Fortinet Fortigate, l'API Rest doit être configurée (cf: https://docs.fortinet.com/document/fortigate/7.2.1/administration-guide/399023/rest-api-administrator).
+Afin de superviser votre équipement Fortinet Fortigate, l'API Rest doit être configurée comme indiqué dans la [documentation officielle](https://docs.fortinet.com/document/fortigate/7.2.1/administration-guide/399023/rest-api-administrator).
 
 ## Installer le connecteur de supervision
 
@@ -203,6 +212,19 @@ yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Macro           | Description                                                                                                                                      | Valeur par défaut          | Obligatoire |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
+| UNIT            | Select the unit for expires threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks.                      | s                          |             |
+| FILTERNAME      | Filter certificates by name (can be a regexp)                                                                                                    |                            |             |
+| WARNINGEXPIRES  | Thresholds                                                                                                                                       |                            |             |
+| CRITICALEXPIRES | Thresholds                                                                                                                                       |                            |             |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{status\}                        | %\{status\} =~ /expired/i |             |
+| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}                         |                            |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                  |             |
+
+</TabItem>
 <TabItem value="Ha" label="Ha">
 
 | Macro                   | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
@@ -277,7 +299,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname='10.0.0.1' \
 	--port='443' \
 	--proto='https' \
-	--access-token='xxxxxx'  \
+	--access-token='xxxx'  \
 	--filter-vdom='' \
 	--warning-cpu-utilization='' \
 	--critical-cpu-utilization='' \
@@ -317,12 +339,13 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                 | Modèle de service associé                      |
-|:-------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|
-| ha [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/ha.pm)]             | Net-Fortinet-Fortigate-Ha-Restapi-custom       |
-| health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/health.pm)]     | Net-Fortinet-Fortigate-Health-Restapi-custom   |
-| licenses [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/licenses.pm)] | Net-Fortinet-Fortigate-Licenses-Restapi-custom |
-| system [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/system.pm)]     | Net-Fortinet-Fortigate-System-Restapi-custom   |
+| Mode                                                                                                                                         | Modèle de service associé                          |
+|:---------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|
+| certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/certificates.pm)] | Net-Fortinet-Fortigate-Certificates-Restapi-custom |
+| ha [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/ha.pm)]                     | Net-Fortinet-Fortigate-Ha-Restapi-custom           |
+| health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/health.pm)]             | Net-Fortinet-Fortigate-Health-Restapi-custom       |
+| licenses [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/licenses.pm)]         | Net-Fortinet-Fortigate-Licenses-Restapi-custom     |
+| system [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/fortinet/fortigate/restapi/mode/system.pm)]             | Net-Fortinet-Fortigate-System-Restapi-custom       |
 
 ### Options disponibles
 
@@ -385,6 +408,18 @@ Les options génériques sont listées ci-dessous :
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Option             | Description                                                                                                                                                           |
+|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-name      |   Filter certificates by name (can be a regexp).                                                                                                                      |
+| --warning-status   |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}.                                           |
+| --critical-status  |   Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} =~ /expired/i'). You can use the following variables: %\{name\}, %\{status\}.   |
+| --unit             |   Select the unit for expires threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                     |
+| --warning-expires  |   Thresholds.                                                                                                                                                         |
+| --critical-expires |   Thresholds.                                                                                                                                                         |
+
+</TabItem>
 <TabItem value="Ha" label="Ha">
 
 | Option                   | Description                                                                                                |
