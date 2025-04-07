@@ -84,7 +84,7 @@ The poller will be configured the following way, using the **Poller/agent config
 The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
 
 * Encryption = yes
-* Certificate file
+* Public certificate file
 * Private key file
 
 </TabItem>
