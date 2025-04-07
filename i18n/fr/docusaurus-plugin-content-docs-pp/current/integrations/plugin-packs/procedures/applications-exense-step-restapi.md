@@ -75,9 +75,19 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+* Le collecteur Centreon doit avoir un accès réseau au serveur Exense Step : Vérifier que l’API REST est accessible manuellement avec curl ou un navigateur. 
+```
+http://<step-host>:<port>/step/rest
+```
+* Vérifier que le collecteur Centreon peut s'authentifier auprès de l'API. Le compte utilisé doit avoir des droits de lecture sur les ressources suivantes :
+- Plans
+- Tenants (si multi-tenancy activé)
+
+En cas de problème vous pouvez vérifier manuellement que vous avez bien accès à l'API avec l'utilisateur `centreon-engine` en faisant cette commande curl : 
+
+```
+curl -u user:pass http://<step-host>:<port>/step/rest/plans
+```
 
 ## Installer le connecteur de supervision
 
