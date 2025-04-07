@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**APC UPS**](../procedures/hardware-ups-apc-snmp.md) - Enhance replace las time output to be humanly readable in **battery-status mode**, from a [The Watch idea](https://thewatch.centreon.com/ideas/hardware-ups-apc-snmp-plugin-warn-crit-output-with-options-warning-replace-lasttime-critical-replace-lasttime-3427).
+- [**APC UPS**](../procedures/hardware-ups-apc-snmp.md) - Enhance replace last time output to be humanly readable in **battery-status mode**, from a [The Watch idea](https://thewatch.centreon.com/ideas/hardware-ups-apc-snmp-plugin-warn-crit-output-with-options-warning-replace-lasttime-critical-replace-lasttime-3427).
 - [**Colubris SNMP**](../procedures/network-colubris-snmp.md) - Added the option `--check-overload` in **uptime** service template.
 - [**F5 BigIP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - Added new **cpu-usage** mode, based on community contribution [PR 4701](https://github.com/centreon/centreon-plugins/pull/4701).
 - [**Fortinet FortiMail SNMP**](../procedures/network-fortinet-fortimail-snmp.md) - Added the option `--check-overload` in **uptime** service template.
