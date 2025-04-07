@@ -45,7 +45,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Certificates  | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom | Check the local certificates.                                                                                                                                 |
 | CPU-detailed  | OS-Windows-CPU-detailed-Centreon-Monitoring-Agent-custom | Check the detailed rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
-| Eventlog      | OS-Windows-Eventlog-Centreon-Monitoring-Agent-custom     | Check event log errors                                                                                                                                        |
+| Eventlog-Nscp      | OS-Windows-Eventlog-Nscp-Centreon-Monitoring-Agent-custom     | Check event log errors, in the manner of NSClient++                                                                                                                                        |
 | Services      | OS-Windows-Services-Centreon-Monitoring-Agent-custom     | Check Windows services states                                                                                                                                 |
 | Storage       | OS-Windows-Storage-Centreon-Monitoring-Agent-custom      | Check storage usages                                                                                                                                          |
 
@@ -96,7 +96,7 @@ Here is the list of services for this connector, detailing all metrics linked to
  | *core_index*\~used#core.cpu.utilization.percentage          | %    |
 
 </TabItem>
-<TabItem value="Eventlog" label="Eventlog">
+<TabItem value="Eventlog-Nscp" label="Eventlog-Nscp">
 
 | Metric         | Unit  |
 |:---------------|:------|
@@ -364,7 +364,7 @@ This connector relies on an integration supported by Centreon Engine and does no
 | CRITICALAVERAGESYSTEM | Threshold for critical status on average system usage in percentage |               |           |
 
 </TabItem>
-<TabItem value="Eventlog" label="Eventlog">
+<TabItem value="Eventlog-Nscp" label="Eventlog-Nscp">
 
 | Macro             | Description                                                                                                                                                   | Valeur par défaut                                           | Obligatoire |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:-----------:|

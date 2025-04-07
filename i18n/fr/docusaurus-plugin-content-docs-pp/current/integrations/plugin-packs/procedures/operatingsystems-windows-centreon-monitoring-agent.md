@@ -47,7 +47,7 @@ Le connecteur apporte les modèles de service suivants
 |:-------------|:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Certificates | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom | Contrôle les certificats locaux                                                                                                                                           |
 | CPU-detailed | OS-Windows-CPU-detailed-Centreon-Monitoring-Agent-custom | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
-| Eventlog     | OS-Windows-Eventlog-Centreon-Monitoring-Agent-custom     | Contrôle les événements en erreur dans les eventlogs                                                                                                                      |
+| Eventlog-Nscp     | OS-Windows-Eventlog-Nscp-Centreon-Monitoring-Agent-custom     | Contrôle les événements en erreur dans les eventlogs à la manière de NSClient++                                                                                                                      |
 | Services     | OS-Windows-Services-Centreon-Monitoring-Agent-custom     | Contrôle permettant de vérifier l'état des services Windows                                                                                                               |
 | Storage      | OS-Windows-Storage-Centreon-Monitoring-Agent-custom      | Contrôle du taux d'utilisation des disques                                                                                                                                |
 
@@ -98,7 +98,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
  | *core_index*\~used#core.cpu.utilization.percentage          | %     |
 
 </TabItem>
-<TabItem value="Eventlog" label="Eventlog">
+<TabItem value="Eventlog-Nscp" label="Eventlog-Nscp">
 
 | Métrique       | Unité |
 |:---------------|:------|
@@ -366,7 +366,7 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CRITICALAVERAGESYSTEM | Threshold for critical status on average system usage in percentage |                   |             |
 
 </TabItem>
-<TabItem value="Eventlog" label="Eventlog">
+<TabItem value="Eventlog-Nscp" label="Eventlog-Nscp">
 
 | Macro             | Description                                                                                                                                                   | Valeur par défaut                                           | Obligatoire |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:-----------:|
