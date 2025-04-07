@@ -84,7 +84,7 @@ Le collecteur sera configuré de la manière suivante, en utilisant la page **Po
 L'agent sera configuré de la manière suivante sur l'hôte [(pour Windows à l'aide de l'installeur ou de la CLI, et pour Linux à l'aide du fichier **centagent.json**)](#étape-2--préparez-lhôte).
 
 * Encryption = yes
-* Fichier de certificat
+* Fichier de certificat public
 * Fichier de clé privée
 
 </TabItem>
