@@ -121,7 +121,7 @@ cd perl5-MQSeries-master
 perl Makefile.PL
 ```
 
-Compile the library (there should be no error, but warnings are possible):
+Compile the library (there should be no errors, but warnings are possible):
 
 ```bash
 make
