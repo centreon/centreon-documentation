@@ -57,13 +57,13 @@ Here is the list of services for this connector, detailing all metrics and statu
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 [Install the JMeter software](https://jmeter.apache.org/usermanual/get-started.html#install) on the poller(s) that will run the plugin.  
-You will need to specify the path to the JMeter executable in the **JMETERCOMMANDPATH** macro.
+You will need to specify the path to the JMeter executable in the **JMETERCOMMANDPATH** host macro.
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 [Install the JMeter software](https://jmeter.apache.org/usermanual/get-started.html#install) on the poller(s) that will run the plugin.  
-You will need to specify the path to the JMeter executable in the **JMETERCOMMANDPATH** macro.
+You will need to specify the path to the JMeter executable in the **JMETERCOMMANDPATH** host macro.
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
@@ -77,13 +77,13 @@ apt install jmeter
 ```
 
 2. Download JMeter from the official website [JMeter](https://jmeter.apache.org/download_jmeter.cgi) and install it manually.
-In this case, you will need to specify the path to the JMeter executable in the **JMETERCOMMANDPATH** macro.
+In this case, you will need to specify the path to the JMeter executable in the **JMETERCOMMANDPATH** host macro.
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 [Install the JMeter software](https://jmeter.apache.org/usermanual/get-started.html#install) on the poller(s) that will run the plugin.  
-You will need to specify the path to the JMeter executable in the **JMETERCOMMANDPATH** macro.
+You will need to specify the path to the JMeter executable in the **JMETERCOMMANDPATH** host macro.
 
 </TabItem>
 </Tabs>

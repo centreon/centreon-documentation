@@ -58,13 +58,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 [Installez le logiciel JMeter](https://jmeter.apache.org/usermanual/get-started.html#install) sur le ou les collecteurs qui exécuteront le plugin.  
-Vous devrez indiquer le chemin d'accès à l'exécutable JMeter dans la macro **JMETERCOMMANDPATH**.
+Vous devrez indiquer le chemin d'accès à l'exécutable JMeter dans la macro d'hôte **JMETERCOMMANDPATH**.
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 [Installez le logiciel JMeter](https://jmeter.apache.org/usermanual/get-started.html#install) sur le ou les collecteurs qui exécuteront le plugin.  
-Vous devrez indiquer le chemin d'accès à l'exécutable JMeter dans la macro **JMETERCOMMANDPATH**.
+Vous devrez indiquer le chemin d'accès à l'exécutable JMeter dans la macro d'hôte **JMETERCOMMANDPATH**.
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
@@ -77,14 +77,14 @@ Pour cela 2 méthodes sont possibles :
 apt install jmeter
 ```
 
-* Téléchargez JMeter depuis le site officiel [JMeter](https://jmeter.apache.org/download_jmeter.cgi) et l'installer manuellement.
-Vous devrez dans ce cas indiquer le chemin d'accès à l'exécutable JMeter dans la macro **JMETERCOMMANDPATH**.
+* Télécharger JMeter depuis le site officiel [JMeter](https://jmeter.apache.org/download_jmeter.cgi) et l'installer manuellement.
+Vous devrez dans ce cas indiquer le chemin d'accès à l'exécutable JMeter dans la macro d'hôte **JMETERCOMMANDPATH**.
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 [Installez le logiciel JMeter](https://jmeter.apache.org/usermanual/get-started.html#install) sur le ou les collecteurs qui exécuteront le plugin.  
-Vous devrez indiquer le chemin d'accès à l'exécutable JMeter dans la macro **JMETERCOMMANDPATH**.
+Vous devrez indiquer le chemin d'accès à l'exécutable JMeter dans la macro d'hôte **JMETERCOMMANDPATH**.
 
 </TabItem>
 </Tabs>
