@@ -217,7 +217,7 @@ yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
 
 | Macro           | Description                                                                                                                            | Default value              | Mandatory |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:---------:|
-| UNIT            | Select the unit for expires threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks.            | s                          |           |
+| UNIT            | Select the unit for 'certificate.expires.seconds' metric threshold. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks.            | s                          |           |
 | FILTERNAME      | Filter certificates by name (can be a regexp)                                                                                          |                            |           |
 | WARNINGEXPIRES  | Thresholds                                                                                                                             |                            |           |
 | CRITICALEXPIRES | Thresholds                                                                                                                             |                            |           |
