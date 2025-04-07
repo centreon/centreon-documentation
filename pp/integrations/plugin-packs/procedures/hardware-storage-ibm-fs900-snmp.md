@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **IBM FlashSystem 900** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                                 | Service Description        |
 |:----------------|:-------------------------------------------------|:---------------------------|
-| Arrays-Status   | HW-Storage-IBM-FS900-Arrays-Status-SNMP-custom   | Check arrays status        |
-| Arrays-Usage    | HW-Storage-IBM-FS900-Arrays-Usage-SNMP-custom    | Check arrays usage         |
-| FC-Usage        | HW-Storage-IBM-FS900-FC-Usage-SNMP-custom        | Check fibre channels usage |
+| Arrays-Status   | HW-Storage-IBM-FS900-Arrays-Status-SNMP-custom   | Check the status of the arrays        |
+| Arrays-Usage    | HW-Storage-IBM-FS900-Arrays-Usage-SNMP-custom    | Check array usage         |
+| FC-Usage        | HW-Storage-IBM-FS900-FC-Usage-SNMP-custom        | Check fibre channel usage |
 | Hardware-Global | HW-Storage-IBM-FS900-Hardware-Global-SNMP-custom | Check all hardware         |
 
 > The services listed above are created automatically when the **HW-Storage-IBM-FS900-SNMP-custom** host template is used.
@@ -129,7 +129,7 @@ SNMP port.
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -165,7 +165,7 @@ yum install centreon-pack-hardware-storage-ibm-fs900-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **IBM FlashSystem 900** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
