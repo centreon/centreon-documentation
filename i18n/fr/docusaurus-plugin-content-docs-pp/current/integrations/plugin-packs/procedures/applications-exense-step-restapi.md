@@ -80,8 +80,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 http://<step-host>:<port>/step/rest
 ```
 * Vérifier que le collecteur Centreon peut s'authentifier auprès de l'API. Le compte utilisé doit avoir des droits de lecture sur les ressources suivantes :
-- Plans
-- Tenants (si multi-tenancy activé)
+  * Plans
+  * Tenants (si multi-tenancy activé)
 
 En cas de problème vous pouvez vérifier manuellement que vous avez bien accès à l'API avec l'utilisateur `centreon-engine` en faisant cette commande curl : 
 
