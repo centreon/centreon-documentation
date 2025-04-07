@@ -39,8 +39,8 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**F5 BigIP SNMP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - Switched metrics to v2, leading to a breaking-change state.
 - [**Cisco Standard SNMP**](../procedures/network-cisco-standard-snmp.md) - Fixed an issue concerning wrong calculations after reboot (sysuptime was not considered) in **configuration** mode. Also `status`metric had been changed in `config-running-ahead`, leading to a breaking-change state.
+- [**F5 BigIP SNMP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - Switched metrics to v2, leading to a breaking-change state.
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
