@@ -1,13 +1,13 @@
 ---
-id: applications-veeam-vbem-restapi
-title: Veeam Backup Enterprise Manager Rest API
+id: applications-exense-step-restapi
+title: Exense Step REST API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Veeam Backup Enterprise Manager Rest API** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Exense Step REST API** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,30 +15,24 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Veeam Backup Enterprise Manager Rest API** apporte un modèle d'hôte :
+Le connecteur de supervision **Exense Step REST API** apporte un modèle d'hôte :
 
-* **App-Veeam-Vbem-Restapi-custom**
+* **App-Exense-Step-Restapi-custom**
 
-Le connecteur apporte les modèles de service suivants
-(classés selon le modèle d'hôte auquel ils sont rattachés) :
+Le connecteur apporte le modèle de service suivant
+(classé selon le modèle d'hôte auquel il est rattaché) :
 
 <Tabs groupId="sync">
-<TabItem value="App-Veeam-Vbem-Restapi-custom" label="App-Veeam-Vbem-Restapi-custom">
+<TabItem value="App-Exense-Step-Restapi-custom" label="App-Exense-Step-Restapi-custom">
 
-| Alias        | Modèle de service                          | Description         | Découverte |
-|:-------------|:-------------------------------------------|:--------------------|:----------:|
-| Repositories | App-Veeam-Vbem-Restapi-Repositories-custom | Contrôle les dépôts |     X      |
-
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Veeam-Vbem-Restapi-custom** est utilisé.
-
-> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
+Aucun service par défaut.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias | Modèle de service                  | Description                                                             | Découverte |
-|:------|:-----------------------------------|:------------------------------------------------------------------------|:----------:|
-| Jobs  | App-Veeam-Vbem-Restapi-Jobs-custom | Contrôle les jobs de type BackupJobSession et de type ReplicaJobSession |     X      |
+| Alias | Modèle de service                    | Description        | Découverte |
+|:------|:-------------------------------------|:-------------------|:----------:|
+| Plans | App-Exense-Step-Plans-Restapi-custom | Contrôle les plans | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -51,10 +45,10 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de services
 
-| Nom de la règle                        | Description                                                                                    |
-|:---------------------------------------|:-----------------------------------------------------------------------------------------------|
-| App-Veeam-Vbem-Restapi-Job-Name        | Découvre les jobs de type BackupJobSession et de type ReplicaJobSession et supervise le statut |
-| App-Veeam-Vbem-Restapi-Repository-Name | Découvre les dépôts et supervise l'utilisation                                                 |
+| Nom de la règle                           | Description |
+|:------------------------------------------|:------------|
+| App-Exense-Step-Plans-Restapi-Plan-Name   | Découvre tous les plans pour les superviser individuellement. |
+| App-Exense-Step-Plans-Restapi-Tenant-Name | Découvre les tenants pour superviser tous les plans de chaque tenant en un service. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -64,34 +58,36 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Jobs" label="Jobs">
+<TabItem value="Plans" label="Plans">
 
-| Nom                                     | Unité |
-|:----------------------------------------|:------|
-| jobs.executions.detected.count          | count |
-| *jobs*~job.executions.failed.percentage | %     |
-| *jobs*~job.execution.last.seconds       | s     |
-| *jobs*~job.running.duration.seconds     | s     |
-| execution-status                        | N/A   |
-
-</TabItem>
-<TabItem value="Repositories" label="Repositories">
-
-| Nom                                               | Unité |
-|:--------------------------------------------------|:------|
-| *repositories1*#repository.space.usage.bytes      | B     |
-| *repositories2*#repository.space.usage.bytes      | B     |
-| *repositories1*#repository.space.free.bytes       | B     |
-| *repositories2*#repository.space.free.bytes       | B     |
-| *repositories1*#repository.space.usage.percentage | %     |
-| *repositories2*#repository.space.usage.percentage | %     |
+| Nom                                       | Unité |
+|:------------------------------------------|:------|
+| plans.detected.count                      | count |
+| *plans*~plan.executions.detected.count    | count |
+| *plans*~plan.executions.failed.percentage | %     |
+| *plans*~plan.execution.last.seconds       | s     |
+| *plans*~plan.running.duration.seconds     | s     |
+| plan-execution-status                     | N/A   |
+| plan-execution-status                     | N/A   |
 
 </TabItem>
 </Tabs>
 
 ## Prérequis
 
-Pour la supervision, un utilisateur avec des droits de lecture sur l'[API](https://helpcenter.veeam.com/docs/backup/em_rest/em_web_api_reference.html?ver=120) Veeam Backup Enterprise Manager est nécessaire.
+* Le collecteur Centreon doit avoir un accès réseau au serveur Exense Step : Vérifier que l’API REST est accessible manuellement avec curl ou un navigateur. 
+```
+http://<step-host>:<port>/step/rest
+```
+* Vérifier que le collecteur Centreon peut s'authentifier auprès de l'API. Le compte utilisé doit avoir des droits de lecture sur les ressources suivantes :
+  * Plans
+  * Tenants (si multi-tenancy activé)
+
+En cas de problème vous pouvez vérifier manuellement que vous avez bien accès à l'API avec l'utilisateur `centreon-engine` en faisant cette commande curl : 
+
+```
+curl -u user:pass http://<step-host>:<port>/step/rest/plans
+```
 
 ## Installer le connecteur de supervision
 
@@ -109,34 +105,34 @@ associé à sa distribution :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-veeam-vbem-restapi
+dnf install centreon-pack-applications-exense-step-restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-veeam-vbem-restapi
+dnf install centreon-pack-applications-exense-step-restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-applications-veeam-vbem-restapi
+apt install centreon-pack-applications-exense-step-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-veeam-vbem-restapi
+yum install centreon-pack-applications-exense-step-restapi
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Veeam Backup Enterprise Manager Rest API**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Exense Step REST API**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -154,28 +150,28 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Applications-Veeam-Vbem-Restapi
+dnf install centreon-plugin-Applications-Exense-Step-Restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Applications-Veeam-Vbem-Restapi
+dnf install centreon-plugin-Applications-Exense-Step-Restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-plugin-applications-veeam-vbem-restapi
+apt install centreon-plugin-applications-exense-step-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Applications-Veeam-Vbem-Restapi
+yum install centreon-plugin-Applications-Exense-Step-Restapi
 ```
 
 </TabItem>
@@ -187,16 +183,18 @@ yum install centreon-plugin-Applications-Veeam-Vbem-Restapi
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **App-Veeam-Vbem-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+3. Appliquez le modèle d'hôte **App-Exense-Step-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro               | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
-|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| VBEMAPIUSERNAME     | Set username                                                                                                                                       |                   |      X      |
-| VBEMAPIPASSWORD     | Set password                                                                                                                                       |                   |      X      |
-| VBEMAPIPROTOCOL     | Specify https if needed                                                                                                                            | https             |             |
-| VBEMAPIPORT         | Port used                                                                                                                                          | 9398              |             |
-| VBEMAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro           | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| APIUSERNAME     | Set API username                                                                                     | USERNAME          |             |
+| APIPASSWORD     | Set API password                                                                                     | PASSWORD          | X           |
+| APITOKEN        | Use token authentication                                                                             | TOKEN             |             |
+| APIPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
+| APIPORT         | API port (default: 443)                                                                              | 443               |             |
+| APITIMEOUT      | Set HTTP timeout                                                                                     |                   |             |
+| APIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -206,40 +204,32 @@ yum install centreon-plugin-Applications-Veeam-Vbem-Restapi
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Jobs" label="Jobs">
+<TabItem value="Plans" label="Plans">
 
-| Macro                           | Description                                                                                                                                      | Valeur par défaut         | Obligatoire |
-|:--------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
-| TIMEFRAME                       | Timeframe to get BackupJobSession and ReplicaJobSession (in seconds)                                                                             | 86400                     |             |
-| UNIT                            | Select the time unit for last execution time thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks.     | s                         |             |
-| FILTERUID                       | Filter jobs by UID                                                                                                                               |                           |             |
-| FILTERNAME                      | Filter jobs by name                                                                                                                              |                           |             |
-| FILTERTYPE                      | Filter jobs by type                                                                                                                              |                           |             |
-| WARNINGEXECUTIONSTATUS          | Set warning threshold for last job execution status. You can use the following variables like: %\{status\}, %\{jobName\}                         | %\{status\} =~ /warning/i |             |
-| CRITICALEXECUTIONSTATUS         | Set critical threshold for last job execution status. You can use the following variables: %\{status\}, %\{jobName\}                             | %\{status\} =~ /failed/i  |             |
-| WARNINGJOBEXECUTIONLAST         | Threshold                                                                                                                                        |                           |             |
-| CRITICALJOBEXECUTIONLAST        | Threshold                                                                                                                                        |                           |             |
-| WARNINGJOBEXECUTIONSFAILEDPRCT  | Threshold                                                                                                                                        |                           |             |
-| CRITICALJOBEXECUTIONSFAILEDPRCT | Threshold                                                                                                                                        |                           |             |
-| WARNINGJOBRUNNINGDURATION       | Threshold                                                                                                                                        |                           |             |
-| CRITICALJOBRUNNINGDURATION      | Threshold                                                                                                                                        |                           |             |
-| WARNINGJOBSEXECUTIONSDETECTED   | Threshold                                                                                                                                        |                           |             |
-| CRITICALJOBSEXECUTIONSDETECTED  | Threshold                                                                                                                                        |                           |             |
-| EXTRAOPTIONS                    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                 |             |
-
-</TabItem>
-<TabItem value="Repositories" label="Repositories">
-
-| Macro                  | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME             | Filter repositories by name (can be a regexp)                                                                                                    |                   |             |
-| WARNINGSPACEUSAGE      | Threshold                                                                                                                                        |                   |             |
-| CRITICALSPACEUSAGE     | Threshold                                                                                                                                        |                   |             |
-| WARNINGSPACEUSAGEFREE  | Threshold                                                                                                                                        |                   |             |
-| CRITICALSPACEUSAGEFREE | Threshold                                                                                                                                        |                   |             |
-| WARNINGSPACEUSAGEPRCT  | Threshold                                                                                                                                        |                   |             |
-| CRITICALSPACEUSAGEPRCT | Threshold                                                                                                                                        |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro                            | Description                                                                                                            | Valeur par défaut | Obligatoire |
+|:---------------------------------|:-----------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TENANTNAME                       | Check plan of a tenant (default: '\[All\]')                                                                            |                   |             |
+| FILTERPLANID                     | Filter plans by plan ID                                                                                                |                   |             |
+| FILTERPLANNAME                   | Filter plans by plan name                                                                                              |                   |             |
+| FILTERENVIRONMENT                | Filter plan executions by environment name                                                                             |                   |             |
+| SINCETIMEPERIOD                  | Time period to get plans executions information (in seconds. default: 86400)                                           |                   |             |
+| ONLYLASTEXECUTION                | Check only last plan execution                                                                                         |                   |             |
+| TIMEZONE                         | Define timezone for start/end plan execution time (default is 'UTC')                                                   |                   |             |
+| STATUSFAILED                     | Expression to define status failed (default: '%\{result\} =~ /technical\_error\|failed\|interrupted/i')                |                   |             |
+| UNKNOWNPLANEXECUTIONSTATUS       | Set unknown threshold for last plan execution status. You can use the following variables: %\{status\}, %\{planName\}  |                   |             |
+| WARNINGPLANEXECUTIONLAST         | Thresholds                                                                                                             |                   |             |
+| CRITICALPLANEXECUTIONLAST        | Thresholds                                                                                                             |                   |             |
+| WARNINGPLANEXECUTIONSDETECTED    | Thresholds                                                                                                             |                   |             |
+| CRITICALPLANEXECUTIONSDETECTED   | Thresholds                                                                                                             |                   |             |
+| WARNINGPLANEXECUTIONSFAILEDPRCT  | Thresholds                                                                                                             |                   |             |
+| CRITICALPLANEXECUTIONSFAILEDPRCT | Thresholds                                                                                                             |                   |             |
+| WARNINGPLANEXECUTIONSTATUS       | Set warning threshold for last plan execution status. You can use the following variables: %\{status\}, %\{planName\}  |                   |             |
+| CRITICALPLANEXECUTIONSTATUS      | Set critical threshold for last plan execution status. You can use the following variables: %\{status\}, %\{planName\} |                   |             |
+| WARNINGPLANRUNNINGDURATION       | Thresholds                                                                                                             |                   |             |
+| CRITICALPLANRUNNINGDURATION      | Thresholds                                                                                                             |                   |             |
+| WARNINGPLANSDETECTED             | Thresholds                                                                                                             |                   |             |
+| CRITICALPLANSDETECTED            | Thresholds                                                                                                             |                   |             |
+| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                     | --verbose         |             |
 
 </TabItem>
 </Tabs>
@@ -255,34 +245,44 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_veeam_vbem_restapi.pl \
-	--plugin=apps::backup::veeam::vbem::restapi::plugin \
-	--mode=repositories \
+/usr/lib/centreon/plugins/centreon_exense_step_restapi.pl \
+	--plugin=apps::exense::step::restapi::plugin \
+	--custommode=api \
+	--mode=plans \
 	--hostname='10.0.0.1' \
-	--port='9398' \
+	--port='443' \
 	--proto='https' \
-	--api-username='XXXX' \
-	--api-password='XXXX'  \
-	--filter-name='' \
-	--warning-space-usage='' \
-	--critical-space-usage='' \
-	--warning-space-usage-free='' \
-	--critical-space-usage-free='' \
-	--warning-space-usage-prct='' \
-	--critical-space-usage-prct='' \
-	--verbose
+	--token='TOKEN' \
+	--api-username='USERNAME' \
+	--api-password='PASSWORD' \
+	--timeout=''  \
+	--tenant-name='' \
+	--filter-plan-id='' \
+	--filter-plan-name='' \
+	--filter-environment='' \
+	--since-timeperiod='' \
+	--only-last-execution='' \
+	--timezone='' \
+	--status-failed='' \
+	--unknown-plan-execution-status='' \
+	--warning-plan-execution-status='' \
+	--critical-plan-execution-status='' \
+	--warning-plans-detected='' \
+	--critical-plans-detected='' \
+	--warning-plan-executions-detected='' \
+	--critical-plan-executions-detected='' \
+	--warning-plan-executions-failed-prct='' \
+	--critical-plan-executions-failed-prct='' \
+	--warning-plan-execution-last='' \
+	--critical-plan-execution-last='' \
+	--warning-plan-running-duration='' \
+	--critical-plan-running-duration=''
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All repositories are ok | 'Default Backup Repository#repository.space.usage.bytes'=136771342336B;;;0;268368347136 'Default Backup Repository#repository.space.free.bytes'=131597004800B;;;0;268368347136 'Default Backup Repository#repository.space.usage.percentage'=50.96%;;;0;100 'Repository-SCALITY-veeam#repository.space.usage.bytes'=0B;;;0;1048576000000000 'Repository-SCALITY-veeam#repository.space.free.bytes'=1048576000000000B;;;0;1048576000000000 'Repository-SCALITY-veeam#repository.space.usage.percentage'=0.00%;;;0;100 'Scale-out Backup Repository I3M#repository.space.usage.bytes'=1123733454848B;;;0;23890250670080 'Scale-out Backup Repository I3M#repository.space.free.bytes'=22766517215232B;;;0;23890250670080 'Scale-out Backup Repository I3M#repository.space.usage.percentage'=4.70%;;;0;100 'Scale-out Backup Repository INFRASTRUCTURE#repository.space.usage.bytes'=158555994574848B;;;0;280007584776192 'Scale-out Backup Repository INFRASTRUCTURE#repository.space.free.bytes'=121451590201344B;;;0;280007584776192 'Scale-out Backup Repository INFRASTRUCTURE#repository.space.usage.percentage'=56.63%;;;0;100 'Scale-out Backup Repository MEDICAL & FONCTIONNEL#repository.space.usage.bytes'=163895073898496B;;;0;280007584776192 'Scale-out Backup Repository MEDICAL & FONCTIONNEL#repository.space.free.bytes'=116112510877696B;;;0;280007584776192 'Scale-out Backup Repository MEDICAL & FONCTIONNEL#repository.space.usage.percentage'=58.53%;;;0;100 'Scale-out Backup Repository ORACLE & SQL#repository.space.usage.bytes'=163858194489344B;;;0;280007584776192 'Scale-out Backup Repository ORACLE & SQL#repository.space.free.bytes'=116149390286848B;;;0;280007584776192 'Scale-out Backup Repository ORACLE & SQL#repository.space.usage.percentage'=58.52%;;;0;100
-repository 'Default Backup Repository' space usage total: 249.94 GB used: 127.38 GB (50.96%) free: 122.56 GB (49.04%)
-repository 'Repository-SCALITY-veeam' space usage total: 953.67 TB used: 0.00 B (0.00%) free: 953.67 TB (100.00%)
-repository 'Scale-out Backup Repository I3M' space usage total: 21.73 TB used: 1.02 TB (4.70%) free: 20.71 TB (95.30%)
-repository 'Scale-out Backup Repository INFRASTRUCTURE' space usage total: 254.67 TB used: 144.21 TB (56.63%) free: 110.46 TB (43.37%)
-repository 'Scale-out Backup Repository MEDICAL & FONCTIONNEL' space usage total: 254.67 TB used: 149.06 TB (58.53%) free: 105.60 TB (41.47%)
-repository 'Scale-out Backup Repository ORACLE & SQL' space usage total: 254.67 TB used: 149.03 TB (58.52%) free: 105.64 TB (41.48%)
+OK: detected: 14004 number of plan executions detected: 27141 number of failed executions: 52904 % last execution 48712 running duration 88986 executions are ok | 'plans.detected.count'=14004;;;0; 'plans~plan.executions.detected.count'=27141;;;0; 'plans~plan.executions.failed.percentage'=52904%;;;0;100 'plans~plan.execution.last.seconds'=48712s;;;; 'plans~plan.running.duration.seconds'=88986s;;;; 
 ```
 
 ### Diagnostic des erreurs communes
@@ -301,29 +301,52 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_veeam_vbem_restapi.pl \
-	--plugin=apps::backup::veeam::vbem::restapi::plugin \
+/usr/lib/centreon/plugins/centreon_exense_step_restapi.pl \
+	--plugin=apps::exense::step::restapi::plugin \
 	--list-mode
 ```
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                              | Modèle de service associé                  |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------|
-| cache [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/veeam/vbem/restapi/mode/cache.pm)]                        | Not used in this Monitoring Connector      |
-| jobs [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/veeam/vbem/restapi/mode/jobs.pm)]                          | App-Veeam-Vbem-Restapi-Jobs-custom         |
-| list-jobs [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/veeam/vbem/restapi/mode/listjobs.pm)]                 | Used for service discovery                 |
-| list-repositories [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/veeam/vbem/restapi/mode/listrepositories.pm)] | Used for service discovery                 |
-| repositories [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/veeam/vbem/restapi/mode/repositories.pm)]          | App-Veeam-Vbem-Restapi-Repositories-custom |
+| Mode                                                                                                                              | Modèle de service associé            |
+|:----------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|
+| list-plans [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/exense/step/restapi/mode/listplans.pm)]     | Used for service discovery           |
+| list-tenants [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/exense/step/restapi/mode/listtenants.pm)] | Used for service discovery           |
+| plans [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/exense/step/restapi/mode/plans.pm)]              | App-Exense-Step-Plans-Restapi-custom |
 
 ### Options disponibles
 
-#### Options génériques
+#### Options des modes
 
-Les options génériques sont listées ci-dessous :
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Plans" label="Plans">
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --tenant-name                              |   Check plan of a tenant (default: '\[All\]').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --filter-plan-id                           |   Filter plans by plan ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --filter-plan-name                         |   Filter plans by plan name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --filter-environment                       |   Filter plan executions by environment name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --since-timeperiod                         |   Time period to get plans executions information (in seconds. default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --only-last-execution                      |   Check only last plan execution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --timezone                                 |   Define timezone for start/end plan execution time (default is 'UTC').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --status-failed                            |   Expression to define status failed (default: '%\{result\} =~ /technical\_error\|failed\|interrupted/i').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --unknown-plan-execution-status            |   Set unknown threshold for last plan execution status. You can use the following variables: %\{status\}, %\{planName\}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --warning-plan-execution-status            |   Set warning threshold for last plan execution status. You can use the following variables: %\{status\}, %\{planName\}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --critical-plan-execution-status           |   Set critical threshold for last plan execution status. You can use the following variables: %\{status\}, %\{planName\}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --warning-plans-detected                   |   Thresholds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --critical-plans-detected                  |   Thresholds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --warning-plan-executions-detected         |   Thresholds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --critical-plan-executions-detected        |   Thresholds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --warning-plan-executions-failed-prct      |   Thresholds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --critical-plan-executions-failed-prct     |   Thresholds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --warning-plan-execution-last              |   Thresholds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --critical-plan-execution-last             |   Thresholds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --warning-plan-running-duration            |   Thresholds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --critical-plan-running-duration           |   Thresholds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -339,12 +362,8 @@ Les options génériques sont listées ci-dessous :
 | --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
 | --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -360,7 +379,6 @@ Les options génériques sont listées ci-dessous :
 | --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --http-peer-addr                           |   Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --proxyurl                                 |   Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -378,40 +396,13 @@ Les options génériques sont listées ci-dessous :
 | --statefile-format                         |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --statefile-key                            |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --statefile-cipher                         |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --hostname                                 |   Set hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --port                                     |   Port used (default: 9398)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --hostname                                 |   API hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --port                                     |   API port (default: 443)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --proto                                    |   Specify https if needed (default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --api-username                             |   Set username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --api-password                             |   Set password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --timeout                                  |   Set timeout in seconds (default: 50).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --cache-use                                |   Use the cache file (created with cache mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-
-#### Options des modes
-
-Les options disponibles pour chaque modèle de services sont listées ci-dessous :
-
-<Tabs groupId="sync">
-<TabItem value="Jobs" label="Jobs">
-
-| Option                      | Description                                                                                                                                                          |
-|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-uid                |   Filter jobs by UID.                                                                                                                                                |
-| --filter-name               |   Filter jobs by name.                                                                                                                                               |
-| --filter-type               |   Filter jobs by type.                                                                                                                                               |
-| --timeframe                 |   Timeframe to get BackupJobSession and ReplicaJobSession (in seconds. Default: 86400).                                                                              |
-| --unit                      |   Select the time unit for last execution time thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.   |
-| --unknown-execution-status  |   Set unknown threshold for last job execution status. You can use the following variables: %\{status\}, %\{jobName\}                                                |
-| --warning-execution-status  |   Set warning threshold for last job execution status (default: %\{status\} =~ /warning/i). You can use the following variables like: %\{status\}, %\{jobName\}      |
-| --critical-execution-status |   Set critical threshold for last job execution status (default: %\{status\} =~ /failed/i). You can use the following variables: %\{status\}, %\{jobName\}           |
-| --warning-* --critical-*    |   Thresholds. Can be: 'jobs-executions-detected', 'job-executions-failed-prct', 'job-execution-last', 'job-running-duration'.                                        |
-
-</TabItem>
-<TabItem value="Repositories" label="Repositories">
-
-| Option                   | Description                                                                     |
-|:-------------------------|:--------------------------------------------------------------------------------|
-| --filter-name            |   Filter repositories by name (can be a regexp).                                |
-| --warning-* --critical-* |   Thresholds. Can be: 'space-usage', 'space-usage-free', 'space-usage-prct'.    |
+| --token                                    |   Use token authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --api-username                             |   Set API username                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --api-password                             |   Set API password                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --timeout                                  |   Set HTTP timeout                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 </TabItem>
 </Tabs>
@@ -420,8 +411,8 @@ Pour un mode, la liste de toutes les options disponibles et leur signification p
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_veeam_vbem_restapi.pl \
-	--plugin=apps::backup::veeam::vbem::restapi::plugin \
-	--mode=repositories \
+/usr/lib/centreon/plugins/centreon_exense_step_restapi.pl \
+	--plugin=apps::exense::step::restapi::plugin \
+	--custommode=api \
 	--help
 ```
