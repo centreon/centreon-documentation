@@ -376,7 +376,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: load: 21 % current: 6 A voltage: 277 V frequence: 677 Hz | 'lines.output.load.percentage'=21%;;;0;100 'lines.output.current.ampere'=6A;;;0; 'lines.output.voltage.volt'=277V;;;; 'lines.output.frequence.hertz'=677Hz;;;; 
+OK: load: 21 % current: 6 A voltage: 277 V frequence: 677 Hz | 'lines.output.load.percentage'=21%;0:90;0:95;0;100 'lines.output.current.ampere'=6A;;;0; 'lines.output.voltage.volt'=277V;;;; 'lines.output.frequence.hertz'=677Hz;;;; 
 ```
 
 ### Troubleshooting
