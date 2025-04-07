@@ -74,7 +74,7 @@ The poller will be configured the following way, using the **Poller/agent config
 
    CA and CA Common Name (CN) are optional.
 
-   * CA : In the case of a pubic certificate, the standard OS certification chain is sufficient, this parameter is not required.
+   * CA : In the case of a public certificate, the standard OS certification chain is sufficient, this parameter is not required.
    In the case of a self-signed certificate, the CA can be added to the OS in its certification chains, making this parameter unnecessary. If you do not add the CA to the OS, fill in the CA field.
 
    * CN : The poller uses a domain name or IP to connect to the agent. If the certificate used on the agent matches this domain/IP, then leave the field blank. If it doesn't match, fill in the field.
@@ -167,8 +167,8 @@ If your Centreon is in a version older than 24.10.6, you need to create the CMA 
 
 | Parameter             | Value                                                                                                                                                                                         |	
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |	
-| Connector Name        | Centreon Monitoring Agent                                                                                                                                                                     |	
-| Connector Description | Centreon Monitoring Agent                                                                                                                                                                     |	
+| Connector Name        | Centreon Monitoring Agent Beta                                                                                                                                                                     |	
+| Connector Description | Centreon Monitoring Agent Beta                                                                                                                                                                     |	
 | Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |	
 | Used by command       | Type `Centreon-Monitoring-Agent` and click **Select all**                                                                                                                                     |
 | Connector Status      | Enabled                                                                                                                                                                                       |

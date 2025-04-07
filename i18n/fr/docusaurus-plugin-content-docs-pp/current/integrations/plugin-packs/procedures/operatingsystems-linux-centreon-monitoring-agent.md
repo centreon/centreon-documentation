@@ -390,8 +390,8 @@ Si vous êtes sur une version antérieure à la 24.10.6, vous devez créer le co
 
 | Paramètre                 | Valeur                                                                                                                                                                                        |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nom du connecteur         | Centreon Monitoring Agent                                                                                                                                                                     |
-| Description du connecteur | Centreon Monitoring Agent                                                                                                                                                                     |
+| Nom du connecteur         | Centreon Monitoring Agent Beta                                                                                                                                                                    |
+| Description du connecteur | Centreon Monitoring Agent Beta                                                                                                                                                                    |
 | Ligne de commande         | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
 | Utilisé par la commande   | Entrez `Centreon-Monitoring-Agent` et cliquez sur **Sélectionner tout**                                                                                                                       |
 | Statut du connecteur      | Activé                                                                                                                                                                                        |
