@@ -5,7 +5,7 @@ title: IBM MQ MQI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **IBM MQ MQI** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias         | Modèle de service                  | Description               |
 |:--------------|:-----------------------------------|:--------------------------|
 | Channels      | App-Ibmmq-Channels-Mqi-custom      | Contrôle les canaux       |
-| Queue-Manager | App-Ibmmq-Queue-Manager-Mqi-custom | Contrôle la queue manager |
+| Queue-Manager | App-Ibmmq-Queue-Manager-Mqi-custom | Contrôle le queue manager |
 | Queues        | App-Ibmmq-Queues-Mqi-custom        | Contrôle les queues       |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Ibmmq-Mqi-custom** est utilisé.
@@ -106,13 +106,13 @@ yum install wget unzip gcc
 
 ### Client IBM MQ
 
-Afin de pouvoir exploiter ce Pack, vous devez installer le client IBM MQ pour Linux. 
+Afin de pouvoir exploiter ce connecteur, vous devez installer le client IBM MQ pour Linux. 
 Une procédure est disponible ici : 
 * https://www.ibm.com/docs/en/ibm-mq/8.0?topic=server-installing-mq-linux.
 
 ### Bibliothèque Perl pour IBM MQ
 
-En tant que **root** exécuter :
+En tant que **root**, exécutez les commandes suivantes :
 
 ```bash
 cd /usr/local/src 
@@ -121,7 +121,7 @@ unzip master.zip
 cd perl5-MQSeries-master
 perl Makefile.PL
 ```
-Compiler la bibliothèque (il ne devrait pas y avoir d'erreur, mais des avertissements sont possibles) :
+Compilez la bibliothèque (il ne devrait pas y avoir d'erreurs, mais des avertissements sont possibles) :
 ```bash
 make
 ```
