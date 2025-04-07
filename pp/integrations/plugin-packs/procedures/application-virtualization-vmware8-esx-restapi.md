@@ -27,9 +27,9 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias      | Service Template                                   | Service Description                                                                     |
 |:-------------------|:---------------------------------------------------|:----------------------------------------------------------------------------------------|
 | Cpu                | Virt-VMWare8-ESX-Cpu-Restapi-custom                | Monitor an ESX physical server's CPU stats                                              |
-| Disk-IO            | Virt-VMWare8-ESX-Disk-IO-Restapi-custom            | Monitor an ESX physical server's agregated disk I/O stats                               |
+| Disk-IO            | Virt-VMWare8-ESX-Disk-IO-Restapi-custom            | Monitor an ESX physical server's aggregated disk I/O stats                               |
 | Memory             | Virt-VMWare8-ESX-Memory-Restapi-custom             | Monitor the amount of memory consumed by the virtual machines on an ESX physical server |
-| Network-Throughput | Virt-VMWare8-ESX-Network-Throughput-Restapi-custom | Monitor the agregated network throughput of an ESX physical server                      |
+| Network-Throughput | Virt-VMWare8-ESX-Network-Throughput-Restapi-custom | Monitor the aggregated network throughput of an ESX physical server                      |
 | Power              | Virt-VMWare8-ESX-Power-Restapi-custom              | Monitor an ESX physical server's electric power consumption                             |
 | Swap               | Virt-VMWare8-ESX-Swap-Restapi-custom               | Monitor swap usage statistics of an ESX physical server                                 |
 

@@ -28,11 +28,11 @@ Le connecteur apporte les modèles de service suivants
 | Alias              | Modèle de service                                  | Description                                                                                 |
 |:-------------------|:---------------------------------------------------|:--------------------------------------------------------------------------------------------|
 | Cpu                | Virt-VMWare8-ESX-Cpu-Restapi-custom                | Supervision des métriques CPU d'un serveur physique ESX                                     |
-| Disk-IO            | Virt-VMWare8-ESX-Disk-IO-Restapi-custom            | Supervision des statistiques agrégées d'entrées/sortie disques d'un serveur physique ESX    |
+| Disk-IO            | Virt-VMWare8-ESX-Disk-IO-Restapi-custom            | Supervision des statistiques agrégées d'entrée/sortie disque d'un serveur physique ESX    |
 | Memory             | Virt-VMWare8-ESX-Memory-Restapi-custom             | Supervision de la mémoire consommée par les machines virtuelles sur un serveur physique ESX |
 | Network-Throughput | Virt-VMWare8-ESX-Network-Throughput-Restapi-custom | Supervision des statistiques agrégées de trafic réseau d'un serveur physique ESX            |
 | Power              | Virt-VMWare8-ESX-Power-Restapi-custom              | Supervision de la puissance électrique consommée par un serveur physique ESX                |
-| Swap               | Virt-VMWare8-ESX-Swap-Restapi-custom               | Supervision des statistiques d'utilisation fichier d'échange sur un serveur physique ESX    |
+| Swap               | Virt-VMWare8-ESX-Swap-Restapi-custom               | Supervision des statistiques d'utilisation du fichier d'échange sur un serveur physique ESX    |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-VMware8-ESX-Restapi-custom** est utilisé.
 
@@ -375,7 +375,7 @@ OK: Power usage is 219 Watts | 'power.capacity.usage.watts'=219W;;;;
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
