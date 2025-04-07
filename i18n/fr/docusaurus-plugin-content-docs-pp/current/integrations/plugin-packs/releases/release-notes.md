@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## 2025
 
-### April
+### Avril
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
