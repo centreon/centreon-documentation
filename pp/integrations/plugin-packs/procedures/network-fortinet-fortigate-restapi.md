@@ -97,11 +97,13 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To control your Fortinet Fortigate, the Rest API must be configured. See [official documentation]( https://docs.fortinet.com/document/fortigate/7.2.1/administration-guide/399023/rest-api-administrator).
+To monitor your Fortinet Fortigate, the Rest API must be configured. See [official documentation]( https://docs.fortinet.com/document/fortigate/7.2.1/administration-guide/399023/rest-api-administrator).
 
 ## Installing the monitoring connector
 
 ### Pack
+
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the

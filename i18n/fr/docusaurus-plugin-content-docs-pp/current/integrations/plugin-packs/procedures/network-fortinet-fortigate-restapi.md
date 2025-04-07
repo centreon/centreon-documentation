@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias        | Modèle de service                                  | Description                                                             |
 |:-------------|:---------------------------------------------------|:------------------------------------------------------------------------|
 | Certificates | Net-Fortinet-Fortigate-Certificates-Restapi-custom | Contrôle la validité des certificats                                    |
-| Health       | Net-Fortinet-Fortigate-Health-Restapi-custom       | Contrôle l'état des santé du firewall                                   |
+| Health       | Net-Fortinet-Fortigate-Health-Restapi-custom       | Contrôle l'état de santé du firewall                                   |
 | Licenses     | Net-Fortinet-Fortigate-Licenses-Restapi-custom     | Contrôle le statut des licences                                         |
 | System       | Net-Fortinet-Fortigate-System-Restapi-custom       | Contrôle l'utilisation système des VDOM (processeur, mémoire, sessions) |
 
@@ -98,11 +98,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de contrôler votre équipement Fortinet Fortigate, l'API Rest doit être configurée comme indiqué dans la [documentation officielle](https://docs.fortinet.com/document/fortigate/7.2.1/administration-guide/399023/rest-api-administrator).
+Afin de superviser votre équipement Fortinet Fortigate, l'API Rest doit être configurée comme indiqué dans la [documentation officielle](https://docs.fortinet.com/document/fortigate/7.2.1/administration-guide/399023/rest-api-administrator).
 
 ## Installer le connecteur de supervision
 
 ### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
@@ -316,7 +318,7 @@ OK: All vdom systems are ok | 'ABS#cpu.utilization.percentage'=0.00%;;;0;100 'AB
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
