@@ -436,8 +436,8 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |                   |             |
 | WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |                   |             |
 | CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                   |             |
-| WARNINGTOTALSTOPPED  | Number of services in the stop state above which the service goes into the warning state                                                  |                   |             |
-| CRITICALTOTALSTOPPED | Nmber of services in the stop state above which the service goes into the critical state                                                  |                   |             |
+| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                |                   |             |
+| CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |                   |             |
 
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
@@ -455,8 +455,8 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |                   |             |
 | WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |                   |             |
 | CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                   |             |
-| WARNINGTOTALSTOPPED  | Number of services in the stop state above which the service goes into the warning state                                                  |                   |             |
-| CRITICALTOTALSTOPPED | Nmber of services in the stop state above which the service goes into the critical state                                                  |                   |             |
+| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |                   |             |
+| CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |                   |             |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
