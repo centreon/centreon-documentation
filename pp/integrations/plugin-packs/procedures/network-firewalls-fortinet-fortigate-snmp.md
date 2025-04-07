@@ -71,7 +71,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                                | Description                                                                   |
 |:-----------------------------------------|:------------------------------------------------------------------------------|
-| Net-Fortinet-Fortigate-SNMP-Switch-Name  | Discover switches and monitor their usage through Fortigate Switch Controller |
+| Net-Fortinet-Fortigate-SNMP-Switch-Name  | Discover switches and monitor their usage through the Fortigate Switch Controller |
 | Net-Fortinet-Fortigate-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization                 |
 | Net-Fortinet-Fortigate-SNMP-Vdom-Name    | Discover virtual domains and monitor their status and usage                   |
 
