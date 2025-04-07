@@ -81,8 +81,8 @@ http://<step-host>:<port>/step/rest
 ```
 
 * Verify that the Centreon poller can authenticate with the API. The account used must have read permissions on the following resources:
-- Plans
-- Tenants (if multi-tenancy is enabled)
+   * Plans
+   * Tenants (if multi-tenancy is enabled)
 
 * If you encounter any issues, you can manually check API access using the centreon-engine user with the following curl command:
 
