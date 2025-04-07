@@ -332,7 +332,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All storages are ok | 'disk_name1#used'=32400B;;;0;36000 'disk_name2#used'=5280B;;;0;5760
+OK: All storages are ok | 'disk_name1#used'=32400B;0:28800;0:32400;0;36000 'disk_name2#used'=5280B;0:4608;0:5184;0;5760
 ```
 
 ### Diagnostic des erreurs communes
