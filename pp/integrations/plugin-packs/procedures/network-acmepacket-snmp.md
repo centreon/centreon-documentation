@@ -204,7 +204,7 @@ The target resource must be reachable from the Centreon poller on the UDP/161 SN
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -240,7 +240,7 @@ yum install centreon-pack-network-acmepacket-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Acme Packet** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

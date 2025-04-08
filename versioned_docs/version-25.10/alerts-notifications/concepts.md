@@ -4,10 +4,10 @@ title: Possible statuses of a resource
 ---
 
 Statuses show the availability of a host, and the availability or performance of a service. Each status has a
-precise meaning for the resource. 
+precise meaning for the resource.
 
 * The statuses and states of a resource
-can be seen on page [Resources Status](resources-status.md). You can filter the page according to these statuses and to certain states.
+can be seen on the [Resources Status](resources-status.md) page. You can filter the page according to these statuses and to certain states.
 * Some statuses are determined according to user-defined thresholds.
 
 ### Host status
@@ -37,28 +37,27 @@ The table below summarizes all the possible statuses for a service.
 
 In addition to their status, resources can be in several states:
 
-- [Acknowledged](acknowledge.md): indicates that the incident on the service or on the host
+* [Acknowledged](acknowledge.md): indicates that the incident on the service or on the host
     has been taken into account by a user. Acknowledged resources have a yellow background.
-- [In downtime](downtimes.md): indicates that notifications are temporarily stopped. Downtime can be [planned in advance](downtimes.md#recurrent-downtimes) to avoid receiving alerts during maintenance periods, or can be set following an incident. Resources in downtime have a purple background.
-
-
--   [Flapping](notif-flapping.md): indicates that the status change
+* [In downtime](downtimes.md): indicates that notifications are temporarily stopped. Downtime can be [planned in advance](downtimes.md#recurrent-downtimes) to avoid receiving alerts during maintenance periods, or can be set following an incident. Resources in downtime have a purple background.
+* [Flapping](notif-flapping.md): indicates that the status change
     percentage of the resource is very high. This percentage is obtained
-    from calculations performed by the network monitoring engine.  Flapping resources have the following icon in their **Details** panel:
+    from calculations performed by the monitoring engine. In the **Resource Status** page, flapping resources have a green background and have the following icon in their **Details** panel and in the **State** column:
+
     ![image](../assets/alerts/flapping_icon.png)
 
+    If you have configured flapping notifications for the resource, one notification is sent when the resource starts flapping, and another one is sent when it stops flapping. Alert and recovery notifications are temporarily disabled.
+
+You can filter the view on the [Resources Status](resources-status.md) page according to the resources' state. Filters include **Unhandled** alerts, i.e. resources in a non-OK status that haven't been acknowledged or put in downtime.
 
 ## Status types
 
 The status of a resource can be one of these two types:
 
--   SOFT: Means that an incident has just been detected and that it
-    has to be confirmed.
--   HARD: Means that the status of the incident is confirmed. Once
-    the status is confirmed, the notification process is engaged
-    (sending of an email, SMS, etc.).
+* **SOFT**: Means that an incident has just been detected and that it has to be confirmed.
+* **HARD**: Means that the status of the incident is confirmed. Once the status is confirmed, the notification process is triggered (sending of an email, SMS, etc.).
 
-You can filter the view on the [Resources Status](resources-status.md) page according to the status type.
+You can filter the view on the [Resources Status](resources-status.md) page according to the resources' status type.
 
 ### Explanation
 

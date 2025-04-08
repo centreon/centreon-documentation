@@ -35,7 +35,7 @@ Une organisation correspond à un périmètre d'équipements à superviser. Par 
 ### Inviter des utilisateurs dans l'organisation
 
 1. À la page **Users**, cliquez sur **Invite user**.
-2. Renseignez les emails des utilisateurs que vous souhaitez inviter, et sélectionnez le rôle à leur attribuer dans le CIAM et dans Centreon Cloud (voir [Rôles des utilisateurs](../users##rôles-des-utilisateurs)).
+2. Renseignez les emails des utilisateurs que vous souhaitez inviter, et sélectionnez le rôle à leur attribuer dans le CIAM et dans Centreon Cloud (voir [Rôles des utilisateurs](../users/users.md#rôles-des-utilisateurs)).
 3. Cliquez sur **Invite**. Les personnes recevront un email intitulé **You've been invited to join `<organization>`'s Centreon account**. Votre adresse email sera visible dans cet email.
 
 ## Je suis un utilisateur Centreon
