@@ -207,25 +207,27 @@ Position Status [OK]
 
 ### Changer le sens de la réplication MariaDB
 
-> Avant d'exécuter ces commandes, vous devez vous assurer que la réplication MariaDB est dans un état `correct`. Pour cela, se référer à [la procédure plus haut](#v%C3%A9rifier-l%C3%A9tat-de-la-r%C3%A9plication-mariadb).
+> Avant d'exécuter ces commandes, vous devez vous assurer que la réplication MariaDB est dans un état `correct`. Pour cela, se référer à [la procédure plus haut](#rétablir-manuellement-la-réplication-mariadb).
 
 > **Avertissement :** sur un cluster à 2 serveurs installé [comme décrit ici](../../installation/installation-of-centreon-ha/installation-2-nodes.md), le groupe de ressources `centreon` basculera également pour suivre le serveur MariaDB maître.
 
 Pour basculer/déplacer le groupe de ressources exécuter la commande :
 
 ```bash
-pcs resource move ms_mysql-master
+pcs resource move ms_mysql-clone
 ```
 
-La commande `pcs resource move ms_mysql-master` positionne une contrainte `-Inf` sur le nœud hébergeant la ressource. De ce fait, la ressource bascule sur un autre nœud. Suite à cette manipulation, il est donc nécessaire, une fois la bascule terminée, d'exécuter la commande :
+La commande `pcs resource move ms_mysql-clone` positionne une contrainte `-Inf` sur le nœud hébergeant la ressource. De ce fait, la ressource bascule sur un autre nœud. Suite à cette manipulation, il est donc nécessaire, une fois la bascule terminée, d'exécuter la commande :
 
 ```bash
-pcs resource clear ms_mysql-master
+pcs resource clear ms_mysql-clone
 ```
 
 ## Gestion du groupe de ressources Centreon
 
 ### Basculer le groupe de ressource Centreon
+
+> Tel que décrit dans [ce chapitre](#rétablir-manuellement-la-réplication-mariadb), suivre cette procédure sur un cluster à 2 noeuds qui aurait été installé en suivant [cette procédure](../../installation/installation-of-centreon-ha/installation-2-nodes.md) fera également basculer MariaDB master. Il est essentiel que celle-ci soit sur le noeud qui possède l'attribut meta `ms_mysql-clone`.
 
 Pour basculer/déplacer le groupe de ressources exécuter la commande :
 
