@@ -150,7 +150,7 @@ dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-co
 >
 > `rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common`
 
-> Make sure you have [installed the official MariaDB repository](upgrade-from-22-04.md#install-the-mariadb-repository) before you continue the procedure.
+> Make sure you have [installed the official MariaDB repository](upgrade-mariadb.md#knowing-your-version-of-mariadb) before you continue the procedure.
 
 3. Install the 10.5 version:
 

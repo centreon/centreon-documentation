@@ -91,7 +91,7 @@ Un élément est tout objet graphique dans Centreon MAP. La plupart des élémen
 
 #### Logiciel
 
-Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
+Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiques-des-serveurs).
 
 #### Informations requises lors de la configuration
 

@@ -76,4 +76,4 @@ Le processus de migration a permis de migrer les images de MAP Legacy vers Centr
 
 ## Après avoir migré de MAP Legacy à MAP dans Centreon 24.10
 
-Une fois la migration vers MAP effectuée, vous devez [désinstaller MAP Legacy de votre plateforme Centreon 24.10](map-legacy-eol.md#how-to-fully-uninstall-map-legacy).
+Une fois la migration vers MAP effectuée, vous devez [désinstaller MAP Legacy de votre plateforme Centreon 24.10](map-legacy-eol.md#comment-désinstaller-complètement-map-legacy).
