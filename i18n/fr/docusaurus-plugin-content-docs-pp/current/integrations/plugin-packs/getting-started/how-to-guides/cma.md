@@ -183,7 +183,7 @@ Si vous êtes sur une version antérieure à la 24.10.6, vous devez créer le co
 
 Configurez la communication entre collecteur collecteur et agent :
 
-<PollerAgentConfiguration />
+<PollerAgentConfiguration type="CMA" />
 
 5. Si l'agent n'est pas autorisé à se connecter au collecteur pour des raisons de sécurité (par exemple lorsque le collecteur est situé dans une DMZ), activez l'option **Connection initiée par le collecteur**. Puis, dans la section **Configuration des hôtes**, définissez tous les hôtes sur lesquels l'agent sera installé.
 

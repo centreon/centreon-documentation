@@ -64,7 +64,7 @@ Si vous êtes sur une version antérieure à la 24.10.6, vous devez installer le
 
 2. Configurez la communication entre le collecteur et l'agent :
 
-<PollerAgentConfiguration />
+<PollerAgentConfiguration type="Telegraf" />
 
 5. Le **Fournisseur de configuration** est le serveur à l'intérieur du moteur du collecteur qui enverra à l'agent sa configuration. Entrez le port et les noms des fichiers de certificat. Les certificats doivent être stockés dans le répertoire **/etc/pki/** du collecteur. Vous pouvez utiliser les mêmes certificats que pour le receveur OTLP.
 > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.

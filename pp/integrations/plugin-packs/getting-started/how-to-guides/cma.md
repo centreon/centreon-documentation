@@ -183,7 +183,7 @@ If your Centreon is in a version older than 24.10.6, you need to create the CMA 
 
 Configure how the poller and the agent will communicate:
 
-<PollerAgentConfiguration />
+<PollerAgentConfiguration type="CMA" />
 
 5. If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), enable **Connection initiated by poller**. Then, in **Host configurations**, define all the hosts on which the agent will be installed.
 > If you configure several pollers at once, make sure all certificate files have the same name.
