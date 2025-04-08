@@ -1857,7 +1857,7 @@ To delete more than one hostgroup, use the character '|'. Ex:
 `resourcecfg` objects allow to define macro values that apply to a set of monitoring engines.  
 A `resourcecfg` object defines a macro for one or multiple monitoring engines.  
 The same macro can be defined in multiple `resourcecfg` objects with complementary lists of monitoring engines.  
-More information here: [Resource macros](../monitoring/basic-objects/macros.md#resource-macros)
+More information here: [macros de ressources](../monitoring/basic-objects/macros.md#les-macros-de-ressources)
 
 #### List RESOURCECFG objects
 
@@ -2371,7 +2371,7 @@ For the service submission please provide the following information :
 | ------------------- | -------------------------------------------------------- |
 | host                | host name                                                |
 | service             | service description                                      |
-| status              | status id (0, 1, 2, 3) or ok, warning, critical, unknown |
+| status              | status ID (0, 1, 2, 3) or ok, warning, critical, unknown |
 | output              | a specific message                                       |
 | perfdata (optional) | all performance metric following the nagios plugin API   |
 | updatetime          | the check time (timestamp)                               |
@@ -2381,7 +2381,7 @@ For the host submission please provide the following information :
 | Fields     | Description                |
 | ---------- | -------------------------- |
 | host       | host name                  |
-| status     | status id (0, 1, 2, 3)     |
+| status     | status ID (0, 1, 2, 'up', 'down', 'unknown')     |
 | output     | a specific message         |
 | updatetime | the check time (timestamp) |
 

@@ -1434,7 +1434,7 @@ iptables -D OUTPUT @RULE_NUMBER@
 ```
 
 By running the `crm_mon` command on the second node, you will see the primary node move up in the cluster.
-If you want to switch to the primary node, run the [failover commands](acceptance-guide.md#return-to-nominal-situation).
+If you want to switch to the primary node, run the [failover commands](acceptance-guide.md#back-to-the-nominal-situation).
 
 </TabItem>
 </Tabs>
