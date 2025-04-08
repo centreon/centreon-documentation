@@ -126,7 +126,6 @@ dnf install centreon-pack-cloud-azure-management-apimanagement
 ```bash
 dnf install centreon-pack-cloud-azure-management-apimanagement
 ```
-
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
