@@ -62,7 +62,7 @@ doit avoir assez de privilèges pour executer la commande `/usr/sbin/drbdsetup`.
 yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 ```
 
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *DRBD SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *DRBD SSH* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -79,7 +79,7 @@ yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 yum install ccentreon-pack-applications-drbd-ssh.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *DRBD SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *DRBD SSH* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>

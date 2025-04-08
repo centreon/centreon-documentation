@@ -132,7 +132,7 @@ Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doit accéder
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-2. Installer le connecteur de supervision 'Vmware vCenter v5' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
+2. Installer le connecteur de supervision 'Vmware vCenter v5' depuis la page **Configuration > Connecteurs > Connecteurs de supervision** sur l'interface Web de Centreon.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -149,7 +149,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 yum install centreon-pack-virtualization-vmware2-vcenter-5.noarch
 ```
 
-3. Installer le connecteur de supervision 'Vmware vCenter v5' depuis la page **Configuration > Gestionnaire de connecteurs de supervision** sur l'interface Web de Centreon.
+3. Installer le connecteur de supervision 'Vmware vCenter v5' depuis la page **Configuration > Connecteurs > Connecteurs de supervision** sur l'interface Web de Centreon.
 
 </TabItem>
 </Tabs>

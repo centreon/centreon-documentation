@@ -76,7 +76,7 @@ yum install centreon-nrpe3-plugin
 ```
 
 2. On the Centreon Web interface, install the Centreon Pack *Quadstor* 
-from the **Configuration > Monitoring Connector Manager** page
+from the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -94,7 +94,7 @@ yum install centreon-pack-applications-quadstor-nrpe
 ```
 
 3. On the Centreon Web interface, install the Centreon Pack *Quadstor* 
-from the **Configuration > Monitoring Connector Manager** page
+from the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 </Tabs>
