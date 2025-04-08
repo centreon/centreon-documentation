@@ -21,7 +21,7 @@ To configure a time period, go to **Configuration \> Users \> Time periods**.
     - These definitions are applied every week, indefinitely.
     - If you leave the field blank for a specific day, there will be no monitoring on that day for actions to which this time period is applied.
 
-3. Use the [**Time Range Exceptions** tab](#time-range-exceptions-tab) to include days that would not normally belong to the time period.
+3. Use the [**Time Range Exceptions** tab](#time-range-exceptions-tab) to exclude days that would normally belong to the time period.
 
 4. Once you have created your time period, you can use it:
     - In the **Check Period** field for hosts, host templates, services and service templates.
