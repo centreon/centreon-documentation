@@ -160,7 +160,7 @@ In addition, the `cbd-sql` service must be restarted **on the central master ser
 service cbd-sql restart
 ```
 
-The `cbd` service must also be restarted on [Centreon Remote Servers](../installation/architectures.md#description):
+The `cbd` service must also be restarted on remote servers:
 
 ```bash
 service cbd restart
@@ -186,4 +186,4 @@ You should now check that everything works fine:
 
 ## Updating the pollers
 
-Pollers can then be updated by following the [procedure indicated here](https://docs.centreon.com/docs/update/update-centreon-platform/#update-the-pollers).
+Pollers can then be updated by following the [procedure indicated here](update-centreon-platform.md#update-the-pollers).
