@@ -64,7 +64,7 @@ yum install centreon-nrpe3-plugin
 ```
 
 2. On the Centreon web interface, install the Centreon Pack **Dynamics NSClient**
-from the **Configuration > Monitoring Connector Manager** page.
+from the **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -82,7 +82,7 @@ yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe applications
 ```
 
 3. On the Centreon web interface, install the Centreon Pack **Dynamics NSClient**
-from the **Configuration > Monitoring Connector Manager** page.
+from the **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 </Tabs>
