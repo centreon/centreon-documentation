@@ -7,20 +7,14 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Azure Event Grid simplifie les applications basées sur des événements en gérant
-le routage de tous les événements de n’importe quelle source vers n’importe
-quelle destination. Conçu pour offrir une haute disponibilité, des performances
-constantes et une mise à l’échelle dynamique, Event Grid permet de se concentrer
-sur la logique de vos applications plutôt que sur l’infrastructure.
-
 Le connecteur de supervision Centreon *Azure Event Grid* s'appuie sur les API Azure Monitor 
 afin de récuperer les métriques relatives au service Event Grid. Il est possible
-d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
+d'utiliser les 2 modes proposés par Microsoft : RestAPI ou Azure CLI.
 
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure Event Grid**
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -39,7 +33,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias        | Modèle de service                                         | Description                                               |
 |:-------------|:----------------------------------------------------------|:----------------------------------------------------------|
-| Events       | Cloud-Azure-Integration-EventGrid-Events-Api-custom       | Contrôle les évènnements de Azure Event Grid              |
+| Events       | Cloud-Azure-Integration-EventGrid-Events-Api-custom       | Contrôle les évènements de Azure Event Grid               |
 | Events-Stats | Cloud-Azure-Integration-EventGrid-Events-Stats-Api-custom | Contrôle les statistiques des évènements Azure Event Grid |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-Integration-EventGrid-custom** est utilisé.
@@ -98,8 +92,10 @@ les prérequis nécessaires pour interroger les API d'Azure.
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -136,7 +132,7 @@ yum install centreon-pack-cloud-azure-integration-eventgrid
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Azure Event Grid**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -308,7 +304,7 @@ OK: Instance 'EVENT01' Statistic 'total' Metrics Matched Events: 0.00, Dead Lett
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
