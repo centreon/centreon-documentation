@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Proxmox VE** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 |:--------------|:---------------------------------------------|:----------------------------------------------------------|:----------:|
 | Node-Usage    | Virt-Proxmox-Ve-Node-Usage-Restapi-custom    | Contrôle permettant de vérifier l'utilisation des noeuds  |     X      |
 | Storage-Usage | Virt-Proxmox-Ve-Storage-Usage-Restapi-custom | Contrôle permettant de vérifier l'utilisation du stockage |     X      |
-| Vm-Usage      | Virt-Proxmox-Ve-Vm-Usage-Restapi-custom      | Contrôle permettant de vérifier l'utilisation des vms     |     X      |
+| Vm-Usage      | Virt-Proxmox-Ve-Vm-Usage-Restapi-custom      | Contrôle permettant de vérifier l'utilisation des VMs     |     X      |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-Proxmox-Ve-Restapi-custom** est utilisé.
 
@@ -117,8 +117,10 @@ Référez vous à la [documentation officielle](https://pve.proxmox.com/wiki/Pro
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision***.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -155,7 +157,7 @@ yum install centreon-pack-virtualization-proxmox-ve-restapi
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Proxmox VE**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -310,7 +312,7 @@ OK: Storage 'storage/nuc/local' state: available, space total: 217.61 GB used: 1
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles

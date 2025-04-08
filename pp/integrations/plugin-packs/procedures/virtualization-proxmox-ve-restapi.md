@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Proxmox VE** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -28,7 +28,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:---------------------------------------------|:---------------------|:---------:|
 | Node-Usage    | Virt-Proxmox-Ve-Node-Usage-Restapi-custom    | Check node usage     |     X     |
 | Storage-Usage | Virt-Proxmox-Ve-Storage-Usage-Restapi-custom | Check stockage usage |     X     |
-| Vm-Usage      | Virt-Proxmox-Ve-Vm-Usage-Restapi-custom      | Check vms usage      |     X     |
+| Vm-Usage      | Virt-Proxmox-Ve-Vm-Usage-Restapi-custom      | Check VM usage      |     X     |
 
 > The services listed above are created automatically when the **Virt-Proxmox-Ve-Restapi-custom** host template is used.
 
@@ -43,7 +43,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name       | Description                      |
 |:----------------|:---------------------------------|
-| Proxmox VM      | Discover Proxmox Virtual Machine |
+| Proxmox VM      | Discover Proxmox virtual machines |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -116,9 +116,11 @@ Please refer to their [official documentation](https://pve.proxmox.com/wiki/Prox
 
 ### Pack
 
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -154,7 +156,7 @@ yum install centreon-pack-virtualization-proxmox-ve-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Proxmox VE** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -211,7 +213,7 @@ yum install centreon-plugin-Virtualization-Proxmox-Ve-Restapi
 
 | Macro                  | Description                                                                                                                              | Default value     | Mandatory |
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:---------:|
-| PROXMOXAPIUSERNAME     | Set Proxmox VE Username API user need to have this privileges 'VM.Monitor, VM.Audit, Datastore.Audit, Sys.Audit, Sys.Syslog'             |                   |     X     |
+| PROXMOXAPIUSERNAME     | Set Proxmox VE Username. The API user needs to have the following privileges: 'VM.Monitor, VM.Audit, Datastore.Audit, Sys.Audit, Sys.Syslog'             |                   |     X     |
 | PROXMOXAPIPASSWORD     | Set Proxmox VE Password                                                                                                                  |                   |     X     |
 | PROXMOXAPIPROTO        | Specify https if needed                                                                                                                  | https             |           |
 | PROXMOXAPIPORT         | Set Proxmox VE Port                                                                                                                      | 8006              |           |
