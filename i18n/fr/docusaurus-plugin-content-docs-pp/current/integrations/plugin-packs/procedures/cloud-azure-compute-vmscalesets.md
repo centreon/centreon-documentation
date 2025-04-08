@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure Virtual Machine Scale Sets**
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -27,11 +27,11 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias     | Modèle de service                                    | Description                                                                  |
 |:----------|:-----------------------------------------------------|:-----------------------------------------------------------------------------|
-| Cpu-Usage | Cloud-Azure-Compute-Vmscalesets-Cpu-Usage-Api-custom | Contrôle le CPU du Virtual Machine Scale Sets                                |
+| Cpu-Usage | Cloud-Azure-Compute-Vmscalesets-Cpu-Usage-Api-custom | Contrôle le CPU des Virtual Machine Scale Sets                                |
 | Diskio    | Cloud-Azure-Compute-Vmscalesets-Diskio-Api-custom    | Contrôle l'utilisation des écritures/lectures des disques                    |
-| Health    | Cloud-Azure-Compute-Vmscalesets-Health-Api-custom    | Contrôle le statut du Virtual Machine Scale Sets                             |
-| Memory    | Cloud-Azure-Compute-Vmscalesets-Memory-Api-custom    | Contrôle de la mémoire disponible restante sur le Virtual Machine Scale Sets |
-| Traffic   | Cloud-Azure-Compute-Vmscalesets-Traffic-Api-custom   | Contrôle l'utilisation du réseau du Virtual Machine Scale Sets               |
+| Health    | Cloud-Azure-Compute-Vmscalesets-Health-Api-custom    | Contrôle le statut des Virtual Machine Scale Sets                             |
+| Memory    | Cloud-Azure-Compute-Vmscalesets-Memory-Api-custom    | Contrôle de la mémoire disponible restante sur les Virtual Machine Scale Sets |
+| Traffic   | Cloud-Azure-Compute-Vmscalesets-Traffic-Api-custom   | Contrôle l'utilisation du réseau des Virtual Machine Scale Sets               |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-Compute-Vmscalesets-custom** est utilisé.
 
@@ -107,8 +107,10 @@ les prérequis nécessaires pour interroger les API d'Azure.
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -145,7 +147,7 @@ yum install centreon-pack-cloud-azure-compute-vmscalesets
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Azure Virtual Machine Scale Sets**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -329,7 +331,7 @@ OK: Network In Total 35992 B Network Out Total 71442 B | 'traffic.in.bytes'=3599
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
