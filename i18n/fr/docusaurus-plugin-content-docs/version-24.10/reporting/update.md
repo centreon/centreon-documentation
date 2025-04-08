@@ -12,6 +12,8 @@ La mise à jour de Centreon MBI se fait en 2 étapes :
 
 ## Mettre à jour l'interface
 
+> Veuillez vous assurer que le processus ETL est bien terminé avant de procéder à la mise à jour de l'extension.
+
 1. Mettre à jour le paquet: se connecter sur le serveur Centreon et exécuter la commande suivante :
 
 <Tabs groupId="sync">
@@ -46,10 +48,16 @@ apt --only-upgrade install centreon-bi\*
 
 ## Mettre à jour le serveur de reporting
 
-Premièrement, arrêtez le service d'ordonnancement (CBIS):
+Premièrement, arrêtez le service d'ordonnancement **CBIS** :
 
 ```shell
 systemctl stop cbis
+```
+
+Ensuite arrêtez **gorgoned** :
+
+```shell
+systemctl stop gorgoned
 ```
 
 Puis mettre à jour les paquets, en exécutant la commande suivante:
@@ -81,10 +89,44 @@ apt --only-upgrade install centreon-bi\*
 </TabItem>
 </Tabs>
 
-Enfin, redémarrer le service d'ordonnancement:
+Vous devez également mettre à jour Centreon Gorgone :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-gorgone\*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon-gorgone\*
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt --only-upgrade install centreon-gorgone\*
+```
+
+</TabItem>
+</Tabs>
+
+Enfin, redémarrez le service d'ordonnancement **CBIS** :
 
 ```shell
 systemctl start cbis
 ```
+
+Ainsi que **gorgoned** :
+
+```shell
+systemctl start gorgoned
+```
+
+MBI est maintenant à jour.
 
 > Suivez cette procédure si [vous obtenez une erreur due à un problème de mise à jour de colonne](../resources/known-issues.md#vous-obtenez-des-erreurs-lors-de-limport-journalier-et-calcul-des-statistiques) dans la base de données.

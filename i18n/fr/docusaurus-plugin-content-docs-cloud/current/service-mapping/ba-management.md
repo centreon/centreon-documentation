@@ -227,7 +227,7 @@ Cet écran n'est pas actif actuellement. Dans Centreon Cloud, les BA utilisent [
 -   Plages de reporting additionnelles: permet de calculer les
     statistiques de l'activité métier sur d'autres plages horaire
 
-> Dans les champs **Période de rapport par défaut** et **Plages de reporting additionnelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
+> Dans les champs **Période de rapport par défaut** et **Plages de reporting additionnelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
 
 #### Gestionnaire d'évènements
 

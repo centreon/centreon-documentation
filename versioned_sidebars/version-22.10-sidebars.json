@@ -1274,7 +1274,7 @@
           },
           "items": [
             {
-              "type": "doc",            
+              "type": "doc",
               "id": "integrations/event-management/sc-hp-bsm"
             },
             {
@@ -1284,7 +1284,7 @@
             {
               "type": "doc",
               "id": "integrations/data-analytics/sc-clickhouse"
-            },   
+            },
             {
               "type": "doc",
               "id": "integrations/data-analytics/sc-datadog-events"
@@ -1319,7 +1319,7 @@
             },
             {
               "type": "doc",
-              "id": "integrations/event-management/sc-opsgenie"
+              "id": "integrations/event-management/sc-opsgenie-events"
             },
             {
               "type": "doc",
