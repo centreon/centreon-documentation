@@ -27,12 +27,14 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias          | Modèle de service                                          | Description                                                                                                                                                               | Type de contrôle |
 |:---------------|:-----------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --- |
+| CMA-Health     | OS-Windows-Health-Centreon-Monitoring-Agent-custom         | Check Centreon monitoring agent health                                                                                                               | natif |
 | CPU            | OS-Windows-CPU-Centreon-Monitoring-Agent-custom            | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur | natif |
-| Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Contrôle du taux d'utilisation de la mémoire                                                                                                                           | natif |
+| Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Contrôle du taux d'utilisation de la mémoire                                                                                                                              | natif |
 | Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Contrôle la synchronisation avec un serveur NTP                                                                                                                           | non natif |
 | Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Contrôle si Windows nécessite un redémarrage                                                                                                                              | non natif |
-| Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Contrôle le nombre de sessions actives                                                                                                                                    |  non natif |
-| Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |  natif |
+| Services-Auto  | OS-Windows-Services-Auto-Centreon-Monitoring-Agent-custom  | Contrôle permettant de vérifier si les services Windows automatiques sont démarrés                                                                                        | natif |
+| Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Contrôle le nombre de sessions actives                                                                                                                                    | non natif |
+| Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    | natif |
 | Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Contrôle si des mises à jour sont en attente                                                                                                                              | non natif |
 | Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Contrôle la durée depuis laquelle le serveur tourne sans interruption                                                                                                     | natif |
 
@@ -45,6 +47,8 @@ Le connecteur apporte les modèles de service suivants
 |:-------------|:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --- |
 | Certificates | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom | Contrôle les certificats locaux                                                                                                                                           | non natif |
 | CPU-detailed | OS-Windows-CPU-detailed-Centreon-Monitoring-Agent-custom | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur | natif |
+| Eventlog-Nscp     | OS-Windows-Eventlog-Nscp-Centreon-Monitoring-Agent-custom     | Contrôle les événements en erreur dans les eventlogs à la manière de NSClient++                                                                                 | natif |
+| Services     | OS-Windows-Services-Centreon-Monitoring-Agent-custom     | Contrôle permettant de vérifier l'état des services Windows                                                                                                               | natif |                    
 | Storage      | OS-Windows-Storage-Centreon-Monitoring-Agent-custom      | Contrôle du taux d'utilisation des disques                                                                                                                                | natif |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -63,6 +67,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 |:-------------------------------------|:------|
 | certificates.detected.count          | count |
 | certificate#certificate.expires.days | d     |
+
+</TabItem>
+<TabItem value="CMA-Health" label="CMA-Health">
+
+| Métrique | Unité |
+|:---------|:------|
+| runtime  | s     |
+| interval | s     |
 
 </TabItem>
 <TabItem value="CPU" label="CPU">
@@ -86,6 +98,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
  | *core_index*\~used#core.cpu.utilization.percentage          | %     |
 
 </TabItem>
+<TabItem value="Eventlog-Nscp" label="Eventlog-Nscp">
+
+| Métrique       | Unité |
+|:---------------|:------|
+| critical-count | count |
+| warning-count  | count |
+
+</TabItem>
 <TabItem value="Memory" label="Memory">
 
 | Métrique                | Unité |
@@ -105,6 +125,32 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
 
 Pas de métrique pour ce service.
+
+</TabItem>
+<TabItem value="Services" label="Services">
+
+| Métrique                  | Unité |
+|:--------------------------|:------|
+| services.stopped.count    | count |
+| services.starting.count   | count |
+| services.stopping.count   | count |
+| services.running.count    | count |
+| services.continuing.count | count |
+| services.pausing.count    | count |
+| services.paused.count     | count |
+
+</TabItem>
+<TabItem value="Services-Auto" label="Services-Auto">
+
+| Métrique                  | Unité |
+|:--------------------------|:------|
+| services.stopped.count    | count |
+| services.starting.count   | count |
+| services.stopping.count   | count |
+| services.running.count    | count |
+| services.continuing.count | count |
+| services.pausing.count    | count |
+| services.paused.count     | count |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
@@ -187,7 +233,7 @@ La procédure d'installation et de configuration de Centreon Monitoring Agent po
 La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -222,7 +268,7 @@ apt install centreon-pack-operatingsystems-windows-centreon-monitoring-agent
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Windows Centreon Monitoring Agent**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 3. Créez le connecteur suivant :
 
@@ -270,52 +316,82 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | FILTERTHUMBPRINT             | Filter certificate by thumbprint (can be a regexp).                                                                                                         |                   |             |
 | FILTERPATH                   | Filter certificate by path (can be a regexp).                                                                                                               |                   |             |
 | THRESHOLDSUNIT               | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. | d                 |             |
-| WARNINGCERTIFICATEEXPIRES    | Thresholds.                                                                                                                                                 | 60:               |             |
-| CRITICALCERTIFICATEEXPIRES   | Thresholds.                                                                                                                                                 | 30:               |             |
-| WARNINGCERTIFICATESDETECTED  | Thresholds.                                                                                                                                                 |                   |             |
-| CRITICALCERTIFICATESDETECTED | Thresholds.                                                                                                                                                 |                   |             |
+| WARNINGCERTIFICATEEXPIRES    | Thresholds                                                                                                                                                 | 60:               |             |
+| CRITICALCERTIFICATEEXPIRES   | Thresholds                                                                                                                                                 | 30:               |             |
+| WARNINGCERTIFICATESDETECTED  | Thresholds                                                                                                                                                 |                   |             |
+| CRITICALCERTIFICATESDETECTED | Thresholds                                                                                                                                                 |                   |             |
 | EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                    |                   |             |
+
+</TabItem>
+<TabItem value="CMA-Health" label="CMA-Health">
+
+| Macro            | Description                                                  | Valeur par défaut | Obligatoire |
+|:-----------------|:-------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGRUNTIME   | Warning if a check duration is greater than this value (s)   |                   |             |
+| CRITICALRUNTIME  | Critical if a check duration is greater than this value (s)  |                   |             |
+| WARNINGINTERVAL  | Warning if a check interval is greater than this value (s)   |                   |             |
+| CRITICALINTERVAL | Critical if a check interval is greater than this value (s)  |                   |             |
 
 </TabItem>
 <TabItem value="CPU" label="CPU">
 
-| Macro           | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCORE     | Threshold for warning status on core usage in percentage                                                                                 |                   |             |
-| CRITICALCORE    | Threshold for critical status on core usage in percentage                                                                                |                   |             |
-| WARNINGAVERAGE  | Threshold for warning status on average usage in percentage                                                                              |                   |             |
-| CRITICALAVERAGE | Threshold for critical status on average usage in percentage                                                                             |                   |             |
+| Macro           | Description                                                  | Valeur par défaut | Obligatoire |
+|:----------------|:-------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCORE     | Threshold for warning status on core usage in percentage     |                   |             |
+| CRITICALCORE    | Threshold for critical status on core usage in percentage    |                   |             |
+| WARNINGAVERAGE  | Threshold for warning status on average usage in percentage  |                   |             |
+| CRITICALAVERAGE | Threshold for critical status on average usage in percentage |                   |             |
+
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
 
-| Macro                 | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCORE           | Threshold for warning status on core usage in percentage                                                                                 |                   |             |
-| CRITICALCORE          | Threshold for critical status on core usage in percentage                                                                                |                   |             |
-| WARNINGAVERAGE        | Threshold for warning status on average usage in percentage                                                                              |                   |             |
-| CRITICALAVERAGE       | Threshold for critical status on average usage in percentage                                                                             |                   |             |
-| WARNINGCOREUSER       | Threshold for warning status on core user usage in percentage                                                                            |                   |             |
-| CRITICALCOREUSER      | Threshold for critical status on core user usage in percentage                                                                           |                   |             |
-| WARNINGAVERAGEUSER    | Threshold for warning status on average user usage in percentage                                                                         |                   |             |
-| CRITICALAVERAGEUSER   | Threshold for critical status on average user usage in percentage                                                                        |                   |             |
-| WARNINGCORESYSTEM     | Threshold for warning status on core system usage in percentage                                                                          |                   |             |
-| CRITICALCORESYSTEM    | Threshold for critical status on core system usage in percentage                                                                         |                   |             |
-| WARNINGAVERAGESYSTEM  | Threshold for warning status on average system usage in percentage                                                                       |                   |             |
-| CRITICALAVERAGESYSTEM | Threshold for critical status on average system usage in percentage                                                                      |                   |             |
+| Macro                 | Description                                                         | Valeur par défaut | Obligatoire |
+|:----------------------|:--------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCORE           | Threshold for warning status on core usage in percentage            |                   |             |
+| CRITICALCORE          | Threshold for critical status on core usage in percentage           |                   |             |
+| WARNINGAVERAGE        | Threshold for warning status on average usage in percentage         |                   |             |
+| CRITICALAVERAGE       | Threshold for critical status on average usage in percentage        |                   |             |
+| WARNINGCOREUSER       | Threshold for warning status on core user usage in percentage       |                   |             |
+| CRITICALCOREUSER      | Threshold for critical status on core user usage in percentage      |                   |             |
+| WARNINGAVERAGEUSER    | Threshold for warning status on average user usage in percentage    |                   |             |
+| CRITICALAVERAGEUSER   | Threshold for critical status on average user usage in percentage   |                   |             |
+| WARNINGCORESYSTEM     | Threshold for warning status on core system usage in percentage     |                   |             |
+| CRITICALCORESYSTEM    | Threshold for critical status on core system usage in percentage    |                   |             |
+| WARNINGAVERAGESYSTEM  | Threshold for warning status on average system usage in percentage  |                   |             |
+| CRITICALAVERAGESYSTEM | Threshold for critical status on average system usage in percentage |                   |             |
+
+</TabItem>
+<TabItem value="Eventlog-Nscp" label="Eventlog-Nscp">
+
+| Macro             | Description                                                                                                                                                   | Valeur par défaut                                           | Obligatoire |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:-----------:|
+| FILE              | Event log file to monitor                                                                                                                                     |                                                             |             |
+| FILTEREVENT       | Filter to apply on event log                                                                                                                                  | written > 60m and level in ('error', 'warning', 'critical') |             |
+| SCANRANGE         | Validity of events, can be s, second, m, minute, h, hour, d, day, w, week                                                                                     | 24h                                                         |             |
+| WARNINGSTATUS     | Filter to apply on event log to get warning events                                                                                                            | level = 'warning'                                           |             |
+| CRITICALSTATUS    | Filter to apply on event log to get critical events                                                                                                           | level in ('error', 'critical')                              |             |
+| WARNINGCOUNT      | Number of warning events to trigger a warning                                                                                                                 | 1                                                           |             |
+| CRITICALCOUNT     | Number of critical events to trigger a critical                                                                                                               | 1                                                           |             |
+| EMPTYSTATE        | Message to display when no event is found                                                                                                                     | Empty or no match for this filter                           |             |
+| OUTPUTSYNTAX      | Output format when status is not ok                                                                                                                           | \{status\}: \{count\} \{problem_list\}                             |             |
+| OKSYNTAX          | Output format when status is ok                                                                                                                               | \{status\}: Event log seems fine                              |             |
+| EVENTDETAILSYNTAX | Output format for each event                                                                                                                                  | '\{source\} \{id\}'                                             |             |
+| UNIQUEINDEX       | Unique index for events, events are grouped by this index. For example is two events have the same provider and the same id, only latest is printed to output | \{provider\}\{id\}                                              |             |
+| VERBOSE           | Display all events in long plugins output format (one line per event)                                                                                         | true                                                        |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro                 | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGE          | Threshold for warning status on physical memory usage in bytes                                                                           |                   |             |
-| CRITICALUSAGE         | Threshold for critical status on physical memory usage in bytes                                                                          |                   |             |
-| WARNINGUSAGEFREE      | Threshold for warning status on free physical memory in bytes                                                                            |                   |             |
-| CRITICALUSAGEFREE     | Threshold for critical status on free physical memory in bytes                                                                           |                   |             |
-| WARNINGUSAGEPRCT      | Threshold for warning status on physical memory usage in percentage                                                                      |                   |             |
-| CRITICALUSAGEPRCT     | Threshold for critical status on physical memory usage in percentage                                                                     |                   |             |
-| WARNINGUSAGEFREEPRCT  | Threshold for warning status on free physical memory in percentage                                                                       |                   |             |
-| CRITICALUSAGEFREEPRCT | Threshold for critical status on free physical memory in percentage                                                                      |                   |             |
+| Macro                 | Description                                                          | Valeur par défaut | Obligatoire |
+|:----------------------|:---------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGE          | Threshold for warning status on physical memory usage in bytes       |                   |             |
+| CRITICALUSAGE         | Threshold for critical status on physical memory usage in bytes      |                   |             |
+| WARNINGUSAGEFREE      | Threshold for warning status on free physical memory in bytes        |                   |             |
+| CRITICALUSAGEFREE     | Threshold for critical status on free physical memory in bytes       |                   |             |
+| WARNINGUSAGEPRCT      | Threshold for warning status on physical memory usage in percentage  |                   |             |
+| CRITICALUSAGEPRCT     | Threshold for critical status on physical memory usage in percentage |                   |             |
+| WARNINGUSAGEFREEPRCT  | Threshold for warning status on free physical memory in percentage   |                   |             |
+| CRITICALUSAGEFREEPRCT | Threshold for critical status on free physical memory in percentage  |                   |             |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
@@ -324,20 +400,58 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | NTPHOSTNAME    | Set the NTP server to use (if not set, we try to find it with w32tm command).                                                            |                   |             |
 | NTPPORT        | Set the NTP port (default: 123).                                                                                                         |                   |             |
-| WARNINGOFFSET  | Thresholds.                                                                                                                              | -1:1              |             |
-| CRITICALOFFSET | Thresholds.                                                                                                                              | -2:2              |             |
+| WARNINGOFFSET  | Thresholds                                                                                                                               | -1:1              |             |
+| CRITICALOFFSET | Thresholds                                                                                                                               | -2:2              |             |
 | TIMEOUT        | Set timeout time for 'w32tm' command execution (default: 30 sec).                                                                        | 10                |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
 
-| Macro          | Description                                                                                                                                                                                                                                              | Valeur par défaut             | Obligatoire |
-|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\} | `%{RebootPending} =~ /true/i` |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}                           |                               |             |
-| TIMEOUT        | Set timeout time for command execution                                                                                                                                                                                                | 10                            |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                 |                               |             |
+| Macro          | Description                                                                                                                                                                                                                  | Valeur par défaut             | Obligatoire |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}  | `%{RebootPending} =~ /true/i` |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\} |                               |             |
+| TIMEOUT        | Set timeout time for command execution                                                                                                                                                                                       | 10                            |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                     |                               |             |
+
+</TabItem>
+<TabItem value="Services" label="Services">
+
+| Macro                | Description                                                                                                                               | Valeur par défaut | Obligatoire |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| STARTAUTO            | Only services that start automatically will be counted                                                                                    | false             |             |
+| FILTERNAME           | Regex to filter service names                                                                                                             | .*                |             |
+| EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
+| FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
+| EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
+| WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
+| CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
+| WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
+| CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |                   |             |
+| WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |                   |             |
+| CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                   |             |
+| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                |                   |             |
+| CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |                   |             |
+
+</TabItem>
+<TabItem value="Services-Auto" label="Services-Auto">
+
+| Macro                | Description                                                                                                                               | Valeur par défaut | Obligatoire |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| STARTAUTO            | Only services that start automatically will be counted                                                                                    | true              |             |
+| FILTERNAME           | Regex to filter service names                                                                                                             | .*                |             |
+| EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
+| FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
+| EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
+| WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
+| CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
+| WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
+| CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |                   |             |
+| WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |                   |             |
+| CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                   |             |
+| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |                   |             |
+| CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |                   |             |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
@@ -346,17 +460,17 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 |:------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERSESSIONNAME                   | Filter session name (can be a regexp).                                                                                                               |                   |             |
 | CONFIG                              | The command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file |                   |             |
-| WARNINGSESSIONSACTIVE               | Thresholds.                                                                                                                                          |                   |             |
-| CRITICALSESSIONSACTIVE              | Thresholds.                                                                                                                                          |                   |             |
-| WARNINGSESSIONSCREATED              | Thresholds.                                                                                                                                          |                   |             |
-| CRITICALSESSIONSCREATED             | Thresholds.                                                                                                                                          |                   |             |
-| WARNINGSESSIONSDISCONNECTED         | Thresholds.                                                                                                                                          |                   |             |
-| CRITICALSESSIONSDISCONNECTED        | Thresholds.                                                                                                                                          |                   |             |
-| WARNINGSESSIONSRECONNECTED          | Thresholds.                                                                                                                                          |                   |             |
-| CRITICALSESSIONSRECONNECTED         | Thresholds.                                                                                                                                          |                   |             |
-| WARNINGSESSIONSDISCONNECTEDCURRENT  | Thresholds.                                                                                                                                          |                   |             |
-| CRITICALSESSIONSDISCONNECTEDCURRENT | Thresholds.                                                                                                                                          |                   |             |
-| TIMEOUT                             | Timeout in seconds for the command                                                                                                   | 10                |             |
+| WARNINGSESSIONSACTIVE               | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSACTIVE              | Thresholds                                                                                                                                           |                   |             |
+| WARNINGSESSIONSCREATED              | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSCREATED             | Thresholds                                                                                                                                           |                   |             |
+| WARNINGSESSIONSDISCONNECTED         | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSDISCONNECTED        | Thresholds                                                                                                                                           |                   |             |
+| WARNINGSESSIONSRECONNECTED          | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSRECONNECTED         | Thresholds                                                                                                                                           |                   |             |
+| WARNINGSESSIONSDISCONNECTEDCURRENT  | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSDISCONNECTEDCURRENT | Thresholds                                                                                                                                           |                   |             |
+| TIMEOUT                             | Timeout in seconds for the command                                                                                                                   | 10                |             |
 | EXTRAOPTIONS                        | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)             |                   |             |
 
 </TabItem>
@@ -364,24 +478,24 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 
 | Macro             | Description                                                                                                                                                                                                                                                                                    | Valeur par défaut | Obligatoire |
 |:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING           | Thresholds                                                                                                                                                                                                                                                                                     | 80            |           |
-| CRITICAL          | Thresholds                                                                                                                                                                                                                                                                                     | 90            |           |
-| FILTERSTORAGETYPE | Case insensitive regex to filter storage type it includes drive type (fixed, network...). Types recognized by agent: hrunknown, hrstoragefixeddisk, hrstorageremovabledisk, hrstoragecompactdisc, hrstorageramdisk, hrstoragenetworkdisk, hrfsunknown, hrfsfat, hrfsntfs, hrfsfat32, hrfsexfat | .*            |           |
-| FILTERFS          | Case insensitive regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                               | .*            |           |
+| WARNING           | Thresholds                                                                                                                                                                                                                                                                                     | 80                |             |
+| CRITICAL          | Thresholds                                                                                                                                                                                                                                                                                     | 90                |             |
+| FILTERSTORAGETYPE | Case insensitive regex to filter storage type it includes drive type (fixed, network...). Types recognized by agent: hrunknown, hrstoragefixeddisk, hrstorageremovabledisk, hrstoragecompactdisc, hrstorageramdisk, hrstoragenetworkdisk, hrfsunknown, hrfsfat, hrfsntfs, hrfsfat32, hrfsexfat | .*                |             |
+| FILTERFS          | Case insensitive regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                               | .*                |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Macro                | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGSWAP          | Threshold for warning status on swap memory usage in bytes                                                                               |                   |             |
-| CRITICALSWAP         | Threshold for critical status on swap memory usage in bytes                                                                              |                   |             |
-| WARNINGSWAPFREE      | Threshold for warning status on free swap memory in bytes                                                                                |                   |             |
-| CRITICALSWAPFREE     | Threshold for critical status on free swap memory in bytes                                                                               |                   |             |
-| WARNINGSWAPPRCT      | Threshold for warning status on swap memory usage in percentage                                                                          |                   |             |
-| CRITICALSWAPPRCT     | Threshold for critical status on swap memory usage in percentage                                                                         |                   |             |
-| WARNINGSWAPFREEPRCT  | Threshold for warning status on free swap memory in percentage                                                                           |                   |             |
-| CRITICALSWAPFREEPRCT | Threshold for critical status on free swap memory in percentage                                                                          |                   |             |
+| Macro                | Description                                                      | Valeur par défaut | Obligatoire |
+|:---------------------|:-----------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGSWAP          | Threshold for warning status on swap memory usage in bytes       |                   |             |
+| CRITICALSWAP         | Threshold for critical status on swap memory usage in bytes      |                   |             |
+| WARNINGSWAPFREE      | Threshold for warning status on free swap memory in bytes        |                   |             |
+| CRITICALSWAPFREE     | Threshold for critical status on free swap memory in bytes       |                   |             |
+| WARNINGSWAPPRCT      | Threshold for warning status on swap memory usage in percentage  |                   |             |
+| CRITICALSWAPPRCT     | Threshold for critical status on swap memory usage in percentage |                   |             |
+| WARNINGSWAPFREEPRCT  | Threshold for warning status on free swap memory in percentage   |                   |             |
+| CRITICALSWAPFREEPRCT | Threshold for critical status on free swap memory in percentage  |                   |             |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
@@ -390,16 +504,16 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
 | WARNINGPENDINGUPDATES  | Thresholds                                                                                                                               | 1                  |             |
 | CRITICALPENDINGUPDATES | Thresholds                                                                                                                               |                    |             |
-| TIMEOUT                | Set timeout time for command execution.                                                                                | 30                 |             |
+| TIMEOUT                | Set timeout time for command execution.                                                                                                  | 30                 |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --filter-mandatory |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro           | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state                                      | 3600              |             |
-| CRITICALUPTIME | Critical threshold                                                                                                                        |                   | 600         |
+| Macro          | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:---------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state | 3600              |             |
+| CRITICALUPTIME | Critical threshold                                                                                   | 600               |             |
 
 </TabItem>
 </Tabs>
@@ -490,10 +604,10 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-subject                 | Filter certificate by subject (can be a regexp).                                                                                                            |
 | --filter-path                    | Filter certificate by path (can be a regexp).                                                                                                               |
 | --unit                           | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. |
-| --warning-certificates-detected  | Thresholds.                                                                                                                                                 |
-| --critical-certificates-detected | Thresholds.                                                                                                                                                 |
-| --warning-certificate-expires    | Thresholds.                                                                                                                                                 |
-| --critical-certificate-expires   | Thresholds.                                                                                                                                                 |
+| --warning-certificates-detected  | Thresholds                                                                                                                                                 |
+| --critical-certificates-detected | Thresholds                                                                                                                                                 |
+| --warning-certificate-expires    | Thresholds                                                                                                                                                 |
+| --critical-certificate-expires   | Thresholds                                                                                                                                                 |
 | --no-ps                          | Don't encode powershell. To be used with --command and 'type' command.                                                                                      |
 | --command                        | Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                      |
 | --command-path                   | Command path (default: none).                                                                                                                               |
@@ -611,7 +725,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --command-options        | Command options (Default: '/COUNTER').                                                                                                                                                                                                        |
 | --timeout                | Timeout in seconds for the command (Default: 30).                                                                                                                                                                                             |
 | --filter-sessionname     | Filter session name (can be a regexp).                                                                                                                                                                                                        |
-| --warning-* --critical-* | Thresholds. Can be: 'sessions-created', 'sessions-disconnected', 'sessions-reconnected', 'sessions-active', 'sessions-disconnected-current'.                                                                                                  |
+| --warning-* --critical-* | Thresholds Can be: 'sessions-created', 'sessions-disconnected', 'sessions-reconnected', 'sessions-active', 'sessions-disconnected-current'.                                                                                                  |
 
 </TabItem>
 <TabItem value="Storage" label="Storage">
@@ -673,7 +787,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-title           | Filter windows updates by title (can be a regexp).                                                                                       |
 | --exclude-title          | Exclude windows updates by title (regexp can be used).                                                                                   |
 | --display-updates        | Display updates in verbose output.                                                                                                       |
-| --warning-* --critical-* | Thresholds. Can be: 'pending-updates'.                                                                                                   |
+| --warning-* --critical-* | Thresholds Can be: 'pending-updates'.                                                                                                   |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
