@@ -135,7 +135,7 @@ usermod -a -G haclient centreon-engine
 yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Pacemaker-Ssh
 ```
 
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Centreon-HA* depuis la page **Configuration > Gestionnaire de connecteurs de supervision** 
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Centreon-HA* depuis la page **Configuration > Connecteurs > Connecteurs de supervision** 
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -152,7 +152,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applicat
 yum install centreon-pack-applications-monitoring-centreon-ha
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Centreon-HA* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Centreon-HA* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>

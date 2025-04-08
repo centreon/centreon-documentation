@@ -24,7 +24,6 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
 ## Configuration
 
-* Incremental mass changes are not possible for hosts and services.
 
 * Users cannot yet configure Stream Connectors themselves.
 

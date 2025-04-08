@@ -12,6 +12,8 @@ Centreon MBI is updated in two steps:
 
 ## Update the extension interface
 
+> Please ensure that the ETL process has been completed before updating the extension.
+
 1. Update the package, run the following commands:
 
 <Tabs groupId="sync">
@@ -47,10 +49,16 @@ Update button to update the extension and the widgets.
 
 ## Update the reporting server
 
-Connect to your reporting server and stop the scheduler service (CBIS):
+Connect to your reporting server and stop the scheduler service **CBIS**:
 
 ```shell
 systemctl stop cbis
+```
+
+Then stop **gorgoned**:
+
+```shell
+systemctl stop gorgoned
 ```
 
 Then run the following commands: :
@@ -82,10 +90,42 @@ apt --only-upgrade install centreon-bi\*
 </TabItem>
 </Tabs>
 
-Start the scheduler service:
+You also need to update Centreon Gorgone:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-gorgone\*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon-gorgone\*
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt --only-upgrade install centreon-gorgone\*
+```
+
+</TabItem>
+</Tabs>
+
+Start the scheduler service **CBIS**:
 
 ```shell
 systemctl start cbis
+```
+
+Then start **gorgoned**:
+
+```shell
+systemctl start gorgoned
 ```
 
 MBI is now updated.
