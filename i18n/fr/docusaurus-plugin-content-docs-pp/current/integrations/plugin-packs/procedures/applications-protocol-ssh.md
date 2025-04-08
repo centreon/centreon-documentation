@@ -52,7 +52,7 @@ d'hôtes doivent être renseignées. Plus d'information [dans la section
 yum install centreon-plugin-Applications-Protocol-Ssh
 ```
 
-2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Protocol SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Protocol SSH* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -69,7 +69,7 @@ yum install centreon-plugin-Applications-Protocol-Ssh
 yum install centreon-pack-applications-protocol-ssh
 ```
 
-3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Protocol SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Protocol SSH* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
