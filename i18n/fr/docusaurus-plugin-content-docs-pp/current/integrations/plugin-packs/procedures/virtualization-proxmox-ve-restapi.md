@@ -109,7 +109,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Pour la supervision, un utilisateur avec les droits en lecture est nécessaire : `VM.Monitor`, `VM.Audit`, `Datastore.Audit`, `Sys.Audit`, `Sys.Syslog`.
+Pour la supervision, un utilisateur avec les droits suivants en lecture est nécessaire : `VM.Monitor`, `VM.Audit`, `Datastore.Audit`, `Sys.Audit`, `Sys.Syslog`.
 
 Référez vous à la [documentation officielle](https://pve.proxmox.com/wiki/Proxmox_VE_API).
 
