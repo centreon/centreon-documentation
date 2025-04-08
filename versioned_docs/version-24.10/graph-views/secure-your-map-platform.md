@@ -105,13 +105,19 @@ centreon-map.keystore-pass=xxx
 systemctl stop centreon-map-engine
 ```
 
-2. Edit the file **/etc/centreon-map/centreon-map.conf**, adding `,tls` after `prod` profile:
+2. Edit the **/etc/centreon-map/centreon-map.conf** file, adding `,tls` after `prod` profile:
 
 ```text
 RUN_ARGS="--spring.profiles.active=prod,tls"
 ```
 
-3. Restart Centreon MAP service:
+3. Set the **centreon.url** inside the **/etc/centreon-map/map-config.properties** file to use HTTPS instead of HTTP:
+
+```shell
+centreon.url=https://<server-address>
+```
+
+4. Restart Centreon MAP service:
 
 ```shell
 systemctl start centreon-map-engine
@@ -120,7 +126,7 @@ systemctl start centreon-map-engine
 Centreon MAP server is now configured to respond to requests from HTTPS at port 9443.
 
 To change the default port, refer to the [dedicated
-procedure](map-web-advanced-configuration.md#change-centreon-map-server-port).
+procedure](map-web-advanced-configuration.md#change-the-centreon-map-servers-port).
 
 > Don't forget to modify the URL on Centreon side in the **MAP server address**
 > field in the **Administration > Extensions > Map > Options** menu.
@@ -160,7 +166,7 @@ certificate as described below:
 
 > "Trusted CA's certificate" field is optional. If you activate Broker's client
 > authentication by setting this "ca\_certificate.crt", then you must setup a
-> [keystore for MAP server](#configure-httpstls-on-the-web-server)
+> [keystore for MAP server](#configure-httpstls-on-the-map-server)
 >
 > You MUST push the new broker configuration and restart the broker after
 > configuration.

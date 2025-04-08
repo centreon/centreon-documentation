@@ -146,6 +146,8 @@ with the command corresponding to the operating system's package manager:
 dnf install centreon-pack-cloud-azure-compute-virtualmachine
 ```
 
+2. On the Centreon web interface, on page **Configuration > Connectors > Monitoring Connectors**, install the **Azure Virtual Machine** Centreon Monitoring Connector.
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -166,6 +168,8 @@ apt install centreon-pack-cloud-azure-compute-virtualmachine
 ```bash
 yum install centreon-pack-cloud-azure-compute-virtualmachine
 ```
+
+3. On the Centreon web interface, on page **Configuration > Connectors > Monitoring Connectors**, install the **Azure Virtual Machine** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>
