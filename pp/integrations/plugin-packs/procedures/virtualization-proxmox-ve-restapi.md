@@ -108,7 +108,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To monitor, a user with read privileges is required: `VM.Monitor`, `VM.Audit`, `Datastore.Audit`, `Sys.Audit`, `Sys.Syslog`.
+To monitor, a user with the following "read" privileges is required: `VM.Monitor`, `VM.Audit`, `Datastore.Audit`, `Sys.Audit`, `Sys.Syslog`.
 
 Please refer to their [official documentation](https://pve.proxmox.com/wiki/Proxmox_VE_API).
 
