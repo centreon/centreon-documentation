@@ -37,7 +37,7 @@ ainsi que le nombre que le nombre de  *postured endpoints*.
 
 ## Prérequis
 
-L'utilisateur renseigné dans la Macro d'Hôte (plus d'information [ici](#Hôte)
+L'utilisateur renseigné dans la Macro d'Hôte (plus d'information [ici](#hôte)
 doit faire partie des groupes Admin suivants et les informations 
 d'identification doivent être stockées dans la base de données interne de Cisco 
 ISE (utilisateurs administratifs internes)
@@ -62,7 +62,7 @@ https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-
 yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco ISE* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco ISE* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -79,7 +79,7 @@ yum install centreon-plugin-Applications-Cisco-Ise-Restapi
 yum install centreon-pack-applications-cisco-ise-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco ISE* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco ISE* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>

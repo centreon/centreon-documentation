@@ -38,7 +38,7 @@ The connector brings the following service templates (sorted by the host templat
 | Backup               | App-DB-MySQL-Backup-custom                       | Check backups                                                                                      |
 | Innodb-Bufferpool    | App-DB-MySQL-Innodb-Bufferpool-custom            | Check the hit rate of the InnoDB buffer                                                            |
 | Long-Queries         | App-DB-MySQL-Long-Queries-custom                 | Check current number of long queries                                                               |
-| MariaDB-Replication  | App-DB-MySQL-MariaDB-Replication-custom          | Check the state of the replication between two databases                                              |
+| MariaDB-Replication  | App-DB-MySQL-MariaDB-Replication-custom          | Check the state of the replication between two databases                                           |
 | Password-Expiration  | App-DB-MySQL-Password-Expiration-custom          | Check user password expiration                                                                     |
 | Qcache-Hitrate       | App-DB-MySQL-Qcache-Hitrate-custom               | Check query cache hitrate                                                                          |
 | Sql-Statement        | App-DB-MySQL-Sql-Statement-Generic-custom        | Check allowing to execute a custom SQL request with a digital answer                               |
@@ -94,10 +94,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Innodb-Bufferpool" label="Innodb-Bufferpool">
 
-| Metric name                                    | Unit  |
-|:-----------------------------------------------|:------|
-| database.bufferpool.hitrate.average.percentage |       |
-| database.bufferpool.hitrate.delta.percentage   |       |
+| Metric name                                    | Unit |
+|:-----------------------------------------------|:-----|
+| database.bufferpool.hitrate.average.percentage | %    |
+| database.bufferpool.hitrate.delta.percentage   | %    |
 
 </TabItem>
 <TabItem value="Long-Queries" label="Long-Queries">
@@ -225,7 +225,7 @@ Listing of user privileges needed by service:
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -261,7 +261,7 @@ yum install centreon-pack-applications-databases-mysql
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **MySQL/MariaDB** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -316,11 +316,11 @@ yum install centreon-plugin-Applications-Databases-Mysql
 3. Apply the **App-DB-MySQL-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro             | Description                                                                                           | Default value     | Mandatory   |
-|:------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MYSQLUSERNAME     | User name used to connect to the database                                                             | USERNAME          |             |
-| MYSQLPASSWORD     | Password for the defined user name                                                                    | PASSWORD          |             |
-| MYSQLPORT         |                                                                                                       |                   |             |
+| Macro             | Description                                                                                                                      | Default value     | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| MYSQLUSERNAME     | User name used to connect to the database                                                                                        | USERNAME          |             |
+| MYSQLPASSWORD     | Password for the defined user name                                                                                               | PASSWORD          |             |
+| MYSQLPORT         | Database port used                                                                                                               |                   |             |
 | MYSQLEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -333,186 +333,186 @@ yum install centreon-plugin-Applications-Databases-Mysql
 <Tabs groupId="sync">
 <TabItem value="Backup" label="Backup">
 
-| Macro                     | Description                                                                                                                                                                                                                                                       | Default value                                                                             | Mandatory   |
-|:--------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:-----------:|
-| FILTERTYPE                | Filter backups by type (regexp can be used)                                                                                                                                                                                                                       |                                                                                           |             |
-| CRITICALSTATUS            | Define the conditions to match for the status to be CRITICAL (Default: '%\{has_backup\} eq "yes" and %\{exit_state\} ne "SUCCESS" and %\{last_error\} ne "NO\_ERROR"'). You can use the following variables: %\{has_backup\}, %\{last_error\}, %\{exit_state\}, %\{type\} | %\{has_backup\} eq "yes" and %\{exit_state\} ne "SUCCESS" and %\{last_error\} ne "NO\_ERROR" |             |
-| WARNINGSTATUS             | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{has_backup\}, %\{last_error\}, %\{exit_state\}, %\{type\}                                                                                                         |                                                                                           |             |
-| WARNINGTIMELASTEXECUTION  | Thresholds                                                                                                                                                                                                                                                        |                                                                                           |             |
-| CRITICALTIMELASTEXECUTION | Thresholds                                                                                                                                                                                                                                                        |                                                                                           |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                               | --verbose                                                                                 |             |
+| Macro                     | Description                                                                                                                                                     | Default value                                                                             | Mandatory   |
+|:--------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:-----------:|
+| FILTERTYPE                | Filter backups by type (regexp can be used)                                                                                                                     |                                                                                           |             |
+| CRITICALSTATUS            | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{has_backup\}, %\{last_error\}, %\{exit_state\}, %\{type\} | %\{has_backup\} eq "yes" and %\{exit_state\} ne "SUCCESS" and %\{last_error\} ne "NO\_ERROR" |             |
+| WARNINGSTATUS             | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{has_backup\}, %\{last_error\}, %\{exit_state\}, %\{type\}  |                                                                                           |             |
+| WARNINGTIMELASTEXECUTION  | Thresholds                                                                                                                                                      |                                                                                           |             |
+| CRITICALTIMELASTEXECUTION | Thresholds                                                                                                                                                      |                                                                                           |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                  | --verbose                                                                                 |             |
 
 </TabItem>
 <TabItem value="Connection-Time" label="Connection-Time">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in milliseconds                                                                   |                   |             |
-| CRITICAL     | Critical threshold in milliseconds                                                                  |                   |             |
+| Macro        | Description                                                                                                                    | Default value     | Mandatory   |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold in milliseconds                                                                                              |                   |             |
+| CRITICAL     | Critical threshold in milliseconds                                                                                             |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Connections-Number" label="Connections-Number">
 
-| Macro             | Description                                                                                         | Default value     | Mandatory   |
-|:------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING           | Thresholds                                                                                          |                   |             |
-| CRITICAL          | Thresholds                                                                                          |                   |             |
-| WARNINGUSAGEPRCT  | Thresholds                                                                                          |                   |             |
-| CRITICALUSAGEPRCT | Thresholds                                                                                          |                   |             |
+| Macro             | Description                                                                                                                    | Default value     | Mandatory   |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING           | Thresholds                                                                                                                     |                   |             |
+| CRITICAL          | Thresholds                                                                                                                     |                   |             |
+| WARNINGUSAGEPRCT  | Thresholds                                                                                                                     |                   |             |
+| CRITICALUSAGEPRCT | Thresholds                                                                                                                     |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Database-Size" label="Database-Size">
 
-| Macro              | Description                                                                                         | Default value                                         | Mandatory   |
-|:-------------------|:----------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| FILTERDATABASE     | Filter by database name (can be a regexp)                                                         | ^(?!(information\_schema\|performance\_schema\|test)) |             |
-| FILTERPERFDATA     |                                                                                                     | database                                              |             |
-| WARNINGDBFREE      | Thresholds                                                                                          |                                                       |             |
-| CRITICALDBFREE     | Thresholds                                                                                          |                                                       |             |
-| WARNINGDBUSAGE     | Thresholds                                                                                          |                                                       |             |
-| CRITICALDBUSAGE    | Thresholds                                                                                          |                                                       |             |
-| WARNINGTABLEFRAG   | Thresholds                                                                                          |                                                       |             |
-| CRITICALTABLEFRAG  | Thresholds                                                                                          |                                                       |             |
-| WARNINGTABLEFREE   | Thresholds                                                                                          |                                                       |             |
-| CRITICALTABLEFREE  | Thresholds                                                                                          |                                                       |             |
-| WARNINGTABLEUSAGE  | Thresholds                                                                                          |                                                       |             |
-| CRITICALTABLEUSAGE | Thresholds                                                                                          |                                                       |             |
-| WARNINGTOTALFREE   | Thresholds                                                                                          |                                                       |             |
-| CRITICALTOTALFREE  | Thresholds                                                                                          |                                                       |             |
-| WARNINGTOTALUSAGE  | Thresholds                                                                                          |                                                       |             |
-| CRITICALTOTALUSAGE | Thresholds                                                                                          |                                                       |             |
+| Macro              | Description                                                                                                                    | Default value                                         | Mandatory   |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+| FILTERDATABASE     | Filter by database name (can be a regexp)                                                                                      | ^(?!(information\_schema\|performance\_schema\|test)) |             |
+| FILTERPERFDATA     | Filter by metric name                                                                                                          | database                                              |             |
+| WARNINGDBFREE      | Thresholds                                                                                                                     |                                                       |             |
+| CRITICALDBFREE     | Thresholds                                                                                                                     |                                                       |             |
+| WARNINGDBUSAGE     | Thresholds                                                                                                                     |                                                       |             |
+| CRITICALDBUSAGE    | Thresholds                                                                                                                     |                                                       |             |
+| WARNINGTABLEFRAG   | Thresholds                                                                                                                     |                                                       |             |
+| CRITICALTABLEFRAG  | Thresholds                                                                                                                     |                                                       |             |
+| WARNINGTABLEFREE   | Thresholds                                                                                                                     |                                                       |             |
+| CRITICALTABLEFREE  | Thresholds                                                                                                                     |                                                       |             |
+| WARNINGTABLEUSAGE  | Thresholds                                                                                                                     |                                                       |             |
+| CRITICALTABLEUSAGE | Thresholds                                                                                                                     |                                                       |             |
+| WARNINGTOTALFREE   | Thresholds                                                                                                                     |                                                       |             |
+| CRITICALTOTALFREE  | Thresholds                                                                                                                     |                                                       |             |
+| WARNINGTOTALUSAGE  | Thresholds                                                                                                                     |                                                       |             |
+| CRITICALTOTALUSAGE | Thresholds                                                                                                                     |                                                       |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose                                             |             |
 
 </TabItem>
 <TabItem value="Innodb-Bufferpool" label="Innodb-Bufferpool">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                   |                   |             |
-| CRITICAL     | Critical threshold                                                                                  |                   |             |
+| Macro        | Description                                                                                                                    | Default value     | Mandatory   |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold                                                                                                              |                   |             |
+| CRITICAL     | Critical threshold                                                                                                             |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Long-Queries" label="Long-Queries">
 
-| Macro         | Description                                                                                         | Default value     | Mandatory   |
-|:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SECONDS       | The minimum execution time in seconds for a long query (Default: 60)                                | 60                |             |
-| FILTERCOMMAND | Filter by command (can be a regexp. Default: '^(?!(sleep)$)')                                       | ^(?!(sleep)$)     |             |
-| FILTERUSER    | Filter by user (can be a regexp)                                                                    |                   |             |
-| WARNING       | Warning threshold (number of long queries)                                                          |                   |             |
-| CRITICAL      | Critical threshold (number of long queries)                                                         |                   |             |
+| Macro         | Description                                                                                                                    | Default value     | Mandatory   |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SECONDS       | The minimum execution time in seconds for a long query                                                                         | 60                |             |
+| FILTERCOMMAND | Filter by command (can be a regexp)                                                                                            | ^(?!(sleep)$)     |             |
+| FILTERUSER    | Filter by user (can be a regexp)                                                                                               |                   |             |
+| WARNING       | Warning threshold (number of long queries)                                                                                     |                   |             |
+| CRITICAL      | Critical threshold (number of long queries)                                                                                    |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
 <TabItem value="MariaDB-Replication" label="MariaDB-Replication">
 
-| Macro                     | Description                                                                                                                                                                                          | Default value                                     | Mandatory   |
-|:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------|:-----------:|
-| PEERPORT                  |                                                                                                                                                                                                      | 3306                                              |             |
-| PEERUSERNAME              |                                                                                                                                                                                                      | USERNAME                                          |             |
-| PEERPASSWORD              |                                                                                                                                                                                                      | PASSWORD                                          |             |
-| UNKNOWNREPLICATIONSTATUS  | Define the conditions to match for the status to be UNKNOWN (Default: '%\{replication_status\} =~ /configurationIssue/i'). You can use the following variables: %\{replication_status\}, %\{display\}    | %\{replication_status\} =~ /configurationIssue/i   |             |
-| PEERHOST                  |                                                                                                                                                                                                      |                                                   |             |
-| UNKNOWNCONNECTIONSTATUS   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{error_message\}, %\{display\}                                                           |                                                   |             |
-| CRITICALCONNECTIONSTATUS  | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} ne "ok"'). You can use the following variables: %\{status\}, %\{error_message\}, %\{display\}                           | %\{status\} ne "ok"                                 |             |
-| WARNINGCONNECTIONSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{error_message\}, %\{display\}                                                           |                                                   |             |
-| WARNINGREPLICATIONSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%\{replication_status\} =~ /inProgress/i'). You can use the following variables: %\{replication_status\}, %\{display\}            | %\{replication_status\} =~ /inProgress/i           |             |
-| CRITICALREPLICATIONSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%\{replication_status\} =~ /connectIssueToMaster/i'). You can use the following variables: %\{replication_status\}, %\{display\} | %\{replication_status\} =~ /connectIssueToMaster/i |             |
-| WARNINGSLAVELATENCY       | Thresholds                                                                                                                                                                                           |                                                   |             |
-| CRITICALSLAVELATENCY      | Thresholds                                                                                                                                                                                           |                                                   |             |
-| CRITICALSLAVESRUNNING     | Thresholds                                                                                                                                                                                           | 1:1                                               |             |
-| WARNINGSLAVESRUNNING      | Thresholds                                                                                                                                                                                           |                                                   |             |
-| WARNINGTHREADIOSTATUS     |                                                                                                                                                                                                      |                                                   |             |
-| CRITICALTHREADIOSTATUS    |                                                                                                                                                                                                      |                                                   |             |
-| WARNINGTHREADSQLSTATUS    |                                                                                                                                                                                                      |                                                   |             |
-| CRITICALTHREADSQLSTATUS   |                                                                                                                                                                                                      |                                                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                  | --verbose                                         |             |
+| Macro                     | Description                                                                                                                                      | Default value                                      | Mandatory   |
+|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-----------:|
+| PEERPORT                  | Peer Database server port                                                                                                                        | 3306                                               |             |
+| PEERUSERNAME              | Peer username                                                                                                                                    | USERNAME                                           |             |
+| PEERPASSWORD              | Peer password                                                                                                                                    | PASSWORD                                           |             |
+| UNKNOWNREPLICATIONSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{replication_status\}, %\{display\}          | %\{replication_status\} =~ /configurationIssue/i   |             |
+| PEERHOST                  | Peer hostname to query                                                                                                                           |                                                    |             |
+| UNKNOWNCONNECTIONSTATUS   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{error_message\}, %\{display\}  |                                                    |             |
+| CRITICALCONNECTIONSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{error_message\}, %\{display\} | %\{status\} ne "ok"                                |             |
+| WARNINGCONNECTIONSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{error_message\}, %\{display\}  |                                                    |             |
+| WARNINGREPLICATIONSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{replication_status\}, %\{display\}          | %\{replication_status\} =~ /inProgress/i           |             |
+| CRITICALREPLICATIONSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{replication_status\}, %\{display\}         | %\{replication_status\} =~ /connectIssueToMaster/i |             |
+| WARNINGSLAVELATENCY       | Thresholds                                                                                                                                       |                                                    |             |
+| CRITICALSLAVELATENCY      | Thresholds                                                                                                                                       |                                                    |             |
+| CRITICALSLAVESRUNNING     | Thresholds                                                                                                                                       | 1:1                                                |             |
+| WARNINGSLAVESRUNNING      | Thresholds                                                                                                                                       |                                                    |             |
+| WARNINGTHREADIOSTATUS     | Thresholds                                                                                                                                       |                                                    |             |
+| CRITICALTHREADIOSTATUS    | Thresholds                                                                                                                                       |                                                    |             |
+| WARNINGTHREADSQLSTATUS    | Thresholds                                                                                                                                       |                                                    |             |
+| CRITICALTHREADSQLSTATUS   | Thresholds                                                                                                                                       |                                                    |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                   | --verbose                                          |             |
 
 </TabItem>
 <TabItem value="Myisam-Keycache" label="Myisam-Keycache">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                   |                   |             |
-| CRITICAL     | Critical threshold                                                                                  |                   |             |
+| Macro        | Description                                                                                                                    | Default value     | Mandatory   |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold                                                                                                              |                   |             |
+| CRITICAL     | Critical threshold                                                                                                             |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent                                                                        |                   |             |
-| CRITICAL     | Critical threshold in percent                                                                       |                   |             |
+| Macro        | Description                                                                                                                    | Default value     | Mandatory   |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold in percent                                                                                                   |                   |             |
+| CRITICAL     | Critical threshold in percent                                                                                                  |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Password-Expiration" label="Password-Expiration">
 
-| Macro          | Description                                                                                                                                                                                       | Default value                                 | Mandatory   |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%\{expire\} ne "never" and %\{expire_time\} == 0'). You can use the following variables: %\{user\}, %\{expire\}, %\{expire_time\} | %\{expire\} ne "never" and %\{expire_time\} == 0 |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{user\}, %\{expire\}, %\{expire_time\}                                                             |                                               |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                               | --verbose                                     |             |
+| Macro          | Description                                                                                                                                 | Default value                                 | Mandatory   |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{user\}, %\{expire\}, %\{expire_time\} | %\{expire\} ne "never" and %\{expire_time\} == 0 |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{user\}, %\{expire\}, %\{expire_time\}  |                                               |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)              | --verbose                                     |             |
 
 </TabItem>
 <TabItem value="Qcache-Hitrate" label="Qcache-Hitrate">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                   |                   |             |
-| CRITICAL     | Critical threshold                                                                                  |                   |             |
+| Macro        | Description                                                                                                                    | Default value     | Mandatory   |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold                                                                                                              |                   |             |
+| CRITICAL     | Critical threshold                                                                                                             |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Queries" label="Queries">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                   |                   |             |
-| CRITICAL     | Critical threshold                                                                                  |                   |             |
+| Macro        | Description                                                                                                                    | Default value     | Mandatory   |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold                                                                                                              |                   |             |
+| CRITICAL     | Critical threshold                                                                                                             |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
 <TabItem value="Slowqueries" label="Slowqueries">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning number for slow queries since last check                                                    |                   |             |
-| CRITICAL     | Critical number for slow queries since last check                                                   |                   |             |
+| Macro        | Description                                                                                                                    | Default value     | Mandatory   |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning number for slow queries since last check                                                                               |                   |             |
+| CRITICAL     | Critical number for slow queries since last check                                                                              |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Sql-Statement" label="Sql-Statement">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SQLSTATEMENT | SQL statement that returns a number                                                                 |                   | X           |
-| WARNING      |                                                                                                     |                   |             |
-| CRITICAL     |                                                                                                     |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro        | Description                                                                                                                    | Default value     | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:---------:|
+| SQLSTATEMENT | SQL statement that returns a number                                                                                            |                   |     X     |
+| WARNING      | Warning threshold                                                                                                              |                   |           |
+| CRITICAL     | Critical threshold                                                                                                             |                   |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |           |
 
 </TabItem>
 <TabItem value="Sql-Statement-String" label="Sql-Statement-String">
 
-| Macro        | Description                                                                                                                                                                               | Default value     | Mandatory   |
-|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SQLSTATEMENT | SQL statement that returns a string                                                                                                                                                       |                   | X           |
-| VALUE        | Value column (must be one of the selected field). MANDATORY                                                                                                                               |                   |             |
-| WARNING      | Define the conditions to match for the status to be WARNING. (Can be: %\{key_field\}, %\{value_field\}) e.g --warning-string '%\{key_field\} eq 'Central' && %\{value_field\} =~ /127.0.0.1/' |                   |             |
-| CRITICAL     | Define the conditions to match for the status to be CRITICAL (Can be: %\{key_field\} or %\{value_field\})                                                                                   |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                       |                   |             |
+| Macro        | Description                                                                                                                                                                                   | Default value     | Mandatory |
+|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:---------:|
+| SQLSTATEMENT | SQL statement that returns a string                                                                                                                                                           |                   |     X     |
+| VALUE        | Value column (must be one of the selected field). MANDATORY                                                                                                                                   |                   |           |
+| WARNING      | Define the conditions to match for the status to be WARNING. (Can be: %\{key_field\}, %\{value_field\}) e.g --warning-string '%\{key_field\} eq 'Central' && %\{value_field\} =~ /127.0.0.1/' |                   |           |
+| CRITICAL     | Define the conditions to match for the status to be CRITICAL (Can be: %\{key_field\} or %\{value_field\})                                                                                     |                   |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                |                   |           |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                   |                   |             |
-| CRITICAL     | Critical threshold                                                                                  |                   |             |
+| Macro        | Description                                                                                                                    | Default value     | Mandatory   |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold                                                                                                              |                   |             |
+| CRITICAL     | Critical threshold                                                                                                             |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
@@ -532,7 +532,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--host=10.0.0.1 \
 	--username='USERNAME' \
 	--password='PASSWORD' \
-	--port=''  \
+	--port='3306'  \
 	--mode=queries \
 	--warning-total='' \
 	--critical-total='' 
