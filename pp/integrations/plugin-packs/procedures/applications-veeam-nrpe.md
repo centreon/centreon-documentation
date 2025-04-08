@@ -115,7 +115,7 @@ and make sure that the NRPE server's configuration is correct.
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -151,7 +151,7 @@ yum install centreon-pack-applications-veeam-nrpe
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Veeam** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -216,9 +216,9 @@ yum install centreon-nrpe3-plugin
 
 | Macro           | Description                                                                                                                                                                                                                      | Default value                                       | Mandatory   |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-----------:|
-| FILTERENDTIME   | Filter job with end time greater than current time less value in seconds (default: 86400)                                                                                                                                        | 86400                                               |             |
+| FILTERENDTIME   | Tolerance value in seconds, to avoid skipping jobs whose end time is earlier than the current time                                                                                                                                    | 86400                                               |             |
 | FILTERNAME      | Filter job name (can be a regexp)                                                                                                                                                                                                |                                                     |             |
-| FILTERSTARTTIME | Filter job with start time greater than current time less value in seconds                                                                                                                                                       |                                                     |             |
+| FILTERSTARTTIME | Tolerance value in seconds, to avoid skipping jobs whose start time is earlier than the current time                                                                                                                                                      |                                                     |             |
 | FILTERCOUNTERS  | Only display some counters (regexp can be used).                                                                                                                                                                                                                                 |                                                     |             |
 | OKSTATUS        | Define the conditions to match for the status to be OK. You can use the following variables: %\{display\}, %\{status\}, %\{type\}, %\{is_running\}, %\{scheduled\}                                                                        |                                                     |             |
 | WARNINGLONG     | Set warning threshold for long jobs. You can use the following variables: %\{display\}, %\{status\}, %\{type\}, %\{elapsed\}                                                                                                             |                                                     |             |
@@ -414,8 +414,8 @@ All available options for each service template are listed below:
 | --filter-name       | Filter job name (can be a regexp).                                                                                                                                                                                                  |
 | --exclude-name      | Exclude job name (regexp can be used).                                                                                                                                                                                              |
 | --filter-type       | Filter job type (can be a regexp).                                                                                                                                                                                                  |
-| --filter-start-time | Filter job with start time greater than current time less value in seconds.                                                                                                                                                         |
-| --filter-end-time   | Filter job with end time greater than current time less value in seconds (default: 86400).                                                                                                                                          |
+| --filter-start-time | Tolerance value in seconds, to avoid skipping jobs whose start time is earlier than the current time.                                                                                                                                                         |
+| --filter-end-time   | Tolerance value in seconds, to avoid skipping jobs whose end time is earlier than the current time (default: 86400).                                                                                                                                          |
 | --ok-status         | Define the conditions to match for the status to be OK. You can use the following variables: %\{display\}, %\{status\}, %\{type\}, %\{is_running\}, %\{scheduled\}.                                                                          |
 | --warning-status    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{status\}, %\{type\}, %\{is_running\}, %\{scheduled\}.                                                                     |
 | --critical-status   | Define the conditions to match for the status to be CRITICAL (default: '%\{is_running\} == 0 and not %\{status\} =~ /Success/i'). You can use the following variables: %\{display\}, %\{status\}, %\{type\}, %\{is_running\}, %\{scheduled\}.   |

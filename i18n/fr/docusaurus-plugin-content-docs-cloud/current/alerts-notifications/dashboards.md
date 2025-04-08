@@ -96,6 +96,16 @@ Les utilisateurs que vous venez d'ajouter ont maintenant accès au partage de vo
 
 > Utilisez la fonction **Copier le lien** pour partager l'URL du tableau de bord directement avec les utilisateurs qui ont accès à votre plateforme.
 
+### Ajouter un tableau de bord aux favoris
+
+Vous pouvez ajouter des tableaux de bord à vos favoris afin de pouvoir les retrouver facilement. Les favoris sont gérés par l'icône en forme de cœur, de couleur verte lorsque le tableau de bord est marqué comme favori, de couleur grise lorsqu'il ne l'est pas.
+
+> Notez que les favoris sont spécifiques à l'utilisateur, cette liste n'est pas visible par les autres utilisateurs.
+
+- Cliquez sur l'icône **Ajouter aux favoris** (en forme de coeur) associée au tableau de bord souhaité. L'icône devient verte.
+- Cliquez à nouveau pour **Retirer des favoris**. L'icône devient grise.
+- Cochez la case **Afficher uniquement les tableaux de bord ajoutés aux favoris** pour n'afficher que vos favoris.
+
 ## Gérer les listes de diffusion
 
 Les listes de diffusion sont des listes de tableaux de bord sélectionnés à diffuser dans l'ordre de votre choix. Cette fonctionnalité est utile par exemple lorsque vous souhaitez afficher vos tableaux de bord en plein écran dans des espaces publics.

@@ -66,7 +66,7 @@ Le Pack supporte uniquement une authentification basique.
 yum install centreon-plugin-Applications-Ibmmq-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *IBM MQ Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le Pack *IBM MQ Rest API* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -83,7 +83,7 @@ yum install centreon-plugin-Applications-Ibmmq-Restapi
 yum install centreon-pack-applications-ibmmq-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *IBM MQ Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le Pack *IBM MQ Rest API* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
@@ -144,5 +144,5 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ## Diagnostique
 
-[Diagnostique des plugins](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+[Diagnostique des plugins](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 

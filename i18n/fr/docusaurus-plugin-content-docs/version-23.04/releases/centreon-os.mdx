@@ -22,6 +22,30 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 23.04.28
+
+Release date: `March 31, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed ACL checks on contact/user configuration page.
+- [Custom Views] Fixed an issue preventing non admin users from seeing host groups in the Host group Monitoring widget and service groups in the Service group Monitoring widget.
+
+</details>
+
+### 23.04.27
+
+Release date: `February 26, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Image upload] Fixed a security issue on image upload.
+- [Security] Fixed extends-tag vulnerability in Smarty.
+
+</details>
+
 ### 23.04.26
 
 Release date: `February 10, 2025`
@@ -833,7 +857,7 @@ Release date: `July 5, 2023`
   <summary>Enhancements</summary>
 
 - In MariaDB, data in the data_bin table are now inserted with a bulk prepared statement.
-- The check_command field had been removed from Broker (host|service)_status events, making it temporarily unavailable for LUA stream connectors. It is now available in [Broker's cache](../developer/developer-broker-stream-connector.md#the-broker_cache-object).
+- The check_command field had been removed from Broker (host|service)_status events, making it temporarily unavailable for LUA stream connectors. It is now available in [Broker's cache](../developer/developer-broker-stream-connector.md#lobjet-broker_cache).
 - Improved the evaluation process of BAM KPIs based on boolean expressions: if an OK result is part of an OR operation, or a CRITICAL result is part of an AND operation, Broker will return the results without waiting for the other members of the operation.
 - New performance counters have been added to the gRPC API in order to track the longest queries and statements.
 
@@ -884,6 +908,17 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Gorgone
+
+### 23.04.17
+
+Release date: `March 3, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed centreon-engine restart issue affecting pollers, caused by a missing service binary.
+
+</details>
 
 ### 23.04.16
 
@@ -1145,6 +1180,17 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Open Tickets
+
+### 23.04.6
+
+Release date: `March 31, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Updated the version used for Smarty (CVE-2023-28447).
+
+</details>
 
 ### 23.04.5
 

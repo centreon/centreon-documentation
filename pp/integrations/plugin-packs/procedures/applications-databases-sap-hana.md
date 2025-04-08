@@ -160,7 +160,7 @@ Here is an example of command to test the connection to the database:
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -196,7 +196,7 @@ yum install centreon-pack-applications-databases-sap-hana
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **SAP HANA** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -384,7 +384,7 @@ OK: All data volumes are ok | '*volume*#volume.usage.bytes'=12B;;;;
 
 ### Troubleshooting
 
-Please find the [troubleshooting documentation](https://docs.centreon.com/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
 for Centreon Plugins typical issues.
 
 ### Available modes

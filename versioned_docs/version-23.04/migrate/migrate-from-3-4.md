@@ -17,6 +17,14 @@ Here are the system requirements:
 | Centreon Broker | 3.0.x   |
 | Centreon Engine | 1.8.x   |
 
+Be sure that you have fully backed up your environment for the following
+servers:
+
+- Central server
+- Database server
+
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
+
 ## Migrate
 
 All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.

@@ -14,7 +14,7 @@ to version 22.10.
 > you need to follow the [migration procedure](../migrate/migrate-from-el-to-el.md)
 
 > To perform this procedure, your MariaDB version must be >= 10.3.22.
-> If not, please follow before the [MariaDB update chapter](./upgrade-from-19-10.md#upgrade-mariadb-server)
+> If not, please follow before the [MariaDB update chapter](./upgrade-from-19-10.md#upgrade-the-mariadb-server)
 
 ## Prerequisites
 
