@@ -11,6 +11,14 @@ This procedure only applies if you wish to migrate from Debian 11 to Debian 12, 
 
 All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.
 
+Be sure that you have fully backed up your environment for the following
+servers:
+
+- Central server
+- Database server
+
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
+
 > If your Centreon platform includes a Centreon redundancy system, please
 > contact [Centreon support](https://support.centreon.com).
 
@@ -222,7 +230,7 @@ chapter for more information.
 
 9. If your old Centreon server was monitoring itself, and you have changed the username/password for the database during the migration, update the configuration of all related resources (host, services attached to that host).
 
-10. Go to **Configuration > Monitoring Connector Manager**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
+10. Go to **Configuration > Connectors > Monitoring Connectors**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
 
 ### Step 6: Upgrade the modules
 

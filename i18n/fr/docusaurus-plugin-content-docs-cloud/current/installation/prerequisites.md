@@ -65,3 +65,17 @@ AWS fournit une [liste de leurs plages d'adresses IP](https://ip-ranges.amazonaw
 curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.ipv6_prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ipv6_prefix' 
 curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ip_prefix' 
 ```
+
+
+S'il n'est pas possible pour vous de faire du filtrage sur les adresses IP, vous pouvez faire du filtrage par FQDN ou sur des URLs spécifiques. Les FQDNs/URLs à autoriser sont les suivants :
+
+Sur le réseau de chaque collecteur :
+- api.euwest1.prod1.centreon.cloud
+- api.a.prod.mycentreon.com
+- broker-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
+- gorgone-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
+
+Sur le réseau du navigateur de l'utilisateur :
+- https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/centreon/*
+- https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/_centreon/centreon-map/*
+
