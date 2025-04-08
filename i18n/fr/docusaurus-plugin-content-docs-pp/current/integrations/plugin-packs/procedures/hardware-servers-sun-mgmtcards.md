@@ -5,10 +5,10 @@ title: Sun MgmtCard
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Sun MgmtCard**
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -35,7 +35,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias    | Modèle de service                               | Description                                                            |
 |:---------|:------------------------------------------------|:-----------------------------------------------------------------------|
-| Hardware | HW-Sun-MgmtCard-Showenvironment-TELNET-custom   | Contrôle le matériel sun vXXX (v240, v440, v245,...) via ALOM          |
+| Hardware | HW-Sun-MgmtCard-Showenvironment-TELNET-custom   | Contrôle le matériel Sun vXXX (v240, v440, v245,...) via ALOM          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Sun-Alom-TELNET-custom** est utilisé.
 
@@ -87,7 +87,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias    | Modèle de service                               | Description                                                            |
 |:---------|:------------------------------------------------|:-----------------------------------------------------------------------|
-| Hardware | HW-Sun-MgmtCard-Showboards-TELNET-custom        | Contrôle le matériel sun SFxxxx (sf6900, sf6800, sf3800,...) via ScApp |
+| Hardware | HW-Sun-MgmtCard-Showboards-TELNET-custom        | Contrôle le matériel Sun SFxxxx (sf6900, sf6800, sf3800,...) via ScApp |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Sun-Sfxxxx-TELNET-custom** est utilisé.
 
@@ -96,7 +96,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias    | Modèle de service                               | Description                                                            |
 |:---------|:------------------------------------------------|:-----------------------------------------------------------------------|
-| Hardware | HW-Sun-MgmtCard-Environment-V4xx-TELNET-custom  | Contrôle le matériel sun v480 et v490 via RSC                          |
+| Hardware | HW-Sun-MgmtCard-Environment-V4xx-TELNET-custom  | Contrôle le matériel Sun v480 et v490 via RSC                          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Sun-V4xx-TELNET-custom** est utilisé.
 
@@ -105,7 +105,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias    | Modèle de service                               | Description                                                            |
 |:---------|:------------------------------------------------|:-----------------------------------------------------------------------|
-| Hardware | HW-Sun-MgmtCard-Environment-V8xx-TELNET-custom  | Contrôle le matériel sun v890 et v880 via RSC                          |
+| Hardware | HW-Sun-MgmtCard-Environment-V8xx-TELNET-custom  | Contrôle le matériel Sun v890 et v880 via RSC                          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Sun-V8xx-TELNET-custom** est utilisé.
 
@@ -189,8 +189,10 @@ Il faut installer les dépendances nécessaires selon le mode de communication c
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -227,7 +229,7 @@ yum install centreon-pack-hardware-servers-sun-mgmtcards
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Sun MgmtCard**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
