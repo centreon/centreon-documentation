@@ -24,4 +24,4 @@ Discovery**. Le module est maintenant installé :
   ![image](../../assets/monitoring/discovery/install-after.png)
 
 5. Rendez-vous dans le menu **Configuration > Packs de plugins** et [installez les plugin packs
-](../pluginpacks.md#installation-du-pack) correspondant aux fournisseurs de découverte désirés.
+](../pluginpacks.md#installer-le-pack) correspondant aux fournisseurs de découverte désirés.

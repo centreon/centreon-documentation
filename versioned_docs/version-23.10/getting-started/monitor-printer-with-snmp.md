@@ -31,7 +31,7 @@ Go to **Configuration \> Services \> Services by host**. A set of indicators has
 
 ![image](../assets/getting-started/quick_start_printer_3.png)
 
-It is now time to [deploy the configuration](#deploying-a-configuration).
+It is now time to [deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 Then go to **Monitoring \> Status Details \> Services** and select the value **All** for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:

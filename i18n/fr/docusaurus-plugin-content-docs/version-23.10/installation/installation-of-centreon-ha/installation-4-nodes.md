@@ -16,7 +16,7 @@ et des outils de clustering Pacemaker-Corosync pour bien comprendre ce qui va ê
 
 ### Flux réseaux
 
-En plus des flux réseaux nécessaires décrits dans le chapitre [prérequis](../architectures.md#tableaux-des-flux-réseau), il sera nécessaire d'ouvrir les flux supplémentaires suivants :
+En plus des flux réseaux nécessaires décrits dans le chapitre [prérequis](../technical.md#tableaux-des-flux-réseau), il sera nécessaire d'ouvrir les flux supplémentaires suivants :
 
 | Source                            | Destination                       | Protocole | Port     | Commentaires                                                                                                 |
 | :-------------------------------- | :-------------------------------- | :-------- | :------- | :----------------------------------------------------------------------------------------------------------- |

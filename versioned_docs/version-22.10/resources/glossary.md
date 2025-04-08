@@ -144,7 +144,7 @@ Message that warns a user that an incident has occurred. You can configure notif
 
 ## One-peer retention mode
 
-Advanced configuration for Centreon [Broker](#broker) that activates the retention mechanism in [Broker inverted flow mode](#broker-inverted-flow-mode). This mode is commonly used for monitoring servers ([pollers](#poller) or [remote servers](#remote-server)) located in demilitarized zones (DMZ).
+Advanced configuration for Centreon [Broker](#broker) that activates the retention mechanism in [Broker reverse mode](#broker-reverse-mode). This mode is commonly used for monitoring servers ([pollers](#poller) or [remote servers](#remote-server)) located in demilitarized zones (DMZ).
 
 ## Performance data
 

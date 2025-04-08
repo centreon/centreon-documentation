@@ -197,10 +197,10 @@ If necessary, adjust the following settings:
 
 The step 4 of the wizard allows to adjust and set **mappers** if necessary; the Monitoring Connector comes along with predefined **mappers** that
 don't typically need to be changed. If you have a specific need and want to edit the **mappers** section, refer to 
-[this documentation](/docs/monitoring/discovery/hosts-discovery#how-to-use-the-mappers) to do so.
+[this documentation](/docs/monitoring/discovery/hosts-discovery#how-to-use-mappers) to do so.
 
 Final steps 5 & 6 will allow you to define a specific policy about the data modeling of the discovered results. Although the default configuration
-is usually enough to proceed, [this documentation](/docs/monitoring/discovery/hosts-discovery#define-analysis-and-update-policies) 
+is usually enough to proceed, [this documentation](/docs/monitoring/discovery/hosts-discovery#step-5-define-analysis-and-update-policies) 
 will help you to customize it if needed. Coming to step 6, just click on *finish* to launch the discovery job.
 
 Once the discovery job complete, you can display the results by clicking on *job results*. All the available Host Templates

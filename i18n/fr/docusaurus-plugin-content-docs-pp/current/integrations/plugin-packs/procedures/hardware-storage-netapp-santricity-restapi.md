@@ -99,7 +99,7 @@ Les ressources ci-après décrivent les méthodes d'installation ainsi que le fo
 yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
 ```
 
-2. Depuis l'interface Web de Centreon, installer le connecteur de supervision *Netapp Santricity Restapi* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Depuis l'interface Web de Centreon, installer le connecteur de supervision *Netapp Santricity Restapi* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -116,7 +116,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
 centreon-pack-hardware-storage-netapp-santricity-restapi.noarch
 ```
 
-3. Depuis l'interface Web de Centreon, installer le connecteur de supervision *Netapp Santricity Restapi* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Depuis l'interface Web de Centreon, installer le connecteur de supervision *Netapp Santricity Restapi* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
