@@ -844,7 +844,7 @@ for more details.
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -880,7 +880,7 @@ yum install centreon-pack-cloud-kubernetes-api
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Kubernetes API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -969,7 +969,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).                       |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 > For the host discovery: set the path to the [created configuration file](#create-a-kubectl-configuration) (prefer using relative path to make it work for both discovery and monitoring, i.e. `~/.kube/config`).
@@ -1014,7 +1014,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).                       |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 > For the host discovery: set the path to the [created configuration file](#create-a-kubectl-configuration) (prefer using relative path to make it work for both discovery and monitoring, i.e. `~/.kube/config`).
