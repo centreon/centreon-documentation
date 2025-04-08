@@ -37,7 +37,7 @@ Afin de pouvoir interroger l'API, il est nécessaire d'avoir à disposition une 
 yum install -y centreon-plugin-Applications-Monitoring-Mip-Restapi`
 ```
 
-2. Installer le connecteur de supervision via la page **Configuration > Gestionnaire de connecteurs de supervision**: 
+2. Installer le connecteur de supervision via la page **Configuration > Connecteurs > Connecteurs de supervision**: 
 
 ![install\_epp](../../../assets/integrations/external/mip-epp-install.png)
 
@@ -56,7 +56,7 @@ yum install -y centreon-plugin-Applications-Monitoring-Mip-Restapi`
 yum install -y centreon-pack-applications-monitoring-mip-restapi`
 ```
 
-3. Installer le connecteur de supervision via la page **Configuration > Gestionnaire de connecteurs de supervision**:
+3. Installer le connecteur de supervision via la page **Configuration > Connecteurs > Connecteurs de supervision**:
 
 ![install\_epp](../../../assets/integrations/external/mip-epp-install.png)
 

@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 Avec Centreon Cloud, votre plateforme SaaS est déjà prête à l'emploi. Il ne vous reste qu'à installer un ou des collecteurs dans votre infrastructure, ce qui est très facile : exécutez un script, exportez la configuration et le collecteur est prêt.
 
-Avant de déployer un collecteur, assurez-vous que votre machine hôte répond aux [prérequis](prerequisites.md). Seuls les utilisateurs ayant les [rôles](../users/users.md#user-roles) **Administrator** ou **Editor** ont accès à la commande d'installation de collecteurs.
+Avant de déployer un collecteur, assurez-vous que votre machine hôte répond aux [prérequis](prerequisites.md). Seuls les utilisateurs ayant les [rôles](../users/users.md#rôles-des-utilisateurs) **Administrator** ou **Editor** ont accès à la commande d'installation de collecteurs.
 
 ## Étape 1 : Exécuter le script d'installation du collecteur
 
@@ -21,7 +21,7 @@ Avant de déployer un collecteur, assurez-vous que votre machine hôte répond a
 
 3. Par défaut, le nom de l'hôte de la machine est également le nom du poller. Si vous souhaitez modifier le nom de d'hôte vous pouvez utiliser la commande suivante : `hostnamectl set-hostname your-hostname`.
 
-4. [Dans votre interface utilisateur](../getting-started/interface.md#accéder-à-linterface-du-serveur-central), cliquez sur la flèche à côté de **Collecteurs** dans le bandeau en haut à gauche.
+4. [Dans votre interface utilisateur](../getting-started/interface.md#accéder-à-linterface-utilisateur), cliquez sur la flèche à côté de **Collecteurs** dans le bandeau en haut à gauche.
 
 5. Dans la pop-up qui apparaît, cliquez sur **Copy install command**. La commande est copiée dans votre presse-papiers.
 

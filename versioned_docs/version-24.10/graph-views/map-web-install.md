@@ -46,7 +46,7 @@ team](https://support.centreon.com/) to obtain and install your license key.
 
 #### Software
 
-See the [software requirements](../installation/prerequisites.md#software).
+See the [software requirements](../installation/prerequisites.md#characteristics-of-the-servers).
 
 #### Hardware
 

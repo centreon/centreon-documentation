@@ -71,7 +71,7 @@ reporting server for performance & isolation reasons.
 
 #### Software requirements
 
-See the [software requirements](../installation/prerequisites.md#software).
+See the [software requirements](../installation/prerequisites.md#characteristics-of-the-servers).
 
 You should install the MariaDB database at the same time. We highly recommend
 installing the database on the same server for performance & isolation
@@ -263,8 +263,8 @@ vgdisplay vg_data | grep -i free*
 
 - OS : RHEL / Oracle Linux / Alma 8 or 9, Debian 11
 - SGBD : MariaDB 10.5
-- Firewalld : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#Configurer-ou-désactiver-le-pare-feu))
-- SELinux : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#Désactiver-SELinux))
+- Firewalld : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#configure-or-disable-the-firewall))
+- SELinux : Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#disable-selinux))
 
 > Make sure that the time zone of the reporting server is the same as that of the central server, otherwise report publications will fail (link to download missing).
 > The same time zone must be displayed with the `timedatectl` command.
