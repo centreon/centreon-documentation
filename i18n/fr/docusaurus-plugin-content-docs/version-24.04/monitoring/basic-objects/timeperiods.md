@@ -18,16 +18,18 @@ Pour configurer des périodes temporelles, allez à la page : **Configuration > 
 2. Dans la section **Options basiques**, pour chaque jour de la semaine, définissez les plages horaires pendant lesquelles les vérifications et les notifications seront activées, en utilisant la [syntaxe décrite ci-dessous](#syntaxe-dune-période-de-temps). 
 
     - Ces définitions seront appliquées chaque semaine, indéfiniment.
-    - Si vous laissez un jour vide, il n'y aura pas de supervision ce jour-là pour les actions rattachées à cette période de temps.
+    - Si vous laissez un jour vide, il n'y aura pas de supervision ce jour-là pour les actions rattachées à cette période temporelle.
 
-3. Utilisez [l'onglet **Période d'exception**](#onglet-période-dexception) pour inclure dans une période de temps des jours qui n'en feraient normalement pas partie.
+3. Utilisez [l'onglet **Période d'exception**](#onglet-période-dexception) pour inclure dans une période temporelle des jours qui n'en feraient normalement pas partie.
 
-4. Une fois la période de temps définie, vous pouvez l'utiliser :
+4. Une fois la période temporelle définie, vous pouvez l'utiliser :
 
     - Dans le champ **Période de contrôle** d'un hôte, d'un modèle d'hôtes, d'un service ou d'un groupe de services.
     - Dans le champ **Période de notification** d'un hôte, d'un modèle d'hôte, d'un service, d'un groupe de services ou d'un contact, ou bien dans le champ **Période d'escalade** d'une escalade de notifications.
 
-### Syntaxe d’une période de temps
+Le bouton **Réinitialiser** efface toutes les données non-sauvergardées.
+
+### Syntaxe d’une période temporelle
 
 Les caractères suivants permettent de définir les périodes temporelles :
 
@@ -42,6 +44,12 @@ Quelques exemples :
 * Pour ne pas superviser pendant une journée entière, laissez le champ correspondant vide.
 
 ![image](../../assets/configuration/05timeperiod.png)
+
+### Modèles de période temporelle
+
+La fonctionnalité modéles de période temporelle peut être utilisée lors de la configuration de toute période temporelle. Elle permet de selectionner des périodes temporelles antérieurement configurées pour les combiner avec celle que vous êtes en train de modifier. Vous pouvez sélectionner autant de périodes temporelles que vous le souhaitez, il est possible de configurer une période temporelle qu'en combinant des modèles d'autres période temporelles.
+
+Les modèles de périodes temporelles priorisent remplir les plages horaires vides. C'est-à-dire que si vous combinez un période temporelle qui exclut les dimanches avec une période qui les inclut, les dimanches seront inclus. Les périodes d'exception décrites ci-dessous prévalent sur ces configurations.
 
 ### Onglet Période d'exception
 
