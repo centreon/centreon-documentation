@@ -31,13 +31,13 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                       | Service Description                |
 |:--------------|:-------------------------------------------------------|:-----------------------------------|
-| Backlog       | Cloud-Azure-Analytics-EventHubs-Backlog-Api-custom     | Check Azure Event Hubs namespaces  |
-| Connections   | Cloud-Azure-Analytics-EventHubs-Connections-Api-custom | Check Azure Event Hubs namespaces  |
-| Errors        | Cloud-Azure-Analytics-EventHubs-Errors-Api-custom      | Check Azure Event Hubs namespaces  |
+| Backlog       | Cloud-Azure-Analytics-EventHubs-Backlog-Api-custom     | Check Azure Event Hubs namespaces  and clusters backlog |
+| Connections   | Cloud-Azure-Analytics-EventHubs-Connections-Api-custom | Check Azure Event Hubs namespaces  and clusters connections |
+| Errors        | Cloud-Azure-Analytics-EventHubs-Errors-Api-custom      | Check Azure Event Hubs namespaces  and clusters errors |
 | Health        | Cloud-Azure-Analytics-EventHubs-Health-Api-custom      | Check Azure Event Hubs health      |
-| Messages      | Cloud-Azure-Analytics-EventHubs-Messages-Api-custom    | Check Azure Event Hubs namespaces  |
-| Requests      | Cloud-Azure-Analytics-EventHubs-Requests-Api-custom    | Check Azure Event Hubs namespaces  |
-| Throughput    | Cloud-Azure-Analytics-EventHubs-Throughput-Api-custom  | Check Azure Event Hubs namespaces  |
+| Messages      | Cloud-Azure-Analytics-EventHubs-Messages-Api-custom    | Check Azure Event Hubs namespaces  and clusters messages |
+| Requests      | Cloud-Azure-Analytics-EventHubs-Requests-Api-custom    | Check Azure Event Hubs namespaces  and clusters requests |
+| Throughput    | Cloud-Azure-Analytics-EventHubs-Throughput-Api-custom  | Check Azure Event Hubs namespaces  and clusters throughput |
 
 > The services listed above are created automatically when the **Cloud-Azure-Analytics-EventHubs-custom** host template is used.
 
