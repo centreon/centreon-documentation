@@ -48,7 +48,7 @@ doit avoir assez de privilèges pour executer les commandes ``lssvcevents``` et 
 yum install centreon-plugin-Hardware-Servers-Ibm-Hmc-Ssh
 ```
 
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *IBM HMC SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *IBM HMC SSH* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -65,7 +65,7 @@ yum install centreon-plugin-Hardware-Servers-Ibm-Hmc-Ssh
 yum install centreon-pack-hardware-servers-ibm-hmc-ssh
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *IBM HMC SSH* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *IBM HMC SSH* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>

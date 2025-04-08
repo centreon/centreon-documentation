@@ -209,7 +209,7 @@ The Monitoring Connector installation concerns only the central server and the p
 <Tabs groupId="sync">
 <TabItem value="IMP/EPP Online License & IT-100 Editions" label="IMP/EPP Online License & IT-100 Editions">
 
- Install the "Linux NRPE3" Monitoring Connector from **Configuration > Monitoring Connector Manager**in the WUI.
+ Install the "Linux NRPE3" Monitoring Connector from **Configuration > Connectors > Monitoring Connectors**in the WUI.
 
 </TabItem>
 <TabItem value="IMP/EPP Offline License" label="IMP/EPP Offline License">
@@ -220,7 +220,7 @@ The Monitoring Connector installation concerns only the central server and the p
 yum install centreon-pack-operatingsystems-linux-nrpe3
 ```
 
-2. Install the "Linux NRPE3" Monitoring Connector from **Configuration > Monitoring Connector Manager**in the WUI.
+2. Install the "Linux NRPE3" Monitoring Connector from **Configuration > Connectors > Monitoring Connectors**in the WUI.
 
 </TabItem>
 </Tabs>
@@ -308,7 +308,7 @@ connect to address x.x.x.x port 5666: Connection refused
 
 It probably means that the IP address from which the request was sent is not allowed to dialog with the NRPE daemon.
 
-The `allowed_hosts` parameter, in the `/etc/nrpe/centreon-nrpe3.cfg` configuration file ([see above](#nrpe-configuration)).
+The `allowed_hosts` parameter, in the `/etc/nrpe/centreon-nrpe3.cfg` configuration file ([see above](#nrpe-daemon-configuration)).
 
 Then restart the service.
 
