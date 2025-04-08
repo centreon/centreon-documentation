@@ -6,7 +6,6 @@ title: Introduction to Centreon MBI
 ## Complete reporting with Centreon MBI
 
 The reporting capabilities in Centreon rely on the **Centreon Monitoring Business Intelligence (MBI)** extension.
-You also have simple reporting capabilities described below.
 
 > Centreon MBI is a Centreon **extension** that requires a valid [license](../administration/licenses.md). To
 > purchase one and retrieve the necessary repositories, contact
