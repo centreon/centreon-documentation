@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Centreon Map Engine is one of [Centreon Map's](https://docs.centreon.com/docs/graph-views/introduction-map/) components.
+Centreon Map Engine is one of [Centreon Map's](/docs/graph-views/introduction-map) components.
 
 ## Pack assets
 
@@ -104,7 +104,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-You must have installed [Centreon Map](https://docs.centreon.com/docs/graph-views/introduction-map/) and especially [Centreon Map Engine server](https://docs.centreon.com/docs/graph-views/map-web-install/#step-3-install-map-engine-server).
+You must have installed [Centreon Map](/docs/graph-views/introduction-map) and especially [Centreon Map Engine server](/docs/graph-views/map-web-install#step-3-install-map-engine-server).
 
 ## Installing the monitoring connector
 
@@ -115,7 +115,7 @@ You must have installed [Centreon Map](https://docs.centreon.com/docs/graph-view
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 

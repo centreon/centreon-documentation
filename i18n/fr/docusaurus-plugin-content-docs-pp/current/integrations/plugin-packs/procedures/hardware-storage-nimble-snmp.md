@@ -69,7 +69,7 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_GUI_Administrat
 yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, rendez-vous sur la page **Configuration > Gestionnaire de connecteurs de supervision** et installer le connecteur de supervision *Nimble SNMP*
+2. Sur l'interface Web de Centreon, rendez-vous sur la page **Configuration > Connecteurs > Connecteurs de supervision** et installer le connecteur de supervision *Nimble SNMP*
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -86,7 +86,7 @@ yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 yum install centreon-pack-hardware-storage-nimble-snmp
 ```
 
-3. Sur l'interface Web de Centreon, rendez-vous sur la page **Configuration > Gestionnaire de connecteurs de supervision** et installer le connecteur de supervision *Nimble SNMP*
+3. Sur l'interface Web de Centreon, rendez-vous sur la page **Configuration > Connecteurs > Connecteurs de supervision** et installer le connecteur de supervision *Nimble SNMP*
 
 </TabItem>
 </Tabs>
@@ -98,7 +98,7 @@ yum install centreon-pack-hardware-storage-nimble-snmp
 * Appliquer le Modèle d'Hôte *HW-Storage-Nimble-SNMP*
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3). 
 
 | Mandatory   | Name                    | Description                       |
 | :---------- | :---------------------- | :---------------------------------|
