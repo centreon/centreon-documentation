@@ -51,7 +51,7 @@ apt install centreon-pack-*
 
 </Tabs>
 
-4. Pour installer le connecteur de supervision Amazon EC2, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
+4. Pour installer le connecteur de supervision Amazon EC2, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
 
 5. Dans le champ **Keyword**, entrez **Amazon EC2** puis cliquez sur **Rechercher**.
 

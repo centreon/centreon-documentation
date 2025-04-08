@@ -23,6 +23,22 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 23.10.23
+
+Release date: `March 31, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed ACL checks on contact/user configuration page.
+- [Configuration] Fixed an issue where the notification period field was not saved in some cases.
+- [Custom Views] Fixed an issue preventing non admin users from seeing host groups in the Host group Monitoring widget and service groups in the Service group Monitoring widget.
+- [Downtimes] Fixed an issue where non admin users could not display the downtimes page.
+- [Downtimes] Fixed an issue where loading the downtimes page resulted in a gateway timeout error.
+- [Web] Fixed an issue where some password managers were preventing users from accessing legacy pages.
+
+</details>
+
 ### 23.10.22
 
 Release date: `February 27, 2025`
@@ -678,6 +694,18 @@ Release date: `October 30, 2023`
 
 ## Centreon Collect
 
+### 23.10.14
+
+Release date: `March 5, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue where the wrong service state was restored when engine re-established its connection to broker after a disconnection.
+- [Packaging] Fixed centreon-engine restart issue affecting pollers, caused by a missing service binary.
+
+</details>
+
 ### 23.10.13
 
 Release date: `December 19, 2024`
@@ -913,6 +941,17 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Gorgone
+
+### 23.10.11
+
+Release date: `March 5, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+[Configuration] Fixed a bug where the Gorgone API could not use a password containing a UTF-8 character.
+
+</details>
 
 ### 23.10.10
 
