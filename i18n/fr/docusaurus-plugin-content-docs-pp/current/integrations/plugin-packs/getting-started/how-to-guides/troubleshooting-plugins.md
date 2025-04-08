@@ -206,7 +206,7 @@ système que vous avez pu vérifier manuellement :
 OK: System uptime is: 497d 13h 58m 41s | 'uptime'=42991121.00s;;;0;
 ```
 
-## HTTP and API checks
+## Contrôles HTTP et API
 
 ### UNKNOWN: Cannot decode response (add --debug option to display returned content)
 

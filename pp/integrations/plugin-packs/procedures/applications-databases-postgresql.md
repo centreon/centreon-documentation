@@ -196,7 +196,7 @@ GRANT EXECUTE ON FUNCTION pgstatindex(regclass) TO centreonro;
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -232,7 +232,7 @@ yum install centreon-pack-applications-databases-postgresql
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **PostgreSQL** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -293,7 +293,7 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 | POSTGRESPASSWORD     | Password for the defined user name                                                                    |                   |      X      |
 | POSTGRESPORT         | Database Server Port                                                                                  | 5432              |             |
 | POSTGRESDATABASE     | Database Name                                                                                         | postgres          |             |
-| POSTGRESEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| POSTGRESEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
