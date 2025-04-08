@@ -82,7 +82,7 @@ https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide
 yum install centreon-plugin-Hardware-Devices-Cisco-Cts-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco CTS* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco CTS* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -99,7 +99,7 @@ yum install centreon-plugin-Hardware-Devices-Cisco-Cts-Snmp
 yum install centreon-pack-hardware-devices-cisco-cts-snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco CTS* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco CTS* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>

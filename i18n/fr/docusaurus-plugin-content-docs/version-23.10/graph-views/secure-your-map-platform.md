@@ -175,7 +175,13 @@ systemctl stop centreon-map-engine
 RUN_ARGS="--spring.profiles.active=prod,tls"
 ```
 
-3. Redémarrez le service Centreon MAP :
+3. Définissez le paramètre `centreon.url` dans **/etc/centreon-map/map-config.properties** pour activer le protocole de communication HTTPS avec le serveur Centreon :
+
+```shell
+centreon.url=https://<server-address>
+```
+
+4. Redémarrez le service Centreon MAP :
 
 ```shell
 systemctl start centreon-map-engine
@@ -198,7 +204,13 @@ systemctl stop centreon-map
 RUN_ARGS="--spring.profiles.active=prod,tls"
 ```
 
-3. Redémarrez le service Centreon MAP :
+3. Définissez le paramètre `centreon.url` dans **/etc/centreon-studio/studio-config.properties** pour activer le protocole de communication HTTPS avec le serveur Centreon :
+
+```shell
+centreon.url=https://<server-address>
+```
+
+4. Redémarrez le service Centreon MAP :
 
 ```shell
 systemctl start centreon-map

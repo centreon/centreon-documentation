@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-fortinet-fortigate-snmp
-title: Fortinet Fortigate
+title: Fortinet Fortigate SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -43,11 +43,12 @@ Le connecteur apporte les modèles de service suivants
 | Hardware         | Net-Fortinet-Fortigate-Hardware-SNMP-custom         | Contrôle l'état des sondes matérielles                                                |            |
 | Ips-Stats-Global | Net-Fortinet-Fortigate-Ips-Stats-Global-SNMP-custom | Contrôle les statistiques IPS des domaines virtuels                                   |            |
 | SDWan            | Net-Fortinet-Fortigate-SDWan-SNMP-custom            | Contrôle les liens SDWan                                                              |            |
-| Traffic-Global   | Net-Fortinet-Fortigate-Traffic-Global-SNMP-custom   | Contrôle le trafic réseau de plusieurs interfaces réseau                             |     X      |
-| Traffic-Id       | Net-Fortinet-Fortigate-Traffic-Id-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                                     |            |
-| Traffic-Name     | Net-Fortinet-Fortigate-Traffic-Name-SNMP-custom     | Contrôle le trafic réseau d'une interface réseau                                     |            |
+| Switch-Usage     | Net-Fortinet-Fortigate-Switch-Usage-SNMP-custom     | Contrôle l'utilisation des switch par l'intermédiaire du Fortigate Switch Controller  |     X      |
+| Traffic-Global   | Net-Fortinet-Fortigate-Traffic-Global-SNMP-custom   | Contrôle le trafic réseau de plusieurs interfaces réseau                              |     X      |
+| Traffic-Id       | Net-Fortinet-Fortigate-Traffic-Id-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                                      |            |
+| Traffic-Name     | Net-Fortinet-Fortigate-Traffic-Name-SNMP-custom     | Contrôle le trafic réseau d'une interface réseau                                      |            |
 | VPN-Global       | Net-Fortinet-Fortigate-VPN-Global-SNMP-custom       | Contrôle le statut des liens VPN                                                      |            |
-| Vdom-Usage       | Net-Fortinet-Fortigate-Vdom-Usage-SNMP-custom       | Contrôle les domaines virtuels                                                        |            |
+| Vdom-Usage       | Net-Fortinet-Fortigate-Vdom-Usage-SNMP-custom       | Contrôle les domaines virtuels                                                        |     X      |
 | Virus            | Net-Fortinet-Fortigate-Virus-SNMP-custom            | Contrôle le nombre de virus bloqués et détectés pour l'ensemble des domaines virtuels |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -71,7 +72,9 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                          | Description                                                                                       |
 |:-----------------------------------------|:--------------------------------------------------------------------------------------------------|
+| Net-Fortinet-Fortigate-SNMP-Switch-Name  | Découvre les switch et les supervise par l'intermédiaire du Fortigate Switch Controller           |
 | Net-Fortinet-Fortigate-SNMP-Traffic-Name | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
+| Net-Fortinet-Fortigate-SNMP-Vdom-Name    | Découvre les domaines virtuels et supervise leur statut et leur utilisation                       |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -112,9 +115,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Nom  | Unité |
-|:-----|:------|
-|      | N/A   |
+| Nom                      | Unité |
+|:-------------------------|:------|
+| hardware.sensors.count   | count |
+| hardware.sensors.measure | N/A   |
 
 </TabItem>
 <TabItem value="Ips-Stats-Global" label="Ips-Stats-Global">
@@ -149,9 +153,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom                                     | Unité |
 |:----------------------------------------|:------|
 | status                                  | N/A   |
-| *sdwan*~sdwan.traffic.in.bitspersecond  | kb/s  |
-| *sdwan*~sdwan.traffic.out.bitspersecond | kb/s  |
-| *sdwan*~sdwan.traffic.bi.bitspersecond  | kb/s  |
+| *sdwan*~sdwan.traffic.in.bitspersecond  | b/s   |
+| *sdwan*~sdwan.traffic.out.bitspersecond | b/s   |
+| *sdwan*~sdwan.traffic.bi.bitspersecond  | b/s   |
 | *sdwan*~sdwan.latency.milliseconds      | ms    |
 | *sdwan*~sdwan.jitter.milliseconds       | ms    |
 | *sdwan*~sdwan.packetloss.percentage     | %     |
@@ -166,6 +170,17 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | sessions.setup.10min.count | count |
 | sessions.setup.30min.count | count |
 | sessions.setup.60min.count | count |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Switch-Usage" label="Switch-Usage">
+
+| Nom                                        | Unité |
+|:-------------------------------------------|:------|
+| status                                     | N/A   |
+| *switch*#switch.cpu.utilization.percentage | %     |
+| *switch*#switch.memory.usage.bytes         | %     |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
@@ -199,14 +214,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="VPN-Global" label="VPN-Global">
 
-| Nom                                      | Unité    |
-|:-----------------------------------------|:---------|
-| *vd*~vpn.users.logged.count              | users    |
-| *vd*~vpn.websessions.active.count        | sessions |
-| *vd*~vpn.tunnels.active.count            | tunnels  |
-| status                                   | N/A      |
-| *vd*~*vpn*#vpn.traffic.in.bitspersecond  | b/s      |
-| *vd*~*vpn*#vpn.traffic.out.bitspersecond | b/s      |
+| Nom                                      | Unité |
+|:-----------------------------------------|:------|
+| *vd*~vpn.users.logged.count              | count |
+| *vd*~vpn.websessions.active.count        | count |
+| *vd*~vpn.tunnels.active.count            | count |
+| *vd*~vpn.ipsec.tunnels.state.count       | count |
+| status                                   | N/A   |
+| *vd*~*vpn*#vpn.traffic.in.bitspersecond  | b/s   |
+| *vd*~*vpn*#vpn.traffic.out.bitspersecond | b/s   |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
@@ -230,16 +246,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Virus" label="Virus">
 
-| Nom                                       | Unité |
-|:------------------------------------------|:------|
-| *domain1*#domain.virus.detected.count     | count |
-| *domain2*#domain.virus.detected.count     | count |
-| *domain1*#domain.virus.detected.persecond | /s    |
-| *domain2*#domain.virus.detected.persecond | /s    |
-| *domain1*#domain.virus.blocked.count      | count |
-| *domain2*#domain.virus.blocked.count      | count |
-| *domain1*#domain.virus.blocked.persecond  | /s    |
-| *domain2*#domain.virus.blocked.persecond  | /s    |
+| Nom                                      | Unité |
+|:-----------------------------------------|:------|
+| *domain*#domain.virus.detected.count     | count |
+| *domain*#domain.virus.detected.persecond | /s    |
+| *domain*#domain.virus.blocked.count      | count |
+| *domain*#domain.virus.blocked.persecond  | /s    |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
@@ -250,7 +262,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+Le service SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -264,7 +279,7 @@ Centreon vers la ressource supervisée.
 La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -300,8 +315,8 @@ yum install centreon-pack-network-firewalls-fortinet-fortigate-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Fortinet Fortigate SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Fortinet Fortigate**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -484,6 +499,21 @@ yum install centreon-plugin-Network-Firewalls-Fortinet-Fortigate-Snmp
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
+<TabItem value="Switch-Usage" label="Switch-Usage">
+
+| Macro          | Description                                                                                                                                      | Valeur par défaut                                    | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-----------:|
+| FILTERNAME     | Filter by switch name (can be a regexp)                                                                                                          |                                                      |             |
+| FILTERIP       | Filter by switch IP (can be a regexp)                                                                                                            |                                                      |             |
+| WARNINGCPU     | Warning threshold (%)                                                                                                                            |                                                      |             |
+| CRITICALCPU    | Critical threshold (%)                                                                                                                           |                                                      |             |
+| WARNINGMEMORY  | Warning threshold (%)                                                                                                                            |                                                      |             |
+| CRITICALMEMORY | Critical threshold (%)                                                                                                                           |                                                      |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admin\}, %\{status\}, %\{display\}         | %\{admin\} eq "authorized" and %\{status\} eq "down" |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING . You can use the following variables: %\{admin\}, %\{status\}, %\{display\}         |                                                      |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                                      |             |
+
+</TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
 | Macro          | Description                                                                                                                                                       | Valeur par défaut                                | Obligatoire |
@@ -559,8 +589,8 @@ yum install centreon-plugin-Network-Firewalls-Fortinet-Fortigate-Snmp
 | CRITICALSESSIONSACTIVE   | Threshold                                                                                                                                        |                   |             |
 | WARNINGSESSIONSRATE      | Threshold                                                                                                                                        |                   |             |
 | CRITICALSESSIONSRATE     | Threshold                                                                                                                                        |                   |             |
-| WARNINGSTATUS            | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{op\_mode\}, %\{ha\_state\}    |                   |             |
-| CRITICALSTATUS           | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %\{op\_mode\}, %\{ha\_state\}   |                   |             |
+| WARNINGSTATUS            | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{op\_mode\}, %\{ha\_state\}                  |                   |             |
+| CRITICALSTATUS           | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{op\_mode\}, %\{ha\_state\}                 |                   |             |
 | WARNINGTRAFFICIN         | Threshold                                                                                                                                        |                   |             |
 | CRITICALTRAFFICIN        | Threshold                                                                                                                                        |                   |             |
 | WARNINGTRAFFICOUT        | Threshold                                                                                                                                        |                   |             |
@@ -619,6 +649,7 @@ La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: All virtualdomains virus stats are ok | 'domain1#domain.virus.detected.count'=6667;;;0; 'domain2#domain.virus.detected.count'=25610;;;0; 'domain1#domain.virus.detected.persecond'=7919/s;;;0; 'domain2#domain.virus.detected.persecond'=71953/s;;;0; 'domain1#domain.virus.blocked.count'=26554;;;0; 'domain2#domain.virus.blocked.count'=31276;;;0; 'domain1#domain.virus.blocked.persecond'=91557/s;;;0; 'domain2#domain.virus.blocked.persecond'=13990/s;;;0; 
+
 ```
 
 ### Diagnostic des erreurs communes
@@ -656,11 +687,13 @@ Le plugin apporte les modes suivants :
 | link-monitor [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/linkmonitor.pm)]               | Not used in this Monitoring Connector                                                                                                                     |
 | list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]                                   | Used for service discovery                                                                                                                                |
 | list-link-monitors [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/listlinkmonitors.pm)]    | Not used in this Monitoring Connector                                                                                                                     |
-| list-virtualdomains [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/listvirtualdomains.pm)] | Not used in this Monitoring Connector                                                                                                                     |
+| list-switches [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/listswitches.pm)]             | Used for service discovery                                                                                                                                |
+| list-virtualdomains [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/listvirtualdomains.pm)] | Used for service discovery                                                                                                                                |
 | memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/memory.pm)]                          | Net-Fortinet-Fortigate-Memory-SNMP-custom                                                                                                                 |
 | sdwan [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/sdwan.pm)]                            | Net-Fortinet-Fortigate-SDWan-SNMP-custom                                                                                                                  |
 | sessions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/sessions.pm)]                      | Net-Fortinet-Fortigate-Sessions-SNMP-custom                                                                                                               |
 | signatures [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/signatures.pm)]                  | Not used in this Monitoring Connector                                                                                                                     |
+| switch-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/switchusage.pm)]               | Net-Fortinet-Fortigate-Switch-Usage-SNMP-custom                                                                                                           |
 | uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/uptime.pm)]                                                    | Not used in this Monitoring Connector                                                                                                                     |
 | vdom-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/vdomusage.pm)]                   | Net-Fortinet-Fortigate-Vdom-Usage-SNMP-custom                                                                                                             |
 | virus [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/virus.pm)]                            | Net-Fortinet-Fortigate-Virus-SNMP-custom                                                                                                                  |
@@ -822,6 +855,22 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-* --critical-* |   Thresholds. Can be: 'active', 'setup-1min', 'setup-10min', 'setup-30min', 'setup-60min'.                                    |
 
 </TabItem>
+<TabItem value="Switch-Usage" label="Switch-Usage">
+
+| Option            | Description                                                                                                                                                                                                     |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                     |
+| --warning-cpu     |   Warning threshold (%).                                                                                                                                                                                        |
+| --critical-cpu    |   Critical threshold (%).                                                                                                                                                                                       |
+| --warning-memory  |   Warning threshold (%).                                                                                                                                                                                        |
+| --critical-memory |   Critical threshold (%).                                                                                                                                                                                       |
+| --filter-name     |   Filter by switch name (can be a regexp).                                                                                                                                                                      |
+| --filter-ip       |   Filter by switch IP (can be a regexp).                                                                                                                                                                        |
+| --unknown-status  |   Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{admin\}, %\{status\}, %\{display\}                                                         |
+| --warning-status  |   Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{admin\}, %\{status\}, %\{display\}                                                         |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{admin\} eq "authorized" and %\{status\} eq "down"'). You can use the following variables: %\{admin\}, %\{status\}, %\{display\}    |
+
+</TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
 | Option                                          | Description                                                                                                                                                                                                                                                                                  |
@@ -952,8 +1001,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                             |
 | --filter-*        |   Filter name with regexp. Can be ('vdomain', 'vpn')                                                                                                                    |
-| --warning-*       |   Warning on counters. Can be ('users', 'sessions', 'tunnels', 'traffic-in', 'traffic-out')                                                                             |
-| --critical-*      |   Warning on counters. Can be ('users', 'sessions', 'tunnels', 'traffic-in', 'traffic-out')                                                                             |
+| --warning-*       |   Warning on counters. Can be ('users', 'sessions', 'tunnels', 'traffic-in', 'traffic-out', 'ipsec-tunnels-count')                                                      |
+| --critical-*      |   Critical on counters. Can be ('users', 'sessions', 'tunnels', 'traffic-in', 'traffic-out', 'ipsec-tunnels-count'))                                                    |
 | --warning-status  |   Define the conditions to match for the status to be WARNING. Use "%\{state\}" as a special variable. Useful to be notified when tunnel is up "%\{state\} eq 'up'"     |
 | --critical-status |   Define the conditions to match for the status to be CRITICAL. Use "%\{state\}" as a special variable. Useful to be notified when tunnel is up "%\{state\} eq 'up'"    |
 
