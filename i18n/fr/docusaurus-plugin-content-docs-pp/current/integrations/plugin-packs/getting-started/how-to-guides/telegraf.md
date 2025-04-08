@@ -18,7 +18,7 @@ Développé par InfluxDB, l'agent Telegraf peut être installé sur des serveurs
 
 Les limitations suivantes sont dues à des contraintes côté Telegraf ou côté Centreon.
 
-* À cause de limitations de Telegraf, la configuration des ressources connues de l'agent est mise à jour uniquement lorsque l'agent est démarré ou [redémarré](#reload-the-agent) (typiquement, un redémarrage de l'agent est nécessaire après avoir [déployé la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration)). Techniquement, c'est l'agent qui demande à Centreon de lui envoyer la configuration la plus à jour.
+* À cause de limitations de Telegraf, la configuration des ressources connues de l'agent est mise à jour uniquement lorsque l'agent est démarré ou [redémarré](#redémarrez-lagent) (typiquement, un redémarrage de l'agent est nécessaire après avoir [déployé la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration)). Techniquement, c'est l'agent qui demande à Centreon de lui envoyer la configuration la plus à jour.
 * Seules les métriques connues (c'est-à-dire les métriques pour les hôtes et services existant dans Centreon) sont envoyées à Centreon. Les métriques concernant des hôtes ou services inconnus sont ignorées.
 * Seuls des métriques et des status sont retournés (pas d'outputs).
 * Les connexions réseau sont unidirectionnelles : les données vont de l'agent au collecteur. Cela signifie qu'un hôte situé dans une DMZ devra communiquer avec un collecteur situé dans la même DMZ.
@@ -31,21 +31,23 @@ Les limitations suivantes sont dues à des contraintes côté Telegraf ou côté
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision **Linux Telegraf Agent**.
+1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
+2. [Installez](/docs/monitoring/pluginpacks/#installer-un-connecteur-de-supervision) le connecteur de supervision **Linux Telegraf Agent**.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision **Windows Telegraf Agent**.
+1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
+2. [Installez](/docs/monitoring/pluginpacks/#installer-un-connecteur-de-supervision) le connecteur de supervision **Windows Telegraf Agent**.
 
 </TabItem>
 </Tabs>
 
 ### Créez le connecteur Telegraf
 
-Installez le processeur Open Telemetry pour Telegraf sur votre serveur central :
+Si vous êtes sur la version 24.10.6 ou une version plus récente, passez directement à [l'étape suivante](#configurez-engine).
+
+Si vous êtes sur une version antérieure à la 24.10.6, vous devez installer le processeur Open Telemetry pour Telegraf sur votre serveur central :
 
 1. Allez à la page **Configuration > Commandes > Connecteurs**.
 2. Créez un nouveau connecteur avec les données suivantes :

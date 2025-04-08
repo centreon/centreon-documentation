@@ -80,7 +80,7 @@ Vous trouverez plus d'informations sur la documentation officielle d'ActiveMQ : 
 yum install centreon-plugin-Applications-ActiveMQ-Jmx
 ```
 
-2. Dans l'interface Web de Centreon, installer le connecteur de supervision *ActiveMQ JMX* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Dans l'interface Web de Centreon, installer le connecteur de supervision *ActiveMQ JMX* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -100,7 +100,7 @@ centreon-pack-applications-activemq-jmx.noarch
 </TabItem>
 </Tabs>
 
-3. Dans l'interface Web de Centreon, installer le connecteur de supervision *ActiveMQ JMX* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Dans l'interface Web de Centreon, installer le connecteur de supervision *ActiveMQ JMX* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 ## Configuration
 

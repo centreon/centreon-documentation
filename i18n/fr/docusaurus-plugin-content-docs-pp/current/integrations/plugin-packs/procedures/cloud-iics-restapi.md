@@ -28,7 +28,7 @@ Il apporte les modèles de services suivants :
 | Cloud-Iics-Restapi-Agent-Name | Découvre les agents et supervise le statut |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-pour en savoir plus sur la découverte automatique de services et sa [planification](https://docs.centreon.com/fr/docs/monitoring/discovery/services-discovery/#r%C3%A8gles-de-d%C3%A9couverte).
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery#r%C3%A8gles-de-d%C3%A9couverte).
 
 </TabItem>
 </Tabs>
@@ -170,5 +170,5 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.

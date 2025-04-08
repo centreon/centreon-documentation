@@ -150,7 +150,7 @@ SNMP port.
 yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Alcatel OXE** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Connectors > Monitoring Connectors**, install the **Alcatel OXE** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -167,7 +167,7 @@ yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 yum install centreon-pack-hardware-telephony-alcatel-oxe-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Alcatel OXE** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Connectors > Monitoring Connectors**, install the **Alcatel OXE** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>
