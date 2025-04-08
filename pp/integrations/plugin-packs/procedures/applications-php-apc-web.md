@@ -51,7 +51,7 @@ It brings the following Service Templates:
 
 The target PHP APC Web page must be reachable from the Centreon Poller on the 
 specified port in the *PHPAPCWEBPORT* Host Macro. More information in the 
-[Configuration](#Configuration) section.
+[Configuration](#configuration) section.
 
 ## Setup
 
@@ -64,7 +64,7 @@ specified port in the *PHPAPCWEBPORT* Host Macro. More information in the
 yum install centreon-plugin-Applications-Php-Apc-Web
 ```
 
-2. On the Centreon Web interface, install the *PHP APC* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+2. On the Centreon Web interface, install the *PHP APC* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -81,7 +81,7 @@ yum install centreon-plugin-Applications-Php-Apc-Web
 yum install centreon-pack-applications-php-apc-web
 ```
 
-3. On the Centreon Web interface, install the *PHP APC* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+3. On the Centreon Web interface, install the *PHP APC* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 </Tabs>

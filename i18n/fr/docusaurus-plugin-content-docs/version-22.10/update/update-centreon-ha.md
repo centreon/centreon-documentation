@@ -73,7 +73,7 @@ apt install --only-upgrade centreon\*
 </TabItem>
 </Tabs>
 
-Une fois les mises à jour des paquets terminées sur les deux centraux, il reste à appliquer la mise à jour via l'interface web **uniquement sur le central master** en fermant la session en cours ou en rafraîchissant la page de login ou en API [comme indiquer ici](https://docs.centreon.com/docs/update/update-centreon-platform/#update-the-centreon-central-server) .
+Une fois les mises à jour des paquets terminées sur les deux centraux, il reste à appliquer la mise à jour via l'interface web **uniquement sur le central master** en fermant la session en cours ou en rafraîchissant la page de login ou en API [comme indiqué ici](update-centreon-platform.md#mise-à-jour-du-serveur-centreon-central) .
 
 En parallèle, sur le **central "secondaire"**, il faut déplacer le répertoire **"install"** et regénérer le cache Symfony pour éviter d'afficher à nouveau l'interface de mise à jour suite à une bascule :
 
@@ -161,7 +161,7 @@ service cbd-sql restart
 ```
 
 
-Dans le cas où des [Remote Servers](../installation/architectures.md#description) seraient présents, il faut y redémarrer le service `cbd` :
+Dans le cas où des serveurs distants seraient présents, il faut y redémarrer le service `cbd` :
 
 ```bash
 service cbd restart

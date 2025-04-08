@@ -48,7 +48,7 @@ team](https://support.centreon.com/) to get and install your license key.
 
 #### Software
 
-See the [software requirements](../installation/prerequisites.md#software).
+See the [software requirements](../installation/prerequisites.md#characteristics-of-the-servers).
 
 #### Hardware
 
@@ -625,7 +625,7 @@ Restart MariaDB if you make changes:
 systemctl restart mariadb
 ```
 
-### Step 5 : Execute the configure.sh script
+### Step 5: Execute the configure.sh script
 
 Execute the Centreon MAP Engine server configuration script.
 
