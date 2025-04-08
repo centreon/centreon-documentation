@@ -7,10 +7,6 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-App Configuration permet de gérer les paramètres des applications et à en 
-contrôler l'accès de manière centralisée en stockant  leurs configurations dans 
-un emplacement hébergé universel.
-
 Le connecteur de supervision Centreon *Azure App Configuration* s'appuie sur les API Azure Monitor 
 afin de récuperer les métriques relatives au service
 App Configuration. Il est possible d'utiliser les 2 modes proposés par 
@@ -19,7 +15,7 @@ Microsoft: RestAPI ou Azure CLI.
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure App Configuration**
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -83,8 +79,10 @@ les prérequis nécessaires pour interroger les API d'Azure.
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -121,7 +119,7 @@ yum install centreon-pack-cloud-azure-devtools-appconfiguration
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Azure App Configuration**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -267,7 +265,7 @@ Throttled Incoming HTTP requests: 0.00, Incoming HTTP requests duration: 0.00ms 
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
