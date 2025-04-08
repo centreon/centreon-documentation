@@ -68,7 +68,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 Si vous n'avez pas encore créé votre compte sous Office 365, reportez-vous à la 
 documentation d'Office 365 Management ou suivez le lien dans la partie 
-[Aide supplémentaire](#aide-supplementaire).
+[Aide supplémentaire](#aide-supplémentaire).
 
 ### Enregistrez une application
 
@@ -101,8 +101,10 @@ https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-wi
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -139,7 +141,7 @@ yum install centreon-pack-cloud-microsoft-office365-exchange
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Office365 Exchange**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -248,7 +250,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 | CRITICALTOTALUSAGEACTIVE   | Critical threshold                                                                                                                                                                                 |                                     |           |
 | WARNINGTOTALUSAGEINACTIVE  | Warning threshold                                                                                                                                                                                  |                                     |           |
 | CRITICALTOTALUSAGEINACTIVE | Critical threshold                                                                                                                                                                                 |                                     |           |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                             |                                     |           |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles).                                                             |                                     |           |
 
 </TabItem>
 </Tabs>

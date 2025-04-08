@@ -51,9 +51,12 @@ In order to monitor your Quanta interface and more particularly the web scenario
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -89,7 +92,7 @@ yum install centreon-pack-applications-monitoring-quanta-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Quanta Rest API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -173,7 +176,7 @@ yum install centreon-plugin-Applications-Monitoring-Quanta-Restapi
 | CRITICALSTEPRESPONSETIME  | Critical threshold on step average response time                                                                                                 |                   |             |
 | WARNINGTOTALRESPONSETIME  | Warning threshold on total response time                                                                                                         |                   |             |
 | CRITICALTOTALRESPONSETIME | Critical threshold on total response time                                                                                                        |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                   |             |
 
 </TabItem>
 </Tabs>

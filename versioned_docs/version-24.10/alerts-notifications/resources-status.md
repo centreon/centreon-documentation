@@ -219,7 +219,7 @@ Use the **Filter options** icon next to the search bar to:
     applied
 
 Once a filter is saved, it can be reused from the Filter dropdown list,
-categorized under **My Filter** and you'll be able to use the **Edit filters** icon to manage your existing filters (rename, re-order and delete).
+categorized under **My Filters** and you'll be able to use the **Manage filters** icon to manage your existing filters (rename, re-order and delete them).
 
 ## Detail panel
 
@@ -321,7 +321,7 @@ The graph opens on the **Monitoring > Performances > Graphs** page, allowing you
 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
-You can also export the data for the graph as a CSV file. This will include all metrics.
+You can also export the data for the graph as a CSV file (this will include all metrics), or as a PNG file in various sizes.
 
 ### Notification tab
 

@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Viptela SNMP** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -41,8 +41,8 @@ Le connecteur apporte les modèles de service suivants
 | Alias               | Modèle de service                           | Description                         | Découverte |
 |:--------------------|:--------------------------------------------|:------------------------------------|:----------:|
 | Control-Connections | Net-Viptela-Control-Connections-SNMP-custom | Contrôle les connexions de contrôle |            |
-| Gre-Tunnels         | Net-Viptela-Gre-Tunnels-SNMP-custom         | Contrôle les tunnels GRE            | X          |
-| Interfaces          | Net-Viptela-Interfaces-SNMP-custom          | Contrôle les interfaces             | X          |
+| Gre-Tunnels         | Net-Viptela-Gre-Tunnels-SNMP-custom         | Contrôle les tunnels GRE            |     X     |
+| Interfaces          | Net-Viptela-Interfaces-SNMP-custom          | Contrôle les interfaces             |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -65,7 +65,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                  | Description                                                                                       |
 |:---------------------------------|:--------------------------------------------------------------------------------------------------|
-| Net-Viptela-SNMP-Gre-Tunnel-Name | Découvre les tunnels GRE et en supervise le statut et l'utilisation                                  |
+| Net-Viptela-SNMP-Gre-Tunnel-Name | Découvre les tunnels GRE et en supervise le statut et l'utilisation                               |
 | Net-Viptela-SNMP-Interface-Name  | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
@@ -177,8 +177,10 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -215,7 +217,7 @@ yum install centreon-pack-network-viptela-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Viptela SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -268,7 +270,7 @@ yum install centreon-plugin-Network-Viptela-Snmp
 3. Appliquez le modèle d'hôte **Net-Viptela-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -284,34 +286,34 @@ yum install centreon-plugin-Network-Viptela-Snmp
 <Tabs groupId="sync">
 <TabItem value="Control-Connections" label="Control-Connections">
 
-| Macro                            | Description                                                                                                                                      | Valeur par défaut          | Obligatoire |
-|:---------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
-| FILTERPUBLICIP                   | Filter connections by public ip address                                                                                                          |                            |             |
-| FILTERPRIVATEIP                  | Filter connections by private ip address                                                                                                         |                            |             |
-| FILTERTYPE                       | Filter connections by type                                                                                                                       |                            |             |
-| WARNINGCONNECTIONSCHALLENGE      | Threshold                                                                                                                                        |                            |             |
-| CRITICALCONNECTIONSCHALLENGE     | Threshold                                                                                                                                        |                            |             |
-| WARNINGCONNECTIONSCHALLENGEACK   | Threshold                                                                                                                                        |                            |             |
-| CRITICALCONNECTIONSCHALLENGEACK  | Threshold                                                                                                                                        |                            |             |
-| WARNINGCONNECTIONSCHALLENGERESP  | Threshold                                                                                                                                        |                            |             |
-| CRITICALCONNECTIONSCHALLENGERESP | Threshold                                                                                                                                        |                            |             |
-| WARNINGCONNECTIONSCONNECT        | Threshold                                                                                                                                        |                            |             |
-| CRITICALCONNECTIONSCONNECT       | Threshold                                                                                                                                        |                            |             |
-| WARNINGCONNECTIONSDOWN           | Threshold                                                                                                                                        |                            |             |
-| CRITICALCONNECTIONSDOWN          | Threshold                                                                                                                                        |                            |             |
-| WARNINGCONNECTIONSHANDSHAKE      | Threshold                                                                                                                                        |                            |             |
-| CRITICALCONNECTIONSHANDSHAKE     | Threshold                                                                                                                                        |                            |             |
-| WARNINGCONNECTIONSTEARDOWN       | Threshold                                                                                                                                        |                            |             |
-| CRITICALCONNECTIONSTEARDOWN      | Threshold                                                                                                                                        |                            |             |
-| WARNINGCONNECTIONSTRYING         | Threshold                                                                                                                                        |                            |             |
-| CRITICALCONNECTIONSTRYING        | Threshold                                                                                                                                        |                            |             |
-| WARNINGCONNECTIONSUP             | Threshold                                                                                                                                        |                            |             |
-| CRITICALCONNECTIONSUP            | Threshold                                                                                                                                        |                            |             |
-| WARNINGCONNNECTIONSDETECTED      | Threshold                                                                                                                                        |                            |             |
-| CRITICALCONNNECTIONSDETECTED     | Threshold                                                                                                                                        |                            |             |
+| Macro                            | Description                                                                                                                                              | Valeur par défaut          | Obligatoire |
+|:---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
+| FILTERPUBLICIP                   | Filter connections by public ip address                                                                                                                  |                            |             |
+| FILTERPRIVATEIP                  | Filter connections by private ip address                                                                                                                 |                            |             |
+| FILTERTYPE                       | Filter connections by type                                                                                                                               |                            |             |
+| WARNINGCONNECTIONSCHALLENGE      | Threshold                                                                                                                                                |                            |             |
+| CRITICALCONNECTIONSCHALLENGE     | Threshold                                                                                                                                                |                            |             |
+| WARNINGCONNECTIONSCHALLENGEACK   | Threshold                                                                                                                                                |                            |             |
+| CRITICALCONNECTIONSCHALLENGEACK  | Threshold                                                                                                                                                |                            |             |
+| WARNINGCONNECTIONSCHALLENGERESP  | Threshold                                                                                                                                                |                            |             |
+| CRITICALCONNECTIONSCHALLENGERESP | Threshold                                                                                                                                                |                            |             |
+| WARNINGCONNECTIONSCONNECT        | Threshold                                                                                                                                                |                            |             |
+| CRITICALCONNECTIONSCONNECT       | Threshold                                                                                                                                                |                            |             |
+| WARNINGCONNECTIONSDOWN           | Threshold                                                                                                                                                |                            |             |
+| CRITICALCONNECTIONSDOWN          | Threshold                                                                                                                                                |                            |             |
+| WARNINGCONNECTIONSHANDSHAKE      | Threshold                                                                                                                                                |                            |             |
+| CRITICALCONNECTIONSHANDSHAKE     | Threshold                                                                                                                                                |                            |             |
+| WARNINGCONNECTIONSTEARDOWN       | Threshold                                                                                                                                                |                            |             |
+| CRITICALCONNECTIONSTEARDOWN      | Threshold                                                                                                                                                |                            |             |
+| WARNINGCONNECTIONSTRYING         | Threshold                                                                                                                                                |                            |             |
+| CRITICALCONNECTIONSTRYING        | Threshold                                                                                                                                                |                            |             |
+| WARNINGCONNECTIONSUP             | Threshold                                                                                                                                                |                            |             |
+| CRITICALCONNECTIONSUP            | Threshold                                                                                                                                                |                            |             |
+| WARNINGCONNNECTIONSDETECTED      | Threshold                                                                                                                                                |                            |             |
+| CRITICALCONNNECTIONSDETECTED     | Threshold                                                                                                                                                |                            |             |
 | CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{type\}, %\{privateIp\}, %\{publicIp\} | %\{status\} !~ /up\|connect/ |             |
 | WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{type\}, %\{privateIp\}, %\{publicIp\}  |                            |             |
-| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                  |             |
+| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).         | --verbose                  |             |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
@@ -338,25 +340,25 @@ yum install centreon-plugin-Network-Viptela-Snmp
 </TabItem>
 <TabItem value="Gre-Tunnels" label="Gre-Tunnels">
 
-| Macro                       | Description                                                                                                                                            | Valeur par défaut                              | Obligatoire |
-|:----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|:-----------:|
-| FILTERDESTIP                | Filter tunnels by destination ip address                                                                                                               |                                                |             |
-| FILTERSRCIP                 | Filter tunnels by source ip address                                                                                                                    |                                                |             |
-| WARNINGGRETUNNELPACKETSIN   | Threshold                                                                                                                                              |                                                |             |
-| CRITICALGRETUNNELPACKETSIN  | Threshold                                                                                                                                              |                                                |             |
-| WARNINGGRETUNNELPACKETSOUT  | Threshold                                                                                                                                              |                                                |             |
-| CRITICALGRETUNNELPACKETSOUT | Threshold                                                                                                                                              |                                                |             |
-| WARNINGGRETUNNELSDETECTED   | Threshold                                                                                                                                              |                                                |             |
-| CRITICALGRETUNNELSDETECTED  | Threshold                                                                                                                                              |                                                |             |
-| WARNINGGRETUNNELSDOWN       | Threshold                                                                                                                                              |                                                |             |
-| CRITICALGRETUNNELSDOWN      | Threshold                                                                                                                                              |                                                |             |
-| WARNINGGRETUNNELSINVALID    | Threshold                                                                                                                                              |                                                |             |
-| CRITICALGRETUNNELSINVALID   | Threshold                                                                                                                                              |                                                |             |
-| WARNINGGRETUNNELSUP         | Threshold                                                                                                                                              |                                                |             |
-| CRITICALGRETUNNELSUP        | Threshold                                                                                                                                              |                                                |             |
+| Macro                       | Description                                                                                                                                                    | Valeur par défaut                              | Obligatoire |
+|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|:-----------:|
+| FILTERDESTIP                | Filter tunnels by destination ip address                                                                                                                       |                                                |             |
+| FILTERSRCIP                 | Filter tunnels by source ip address                                                                                                                            |                                                |             |
+| WARNINGGRETUNNELPACKETSIN   | Threshold                                                                                                                                                      |                                                |             |
+| CRITICALGRETUNNELPACKETSIN  | Threshold                                                                                                                                                      |                                                |             |
+| WARNINGGRETUNNELPACKETSOUT  | Threshold                                                                                                                                                      |                                                |             |
+| CRITICALGRETUNNELPACKETSOUT | Threshold                                                                                                                                                      |                                                |             |
+| WARNINGGRETUNNELSDETECTED   | Threshold                                                                                                                                                      |                                                |             |
+| CRITICALGRETUNNELSDETECTED  | Threshold                                                                                                                                                      |                                                |             |
+| WARNINGGRETUNNELSDOWN       | Threshold                                                                                                                                                      |                                                |             |
+| CRITICALGRETUNNELSDOWN      | Threshold                                                                                                                                                      |                                                |             |
+| WARNINGGRETUNNELSINVALID    | Threshold                                                                                                                                                      |                                                |             |
+| CRITICALGRETUNNELSINVALID   | Threshold                                                                                                                                                      |                                                |             |
+| WARNINGGRETUNNELSUP         | Threshold                                                                                                                                                      |                                                |             |
+| CRITICALGRETUNNELSUP        | Threshold                                                                                                                                                      |                                                |             |
 | CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{adminState\}, %\{operState\}, %\{sourceIp\}, %\{destIp\} | %\{adminState\} eq "up" and %\{operState\} ne "up" |             |
 | WARNINGSTATUS               | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{adminState\}, %\{operState\}, %\{sourceIp\}, %\{destIp\}  |                                                |             |
-| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).       | --verbose                                      |             |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).               | --verbose                                      |             |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
@@ -369,26 +371,26 @@ yum install centreon-plugin-Network-Viptela-Snmp
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro              | Description                                                                                                                                               | Valeur par défaut                                     | Obligatoire |
-|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| OIDFILTER          | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                  | ifname                                                |             |
-| OIDDISPLAY         | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                         | ifname                                                |             |
-| INTERFACENAME      | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                 |                                                       |             |
-| WARNINGINDISCARD   | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALINDISCARD  | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGINERROR     | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALINERROR    | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGINTRAFFIC   | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALINTRAFFIC  | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGOUTDISCARD  | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALOUTDISCARD | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGOUTERROR    | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALOUTERROR   | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALOUTTRAFFIC | Threshold                                                                                                                                                 |                                                       |             |
+| Macro              | Description                                                                                                                                                       | Valeur par défaut                                     | Obligatoire |
+|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+| OIDFILTER          | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                          | ifname                                                |             |
+| OIDDISPLAY         | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                 | ifname                                                |             |
+| INTERFACENAME      | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                         |                                                       |             |
+| WARNINGINDISCARD   | Threshold                                                                                                                                                         |                                                       |             |
+| CRITICALINDISCARD  | Threshold                                                                                                                                                         |                                                       |             |
+| WARNINGINERROR     | Threshold                                                                                                                                                         |                                                       |             |
+| CRITICALINERROR    | Threshold                                                                                                                                                         |                                                       |             |
+| WARNINGINTRAFFIC   | Threshold                                                                                                                                                         |                                                       |             |
+| CRITICALINTRAFFIC  | Threshold                                                                                                                                                         |                                                       |             |
+| WARNINGOUTDISCARD  | Threshold                                                                                                                                                         |                                                       |             |
+| CRITICALOUTDISCARD | Threshold                                                                                                                                                         |                                                       |             |
+| WARNINGOUTERROR    | Threshold                                                                                                                                                         |                                                       |             |
+| CRITICALOUTERROR   | Threshold                                                                                                                                                         |                                                       |             |
+| WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                         |                                                       |             |
+| CRITICALOUTTRAFFIC | Threshold                                                                                                                                                         |                                                       |             |
 | CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\|dormant/ |             |
 | WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}  |                                                       |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).          | --verbose                                             |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                  | --verbose                                             |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -414,7 +416,7 @@ yum install centreon-plugin-Network-Viptela-Snmp
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGUPTIME  | Warning threshold                                                                                                                                |                   |             |
 | CRITICALUPTIME | Critical threshold                                                                                                                               |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --check-overload  |             |
 
 </TabItem>
 </Tabs>

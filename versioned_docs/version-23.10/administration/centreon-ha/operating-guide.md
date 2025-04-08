@@ -214,12 +214,12 @@ Position Status [OK]
 
 > Before performing this operation, it is mandatory to make sure that the MariaDB replication thread [is running well](operating-guide.md#check-the-status-of-mariadb-replication).
 
-> **Warning:** Following this procedure on a two-node cluster installed using [this procedure](../../installation/installation-of-centreon-ha/installation-2-nodes.md) will move the `centreon` resource group as well, because it **must** run on the node that has the `ms_mysql-master` meta attribute.
+> **Warning:** Following this procedure on a two-node cluster installed using [this procedure](../../installation/installation-of-centreon-ha/installation-2-nodes.md) will move the `centreon` resource group as well, because it **must** run on the node that has the `ms_mysql-clone` meta attribute.
 
 To make the resource move from one node to the other, run this command:
 
 ```bash
-pcs resource move ms_mysql-master
+pcs resource move ms_mysql-clone
 ```
 
 This command sets an "-Inf" constraint on the node hosting the resource. As a result, the resource switches to another node. 
@@ -227,14 +227,14 @@ This command sets an "-Inf" constraint on the node hosting the resource. As a re
 Wait until all the resources have switched to the other node and then clear the constraint:
 
 ```bash
-pcs resource clear ms_mysql-master
+pcs resource clear ms_mysql-clone
 ```
 
 ## Managing the Centreon resource group
 
 ### Toggle the `centreon` resource group
 
-> **Warning:** As in [this chapter](operating-guide.md#reverse-the-direction-of-the-mariadb-master-slave-replication), following this procedure on a two-node cluster installed using [this procedure](../../installation/installation-of-centreon-ha/installation-2-nodes.md) will switch the MariaDB master as well, because it **must** run on the node that has the `ms_mysql-master` meta attribute.
+> **Warning:** As in [this chapter](operating-guide.md#reverse-the-direction-of-the-mariadb-master-slave-replication), following this procedure on a two-node cluster installed using [this procedure](../../installation/installation-of-centreon-ha/installation-2-nodes.md) will switch the MariaDB master as well, because it **must** run on the node that has the `ms_mysql-clone` meta attribute.
 
 Move the resource group to the other node:
 

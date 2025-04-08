@@ -30,7 +30,9 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-t
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-*Rien à faire, MariaDB 10.11 est déjà disponible dans les dépôts officiels.*
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
+```
 
 </TabItem>
 </Tabs>
@@ -55,7 +57,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-t
 ```shell
 wget -P /tmp/ https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
 apt install /tmp/mysql-apt-config_0.8.29-1_all.deb
-# Selectionner Ok pour valider l'installation de "MySQL Tools & Connectors"
+# Sélectionner Ok pour valider l'installation de "MySQL Tools & Connectors"
 apt update
 ```
 

@@ -1,6 +1,6 @@
 ---
 id: operatingsystems-windows-nsclient-05-nrpe
-title: Windows NRPE 0.5
+title: Windows NSClient 0.5 NRPE
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -165,7 +165,7 @@ and make sure that the **NRPE Server** configuration is correct.
 yum install centreon-nrpe3-plugin
 ```
 
-2. On the Centreon Web interface, install the **Windows NRPE 0.5** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
+2. On the Centreon Web interface, install the **Windows NRPE 0.5** Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -182,7 +182,7 @@ yum install centreon-nrpe3-plugin
 yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 ```
 
-3. On the Centreon Web interface, install the **Windows NRPE 0.5** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
+3. On the Centreon Web interface, install the **Windows NRPE 0.5** Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 </Tabs>
