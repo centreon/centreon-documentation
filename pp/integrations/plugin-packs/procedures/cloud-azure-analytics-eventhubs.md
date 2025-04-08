@@ -7,16 +7,13 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Azure Event Hubs is a big data streaming platform and event ingestion service. It can receive and process millions of events per
-second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters.
-
 The Centreon Monitoring Connector *Azure Event Hubs* can rely on Azure API or Azure CLI to collect the metrics related to the
 Front Door service.
 
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Azure Event Hubs** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -135,6 +132,8 @@ on the [dedicated page](../getting-started/how-to-guides/azure-credential-config
 
 ### Pack
 
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
 **Configuration > Monitoring Connector Manager** menu.
@@ -173,7 +172,7 @@ yum install centreon-pack-cloud-azure-analytics-eventhubs
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Azure Event Hubs** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
