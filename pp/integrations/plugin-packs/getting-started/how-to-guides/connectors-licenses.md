@@ -15,7 +15,7 @@ In all cases, adding a license (token for online licenses, license files for off
 With an online license (all Cloud platforms, some OnPrem platforms):
 
 * Your central server/SaaS platform must be connected to the internet.
-* The **Configuration > Monitoring Connector Manager** page always displays the complete catalog of monitoring connectors.
+* The **Configuration > Connectors > Monitoring Connectors** page always displays the complete catalog of monitoring connectors.
 * Available updates are displayed automatically.
 
 ## Offline license
@@ -23,7 +23,7 @@ With an online license (all Cloud platforms, some OnPrem platforms):
 With an offline license (ONPrem platforms only):
 
 * It is not mandatory that your platform has an internet connection (it can be located in a DMZ).
-* The **Configuration > Monitoring Connector Manager** page displays only the connectors whose `centreon-pack-*` packages are installed on the central platform.
+* The **Configuration > Connectors > Monitoring Connectors** page displays only the connectors whose `centreon-pack-*` packages are installed on the central platform.
 * You do not automatically see or retrieve new connectors and updates for installed connectors. To retrieve new connectors and update existing ones, use the following command:
 
 <Tabs groupId="sync">
@@ -72,7 +72,7 @@ Connectors for which an update is available are displayed with an arrow icon on 
 
 ## Automatic plugin installation
 
-On the **Configuration > Monitoring Connector Manager** page, if **Automatic plugin installation** is set to **ON**, plugins will be updated automatically when you deploy the configuration of a poller that monitors a host or service that uses this plugin.
+On the **Configuration > Connectors > Monitoring Connectors** page, if **Automatic plugin installation** is set to **ON**, plugins will be updated automatically when you deploy the configuration of a poller that monitors a host or service that uses this plugin.
 
 ## Types of licenses available for OnPrem and Cloud
 
