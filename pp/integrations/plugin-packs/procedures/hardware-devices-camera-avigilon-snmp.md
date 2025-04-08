@@ -131,7 +131,7 @@ SNMP port.
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -167,7 +167,7 @@ yum install centreon-pack-hardware-devices-camera-avigilon-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Camera Avigilon SNMP** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -294,7 +294,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGAVAILABLE  | Warning threshold for total memory available (B).                                                                                                |                   |             |
 | CRITICALAVAILABLE | Critical threshold for total memory available (B).                                                                                               |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Storage state" label="Storage state">
@@ -304,7 +304,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 | UNKNOWNSTATUS  | Define the conditions to match to return a unknown status. The condition can be written using the following macros: %\{storage_state\}            | %\{storage_state\} =~ /Unknown/i                   |             |
 | WARNINGSTATUS  | Define the conditions to match to return a warning status. The condition can be written using the following macros: %\{storage_state\}            | %\{storage_state\} =~ /insufficientMediaCapacity/i \|      \      | %\{storage_state\} =~ /insufficientMediaSpeed/i |             |
 | CRITICALSTATUS | Define the conditions to match to return a critical status. The condition can be written using the following macros: %\{storage_state\}           | %\{storage_state\} =~ /mediaNotPresent/i \|      \      | %\{storage_state\} =~ /error/i                            |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                                                   |             |
 
 </TabItem>
 <TabItem value="Temperature sensor" label="Temperature sensor">
@@ -315,7 +315,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 | WARNINGSTATUS       | Define the conditions to match to return a warning status. The condition can be written using the following macros: %\{status\}                                 |                   |             |
 | WARNINGTEMPERATURE  | Warning threshold for temperature (Celsius).                                                                                                     |                   |             |
 | CRITICALTEMPERATURE | Critical threshold for temperature (Celsius).                                                                                                    |                   |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">

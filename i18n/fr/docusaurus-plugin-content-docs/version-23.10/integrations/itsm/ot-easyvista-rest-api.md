@@ -9,7 +9,7 @@ Le fournisseur EasyVista Open Tickets utilise l'API Rest EasyVista pour ouvrir d
 
 - Avant d'aller plus loin, assurez-vous d'avoir installé correctement [Centreon Open Tickets](https://docs.centreon.com/docs/alerts-notifications/ticketing-install/) sur votre instance Centreon.
 
-- Ensuite, vous devez [configurer Open Tickets](../../alerts-notifications/ticketing.md#hosts--services) afin que les ressources (hôtes et services) puissent recevoir un numéro de ticket.
+- Ensuite, vous devez [configurer Open Tickets](../../alerts-notifications/ticketing.md#hôtes-et-services) afin que les ressources (hôtes et services) puissent recevoir un numéro de ticket.
 
 ## Installer le fournisseur EasyVistaRest
 

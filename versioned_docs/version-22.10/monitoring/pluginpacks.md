@@ -342,15 +342,20 @@ Your Plugin Pack is now uninstalled.
 
 #### Managing dependencies
 
-You will not be able remove a pack if host and service templates created by the Plugin Pack are being used by any
-monitored hosts and services.
+If host or service templates provided by the plugin pack are used by a host, service or template, the plugin pack cannot be uninstalled.
 
 ![image](../assets/configuration/pluginpacks/uninstall_pp_used.png)
 
-To uninstall the pack you will need either to:
+If the plugin pack is used by a host or by a service, in order to uninstall it, you will need to:
 
-* delete the hosts and services linked to the templates provided by the Plugin Pack,
-* or unlink the hosts and services from the corresponding templates.
+* either delete the hosts or services linked to the templates provided by this plugin pack
+* or unlink hosts linked to templates provided by this plugin pack (note that if this was the only host template applied to this host, it will no longer be monitored).
 
-Attempting to uninstall a pack that is a dependency of another pack will cause the uninstallation process to stop if
-the pack or its dependency is used by any hosts and services. Otherwise, the pack and its dependencies can be removed.
+If a template provided by the plugin pack is used by another template, you will need to remove the link between templates before you can remove the plugin pack, even if the other template is not used by any host or service.
+
+Besides, if you try to uninstall a plugin pack on which another plugin pack depends, the uninstallation can only be performed if
+neither plugin pack is in use. 
+Example: the **Centreon Central** plugin pack uses the **Linux SNMP** plugin pack as a dependency. (The **Centreon Central** plugin pack depends on the **Linux SNMP** plugin pack.)
+
+* If you attempt to uninstall the **Linux SNMP** plugin pack, you will get an error indicating that it is being used by the **Centreon Central** plugin pack.
+* If neither the **Centreon Central** nor the **Linux SNMP** plugin pack are in use, uninstallation will be possible.
