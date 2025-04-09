@@ -27,10 +27,9 @@ Acknowledging a resource does not mean that the incident is over: it will be ove
 
 ## Active and Passive monitoring
 
-Generally speaking, once Centreon is set up, the hosts and pollers periodically send their information to the central server without this information being actively requested by the Centreon, this is called **passive monitoring**.
+Hosts and pollers can be configured to periodically send their information to the central server without this information being actively requested by Centreon using SNMP traps, this is called **passive monitoring**.
 
-When certain conditions are met, for example, a host is down, an **active check** is sent from Centreon to try to force this host to provide its data, confirming whether or not it is functionning. When information is sent to the central server as a result of a check sent from it, we call it **active monitoring**.
-The same principles apply when talking about **passive** and **active** checks.
+It is possible to configure Centreon Engine to actively ask for the informations it needs. When information is sent to the central server because it was requested by engine, we call it **active monitoring**. Centreon is also able to do something we call freshness checks. This is a type of active monitoring performed when the central server hasn't received the data from a host's passive monitoring during a set time limit.
 
 ## Alert
 
