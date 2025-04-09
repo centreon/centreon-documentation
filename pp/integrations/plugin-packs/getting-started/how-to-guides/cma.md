@@ -525,7 +525,7 @@ systemctl status centagent
      * debug: more information about connections
      * trace: the most verbose trace level showing messages sent and received to the poller.
 
-4. [Configure encryption](#encryption). Encryption is activated by default. In case of a **Poller-initiated connection**, the private key file and certificate file are mandatory.
+4. Configure encryption. Encryption is activated by default. In case of a **Poller-initiated connection**, the private key file and certificate file are mandatory.
 
 </TabItem>
 
