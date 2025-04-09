@@ -71,20 +71,30 @@ Par exemple, si votre URL est la suivante : **https://web.telegram.org/#/im?p=g1
 
 #### Commande pour notification sur service
 
-![commande pour service](../../assets/integrations/notifications/telegram/service-command-telegram.png)
+Allez sur **Configuration > Commandes > Notifications** et cliquez sur **Ajouter**.
+
+Selectionnez **Notification** pour le type de commande et copiez la commande suivante dans l'espace **Ligne de commande** en remplaçant les macros avec vos informations :
 
 ```bash
 /usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \
 --plugin=notification::telegram::plugin \
 --mode=alert \
---http-peer-addr='api.telegram.org' --bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
---chat-id='-xxxxxxxxxx' --host-name='$HOSTNAME$'  --service-description='$SERVICEDESC$' --service-state=$SERVICESTATE$ \
+--http-peer-addr='api.telegram.org' \
+--bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
+--chat-id='-xxxxxxxxxx' \
+--host-name='$HOSTNAME$' \
+--service-description='$SERVICEDESC$' \
+--service-state=$SERVICESTATE$ \
 --service-output='$SERVICEOUTPUT$'
 ``` 
 
+![commande pour service](../../assets/integrations/notifications/telegram/service-command-telegram.png)
+
 #### Commande pour notification sur hôte
 
-![commande pour hôte](../../assets/integrations/notifications/telegram/host-command-telegram.png)
+Allez sur **Configuration > Commandes > Notifications** et cliquez sur **Ajouter**.
+
+Selectionnez **Notification** pour le type de commande et copiez la commande suivante dans l'espace **Ligne de commande** en remplaçant les macros avec vos informations :
 
 ```bash
 /usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \
@@ -97,6 +107,8 @@ Par exemple, si votre URL est la suivante : **https://web.telegram.org/#/im?p=g1
 --host-state=$HOSTSTATE$  \
 --host-output='$HOSTOUTPUT$'
 ```
+
+![commande pour hôte](../../assets/integrations/notifications/telegram/host-command-telegram.png)
 
 ## Exemple
 
