@@ -108,9 +108,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Avant d'utiliser ce connecteur, assurez-vous que le serveur Apache à superviser est correctement configuré :
+
+- Le module `mod_status` doit être activé. Il permet de générer un rapport en temps réel sur l'état du serveur, exploité par Centreon.
+- La directive `ExtendedStatus` doit être activée pour collecter des statistiques détaillées.
+- La page `/server-status` doit être accessible **depuis le collecteur Centreon**, sans authentification.
+- L’adresse IP du collecteur doit être autorisée dans la configuration Apache.
 
 ## Installer le connecteur de supervision
 
