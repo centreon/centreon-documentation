@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Apache Server** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -107,17 +107,22 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Before using this connector, make sure that the Apache server to be monitored is properly configured:
+
+- The `mod_status` module must be enabled. It generates a real-time report on the server's status, which is used by Centreon.
+- The `ExtendedStatus` directive must be enabled to collect detailed statistics.
+- The `/server-status` page must be accessible **from the Centreon poller**, without authentication.
+- The Centreon poller's IP address must be allowed in the Apache configuration.
 
 ## Installing the monitoring connector
 
 ### Pack
 
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -153,7 +158,7 @@ yum install centreon-pack-applications-webservers-apache-serverstatus
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Apache Server** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
