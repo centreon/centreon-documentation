@@ -51,15 +51,15 @@ The poller will be configured the following way, using the **Poller/agent config
 
 * Public certificate (mandatory). If you have stored the poller's certificate in the Certificate Store, you don't need to enter a file for the public key. Otherwise, you need to provide the path to the file containing the public key of the poller's opentelemetry server.
         The DNS name that the agent will use to connect to the poller must be identical to the CN of the certificate.
-        If this is not possible, you can add an IP **collector_host_name** mapping in the **C:\Windows\System32\drivers\etc\hosts** file.
+        If this is not possible, you can add an IP **collector_host_name** mapping in the **C:\Windows\System32\drivers\etc\hosts** file (Windows) or **/etc/hosts** (Linux).
 * Private key (mandatory)
 * CA: rarely necessary in this case, except to manage a double handshake. The TLS protocol with certificates validates the identity of the server for the client, but the "double handshake" goes further: it adds the validation of the client's identity by the server. This is useful for enhanced security but rarely necessary on the internet.
 
 The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
 
 * Encryption = yes
-* Trusted CA’s certificate file
-* Certificate Common Name
+* Trusted CA’s certificate file (can be loaded into the certificate store and not referenced in the agent's configuration)
+* Certificate Common Name (rarely necessary)
 
 </TabItem>
 <TabItem value="Poller connects to agent, TLS secure" label="Poller connects to agent, TLS secure">

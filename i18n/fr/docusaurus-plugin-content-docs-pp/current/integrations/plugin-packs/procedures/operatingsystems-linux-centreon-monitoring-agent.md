@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias  | Modèle de service                                | Description                                                                                                                                                               | Type de contrôle |
 |:-------|:-------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --- |
-| Cpu    | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom    | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur | non natif |
+| Cpu    | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom    | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur | natif |
 | Load   | OS-Linux-Load-Centreon-Monitoring-Agent-custom   | Contrôle de la charge serveur                                                                                                                                             |non natif |
 | Memory | OS-Linux-Memory-Centreon-Monitoring-Agent-custom | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                         |non natif |
 | Ntp    | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom    | Contrôle la synchronisation du système avec un serveur NTP                                                                                                                |non natif |

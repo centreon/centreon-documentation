@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                 | Service Description                                                                                                                                  | Type of check |
 |:--------------|:-------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------| --- |
-| Cpu           | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom    | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs | non-native |
+| Cpu           | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom    | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs | native |
 | Load          | OS-Linux-Load-Centreon-Monitoring-Agent-custom   | Check the server load average                                                                                                                        | non-native |
 | Memory        | OS-Linux-Memory-Centreon-Monitoring-Agent-custom | Check the rate of the utilization of memory                                                                                                          | non-native |
 | Ntp           | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom    | Check system time synchronization with an NTP server                                                                                                 | non-native |
