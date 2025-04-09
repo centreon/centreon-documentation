@@ -23,6 +23,37 @@ Read more about version 24.10 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 24.10.6
+
+Release date: `March 31, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Resource Status] Optimized search query.
+- [CMA] The Centreon Monitoring Agent connector is now automatically created during install/upgrade.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed ACL checks on contact/user configuration page.
+- [Configuration] Fixed an issue where the notification period field was not saved in some cases.
+- [Custom Views] Fixed an issue preventing non admin users from seeing host groups in the Host group Monitoring widget and service groups in the Service group Monitoring widget.
+- [Dashboards] Fixed an issue where dashboards containing a Resource Table widget appeared in Edit mode.
+- [Dashboards][Metrics Graph] Optimized bar chart rendering performance when modifying opacity or bar radius.
+- [Discovery] Fixed an issue where autodiscovery credentials were lost during an update.
+- [Downtimes] Fixed an issue where non admin users could not display the downtimes page.
+- [Downtimes] Fixed an issue where loading the downtimes page resulted in a gateway timeout error.
+- [Graphs] Fixed an issue preventing non admin users from exporting graphs as ".png".
+- [Resource Status] Fixed an issue where the Host & Service columns didn't contain the right information when displayed in view by host mode.
+- [Service Groups] Fixed an issue preventing non admin users from displaying Service Groups.
+- [Translation]	Fixed a translation issue on menu & breadcrumb and added a "Connectors" submenu that includes Monitoring Connectors and Additional configurations.
+- [Web] Fixed an issue where some password managers were preventing users from accessing legacy pages.
+
+</details>
+
 ### 24.10.5
 
 Release date: `March 10, 2025`
@@ -330,6 +361,27 @@ Release date: `October 31, 2024`
 
 ## Centreon Collect
 
+### 24.10.5
+
+Release date: `March 12, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Broker] Added flapping state support for Resource Status.
+- [CMA] Added gRPC logs to the agent and the OpenTelemetry engine module.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed a regression with host name escaping in the Graphite Broker output.
+- [Broker] Fixed an issue where the wrong service state was restored when engine re-established its connection to broker after a disconnection.
+- [Broker] Fixed Broker crash that occurred if only a graphite output was configured.
+
+</details>
+
 ### 24.10.4
 
 Release date: `January 11, 2025`
@@ -435,6 +487,17 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.10.4
+
+Release date: `March 12, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug where the gorgone API could not use a password containing a UTF-8 character.
+
+</details>
 
 ### 24.10.3
 
