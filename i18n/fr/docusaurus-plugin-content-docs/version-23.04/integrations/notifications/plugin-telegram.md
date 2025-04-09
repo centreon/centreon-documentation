@@ -11,7 +11,7 @@ Cette documentation vous est présentée par notre partenaire YPSI :
 
 ## Comment ça marche
 
-Le connecteur des notificactions Telegram emploie le plugin Centreon perl pour envoyer des notifications via Telegram grâce à leur REST API.
+Le connecteur de notification Telegram utilise le plugin Centreon perl pour envoyer des notifications via Telegram grâce à leur API REST.
 
 ![architecture](../../assets/integrations/notifications/telegram/architecture-telegram.png)
 
@@ -20,7 +20,7 @@ Le connecteur des notificactions Telegram emploie le plugin Centreon perl pour e
 ### Plugin Centreon avec Telegram
 
 Avant toute chose, vous devez avoir installé le plugin Centreon Telegram sur votre serveur Centreon.
-Installez Git, puis executez les commandes suivantes :
+Installez Git, puis exécutez les commandes suivantes :
 
 ```bash
 mkdir /usr/lib/centreon/git-plugins
@@ -40,7 +40,7 @@ Puis parlez au BotFather et donnez-lui la commande suivante :
 
 ![newbot](../../assets/integrations/notifications/telegram/newbot-telegram.png)
 
-Le BotFather vous demandera un prénom et un nom d'utilisateur pour votre bot. Le nom d'utilisateur doit se terminer par "**bot**".
+Le BotFather vous demandera un prénom et un nom d'utilisateur pour votre bot. Le nom d'utilisateur doit se terminer par "**_bot**".
 Il est possible d'utiliser le même nom pour les deux identifiants comme montré ci-dessous.
 
 ![token](../../assets/integrations/notifications/telegram/token-telegram.png)
@@ -49,11 +49,11 @@ Comme vient de vous le dire le BotFather, il est très important que vous **rete
 
 Il nous faut maintenant créer un nouveau groupe.
 
-![newgroup](../../assets/integrations/notifications/telegram/newgroup-telegram.gif)
+![Nouveau groupe](../../assets/integrations/notifications/telegram/newgroup-telegram.gif)
 
 Ajoutez votre bot au groupe que vous venez de créer.
 
-![groupcreation](../../assets/integrations/notifications/telegram/groupcreation-telegram.gif)
+![Création du groupe](../../assets/integrations/notifications/telegram/groupcreation-telegram.gif)
 
 ## Configuration
 
@@ -63,15 +63,15 @@ Allez sur l'application web de Telegram et cliquez sur le groupe que vous venez 
 
 ![chatid](../../assets/integrations/notifications/telegram/chatid-telegram.png)
 
-Par exemple, si votre URL est le suivant : **https://web.telegram.org/#/im?p=g123456** votre chat-id est **123456**.
+Par exemple, si votre URL est la suivante : **https://web.telegram.org/#/im?p=g123456** votre chat-id est **123456**.
 
-> Si bien 123456 est le chat-id, vous devrez écrire **-123456** dans la configuration pour que ça marche.
+> Bien que 123456 soit le chat-id, vous devrez écrire **-123456** dans la configuration pour que celle-ci marche.
 
 ### Création des commandes sur Centreon
 
-#### Commande pour le service de notifications
+#### Commande pour notification sur service
 
-![service command](../../assets/integrations/notifications/telegram/service-command-telegram.png)
+![commande pour service](../../assets/integrations/notifications/telegram/service-command-telegram.png)
 
 ```bash
 /usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \
@@ -82,9 +82,9 @@ Par exemple, si votre URL est le suivant : **https://web.telegram.org/#/im?p=g12
 --service-output='$SERVICEOUTPUT$'
 ``` 
 
-#### Commande de notification d'hôte
+#### Commande pour notification sur hôte
 
-![host command](../../assets/integrations/notifications/telegram/host-command-telegram.png)
+![commande pour hôte](../../assets/integrations/notifications/telegram/host-command-telegram.png)
 
 ```bash
 /usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \
@@ -131,17 +131,17 @@ Par exemple, si votre URL est le suivant : **https://web.telegram.org/#/im?p=g12
 
 ## Options de message
 
-Lors de l'envoi de notifications, vous pouvez ajouter diverses options, vous pouvez consulter ces options avec l'option `--help` du plugin Centreon.
+Lors de l'envoi de notifications, vous pouvez ajouter diverses options. Vous pouvez consulter ces options en utilisant l'option `--help` du plugin Centreon.
 
 Voici quelques unes des options disponibles :
 
 | Options           | Explication                                            | Exemple                                                                                                                                                                                   |
 | ----------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \--centreon-token | un token d'autologin de Centreon                       |                                                                                                                                                                                           |
-| \--centreon-url   | le lien url Centreon                                   |                                                                                                                                                                                           |
-| \--graph-url      | url d'un graphique. Les options ce-dessus peuvent être utilisés comme macros ici | **%\{centreon_url\}**/include/views/graphs/generateGraphs/generateImage.php?username=myuser&token=**%\{centreon_token\}**&hostname=**%\{host_name\}**&service=**%\{service_description\}** |
-| \--link-url       | un lien url                                            | **%\{centreon_url\}**/main.php?p=20201&o=svc&host\_search=**%\{host_name\}**&svc\_search=**%\{service_description\}**                                                                     |
-| \--proxyurl       | l'url vers votre proxy (si nécessaire)                 |                                                                                                                                                                                           |
+| \--centreon-token | un token d'autologin Centreon                       |                                                                                                                                                                                           |
+| \--centreon-url   | l'URL de Centreon                                   |                                                                                                                                                                                           |
+| \--graph-url      | URL d'un graphique. Les options ci-dessus peuvent être utilisées comme macros ici | **%\{centreon_url\}**/include/views/graphs/generateGraphs/generateImage.php?username=myuser&token=**%\{centreon_token\}**&hostname=**%\{host_name\}**&service=**%\{service_description\}** |
+| \--link-url       | une URL                                            | **%\{centreon_url\}**/main.php?p=20201&o=svc&host\_search=**%\{host_name\}**&svc\_search=**%\{service_description\}**                                                                     |
+| \--proxyurl       | l'URL vers votre proxy (si nécessaire)                 |                                                                                                                                                                                           |
 
 Pour afficher toutes les options, utilisez la commande suivante :
 
