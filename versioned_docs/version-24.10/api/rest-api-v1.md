@@ -47,7 +47,6 @@ This token will be used later on for the other API actions.
 ## Error codes
 
 |Code|Message                                                                                 |
-
 |----|----------------------------------------------------------------------------------------|
 |200 |Successful                                                                              |
 |400 |Missing parameter / Missing name parameter  / Unknown parameter / Objects are not linked|
