@@ -8,13 +8,95 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 ## Introduction
 
-The Centreon Monitoring Agent (CMA) collects metrics and computes statuses on the servers it monitors, and sends them to Centreon.
-Centreon plugins as well as Nagios-compatible plugins can be used with this agent.
+The Centreon Monitoring Agent (CMA) is a piece of software installed on the host it monitors: it collects metrics and computes statuses, and sends them to Centreon.
 
-### Limitations
+The agent can execute native checks, or use Centreon plugins to execute non-native checks. Native checks are run directly by the agent (as opposed to non-native checks, which require local plugins to be installed on the host). Native checks have better performance and a better footprint (reduced CPU and memory usage).
 
-The Centreon Monitoring Agent is in Beta Phase. The following limitations need to be considered :
-* The scope of supported monitoring is limited, new (native) controls will be introduced in the final version.
+Both native and non-native checks are defined in either the **Linux Centreon Monitoring Agent** connector or the **Windows Centreon Monitoring Agent** connector. The connectors provide the templates and the agent retrieves the configuration of these checks at regular intervals after the connection has been established.
+
+The agent performs the checks (for non-native checks, using the local plugins) and sends the data to the poller. The part of the poller's Engine that receives data from the agent is called the OTLP receiver (OTLP means OpenTelemetry protocol).
+
+Custom Nagios-compatible plugins can also be used with this agent.
+
+### When do I need to use an agent?
+
+Use the CMA agent:
+
+* when security policies only allow outgoing flows (no checks can be performed by pollers, SNMP is not authorized).
+* on sites that have no local poller.
+* when you need to run a script locally on the monitored machine for security (rights and/or protocols) or performance reasons.
+
+### How do the host and the poller interact?
+
+Depending on the case, either the agent or the poller initiates the connection.
+
+* In the case of an agent-initiated connection, you simply configure the poller to listen on a specific port. A poller can receive data from n agents/hosts.
+* If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), you can use a poller-initiated connection. You need to declare in Centreon each host that will be monitored by this agent in the **Poller/agent configuration** menu. The poller will receive data from n hosts via the agent.
+
+<!--You can use both types of communication at the same time (for different hosts).-->
+
+Depending on the direction in which the connection is established, the poller or host can be either client or server. The connection between the poller and the agent must be secure in production.<!-- 2 options are possible:-->
+
+<!--* TLS: the certificate is signed by a certification authority and the Common Name (CN) is verified.
+* TLS insecure: the certification authority and Common Name are not verified (self-signed certificates can be used).-->
+
+Store the certificates in the **/etc/pki** directory of the poller. Store them where you like on the host. The diagrams below describe the certificate files to be used in each case.
+
+<Tabs groupId="sync">
+<TabItem value="Agent connects to poller, TLS secure" label="Agent connects to poller, TLS secure">
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/cma/TLS_SEC_initiated-by-agent.png)
+
+The poller will be configured the following way, using the **Poller/agent configuration** page, in the **OTLP receiver** section:
+
+* Public certificate (mandatory). If you have stored the poller's certificate in the Certificate Store, you don't need to enter a file for the public key. Otherwise, you need to provide the path to the file containing the public key of the poller's opentelemetry server.
+        The DNS name that the agent will use to connect to the poller must be identical to the CN of the certificate.
+        If this is not possible, you can add an IP **collector_host_name** mapping in the **C:\Windows\System32\drivers\etc\hosts** file (Windows) or **/etc/hosts** (Linux).
+* Private key (mandatory)
+* CA: rarely necessary in this case, except to manage a double handshake. The TLS protocol with certificates validates the identity of the server for the client, but the "double handshake" goes further: it adds the validation of the client's identity by the server. This is useful for enhanced security but rarely necessary on the internet.
+
+The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
+
+* Encryption = yes
+* Trusted CA’s certificate file (can be loaded into the certificate store and not referenced in the agent's configuration)
+* Certificate Common Name (rarely necessary)
+
+</TabItem>
+<TabItem value="Poller connects to agent, TLS secure" label="Poller connects to agent, TLS secure">
+
+![image](../../../../assets/integrations/plugin-packs/how-to-guides/cma/TLS_SEC_initiated-by-poller.png)
+
+The poller will be configured the following way, using the **Poller/agent configuration** page.
+
+* In the **OTLP Receiver** section, the certificate is not technically necessary but is still mandatory in the interface.
+
+* In the **Host configuration** section:
+
+   CA and CA Common Name (CN) are optional.
+
+   * CA : In the case of a public certificate, the standard OS certification chain is sufficient, this parameter is not required.
+   In the case of a self-signed certificate, the CA can be added to the OS in its certification chains, making this parameter unnecessary. If you do not add the CA to the OS, fill in the CA field.
+
+   * CN : The poller uses a domain name or IP to connect to the agent. If the certificate used on the agent matches this domain/IP, then leave the field blank. If it doesn't match, fill in the field.
+
+   Please note that the CN field in the certificate must match the name that will be used by the poller to connect to the host. For example, if you have entered **myhostname** in the CN, the poller must be able to connect to the host **myhostname** without using the IP address (a solution if **myhostname** is not in the DNS: add the IP myhostname mapping in the **/etc/hosts** file).
+
+The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
+
+* Encryption = yes
+* Public certificate file
+* Private key file
+
+</TabItem>
+</Tabs>
+
+<!--#### Unencrypted communication
+
+You can leave the connection unencrypted for test purposes (note that this connection will only last for one hour). Do not use this setting in production.
+
+The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
+
+* Encryption = no-->
 
 ### Supported OSs
 
@@ -41,20 +123,28 @@ The CMA can be installed on and monitor the following OSs:
 </TabItem>
 </Tabs>
 
+### Limitations
+
+The Centreon Monitoring Agent is in Beta Phase. The following limitations need to be considered :
+
+* The scope of supported monitoring is limited, new (native) controls will be introduced in the final version.
+
 ## Step 1: Configure Centreon
 
-### Install the Monitoring Connector
+### Install the Monitoring Connector you need
+
+On your central server, you need to install the monitoring connector that will provide the templates and commands that will allow you to configure the monitored hosts and services in Centreon.
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-1. On your central server, go to **Configuration > Monitoring Connector Manager**.
+1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
 2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the [**Linux Centreon Monitoring Agent**](../../procedures/operatingsystems-linux-centreon-monitoring-agent.md) monitoring connector.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. On your central server, go to **Configuration > Monitoring Connector Manager**.
+1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
 2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the [**Windows Centreon Monitoring Agent**](../../procedures/operatingsystems-windows-centreon-monitoring-agent.md) monitoring connector.
 
 </TabItem>
@@ -62,32 +152,43 @@ The CMA can be installed on and monitor the following OSs:
 
 ### Create the CMA connector
 
-On your central server:
+<Tabs groupId="sync">
+<TabItem value="OnPrem version 24.10.6 or newer" label="OnPrem version 24.10.6 or newer">
+
+For this version, no configuration is needed. Move on to the [next step](#configure-polleragent-communication).
+
+</TabItem>
+<TabItem value="OnPrem version older than 24.10.6" label="OnPrem version older than 24.10.6">
+
+If your Centreon is in a version older than 24.10.6, you need to create the CMA connector on your central server:
 
 1. Go to **Configuration > Commands > Connectors**.
 2. Create a new connector with the following values:
 
-| Parameter             | Value                                                                                                                                                                                         |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connector Name        | Centreon Monitoring Agent                                                                                                                                                                     |
-| Connector Description | Centreon Monitoring Agent                                                                                                                                                                     |
-| Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
+| Parameter             | Value                                                                                                                                                                                         |	
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |	
+| Connector Name        | Centreon Monitoring Agent Beta                                                                                                                                                                     |	
+| Connector Description | Centreon Monitoring Agent Beta                                                                                                                                                                     |	
+| Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |	
 | Used by command       | Type `Centreon-Monitoring-Agent` and click **Select all**                                                                                                                                     |
 | Connector Status      | Enabled                                                                                                                                                                                       |
 
-### Configure Engine
+</TabItem>
+</Tabs>
+
+### Configure poller/agent communication
 
 <Tabs groupId="sync">
 <TabItem value="Centreon Cloud or OnPrem 24.10.03 and newer" label="Centreon Cloud or OnPrem 24.10.03 and newer">
 
 Configure how the poller and the agent will communicate:
 
-<PollerAgentConfiguration />
+<PollerAgentConfiguration type="CMA" />
 
-5. If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), enable **Connection initiated by poller**. Then, in **Host configurations**, define all the hosts on which the agent will be installed. Here the certificates are optional, but if you use them, store them in the **/etc/pki/** directory of the poller.
+5. If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), enable **Connection initiated by poller**. Then, in **Host configurations**, define all the hosts on which the agent will be installed.
 > If you configure several pollers at once, make sure all certificate files have the same name.
 
-6. Deploy the configuration.
+6. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
 7. Restart the monitoring engine:
 
    ```bash
@@ -107,7 +208,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
    touch /etc/centreon-engine/otl_server.json
    ```
 
-3. Enter the following contents. This will allow the poller to receive the data that the agent will send.
+3. Replace the contents of the file with the contents below. This will allow the poller to receive the data that the agent will send.
   
   > The poller can work in both modes simultaneously (some agents connect to the poller, while the poller connects to some other agents).
 
@@ -242,7 +343,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-#### Centreon repository and agent install
+#### Install the Centreon repository and the agent
 
 Install the Centreon repository and agent using the following commands:
 
@@ -290,9 +391,9 @@ apt install centreon-monitoring-agent
 </TabItem>
 </Tabs>
 
-* Configure **centreon-monitoring-agent**.
+#### Configure **centreon-monitoring-agent**
 
-1. Modify the **/etc/centreon-monitoring-agent/centagent.json** file (4 cases):
+Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** file with the following parameters (4 cases):
 
 <Tabs groupId="sync">
 <TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">
@@ -361,15 +462,17 @@ apt install centreon-monitoring-agent
 
 In the **host** field, enter the name of the host to be monitored as you have entered it in the Centreon interface. If absent, the agent will use the machine's hostname.
 
-#### Log configuration
+#### Configure the logs
 
 You can configure two kinds of log output:
+
 * file: the CMA logs into a file, the path is configured in the **log_file** option.
 * stdout: standard output is used.
 
 If you choose to log into a file, log rotation can be customized using the **log_max_file_size** and **log_max_files** options.
 
 Allowed log levels are:
+
 * off: no logs
 * critical: critical errors
 * error: all errors
@@ -377,13 +480,16 @@ Allowed log levels are:
 * debug: more information about connections
 * trace: the most verbose trace level showing messages sent and received to the poller
 
-2. Restart the CMA:
+#### Restart the agent
+
+Restart the CMA:
 
 ```shell
 systemctl restart centagent
 ```
 
-You can check that agent is running with:
+You can check that the agent is running using the following command:
+
 ```shell
 systemctl status centagent
 ```
@@ -391,40 +497,48 @@ systemctl status centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-[Download the CMA installer](https://github.com/centreon/centreon-collect/releases/tag/centreon-collect-24.10.3) on every server you want to monitor.
-
+[Download the CMA installer](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true) on every server you want to monitor.
 
 <Tabs groupId="sync">
 <TabItem value="Interactive mode" label="Interactive mode">
 
 1. Start the installer (during the configuration, you can click on the (i) icons for help).
-   If you choose to install centreon-plugins, the installer will try to download and install the latest version of the Centreon plugins. If it can't (no web connection, network issue...), a popup is displayed to ask confirmation before using embedded plugins.
-  * If yes: the plugins are installed
-  * If no: no plugins are installed
+   If you choose to install **centreon-plugins**, the installer will try to download and install the latest version of the Centreon plugins. If it can't (no web connection, network issue...), a popup is displayed to ask confirmation before using embedded plugins.
   
-  Results are displayed in the installer's window.
-   
+   Results are displayed in the installer's window.
+
 2. Configure the endpoint and the connection:
-   * **Host name in Centreon**. This must be the host name you have defined in the Centreon interface.
+   * **Host name in Centreon**. This must be the name of the host as you have defined it in the Centreon interface.
    * In most cases (the agent connects to the poller), you have to enter the poller's endpoint. The correct format is  \<poller IP or DNS name\>:port (OpenTelemetry listening port on the poller, usually 4317), for example 192.168.45.32:4317.
    * In case of a poller-initiated connection (the poller connects to the agent), you have to choose a host interface (0.0.0.0 for all interfaces) and the listening port on which poller will connect, usually 4317.
 
-3. Configure logging options. You can configure two kinds of log output:
-* file: the CMA logs into a file
-* eventlog: the CMA logs in the [event logs page](/docs/alerts-notifications/event-log)
+3. [Configure logging options](#log-levels). You can configure two kinds of log output:
+   * file: the CMA logs into a file
+   * eventlog: the CMA logs in the [event logs page](/docs/alerts-notifications/event-log).
 
-If you choose to log into a file, log rotation can be customized using the **Max File Size** and **Max number of files** options.
+   If you choose to log into a file, log rotation can be customized using the **Max File Size** and **Max number of files** options.   Allowed log levels are:
 
-4. Configure encryption
-Encryption is activated by default. In case of a **Poller-initiated connection**, the private key file and certificate file are mandatory.
+     * off: no logs
+     * critical: critical errors
+     * error: all errors
+     * info: additional information
+     * debug: more information about connections
+     * trace: the most verbose trace level showing messages sent and received to the poller.
+
+4. Configure encryption. Encryption is activated by default. In case of a **Poller-initiated connection**, the private key file and certificate file are mandatory.
 
 </TabItem>
 
 <TabItem value="Silent mode" label="Silent mode (console)">
 
-In this mode, there is no interface. As this installer is not a console program, it returns immediately despite not 
- having finished. You have to wait for a message telling you that all is finished.
-If you wnat to have an exit status, you can launch the installer in a powershell session and wait for the exit code. The exit code will be 0 if all is right.
+In this mode, there is no interface. As this installer is not a console program, it returns immediately despite not having finished. You have to wait for a message telling you that all is finished.
+If you want to have an exit status, you can launch the installer in a powershell session and wait for the exit code. The exit code will be 0 if all is right.
+
+To run it in silent mode, you need to set /S as the first argument. You can display a list of arguments with the following command:
+
+```shell
+centreon-monitoring-agent.exe /S --help
+```
 
 | flag                       | description                                                                                                                                                                                                                                                               |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -446,41 +560,33 @@ If you wnat to have an exit status, you can launch the installer in a powershell
 | --ca_name                  | Expected TLS certificate common name (CN).                                                                                                                                                                                                                                |
 | --reverse                  | Add this flag to make the agent accept connections from poller (agent in DMZ for example).                                                                                                                                                                                |
 
-If you use --install_plugins option and plugins download fail, installer will install plugins embedded in the installer.
-</TabItem>
-</Tabs>
+If you use the **--install_plugins** option but the download of the plugins fails, the installer will install the plugins embedded in the installer.
+
+#### Log levels
 
 Allowed log levels are:
+
 * off: no logs
 * critical: critical errors
 * error: all errors
 * info: additional information
 * debug: more information about connections
-* trace: the most verbose trace level showing messages sent and received to the poller
-
-As far as encryption is concerned, several cases are possible:
-  * reverse (**Poller-initiated connection**): the agent accepts connections from the poller.
-    The agent needs a file containing the private key and a file containing the certificate (public key). 
-    Please note that the CN field in the certificate must match the name that will be used by the poller to connect to the host. For example, if you have entered **myhostname** in the CN, the poller must be able to connect to the host **myhostname** without using the IP address (a solution if **myhostname** is not in the DNS: add the IP myhostname mapping in the /etc/hosts file).
-  * not reverse: the agent connects to the poller
-    You have two solutions for the certificate:
-    * You have stored the poller's certificate in the Certificate Store, you have no file to fill in for the public key.
-    * Otherwise, you need to provide the path to the file containing the public key of the poller's opentelemetry server.
-    As with reverse mode, the DNS name that the agent will use to connect to the poller must be identical to the CN of the certificate.
-    If this is not possible, you can add an IP collector_host_name mapping in the C:\Windows\System32\drivers\etc\hosts file.
-
+* trace: the most verbose trace level showing messages sent and received to the poller.
 
 </TabItem>
 </Tabs>
 
-### Deploy the Centreon plugin
+</TabItem>
+</Tabs>
 
-The Centreon plugin will execute the checks on the host.
+### Deploy the Centreon agent plugins
+
+If you want to run non-native checks, you need to install the Centreon plugins, that will execute the checks on the host.
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-##### Enable our plugins repository and install the plugin
+##### Enable our plugins repository and install the plugins
 
 This repository will provide you our packaged plugins as well as **the dependencies that are not available in the
 standard distribution repositories**.
@@ -636,7 +742,7 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-On the hosts you want to monitor, plugins is yet installed by the centreon monitoring agent installer.
+On the hosts you want to monitor, the plugins are already installed by the Centreon Monitoring Agent installer.
 
 </TabItem>
 </Tabs>
@@ -648,13 +754,12 @@ On the hosts you want to monitor, plugins is yet installed by the centreon monit
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-On the central server, [create hosts](/docs/monitoring/basic-objects/hosts) and apply to them the **OS-Linux-Centreon-Monitoring-Agent-custom** template.
+On the central server, [create hosts](/docs/monitoring/basic-objects/hosts) and apply to them the **OS-Linux-Centreon-Monitoring-Agent-custom** template. The template includes the **Enable passive checks** option set to **on**.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-On the central server, [create hosts](/docs/monitoring/basic-objects/hosts) and apply to them the **OS-Windows-Centreon-Monitoring-Agent-custom** template.
+On the central server, [create hosts](/docs/monitoring/basic-objects/hosts) and apply to them the **OS-Windows-Centreon-Monitoring-Agent-custom** template. The template includes the **Enable passive checks** option set to **on**.
 
 </TabItem>
 </Tabs>
-
