@@ -12,9 +12,14 @@ the Centreon command line API.
 
 ## Permissions
 
-To perform API calls to the **Configuration API**, you must be an administrator. Non-administrator users are able to call the **Realtime API**. In both instances, the corresponding field must be checked in the [**Centreon Authentication**](../monitoring/basic-objects/contacts-create.md#centreon-authentication) tab when configuring an user.
+To perform API calls
+- Administrators are able to call both the **Configuration API** and the **Realtime API**.
+- Non-administrator users are not able the **Configuration API**.
+- Non-administrator users are able to call the **Realtime API** as long as the corresponding field is checked.
 
-![image](../assets/api/user-api.png)
+lien vers https://docs.centreon.com/fr/docs/api/rest-api-v1/#configuration somehow
+
+In all three instances, the corresponding fields can be found in the [**Centreon Authentication**](../monitoring/basic-objects/contacts-create.md#centreon-authentication) tab when configuring an user.
 
 ## Authentication
 
@@ -41,8 +46,7 @@ This token will be used later on for the other API actions.
 
 ## Error codes
 
-|Code|Message                                                                                 |
-|----|----------------------------------------------------------------------------------------|
+|Code|Message                                                                                 ||----|----------------------------------------------------------------------------------------|
 |200 |Successful                                                                              |
 |400 |Missing parameter / Missing name parameter  / Unknown parameter / Objects are not linked|
 |401 |Unauthorized                                                                            |
