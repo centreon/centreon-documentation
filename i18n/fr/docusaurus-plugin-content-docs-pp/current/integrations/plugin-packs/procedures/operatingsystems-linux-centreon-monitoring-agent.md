@@ -378,7 +378,7 @@ depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de
 <Tabs groupId="sync">
 <TabItem value="Version OnPrem 24.10.6 ou plus récente" label="Version OnPrem 24.10.6 ou plus récente">
 
-Pour cette version, aucune configuration n'est nécessaire. Passez à l'[étape suivante](#configurez-la-communication-collecteuragent).
+Pour cette version, aucune configuration n'est nécessaire. Passez à l'[étape suivante](../getting-started/how-to-guides/cma.md#configurez-la-communication-collecteuragent).
 
 </TabItem>
 <TabItem value="Version OnPrem antérieure à la 24.10.6" label="Version OnPrem antérieure à la 24.10.6">
