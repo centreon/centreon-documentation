@@ -12,12 +12,10 @@ the Centreon command line API.
 
 ## Permissions
 
-To perform API calls
+To perform [API calls](rest-api-v1.md#configuration)
 - Administrators are able to call both the **Configuration API** and the **Realtime API**.
 - Non-administrator users are not able the **Configuration API**.
 - Non-administrator users are able to call the **Realtime API** as long as the corresponding field is checked.
-
-lien vers https://docs.centreon.com/fr/docs/api/rest-api-v1/#configuration somehow
 
 In all three instances, the corresponding fields can be found in the [**Centreon Authentication**](../monitoring/basic-objects/contacts-create.md#centreon-authentication) tab when configuring an user.
 
