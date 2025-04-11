@@ -44,6 +44,8 @@ http://[IP_DU_SERVER_CENTRAL]/centreon/main.php?autologin=1&useralias=[login_use
 - Non-administrator users are not able the **Configuration API**.
 - Non-administrator users are able to call the **Realtime API** as long as the corresponding field is checked.
 
+
+
 * The **Access list groups** field is used to define an access group for a user (group use for access control (ACL)).
 
 > An Administrative user is never concerned by access control, even if linked to an access group.
