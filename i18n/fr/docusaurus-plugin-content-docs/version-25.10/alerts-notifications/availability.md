@@ -5,11 +5,11 @@ title: Rapports de disponibilité
 
 ## Rapports de disponibilité
 
-Les rapports de disponibilités des objets accessibles via l'interface web Centreon
+Les rapports de disponibilité des objets accessibles via l'interface web Centreon
 permettent de visualiser de manière intuitive le taux de disponibilité d'un hôte,
 d'un groupe d'hôtes ou d'un groupe de services sur une période de temps donnée.
 
-Pour visualiser le rapport de disponibilité d'un 'hôte :
+Pour visualiser le rapport de disponibilité d'un hôte :
 
 - Rendez-vous dans le menu **Rapports > Disponibilité > Hôtes**
 - Sélectionnez l'hôte désiré dans la liste déroulante **Hôte** située en haut à gauche
@@ -17,9 +17,9 @@ Pour visualiser le rapport de disponibilité d'un 'hôte :
 ![image](../assets/reporting/os-reporting/os-host-reporting.png)
 
 * La liste **Période de génération** permet de choisir la période de temps sur laquelle on souhaite visualiser le taux de disponibilité. Il est possible de sélectionner une période prédéfinie via la liste déroulante ou de sélectionner manuellement sa période en définissant les champs **Du** et **Au**
-* Le tableau **Etat de l'hôte** permet de visualiser le taux et la durée de disponibilité associé par état de l'objet
-* Le tableau **Statuts des éléments du rapport** permettent de visualiser la disponibilité des services associés à l'hôte suivant leurs statuts
-* La frise chronologique permet de visualiser de manière intuitive le statut de l'objet au court du temps
+* Le tableau **État de l'hôte** permet de visualiser le taux et la durée de disponibilité associés par état de l'objet
+* Le tableau **Statuts des éléments du rapport** permet de visualiser la disponibilité des services associés à l'hôte suivant leurs statuts
+* La frise chronologique permet de visualiser de manière intuitive le statut de l'objet au cours du temps
 
 ![image](../assets/reporting/os-reporting/os-host-timeline.png)
 
