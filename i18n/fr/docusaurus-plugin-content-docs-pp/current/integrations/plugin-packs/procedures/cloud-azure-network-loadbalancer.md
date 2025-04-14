@@ -5,17 +5,8 @@ title: Azure Load Balancer
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Azure Load Balancer opère à la couche quatre du modèle OSI (Open Systems Interconnection). Il s’agit du point de contact unique
-pour les clients. Load Balancer distribue les flux entrants arrivant sur le serveur front-end de l’équilibreur de charge sur des
-instances du pool de back-ends. Ces flux dépendent des règles d’équilibrage de charge et des sondes d’intégrité configurées. Les
-instances de pool de back-ends peuvent être des machines virtuelles Azure ou des instances d’un groupe de machines virtuelles
-identiques.
-
-Le connecteur de supervision Centreon *Azure Load Balancer* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
-Load Balancer. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
-
+Le connecteur de supervision Centreon **Azure Load Balancer** s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Load Balancer. Il est possible d'utiliser les 2 modes proposés par Microsoft : RestAPI ou Azure CLI.
 
 ## Dépendances du connecteur de supervision
 
