@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Google Compute Engine** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -98,9 +98,11 @@ How to create a service account key: https://developers.google.com/identity/prot
 
 ### Pack
 
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -136,7 +138,7 @@ yum install centreon-pack-cloud-gcp-compute-computeengine
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Google Compute Engine** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
