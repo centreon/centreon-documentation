@@ -5,14 +5,7 @@ title: Azure Load Balancer
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Azure Load Balancer operates at layer four of the Open Systems Interconnection (OSI) model. It's the single point of contact for
-clients. Load Balancer distributes inbound flows that arrive at the load balancer's front end to backend pool instances.
-These flows are according to configured load balancing rules and health probes. The backend pool instances can be Azure Virtual
-Machines or instances in a virtual machine scale set.
-
-The Centreon Monitoring Connector *Azure Load Balancer* can rely on Azure API or Azure CLI to collect the metrics related to the
+The Centreon **Azure Load Balancer** Monitoring Connector can rely on Azure API or Azure CLI to collect the metrics related to the
 Load Balancer service.
 
 ## Connector dependencies
