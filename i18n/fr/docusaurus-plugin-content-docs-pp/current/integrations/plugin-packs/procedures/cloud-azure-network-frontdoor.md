@@ -5,16 +5,8 @@ title: Azure Front Door
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Azure Front Door est un point d’entrée mondial scalable qui utilise le réseau de périphérie mondial de Microsoft pour créer des
-applications web rapides, sécurisées et très scalables. Avec Front Door, vous pouvez transformer vos applications grand public
-et professionnelles en applications modernes fiables, personnalisées et hautes performances avec des contenus bénéficiant d’une
-audience mondiale par le biais d’Azure.
-
 Le connecteur de supervision Centreon *Azure Front Door* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
-Front Door. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
-
+Front Door. Il est possible d'utiliser les 2 modes proposés par Microsoft : RestAPI ou Azure CLI.
 
 ## Dépendances du connecteur de supervision
 
