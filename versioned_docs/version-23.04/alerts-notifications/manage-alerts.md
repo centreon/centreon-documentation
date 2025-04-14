@@ -180,7 +180,7 @@ notifications from 20h00 to midnight.
 
 > The Downtime periods are taken into account in the calculation of the
 > availability ratio of the resource in the
-> **[Dashboard](availability.md)**.
+> **[availability report](availability.md)**.
 
 ### Practice
 
