@@ -5,11 +5,6 @@ title: Azure Firewall
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources.
-It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.
-
 The Centreon Monitoring Connector *Azure Firewall* can rely on Azure API or Azure CLI to collect the metrics related to the
 Firewall service.
 
