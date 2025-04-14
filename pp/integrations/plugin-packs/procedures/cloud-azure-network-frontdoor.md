@@ -5,12 +5,6 @@ title: Azure Front Door
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Azure Front Door is a global, scalable entry-point that uses the Microsoft global edge network to create fast, secure, and
-widely scalable web applications. With Front Door, you can transform your global consumer and enterprise applications into
-robust, high-performing personalized modern applications with contents that reach a global audience through Azure.
-
 The Centreon Monitoring Connector *Azure Front Door* can rely on Azure API or Azure CLI to collect the metrics related to the
 Front Door service.
 
