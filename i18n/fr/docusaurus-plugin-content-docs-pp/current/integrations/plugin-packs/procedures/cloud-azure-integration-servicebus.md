@@ -7,7 +7,6 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Microsoft Azure Service Bus est un répartiteur de messages d’entreprise complètement managé, avec des files d’attente de messages
 et des rubriques de publication/abonnement. Service Bus est utilisé pour découpler les applications et les services les uns des
 autres pour offrir les avantages suivants :
 * Travail d’équilibrage de charge entre les workers concurrents
