@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 | Health             | Cloud-Azure-Network-VpnGateway-Health-Api-custom             | Contrôle le statut de la passerelle VPN                   |
 | Site-Traffic       | Cloud-Azure-Network-VpnGateway-Site-Traffic-Api-custom       | Contrôle le trafic entrant et sortant du site             |
 | Tunnel-Traffic     | Cloud-Azure-Network-VpnGateway-Tunnel-Traffic-Api-custom     | Contrôle le trafic entrant et sortant du tunnel           |
-| Vpn-Gateway-Status | Cloud-Azure-Network-VpnGateway-Vpn-Gateway-Status-Api-custom | Contrôle le statut du provisionement de la passerelle VPN |
+| Vpn-Gateway-Status | Cloud-Azure-Network-VpnGateway-Vpn-Gateway-Status-Api-custom | Contrôle le statut du provisionnement de la passerelle VPN |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-Network-VpnGateway-custom** est utilisé.
 
@@ -304,7 +304,6 @@ La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: All VPN gateways are ok
-
 ```
 
 ### Diagnostic des erreurs communes

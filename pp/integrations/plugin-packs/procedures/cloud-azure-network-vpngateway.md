@@ -29,7 +29,7 @@ The connector brings the following service templates (sorted by the host templat
 | Health             | Cloud-Azure-Network-VpnGateway-Health-Api-custom             | Check VPN gateway state                   |
 | Site-Traffic       | Cloud-Azure-Network-VpnGateway-Site-Traffic-Api-custom       | Check inbound and outbound site traffic   |
 | Tunnel-Traffic     | Cloud-Azure-Network-VpnGateway-Tunnel-Traffic-Api-custom     | Check inbound and outbound tunnel traffic |
-| Vpn-Gateway-Status | Cloud-Azure-Network-VpnGateway-Vpn-Gateway-Status-Api-custom | Check VPN gateway provisionning status    |
+| Vpn-Gateway-Status | Cloud-Azure-Network-VpnGateway-Vpn-Gateway-Status-Api-custom | Check VPN gateway provisioning status    |
 
 > The services listed above are created automatically when the **Cloud-Azure-Network-VpnGateway-custom** host template is used.
 
