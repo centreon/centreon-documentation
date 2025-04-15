@@ -263,6 +263,7 @@ is able to monitor an Azure Instance using a command like this one (replace the 
 	--subscription='xxxxxxxx' \
 	--tenant='xxxxxxxx' \
 	--client-id='xxxxxxxx' \
+	--client-secret='xxxxxxxx' \
 	--proxyurl=''  \
 	--filter-metric='' \
 	--filter-dimension='' \
