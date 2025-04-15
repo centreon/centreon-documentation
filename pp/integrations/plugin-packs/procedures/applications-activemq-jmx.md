@@ -7,15 +7,15 @@ import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Activemq JMX** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+The following monitoring connectors will be installed when you install the **ActiveMQ JMX** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
 
 ### Templates
 
-The Monitoring Connector **Activemq JMX** brings a host template:
+The Monitoring Connector **ActiveMQ JMX** brings a host template:
 
 * **App-Activemq-JMX-custom**
 
@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                | Service Description                              | Discovery  |
 |:--------------|:--------------------------------|:-------------------------------------------------|:----------:|
-| Brokers       | App-Activemq-JMX-Brokers-custom | Check ActiveMQ brokers in JMX with Jolokia agent | X          |
+| Brokers       | App-Activemq-JMX-Brokers-custom | Check ActiveMQ brokers in JMX with the Jolokia agent | X          |
 
 > The services listed above are created automatically when the **App-Activemq-JMX-custom** host template is used.
 
@@ -41,7 +41,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                     | Description              |
 |:------------------------------|:-------------------------|
-| App-Activemq-Jmx-Brokers-Name | Discover ActiveMQ Broker |
+| App-Activemq-Jmx-Brokers-Name | Discover ActiveMQ Brokers |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -67,7 +67,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### ActiveMQ configuration
 
-ActiveMQ provides a Jolokia RestAPI reachable on http://*server_name*:8161/api/jolokia
+ActiveMQ provides a Jolokia RestAPI reachable on `http://*server_name*:8161/api/jolokia`.
 More information on how to set up and configure the ActiveMQ RestAPI can be found in the official documentation: https://activemq.apache.org/rest
 
 ## Installing the monitoring connector
@@ -76,7 +76,7 @@ More information on how to set up and configure the ActiveMQ RestAPI can be foun
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -112,7 +112,7 @@ yum install centreon-pack-applications-activemq-jmx
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Activemq JMX** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
