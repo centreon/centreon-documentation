@@ -263,7 +263,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--selenium-port='4444' \
 	--browser='*firefox' \
 	--directory='/var/lib/centreon\_waa'  \
-	--scenario='' \
+	--scenario='XXXX' \
 	--timeout='50' \
 	--action-timeout='10' \
 	--warning-state='' \
