@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                                   | Service Description    |
 |:--------------|:---------------------------------------------------|:-----------------------|
 | Cpu           | Cloud-Gcp-Compute-ComputeEngine-Cpu-Api-custom     | Check CPU usage        |
-| Diskio        | Cloud-Gcp-Compute-ComputeEngine-Diskio-Api-custom  | Check disks I/Os usage |
+| Diskio        | Cloud-Gcp-Compute-ComputeEngine-Diskio-Api-custom  | Check disk I/Os usage |
 | Network       | Cloud-Gcp-Compute-ComputeEngine-Network-Api-custom | Check network usage    |
 
 > The services listed above are created automatically when the **Cloud-Gcp-Compute-ComputeEngine-custom** host template is used.
