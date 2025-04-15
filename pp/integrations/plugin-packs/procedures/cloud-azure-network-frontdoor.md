@@ -33,7 +33,7 @@ The connector brings the following service templates (sorted by the host templat
 | Health         | Cloud-Azure-Network-FrontDoor-Health-Api-custom         | Check Azure Front Door health         |
 | Latency        | Cloud-Azure-Network-FrontDoor-Latency-Api-custom        | Check Azure Front Door latency        |
 | Requests       | Cloud-Azure-Network-FrontDoor-Requests-Api-custom       | Check Azure Front Door requests       |
-| Size           | Cloud-Azure-Network-FrontDoor-Size-Api-custom           | Check Azure Front Door packets size   |
+| Size           | Cloud-Azure-Network-FrontDoor-Size-Api-custom           | Check Azure Front Door packet size   |
 
 > The services listed above are created automatically when the **Cloud-Azure-Network-FrontDoor-custom** host template is used.
 

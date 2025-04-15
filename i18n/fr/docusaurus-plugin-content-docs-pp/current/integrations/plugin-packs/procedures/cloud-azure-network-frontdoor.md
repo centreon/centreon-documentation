@@ -5,7 +5,7 @@ title: Azure Front Door
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Le connecteur de supervision Centreon *Azure Front Door* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon *Azure Front Door* s'appuie sur les API Azure Monitor afin de récupérer les métriques relatives au service
 Front Door. Il est possible d'utiliser les 2 modes proposés par Microsoft : RestAPI ou Azure CLI.
 
 ## Dépendances du connecteur de supervision
@@ -346,7 +346,6 @@ La commande devrait retourner un message de sortie similaire à :
 ```bash
 OK: Instance 'FRT001ABCD' Statistic 'average' Metrics Total Latency: 24.31ms, Backend Request Latency: 17.46ms |
 'FRT001ABCD~average#frontdoor.latency.total.milliseconds'=24.31ms;0:800;0:900;0; 'FRT001ABCD~average#frontdoor.latency.backend.milliseconds'=17.46ms;;;0;
-
 ```
 
 ### Diagnostic des erreurs communes
