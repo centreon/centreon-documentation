@@ -5,11 +5,10 @@ title: Azure InsightsMetrics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
 
-Le Pack Centreon *Azure InsightsMetrics* permet de superviser des métriques additionelles relatives aux resources Azure. Pour cela,
-elle se base sur l'API *LogAnalytics* d'Azure et exécutes des requêtes KustoQL sur la base de données InsightsMetrics.
-Ce Pack permet par exemple de récupérer et de superviser les indicateurs système (CPU, mémoire, disques...) de Virtual Machines directement sur Azure.
+Le connecteur **Azure InsightsMetrics** permet de superviser des métriques additionnelles relatives aux ressources Azure. Pour cela,
+elle se base sur l'API *LogAnalytics* d'Azure et exécute des requêtes KustoQL sur la base de données InsightsMetrics.
+Ce connecteur permet par exemple de récupérer et de superviser les indicateurs système (CPU, mémoire, disques...) de Virtual Machines directement sur Azure.
 
 ## Dépendances du connecteur de supervision
 
