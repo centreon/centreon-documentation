@@ -60,6 +60,26 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | *brokers*~broker.store.usage.percentage     | %     |
 | *brokers*~broker.temporary.usage.percentage | %     |
 | *brokers*~broker.memory.usage.percentage    | %     |
+| *brokers*~queue.average.enqueue.time.milliseconds    | ms     |
+| *brokers*~queue.consumers.connected.count    | count     |
+| *brokers*~queue.producers.connected.count   | count     |
+| *brokers*~queue.memory.usage.percentage  | %     |
+| *brokers*~queue.size.count   | count     |
+| *brokers*~queue.messages.enqueued.count   | count     |
+| *brokers*~queue.messages.dequeue.count   | count     |
+| *brokers*~queue.messages.expired.count   | count     |
+| *brokers*~queue.messages.inflighted.count   | count     |
+| *brokers*~queue.messages.size.average.bytes   | count     |
+| *brokers*~topic.average.enqueue.time.milliseconds    | ms     |
+| *brokers*~topic.consumers.connected.count    | count     |
+| *brokers*~topic.producers.connected.count   | count     |
+| *brokers*~topic.memory.usage.percentage  | %     |
+| *brokers*~topic.size.count   | count     |
+| *brokers*~topic.messages.enqueued.count   | count     |
+| *brokers*~topic.messages.dequeue.count   | count     |
+| *brokers*~topic.messages.expired.count   | count     |
+| *brokers*~topic.messages.inflighted.count   | count     |
+| *brokers*~topic.messages.size.average.bytes   | count     |
 
 </TabItem>
 </Tabs>
