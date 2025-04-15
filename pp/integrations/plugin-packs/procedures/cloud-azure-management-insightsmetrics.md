@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
+> This Pack is in an experimental state (version 2.x.X).
+
 The Centreon **Azure InsightsMetrics** connector aims to monitor additional indicators that are not available on the Azure Monitor feature.
 For this, it runs KustoQL based queries on the InsightsMetrics database reachable through the Azure LogAnalytics API.
 For example, using this connector will allow you to monitor system indicators of Azure Virtual Machines resources (CPU, memory, disks...).
