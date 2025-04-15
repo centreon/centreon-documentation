@@ -5,6 +5,9 @@ title: Azure InsightsMetrics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Vue d'ensemble
+
+> Ce Pack est fourni à titre expérimental (version 2.x.x).
 
 Le connecteur **Azure InsightsMetrics** permet de superviser des métriques additionnelles relatives aux ressources Azure. Pour cela,
 elle se base sur l'API *LogAnalytics* d'Azure et exécute des requêtes KustoQL sur la base de données InsightsMetrics.
@@ -339,7 +342,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All logical disks are ok | 'computer~disk_name1#azure.insights.logicaldisk.used.bytes'=89131B;;;0; 'computer~disk_name2#azure.insights.logicaldisk.used.bytes'=10393B;;;0; 'computer~disk_name1#azure.insights.logicaldisk.used.percentage'=425%;;;0;100 'computer~disk_name2#azure.insights.logicaldisk.used.percentage'=59588%;;;0;100 'computer~disk_name1#azure.insights.logicaldisk.free.percentage'=22084%;;;0;100 'computer~disk_name2#azure.insights.logicaldisk.free.percentage'=65395%;;;0;100 'computer~disk_name1#azure.insights.logicaldisks.io.readspersecond'=62496;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.readspersecond'=2683;;;0; 'computer~disk_name1#azure.insights.logicaldisks.io.readbytespersecond'=79647B/s;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.readbytespersecond'=49971B/s;;;0; 'computer~disk_name1#azure.insights.logicaldisks.io.writespersecond'=47277;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.writespersecond'=59012;;;0; 'computer~disk_name1#azure.insights.logicaldisks.io.writebytespersecond'=82857B/s;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.writebytespersecond'=76189B/s;;;0; 'computer~disk_name1#azure.insights.logicaldisks.io.transferspersecond'=53698;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.transferspersecond'=58393;;;0;
+OK: All logical disks are ok | 'computer~disk_name1#azure.insights.logicaldisk.used.bytes'=89131B;;;0; 'computer~disk_name2#azure.insights.logicaldisk.used.bytes'=10393B;;;0; 'computer~disk_name1#azure.insights.logicaldisk.used.percentage'=425%;0:90;0:95;0;100 'computer~disk_name2#azure.insights.logicaldisk.used.percentage'=59588%;0:90;0:95;0;100 'computer~disk_name1#azure.insights.logicaldisk.free.percentage'=22084%;;;0;100 'computer~disk_name2#azure.insights.logicaldisk.free.percentage'=65395%;;;0;100 'computer~disk_name1#azure.insights.logicaldisks.io.readspersecond'=62496;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.readspersecond'=2683;;;0; 'computer~disk_name1#azure.insights.logicaldisks.io.readbytespersecond'=79647B/s;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.readbytespersecond'=49971B/s;;;0; 'computer~disk_name1#azure.insights.logicaldisks.io.writespersecond'=47277;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.writespersecond'=59012;;;0; 'computer~disk_name1#azure.insights.logicaldisks.io.writebytespersecond'=82857B/s;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.writebytespersecond'=76189B/s;;;0; 'computer~disk_name1#azure.insights.logicaldisks.io.transferspersecond'=53698;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.transferspersecond'=58393;;;0;
 ```
 
 ### Diagnostic des erreurs communes
