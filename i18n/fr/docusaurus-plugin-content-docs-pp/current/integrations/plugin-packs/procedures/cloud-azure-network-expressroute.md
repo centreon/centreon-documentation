@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias          | Modèle de service                                          | Description                                       |
 |:---------------|:-----------------------------------------------------------|:--------------------------------------------------|
 | Circuit-Status | Cloud-Azure-Network-ExpressRoute-Circuit-Status-Api-custom | Contrôle l'état du circuit                        |
-| Health         | Cloud-Azure-Network-ExpressRoute-Health-Api-custom         | Contrôle le statut du circuit                     |
+| Health         | Cloud-Azure-Network-ExpressRoute-Health-Api-custom         | Contrôle l'état de santé du circuit ExpressRoute                     |
 | Traffic        | Cloud-Azure-Network-ExpressRoute-Traffic-Api-custom        | Contrôle le traffic entrant et sortant du circuit |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-Network-ExpressRoute-custom** est utilisé.
