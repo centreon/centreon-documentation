@@ -182,8 +182,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--custommode='tcp' \
 	--hostname='www.google.com' \
 	--port=443 \
-	--warning-status='%{expiration\} < 60' \
-	--critical-status='%{expiration\} < 30'
+	--warning-status='%\{expiration\} < 60' \
+	--critical-status='%\{expiration\} < 30'
 ```
 
 The expected command output is shown below:

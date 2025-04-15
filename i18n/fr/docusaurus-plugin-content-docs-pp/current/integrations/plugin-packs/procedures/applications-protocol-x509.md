@@ -182,8 +182,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--custommode='tcp' \
 	--hostname='www.google.com' \
 	--port=443 \
-	--warning-status='%{expiration\} < 60' \
-	--critical-status='%{expiration\} < 30'
+	--warning-status='%\{expiration\} < 60' \
+	--critical-status='%\{expiration\} < 30'
 ```
 
 La commande devrait retourner un message de sortie similaire à :
