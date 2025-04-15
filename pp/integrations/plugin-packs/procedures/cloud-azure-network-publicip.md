@@ -5,11 +5,6 @@ title: Azure Public IP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Public IP addresses enable Azure resources to communicate to Internet and public-facing Azure services. The address is dedicated
-to the resource, until it's unassigned by you. A resource without a public IP assigned can communicate outbound. Azure dynamically
-assigns an available IP address that isn't dedicated to the resource.
 
 The Centreon **Azure Public IP** Monitoring Connector can rely on Azure API or Azure CLI to collect the metrics related to the
 Public IP service.
@@ -264,12 +259,12 @@ is able to monitor an Azure Instance using a command like this one (replace the 
 	--plugin=cloud::azure::network::publicip::plugin \
 	--mode=status \
 	--custommode='api' \
-	--resource='' \
+	--resource='XXXX' \
 	--resource-group='' \
-	--subscription='' \
-	--tenant='' \
-	--client-id='' \
-	--client-secret='' \
+	--subscription='XXXX' \
+	--tenant='XXXX' \
+	--client-id='XXXX' \
+	--client-secret='XXXX' \
 	--proxyurl=''   \
 	--timeframe='900' \
 	--interval='PT5M'  \
@@ -285,6 +280,11 @@ The expected command output is shown below:
 OK: Public IP instance 'IPA001ABCD', IP: 1.2.3.4 (IPv4) current DDOS status: "OK", current provisioning state: "Succeeded" |
 
 ```
+
+The calculated status would be based on the worst status collected of a 900 secondes / 15 min period (```--timeframe='900'```) sample where a status would be fetched every 5 minutes (```--interval='PT5M'```).
+This command would trigger a CRITICAL alarm in the following cases:
+* The operational status of the resource is *Failed* (```--critical-provisioning-state='%{state} =~ /Failed/i'```)
+* a DDOS attack on the Public IP is ongoing (```--critical-ddos-status='%{status} =~ /DDOS Attack ongoing/i'```)
 
 ### Troubleshooting
 

@@ -5,9 +5,6 @@ title: Azure Public IP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Les adresses IP publiques permettent aux ressources Azure de communiquer avec Internet et les services Azure publics. L’adresse
-est dédiée à la ressource jusqu’à ce que vous annuliez son attribution. Une ressource sans adresse IP publique attribuée peut
-établir une communication sortante. Azure attribue dynamiquement une adresse IP disponible qui n’est pas dédiée à la ressource.
 
 Le connecteur de supervision Centreon *Azure Public IP* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Public IP. Il est possible d'utiliser les 2 modes proposés par Microsoft : RestAPI ou Azure CLI.
@@ -263,12 +260,12 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=cloud::azure::network::publicip::plugin \
 	--mode=status \
 	--custommode='api' \
-	--resource='' \
+	--resource='XXXX' \
 	--resource-group='' \
-	--subscription='' \
-	--tenant='' \
-	--client-id='' \
-	--client-secret='' \
+	--subscription='XXXX' \
+	--tenant='XXXX' \
+	--client-id='XXXX' \
+	--client-secret='XXXX' \
 	--proxyurl=''   \
 	--timeframe='900' \
 	--interval='PT5M'  \
@@ -284,6 +281,11 @@ La commande devrait retourner un message de sortie similaire à :
 OK: Public IP instance 'IPA001ABCD', IP: 1.2.3.4 (IPv4) current DDOS status: "OK", current provisioning state: "Succeeded" |
 
 ```
+
+Les statuts caculés se baseront sur les valeurs maximales d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (```--timeframe='900'```) avec un état retourné par tranche de 5 minutes (```--interval='PT5M'```).
+Dans cette exemple, des alarmes de type CRITICAL seront déclenchées dans les cas suivants:
+* l'état opérationnel de la resource est retournée comme *Failed* (```--critical-provisioning-state='%{state} =~ /Failed/i'```)
+* une attaque DDOS est en cours vers la resource (```--critical-ddos-status='%{status} =~ /DDOS Attack ongoing/i'```)
 
 ### Diagnostic des erreurs communes
 
