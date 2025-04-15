@@ -10,7 +10,7 @@ est dédiée à la ressource jusqu’à ce que vous annuliez son attribution. Un
 établir une communication sortante. Azure attribue dynamiquement une adresse IP disponible qui n’est pas dédiée à la ressource.
 
 Le connecteur de supervision Centreon *Azure Public IP* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
-Public IP. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
+Public IP. Il est possible d'utiliser les 2 modes proposés par Microsoft : RestAPI ou Azure CLI.
 
 ## Dépendances du connecteur de supervision
 

@@ -11,7 +11,7 @@ Public IP addresses enable Azure resources to communicate to Internet and public
 to the resource, until it's unassigned by you. A resource without a public IP assigned can communicate outbound. Azure dynamically
 assigns an available IP address that isn't dedicated to the resource.
 
-The Centreon Monitoring Connector *Azure Public IP* can rely on Azure API or Azure CLI to collect the metrics related to the
+The Centreon **Azure Public IP** Monitoring Connector can rely on Azure API or Azure CLI to collect the metrics related to the
 Public IP service.
 
 
