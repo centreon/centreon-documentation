@@ -51,10 +51,7 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="HW-Server-Sun-Ilom-IPMITOOL-custom" label="HW-Server-Sun-Ilom-IPMITOOL-custom">
 
-| Alias | Modèle de service | Description |
-|:------|:------------------|:------------|
-
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Sun-Ilom-IPMITOOL-custom** est utilisé.
+Ce modèle d'hôte n'est associé à aucun modèle de service.
 
 </TabItem>
 <TabItem value="HW-Server-Sun-Ilom-SSH-custom" label="HW-Server-Sun-Ilom-SSH-custom">
@@ -77,10 +74,7 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="HW-Server-Sun-Sf2xx-TELNET-custom" label="HW-Server-Sun-Sf2xx-TELNET-custom">
 
-| Alias    | Modèle de service                               | Description                                                            |
-|:---------|:------------------------------------------------|:-----------------------------------------------------------------------|
-
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Sun-Sf2xx-TELNET-custom** est utilisé.
+Ce modèle d'hôte n'est associé à aucun modèle de service.
 
 </TabItem>
 <TabItem value="HW-Server-Sun-Sfxxxx-TELNET-custom" label="HW-Server-Sun-Sfxxxx-TELNET-custom">
