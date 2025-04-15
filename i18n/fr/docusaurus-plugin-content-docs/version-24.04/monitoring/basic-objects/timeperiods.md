@@ -20,7 +20,7 @@ Pour configurer des périodes temporelles, allez à la page : **Configuration > 
     - Ces définitions seront appliquées chaque semaine, indéfiniment.
     - Si vous laissez un jour vide, il n'y aura pas de supervision ce jour-là pour les actions rattachées à cette période temporelle.
 
-3. Utilisez [l'onglet **Période d'exception**](#onglet-période-dexception) pour exclure d'une période temporelle des jours en feraient normalement partie.
+3. Utilisez [l'onglet **Période d'exception**](#onglet-période-dexception) pour exclure d'une période temporelle des jours qui en feraient normalement partie.
 
 4. Une fois la période temporelle définie, vous pouvez l'utiliser :
 
@@ -47,9 +47,9 @@ Quelques exemples :
 
 ### Modèles de période temporelle
 
-La fonctionnalité modéles de période temporelle peut être utilisée lors de la configuration de toute période temporelle. Elle permet de selectionner des périodes antérieurement configurées pour les combiner avec celle que vous êtes en train de modifier. Vous pouvez sélectionner autant de périodes temporelles que vous le souhaitez, il est possible de configurer une période temporelle qu'en combinant des modèles d'autres période temporelles.
+La fonctionnalité modèles de période temporelle peut être utilisée lors de la configuration de toute période temporelle. Elle permet de sélectionner des périodes antérieurement configurées pour les combiner avec celle que vous êtes en train de modifier. Vous pouvez sélectionner autant de périodes temporelles que vous le souhaitez, il est possible de configurer une période temporelle qu'en combinant des modèles d'autres période temporelles.
 
-Les modèles de périodes temporelles priorisent remplir les plages horaires vides. Si vous combinez un période temporelle qui exclut les dimanches avec une période qui les inclut, les dimanches seront  donc inclus. Les périodes d'exception décrites ci-dessous prévalent sur ces configurations.
+Les modèles de périodes temporelles priorisent remplir les plages horaires vides. Si vous combinez une période temporelle qui exclut les dimanches avec une période qui les inclut, les dimanches seront donc inclus. Les périodes d'exception décrites ci-dessous prévalent sur ces configurations.
 
 ### Onglet Période d'exception
 
