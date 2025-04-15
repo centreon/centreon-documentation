@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias  | Service Template                                           | Service Description                        |
 |:---------------|:-----------------------------------------------------------|:-------------------------------------------|
 | Circuit-Status | Cloud-Azure-Network-ExpressRoute-Circuit-Status-Api-custom | Check circuit status                       |
-| Health         | Cloud-Azure-Network-ExpressRoute-Health-Api-custom         | Check circuit state                        |
+| Health         | Cloud-Azure-Network-ExpressRoute-Health-Api-custom         | Check ExpressRoute circuit health status                        |
 | Traffic        | Cloud-Azure-Network-ExpressRoute-Traffic-Api-custom        | Check circuit inbound and outbound traffic |
 
 > The services listed above are created automatically when the **Cloud-Azure-Network-ExpressRoute-custom** host template is used.
