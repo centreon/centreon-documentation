@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Selenium** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias             | Modèle de service                    | Description                                                                                                                                                                         |
 |:------------------|:-------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Scenario-Selenium | App-Selenium-Scenario-Katalon-custom | Contrôle permettant d'exécuter un scénario Selenium et de récupérer son temps d'exécution (scenario se basant sur le plugin navigateur Katalon Automation Recorder avec export XML) |
+| Scenario-Selenium | App-Selenium-Scenario-Katalon-custom | Contrôle permettant d'exécuter un scénario Selenium et de récupérer son temps d'exécution (scénario se basant sur le plugin navigateur Katalon Automation Recorder avec export XML) |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Selenium-Katalon-custom** est utilisé.
 
@@ -85,7 +85,7 @@ modifier le port par défaut dans le modèle d'hôte) depuis le collecteur Centr
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -122,7 +122,7 @@ yum install centreon-pack-applications-selenium
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Selenium**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -182,7 +182,7 @@ yum install centreon-plugin-Applications-Selenium
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
 | SELENIUMHOSTNAME  | IP Addr/FQDN of the Selenium server                                                                                                                |                        |             |
 | SELENIUMPORT      | Port used by Selenium server                                                                                                                       | 4444                   |             |
-| SCENARIODIRECTORY | Directory where scenarii are stored                                                                                                                | /var/lib/centreon\_waa |             |
+| SCENARIODIRECTORY | Directory where scenarios are stored                                                                                                                | /var/lib/centreon\_waa |             |
 | SELENIUMBROWSER   | Browser used by Selenium server                                                                                                                    | *firefox               |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                        |             |
 
@@ -199,7 +199,7 @@ yum install centreon-plugin-Applications-Selenium
 | Macro        | Description                         | Valeur par défaut      | Obligatoire |
 |:-------------|:------------------------------------|:-----------------------|:-----------:|
 | SELENIUMPORT | Port used by Selenium server        | 4444                   |             |
-| SCENARIODIR  | Directory where scenarii are stored | /var/lib/centreon\_waa |             |
+| SCENARIODIR  | Directory where scenarios are stored | /var/lib/centreon\_waa |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -327,7 +327,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --selenium-hostname      |   IP Addr/FQDN of the Selenium server.                                                                                        |
 | --selenium-port          |   Port used by Selenium server.                                                                                               |
 | --browser                |   Browser used by Selenium server (default : '*firefox').                                                                     |
-| --directory              |   Directory where scenarii are stored.                                                                                        |
+| --directory              |   Directory where scenarios are stored.                                                                                        |
 | --scenario               |   Scenario to play (without extension).                                                                                       |
 | --timeout                |   Set scenario execution timeout in second (default: 50).                                                                     |
 | --warning                |   Warning threshold in seconds (scenario execution time)                                                                      |

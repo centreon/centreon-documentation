@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Selenium** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias     | Service Template                     | Service Description                                                                                                                                           |
 |:------------------|:-------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Scenario-Selenium | App-Selenium-Scenario-Katalon-custom | Check to execute remotely Selenium scenario and measure execution time (scenario based on the Katalon Automation Recorder web browser plugin with XML export) |
+| Scenario-Selenium | App-Selenium-Scenario-Katalon-custom | Check to execute remotely a Selenium scenario and measure execution time (scenario based on the Katalon Automation Recorder web browser plugin with XML export) |
 
 > The services listed above are created automatically when the **App-Selenium-Katalon-custom** host template is used.
 
@@ -36,7 +36,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias     | Service Template                 | Service Description                                                                                                                                           |
 |:------------------|:---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Scenario-Selenium | App-Selenium-Scenario-WAA-custom | Check to execute remotely Selenium scenario and measure execution time                                                                                        |
+| Scenario-Selenium | App-Selenium-Scenario-WAA-custom | Check to execute remotely a Selenium scenario and measure execution time                                                                                        |
 
 > The services listed above are created automatically when the **App-Selenium-WAA-custom** host template is used.
 
@@ -85,7 +85,7 @@ The target Selenium server must be reachable from the Centreon poller on the 444
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -121,7 +121,7 @@ yum install centreon-pack-applications-selenium
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Selenium** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -183,7 +183,7 @@ yum install centreon-plugin-Applications-Selenium
 |:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:---------:|
 | SELENIUMHOSTNAME  | IP Addr/FQDN of the Selenium server                                                                                                      |                        |           |
 | SELENIUMPORT      | Port used by Selenium server                                                                                                             | 4444                   |           |
-| SCENARIODIRECTORY | Directory where scenarii are stored                                                                                                      | /var/lib/centreon\_waa |           |
+| SCENARIODIRECTORY | Directory where scenarios are stored                                                                                                      | /var/lib/centreon\_waa |           |
 | SELENIUMBROWSER   | Browser used by Selenium server                                                                                                          | *firefox               |           |
 | EXTRAOPTIONS      | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                        |           |
 
@@ -200,7 +200,7 @@ yum install centreon-plugin-Applications-Selenium
 | Macro        | Description                         | Default value          | Mandatory |
 |:-------------|:------------------------------------|:-----------------------|:---------:|
 | SELENIUMPORT | Port used by Selenium server        | 4444                   |           |
-| SCENARIODIR  | Directory where scenarii are stored | /var/lib/centreon\_waa |           |
+| SCENARIODIR  | Directory where scenarios are stored | /var/lib/centreon\_waa |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -326,7 +326,7 @@ All available options for each service template are listed below:
 | --selenium-hostname      |   IP Addr/FQDN of the Selenium server.                                                                                        |
 | --selenium-port          |   Port used by Selenium server.                                                                                               |
 | --browser                |   Browser used by Selenium server (default : '*firefox').                                                                     |
-| --directory              |   Directory where scenarii are stored.                                                                                        |
+| --directory              |   Directory where scenarios are stored.                                                                                        |
 | --scenario               |   Scenario to play (without extension).                                                                                       |
 | --timeout                |   Set scenario execution timeout in second (default: 50).                                                                     |
 | --warning                |   Warning threshold in seconds (scenario execution time)                                                                      |
