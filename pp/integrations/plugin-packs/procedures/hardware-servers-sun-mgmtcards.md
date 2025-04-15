@@ -50,10 +50,7 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="HW-Server-Sun-Ilom-IPMITOOL-custom" label="HW-Server-Sun-Ilom-IPMITOOL-custom">
 
-| Service Alias | Service Template  | Service Description |
-|:--------------|:------------------|:--------------------|
-
-> The services listed above are created automatically when the **HW-Server-Sun-Ilom-IPMITOOL-custom** host template is used.
+This host template is not linked to any service template.
 
 </TabItem>
 <TabItem value="HW-Server-Sun-Ilom-SSH-custom" label="HW-Server-Sun-Ilom-SSH-custom">
@@ -76,10 +73,7 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="HW-Server-Sun-Sf2xx-TELNET-custom" label="HW-Server-Sun-Sf2xx-TELNET-custom">
 
-| Service Alias | Service Template                                | Service Description                                                  |
-|:--------------|:------------------------------------------------|:---------------------------------------------------------------------|
-
-> The services listed above are created automatically when the **HW-Server-Sun-Sf2xx-TELNET-custom** host template is used.
+This host template is not linked to any service template.
 
 </TabItem>
 <TabItem value="HW-Server-Sun-Sfxxxx-TELNET-custom" label="HW-Server-Sun-Sfxxxx-TELNET-custom">
