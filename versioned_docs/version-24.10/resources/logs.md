@@ -14,12 +14,12 @@ import TabItem from '@theme/TabItem';
 |                                   |                                  |/var/log/centreon-broker/central-broker-master.log|Real-time menus are not updated                                                                                                   |
 |                                   |                                  |/var/log/centreon-broker/central-rrd-master.log   |Performance graphs are not up to date                                                                                             |
 |User access rights (ACL)           |centACL.php cron                  |/var/log/centreon/centAcl.log                     |Incorrect ACLs                                                                                                                    |
-|Gorgone                            |gorgoned                          |/var/log/centreon-gorgone/gorgoned.log            |Actions are not triggered: acknoledgements, downtime, forced checks, autodiscovery The configuration is not updated on the pollers|
+|Gorgone                            |gorgoned                          |/var/log/centreon-gorgone/gorgoned.log            |Actions are not triggered: acknowledgements, downtime, forced checks, autodiscovery The configuration is not updated on the pollers|
 |Backups                            |centreon-backup.pl cron           |/var/log/centreon/centreon-backup.log             |Problems with backups of Centreon                                                                                                 |
 |Recurring downtimes                |downtimeManager.php cron          |/var/log/centreon/downtimeManager.log             |No recurrent downtimes are sent to the pollers                                                                                    |
 |Telemetry data (CEIP)              |centreon-send-stats.php cron      |/var/log/centreon/statistics.log                  |Error when connecting to the Centreon API that sends CEIP data                                                                    |
 |Interface and API                  |                                  |/var/log/centreon/centreon-web.log                |All APIs call or errors in forms                                                                                                  |
-|                                   |                                  |/var/log/php-fpm/centreon-error.log               |Black page                                                                                                                        |
+|                                   |                                  |/var/log/php-fpm/centreon-error.log               |Blank page                                                                                                                        |
 |                                   |                                  |/var/log/apache2/*.log                            |Malfunctioning interface                                                                                                          |
 |                                   |                                  |/var/log/httpd/*.log                              |SQL State errors                                                                                                                  |
 |Database                           |                                  |/var/log/centreon/sql-error.log                   |Shows SQL queries that generated errors                                                                                           |
@@ -49,18 +49,18 @@ import TabItem from '@theme/TabItem';
 |                    |                                           |/var/log/centreon-map/centreon-map.log                            |Problems with MAP Legacy                                   |
 |Centreon MBI        |cbis                                       |/var/log/centreon-bi/cbis.out                                     |No reports are generated/no emails sent                    |
 |                    |                                           |/var/log/centreon-bi/cbis.[date].log                              |Problems generating reports                                |
-|                    |cron centreon-bi-backup-web.sh             |/var/log/centreon/centreon-bi-backup-web.log                      |Problems backing up generated reports                      |
-|                    |cron centreon-bi-backup-reporting-server.sh|/var/log/centreon-bi/centreon-bi-backup-reporting-server-db.log   |                                                           |
-|                    |cron centreon-bi-backup-reporting-server.sh|/var/log/centreon-bi/centreon-bi-backup-reporting-server-db.log   |                                                           |
-|                    |cron centreon-bi-backup-reporting-server.sh|/var/log/centreon-bi/centreon-bi-backup-reporting-server-files.log|                                                           |
-|                    |cron centreonBIETL                         |/var/log/centreon-bi/centreonBIETL.log                            |The db-content checks sates that the data is not up to date|
-|                    |cron purgeArchivesFiles.php                |/var/log/centreon/centreon-bi-archive-retention.log               |Problems purging old reports                               |
-|                    |cron dataRetentionManager.pl               |/var/log/centreon-bi/dataRetentionManager.log                     |Problems with retention of ETL data                        |
+|                    | centreon-bi-backup-web.sh cron         |/var/log/centreon/centreon-bi-backup-web.log                      |Problems backing up generated reports                      |
+|                    | centreon-bi-backup-reporting-server.sh cron |/var/log/centreon-bi/centreon-bi-backup-reporting-server-db.log   |  Problems backing up generated reports                                                          |
+|                    | centreon-bi-backup-reporting-server.sh cron |/var/log/centreon-bi/centreon-bi-backup-reporting-server-db.log   |     Problems backing up generated reports                                                       |
+|                    | centreon-bi-backup-reporting-server.sh cron |/var/log/centreon-bi/centreon-bi-backup-reporting-server-files.log|        Problems backing up generated reports                                                    |
+|                    |centreonBIETL cron                     |/var/log/centreon-bi/centreonBIETL.log                            |The db-content checks sates that the data is not up to date|
+|                    | purgeArchivesFiles.php cron               |/var/log/centreon/centreon-bi-archive-retention.log               |Problems purging old reports                               |
+|                    | dataRetentionManager.pl cron             |/var/log/centreon-bi/dataRetentionManager.log                     |Problems with retention of ETL data                        |
 |Centreon BAM        |                                           |/var/log/php-fpm/centreon-error.log                               |The web interface doesn't work                             |
 |                    |                                           |/var/log/centreon-broker/central-broker-master.log                |Inconsistent BA status                                     |
 
 ## Poller
 
-|What do you want to debug?         |Process                           |Log file                                          |Qui ? |Symptoms                                                                                                                          |
+|What do you want to debug?         |Process                           |Log file |  Symptoms                                                                                                                          |
 |--------------------|---------|--------------------------------------------------|---------|
-|Centreon Broker     |         |/var/log/centreon-broker/central-broker-master.log|	        |
+|Centreon Broker     |         |/var/log/centreon-broker/central-broker-master.log|       |
