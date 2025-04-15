@@ -5,10 +5,6 @@ title: Azure API Management
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Azure API Management allows you to create, manage and publish APIs for existing
-back-end services.
 
 ## Connector dependencies
 

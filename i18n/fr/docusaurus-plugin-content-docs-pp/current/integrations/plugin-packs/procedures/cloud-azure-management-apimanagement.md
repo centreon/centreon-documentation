@@ -5,10 +5,6 @@ title: Azure API Management
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Azure API Management (Gestion des API) permet de créer, gérer et publier des API pour
-des services back-ends existants.
 
 ## Dépendances du connecteur de supervision
 
@@ -35,7 +31,7 @@ Le connecteur apporte les modèles de service suivants
 | Capacity         | Cloud-Azure-Management-ApiManagement-Capacity-Api-custom         | Contrôle les statistiques de capacité du service Azure API Management           |
 | Events           | Cloud-Azure-Management-ApiManagement-Events-Api-custom           | Contrôle les évènements EventHub du service Azure API Management                |
 | Request-Duration | Cloud-Azure-Management-ApiManagement-Request-Duration-Api-custom | Contrôle la durée des demandes de la passerelle du service Azure API Management |
-| Total-Requests   | Cloud-Azure-Management-ApiManagement-Total-Requests-Api-custom   | Contrôle les demandes de la passerelle du service Azure API Management           |
+| Total-Requests   | Cloud-Azure-Management-ApiManagement-Total-Requests-Api-custom   | Contrôle les requêtes sur la passerelle du service Azure API Management           |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-Management-ApiManagement-custom** est utilisé.
 
