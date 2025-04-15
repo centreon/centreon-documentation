@@ -293,6 +293,10 @@ La commande devrait retourner un message de sortie similaire à :
 OK: Data processed Throughput | 'firewall.data.processed.bytes'=93076B;;;0; 'firewall.throughput.bitspersecond'=70523b/s;;;0;
 ```
 
+Les statuts caculés se baseront sur les valeurs maximales d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (```--timeframe='900'```) avec un état retourné par tranche de 5 minutes (```--interval='PT5M'```).
+
+Dans cet exemple, une alarme de type WARNING sera déclenchée si le niveau de santé de l'instance pendant l'intervalle donné est inférieur à 100% (```--warning-firewall-health-percentage='100:'```); l'alarme sera de type CRITICAL en dessous de 50% de taux de disponibilité (```--critical-firewall-health-percentage='50:'```).
+
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)

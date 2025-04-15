@@ -294,6 +294,11 @@ The expected command output is shown below:
 OK: Data processed Throughput | 'firewall.data.processed.bytes'=93076B;;;0; 'firewall.throughput.bitspersecond'=70523b/s;;;0;
 ```
 
+The calculated metrics are an average (```--aggregation='average'```) of values on a 900 secondes / 15 min period (```--timeframe='900'```) with one sample per 5 minutes (```--interval='PT5M'```).
+
+This command would trigger a WARNING alarm if the *health* of the Firewall instance is reported as less then 100%
+(```--warning-firewall-health-percentage='100:'```) and a CRITICAL alarm if less than 50% (```--critical-firewall-health-percentage='50:'```).
+
 ### Troubleshooting
 
 Please find the troubleshooting documentation for the API-based plugins in
