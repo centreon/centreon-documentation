@@ -5,10 +5,6 @@ title: Azure Application Insights
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Azure Applications Insights extends the functionality of Azure Monitor to
-observe applications in real time.
 
 ## Connector dependencies
 

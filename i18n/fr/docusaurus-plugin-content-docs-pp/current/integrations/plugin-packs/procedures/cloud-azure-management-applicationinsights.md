@@ -5,10 +5,6 @@ title: Azure Application Insights
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Azure Applications Insights étend les fonction d'Azure Monitor permettant de
-superviser des applications en temps réel.
 
 ## Dépendances du connecteur de supervision
 
@@ -36,8 +32,8 @@ Le connecteur apporte les modèles de service suivants
 | Browser-Timings | Cloud-Azure-Management-ApplicationInsights-Browser-Timings-Api-custom | Contrôle la synchronisation de l'application supervisée par Azure Applications Insights                                          |
 | Cpu             | Cloud-Azure-Management-ApplicationInsights-Cpu-Api-custom             | Contrôle l'utilisation du processeur de l'application supervisée par Azure Applications Insights                                 |
 | Exceptions      | Cloud-Azure-Management-ApplicationInsights-Exceptions-Api-custom      | Contrôle les exceptions non interceptées de l'application supervisée par Azure Applications Insights                             |
-| External-Calls  | Cloud-Azure-Management-ApplicationInsights-External-Calls-Api-custom  | Contrôle les appels effectués par l'application supervisée par Azure Applications Insightsen direction de ressources extérieures |
-| IO-Operations   | Cloud-Azure-Management-ApplicationInsights-Io-Operations-Api-custom   | Contrôle les opération de lecture/écriture de l'application supervisée par Azure Applications Insights                           |
+| External-Calls  | Cloud-Azure-Management-ApplicationInsights-External-Calls-Api-custom  | Contrôle les appels effectués par l'application supervisée par Azure Applications Insights en direction de ressources extérieures |
+| IO-Operations   | Cloud-Azure-Management-ApplicationInsights-Io-Operations-Api-custom   | Contrôle les opérations de lecture/écriture de l'application supervisée par Azure Applications Insights                           |
 | Memory          | Cloud-Azure-Management-ApplicationInsights-Memory-Api-custom          | Contrôle l'utilisation de la mémoire de l'application supervisée par Azure Applications Insights                                 |
 | Page-Views      | Cloud-Azure-Management-ApplicationInsights-Page-Views-Api-custom      | Contrôle les pages consultées de l'application supervisée par Azure Applications Insights                                        |
 | Requests        | Cloud-Azure-Management-ApplicationInsights-Requests-Api-custom        | Contrôle les requêtes de l'application supervisée par Azure Applications Insights                                               |
