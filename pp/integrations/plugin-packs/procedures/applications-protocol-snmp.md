@@ -97,10 +97,10 @@ No metrics
 
 ### SNMP Configuration
 
-L'agent SNMP doit être activé et configuré sur l'équipement. 
-Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
-Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
-Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
