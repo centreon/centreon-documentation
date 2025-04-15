@@ -185,7 +185,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 ### Configuration SNMP de l'équipement
 
 L'agent SNMP doit être activé et configuré sur le serveur central. 
-Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp.md#prerequisites) pour mettre en place rapidement une simple configuration SNMP.
+Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp.md#prérequis) pour mettre en place rapidement une simple configuration SNMP.
 
 ### Configuration de la connexion SSH sans mot de passe
 
