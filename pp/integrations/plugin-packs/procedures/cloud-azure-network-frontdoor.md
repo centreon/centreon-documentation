@@ -347,6 +347,10 @@ OK: Instance 'FRT001ABCD' Statistic 'average' Metrics Total Latency: 24.31ms, Ba
 
 ```
 
+The calculated metrics are the average values (```--aggregation='Average'```) of a 900 secondes / 15 min period (```--timeframe='900'```) with one sample per 5 minutes (```--interval='PT5M'```).
+
+This command would trigger a WARNING alarm if the *total latency* time is reported as over 800ms (```--warning-total-latency='800'```) and a CRITICAL alarm over 900ms (```--critical-total-latency='900'```).
+
 ### Troubleshooting
 
 Please find the troubleshooting documentation for the API-based plugins in

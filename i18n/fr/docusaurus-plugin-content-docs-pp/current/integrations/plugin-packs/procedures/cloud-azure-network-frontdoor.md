@@ -348,6 +348,12 @@ OK: Instance 'FRT001ABCD' Statistic 'average' Metrics Total Latency: 24.31ms, Ba
 'FRT001ABCD~average#frontdoor.latency.total.milliseconds'=24.31ms;0:800;0:900;0; 'FRT001ABCD~average#frontdoor.latency.backend.milliseconds'=17.46ms;;;0;
 ```
 
+Les statuts caculés se baseront sur les valeurs moyennes d'un échantillon dans un intervalle de 15 minutes / 900 secondes  (```--timeframe='900'```) avec un état retourné par tranche de 5 minutes (```--interval='PT5M'```).
+
+Dans cet exemple, une alarme de type WARNING sera déclenchée si la latence totale pendant l'intervalle donné
+est supérieur à 800ms (```--warning-total-latency='800'```); l'alarme sera de type CRITICAL au-delà de 900ms
+(```--critical-total-latency='900'```).
+
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
