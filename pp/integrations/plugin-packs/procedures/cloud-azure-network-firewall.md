@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 The Centreon Monitoring Connector *Azure Firewall* can rely on Azure API or Azure CLI to collect the metrics related to the
-Firewall service.
+firewall service.
 
 ## Connector dependencies
 

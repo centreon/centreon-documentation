@@ -27,9 +27,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias      | Modèle de service                                  | Description                                                       |
 |:-----------|:---------------------------------------------------|:------------------------------------------------------------------|
-| Health     | Cloud-Azure-Network-Firewall-Health-Api-custom     | Contrôle la santé des resources Azure Firewall                    |
+| Health     | Cloud-Azure-Network-Firewall-Health-Api-custom     | Contrôle la santé des ressources Azure Firewall                    |
 | Hits       | Cloud-Azure-Network-Firewall-Hits-Api-custom       | Contrôle les statistiques des Hits Azure Firewall                 |
-| Throughput | Cloud-Azure-Network-Firewall-Throughput-Api-custom | Contrôle les statistiques de données des resources Azure Firewall |
+| Throughput | Cloud-Azure-Network-Firewall-Throughput-Api-custom | Contrôle les statistiques de données des ressources Azure Firewall |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-Network-Firewall-custom** est utilisé.
 
