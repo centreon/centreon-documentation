@@ -265,7 +265,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--subscription='xxxxxxxx' \
 	--tenant='xxxxxxxx' \
 	--client-id='xxxxxxxx' \
-	--client-secret='' \
+	--client-secret='xxxxxxxx' \
 	--proxyurl=''  \
 	--filter-metric='' \
 	--filter-dimension='' \
