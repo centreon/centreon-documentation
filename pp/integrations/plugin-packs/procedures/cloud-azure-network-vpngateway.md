@@ -210,6 +210,9 @@ yum install centreon-plugin-Cloud-Azure-Network-VpnGateway-Api
 | STATUSWARNING      | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{provisioning\_state\}, %\{gateway\_type\}, %\{vpn\_type\}, %\{display\}                                         |                                |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                               |                                |             |
 
+> Set the following options in the EXTRAOPTIONS macro if you are monitoring resources from Microsoft Azure operated by 21Vianet (Azure China):
+--management-endpoint='https://management.chinacloudapi.cn' --login-endpoint='https://login.partner.microsoftonline.cn'.
+
 > Two methods can be used to define the authentication:
 >
 > * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`) in the **AZURERESOURCE** macro.
