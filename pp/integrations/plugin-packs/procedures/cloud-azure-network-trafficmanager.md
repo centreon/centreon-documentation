@@ -28,7 +28,7 @@ The connector brings the following service templates (sorted by the host templat
 |:----------------|:-------------------------------------------------------------|:---------------------------------------------------------------------------------|
 | Endpoint-Status | Cloud-Azure-Network-TrafficManager-EndpointStatus-Api-custom | Check Endpoints state for an Azure Traffic Manager Profile                       |
 | Health          | Cloud-Azure-Network-TrafficManager-Health-Api-custom         | Check Traffic Manager Profile availability                                       |
-| Queries         | Cloud-Azure-Network-TrafficManager-Queries-Api-custom        | Check queries number per second per Endpoint for a Azure Traffic Manager Profile |
+| Queries         | Cloud-Azure-Network-TrafficManager-Queries-Api-custom        | Check queries number per second per Endpoint for an Azure Traffic Manager Profile |
 
 > The services listed above are created automatically when the **Cloud-Azure-Network-TrafficManager-custom** host template is used.
 
