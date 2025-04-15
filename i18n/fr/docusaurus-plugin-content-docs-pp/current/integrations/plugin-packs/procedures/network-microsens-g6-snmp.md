@@ -165,9 +165,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre équipement, le SNMP v2 ou v3 doit être configuré comme indiqué sur
-la documentation officielle :
-* https://www.microsens.com/fileadmin/files/downloads/Application_notes/AN-16010_Basic_Config_of_G6_Devices_v1.0.1.pdf
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la [documentation officielle](https://www.microsens.com/fileadmin/files/downloads/Application_notes/AN-16010_Basic_Config_of_G6_Devices_v1.0.1.pdf) du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
