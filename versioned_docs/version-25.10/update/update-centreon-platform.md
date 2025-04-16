@@ -16,6 +16,8 @@ servers:
 - central server,
 - database server.
 
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
+
 Remove the debuginfo packages before the procedure unless you have a particular use for them.
 
 <Tabs groupId="sync">
@@ -41,8 +43,6 @@ Remove the debuginfo packages before the procedure unless you have a particular 
 
 </TabItem>
 </Tabs>
-
-If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
 
 ## Update the Centreon central server
 
