@@ -27,7 +27,7 @@ Pour configurer des périodes temporelles, allez à la page : **Configuration > 
     - Dans le champ **Période de contrôle** d'un hôte, d'un modèle d'hôtes, d'un service ou d'un groupe de services.
     - Dans le champ **Période de notification** d'un hôte, d'un modèle d'hôte, d'un service, d'un groupe de services ou d'un contact, ou bien dans le champ **Période d'escalade** d'une escalade de notifications.
 
-Le bouton **Réinitialiser** efface toutes les données non-sauvergardées.
+Le bouton **Réinitialiser** efface toutes les données non sauvegardées.
 
 ### Syntaxe d’une période temporelle
 
