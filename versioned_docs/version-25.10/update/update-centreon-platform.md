@@ -22,8 +22,6 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 ### Update the Centreon solution
 
-Before updating, remove the debuginfo packages before the procedure unless you have a particular use for them.
-
 Make sure all users are logged out from the Centreon web interface before starting the update procedure. 
 
 <Tabs groupId="sync">
@@ -189,8 +187,6 @@ This procedure is the same as to update a Centreon central server.
 > server.
 
 ## Update the Pollers
-
-Before updating, remove the debuginfo packages before the procedure unless you have a particular use for them.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
