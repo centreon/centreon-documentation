@@ -22,7 +22,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 ### Update the Centreon solution
 
-Make sure all users are logged out from the Centreon web interface before starting the update procedure. 
+Make sure all users are logged out from the Centreon web interface before starting the update procedure.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
