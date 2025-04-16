@@ -12,7 +12,7 @@ the Centreon command line API.
 
 ## Permissions
 
-To perform [API calls](#configuration)
+To perform [API calls](#api-calls)
 - The **Configuration API** can only be called by administrators.
 - The [**Realtime API**](#realtime-information) can be called by non-administrator as long as the corresponding field is checked.
 - Administrators are able to call both the **Configuration API** and the [**Realtime API**](#realtime-information) regardless of if the individual field of the api is checked
