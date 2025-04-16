@@ -13,9 +13,9 @@ the Centreon command line API.
 ## Permissions
 
 To perform [API calls](#configuration)
-- Administrators are able to call both the **Configuration API** and the **Realtime API**.
-- Non-administrator users are not able the **Configuration API**.
-- Non-administrator users are able to call the **Realtime API** as long as the corresponding field is checked.
+- The **Configuration API** can only be called by administrators.
+- The [**Realtime API**](#realtime-information) can be called by non-administrator as long as the corresponding field is checked.
+- Administrators are able to call both the **Configuration API** and the [**Realtime API**](#realtime-information) regardless of if the individual field of the api is checked
 
 In all three instances, the corresponding fields can be found in the [**Centreon Authentication**](../monitoring/basic-objects/contacts-create.md#centreon-authentication) tab when configuring a user.
 
@@ -821,7 +821,7 @@ To add more than one parent to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;fw-berlin|fw-dublin"
 
-The add action adds the parent without overwriting he previous configuration.
+The add action adds the parent without overwriting the previous configuration.
 
 #### Set parent
 
@@ -858,7 +858,7 @@ To set more than one parent to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;fw-berlin|fw-dublin"
 
-The set action overwrites the previous configuration before setting the new
+The set action overwrites tthe previous configuration before setting the new
 parent.
 
 #### Delete parent
@@ -967,7 +967,7 @@ To add more than one child to a host, use the character '|'. Example:
 
     "values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
 
-The add action adds the child without overwriting the previous configuration.
+The add action adds the child without overwriting tthe previous configuration.
 
 ### Set child
 
@@ -1005,7 +1005,7 @@ To set more than one child to a host, use the character '|'. Example:
 
     "values": "fw-berlin;mail-uranus-frontend|mail-neptune-frontend"
 
-The set action overwrites the previous configuration before setting the new child.
+The set action overwrites tthe previous configuration before setting the new child.
 
 ### Delete child
 
@@ -1113,7 +1113,7 @@ To add more than one contactgroup to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;Supervisors|Guest"
 
-The add action adds the contact without overwriting he previous configuration.
+The add action adds the contact without overwriting the previous configuration.
 
 #### Set contact group
 
@@ -1150,7 +1150,7 @@ To set more than one contactgroup to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;Supervisors|Guest"
 
-The set action overwrites the previous configuration before setting the new
+The set action overwrites tthe previous configuration before setting the new
 contactgroup.
 
 #### Delete contact group
@@ -1259,7 +1259,7 @@ To add more than one contact to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;admin|SuperAdmin"
 
-The add action adds the contact without overwriting he previous configuration.
+The add action adds the contact without overwriting the previous configuration.
 
 #### Set contact
 
@@ -1296,7 +1296,7 @@ To set more than one contact to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;admin|SuperAdmin"
 
-The set action overwrites the previous configuration before setting the new
+The set action overwrites tthe previous configuration before setting the new
 contact.
 
 #### Delete contact
@@ -1409,7 +1409,7 @@ To add more than one hostgroup to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;Mail-Postfix-Frontend|Linux-Servers"
 
-The add action adds the hostgroup without overwriting he previous configuration.
+The add action adds the hostgroup without overwriting the previous configuration.
 
 #### Set hostgroup
 
@@ -1446,7 +1446,7 @@ To set more than one hostgroup to a host, use the character '|'. Example:
 
     "values": "mail-uranus-frontend;Linux-Servers|Mail-Postfix-Frontend"
 
-The set action overwrites the previous configuration before setting the new
+The set action overwrites tthe previous configuration before setting the new
 hostgroup.
 
 #### Delete hostgroup
