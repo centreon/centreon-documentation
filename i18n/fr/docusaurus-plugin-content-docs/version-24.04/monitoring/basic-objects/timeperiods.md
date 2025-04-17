@@ -20,12 +20,13 @@ Pour configurer des périodes temporelles, allez à la page : **Configuration > 
     - Ces définitions seront appliquées chaque semaine, indéfiniment.
     - Si vous laissez un jour vide, il n'y aura pas de supervision ce jour-là pour les actions rattachées à cette période temporelle.
 
-3. Utilisez [l'onglet **Période d'exception**](#onglet-période-dexception) pour exclure d'une période temporelle des jours qui en feraient normalement partie.
+3. Utilisez [l'onglet **Période d'exception**](#onglet-période-dexception) pour inclure ou exclure d'une période temporelle des jours spécifiques.
 
 4. Une fois la période temporelle définie, vous pouvez l'utiliser :
 
     - Dans le champ **Période de contrôle** d'un hôte, d'un modèle d'hôtes, d'un service ou d'un groupe de services.
     - Dans le champ **Période de notification** d'un hôte, d'un modèle d'hôte, d'un service, d'un groupe de services ou d'un contact, ou bien dans le champ **Période d'escalade** d'une escalade de notifications.
+    - Dans la configuration d'autres périodes temporelles. Toutes les périodes temporelles peuvent être réutilisées avec la fonctionnalité [modèles de période temporelle](#modèles-de-période-temporelle).
 
 Le bouton **Réinitialiser** efface toutes les données non sauvegardées.
 
