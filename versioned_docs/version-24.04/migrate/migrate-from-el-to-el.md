@@ -189,7 +189,7 @@ apt install centreon-plugin-\*
 
 If you are using custom plugins, synchronize the directories that contain your custom plugins, including any necessary dependencies.
 
-Use the following command to synchronize images and/or media between your old server and the new one.
+Use the following command to synchronize images and media between your old server and the new one.
 
 ```shell
 rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img/
