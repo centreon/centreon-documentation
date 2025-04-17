@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 This chapter describes how to update your Centreon 23.10 platform (i.e. switch from version 23.10.x to version 23.10.y).
 
-## Perform a backup
+## Before you update
 
 Make sure that you have fully backed up your environment for the following
 servers:
