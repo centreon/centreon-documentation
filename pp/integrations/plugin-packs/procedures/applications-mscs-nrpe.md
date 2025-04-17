@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Microsoft Cluster Server NSClient++ NRPE** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -47,16 +47,12 @@ Here is the list of services for this connector, detailing all metrics and statu
 |:-------|:------|
 | status | N/A   |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
 </TabItem>
 <TabItem value="Cluster-Node-Status" label="Cluster-Node-Status">
 
 | Name   | Unit  |
 |:-------|:------|
 | status | N/A   |
-
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Cluster-Resouce-Status" label="Cluster-Resouce-Status">
@@ -65,17 +61,12 @@ Here is the list of services for this connector, detailing all metrics and statu
 |:-------|:------|
 | status | N/A   |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
 </TabItem>
 <TabItem value="Cluster-Resoucegroup-Status" label="Cluster-Resoucegroup-Status">
 
 | Name   | Unit  |
 |:-------|:------|
 | status | N/A   |
-| status | N/A   |
-
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 </Tabs>
@@ -132,7 +123,7 @@ yum install centreon-pack-applications-mscs-nrpe
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Microsoft Cluster Server NSClient++ NRPE** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -187,12 +178,12 @@ yum install centreon-nrpe3-plugin
 3. Apply the **App-Mscs-NRPE-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro            | Description                                                                                          | Valeur par défaut     | Obligatoire |
+| Macro            | Description                                                                                          | Default value         | Mandatory   |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
 | NRPEPORT         | Port used to reach the NRPE server                                                                                                     | 5666                  |             |
 | NRPECLIENT       | NRPE Binary used to perform the check                                                                                                     | check\_centreon\_nrpe |             |
 | NRPETIMEOUT      | Timeout to connect to the NRPE Server                                                                                                     | 55                    |             |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                       |             |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                       |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 

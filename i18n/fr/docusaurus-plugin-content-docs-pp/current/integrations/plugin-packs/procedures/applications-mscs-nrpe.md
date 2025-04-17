@@ -48,16 +48,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:-------|:------|
 | status | N/A   |
 
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
-
 </TabItem>
 <TabItem value="Cluster-Node-Status" label="Cluster-Node-Status">
 
 | Nom    | Unité |
 |:-------|:------|
 | status | N/A   |
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Cluster-Resouce-Status" label="Cluster-Resouce-Status">
@@ -66,16 +62,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:-------|:------|
 | status | N/A   |
 
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
-
 </TabItem>
 <TabItem value="Cluster-Resoucegroup-Status" label="Cluster-Resoucegroup-Status">
 
 | Nom    | Unité |
 |:-------|:------|
 | status | N/A   |
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 </Tabs>
