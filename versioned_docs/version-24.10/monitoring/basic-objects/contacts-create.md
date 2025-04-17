@@ -44,7 +44,7 @@ http://[IP_DU_SERVER_CENTRAL]/centreon/main.php?autologin=1&useralias=[login_use
 - The [**Realtime API**](#realtime-information) can be called by non-administrator as long as the corresponding field is checked.
 - Administrators are able to call both the **Configuration API** and the [**Realtime API**](#realtime-information) regardless of if the individual field of the api is checked
 
-In all three instances, the corresponding fields can be found in the [**Centreon Authentication**](../monitoring/basic-objects/contacts-create.md#centreon-authentication) tab when configuring a user.
+In all three instances, the corresponding fields can be found in the [**Centreon Authentication**](#centreon-authentication) tab when configuring a user.
 
 
 
