@@ -44,11 +44,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Sensors-Global" label="Sensors-Global">
 
-| Metric name    | Unit  |
-|:---------------|:------|
-| hardware.sensor.temperature.\<temp_unit\>         | C or F   |
-| hardware.sensor.humidity.percentage | %   |
-| input.status | N/A   |
+| Metric name                               | Unit   |
+|:------------------------------------------|:-------|
+| hardware.sensor.temperature.\<temp_unit\> | C or F |
+| hardware.sensor.humidity.percentage       | %      |
+| input.status                              | N/A    |
 
 </TabItem>
 </Tabs>
@@ -57,9 +57,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Jacarta Sensor**
-server. Please refer to the official documentation from Jacarta Sensor:
-* [Jacarta Sensor](https://www.jacarta.com/support/resources/)
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the [official documentation](https://www.jacarta.com/support/resources/) from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 

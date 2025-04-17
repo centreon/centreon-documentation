@@ -183,7 +183,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP
 
-SNMP must be configured on each poller being monitored. You can refer to this [documentation](operatingsystems-linux-snmp.md#prerequisites) describing how to set up a quick SNMP configuration.
+The SNMP agent must be enabled and configured on each poller being monitored. 
+You can refer to this [documentation](operatingsystems-linux-snmp.md#prerequisites) describing how to set up a quick SNMP configuration.
 
 ### SSH key exchange
 
