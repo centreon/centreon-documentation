@@ -230,7 +230,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: 
+WARNING: Device 'chassis:5/PowerSupply1' status is 'Warning' - Storage 'system:3/NVMe0' status is 'Warning' | 'hardware.chassis.count'=2;;;; 'hardware.device.count'=3;;;; 'hardware.drive.count'=3;;;; 'hardware.storage.count'=3;;;;
 ```
 
 ### Troubleshooting

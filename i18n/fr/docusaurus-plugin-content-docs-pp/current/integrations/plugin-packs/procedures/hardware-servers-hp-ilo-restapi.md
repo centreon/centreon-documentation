@@ -231,7 +231,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: 
+WARNING: Device 'chassis:5/PowerSupply1' status is 'Warning' - Storage 'system:3/NVMe0' status is 'Warning' | 'hardware.chassis.count'=2;;;; 'hardware.device.count'=3;;;; 'hardware.drive.count'=3;;;; 'hardware.storage.count'=3;;;;
 ```
 
 ### Diagnostic des erreurs communes
