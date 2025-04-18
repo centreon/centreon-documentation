@@ -14,7 +14,7 @@ Une période temporelle définit un intervalle de temps pour chacun des jours de
 
 Pour configurer des périodes temporelles, allez à la page : **Configuration > Utilisateurs > Périodes temporelles**.
 
-Le bouton ![image](../assets/monitoring/table_view.gif), situé à droite de la description de chaque période temporelle, permet de visualiser les plages horaires actives.
+Le bouton situé à gauche de la description de chaque période temporelle permet de visualiser les plages horaires actives.
 
 1. Dans les champs **Nom de la période temporelle** et **Alias**, entrez un nom et une description.
 2. Dans la section **Options basiques**, pour chaque jour de la semaine, définissez les plages horaires pendant lesquelles les vérifications et les notifications seront activées, en utilisant la [syntaxe décrite ci-dessous](#syntaxe-dune-période-temporelle). 
@@ -37,8 +37,8 @@ Le bouton **Réinitialiser** efface toutes les données non sauvegardées.
 Les caractères suivants permettent de définir les périodes temporelles :
 
 * Le caractère ”:” sépare les heures des minutes. Exemple : HH:MM
-* Le caractère “-” indique une continuité entre deux horaires
-* Le caractère ”,” permet de séparer deux plages horaires.
+* Le caractère “-” indique une continuité entre deux horaires. Exemple : 9:00-13:00
+* Le caractère ”,” permet de séparer deux plages horaires. Exemple : 9:00-13:00,14:00-17:00
 
 Quelques exemples :
 
@@ -84,7 +84,7 @@ Le tableau ci-dessous présente quelques exemples possibles :
 | day 1 - 20        | 00:00-24:00             | Toute la journée du premier au 20 de chaque mois             |
 | saturday -1       | 08:00-12:00,14:00-18:45 | Tous les derniers samedi du mois les heures ouvrées          |
 | monday -2         | 00:00-24:00             | Tous les avant derniers lundi du mois toute la journée       |
-| june 6 - june 21  | 00:00-00:00             | Ne pas superviser entre le 6 et le 21 juin toute la journée  |
+| june 6 - june 21  | champs laissé vide      | Ne pas superviser entre le 6 et le 21 juin toute la journée  |
 | june 12           | 00:00-08:00,18:00-24:00 | Superviser chaque 12 juin, sauf entre 8h et 18h              |
 
 > Les périodes d'exception ne sont pas prises en compte dans [BAM](../../service-mapping/introduction.md), et dans les rapports concernant BAM dans [MBI](../../reporting/introduction.md).
