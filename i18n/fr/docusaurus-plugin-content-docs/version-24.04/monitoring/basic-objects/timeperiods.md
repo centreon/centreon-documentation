@@ -14,6 +14,8 @@ Une période temporelle définit un intervalle de temps pour chacun des jours de
 
 Pour configurer des périodes temporelles, allez à la page : **Configuration > Utilisateurs > Périodes temporelles**.
 
+Le bouton ![image](../assets/monitoring/table_view.gif), situé à droite de la description de chaque période temporelle, permet de visualiser les plages horaires actives.
+
 1. Dans les champs **Nom de la période temporelle** et **Alias**, entrez un nom et une description.
 2. Dans la section **Options basiques**, pour chaque jour de la semaine, définissez les plages horaires pendant lesquelles les vérifications et les notifications seront activées, en utilisant la [syntaxe décrite ci-dessous](#syntaxe-dune-période-temporelle). 
 
@@ -50,13 +52,13 @@ Quelques exemples :
 
 La fonctionnalité modèles de période temporelle peut être utilisée lors de la configuration de toute période temporelle. 
 Elle permet de sélectionner des périodes antérieurement configurées pour les combiner avec celle que vous êtes en train de modifier. 
-Vous pouvez sélectionner autant de périodes temporelles que vous le souhaitez.
+Vous pouvez sélectionner autant de modèles de périodes temporelles que vous le souhaitez.
 
-Les modèles de périodes temporelles priorisent remplir les plages horaires vides. Si vous combinez une période temporelle qui exclut les dimanches avec une période qui les inclut, les dimanches seront donc inclus. Les périodes d'exception décrites ci-dessous écrasent ces configurations.
+Les modèles de périodes remplissent en priorité les créneaux vides. Par exemple, si une période exclut les dimanches et l’autre les inclut, les dimanches seront finalement inclus.
 
 ### Onglet Période d'exception
 
-L'onglet **Période d'exception** permet d’inclure dans la plage temporelle des jours exceptionnels. Les plages définies ici surchargent la définition du fonctionnement régulier de la journée.
+L'onglet **Période d'exception** permet d’inclure ou d'exclure des jours exceptionnels. Les plages définies ici surchargent la définition du fonctionnement régulier de la journée.
 
 Exemple : Un administrateur souhaite définir une période temporelle qui regroupe les heures de fermeture du bureau, c’est à dire :
 
