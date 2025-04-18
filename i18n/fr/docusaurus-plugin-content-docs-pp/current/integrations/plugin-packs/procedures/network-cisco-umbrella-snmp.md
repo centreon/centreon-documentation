@@ -1,6 +1,6 @@
 ---
 id: network-cisco-umbrella-snmp
-title: Cisco Umbrella
+title: Cisco Umbrella SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Cisco Umbrella** apporte un modèle d'hôte :
+Le connecteur de supervision **Cisco Umbrella SNMP** apporte un modèle d'hôte :
 
 * **Net-Cisco-Umbrella-SNMP-custom**
 
@@ -149,8 +149,10 @@ Centreon vers le serveur supervisé.
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -186,8 +188,8 @@ yum install centreon-pack-network-cisco-umbrella-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Umbrella**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Umbrella SNMP**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -240,7 +242,7 @@ yum install centreon-plugin-Network-Cisco-Umbrella-Snmp
 3. Appliquez le modèle d'hôte **Net-Cisco-Umbrella-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -484,10 +486,10 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Connectivity" label="Connectivity">
 
-| Option       | Description                                                                                                                                                                                                                                          |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-*  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /yellow/'). Can be: 'dns-status', 'localdns-status', 'cloud-status', 'ad-status'.  Can use special variables like: %\{status\}, %\{display\}                        |
-| --critical-* | Define the conditions to match for the status to be CRITICAL. (default: %\{status\} =~ /red/). Can be: 'dns-connectivity', 'localdns-connectivity', 'cloud-connectivity', 'ad-connectivity'.  Can use special variables like: %\{status\}, %\{display\}    |
+| Option       | Description                                                                                                                                                                                                                         |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-*  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /yellow/'). Can be: 'dns-status', 'localdns-status', 'cloud-status', 'ad-status'.  Can use special variables like: %\{status\}, %\{display\} |
+| --critical-* | Define the conditions to match for the status to be CRITICAL. (default: %\{status\} =~ /red/). Can be: 'dns-status', 'localdns-status', 'cloud-status', 'ad-status'.  Can use special variables like: %\{status\}, %\{display\}     |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">

@@ -58,9 +58,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Devices" label="Devices">
 
-| Metric name     | Unit  |
-|:----------------|:------|
-| devices status  |       |
+| Metric name     | Unit |
+|:----------------|:-----|
+| devices status  | N/A  |
 
 </TabItem>
 <TabItem value="Load" label="Load">
@@ -74,9 +74,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Unit-Status" label="Unit-Status">
 
-| Metric name             | Unit  |
-|:------------------------|:------|
-| unit and overall status |       |
+| Metric name             | Unit |
+|:------------------------|:-----|
+| unit and overall status | N/A  |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -92,7 +92,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this connector, the SNMP service must be properly configured on your device.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -103,9 +106,12 @@ SNMP port.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -141,7 +147,7 @@ yum install centreon-pack-hardware-sensors-rittal-cmc3-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Rittal CMC3 SNMP** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

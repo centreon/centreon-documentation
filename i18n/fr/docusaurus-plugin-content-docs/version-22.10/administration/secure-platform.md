@@ -238,7 +238,7 @@ systemctl start firewalld
 Ajoutez des règles pour firewalld :
 
 > La liste des flux réseau nécessaires pour chaque type de serveur est définie
-> [ici](../installation/architectures.md#tableau-des-flux-de-la-plate-forme).
+> [ici](../installation/technical.md#tableaux-des-flux-réseau).
 
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
@@ -1205,7 +1205,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 
 Vous pouvez maintenant accéder à votre plateforme via votre navigateur en mode HTTPS.
 
-> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez le configurer en mode HTTPS également. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](../graph-views/secure-your-map-platform.md#configure-httpstls-on-the-map-server).
+> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez le configurer en mode HTTPS également. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](../graph-views/secure-your-map-platform.md#configurer-httpstls-sur-le-serveur-map-ou-map-legacy).
 
 9. Configuration API de Gorgone
 
@@ -1482,7 +1482,7 @@ via la gestion de [liste de contrôle d'accès](./access-control-lists.md).
 Il est fortement recommandé de sécuriser les communications entre les différents serveurs de la plateforme Centreon si
 certains serveurs ne sont pas dans un réseau sécurisé.
 
-> Le tableau des flux réseau est disponible [ici](../installation/architectures.md#tableau-des-flux-réseau).
+> Le tableau des flux réseau est disponible [ici](../installation/technical.md#tableaux-des-flux-réseau).
 
 ### Communication Centreon Broker
 
@@ -1490,7 +1490,7 @@ certains serveurs ne sont pas dans un réseau sécurisé.
 
 Parfois, il n'est pas possible d'initialiser le flux Centreon Broker depuis le collecteur (ou Remote Server)
 vers le serveur Centreon Central ou le Remote Server.
-[Voir la configuration suivante pour inverser le flux](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-and-the-firewall).
+[Voir la configuration suivante pour inverser le flux](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-et-pare-feu).
 
 #### Authentification des flux Centreon Broker
 

@@ -23,6 +23,131 @@ Read more about version 24.10 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 24.10.6
+
+Release date: `March 31, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Resource Status] Optimized search query.
+- [CMA] The Centreon Monitoring Agent connector is now automatically created during install/upgrade.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed ACL checks on contact/user configuration page.
+- [Configuration] Fixed an issue where the notification period field was not saved in some cases.
+- [Custom Views] Fixed an issue preventing non admin users from seeing host groups in the Host group Monitoring widget and service groups in the Service group Monitoring widget.
+- [Dashboards] Fixed an issue where dashboards containing a Resource Table widget appeared in Edit mode.
+- [Dashboards][Metrics Graph] Optimized bar chart rendering performance when modifying opacity or bar radius.
+- [Discovery] Fixed an issue where autodiscovery credentials were lost during an update.
+- [Downtimes] Fixed an issue where non admin users could not display the downtimes page.
+- [Downtimes] Fixed an issue where loading the downtimes page resulted in a gateway timeout error.
+- [Graphs] Fixed an issue preventing non admin users from exporting graphs as ".png".
+- [Resource Status] Fixed an issue where the Host & Service columns didn't contain the right information when displayed in view by host mode.
+- [Service Groups] Fixed an issue preventing non admin users from displaying Service Groups.
+- [Translation]	Fixed a translation issue on menu & breadcrumb and added a "Connectors" submenu that includes Monitoring Connectors and Additional configurations.
+- [Web] Fixed an issue where some password managers were preventing users from accessing legacy pages.
+
+</details>
+
+### 24.10.5
+
+Release date: `March 10, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Media] Added the handling of .svg files for images.
+- [Resource Status] Added Flapping state in "find resource by parent" endpoint.
+- [Resource Status] Added Flapping state in the list of resources and updated the icon in the details panel.
+- [Status Grid widget] Optimized the way the health of Business Activities is calculated.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ACL] Fixed an issue where rights were not applied correctly to a hostgroup when it was created by a non admin user.
+- [Agent/Poller configuration] Fixed an issue where the list of configurations was still filtered but the search bar was empty.
+- [CLAPI] Fixed an issue preventing the list of Business Activities to be displayed after creating a Business Activity using CLAPI.
+- [Configuration] Fixed an issue on remote servers where users lost their contact groups when edited.
+- [Media - Image Synchronization] Fixed an issue with the case sensitivity of file extensions.
+- [Reports/Availability] Fixed an issue where CSV files could not be downloaded if a day was UNDETERMINED in the selected period.
+- [Resource status] The host_category filter now works correctly and returns no errors.
+- [Resource status] Fixed an issue where graphs were not taking all of the available space in the side panel.
+- [Resource Status] All services are now correctly listed in the filters.
+- [Resource Status] Using compact mode no longer causes an error.
+- [Top counter] Fixed an issue on refresh intervals.
+- [Top counter] Negative values are no longer allowed in the "Refresh interval for statistics" fields.
+- [Top counter] Unnecessary calls are no longer performed when users don't have access to the top counter.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Image upload] Fixed a security issue on image upload.
+- [Security] Fixed extends-tag vulnerability in Smarty.
+
+</details>
+
+### 24.10.4
+
+Release date: `February 12, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Additional Connector Configuration] The Poller filter now displays an error message if users try to create a second configuration for the same poller.
+- [API] Added missing configuration change logs for command configuration (ADD).
+- [API] Added missing configuration change logs for host categories configuration.
+- [API] Added missing configuration change logs for service categories configuration.
+- [Authentification] Improved the way errors are logged for authentications with OpenID.
+- [CEIP] Added telemetry to the Poller/Agent configuration feature.
+- [Dashboards] Added the possibility to mark a dashboard as a favorite one, and to list all favorites.
+- [Resource status] In the details panel, the interface of the Export button has been improved.
+- [Resource status] In the Resource Status page, custom order for filters can now be saved.
+- [Resource Status] Renamed "Edit filters" to "Manage filters" to better reflect what the command does.
+- [UI] Centered the reset password form.
+- [UI] Login page customizations now also apply to the reset password form.
+- [UX] Enhanced translation and user experience for the Additional Connectors Configuration feature.
+- [VMWare] Improved the interface for the Additional Connectors Configuration feature.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Administration] Empty values for the "Retention duration for downtimes" parameter are now correctly detected.
+- [Cron] The script that deletes expired tokens is now run with the apache user to avoid invalid permissions on the web log file.
+- [Dashboards] Selecting multiple resources of the same type now works correctly.
+- [Discovery] Fixed incorrect rights on centreon_vmware.json, that triggered an error when executing host discovery jobs.
+- [Install] Fixed issue with SQL schema missing when upgrading version.
+- [Metrics Graph widget] Legends are now displayed correctly when a lot of metrics are selected.
+- [Poller/Agent configuration] Fixed an issue where the listing page was replaced by the default page when searching for an unknown value.
+- [Public Playlists] Fixed an issue preventing public playlists to be displayed on some browsers.
+- [Resource Status] Linked contacts now appear in the detail panel for hosts and services, even if a timeperiod is not explicitly configured for both of them.
+- [Resource status] Fixed an issue with the notification tab for services, where the corresponding contacts were not displayed.
+- [Resource Status] Fixed an issue where the notification icon was not displayed in the corresponding column in the Resource Status page.
+- [Status Chart/Grid widgets] Passive hosts and hosts without services are now displayed correctly in these widgets.
+- [Status Chart widget] Optimized the responsiveness of stacked bars.
+- [Top counter] Fixed an issue that prevented users from deploying the configuration on more than 10 pollers.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Event Logs] Fixed access issue with non admin users.
+- [Security] Fixed a security vulnerability in API Token management.
+- [Security] Fixed a vulnerability in the contact management form.
+
+</details>
+
 ### 24.10.3
 
 Release date: `December 19, 2024`
@@ -236,6 +361,67 @@ Release date: `October 31, 2024`
 
 ## Centreon Collect
 
+### 24.10.6
+
+Release date: `April 10, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Improved error handling for syntax checks.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed some unnecessary errors that appeared in RRD logs following the upgrade to the new log engine in collect.
+- [Broker] Fixed an issue where acknowledgements did not appear in the logs table.
+- [Configuration] Fixed an issue where password parameters were incorrectly saved when creating several output-type stream connectors.
+
+</details>
+
+### 24.10.5
+
+Release date: `March 12, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Broker] Added flapping state support for Resource Status.
+- [CMA] Added gRPC logs to the agent and the OpenTelemetry engine module.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed a regression with host name escaping in the Graphite Broker output.
+- [Broker] Fixed an issue where the wrong service state was restored when engine re-established its connection to broker after a disconnection.
+- [Broker] Fixed Broker crash that occurred if only a graphite output was configured.
+
+</details>
+
+### 24.10.4
+
+Release date: `January 11, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Added a native Health check for Windows & Linux.
+- [CMA] Added a native Service check for Windows.
+- [CMA] Added an option in Windows installer to use embedded plugins in case of offline execution.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Engine] Fixed an issue where defining an icon for a service caused the interface to display information concerning another service instead.
+
+</details>
+
 ### 24.10.3
 
 Release date: `December 18, 2024`
@@ -322,6 +508,29 @@ Release date: `October 31, 2024`
 
 ## Centreon Gorgone
 
+### 24.10.4
+
+Release date: `March 12, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug where the gorgone API could not use a password containing a UTF-8 character.
+
+</details>
+
+### 24.10.3
+
+Release date: `January 11, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Database] Adapted queries for MySQL8 compatibility.
+- [Packaging] Fixed centreon-engine restart issue affecting pollers, caused by a missing service binary.
+
+</details>
+
 ### 24.10.2
 
 Release date: `December 18, 2024`
@@ -370,6 +579,24 @@ Release date: `October 31, 2024`
 
 ## Centreon DSM
 
+### 24.10.1
+
+Release date: `March 10, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [DSM] Fixed an issue where new pool configurations were disabled, without any possibility to enable them.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed extends-tag vulnerability in Smarty.
+
+</details>
+
 ### 24.10.0
 
 Release date: `October 31, 2024`
@@ -382,6 +609,17 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Open Tickets
+
+### 24.10.2
+
+Release date: `March 10, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed extends-tag vulnerability in Smarty.
+
+</details>
 
 ### 24.10.1
 
@@ -402,5 +640,18 @@ Release date: `October 31, 2024`
   <summary>Bug fixes</summary>
 
 - [Open Tickets widget] Fixed redirection to monitoring pages according to the value of the "use deprecated pages" option.
+
+</details>
+
+## Centreon AWIE
+
+### 24.10.1
+
+Release date: `March 10, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed extends-tag vulnerability in Smarty.
 
 </details>

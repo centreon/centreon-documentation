@@ -16,7 +16,7 @@ most common pitfalls.
 The Centreon Pollers run a scheduler responsible for planning and executing checks. 
 To troubleshoot a Plugin, you must always:
 
-* Copy/Paste the command from the Centreon Web UI to troubleshoot it from the CLI
+* Copy/paste the command from the Centreon Web UI to troubleshoot it from the CLI
 * Use the centreon-engine user to execute the Plugin manually (and never root!).
 
 ## Common problems
@@ -26,8 +26,8 @@ To troubleshoot a Plugin, you must always:
 When getting this error, please focus on the command line executed and ensure that 
 the binary it uses exists or doesn't contain a typo.
 
-On RPM-based systems, you can use the following command to identify what's the 
-package is providing the missing binary: `yum whatprovides "*/the_binary_name"`
+On RPM-based systems, you can use the following command to identify which package provides the missing binary: 
+`yum whatprovides "*/the_binary_name"`
 
 ### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/\<cache_file_name\>'
 
@@ -76,7 +76,7 @@ To apply it, export the Poller's configuration and **restart** it.
 
 ### Check output or metrics is not complete
 
-When a Plugin execution looks partial or incomplete, it usually means that there's 
+When a Plugin execution looks incomplete, it usually means that there's 
 a bug somewhere in the code. If this is the case, you will likely see some *stderr*
 lines printed when executing the check through the CLI. 
 
@@ -154,7 +154,7 @@ behavior uses the `ifName` OID to build its cache. If it cannot find it then you
 run into this error. 
 
 For interfaces and storage checks, options exist to ask the probe to use 
-an other OID (e.g. `--oid-filter='ifDesc' --oid-display='ifDesc'`).
+another OID (e.g. `--oid-filter='ifDesc' --oid-display='ifDesc'`).
 
 ### Uptime issue
 
@@ -256,15 +256,15 @@ the `--http-backend` option. The default value is `lwp`, though `curl` is also
 available and generally easier to debug.
 
 In the same way, if you use a proxy, you can tell the Plugin how to go through 
-by adding the `--proxyurl` option to your command line. The expecte format is: 
+by adding the `--proxyurl` option to your command line. The expected format is: 
 `--proxyurl='<proto>://<proxy_addr>:<proxy_port>`. 
 
 #### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (Connection refused)
 
-This issue generally means that the port or protocol used by the Plugin is incorrect, 
+This issue generally means that the port or protocol used by the plugin is incorrect, 
 misconfigured, or unsupported. 
 
-In this situation, at the Host configuration level, double-check that:
+In this situation, at the host configuration level, double-check that:
 * the port used is correct, primarily if you use a non-standard port for security reasons
 * the protocol used (http or https) matches the one configured on the API-side
 
@@ -285,7 +285,7 @@ The primary cause could be the certificate used. In this case, the best practice
 would be either to: 
 * renew the certificate when it expired 
 * sign the remote certificate officially
-* deploy the certificate locally so the Plugin can recognize it
+* deploy the certificate locally so the plugin can recognize it
 
 Regardless of what HTTP backend you're using, it's possible to ignore SSL certificate 
 errors by adding specific flags: 
@@ -294,7 +294,7 @@ errors by adding specific flags:
 * curl backend: `--curl-opt='CURLOPT_SSL_VERIFYPEER => 0'`
 
 Sometimes, the remote host doesn't support negotiation about the SSL implementation, 
-so you must specify explicitly which one the Plugin has to use thanks to the `--ssl` 
+so you must specify explicitly which one the plugin has to use thanks to the `--ssl` 
 option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer or software publisher documentation.
 
 ## Troubleshooting AWS
@@ -320,7 +320,7 @@ A proxy connection may also be necessary to connect to the API. This can be done
 
 ### UNKNOWN: Command error: `<interpreter>`: \<command_name\>: command not found
 
-This error warns that the Plugin is not able to execute the \<command_name\> because it 
+This error warns that the plugin is not able to execute the \<command_name\> because it 
 doesn't exist in PATH or is not installed.
 
 Depending on how the check is performed (locally or remotely), make sure that the 
@@ -330,7 +330,7 @@ utility the Plugin uses is available to your monitoring user.
 
 SSH-Based checks can use several *backends*. Whether you use the `ssh` or `plink` backend, 
 you have to manually validate the remote system fingerprint from the *centreon-engine*
-user on the monitoring Poller. If you don't do that, the Plugin will hang and cause a timeout
+user on the monitoring poller. If you don't do that, the plugin will hang and cause a timeout
 because it cannot accept the fingerprint for obvious security reasons.
 
 ## NRPE checks
@@ -371,7 +371,7 @@ Do not forget to restart your NRPE daemon to update the configuration.
 
 ### NRPE: unable to read output
 
-This error can occur when the NRPE server fails to execute the command for some reason.
+This error can occur when the NRPE server fails to execute the command.
 In this situation, connect to the server running the NRPE server and execute the 
 command manually with the NRPE user.
 

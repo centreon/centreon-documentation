@@ -15,7 +15,7 @@ Before applying this procedure, you should have a good knowledge of Linux OS, of
 
 ### Network Flows
 
-In addition of necessary flows describe on the [official documentation](../architectures.md#Tables_of_network_flows),
+In addition of necessary flows describe on the [official documentation](../technical.md#tables-of-network-flows),
 you will need to open the following flows:
 
 | From                      | Destination               | Protocol | Port     | Application                                                                                |
@@ -1124,8 +1124,8 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -1136,8 +1136,8 @@ pcs resource promotable ms_mysql \
 
 ```bash
 pcs resource master ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -1148,8 +1148,8 @@ pcs resource master ms_mysql \
 
 ```bash
 pcs resource meta ms_mysql-master \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"

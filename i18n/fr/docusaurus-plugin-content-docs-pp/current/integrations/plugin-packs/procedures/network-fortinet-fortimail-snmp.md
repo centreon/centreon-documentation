@@ -35,8 +35,8 @@ Le connecteur apporte les modèles de service suivants
 | Alias      | Modèle de service                             | Description                                               | Découverte |
 |:-----------|:----------------------------------------------|:----------------------------------------------------------|:----------:|
 | Ha         | Net-Fortinet-Fortimail-Ha-SNMP-custom         | Contrôle l'état de la haute disponibilité                 |            |
-| Interfaces | Net-Fortinet-Fortimail-Interfaces-SNMP-custom | Contrôle les interfaces                                   | X          |
-| Queues     | Net-Fortinet-Fortimail-Queues-SNMP-custom     | Contrôle du taux d'utilisation des queues                 | X          |
+| Interfaces | Net-Fortinet-Fortimail-Interfaces-SNMP-custom | Contrôle les interfaces                                   |      X     |
+| Queues     | Net-Fortinet-Fortimail-Queues-SNMP-custom     | Contrôle du taux d'utilisation des queues                 |     X      |
 | Uptime     | Net-Fortinet-Fortimail-Uptime-SNMP-custom     | Durée depuis laquelle le serveur tourne sans interruption |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -153,8 +153,10 @@ Centreon vers le serveur supervisé.
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -191,7 +193,7 @@ yum install centreon-pack-network-fortinet-fortimail-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Fortinet FortiMail SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -244,10 +246,10 @@ yum install centreon-plugin-Network-Fortinet-Fortimail-Snmp
 3. Appliquez le modèle d'hôte **Net-Fortinet-Fortimail-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
-| Macro            | Description                                                                                           | Valeur par défaut | Obligatoire |
-|:-----------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                                | Valeur par défaut | Obligatoire |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -260,133 +262,133 @@ yum install centreon-plugin-Network-Fortinet-Fortimail-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro                  | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-----------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCPUUTILIZATION  | Warning threshold in percent                                                                        |                   |             |
-| CRITICALCPUUTILIZATION | Critical threshold in percent                                                                       |                   |             |
+| Macro                  | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCPUUTILIZATION  | Warning threshold in percent                                                                                                             |                   |             |
+| CRITICALCPUUTILIZATION | Critical threshold in percent                                                                                                            |                   |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Disk" label="Disk">
 
-| Macro                 | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:----------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGLOGUSAGEPRCT   | Thresholds                                                                                          |                   |             |
-| CRITICALLOGUSAGEPRCT  | Thresholds                                                                                          |                   |             |
-| WARNINGMAILUSAGEPRCT  | Thresholds                                                                                          |                   |             |
-| CRITICALMAILUSAGEPRCT | Thresholds                                                                                          |                   |             |
+| Macro                 | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGLOGUSAGEPRCT   | Thresholds                                                                                                                               |                   |             |
+| CRITICALLOGUSAGEPRCT  | Thresholds                                                                                                                               |                   |             |
+| WARNINGMAILUSAGEPRCT  | Thresholds                                                                                                                               |                   |             |
+| CRITICALMAILUSAGEPRCT | Thresholds                                                                                                                               |                   |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Ha" label="Ha">
 
-| Macro            | Description                                                                                                                                                                             | Valeur par défaut                    | Obligatoire |
-|:-----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-----------:|
-| CRITICALHASTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} ne %\{ha_status_last\}'). You can use the following variables: %\{ha_status\}, %\{ha_status_last\}| %\{ha_status\} ne %\{ha_status_last\}|             |
-| WARNINGHASTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ha_status\}, %\{ha_status_last\}                                                   |                                      |             |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                     |                                      |             |
+| Macro            | Description                                                                                                                              | Valeur par défaut                    | Obligatoire |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-----------:|
+| CRITICALHASTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ha_status\}, %\{ha_status_last\}   | %\{ha_status\} ne %\{ha_status_last\}|             |
+| WARNINGHASTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ha_status\}, %\{ha_status_last\}    |                                      |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                                      |             |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (Default: '.*'). Can be: 'sensors'                                         |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (Default: '.*'). Can be: 'sensors'                                                                              |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro                  | Description                                                                                                                                                                                                         | Valeur par défaut                                     | Obligatoire |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| OIDFILTER              | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                          | ifname                                                |             |
-| OIDDISPLAY             | efine the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                  | ifname                                                |             |
-| UNITSTRAFFIC           | Units of thresholds for the traffic (Default: 'percent\_delta') ('percent\_delta', 'bps', 'counter')                                                                                                                | percent\_delta                                        |             |
-| UNITSERROR             | Units of thresholds for errors/discards (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter')                                                                                    | percent\_delta                                        |             |
-| UNITSCAST              | Units of thresholds for communication types (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter')                                                                                | percent\_delta                                        |             |
-| INTERFACENAME          | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                                                                                                                                |                                                       |             |
-| WARNINGINBCAST         | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALINBCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGINDISCARD       | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALINDISCARD      | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGINERROR         | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALINERROR        | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGINMCAST         | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALINMCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGINTRAFFIC       | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALINTRAFFIC      | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGINUCAST         | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALINUCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGINVOLUME        |                                                                                                                                                                                                                     |                                                       |             |
-| CRITICALINVOLUME       |                                                                                                                                                                                                                     |                                                       |             |
-| WARNINGOUTBCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALOUTBCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGOUTDISCARD      | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALOUTDISCARD     | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGOUTERROR        | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALOUTERROR       | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGOUTMCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALOUTMCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGOUTTRAFFIC      | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALOUTTRAFFIC     | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGOUTUCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALOUTUCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGOUTVOLUME       |                                                                                                                                                                                                                     |                                                       |             |
-| CRITICALOUTVOLUME      |                                                                                                                                                                                                                     |                                                       |             |
-| WARNINGSPEED           | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALSPEED          | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\|dormant/ |             |
-| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                            |                                                       |             |
-| WARNINGTOTALADMINDOWN  | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALTOTALADMINDOWN | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGTOTALADMINUP    | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALTOTALADMINUP   | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGTOTALOPERDOWN   | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALTOTALOPERDOWN  | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGTOTALOPERUP     | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALTOTALOPERUP    | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGTOTALPORT       | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| CRITICALTOTALPORT      | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                 | --verbose                                             |             |
+| Macro                  | Description                                                                                                                                                       | Valeur par défaut                                     | Obligatoire |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+| OIDFILTER              | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                          | ifname                                                |             |
+| OIDDISPLAY             | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                 | ifname                                                |             |
+| UNITSTRAFFIC           | Units of thresholds for the traffic ('percent\_delta', 'bps', 'counter')                                                                                          | percent\_delta                                        |             |
+| UNITSERROR             | Units of thresholds for errors/discards ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter')                                                              | percent\_delta                                        |             |
+| UNITSCAST              | Units of thresholds for communication types ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter')                                                          | percent\_delta                                        |             |
+| INTERFACENAME          | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                                                                              |                                                       |             |
+| WARNINGINBCAST         | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALINBCAST        | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGINDISCARD       | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALINDISCARD      | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGINERROR         | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALINERROR        | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGINMCAST         | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALINMCAST        | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGINTRAFFIC       | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALINTRAFFIC      | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGINUCAST         | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALINUCAST        | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGINVOLUME        | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALINVOLUME       | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGOUTBCAST        | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALOUTBCAST       | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGOUTDISCARD      | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALOUTDISCARD     | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGOUTERROR        | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALOUTERROR       | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGOUTMCAST        | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALOUTMCAST       | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGOUTTRAFFIC      | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALOUTTRAFFIC     | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGOUTUCAST        | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALOUTUCAST       | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGOUTVOLUME       | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALOUTVOLUME      | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGSPEED           | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALSPEED          | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\|dormant/ |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}  |                                                       |             |
+| WARNINGTOTALADMINDOWN  | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALTOTALADMINDOWN | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGTOTALADMINUP    | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALTOTALADMINUP   | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGTOTALOPERDOWN   | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALTOTALOPERDOWN  | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGTOTALOPERUP     | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALTOTALOPERUP    | Thresholds                                                                                                                                                        |                                                       |             |
+| WARNINGTOTALPORT       | Thresholds                                                                                                                                                        |                                                       |             |
+| CRITICALTOTALPORT      | Thresholds                                                                                                                                                        |                                                       |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                          | --verbose                                             |             |
 
 </TabItem>
 <TabItem value="Load" label="Load">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGLOAD  | Thresholds                                                                                          |                   |             |
-| CRITICALLOAD | Thresholds                                                                                          |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGLOAD  | Thresholds                                                                                                                               |                   |             |
+| CRITICALLOAD | Thresholds                                                                                                                               |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro         | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGE  | Thresholds                                                                                          |                   |             |
-| CRITICALUSAGE | Thresholds                                                                                          |                   |             |
+| Macro         | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGE  | Thresholds                                                                                                                               |                   |             |
+| CRITICALUSAGE | Thresholds                                                                                                                               |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Queues" label="Queues">
 
-| Macro         | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME    | Filter queue name (can be a regexp)                                                                 |                   |             |
-| WARNINGCOUNT  | Thresholds                                                                                          |                   |             |
-| CRITICALCOUNT | Thresholds                                                                                          |                   |             |
-| WARNINGSIZE   | Thresholds                                                                                          |                   |             |
-| CRITICALSIZE  | Thresholds                                                                                          |                   |             |
+| Macro         | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME    | Filter queue name (can be a regexp)                                                                                                      |                   |             |
+| WARNINGCOUNT  | Thresholds                                                                                                                               |                   |             |
+| CRITICALCOUNT | Thresholds                                                                                                                               |                   |             |
+| WARNINGSIZE   | Thresholds                                                                                                                               |                   |             |
+| CRITICALSIZE  | Thresholds                                                                                                                               |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro          | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:---------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUPTIME  | Warning threshold                                                                                   |                   |             |
-| CRITICALUPTIME | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro          | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUPTIME  | Warning threshold                                                                                                                        |                   |             |
+| CRITICALUPTIME | Critical threshold                                                                                                                       |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --check-overload  |             |
 
 </TabItem>
 </Tabs>

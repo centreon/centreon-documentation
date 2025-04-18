@@ -868,6 +868,10 @@
       "items": [
         {
           "type": "doc",
+          "id": "alerts-notifications/availability"
+        },
+        {
+          "type": "doc",
           "id": "reporting/introduction"
         },
         {
@@ -1191,11 +1195,11 @@
             {
               "type": "doc",
               "id": "integrations/data-analytics/sc-canopsis-events"
-            },       
+            },
             {
               "type": "doc",
               "id": "integrations/data-analytics/sc-clickhouse"
-            },    
+            },
             {
               "type": "doc",
               "id": "integrations/data-analytics/sc-datadog-events"
@@ -1230,7 +1234,7 @@
             },
             {
               "type": "doc",
-              "id": "integrations/event-management/sc-opsgenie"
+              "id": "integrations/event-management/sc-opsgenie-events"
             },
             {
               "type": "doc",

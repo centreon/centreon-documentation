@@ -46,25 +46,25 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Metric name                                    | Unit  |
-| :--------------------------------------------- | :---- |
-| *psu_instance*#hardware.powersupply.temperature.celsius         | C   |
-| *psu_instance*#hardware.powersupply.fan.speed.rpm         | rpm   |
-| power supply status                            |       |
-| *fan_instance*#hardware.fan.speed.rpm | C     |
+| Metric name                                             | Unit |
+|:--------------------------------------------------------|:-----|
+| *psu_instance*#hardware.powersupply.temperature.celsius | C    |
+| *psu_instance*#hardware.powersupply.fan.speed.rpm       | rpm  |
+| power supply status                                     | N/A  |
+| *fan_instance*#hardware.fan.speed.rpm                   | C    |
 
 </TabItem>
 <TabItem value="Interface" label="Interface">
 
-| Metric name                                               | Unit  |
-| :-------------------------------------------------------- | :---- |
-| status                                                    |       |
-| *interface_name*#interface.traffic.in.bitspersecond       |  b/s  |
-| *interface_name*#interface.traffic.out.bitspersecond      |  b/s  |
-| *interface_name*#interface.packets.in.error.percentage    |  %    |
-| *interface_name*#interface.packets.in.discard.percentage  |  %    |
-| *interface_name*#interface.packets.out.error.percentage   |  %    |
-| *interface_name*#interface.packets.out.discard.percentage |  %    |
+| Metric name                                               | Unit |
+| :-------------------------------------------------------- |:-----|
+| status                                                    | N/A  |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s  |
+| *interface_name*#interface.packets.in.error.percentage    | %    |
+| *interface_name*#interface.packets.in.discard.percentage  | %    |
+| *interface_name*#interface.packets.out.error.percentage   | %    |
+| *interface_name*#interface.packets.out.discard.percentage | %    |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -91,8 +91,10 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ### Configuration SNMP
 
-Afin de superviser votre équipement **PICOS** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-https://docs.pica8.com/display/picos2102cg/Configuring+snmp
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la [documentation officielle](https://docs.pica8.com/display/picos2102cg/Configuring+snmp) du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -101,10 +103,12 @@ Centreon vers le serveur supervisé.
 
 ## Installation
 
-### Pack de supervision
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md). de supervision
 
 Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquet
@@ -135,7 +139,7 @@ apt install centreon-pack-operatingsystems-picos-snmp
 </Tabs>
 
 Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **PICOS SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -181,7 +185,7 @@ apt install centreon-plugin-operatingsystems-picos-snmp
 * Appliquez le modèle d'hôte **OS-PICOS-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Obligatoire | Macro            | Description                                  |
 |:------------|:-----------------|:---------------------------------------------|

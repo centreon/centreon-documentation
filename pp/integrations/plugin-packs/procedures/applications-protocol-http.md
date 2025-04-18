@@ -47,6 +47,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <TabItem value="Collection" label="Collection">
 
 The obtained metrics depend fully on the collection's configuration.
+Please refer to the [The Watch tutorial](https://thewatch.centreon.com/product-how-to-21/http-collections-tutorial-how-to-monitor-an-api-2634) dedicated to this mode.
 
 </TabItem>
 <TabItem value="HTTP-Expected-Content" label="HTTP-Expected-Content">
@@ -104,9 +105,12 @@ Specific option can be used to specify a proxy when it is required.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -142,7 +146,7 @@ yum install centreon-pack-applications-protocol-http
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **HTTP Server** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

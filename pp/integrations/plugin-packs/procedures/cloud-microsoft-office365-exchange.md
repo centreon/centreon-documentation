@@ -100,9 +100,12 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -138,7 +141,7 @@ yum install centreon-pack-cloud-microsoft-office365-exchange
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Office365 Exchange** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -229,7 +232,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 | CRITICALTOTALRECEIVECOUNT | Critical threshold                                                                                                                               |                                  |             |
 | WARNINGTOTALSENDCOUNT     | Warning threshold                                                                                                                                |                                  |             |
 | CRITICALTOTALSENDCOUNT    | Critical threshold                                                                                                                               |                                  |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                  |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                                  |             |
 </TabItem>
 <TabItem value="Users-Activity" label="Users-Activity">
 

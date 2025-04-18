@@ -872,6 +872,10 @@
       "items": [
         {
           "type": "doc",
+          "id": "alerts-notifications/availability"
+        },
+        {
+          "type": "doc",
           "id": "reporting/introduction"
         },
         {
@@ -1238,7 +1242,7 @@
             },
             {
               "type": "doc",
-              "id": "integrations/event-management/sc-opsgenie"
+              "id": "integrations/event-management/sc-opsgenie-events"
             },
             {
               "type": "doc",

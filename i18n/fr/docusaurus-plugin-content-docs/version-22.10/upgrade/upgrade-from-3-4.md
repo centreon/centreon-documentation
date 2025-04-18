@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 3.4 (Centreon Web 2.8) vers la version 22.10.
 
-> Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
+> Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#changement-de-version-de-bbdo).
 
 > Cette procédure ne s'applique que pour une plate-forme Centreon installée à
 > partir des dépôts Centreon 3.4 sur des distributions **Red Hat / CentOS en
@@ -230,7 +230,7 @@ Si vous aviez une configuration personnalisée, le processus de mise à jour RPM
 n'y a pas touché.
 
 > Si vous utilisez le https, vous pouvez suivre
-> [cette procédure](../administration/secure-platform.md#passer-le-serveur-web-en-https)
+> [cette procédure](../administration/secure-platform.md#sécuriser-le-serveur-web-en-https)
 
 Vous devez donc ajouter la section d'accès à l'API dans votre fichier de
 configuration apache : **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf**
@@ -631,7 +631,7 @@ Par défaut, la communication entre le serveur Central et les collecteurs ou les
 Remote Servers utilisera toujours SSH.
 
 Considérez changer le protocole de communication en suivant la procédure
-[Changer la communication de SSH à ZMQ](../monitoring/monitoring-servers/communications.md#changer-la-communication-de-ssh-a-zmq).
+[Changer la communication de SSH à ZMQ](../monitoring/monitoring-servers/communications.md#changer-la-communication-de-ssh-à-zmq).
 
 ## Sécurisez votre plateforme
 

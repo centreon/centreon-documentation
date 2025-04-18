@@ -145,7 +145,7 @@ systemctl start php-fpm
 systemctl reload httpd24-httpd
 ```
 
-Ensuite, pour effectuer la mise à jour de l'interface Web, veuillez [suivre la documentation officielle](../../upgrade/upgrade-from-21-10.md#finalizing-the-upgrade) Uniquement sur le **nœud Central Actif**.
+Ensuite, pour effectuer la mise à jour de l'interface Web, veuillez [suivre la documentation officielle](../../upgrade/upgrade-from-21-10.md#finalisation-de-la-mise-à-jour) Uniquement sur le **nœud Central Actif**.
 
 Sur le nœud central passif, déplacez le répertoire "install" pour éviter d'obtenir l'écran "upgrade" dans le WUI en cas de nouvel échange de rôles.
 
@@ -431,8 +431,8 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource master ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -442,8 +442,8 @@ pcs resource master ms_mysql \
 
 ```bash
 pcs resource meta ms_mysql-master \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -457,8 +457,8 @@ pcs resource meta ms_mysql-master \
 
 ```bash
 pcs resource master ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -482,8 +482,8 @@ pcs resource create vip_mysql \
 
 ```bash
 pcs resource meta ms_mysql-master \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
