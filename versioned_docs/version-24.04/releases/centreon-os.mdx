@@ -24,6 +24,32 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 24.04.12
+
+Release date: `March 31, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Resource Status] Optimized search query.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue where the configuration couldn't be generated if a host had been patched using the API.
+- [Configuration] Fixed ACL checks on contact/user configuration page.
+- [Configuration] Fixed an issue where the notification period field was not saved in some cases.
+- [Custom Views] Fixed an issue preventing non admin users from seeing host groups in the Host group Monitoring widget and service groups in the Service group Monitoring widget.
+- [Downtimes] Fixed an issue where non admin users could not display the downtimes page.
+- [Downtimes] Fixed an issue where loading the downtimes page resulted in a gateway timeout error.
+- [Service groups] Fixed an issue preventing non admin users from displaying Service Groups.
+- [Top counter] Unnecessary calls are not longer performed when users do not have access to the Top Counter.
+- [Web] Fixed an issue where some password managers were preventing users from accessing legacy pages.
+
+</details>
+
 Release date: `March 10, 2025`
 
 ### 24.04.11
@@ -467,6 +493,19 @@ Many features have been added in this version.
 </details>
 
 ## Centreon Collect
+
+### 24.04.11
+
+Release date: `April 10, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed some unnecessary errors that appeared in RRD logs following the upgrade to the new log engine in collect.
+- [Broker] Fixed an issue where acknowledgements did not appear in the logs table.
+- [Configuration] Fixed an issue where password parameters were incorrectly saved when creating several output-type stream connectors.
+
+</details>
 
 ### 24.04.10
 

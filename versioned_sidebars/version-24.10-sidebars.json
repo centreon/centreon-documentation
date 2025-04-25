@@ -837,6 +837,10 @@
       "items": [
         {
           "type": "doc",
+          "id": "alerts-notifications/availability"
+        },
+        {
+          "type": "doc",
           "id": "reporting/introduction"
         },
         {

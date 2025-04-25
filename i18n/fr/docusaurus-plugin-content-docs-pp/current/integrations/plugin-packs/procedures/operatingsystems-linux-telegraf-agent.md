@@ -624,7 +624,7 @@ systemctl restart telegraf
 La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -661,7 +661,7 @@ yum install centreon-pack-operatingsystems-linux-telegraf-agent
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Linux Telegraf-Agent**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 3. Créez le nouveau connecteur.
 
@@ -669,8 +669,8 @@ Dans le menu **Configuration > Commandes > Connecteurs**, cliquez sur **Ajouter*
 
 | Paramètre                 | Valeur                                                                                                                                                                                                                           |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nom du connecteur         | Telegraf Agent                                                                                                                                                                                                                   |
-| Description du connecteur | Telegraf Agent                                                                                                                                                                                                                   |
+| Nom du connecteur         | Telegraf Agent Beta                                                                                                                                                                                                                  |
+| Description du connecteur | Telegraf Agent Beta                                                                                                                                                                                                                   |
 | Ligne de commande         | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resourceMetrics.scopeMetrics.metrics.dataPoints.attributes.host --service_path=resourceMetrics.scopeMetrics.metrics.dataPoints.attributes.service` |
 | Utilisé par la commande   | Sélectionnez toutes les commandes dont le nom correspond à `OS-Linux-Telegraf-Agent-*`                                                                                                                                           |
 | Statut du connecteur      | Activé                                                                                                                                                                                                                           |

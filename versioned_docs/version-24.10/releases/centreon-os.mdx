@@ -23,6 +23,48 @@ Read more about version 24.10 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 24.10.7
+
+Release date: `April 22, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Upgrade/Install] Fixed an issue on Centreon Monitoring Agent/Telegraf connector creation.
+
+</details>
+
+### 24.10.6
+
+Release date: `March 31, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Resource Status] Optimized search query.
+- [CMA] The Centreon Monitoring Agent connector is now automatically created during install/upgrade.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed ACL checks on contact/user configuration page.
+- [Configuration] Fixed an issue where the notification period field was not saved in some cases.
+- [Custom Views] Fixed an issue preventing non admin users from seeing host groups in the Host group Monitoring widget and service groups in the Service group Monitoring widget.
+- [Dashboards] Fixed an issue where dashboards containing a Resource Table widget appeared in Edit mode.
+- [Dashboards][Metrics Graph] Optimized bar chart rendering performance when modifying opacity or bar radius.
+- [Discovery] Fixed an issue where autodiscovery credentials were lost during an update.
+- [Downtimes] Fixed an issue where non admin users could not display the downtimes page.
+- [Downtimes] Fixed an issue where loading the downtimes page resulted in a gateway timeout error.
+- [Graphs] Fixed an issue preventing non admin users from exporting graphs as ".png".
+- [Resource Status] Fixed an issue where the Host & Service columns didn't contain the right information when displayed in view by host mode.
+- [Service Groups] Fixed an issue preventing non admin users from displaying Service Groups.
+- [Translation]	Fixed a translation issue on menu & breadcrumb and added a "Connectors" submenu that includes Monitoring Connectors and Additional configurations.
+- [Web] Fixed an issue where some password managers were preventing users from accessing legacy pages.
+
+</details>
+
 ### 24.10.5
 
 Release date: `March 10, 2025`
@@ -329,6 +371,26 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Collect
+
+### 24.10.6
+
+Release date: `April 10, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Improved error handling for syntax checks.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed some unnecessary errors that appeared in RRD logs following the upgrade to the new log engine in collect.
+- [Broker] Fixed an issue where acknowledgements did not appear in the logs table.
+- [Configuration] Fixed an issue where password parameters were incorrectly saved when creating several output-type stream connectors.
+
+</details>
 
 ### 24.10.5
 

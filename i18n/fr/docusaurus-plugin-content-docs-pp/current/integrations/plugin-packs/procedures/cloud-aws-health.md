@@ -85,7 +85,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Health-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *AWS Health* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *AWS Health* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -102,7 +102,7 @@ yum install centreon-plugin-Cloud-Aws-Health-Api
 yum install centreon-pack-cloud-aws-health.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *AWS Health* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *AWS Health* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
