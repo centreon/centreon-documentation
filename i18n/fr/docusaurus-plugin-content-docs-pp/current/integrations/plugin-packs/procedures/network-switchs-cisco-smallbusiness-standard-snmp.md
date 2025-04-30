@@ -423,7 +423,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=44808b/s;0:35846;0:40327;; 'interface_name2#interface.traffic.in.bitspersecond'=46133b/s;;;; 'interface_name1#interface.traffic.out.bitspersecond'=69167b/s;;;; 'interface_name2#interface.traffic.out.bitspersecond'=51341b/s;;;; 
+OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#interface.traffic.in.bitspersecond'=20b/s;80;90;;'*interface_name*#interface.traffic.out.bitspersecond'=20b/s;80;90;;
 ```
 
 ### Diagnostic des erreurs communes
