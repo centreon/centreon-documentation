@@ -278,10 +278,10 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--custommode='api' \
 	--resource='' \
 	--resource-group='' \
-	--subscription='' \
-	--tenant='' \
-	--client-id='' \
-	--client-secret='' \
+	--subscription='xxxxxxxxx' \
+	--tenant='xxxxxxxxx' \
+	--client-id='xxxxxxxxx' \
+	--client-secret='xxxxxxxxx' \
 	--proxyurl=''  \
 	--filter-metric='' \
 	--filter-dimension='' \
