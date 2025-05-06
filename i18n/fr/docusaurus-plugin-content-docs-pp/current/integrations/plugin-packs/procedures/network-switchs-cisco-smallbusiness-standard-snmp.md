@@ -42,7 +42,7 @@ Le connecteur apporte les modèles de service suivants
 | Packet-Errors-Global       | Net-Cisco-Sb-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau |     X      |
 | Spanning-Tree              | Net-Cisco-Sb-Standard-SpanningTree-SNMP-custom               | Contrôle l'état du protocole Spanning Tree sur les interfaces                       |            |
 | Stack                      | Net-Cisco-Sb-Standard-Stack-SNMP-custom                      | Contrôle les membres du stack                                                       |            |
-| Traffic-Generic-Id         | Net-Cisco-Sb-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le traffic réseau d'une interface réseau                                   |            |
+| Traffic-Generic-Id         | Net-Cisco-Sb-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le trafic réseau d'une interface réseau                                   |            |
 | Traffic-Generic-Name       | Net-Cisco-Sb-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                                   |            |
 | Traffic-Global             | Net-Cisco-Sb-Standard-Traffic-Global-SNMP-custom             | Contrôle le traffic réseau de plusieurs interfaces réseau                           |     X      |
 
