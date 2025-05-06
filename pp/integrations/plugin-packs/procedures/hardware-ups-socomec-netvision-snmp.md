@@ -147,7 +147,7 @@ yum install centreon-pack-hardware-ups-socomec-netvision-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Socomec Net Vision UPS SNMP** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
