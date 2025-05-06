@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 |:--------------|:---------------------------------------------------------|:--------------------------------------------------------------------|
 | Files-Synced  | Cloud-Azure-Storage-StorageSync-Files-Synced-Api-custom  | Contrôle le nombre de fichiers synchronisés avec Azure Storage Sync |
 | Recalls       | Cloud-Azure-Storage-StorageSync-Recalls-Api-custom       | Contrôle les rappels de l'instance Azure Storage Sync               |
-| Server-Status | Cloud-Azure-Storage-StorageSync-Server-Status-Api-custom | Contrôle le status du server de l'instance Azure Storage Sync       |
+| Server-Status | Cloud-Azure-Storage-StorageSync-Server-Status-Api-custom | Contrôle le statut du serveur de l'instance Azure Storage Sync       |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-Storage-StorageSync-custom** est utilisé.
 
