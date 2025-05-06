@@ -197,7 +197,7 @@ yum install centreon-pack-network-switchs-cisco-smallbusiness-standard-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Cisco Small Business** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
