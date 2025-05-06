@@ -44,7 +44,7 @@ Le connecteur apporte les modèles de service suivants
 | Stack                      | Net-Cisco-Sb-Standard-Stack-SNMP-custom                      | Contrôle les membres du stack                                                       |            |
 | Traffic-Generic-Id         | Net-Cisco-Sb-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le trafic réseau d'une interface réseau                                   |            |
 | Traffic-Generic-Name       | Net-Cisco-Sb-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                                   |            |
-| Traffic-Global             | Net-Cisco-Sb-Standard-Traffic-Global-SNMP-custom             | Contrôle le traffic réseau de plusieurs interfaces réseau                           |     X      |
+| Traffic-Global             | Net-Cisco-Sb-Standard-Traffic-Global-SNMP-custom             | Contrôle le trafic réseau de plusieurs interfaces réseau                           |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
