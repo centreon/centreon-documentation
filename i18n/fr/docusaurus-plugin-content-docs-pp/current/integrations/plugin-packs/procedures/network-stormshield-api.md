@@ -58,7 +58,7 @@ Le connecteur apporte les modèles de service suivants
 | Nom de la règle                        | Description                                                                                       |
 |:---------------------------------------|:--------------------------------------------------------------------------------------------------|
 | Net-Stormshield-Api-Interface-Username | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
-| Net-Stormshield-Api-Vpn-Tunnels-Name   | Découvre les tunnels VPN et supervise leur status et le trafic                                    |
+| Net-Stormshield-Api-Vpn-Tunnels-Name   | Découvre les tunnels VPN et supervise leur statut et le trafic                                    |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
