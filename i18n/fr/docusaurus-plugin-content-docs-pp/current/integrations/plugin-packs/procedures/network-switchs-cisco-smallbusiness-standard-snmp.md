@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias       | Modèle de service                             | Description                                                                                                               |
 |:------------|:----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|
 | Cpu         | Net-Cisco-Sb-Standard-Cpu-SNMP-custom         | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU |
-| Environment | Net-Cisco-Sb-Standard-Environment-SNMP-custom | Contrôle l'état du matériel (Ventilateurs, alimentations)                                                                 |
+| Environment | Net-Cisco-Sb-Standard-Environment-SNMP-custom | Contrôle l'état du matériel (ventilateurs, alimentations)                                                                 |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Sb-Standard-SNMP-custom** est utilisé.
 
