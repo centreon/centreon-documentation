@@ -42,7 +42,7 @@ Le connecteur apporte les modèles de service suivants
 |:------------|:---------------------------------------|:------------------------------------------------|:----------:|
 | Ha          | Net-Stormshield-Ha-Api-custom          | Contrôle la haute disponibilité                 |            |
 | Interfaces  | Net-Stormshield-Interfaces-Api-custom  | Contrôle les interfaces                         |     X      |
-| Vpn-Tunnels | Net-Stormshield-Vpn-Tunnels-Api-custom | Contrôle le status et le trafic des tunnels VPN |     X      |
+| Vpn-Tunnels | Net-Stormshield-Vpn-Tunnels-Api-custom | Contrôle le statut et le trafic des tunnels VPN |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
