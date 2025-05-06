@@ -200,7 +200,7 @@ yum install centreon-pack-network-stormshield-api
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Stormshield API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
