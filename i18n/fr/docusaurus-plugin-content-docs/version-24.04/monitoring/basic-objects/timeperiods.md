@@ -52,7 +52,7 @@ Quelques exemples :
 
 La fonctionnalité modèles de période temporelle peut être utilisée lors de la configuration de toute période temporelle. 
 Elle permet de sélectionner des périodes antérieurement configurées pour les combiner avec celle que vous êtes en train de modifier. 
-Vous pouvez sélectionner autant de modèles de périodes temporelles que vous le souhaitez.
+Vous pouvez sélectionner autant de modèles de périodes temporelles que vous le souhaitez pour les combiner. Par exemple, si vous configurez un période temporelle qui inclut les samedis matins, vous pouvez sélectionner le modèle de période temporelle correspondant pour qu'une autre période temporelle que vous êtes en train de créer inclut les samedis matin.
 
 Les modèles de périodes remplissent en priorité les créneaux vides. Par exemple, si une période exclut les dimanches et l’autre les inclut, les dimanches seront finalement inclus.
 
