@@ -44,9 +44,6 @@ http://[IP_DU_SERVER_CENTRAL]/centreon/main.php?autologin=1&useralias=[login_use
 - The [**Realtime API**](../../api/rest-api-v1.md#realtime-information) can be called by non-administrator as long as the corresponding field is checked.
 - Administrators are able to call both the **Configuration API** and the [**Realtime API**](../../api/rest-api-v1.md#realtime-information) regardless of the corresponding field of the api being checked.
 
-
-
-
 * The **Access list groups** field is used to define an access group for a user (group use for access control (ACL)).
 
 > An Administrative user is never concerned by access control, even if linked to an access group.
