@@ -42,7 +42,7 @@ http://[IP_DU_SERVER_CENTRAL]/centreon/main.php?autologin=1&useralias=[login_use
 *To perform [API calls](../../api/rest-api-v1.md#api-calls)
 - The **Configuration API** can only be called by administrators, even if the corresponding field is checked for a non-admnistrator user.
 - The [**Realtime API**](../../api/rest-api-v1.md#realtime-information) can be called by non-administrator as long as the corresponding field is checked.
-- Administrators are able to call both the **Configuration API** and the [**Realtime API**](../../api/rest-api-v1.md#realtime-information) regardless of the corresponding field of the api being checked
+- Administrators are able to call both the **Configuration API** and the [**Realtime API**](../../api/rest-api-v1.md#realtime-information) regardless of the corresponding field of the api being checked.
 
 
 
