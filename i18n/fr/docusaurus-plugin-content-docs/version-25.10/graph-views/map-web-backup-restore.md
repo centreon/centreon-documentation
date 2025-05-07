@@ -37,7 +37,7 @@ La sauvegarde **centreon-map-server-yyyy-mm-dd.tar.gz** est stockée dans **BACK
 Les paramètres de sauvegarde sont enregistrés dans **/etc/centreon-map/backup.conf**.
 
 - ENABLE : activer/désactiver le mécanisme de sauvegarde (valeur par défaut : 0)
-- BACKUP\_DIR : emplacement où la sauvegarde est stockée (valeur par défaut : **/var/backup**)
+- BACKUP\_DIR : emplacement où la sauvegarde est stockée (valeur par défaut : /var/cache/centreon-map/backup)
 - RETENTION\_AGE : rétention de la sauvegarde en jours (valeur par défaut : 8)
 
 > **Nous conseillons d'exporter les sauvegardes vers un autre serveur que votre serveur Centreon afin de les sécuriser.**

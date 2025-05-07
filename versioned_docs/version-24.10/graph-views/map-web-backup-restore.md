@@ -39,7 +39,7 @@ The backup **centreon-map-server-yyyy-mm-dd.tar.gz** is stored in
 Backup parameters are stored in **/etc/centreon-map/backup.conf**
 
 - ENABLE: enable/disable backup mechanism (default value: 0)
-- BACKUP\_DIR: where the backup is stored (default value: /var/backup)
+- BACKUP\_DIR: where the backup is stored (default value: /var/cache/centreon-map/backup)
 - RETENTION\_AGE: backup retention in days (default value: 8)
 
 > **We advise to export backups to another resource in order to secure them.**
