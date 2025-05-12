@@ -8,6 +8,36 @@ import TabItem from '@theme/TabItem';
 
 ## 2025
 
+### Mai
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**F5OS SNMP**](../procedures/operatingsystems-f5os-snmp.md) - Initial release of F5OS SNMP.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Centreon Central**](../procedures/applications-monitoring-centreon-central.md) - Added detection of systemd-timesyncd into `SERVICEPROCESSNAME` macro default value in proc-ntpd service.
+- [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - Added detection of systemd-timesyncd into `SERVICEPROCESSNAME` macro default value in proc-ntpd service.
+- [**Cisco Small Business**](../procedures/network-switchs-cisco-smallbusiness-standard-snmp.md) - Added new **stack** mode, based on community contribution [PR 5317](https://github.com/centreon/centreon-plugins/pull/5317).
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Added new threshold macro `SERVICEWARNINGSPACEUSAGEPRCT` and `ERVICECRITICALSPACEUSAGEPRCT` in filesystems template.
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Added new **lte-interfaces** mode and service discovery rules for **list-interfaces** and **list-lte-interfaces**.
+- [**Socomec Net Vision UPS SNMP**](../procedures/hardware-ups-socomec-netvision-snmp.md) - Added counter `battery.temperatureambient.celsius` in **battery** service, from community contribution [PR 5493](https://github.com/centreon/centreon-plugins/pull/5493).
+- [**Stormshield API**](../procedures/network-stormshield-api.md) - Added new **vpn-tunnels** mode and **list-vpn-tunnels** discovery rule, based on community contribution [PR 5048](https://github.com/centreon/centreon-plugins/pull/5048).
+- [**VMware vCenter v4**](../procedures/virtualization-vmware2-vcenter-4.md) - Deprecated VMware vCenter v4.
+- [**VMware vCenter v5**](../procedures/virtualization-vmware2-vcenter-5.md) - Deprecated VMware vCenter v5.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Azure Storage Sync**](../procedures/cloud-azure-storage-storagesync.md) - Removed deprecated `StorageSyncRecallIOTotalSizeBytes` metric in **recalls** mode.
+- [**Cambium cnPilot SNMP**](../procedures/network-cambium-cnpilot-snmp.md) - Fixed wrong plugin executable name.
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Fixed wrong threshold default values in filesystems template.
+
+</TabItem>
+</Tabs>
+
 ### Avril
 
 <Tabs groupId="sync">
