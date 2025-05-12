@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
 - [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - Added detection of systemd-timesyncd into `SERVICEPROCESSNAME` macro default value in proc-ntpd service.
 - [**Cisco Small Business**](../procedures/network-switchs-cisco-smallbusiness-standard-snmp.md) - Added new **stack** mode, based on community contribution [PR 5317](https://github.com/centreon/centreon-plugins/pull/5317).
 - [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Added new threshold macro `SERVICEWARNINGSPACEUSAGEPRCT` and `ERVICECRITICALSPACEUSAGEPRCT` in filesystems template.
-- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Added new **lte-interfaces** mode and service discovery rules for **list-interfaces** and **list-lte-interfaces**.
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Added new **lte-interfaces** mode and service discovery rules for **list-interfaces** and **list-lte-interfaces**, from a [The Watch idea](https://thewatch.centreon.com/ideas/mikrotik-lte-signal-strength-support-2579).
 - [**Socomec Net Vision UPS SNMP**](../procedures/hardware-ups-socomec-netvision-snmp.md) - Added counter `battery.temperatureambient.celsius` in **battery** service, from community contribution [PR 5493](https://github.com/centreon/centreon-plugins/pull/5493).
 - [**Stormshield API**](../procedures/network-stormshield-api.md) - Added new **vpn-tunnels** mode and **list-vpn-tunnels** discovery rule, based on community contribution [PR 5048](https://github.com/centreon/centreon-plugins/pull/5048).
 - [**VMware vCenter v4**](../procedures/virtualization-vmware2-vcenter-4.md) - Deprecated VMware vCenter v4.
