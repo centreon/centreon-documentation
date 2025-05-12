@@ -83,7 +83,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Mars
+### March
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
