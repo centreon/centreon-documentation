@@ -463,14 +463,14 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Central
 </TabItem>
 <TabItem value="proc-ntpd" label="proc-ntpd">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                 | ntpd\|chronyd     |             |
-| PROCESSPATH  | Filter process path                                                                                 |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                      | 1:1               |             |
-| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                        | Default value                  | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                | `ntpd|chronyd|systemd-timesyn` |             |
+| PROCESSPATH  | Filter process path                                                                                |                                |             |
+| PROCESSARGS  | Filter process arguments                                                                           |                                |             |
+| CRITICAL     | Critical threshold of matching processes count                                                     | 1:1                            |             |
+| WARNING      | Warning threshold of matching processes count                                                      |                                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="proc-snmptrapd" label="proc-snmptrapd">
