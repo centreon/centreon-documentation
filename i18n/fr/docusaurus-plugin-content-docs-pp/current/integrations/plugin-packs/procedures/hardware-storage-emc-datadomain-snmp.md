@@ -337,7 +337,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 
 | Macro                 | Description                                                                                                                                      | Valeur par défaut                                       | Obligatoire |
 |:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| TRULYALERT            | Expression to define a truly alert                                                                                                               | %\{severity\} =~ /emergency\|alert\|warning\|critical/i |             |
+| TRULYALERT            | Expression to define an actual alert                                                                                                               | %\{severity\} =~ /emergency\|alert\|warning\|critical/i |             |
 | WARNINGALERTSCURRENT  | Threshold                                                                                                                                        |                                                         |             |
 | CRITICALALERTSCURRENT | Threshold                                                                                                                                        |                                                         |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                                         |             |
@@ -617,7 +617,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
 | --display-alerts         |   Display alerts in verbose output.                                                                                           |
-| --truly-alert            |   Expression to define a truly alert (default: '%\{severity\} =~ /emergency\|alert\|warning\|critical/i').                    |
+| --truly-alert            |   Expression to define an actual alert (default: '%\{severity\} =~ /emergency\|alert\|warning\|critical/i').                    |
 | --warning-* --critical-* |   Thresholds. Can be: 'alerts-current'.                                                                                       |
 
 </TabItem>
