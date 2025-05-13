@@ -280,7 +280,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Poller
 | PROCESSARGS  | Filter process arguments                                                                           |                                |             |
 | CRITICAL     | Critical threshold of matching processes count                                                     | 1:1                            |             |
 | WARNING      | Warning threshold of matching processes count                                                      |                                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="proc-sshd" label="proc-sshd">
