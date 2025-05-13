@@ -275,7 +275,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Poller
 
 | Macro        | Description                                                                                        | Default value                  | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                | `ntpd|chronyd|systemd-timesyn` |             |
+| PROCESSNAME  | Filter process name                                                                                | ntpd\|chronyd\|systemd-timesyn |             |
 | PROCESSPATH  | Filter process path                                                                                |                                |             |
 | PROCESSARGS  | Filter process arguments                                                                           |                                |             |
 | CRITICAL     | Critical threshold of matching processes count                                                     | 1:1                            |             |
