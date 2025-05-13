@@ -173,6 +173,14 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
+### VMware Perl SDK
+
+To make the connector work, you will need the Perl VMware SDK.
+To download it, you'll need a (free of charge) account at Broadcom's.
+At the time this document is written, it can be downloaded at [this page](https://developer.broadcom.com/sdks/vsphere-perl-sdk/latest/).
+
+Download the latest version (the archive having `f9ef0fc7a4e4983cf0ca6aea08d9a778` as MD5 checksum) and dispose the downloaded file at `/tmp/` on all the servers where this program must run.
+
 ### Centreon VMware daemon
 
 To monitor VMWare resources, Centreon uses a daemon to connect to and send requests to the vCenter (or the ESX, but it is recommended to use the vCenter).
@@ -180,17 +188,81 @@ To monitor VMWare resources, Centreon uses a daemon to connect to and send reque
 Install this daemon on each needed poller:
 
 <Tabs groupId="sync">
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-```bash
-apt install centreon-plugin-virtualization-vmware-daemon
+```bash 
+apt -y install patch make centreon-plugin-virtualization-vmware-daemon
+
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+cd vmware-vsphere-cli-distrib
+patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
+--- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
++++ VICommon.pm	2025-04-24 17:18:18.690399614 +0200
+@@ -2319,6 +2319,8 @@
+    my $user_agent = $self->{user_agent};
+    $user_agent->cookie_jar->as_string
+       =~ m/(.*)vmware_soap_session=\"\\\"([0-9a-zA-Z-](.*)+)\\\"\"(.*)/;
++   $user_agent->cookie_jar->as_string
++      =~ m/(.*)vmware_soap_session=[\\\"]*([0-9a-zA-Z-]+)/ unless $2;
+    return $2;
+ }
+EOF
+
+perl Makefile.PL
+make pure_install
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Virtualization-VMWare-daemon
+dnf install -y centreon-plugin-Virtualization-VMWare-daemon patch make
+
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+cd vmware-vsphere-cli-distrib
+patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
+--- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
++++ VICommon.pm	2025-04-24 17:18:18.690399614 +0200
+@@ -2319,6 +2319,8 @@
+    my $user_agent = $self->{user_agent};
+    $user_agent->cookie_jar->as_string
+       =~ m/(.*)vmware_soap_session=\"\\\"([0-9a-zA-Z-](.*)+)\\\"\"(.*)/;
++   $user_agent->cookie_jar->as_string
++      =~ m/(.*)vmware_soap_session=[\\\"]*([0-9a-zA-Z-]+)/ unless $2;
+    return $2;
+ }
+EOF
+
+perl Makefile.PL
+make pure_install
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install -y centreon-plugin-Virtualization-VMWare-daemon patch make
+
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+cd vmware-vsphere-cli-distrib
+patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
+--- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
++++ VICommon.pm	2025-04-24 17:18:18.690399614 +0200
+@@ -2319,6 +2319,8 @@
+    my $user_agent = $self->{user_agent};
+    $user_agent->cookie_jar->as_string
+       =~ m/(.*)vmware_soap_session=\"\\\"([0-9a-zA-Z-](.*)+)\\\"\"(.*)/;
++   $user_agent->cookie_jar->as_string
++      =~ m/(.*)vmware_soap_session=[\\\"]*([0-9a-zA-Z-]+)/ unless $2;
+    return $2;
+ }
+EOF
+
+perl Makefile.PL
+make pure_install
 ```
 
 </TabItem>
