@@ -3,6 +3,149 @@ id: cloud-release-notes
 title: Centreon Cloud - notes de release
 ---
 
+## May 15, 2025
+
+### Centreon Awie
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed extends-tag vulnerability in Smarty.
+
+</details>
+
+### Centreon BAM
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Dashboards] BA Diagram widget - Added the parent host name on service KPI.
+- [Dashboards] BA Diagram widget - Improved readability by increasing the number of characters displayed per label.
+- [Dashboards] When creating a new widget, the list of existing types of widgets is now categorized and ordered alphabetically.
+
+</details>
+
+### Centreon Collect
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [CMA] added gRPC logs to agent and opentelemetry engine module.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed a host name escape regression in the Graphite Broker output.
+- [Broker] Fixed an issue where acknowledgements did not appear in the logs table.
+- [Broker] Fixed an issue where the wrong service state was restored when engine re-established its connection to broker after a disconnection.
+
+</details>
+
+### Centreon DSM
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed extends-tag vulnerability in Smarty.
+
+</details>
+
+### Centreon Gorgone
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed centreon-engine restart issue affecting pollers, caused by a missing service binary.
+- [Gorgone] Fixed a bug where the gorgone API could not use a password containing a UTF-8 character.
+
+</details>
+
+### Centreon MAP
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [Configuration] Added private Map server address.
+- [Editor] Added missing macros to the Output widget. 
+- [Geoviews] Allowed user to define privileges for Geoviews.
+- [Map] Maps and Geoviews lists are now sorted alphabetically.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+  
+- [Map] Fixed a crash that could occur after upgrading the MAP version.
+- [Migration from Legacy] Fixed an issue with deleted resources that were still appearing when migrating from MAP Legacy.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+  
+- [Security] Upgraded DOM purify.
+
+</details>
+
+### Centreon Open Tickets
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Fixed issue preventing non admin users from opening tickets.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed extends-tag vulnerability in Smarty.
+
+</details>
+
+### Centreon Web
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added bulk enable/disable endpoint for hostgroups.
+- [API] Added a new endpoint to bulk Duplicate Host Groups.
+- [API] Added an endpoint to Bulk Delete Host groups.
+- [API] Added a new endpoint to bulk Delete services.
+- [CEIP] Added LACCESS in metadata.
+- [CMA] Centreon Monitoring Agent Connector is now created during install/upgrade.
+- [Configuration] Hostgroup form is now using REST API for update.
+- [Configuration] Host form is now using REST API.
+- [Configuration] Host group form is now using REST API for deletion.
+- [Configuration] Service form is now using REST API for deletion.
+- [Configuration] Host form is now using REST API.
+- [Configuration] Replication enabled option has been removed from the Broker output form.
+- [Dashboards] Reduced spacing between items of the Dashboard page. It is now possible to resize the widgets horizontally or diagonally, either on the left or the right side.
+- [Resource Status] Added Flapping state in listing of resources and details panel.
+- [Resource Status] Optimized search query.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed an issu on edit host and host template.
+- [Cron] Run script to delete expired tokens with apache user to avoid invalid permissions on web log file
+- [Dashboards] Fixed issue preventing users to share dashboards or playlists with other users.
+- [Event Logs] Fixed access issue with non admin users.
+- [RAM] Make RAM resistent to contact group deletion.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed extends-tag vulnerability in Smarty.
+
+</details>
+
 ## March 18th, 2025
 
 ### Centreon IT Edition
