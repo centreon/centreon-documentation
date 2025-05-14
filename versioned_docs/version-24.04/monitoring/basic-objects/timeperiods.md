@@ -50,7 +50,9 @@ Here are a few examples:
 
 ### Timeperiod templates
 
-The timeperiod templates feature can be found in any timeperiod configuration screen. This allows you to select previously configured timeperiods to combine it with others including the one currently opened. You can select as many timeperiod templates as you wish, it is possible to use an otherwise blank timeperiod and configure it just by combining other timeperiod templates.
+The timeperiod templates feature can be found in any timeperiod configuration screen. 
+This allows you to select previously configured timeperiods to combine it with others including the one currently opened. 
+You can select as many timeperiod templates as you wish.
 
 
 Timeperiod templates prioritize filling empty timeframes i.e. : if you combine a timeperiod template that excludes Sundays and one that includes Sundays, Sundays will be included. The time range exceptions described below override both.
