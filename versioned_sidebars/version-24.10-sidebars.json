@@ -677,10 +677,6 @@
             },
             {
               "type": "doc",
-              "id": "service-mapping/migrate"
-            },
-            {
-              "type": "doc",
               "id": "service-mapping/remote-server"
             }
           ]
