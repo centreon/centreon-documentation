@@ -315,6 +315,23 @@ Installez les dépendances suivantes :
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
 ```
 
+#### Installer le dépôt Sury APT pour PHP 8.1 
+
+>Cette étape n'est nécessaire que pour les utilisateurs sur Debian 11, si vous êtes sur Debian 12, passez à l'étape suivante.
+
+Pour installer le dépôt Sury, exécutez la commande suivante :
+
+```shell
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
+```
+
+Ensuite, importez la clé du dépôt :
+
+```shell
+wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
+apt update
+```
+
 </TabItem>
 </Tabs>
 
