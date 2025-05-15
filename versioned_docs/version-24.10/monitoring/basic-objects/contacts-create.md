@@ -39,7 +39,7 @@ http://[IP_DU_SERVER_CENTRAL]/centreon/main.php?autologin=1&useralias=[login_use
 
 * The **Authentication Source** field specifies if the connection information comes from an LDAP directory or information
   stored locally on the server.
-* The next 3 fields allow users to perform [API calls](../../api/rest-api-v1.md#api-calls) (note: our API documentation is written for developers familiar with HTTP requests and JSON).
+* The next 3 fields are for authorizing users to perform [API calls](../../api/rest-api-v1.md#api-calls) (note: our API documentation is written for developers familiar with HTTP requests and JSON).
 - The **Configuration API** can only be called by administrators. Note that this field only applies to the v2 API.
 - The [**Realtime API**](../../api/rest-api-v1.md#realtime-information) can be called by a non-administrator user as long as the corresponding field is checked.
 - Administrators are able to call both the **Configuration API** and the [**Realtime API**](../../api/rest-api-v1.md#realtime-information) regardless of the corresponding field of the API being checked.
