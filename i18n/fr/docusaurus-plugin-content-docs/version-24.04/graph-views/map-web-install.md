@@ -292,6 +292,9 @@ GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 
 Le privilège INSERT ne sera utilisé que pendant le processus d'installation afin de créer une nouvelle sortie Centreon Broker. Il sera révoqué ultérieurement.
 
+> Les privilèges disponibles sont les suivants :
+ALTER, CREATE, CREATE TEMPORARY TABLES, DELETE, DROP, INDEX, INSERT, LOCK TABLES, SELECT, SHOW DATABASES, UPDATE.
+
 ### Étape 3 : installer le serveur MAP Engine
 
 #### Installation des paquets

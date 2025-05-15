@@ -295,6 +295,9 @@ GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 The INSERT privilege will only be used during the installation process
 in order to create new Centreon Broker output. It will be revoked later.
 
+> The available privileges are as follows:
+ALTER, CREATE, CREATE TEMPORARY TABLES, DELETE, DROP, INDEX, INSERT, LOCK TABLES, SELECT, SHOW DATABASES, UPDATE.
+
 ### Step 3: Install MAP Engine server
 
 #### Package installation
