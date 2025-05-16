@@ -222,19 +222,6 @@ dnf install -y centreon-plugin-Virtualization-VMWare-daemon patch make
 cd /tmp
 tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
 cd vmware-vsphere-cli-distrib
-patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
---- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
-+++ VICommon.pm	2025-04-24 17:18:18.690399614 +0200
-@@ -2319,6 +2319,8 @@
-    my $user_agent = $self->{user_agent};
-    $user_agent->cookie_jar->as_string
-       =~ m/(.*)vmware_soap_session=\"\\\"([0-9a-zA-Z-](.*)+)\\\"\"(.*)/;
-+   $user_agent->cookie_jar->as_string
-+      =~ m/(.*)vmware_soap_session=[\\\"]*([0-9a-zA-Z-]+)/ unless $2;
-    return $2;
- }
-EOF
-
 perl Makefile.PL
 make pure_install
 ```
