@@ -150,15 +150,7 @@ mise à jour.
 
   ```shell
   curl --location --request POST 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
-  --header 'X-AUTH-TOKEN: hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S' \
-  --header 'Content-Type: application/json' \
-  --data '{
-      "components": [
-          {
-              "name": "centreon-web"
-          }
-      ]
-  }'
+  --header 'X-AUTH-TOKEN: hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S'
   ```
 
 5. Cette requête ne renvoie aucun résultat. Pour vérifier que la mise à jour a bien été appliquée, consultez le numéro de version affiché sur la page de connexion à l'interface web Centreon.
