@@ -149,7 +149,7 @@ mise à jour.
 4. Entrez ensuite cette requête :
 
   ```shell
-  curl --location --request PATCH 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
+  curl --location --request POST 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
   --header 'X-AUTH-TOKEN: hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S' \
   --header 'Content-Type: application/json' \
   --data '{
