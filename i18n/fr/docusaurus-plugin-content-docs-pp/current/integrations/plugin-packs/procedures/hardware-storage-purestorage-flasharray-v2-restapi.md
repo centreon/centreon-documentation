@@ -73,14 +73,24 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Arrays" label="Arrays">
 
-| Nom                                          | Unité |
-|:---------------------------------------------|:------|
-| *arrays*~array.space.usage.bytes             | B     |
-| *arrays*~array.space.free.bytes              | B     |
-| *arrays*~array.space.usage.percentage        | %     |
-| *arrays*~array.data.reduction.count          | count |
-| *arrays*~array.io.read.usage.bytespersecond  | B/s   |
-| *arrays*~array.io.write.usage.bytespersecond | B/s   |
+| Nom                                                 | Unité |
+|:----------------------------------------------------|:------|
+| *arrays*~array.space.usage.bytes                    | B     |
+| *arrays*~array.space.free.bytes                     | B     |
+| *arrays*~array.space.usage.percentage               | %     |
+| *arrays*~array.data.reduction.count                 | count |
+| array-1~5m#array.io.read.usage.bytespersecond       | B/s   |
+| array-1~5m#array.io.read.usage.bytesperread         | B     |
+| array-1~5m#array.io.read.usage.readspersec          | /s    |
+| array-1~5m#array.io.read.usage.serviceusecperreadop | B;    |
+| array-1~5m#array.io.read.usage.usecperreadop        | B     | 
+| array-1~5m#array.io.read.usage.queueusecperreadop   | B     |
+| array-1~5m#array.io.write.usage.bytespersecond      | B/s   |
+| array-1~5m#array.io.write.usage.bytesperwrite       | B     |
+| array-1~5m#array.io.write.usage.writespersec        | /s    |
+| array-1~5m#array.io.write.usage.serviceusecwriteop  | B     |
+| array-1~5m#array.io.write.usage.usecperwriteop      | B     |
+| array-1~5m#array.io.write.usage.queueusecperwriteop | B     |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
@@ -123,7 +133,7 @@ Cet utilisateur doit avoir au moins un accès en lecture seule à la baie de sto
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -160,7 +170,7 @@ yum install centreon-pack-hardware-storage-purestorage-flasharray-v2-restapi
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Pure Storage FlashArray Rest API v2**
-depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 
@@ -241,24 +251,44 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Flasharray-V2-Restapi
 </TabItem>
 <TabItem value="Arrays" label="Arrays">
 
-| Macro                  | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PERFRESOLUTION         | Time resolution for array performance. Can be: 1s, 30s, 5m, 30m, 2h, 8h, 24h                                                                     | 5m                |             |
-| FILTERID               | Filter arrays by ID (can be a regexp)                                                                                                            |                   |             |
-| FILTERNAME             | Filter arrays by name (can be a regexp)                                                                                                          |                   |             |
-| WARNINGDATAREDUCTION   | Threshold                                                                                                                                        |                   |             |
-| CRITICALDATAREDUCTION  | Threshold                                                                                                                                        |                   |             |
-| WARNINGREAD            | Threshold                                                                                                                                        |                   |             |
-| CRITICALREAD           | Threshold                                                                                                                                        |                   |             |
-| WARNINGSPACEUSAGE      | Threshold                                                                                                                                        |                   |             |
-| CRITICALSPACEUSAGE     | Threshold                                                                                                                                        |                   |             |
-| WARNINGSPACEUSAGEFREE  | Threshold                                                                                                                                        |                   |             |
-| CRITICALSPACEUSAGEFREE | Threshold                                                                                                                                        |                   |             |
-| WARNINGSPACEUSAGEPRCT  | Threshold                                                                                                                                        |                   |             |
-| CRITICALSPACEUSAGEPRCT | Threshold                                                                                                                                        |                   |             |
-| WARNINGWRITE           | Threshold                                                                                                                                        |                   |             |
-| CRITICALWRITE          | Threshold                                                                                                                                        |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro                                | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PERFRESOLUTION                       | Time resolution for array performance. Can be: C\<1s\>, C\<30s\>, C\<5m\>, C\<30m\>, C\<2h\>, C\<8h\>, C\<24h\>                                  | 5m                |             |
+| FILTERID                             | Filter arrays by ID (can be a regexp)                                                                                                            |                   |             |
+| FILTERNAME                           | Filter arrays by name (can be a regexp)                                                                                                          |                   |             |
+| WARNINGBYTESPERREAD                  | Threshold                                                                                                                                        |                   |             |
+| CRITICALBYTESPERREAD                 | Threshold                                                                                                                                        |                   |             |
+| WARNINGBYTESPERWRITE                 | Threshold                                                                                                                                        |                   |             |
+| CRITICALBYTESPERWRITE                | Threshold                                                                                                                                        |                   |             |
+| WARNINGDATAREDUCTION                 | Threshold                                                                                                                                        |                   |             |
+| CRITICALDATAREDUCTION                | Threshold                                                                                                                                        |                   |             |
+| WARNINGQUEUEUSECPERREADOPERATION     | Threshold                                                                                                                                        |                   |             |
+| CRITICALQUEUEUSECPERREADOPERATION    | Threshold                                                                                                                                        |                   |             |
+| WARNINGQUEUEUSECPERWRITEOPERATION    | Threshold                                                                                                                                        |                   |             |
+| CRITICALQUEUEUSECPERWRITEOPERATION   | Threshold                                                                                                                                        |                   |             |
+| WARNINGREAD                          | Threshold                                                                                                                                        |                   |             |
+| CRITICALREAD                         | Threshold                                                                                                                                        |                   |             |
+| WARNINGREADSPERSEC                   | Threshold                                                                                                                                        |                   |             |
+| CRITICALREADSPERSEC                  | Threshold                                                                                                                                        |                   |             |
+| WARNINGSERVICEUSECPERREADOPERATION   | Threshold                                                                                                                                        |                   |             |
+| CRITICALSERVICEUSECPERREADOPERATION  | Threshold                                                                                                                                        |                   |             |
+| WARNINGSERVICEUSECPERWRITEOPERATION  | Threshold                                                                                                                                        |                   |             |
+| CRITICALSERVICEUSECPERWRITEOPERATION | Threshold                                                                                                                                        |                   |             |
+| WARNINGSPACEUSAGE                    | Threshold                                                                                                                                        |                   |             |
+| CRITICALSPACEUSAGE                   | Threshold                                                                                                                                        |                   |             |
+| WARNINGSPACEUSAGEFREE                | Threshold                                                                                                                                        |                   |             |
+| CRITICALSPACEUSAGEFREE               | Threshold                                                                                                                                        |                   |             |
+| WARNINGSPACEUSAGEPRCT                | Threshold                                                                                                                                        |                   |             |
+| CRITICALSPACEUSAGEPRCT               | Threshold                                                                                                                                        |                   |             |
+| WARNINGUSECPERREADOPERATION          | Threshold                                                                                                                                        |                   |             |
+| CRITICALUSECPERREADOPERATION         | Threshold                                                                                                                                        |                   |             |
+| WARNINGUSECPERWRITEOPERATION         | Threshold                                                                                                                                        |                   |             |
+| CRITICALUSECPERWRITEOPERATION        | Threshold                                                                                                                                        |                   |             |
+| WARNINGWRITE                         | Threshold                                                                                                                                        |                   |             |
+| CRITICALWRITE                        | Threshold                                                                                                                                        |                   |             |
+| WARNINGWRITESPERSEC                  | Threshold                                                                                                                                        |                   |             |
+| CRITICALWRITESPERSEC                 | Threshold                                                                                                                                        |                   |             |
+| EXTRAOPTIONS                         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
@@ -273,7 +303,7 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Flasharray-V2-Restapi
 
 | Macro                  | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PERFRESOLUTION         | Time resolution for volume performance. Can be: 1s, 30s, 5m, 30m, 2h, 8h, 24h                                                                    | 5m                |             |
+| PERFRESOLUTION         | Time resolution for volumes performance. Can be: C\<1s\>, C\<30s\>, C\<5m\>, C\<30m\>, C\<2h\>, C\<8h\>, C\<24h\>                                | 5m                |             |
 | FILTERID               | Filter volumes by ID (can be a regexp)                                                                                                           |                   |             |
 | FILTERNAME             | Filter volumes by name (can be a regexp)                                                                                                         |                   |             |
 | WARNINGDATAREDUCTION   | Threshold                                                                                                                                        |                   |             |
@@ -306,10 +336,10 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 ```bash
 /usr/lib/centreon/plugins/centreon_purestorage_flasharray_v2_restapi.pl \
 	--plugin=storage::purestorage::flasharray::v2::restapi::plugin \
-	--mode=arrays \
+	--mode=volumes \
 	--hostname='10.0.0.1' \
 	--api-version='2.4' \
-	--api-token='XXXX' \
+	--api-token='' \
 	--proto='' \
 	--port=''  \
 	--filter-id='' \
@@ -333,16 +363,12 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Array 'filer06-c' space usage total: 26.52 TB used: 16.15 TB (60.91%) free: 10.37 TB (39.09%) - data reduction: 3.808 - read: 732.13 MB/s, write: 0.00 B/s | 'filer06-c#array.space.usage.bytes'=17760870565810B;;;0;29159353378407 'filer06-c#array.space.free.bytes'=11398482812597B;;;0;29159353378407 'filer06-c#array.space.usage.percentage'=60.91%;;;0;100 'filer06-c#array.data.reduction.count'=3.808;;;0; 'filer06-c~5m#array.io.read.usage.bytespersecond'=767691223B/s;;;0; 'filer06-c~5m#array.io.write.usage.bytespersecond'=0B/s;;;0;
-checking array 'filer06-c'
-    space usage total: 26.52 TB used: 16.15 TB (60.91%) free: 10.37 TB (39.09%)
-    data reduction: 3.808
-    read: 732.13 MB/s, write: 0.00 B/s
+OK:    data reduction: 3583 read: 94094 94094/s write: 40346 40346/s | 'volumes~volume.space.usage.bytes'=78607B;;;0;total 'volumes~volume.space.free.bytes'=10354B;;;0;total 'volumes~volume.space.usage.percentage'=85813%;;;0;100 'volumes~volume.data.reduction.count'=3583;;;0; 'volumes~volume.io.read.usage.bytespersecond'=94094B/s;;;; 'volumes~volume.io.write.usage.bytespersecond'=40346B/s;;;; 
 ```
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
@@ -458,13 +484,13 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Arrays" label="Arrays">
 
-| Option                   | Description                                                                                                                    |
-|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='data-reduction'                                 |
-| --filter-id              |   Filter arrays by ID (can be a regexp).                                                                                       |
-| --filter-name            |   Filter arrays by name (can be a regexp).                                                                                     |
-| --filter-resolution      |   Time resolution for array performance. Can be: 1s, 30s, 5m, 30m, 2h, 8h, 24h (default: 5m).                                  |
-| --warning-* --critical-* |   Thresholds. Can be: 'space-usage' (B), 'space-usage-free' (B), 'space-usage-prct' (%), 'data-reduction', 'read', 'write'.    |
+| Option                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='data-reduction'                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-id              |   Filter arrays by ID (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --filter-name            |   Filter arrays by name (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --perf-resolution        |   Time resolution for array performance. Can be: C\<1s\>, C\<30s\>, C\<5m\>, C\<30m\>, C\<2h\>, C\<8h\>, C\<24h\> (default: C\<5m\>).                                                                                                                                                                                                                                                                                                                                |
+| --warning-* --critical-* |   Thresholds. Can be: 'space-usage' (B), 'space-usage-free' (B), 'space-usage-prct' (%), 'data-reduction', 'read-bytes' (B/s), 'bytes-per-read' (B), 'reads-per-sec', 'service-usec-per-read-operation' (µs), 'usec-per-read-operation' (µs), 'queue-usec-per-read-operation' (µs) 'write-bytes' (B/s), 'bytes-per-write' (B), 'writes-per-sec', 'service-usec-per-write-operation' (µs), 'usec-per-write-operation' (µs), 'queue-usec-per-write-operation' (µs).    |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
@@ -484,13 +510,13 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Volumes" label="Volumes">
 
-| Option                   | Description                                                                                                                    |
-|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='data-reduction'                                 |
-| --filter-id              |   Filter volumes by ID (can be a regexp).                                                                                      |
-| --filter-name            |   Filter volumes by name (can be a regexp).                                                                                    |
-| --filter-resolution      |   Time resolution for array performance. Can be: 1s, 30s, 5m, 30m, 2h, 8h, 24h (default: 5m).                                  |
-| --warning-* --critical-* |   Thresholds. Can be: 'space-usage' (B), 'space-usage-free' (B), 'space-usage-prct' (%), 'data-reduction', 'read', 'write'.    |
+| Option                   | Description                                                                                                                               |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='data-reduction'                                            |
+| --filter-id              |   Filter volumes by ID (can be a regexp).                                                                                                 |
+| --filter-name            |   Filter volumes by name (can be a regexp).                                                                                               |
+| --perf-resolution        |   Time resolution for volumes performance. Can be: C\<1s\>, C\<30s\>, C\<5m\>, C\<30m\>, C\<2h\>, C\<8h\>, C\<24h\> (default: C\<5m\>).   |
+| --warning-* --critical-* |   Thresholds. Can be: 'space-usage' (B), 'space-usage-free' (B), 'space-usage-prct' (%), 'data-reduction', 'read', 'write'.               |
 
 </TabItem>
 </Tabs>
