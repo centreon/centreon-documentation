@@ -5,7 +5,9 @@ title: Aruba Standard
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Contenu du pack
+## Contenu du connecteur
+
+> Note : Depuis le rachat d'Aruba par HP certaines MIB peuvent avoir changé et certains équipements Aruba peuvent désormais être supervisés par le connecteur [HP Procurve SNMP](network-switchs-hp-procurve-snmp.md).
 
 ### Modèles
 

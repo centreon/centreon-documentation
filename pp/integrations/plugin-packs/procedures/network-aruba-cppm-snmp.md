@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 ## Pack assets
 
+> Note: Since Hp acquired Aruba, some MIB may have changed and some Aruba equipment can now be supervised by the [HP Procurve SNMP](network-switches-hp-procurve-snmp.md) connector.
+
 ### Templates
 
 The Monitoring Connector **Aruba CPPM SNMP** brings a host template:
