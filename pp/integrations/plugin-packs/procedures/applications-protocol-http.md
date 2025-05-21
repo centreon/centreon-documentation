@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 ## Pack assets
 
+> Warning : This connector only support BASIC or NTLM v.1/2 authentication (you can't use it to check web pages behind SSO portals).
+
 ### Templates
 
 The Monitoring Connector **HTTP Server** brings a host template:
