@@ -226,10 +226,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 | Nom                                      | Unité    |
 |:-----------------------------------------|:---------|
-| *vd*~vpn.users.logged.count              | users    |
-| *vd*~vpn.websessions.active.count        | sessions |
-| *vd*~vpn.tunnels.active.count            | tunnels  |
-| *vd*~vpn.ipsec.tunnels.state.count       | tunnels  |
+| *vd*~vpn.users.logged.count              | count  |
+| *vd*~vpn.websessions.active.count        | count  |
+| *vd*~vpn.tunnels.active.count            | count  |
+| *vd*~vpn.ipsec.tunnels.state.count       | count  |
 | status                                   | N/A      |
 | *vd*~*vpn*#vpn.traffic.in.bitspersecond  | b/s      |
 | *vd*~*vpn*#vpn.traffic.out.bitspersecond | b/s      |

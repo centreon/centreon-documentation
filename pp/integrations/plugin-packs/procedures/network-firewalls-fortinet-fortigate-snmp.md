@@ -225,10 +225,10 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 | Name                                     | Unit     |
 |:-----------------------------------------|:---------|
-| *vd*~vpn.users.logged.count              | users    |
-| *vd*~vpn.websessions.active.count        | sessions |
-| *vd*~vpn.tunnels.active.count            | tunnels  |
-| *vd*~vpn.ipsec.tunnels.state.count       | tunnels  |
+| *vd*~vpn.users.logged.count              | count  |    |
+| *vd*~vpn.websessions.active.count        | count  | |
+| *vd*~vpn.tunnels.active.count            | count  |  |
+| *vd*~vpn.ipsec.tunnels.state.count       | count  |  |
 | status                                   | N/A      |
 | *vd*~*vpn*#vpn.traffic.in.bitspersecond  | b/s      |
 | *vd*~*vpn*#vpn.traffic.out.bitspersecond | b/s      |
