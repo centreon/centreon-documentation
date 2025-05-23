@@ -85,11 +85,11 @@ La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-
 
 | Type   | Nom             | Explication                                | Valeur par défaut                                       |
 |--------|-----------------|--------------------------------------------|---------------------------------------------------------|
-| string | logfile         | The file in which logs are written         | /var/log/centreon-broker/servicenow-incident-events.log |
-| number | log_level       | Logging level from 1 (errors) to 3 (debug) | 1                                                       |
-| string | http_server_url | The address of the service-now server      | service-now.com                                         |
-| string | incident_table  | The name of the incident table             | incident                                                |
-| string | source          | The source name of the incident            | centreon                                                |
+| string | logfile         | Fichier dans lequel les logs sont écrits         | /var/log/centreon-broker/servicenow-incident-events.log |
+| number | log_level       | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug) | 1                                                       |
+| string | http_server_url | L'adresse du serveur service-now      | service-now.com                                         |
+| string | incident_table  | Le nom de la table incident             | incident                                                |
+| string | source          | Le nom de la source de l'incident           | centreon                                                |
 
 7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à ServiceNow Incident](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-servicenow).
 
