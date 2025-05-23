@@ -203,8 +203,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=hardware::devices::barco::cs::restapi::plugin \
 	--mode=device \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
 	--port='4001' \
 	--proto='https'  \
 	--warning-cpu-fanspeed='' \

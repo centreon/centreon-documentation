@@ -204,8 +204,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=hardware::devices::barco::cs::restapi::plugin \
 	--mode=device \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
 	--port='4001' \
 	--proto='https'  \
 	--warning-cpu-fanspeed='' \
