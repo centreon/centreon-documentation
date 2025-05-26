@@ -1287,7 +1287,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 
 Vous pouvez maintenant accéder à votre plateforme via votre navigateur en mode HTTPS.
 
-> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez le configurer en mode HTTPS également. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](../graph-views/secure-your-map-platform.md#configurer-httpstls-sur-le-serveur-map-ou-map-legacy).
+> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez définir l'adresse `centreon.url=https://<server-address>` dans le fichier **/etc/centreon-map/map-config.properties** (**/etc/centreon-studio/studio-config.properties** pour MAP Legacy) pour utiliser HTTPS au lieu de HTTP. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](https://docs.centreon.com/fr/docs/23.10/graph-views/secure-your-map-platform/#configurer-httpstls-sur-le-serveur-map-ou-map-legacy).
 
 9. Configuration API de Gorgone
 

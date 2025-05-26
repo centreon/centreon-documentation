@@ -48,6 +48,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <TabItem value="Collection" label="Collection">
 
 Les métriques obtenues dépendent entièrement de la configuration de la collection.
+Vous pouvez vous reporter au [tutoriel The Watch](https://thewatch.centreon.com/product-how-to-21/http-collections-tutorial-how-to-monitor-an-api-2634) dédié pour ce mode.
 
 </TabItem>
 <TabItem value="HTTP-Expected-Content" label="HTTP-Expected-Content">
@@ -108,7 +109,7 @@ Il est possible d'utiliser un proxy lorsque cela est nécessaire.
 La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -145,7 +146,7 @@ yum install centreon-pack-applications-protocol-http
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **HTTP Server**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
