@@ -248,7 +248,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK:
+OK: All 2 components are ok [2/2 temperatures]. | 'temp1 Temp'=30C;;;;'temp2 Temp'=31C;;;;'count_temperature'=2;;;;
 ```
 
 ### Diagnostic des erreurs communes
