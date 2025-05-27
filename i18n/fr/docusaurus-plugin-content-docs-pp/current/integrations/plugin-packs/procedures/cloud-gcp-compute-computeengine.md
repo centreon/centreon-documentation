@@ -64,11 +64,17 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom                                             | Unité |
 |:------------------------------------------------|:------|
 | computeengine.disk.read.volume.bytes            | B     |
+| computeengine.disk.read.volume.bytespersecond            | B/s     |
 | computeengine.disk.throttled.read.volume.bytes  | B     |
+| computeengine.disk.throttled.read.volume.bytespersecond  | B/s     |
 | computeengine.disk.write.volume.bytes           | B     |
+| computeengine.disk.write.volume.bytespersecond           | B/s     |
 | computeengine.disk.throttled.write.volume.bytes | B     |
+| computeengine.disk.throttled.write.volume.bytespersecond | B/s     |
 | computeengine.disk.read.ops.count               | count |
-| computeengine.disk.write.ops.count              | count |
+| computeengine.disk.read.ops.persecond               | count |
+| computeengine.disk.write.ops.count              | count/s |
+| computeengine.disk.write.ops.persecond              | count/s |
 
 </TabItem>
 <TabItem value="Network" label="Network">
@@ -281,7 +287,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=cloud::google::gcp::compute::computeengine::plugin \
 	--mode=network \
 	--proxyurl='' \
-	--key-file='/var/lib/centreon-engine/centreon-dev-6e5531fc9e82.json' \
+	--key-file='/var/lib/centreon-engine/centreon-dev-xxxxxxxxx.json' \
 	--scope-endpoint='https://www.googleapis.com/auth/cloud-platform' \
 	--dimension-name='resource.labels.instance\_id' \
 	--dimension-operator='equals' \
