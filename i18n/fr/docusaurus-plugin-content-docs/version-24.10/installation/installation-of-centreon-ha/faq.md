@@ -21,7 +21,7 @@ Les extensions nécessitent des fichiers de licence spécifiques pour fonctionne
 
 ## Qu'est-ce qui est supporté, et qu'est-ce qui ne l'est pas ?
 
-Avec Centreon 24.10, les clusters HA peuvent être installés sur [tous les OS et les SGBD supportés](../compatibility.md#logiciels).
+Avec Centreon 24.10, les clusters HA peuvent être installés sur [tous les OS supportés](../compatibility.md#système-dexploitation), avec MariaDB comme SGBD.
 
 Le support pour les configurations HA n'est pas inclus dans le support standard de Centreon. Si vous souhaitez un support pour votre système HA, votre configuration HA doit être installée par Centreon Professional Services, et vous devez acheter un pack de support HA spécifique.
 
