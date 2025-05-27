@@ -72,7 +72,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Blade-Temperature" label="Blade-Temperature">
 
-Coming soon
+| Metric name | Unit |
+|:------------|:-----|
+| temperature | C    |
 
 </TabItem>
 <TabItem value="CPU" label="CPU">
@@ -164,7 +166,10 @@ Coming soon
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/editor.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 

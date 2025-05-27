@@ -5,12 +5,11 @@ title: Linux Centreon Monitoring Agent
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Centreon Monitoring Agent est un agent d'observabilité implémentant le protocole
-OpenTelemetry.
+Le connecteur **Linux Centreon Monitoring Agent** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
 
-> Pour le moment, l'agent de supervision **Centreon Monitoring Agent** est en version *beta*.
+> Pour le moment, ce connecteur de supervision ainsi que l'agent sont en version **BETA**.
 
-Vous pouvez consulter [cette page](../getting-started/how-to-guides/cma.md) pour plus d'informations sur ce que permet Centreon Monitoring Agent.
+Lisez [cette page](../getting-started/how-to-guides/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
 
 ## Contenu du pack
 
@@ -26,39 +25,39 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="OS-Linux-Centreon-Monitoring-Agent-custom" label="OS-Linux-Centreon-Monitoring-Agent-custom">
 
-| Alias  | Modèle de service                                | Description                                                                                                                                                               |
-|:-------|:-------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu    | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom    | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
-| Load   | OS-Linux-Load-Centreon-Monitoring-Agent-custom   | Contrôle de la charge serveur                                                                                                                                             |
-| Memory | OS-Linux-Memory-Centreon-Monitoring-Agent-custom | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                         |
-| Ntp    | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom    | Contrôle la synchronisation du système avec un serveur NTP                                                                                                                |
-| Swap   | OS-Linux-Swap-Centreon-Monitoring-Agent-custom   | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |
-| Uptime | OS-Linux-Uptime-Centreon-Monitoring-Agent-custom | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                 |
+| Alias  | Modèle de service                                | Description                                                                                                                                                               | Type de contrôle |
+|:-------|:-------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --- |
+| Cpu    | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom    | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur | natif |
+| Load   | OS-Linux-Load-Centreon-Monitoring-Agent-custom   | Contrôle de la charge serveur                                                                                                                                             |non natif |
+| Memory | OS-Linux-Memory-Centreon-Monitoring-Agent-custom | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                         |non natif |
+| Ntp    | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom    | Contrôle la synchronisation du système avec un serveur NTP                                                                                                                |non natif |
+| Swap   | OS-Linux-Swap-Centreon-Monitoring-Agent-custom   | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |non natif |
+| Uptime | OS-Linux-Uptime-Centreon-Monitoring-Agent-custom | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                 |non natif |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias               | Modèle de service                                             | Description                                                                                                                                                                           | Découverte |
-|:--------------------|:--------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Cmd-Generic         | OS-Linux-Cmd-Generic-Centreon-Monitoring-Agent-custom         | Permet de vérifier le code retour de commandes Linux                                                                                                                                  |            |
-| Connections-Generic | OS-Linux-Connections-Generic-Centreon-Monitoring-Agent-custom | Contrôle les connexions TCP/UDP                                                                                                                                                       |            |
-| Cpu-Detailed        | OS-Linux-Cpu-Detailed-Centreon-Monitoring-Agent-custom        | Contrôle du taux d'utilisation détaillé du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |            |
-| Disk-IO             | OS-Linux-Disk-IO-Centreon-Monitoring-Agent-custom             | Contrôle les compteurs I/O des disques                                                                                                                                                |            |
-| Disks               | OS-Linux-Disks-Centreon-Monitoring-Agent-custom               | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques                                                               |     X      |
-| File-Date-Generic   | OS-Linux-File-Date-Generic-Centreon-Monitoring-Agent-custom   | Permet de vérifier la date de modification/création/accès/... de fichiers et/ou répertoires                                                                                           |            |
-| File-Size-Generic   | OS-Linux-File-Size-Generic-Centreon-Monitoring-Agent-custom   | Permet de vérifier la taille de fichiers et/ou répertoires                                                                                                                            |            |
-| Inodes              | OS-Linux-Inodes-Centreon-Monitoring-Agent-custom              | Contrôle du taux d'inodes disponibles des disques                                                                                                                                     |            |
-| Is-File-Generic     | OS-Linux-Is-File-Generic-Centreon-Monitoring-Agent-custom     | Permet de vérifier si le fichier 'xxx' est présent                                                                                                                                    |            |
-| Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-Centreon-Monitoring-Agent-custom | Permet de vérifier si le fichier 'xxx' n'est pas présent                                                                                                                              |            |
-| Open-Files          | OS-Linux-Open-Files-Centreon-Monitoring-Agent-custom          | Permet de vérifier le nombre de modifications/créations/accès/... de fichiers et/ou répertoires                                                                                       |            |
-| Packet-Errors       | OS-Linux-Packet-Errors-Centreon-Monitoring-Agent-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                                                                                   |            |
-| Pending-Updates     | OS-Linux-Pending-Updates-Centreon-Monitoring-Agent-custom     | Contrôle le statut des services systemd                                                                                                                                               |            |
-| Process-Generic     | OS-Linux-Process-Generic-Centreon-Monitoring-Agent-custom     | Contrôle permettant de vérifier des processus Linux                                                                                                                                   |            |
-| Systemd-Journal     | OS-Linux-Systemd-Journal-Centreon-Monitoring-Agent-custom     | Compte les entrées de journal grâce à la commande `journalctl`                                                                                                                        |            |
-| Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-Centreon-Monitoring-Agent-custom   | Contrôle le statut des services systemd                                                                                                                                               |            |
-| Traffic             | OS-Linux-Traffic-Centreon-Monitoring-Agent-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                   |     X      |
+| Alias               | Modèle de service                                             | Description                                                                                                                                                                           | Découverte | Type de contrôle |
+|:--------------------|:--------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:| --- |
+| Cmd-Generic         | OS-Linux-Cmd-Generic-Centreon-Monitoring-Agent-custom         | Permet de vérifier le code retour de commandes Linux                                                                                                                                  |            | non natif |
+| Connections-Generic | OS-Linux-Connections-Generic-Centreon-Monitoring-Agent-custom | Contrôle les connexions TCP/UDP                                                                                                                                                       |            | non natif |
+| Cpu-Detailed        | OS-Linux-Cpu-Detailed-Centreon-Monitoring-Agent-custom        | Contrôle du taux d'utilisation détaillé du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |            | non natif |
+| Disk-IO             | OS-Linux-Disk-IO-Centreon-Monitoring-Agent-custom             | Contrôle les compteurs I/O des disques                                                                                                                                                |            | non natif |
+| Disks               | OS-Linux-Disks-Centreon-Monitoring-Agent-custom               | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques                                                               |     X      | non natif |
+| File-Date-Generic   | OS-Linux-File-Date-Generic-Centreon-Monitoring-Agent-custom   | Permet de vérifier la date de modification/création/accès/... de fichiers et/ou répertoires                                                                                           |            | non natif |
+| File-Size-Generic   | OS-Linux-File-Size-Generic-Centreon-Monitoring-Agent-custom   | Permet de vérifier la taille de fichiers et/ou répertoires                                                                                                                            |            | non natif |
+| Inodes              | OS-Linux-Inodes-Centreon-Monitoring-Agent-custom              | Contrôle du taux d'inodes disponibles des disques                                                                                                                                     |            | non natif |
+| Is-File-Generic     | OS-Linux-Is-File-Generic-Centreon-Monitoring-Agent-custom     | Permet de vérifier si le fichier 'xxx' est présent                                                                                                                                    |            | non natif |
+| Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-Centreon-Monitoring-Agent-custom | Permet de vérifier si le fichier 'xxx' n'est pas présent                                                                                                                              |            | non natif |
+| Open-Files          | OS-Linux-Open-Files-Centreon-Monitoring-Agent-custom          | Permet de vérifier le nombre de modifications/créations/accès/... de fichiers et/ou répertoires                                                                                       |            | non natif |
+| Packet-Errors       | OS-Linux-Packet-Errors-Centreon-Monitoring-Agent-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                                                                                   |            | non natif |
+| Pending-Updates     | OS-Linux-Pending-Updates-Centreon-Monitoring-Agent-custom     | Contrôle le statut des services systemd                                                                                                                                               |            | non natif |
+| Process-Generic     | OS-Linux-Process-Generic-Centreon-Monitoring-Agent-custom     | Contrôle permettant de vérifier des processus Linux                                                                                                                                   |            | non natif |
+| Systemd-Journal     | OS-Linux-Systemd-Journal-Centreon-Monitoring-Agent-custom     | Compte les entrées de journal grâce à la commande `journalctl`                                                                                                                        |            | non natif |
+| Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-Centreon-Monitoring-Agent-custom   | Contrôle le statut des services systemd                                                                                                                                               |            | non natif |
+| Traffic             | OS-Linux-Traffic-Centreon-Monitoring-Agent-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                   |     X      | non natif |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -316,172 +315,19 @@ Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
 |----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
 | Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
 
-### Prérequis système sur le collecteur
+### Prérequis système pour le collecteur
 
 > Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
-minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la version `24.04.6` ou `24.10.0` pour les utilisateurs *On Premices* de `centreon-engine`. L'agent devra se configurer en se connectant à Centreon Engine.
+minimum la version <!--`24.09.0` pour les utilisateurs de Centreon Cloud, et la version--> `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent récupérera sa configuration en se connectant à Centreon Engine.
 
-### Configuration de Centreon Engine
+### Configuration de la communication collecteur/agent
 
-[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma.md#configurez-engine).
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma.md#configurez-la-communication-collecteuragent).
 
-### Prérequis système sur l'hôte à superviser
+### Prérequis système pour l'hôte à superviser
 
-Les prérequis ci-dessous doivent être appliqués sur les serveurs Linux à superviser pour que le connecteur de supervision puisse fonctionner.
-
-#### Installation de Centreon Monitoring Agent
-
-La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée dans 
-[la documentation dédiée à ce sujet](../getting-started/how-to-guides/cma.md#étape-2--préparez-lhôte).
-
-#### Installation du plugin Centreon Linux local
-
-Les prérequis ci-dessous doivent être appliqués sur les serveurs Linux à superviser pour que le connecteur de supervision puisse fonctionner.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-1. Ajoutez le dépôt des plugins Centreon
-
-```bash
-cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
-[centreon-plugins-stable]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/$basearch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-stable-noarch]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/noarch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/$basearch/ 
-enabled=0 
-gpgcheck=1 
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
-module_hotfixes=1 
- 
-[centreon-plugins-unstable-noarch] 
-name=Centreon plugins repository. (UNSUPPORTED) 
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/noarch/ 
-enabled=0 
-gpgcheck=1 
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
-module_hotfixes=1 
-EOF
-```
-
-2. Installez le plugin :
-
-```bash
-dnf install centreon-plugin-Operatingsystems-Linux-Local.noarch
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-1. Ajoutez le dépôt des plugins Centreon
-
-```bash
-cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
-[centreon-plugins-stable]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/$basearch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-stable-noarch]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/noarch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-EOF
-```
-
-2. Installez le plugin :
-
-```bash
-dnf install centreon-plugin-Operatingsystems-Linux-Local.noarch
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-1. Ajoutez le dépôt des plugins Centreon
-
-```bash
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
-apt-get update
-```
-
-2. Installez le plugin :
-
-```bash
-apt-get install centreon-plugin-operatingsystems-linux-Local
-```
-
-</TabItem>
-</Tabs>
+La procédure d'installation et de configuration de Centreon Monitoring Agent pour Linux est détaillée
+[dans la page dédiée](../getting-started/how-to-guides/cma.md#étape-2--préparez-lhôte). (Cela comprend l'installation de l'agent et l'installation des plugins qui permettront d'exécuter les contrôles non natifs).
 
 ## Installer le connecteur de supervision
 
@@ -527,17 +373,31 @@ apt-get install centreon-pack-operatingsystems-linux-centreon-monitoring-agent
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Linux Centreon Monitoring Agent**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
-3. Créez le nouveau connecteur.
+3. Selon votre version de Centreon, passez à l'étape suivante ou créez un connecteur sur votre serveur central.
 
-Dans le menu **Configuration > Commandes > Connecteurs**, cliquez sur **Ajouter** puis saisissez les champs suivants :
+<Tabs groupId="sync">
+<TabItem value="Version OnPrem 24.10.6 ou plus récente" label="Version OnPrem 24.10.6 ou plus récente">
+
+Pour cette version, aucune configuration n'est nécessaire. Passez à l'[étape suivante](../getting-started/how-to-guides/cma.md#configurez-la-communication-collecteuragent).
+
+</TabItem>
+<TabItem value="Version OnPrem antérieure à la 24.10.6" label="Version OnPrem antérieure à la 24.10.6">
+
+Si vous êtes sur une version antérieure à la 24.10.6, vous devez créer le connecteur Centreon Monitoring Agent sur votre serveur central :
+
+1. Allez à la page **Configuration > Commandes > Connecteurs**.
+2. Créez un nouveau connecteur avec les données suivantes :
 
 | Paramètre                 | Valeur                                                                                                                                                                                        |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nom du connecteur         | Centreon Monitoring Agent                                                                                                                                                                     |
-| Description du connecteur | Centreon Monitoring Agent                                                                                                                                                                     |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nom du connecteur         | Centreon Monitoring Agent Beta                                                                                                                                                                    |
+| Description du connecteur | Centreon Monitoring Agent Beta                                                                                                                                                                    |
 | Ligne de commande         | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
-| Utilisé par la commande   | Selectionner toutes les commandes dont le nom correspond à `OS-Linux-Centreon-Monitoring-Agent-*`                                                                                             |
+| Utilisé par la commande   | Entrez `Centreon-Monitoring-Agent` et cliquez sur **Sélectionner tout**                                                                                                                       |
 | Statut du connecteur      | Activé                                                                                                                                                                                        |
+
+</TabItem>
+</Tabs>
 
 ### Plugin
 
