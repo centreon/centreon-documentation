@@ -317,8 +317,6 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 
 #### Installer le dépôt Sury APT pour PHP 8.1 
 
->Cette étape n'est nécessaire que pour les utilisateurs sur Debian 11, si vous êtes sur Debian 12, passez à l'étape suivante.
-
 Pour installer le dépôt Sury, exécutez la commande suivante :
 
 ```shell
