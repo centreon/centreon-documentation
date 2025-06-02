@@ -315,7 +315,7 @@ Installez les dépendances suivantes :
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
 ```
 
-#### Installer le dépôt Sury APT pour PHP 8.1 
+#### Installer le dépôt Sury APT pour PHP 8.1
 
 Pour installer le dépôt Sury, exécutez la commande suivante :
 
