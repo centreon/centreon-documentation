@@ -81,9 +81,13 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Name                                         | Unit    |
 |:---------------------------------------------|:--------|
 | computeengine.network.received.volume.bytes  | B       |
+| computeengine.network.received.volume.bytespersecond | B/s   |
 | computeengine.network.sent.volume.bytes      | B       |
-| computeengine.network.received.packets.count | packets |
-| computeengine.network.sent.packets.count     | packets |
+| computeengine.network.sent.volume.bytespersecond | B/s   |
+| computeengine.network.received.packets.count | count |
+| computeengine.network.received.packets.persecond | /s |
+| computeengine.network.sent.packets.count     | count |
+| computeengine.network.sent.packets.persecond |  /s |
 
 </TabItem>
 </Tabs>
