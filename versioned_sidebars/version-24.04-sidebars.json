@@ -673,10 +673,6 @@
             },
             {
               "type": "doc",
-              "id": "service-mapping/migrate"
-            },
-            {
-              "type": "doc",
               "id": "service-mapping/remote-server"
             }
           ]
@@ -882,6 +878,10 @@
         "type": "generated-index"
       },
       "items": [
+        {
+          "type": "doc",
+          "id": "alerts-notifications/availability"
+        },
         {
           "type": "doc",
           "id": "reporting/introduction"

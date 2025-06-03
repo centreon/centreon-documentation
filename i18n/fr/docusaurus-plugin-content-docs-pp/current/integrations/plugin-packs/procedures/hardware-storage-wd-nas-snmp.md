@@ -61,9 +61,9 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 #### Découverte de services
 
-| Nom de la règle                    | Description                                               |
-|:-----------------------------------|:----------------------------------------------------------|
-| HW-Storage-Wd-Nas-SNMP-Volume-Name | Discover the disk partitions and monitor space occupation |
+| Nom de la règle                    | Description                                                 |
+|:-----------------------------------|:------------------------------------------------------------|
+| HW-Storage-Wd-Nas-SNMP-Volume-Name | Découvre les partitions disque et supervise l'espace occupé |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -97,7 +97,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 

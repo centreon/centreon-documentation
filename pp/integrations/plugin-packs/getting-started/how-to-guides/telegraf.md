@@ -55,8 +55,8 @@ If your Centreon is a version older than 24.10.6, you need to install the Open T
 
 | Parameter             | Value                                                                                                                                                                                                                            |	
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |	
-| Connector Name        | Telegraf                                                                                                                                                                                                                         |	
-| Connector Description | Telegraf                                                                                                                                                                                                                         |	
+| Connector Name        | Telegraf Beta                                                                                                                                                                                                                         |	
+| Connector Description | Telegraf Beta                                                                                                                                                                                                                         |	
 | Command Line          | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resource_metrics.scope_metrics.data.data_points.attributes.host --service_path=resource_metrics.scope_metrics.data.data_points.attributes.service` |	
 | Used by command       | Type `Telegraf-Agent` and click **Select all**                                                                                                                                                                                   |	
 | Connector Status      | Enabled                                                                                                                                                                                                                          |
@@ -65,7 +65,7 @@ If your Centreon is a version older than 24.10.6, you need to install the Open T
 
 Configure how the poller and the agent will communicate:
 
-<PollerAgentConfiguration />
+<PollerAgentConfiguration type="Telegraf" />
 
 5. The **Configuration provider** is the server inside the poller's engine that will send the agent its configuration. Enter the port and the file names for the certificates. The certificates must be stored in the **/etc/pki/** directory. You can use the same certificates as for the OTLP receiver.
 > If you configure several pollers at once, make sure all certificate files have the same name.
