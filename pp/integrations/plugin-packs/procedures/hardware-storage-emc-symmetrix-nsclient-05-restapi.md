@@ -243,7 +243,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--verbose'
 ```
 
-La commande devrait retourner un message de sortie similaire à :
+The expected command output is shown below:
 
 ```bash
 OK: All 2 components are ok [2/2 temperatures]. | 'temp1 Temp'=30C;;;;'temp2 Temp'=31C;;;;'count_temperature'=2;;;;
