@@ -243,27 +243,6 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--verbose'
 ```
 
-The expected command output is shown below:
-
-```bash
-```bash
-/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
-	--plugin=apps::nsclient::restapi::plugin \
-	--mode=query \
-	--hostname='10.0.0.1' \
-	--port='8443' \
-	--proto='https' \
-	--legacy-password='PASSWORD'  \
-	--command=check_centreon_plugins \
-	--arg='storage::emc::symmetrix::vmax::local::plugin' \
-	--arg='hardware' \
-	--arg=' \
-	--file-health="" \
-	--file-health-env="" \
-	--component=".*" \
-	--verbose'
-```
-
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
