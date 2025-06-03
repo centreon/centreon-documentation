@@ -97,8 +97,10 @@ No metrics
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your ressource.
-Please refer to the official documentation of your equipement.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 

@@ -183,7 +183,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP
 
-SNMP must be configured on each poller being monitored. You can refer to this [documentation](operatingsystems-linux-snmp.md#prerequisites) describing how to set up a quick SNMP configuration.
+The SNMP agent must be enabled and configured on each poller being monitored. 
+You can refer to this [documentation](operatingsystems-linux-snmp.md#prerequisites) describing how to set up a quick SNMP configuration.
 
 ### SSH key exchange
 
@@ -467,14 +468,14 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Central
 </TabItem>
 <TabItem value="proc-ntpd" label="proc-ntpd">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                 | ntpd\|chronyd     |             |
-| PROCESSPATH  | Filter process path                                                                                 |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                      | 1:1               |             |
-| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro        | Description                                                                                        | Default value                  | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                | ntpd\|chronyd\|systemd-timesyn |             |
+| PROCESSPATH  | Filter process path                                                                                |                                |             |
+| PROCESSARGS  | Filter process arguments                                                                           |                                |             |
+| CRITICAL     | Critical threshold of matching processes count                                                     | 1:1                            |             |
+| WARNING      | Warning threshold of matching processes count                                                      |                                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="proc-snmptrapd" label="proc-snmptrapd">

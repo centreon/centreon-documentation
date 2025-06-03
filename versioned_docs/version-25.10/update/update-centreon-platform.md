@@ -145,16 +145,8 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
 4. Then enter this request:
 
   ```shell
-  curl --location --request PATCH 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
-  --header 'X-AUTH-TOKEN: hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S' \
-  --header 'Content-Type: application/json' \
-  --data '{
-      "components": [
-          {
-              "name": "centreon-web"
-          }
-      ]
-  }'
+  curl --location --request POST 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
+  --header 'X-AUTH-TOKEN: hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S'
   ```
 
 5. This request does not return any result. To check if the update has been successfully applied, read the version number displayed on the Centreon web interface login page.

@@ -8,7 +8,82 @@ import TabItem from '@theme/TabItem';
 
 ## 2025
 
-### Mars
+### May
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**F5OS SNMP**](../procedures/operatingsystems-f5os-snmp.md) - Initial release of F5OS SNMP.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Centreon Central**](../procedures/applications-monitoring-centreon-central.md) - Added the detection of systemd-timesyncd into `SERVICEPROCESSNAME` macro default value in proc-ntpd service.
+- [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - Added the detection of systemd-timesyncd into `SERVICEPROCESSNAME` macro default value in proc-ntpd service.
+- [**Cisco Small Business**](../procedures/network-switchs-cisco-smallbusiness-standard-snmp.md) - Added a new **stack** mode, based on community contribution [PR 5317](https://github.com/centreon/centreon-plugins/pull/5317).
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Added new threshold macro `SERVICEWARNINGSPACEUSAGEPRCT` and `SERVICECRITICALSPACEUSAGEPRCT` in filesystems template.
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Added new **lte-interfaces** mode and service discovery rules for **list-interfaces** and **list-lte-interfaces**, from a [The Watch idea](https://thewatch.centreon.com/ideas/mikrotik-lte-signal-strength-support-2579).
+- [**Socomec Net Vision UPS SNMP**](../procedures/hardware-ups-socomec-netvision-snmp.md) - Added the `battery.temperatureambient.celsius` counter in **battery** service, from community contribution [PR 5493](https://github.com/centreon/centreon-plugins/pull/5493).
+- [**Stormshield API**](../procedures/network-stormshield-api.md) - Added new **vpn-tunnels** mode and **list-vpn-tunnels** discovery rule, based on community contribution [PR 5048](https://github.com/centreon/centreon-plugins/pull/5048).
+- [**VMware vCenter v4**](../procedures/virtualization-vmware2-vcenter-4.md) - Deprecated VMware vCenter v4.
+- [**VMware vCenter v5**](../procedures/virtualization-vmware2-vcenter-5.md) - Deprecated VMware vCenter v5.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Azure Storage Sync**](../procedures/cloud-azure-storage-storagesync.md) - Removed deprecated `StorageSyncRecallIOTotalSizeBytes` metric in **recalls** mode.
+- [**Cambium cnPilot SNMP**](../procedures/network-cambium-cnpilot-snmp.md) - Fixed a wrong plugin executable name.
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Fixed wrong threshold default values in filesystems template.
+
+</TabItem>
+</Tabs>
+
+### April
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Exense Step REST API**](../procedures/applications-exense-step-restapi.md) - Initial release of Exense Step REST API.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**APC UPS SNMP**](../procedures/hardware-ups-apc-snmp.md) - Enhance **replace-lasttime** output to be humanly readable in **battery-status** mode, from a [The Watch idea](https://thewatch.centreon.com/ideas/hardware-ups-apc-snmp-plugin-warn-crit-output-with-options-warning-replace-lasttime-critical-replace-lasttime-3427).
+- [**Colubris SNMP**](../procedures/network-colubris-snmp.md) - Added the `--check-overload` option to the **uptime** service template.
+- [**F5 BigIP SNMP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - Added new **cpu-usage** mode, based on community contribution [PR 4701](https://github.com/centreon/centreon-plugins/pull/4701).
+- [**Fortinet FortiMail SNMP**](../procedures/network-fortinet-fortimail-snmp.md) - Added the `--check-overload` option to the **uptime** service template.
+- [**Fortinet FortiSwitch SNMP**](../procedures/network-fortinet-fortiswitch-snmp.md) - Added the `--check-overload` option to the **uptime** service template.
+- [**Fortinet Fortigate Rest API**](../procedures/network-fortinet-fortigate-restapi.md) - Added a new **certificates** mode, from community contribution [PR 5473](https://github.com/centreon/centreon-plugins/pull/5473).
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Added **switch-usage** mode, **switch discovery rule** and **vdom discovery rule**, from community contribution [PR 5474](https://github.com/centreon/centreon-plugins/pull/5474).
+- [**HP-UX SNMP**](../procedures/operatingsystems-hpux-snmp.md) - Added the `--check-overload` option to the **uptime** service template.
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Steps are now displayed in the actual step order instead of alphabetical.
+- [**JMeter**](../procedures/applications-jmeter.md) - Added `--command-path` option as macro in host template.
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Enhance uptime date display in **uptime** mode, based on community contribution [PR 4853](https://github.com/centreon/centreon-plugins/pull/4853).
+- [**Silverpeak SNMP**](../procedures/network-silverpeak-snmp.md) - Added **interfaces discovery rule**.
+- [**Synology SNMP**](../procedures/hardware-storage-synology-snmp.md) - Added the `--check-overload` option to the **uptime** service template.
+- [**VMware8 ESX REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - Added new **diskio**, **network** and **swap** modes.
+- [**Veeam Backup Enterprise Manager Rest API**](../procedures/applications-veeam-vbem-restapi.md) - Added handling of replication jobs to **jobs** mode.
+- [**Viptela SNMP**](../procedures/network-viptela-snmp.md) - Added the `--check-overload` option to the **uptime** service template.
+- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added new native checks: **cma-health**, **eventlog** and **services**.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Cisco Standard SNMP**](../procedures/network-cisco-standard-snmp.md) - The `status` metric has been changed in `config-running-ahead`, leading to a breaking-change state.
+- [**F5 BigIP SNMP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - Switched metrics to v2, leading to a breaking-change state.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Cisco Standard SNMP**](../procedures/network-cisco-standard-snmp.md) - Fixed an issue concerning wrong calculations after reboot (sysuptime was not considered) in **configuration** mode, from community contribution [PR 5282](https://github.com/centreon/centreon-plugins/pull/5282).
+- [**Eclipse Mosquitto MQTT**](../procedures/applications-eclipse-mosquitto-mqtt.md) - Fixed perfdata options in **numeric-value** mode, from community contribution [PR 5462](https://github.com/centreon/centreon-plugins/pull/5462).
+- [**IBM FlashSystem 900 SNMP**](../procedures/hardware-storage-ibm-fs900-snmp.md) - Fixed wrong default value for CRITICALSTATUS in **arrays-status** template.
+- [**Sonus SBC SNMP**](../procedures/network-sonus-sbc-snmp.md) - Fixed unknown call method map instance in **dsp-stats** mode, based on community contribution [PR 5477](https://github.com/centreon/centreon-plugins/pull/5477).
+
+</TabItem>
+</Tabs>
+
+### March
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
