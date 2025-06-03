@@ -27,7 +27,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias  | Modèle de service                   | Description                         |
 |:-------|:------------------------------------|:------------------------------------|
-| Bucket | Cloud-Gcp-Storage-Bucket-Api-custom | Contrôle les métriques de la bucket |
+| Bucket | Cloud-Gcp-Storage-Bucket-Api-custom | Contrôle les métriques du bucket |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Gcp-Storage-custom** est utilisé.
 
@@ -40,7 +40,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Nom de la règle | Description             |
 |:----------------|:------------------------|
-| Google Storage  | Discover Google Storage |
+| Google Storage  | Découvre les unités de stockage Google |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -220,7 +220,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=cloud::google::gcp::storage::plugin \
 	--mode=bucket \
 	--proxyurl='' \
-	--key-file='/var/lib/centreon-engine/centreon-dev-6e5531fc9e82.json' \
+	--key-file='/var/lib/centreon-engine/centreon-dev-xxxxx.json' \
 	--scope-endpoint='https://www.googleapis.com/auth/cloud-platform' \
 	--dimension-name='resource.labels.bucket\_name' \
 	--dimension-operator='equals' \
@@ -240,7 +240,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Instance 'centreon-dev.appspot.com' aggregation 'average' metrics objects: 0.00, received: 0.00 B, sent: 382.00 B | 'centreon-dev.appspot.com~average#storage.bucket.objects.count'=0.00;0:1000;0:2000;0; 'centreon-dev.appspot.com~average#storage.network.received.volume.bytes'=0.00B;;;0; 'centreon-dev.appspot.com~average#storage.network.sent.volume.bytes'=382.00B;;;0;
+OK: Instance 'centreon-dev.test.com' aggregation 'average' metrics objects: 0.00, received: 0.00 B, sent: 382.00 B | 'centreon-dev.test.com~average#storage.bucket.objects.count'=0.00;0:1000;0:2000;0; 'centreon-dev.test.com~average#storage.network.received.volume.bytes'=0.00B;;;0; 'centreon-dev.test.com~average#storage.network.sent.volume.bytes'=382.00B;;;0;
 Checking 'centreon-dev.appspot.com'
     aggregation 'average' metrics objects: 0.00, received: 0.00 B, sent: 382.00 B
 

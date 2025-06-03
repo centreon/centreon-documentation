@@ -219,7 +219,7 @@ is able to monitor a GCP Instance using a command like this one (replace the sam
 	--plugin=cloud::google::gcp::storage::plugin \
 	--mode=bucket \
 	--proxyurl='' \
-	--key-file='/var/lib/centreon-engine/centreon-dev-6e5531fc9e82.json' \
+	--key-file='/var/lib/centreon-engine/centreon-dev-xxxxx.json' \
 	--scope-endpoint='https://www.googleapis.com/auth/cloud-platform' \
 	--dimension-name='resource.labels.bucket\_name' \
 	--dimension-operator='equals' \
@@ -239,7 +239,7 @@ is able to monitor a GCP Instance using a command like this one (replace the sam
 The expected command output is shown below:
 
 ```bash
-OK: Instance 'centreon-dev.appspot.com' aggregation 'average' metrics objects: 0.00, received: 0.00 B, sent: 382.00 B | 'centreon-dev.appspot.com~average#storage.bucket.objects.count'=0.00;0:1000;0:2000;0; 'centreon-dev.appspot.com~average#storage.network.received.volume.bytes'=0.00B;;;0; 'centreon-dev.appspot.com~average#storage.network.sent.volume.bytes'=382.00B;;;0;
+OK: Instance 'centreon-dev.test.com' aggregation 'average' metrics objects: 0.00, received: 0.00 B, sent: 382.00 B | 'centreon-dev.test.com~average#storage.bucket.objects.count'=0.00;0:1000;0:2000;0; 'centreon-dev.test.com~average#storage.network.received.volume.bytes'=0.00B;;;0; 'centreon-dev.test.com~average#storage.network.sent.volume.bytes'=382.00B;;;0;
 Checking 'centreon-dev.appspot.com'
     aggregation 'average' metrics objects: 0.00, received: 0.00 B, sent: 382.00 B
 
