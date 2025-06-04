@@ -535,20 +535,18 @@ is able to monitor a resource using a command like this one (replace the sample 
 /usr/lib/centreon/plugins/centreon_mysql.pl \
 	--plugin=database::mysql::plugin \
 	--host=10.0.0.1 \
-	--username='' \
-	--password='' \
-	--port=''  \
-	--mode=sql-string \
-	--sql-statement="" \
-	--value-column='' \
-	--warning-string='' \
-	--critical-string='' 
+	--username='XXXX' \
+	--password='XXXX' \
+	--port='3306'  \
+	--mode=uptime \
+	--warning='44444444' \
+	--critical='9999999' 
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: SQL Query is OK 
+OK: database is up since 53 days (Start time = 2025/04/11 12:37:57) | 'database.uptime.seconds'=4661146s;0:44444444;0:9999999;0;
 ```
 
 ### Troubleshooting
