@@ -878,6 +878,6 @@ All available options for a given mode can be displayed by adding the
 ```bash
 /usr/lib/centreon/plugins/centreon_mysql.pl \
 	--plugin=database::mysql::plugin \
-	--host=10.0.0.1 \
+	--mode=uptime \
 	--help
 ```

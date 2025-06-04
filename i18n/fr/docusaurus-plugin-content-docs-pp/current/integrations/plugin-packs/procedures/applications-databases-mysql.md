@@ -879,6 +879,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib/centreon/plugins/centreon_mysql.pl \
 	--plugin=database::mysql::plugin \
-	--host=10.0.0.1 \
+	--mode=uptime \
 	--help
 ```
