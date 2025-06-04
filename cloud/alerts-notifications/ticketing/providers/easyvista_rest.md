@@ -88,7 +88,7 @@ It is possible to send the CI field to Easy Vista. When configured (see [custom 
 
 ## Test commands
 
-The below Curl commands must be run from your central server. You need to replace everything between **<>** for example **<easy_vista_address>** may become **my_ezv.local**
+The below Curl commands must be run from your central server. You need to replace everything between `<>` for example `<easy_vista_address>` may become **my_ezv.local**
 
 If you are using the user/password authentication, replace the `--header 'Authorization: Bearer <token>'` part by `-u '<user>:<password>'`
 

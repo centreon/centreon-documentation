@@ -49,7 +49,7 @@ If you need more information regarding retrieved data from an open ticket connec
 
 ## Test commands
 
-The below Curl commands must be run from your central server. You need to replace everything between **<>** for example **<jira_address>** may become **my_jira.atlassian.net**
+The below Curl commands must be run from your central server. You need to replace everything between `<>` for example `<jira_address>` may become **my_jira.atlassian.net**
 
 ### Get Jira priorities
 

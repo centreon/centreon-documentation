@@ -62,7 +62,7 @@ Those information are not retrieved from Glpi. They are configured in your open 
 
 ## Test commands
 
-The below Curl commands must be run from your central server. You need to replace everything between **<>** for example **<glpi_address>** may become **my_glpi.local**
+The below Curl commands must be run from your central server. You need to replace everything between `<>` for example `<glpi_address>` may become **my_glpi.local**
 
 ### Get session token
 

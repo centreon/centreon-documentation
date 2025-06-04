@@ -54,7 +54,7 @@ Those information are not retrieved from Request Tracker. They are configured in
 
 ## Test commands
 
-The below Curl commands must be run from your central server. You need to replace everything between **<>** for example **<rt_address>** may become **my_rt.local**
+The below Curl commands must be run from your central server. You need to replace everything between `<>` for example `<rt_address>` may become **my_rt.local**
 
 ### Get queues
 
