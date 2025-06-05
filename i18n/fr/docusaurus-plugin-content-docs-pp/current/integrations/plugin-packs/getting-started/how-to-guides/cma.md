@@ -6,6 +6,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
+> L'agent CMA est encore en phase bêta. Pour obtenir de l'aide, visitez [notre groupe dédié sur The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
+
 ## Introduction
 
 L'Agent de supervision Centreon (Centreon Monitoring Agent, CMA) est un logicial qu'on installe sur les hôtes à superviser : il collecte des métriques et calcule des statuts, et les envoie à Centreon.
