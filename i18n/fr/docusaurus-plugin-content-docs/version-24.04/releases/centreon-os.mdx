@@ -22,6 +22,38 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 24.04.13
+
+Release date: `June 4, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Command is now mandatory when Add/Edit a service.
+- [Configuration] Fixed an issue which blocked Time period entries with more than 200 characters in UI.
+- [Cron] Fixed an issue on data purge cron with partitioned tables.
+- [Cron] Run script to delete expired tokens with apache user to avoid invalid permissions on web log file.
+- [Custom Views] The "Battery Status" information is now available in the Gridmap widget.
+- [Graph] Fixed an issue preventing "fill" and "invert" options from being considered in the graphs from Resource Status and Dashboards.
+- [LDAP] Fixed a validation issue on custom filter for users and groups.
+- [Resource Status] Fixed an issue when searching for an item containing a slash "/".
+- [Resource Status] Fixed an issue with timeline period filter not being properly applied.
+- [Resource Status] Fixed an issue preventing selected filters from being removed by clicking the 'x' symbol in the timeline tab.
+- [Resource Status] Fixed dual display of the calculation type tile in the "Details" panel of a resource.
+- [Status Chart widget] Displays the correct list of resources when hovering the legend.
+- [Install] Fixed incorrect rights on a database configuration file.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed XSS in host listing.
+- [Vulnerability] Upgraded axios to version 1.8.1.
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+</details>
+
 ### 24.04.12
 
 Release date: `March 31, 2025`
