@@ -177,9 +177,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 To make the connector work, you will need the Perl VMware SDK.
 To download it, you'll need a (free of charge) account at Broadcom's.
-At the time this document is written, it can be downloaded at [this page](https://developer.broadcom.com/sdks/vsphere-perl-sdk/latest/).
+At the time this document is written, it can be downloaded from [this page](https://developer.broadcom.com/sdks/vsphere-perl-sdk/latest/). Download the latest version (the archive having `f9ef0fc7a4e4983cf0ca6aea08d9a778` as MD5 checksum).
 
-Download the latest version (the archive having `f9ef0fc7a4e4983cf0ca6aea08d9a778` as MD5 checksum) and dispose the downloaded file at `/tmp/` on all the servers where this program must run.
+If you have vSAN clusters to monitor, you'll also need to download another archive from [this page](https://developer.broadcom.com/sdks/vsan-management-sdk-for-perl/latest/).
+
+Copy the downloaded files at `/tmp/` on all the servers where this program must run (usually pollers).
 
 ### Centreon VMware daemon
 
@@ -190,9 +192,15 @@ Install this daemon on each needed poller:
 <Tabs groupId="sync">
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-```bash 
-apt -y install patch make centreon-plugin-virtualization-vmware-daemon
+- Install the package with necessary tools
 
+```bash
+apt -y install patch make unzip centreon-plugin-virtualization-vmware-daemon
+```
+
+- Install the SDK
+
+```bash
 cd /tmp
 tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
 cd vmware-vsphere-cli-distrib
@@ -211,27 +219,58 @@ EOF
 
 perl Makefile.PL
 make pure_install
+```
+
+- Install the vSAN modules
+
+```bash
+cd /tmp
+unzip vsan-sdk-perl.zip
+mkdir -p /usr/local/share/perl5/VMware
+cp ./vsan-sdk-perl/bindings/VIM25Vsanmgmt* /usr/local/share/perl5/VMware/
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-```bash
-dnf install -y centreon-plugin-Virtualization-VMWare-daemon patch make
+- Install the package with necessary tools
 
+```bash
+dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+```
+
+- Install the SDK
+
+```bash
 cd /tmp
 tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
 cd vmware-vsphere-cli-distrib
+
 perl Makefile.PL
 make pure_install
+```
+
+- Install the vSAN modules
+
+```bash
+cd /tmp
+unzip vsan-sdk-perl.zip
+mkdir -p /usr/local/share/perl5/VMware
+cp ./vsan-sdk-perl/bindings/VIM25Vsanmgmt* /usr/local/share/perl5/VMware/
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-```bash
-dnf install -y centreon-plugin-Virtualization-VMWare-daemon patch make
+- Install the package with necessary tools
 
+```bash
+dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+```
+
+- Install the SDK
+
+```bash
 cd /tmp
 tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
 cd vmware-vsphere-cli-distrib
@@ -251,6 +290,16 @@ EOF
 perl Makefile.PL
 make pure_install
 ```
+
+- Install the vSAN modules
+
+```bash
+cd /tmp
+unzip vsan-sdk-perl.zip
+mkdir -p /usr/local/share/perl5/VMware
+cp ./vsan-sdk-perl/bindings/VIM25Vsanmgmt* /usr/local/share/perl5/VMware/
+```
+
 
 </TabItem>
 </Tabs>
