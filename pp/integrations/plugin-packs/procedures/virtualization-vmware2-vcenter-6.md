@@ -71,15 +71,119 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-### Centreon VMWare Connector
+### VMware Perl SDK
 
-For the VMWare monitoring, Centreon use daemon to connect and request the Vcenter.
+To make the connector work, you will need the Perl VMware SDK.
+To download it, you'll need a (free of charge) account at Broadcom's.
+At the time of writing, it can be downloaded from [this page](https://developer.broadcom.com/sdks/vsphere-perl-sdk/latest/). Download the latest version (the archive that has `f9ef0fc7a4e4983cf0ca6aea08d9a778` as MD5 checksum).
+
+If you have vSAN clusters to monitor, you'll also need to download another archive from [this page](https://developer.broadcom.com/sdks/vsan-management-sdk-for-perl/latest/).
+
+Copy the downloaded files in a `/tmp/` directory on all the servers where this program must run (usually pollers).
+
+### Centreon VMware daemon
+
+To monitor VMWare resources, Centreon uses a daemon to connect to and send requests to the vCenter (or the ESX, but it is recommended to use the vCenter).
 
 Install this daemon on each needed poller:
 
-```shell
-yum install centreon-plugin-Virtualization-VMWare-daemon
+<Tabs groupId="sync">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+- Install the package with necessary tools
+
+```bash
+apt -y install patch make unzip centreon-plugin-virtualization-vmware-daemon
 ```
+
+- Install the SDK
+
+```bash
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+cd vmware-vsphere-cli-distrib
+patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
+--- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
++++ VICommon.pm	2025-04-24 17:18:18.690399614 +0200
+@@ -2319,6 +2319,8 @@
+    my $user_agent = $self->{user_agent};
+    $user_agent->cookie_jar->as_string
+       =~ m/(.*)vmware_soap_session=\"\\\"([0-9a-zA-Z-](.*)+)\\\"\"(.*)/;
++   $user_agent->cookie_jar->as_string
++      =~ m/(.*)vmware_soap_session=[\\\"]*([0-9a-zA-Z-]+)/ unless $2;
+    return $2;
+ }
+EOF
+
+perl Makefile.PL
+make pure_install
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+- Install the package with necessary tools
+
+```bash
+dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+```
+
+- Install the SDK
+
+```bash
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+cd vmware-vsphere-cli-distrib
+
+perl Makefile.PL
+make pure_install
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+- Install the package with necessary tools
+
+```bash
+dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+```
+
+- Install the SDK
+
+```bash
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+cd vmware-vsphere-cli-distrib
+patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
+--- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
++++ VICommon.pm	2025-04-24 17:18:18.690399614 +0200
+@@ -2319,6 +2319,8 @@
+    my $user_agent = $self->{user_agent};
+    $user_agent->cookie_jar->as_string
+       =~ m/(.*)vmware_soap_session=\"\\\"([0-9a-zA-Z-](.*)+)\\\"\"(.*)/;
++   $user_agent->cookie_jar->as_string
++      =~ m/(.*)vmware_soap_session=[\\\"]*([0-9a-zA-Z-]+)/ unless $2;
+    return $2;
+ }
+EOF
+
+perl Makefile.PL
+make pure_install
+```
+
+</TabItem>
+</Tabs>
+
+- Install the vSAN modules
+
+```bash
+cd /tmp
+unzip vsan-sdk-perl.zip
+mkdir -p /usr/local/share/perl5/VMware
+cp ./vsan-sdk-perl/bindings/VIM25Vsanmgmt* /usr/local/share/perl5/VMware/
+```
+
+### Configure Centreon VMWare Connector
 
 <Tabs groupId="sync">
 <TabItem value="Centreon Cloud and OnPrem from version 24.10" label="Centreon Cloud and OnPrem from version 24.10">
@@ -106,11 +210,11 @@ To configure the access to your infrastructure, edit the
 1;
 ```
 
-Make sure to replace variables with needed information:
+Make sure to replace the variables with the necessary information:
 
 - _ip\_hostname_: IP address or hostname of the vCenter or ESX (if standalone),
-- _username_: username with at least "read only" access to the vCenter or ESX (you can use domain user),
-- _password_: password of the username.
+- _username_: username with at least "read only" access to the vCenter or ESX (you can use a domain user),
+- _password_: password for this user.
 
 You can configure multiple vCenter or ESXi connections using this
 structure:
@@ -135,9 +239,9 @@ structure:
 1;
 ```
 
-Each entry is called a **container**.
+Each entry is called a **container** (it corresponds to the `$_HOSTCENTREONVMWARECONTAINER$` host macro).
 
-> You can also define the "port" attribute to change listening port.
+> You can also define the "port" attribute to change the listening port.
 
 </TabItem>
 </Tabs>
@@ -152,19 +256,28 @@ systemctl enable centreon_vmware
 Make sure that the daemon configuration works fine by looking for errors in
 "/var/log/centreon/centreon\_vmware.log".
 
+### Tags and custom attributes
+
+To discover tags and custom attributes, you must :
+
+* use version **3.2.5** of **centreon-vmware-daemon**
+* add **--tags** in the additional discovery options: go to the **Configuration > Hosts > Discovery** page, and to the 3rd step (**Set discovery parameters**), in the section **Additional parameters**, in the **Additional options** field, type **--tags**.
+
 ### Network flows
 
-The Poller with the Centreon VMware Connector installed need to access in TCP/443 HTTPS to the Vcenter.
+The Centreon poller (with the VMWare daemon installed on it) needs to access the vCenter using HTTPS (TCP/443).
 
-The Pollers that request the Centreon VMWare Connector host need to access in TCP/5700 to the Centreon VMWare Connector host.
+If several pollers use the same daemon, then they must access the poller that has the VMware daemon installed on it using TCP/5700.
 
 ## Installing the monitoring connector
 
 ### Pack
 
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Monitoring Connectors Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -200,7 +313,7 @@ yum install centreon-pack-virtualization-vmware2-vcenter-6
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **VMware vCenter v6** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 
@@ -219,28 +332,28 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install 
+dnf install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install 
+dnf install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install 
+apt install centreon-plugin-virtualization-vmware2-connector-plugin
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install 
+yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
 </TabItem>
@@ -255,11 +368,11 @@ yum install
 3. Apply the **Virt-VMWare2-VCenter-6-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                      | Description                                                                                                                              | Default value | Mandatory |
-|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| CENTREONVMWAREPORT         | The port used for the connection (by default: 5700)                                                                                      |               |           |
-| CENTREONVMWARECONTAINER    | Name of your container in the `centreon_vmware.pm` file                                                                               |               |           |
-| CENTREONVMWAREHOST         | The Centreon server that launches the connection                                                                                         |               |           |
+| Macro                      | Description                                                                                           | Default value     | Mandatory   |
+|:---------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CENTREONVMWAREPORT         | Port of the daemon (default: 5700)                                                                        | 5700              |             |
+| CENTREONVMWARECONTAINER    | Container to use (it depends on the daemon's configuration)                                          | default           |              |
+| CENTREONVMWAREHOST         | Hostname of the server on which the daemon is installed (required)                                                                        | localhost         | X            |
 | CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -407,8 +520,52 @@ The plugin brings the following modes:
 
 All generic options are listed here:
 
-| Option | Description |
-|:-------|:------------|
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          | List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          | Keep only perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Eg: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource. Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --connector-hostname                       | Connector hostname (required).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --connector-port                           | Connector port (default: 5700).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --container                                | Container to use (it depends on the connector's configuration).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --vsphere-address                          | Address of the vpshere/ESX instance to connect to.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --vsphere-username                         | Username to use to connect to the vpshere/ESX instance (with --vsphere-address).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --vsphere-password                         | Password used to connect to the vpshere/ESX instance (with --vsphere-address).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --timeout                                  | Set global execution timeout (Default: 50)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --sampling-period                          | Choose the sampling period (can change the default sampling for counters). Should be not different from 300 or 20.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --time-shift                               | Can shift the time. With the following option you can average X counters values (default: 0).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --case-insensitive                         | Searches are case insensitive.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --unknown-connector-status                 | Set unknown threshold for connector status (Default: '%\{code\} \< 0 \|\| (%\{code\} \> 0 && %\{code\} \< 200)'). You can use the following variables: %\{code\}, %\{short_message\}, %\{extra_message\}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --warning-connector-status                 | Set warning threshold for connector status. You can use the following variables: %\{code\}, %\{short_message\}, %\{extra_message\}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --critical-connector-status                | Set critical threshold for connector status. You can use the following variables: %\{code\}, %\{short_message\}, %\{extra_message\}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 #### Modes options
 
@@ -417,42 +574,41 @@ All available options for each service template are listed below:
 <Tabs groupId="sync">
 <TabItem value="Vm-Limit-Global" label="Vm-Limit-Global">
 
-| Option                   | Description                                                                                                                                                                                                                               |
-|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                               |
-| --vm-hostname            |   VM hostname to check. If not set, we check all VMs.                                                                                                                                                                                     |
-| --filter                 |   VM hostname is a regexp.                                                                                                                                                                                                                |
-| --filter-description     |   Filter also virtual machines description (can be a regexp).                                                                                                                                                                             |
-| --filter-os              |   Filter also virtual machines OS name (can be a regexp).                                                                                                                                                                                 |
-| --display-description    |   Display virtual machine description.                                                                                                                                                                                                    |
-| --check-disk-limit       |   Check disk limits (since vsphere 5.0).                                                                                                                                                                                                  |
-| --warning-disk-status    |   Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{connection\_state\}, %\{power\_state\}, %\{limit\}                                                                   |
-| --critical-disk-status   |   Define the conditions to match for the status to be CRITICAL (default: '%\{connection\_state\} !~ /^connected$/i \|\| %\{limit\} != -1'). You can use the following variables: %\{connection\_state\}, %\{power\_state\}, %\{limit\}    |
-| --warning-cpu-status     |   Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{connection\_state\}, %\{power\_state\}, %\{limit\}                                                                   |
-| --critical-cpu-status    |   Define the conditions to match for the status to be CRITICAL (default: '%\{connection\_state\} !~ /^connected$/i \|\| %\{limit\} != -1'). You can use the following variables: %\{connection\_state\}, %\{power\_state\}, %\{limit\}    |
-| --warning-memory-status  |   Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{connection\_state\}, %\{power\_state\}, %\{limit\}                                                                   |
-| --critical-memory-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{connection\_state\} !~ /^connected$/i \|\| %\{limit\} != -1'). You can use the following variables: %\{connection\_state\}, %\{power\_state\}, %\{limit\}    |
+| Option                   | Description                                                                                                                                                                                                                   |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --vm-hostname            | Hostnames of the VMs to monitor. If not set, we check all VMs.                                                                                                                                                                           |
+| --filter                 | VM hostname is a regexp.                                                                                                                                                                                                      |
+| --filter-description     | Filter also virtual machines description (can be a regexp).                                                                                                                                                                   |
+| --filter-os              | Filter also virtual machines OS name (can be a regexp).                                                                                                                                                                       |
+| --display-description    | Display virtual machine description.                                                                                                                                                                                          |
+| --check-disk-limit       | Check disk limits (since vsphere 5.0).                                                                                                                                                                                        |
+| --warning-disk-status    | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %\{connection_state\}, %\{power_state\}, %\{limit\}                                                               |
+| --critical-disk-status   | Define the conditions to match for the status to be CRITICAL (Default: '%\{connection_state\} !~ /^connected$/i \|\| %\{limit\} != -1'). You can use the following variables: %\{connection_state\}, %\{power_state\}, %\{limit\}    |
+| --warning-cpu-status     | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %\{connection_state\}, %\{power_state\}, %\{limit\}                                                               |
+| --critical-cpu-status    | Define the conditions to match for the status to be CRITICAL (Default: '%\{connection_state\} !~ /^connected$/i \|\| %\{limit\} != -1'). You can use the following variables: %\{connection_state\}, %\{power_state\}, %\{limit\}    |
+| --warning-memory-status  | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %\{connection_state\}, %\{power_state\}, %\{limit\}                                                               |
+| --critical-memory-status | Define the conditions to match for the status to be CRITICAL (Default: '%\{connection_state\} !~ /^connected$/i \|\| %\{limit\} != -1'). You can use the following variables: %\{connection_state\}, %\{power_state\}, %\{limit\}    |
 
 </TabItem>
 <TabItem value="Vm-Snapshot-Global" label="Vm-Snapshot-Global">
 
-| Option                | Description                                                                                                                                       |
-|:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| --vm-hostname         |   VM hostname to check. If not set, we check all VMs.                                                                                             |
-| --filter              |   VM hostname is a regexp.                                                                                                                        |
-| --filter-description  |   Filter also virtual machines description (can be a regexp).                                                                                     |
-| --filter-os           |   Filter also virtual machines OS name (can be a regexp).                                                                                         |
-| --scope-datacenter    |   Search in following datacenter(s) (can be a regexp).                                                                                            |
-| --scope-cluster       |   Search in following cluster(s) (can be a regexp).                                                                                               |
-| --scope-host          |   Search in following host(s) (can be a regexp).                                                                                                  |
-| --display-description |   Display virtual machine description.                                                                                                            |
-| --check-consolidation |   Check if VM needs consolidation (since vsphere 5.0).                                                                                            |
-| --disconnect-status   |   Status if VM disconnected (default: 'unknown').                                                                                                 |
-| --nopoweredon-skip    |   Skip check if VM is not poweredOn.                                                                                                              |
-| --empty-continue      |   Ask to the connector that an empty response is ok.                                                                                              |
-| --unit                |   Select the time unit for thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.   |
-| --warning             |   Warning threshold for snapshot's age.                                                                                                           |
-| --critical            |   Critical threshold for snapshot's age.                                                                                                          |
+| Option                | Description                                                                                                                                                   |
+|:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --vm-hostname         | Hostnames of the VMs to monitor. If not set, we check all VMs.                                                                                                           |
+| --filter              | VM hostname is a regexp.                                                                                                                                      |
+| --filter-description  | Filter also virtual machines description (can be a regexp).                                                                                                   |
+| --filter-os           | Filter also virtual machines OS name (can be a regexp).                                                                                                       |
+| --scope-datacenter    | Search in following datacenter(s) (can be a regexp).                                                                                                          |
+| --scope-cluster       | Search in following cluster(s) (can be a regexp).                                                                                                             |
+| --scope-host          | Search in following host(s) (can be a regexp).                                                                                                                |
+| --display-description | Display virtual machine description.                                                                                                                          |
+| --check-consolidation | Check if VM needs consolidation (since vsphere 5.0).                                                                                                          |
+| --disconnect-status   | Status if VM disconnected (default: 'unknown').                                                                                                               |
+| --nopoweredon-skip    | Skip check if VM is not poweredOn.                                                                                                                            |
+| --empty-continue      | Ask to the connector that an empty response is ok.                                                                                                            |
+| --unit                | Select the unit for performance data and thresholds. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds   |
+| --warning             | Warning threshold for snapshot's age.                                                                                                                         |
+| --critical            | Critical threshold for snapshot's age.                                                                                                                        |
 
 </TabItem>
 </Tabs>

@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 VMware est une solution de virtualisation et d'infrastructure de Cloud Computing.
 
-Le connecteur de supervision Centreon s'appuie sur un connecteur dédié (centreon-vmware-daemon) utilisant le SDK VMware pour requêter l'API du vCenter. Il permet de superviser des machines virtuelles VMware.
+Le connecteur de supervision Centreon s'appuie sur un connecteur dédié (centreon-vmware-daemon) utilisant le SDK VMware pour requêter l'API du vCenter.
 
 ## Contenu du pack
 
@@ -174,6 +174,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
+Pour la supervision VMware, Centreon utilise un *daemon* pour se connecter et requêter le vCenter (ou les ESX, mais il est recommandé de passer par le vCenter).
+
 ### Téléchargement du SDK Perl
 
 Pour faire fonctionner ce connecteur, le SDK VMware Perl est nécessaire.
@@ -185,9 +187,7 @@ Pour superviser des clusters vSAN, il vous faudra également télécharger une a
 Déposez ensuite les archives téléchargées à l'emplacement `/tmp/` de tous les serveurs où vous souhaiterez faire 
 fonctionner ce programme (généralement les collecteurs).
 
-### Configuration du daemon Centreon VMware
-
-Pour la supervision VMware, Centreon utilise un daemon pour se connecter et requêter le vCenter (ou les ESX, mais il est recommandé de passer par le vCenter).
+### Installation du daemon Centreon VMware et du SDK Perl
 
 Installez le daemon sur tous les collecteurs :
 
@@ -223,15 +223,6 @@ perl Makefile.PL
 make pure_install
 ```
 
-- Installation des modules vSAN
-
-```bash
-cd /tmp
-unzip vsan-sdk-perl.zip
-mkdir -p /usr/local/share/perl5/VMware
-cp ./vsan-sdk-perl/bindings/VIM25Vsanmgmt* /usr/local/share/perl5/VMware/
-```
-
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -251,14 +242,6 @@ perl Makefile.PL
 make pure_install
 ```
 
-- Installation des modules vSAN
-
-```bash
-cd /tmp
-unzip vsan-sdk-perl.zip
-mkdir -p /usr/local/share/perl5/VMware
-cp ./vsan-sdk-perl/bindings/VIM25Vsanmgmt* /usr/local/share/perl5/VMware/
-```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -292,6 +275,10 @@ perl Makefile.PL
 make pure_install
 ```
 
+
+</TabItem>
+</Tabs>
+
 - Installation des modules vSAN
 
 ```bash
@@ -301,8 +288,7 @@ mkdir -p /usr/local/share/perl5/VMware
 cp ./vsan-sdk-perl/bindings/VIM25Vsanmgmt* /usr/local/share/perl5/VMware/
 ```
 
-</TabItem>
-</Tabs>
+### Configuration du connecteur Centreon VMWare
 
 <Tabs groupId="sync">
 <TabItem value="Centreon Cloud et OnPrem à partir de la 24.10" label="Centreon Cloud et OnPrem à partir de la 24.10">
@@ -382,7 +368,7 @@ Pour découvrir les balises et les attributs personnalisés, vous devez :
 
 ### Flux réseau
 
-Le collecteur Centreon (avec le daemon VMWare installé dessus) doit accéder en HTTPS (TCP/443) au vCenter.
+Le collecteur Centreon (avec le *daemon* VMWare installé dessus) doit accéder en HTTPS (TCP/443) au vCenter.
 
 Si plusieurs collecteurs de supervision utilisent un même daemon, alors ceux-ci doivent accéder en TCP/5700 au collecteur équipé du daemon VMware.
 
@@ -393,7 +379,7 @@ Si plusieurs collecteurs de supervision utilisent un même daemon, alors ceux-ci
 La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -430,7 +416,7 @@ yum install centreon-pack-virtualization-vmware2-vm
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **VMware VM**
-depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 
@@ -490,7 +476,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | CENTREONVMWAREHOST         | Hostname of the server on which the daemon is installed (required).                                                                         | localhost         |X             |
 | VMNAME                     | Name of the VM to monitor. If not set, we check all VMs.                                                    |                   |             |
 | VMUUID                     | Specify the VM's UUID.                                                                                                      |                   |             |
-| CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -760,7 +746,7 @@ Les options génériques sont listées ci-dessous :
 | --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-perfdata                          | Keep only perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
@@ -803,8 +789,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option               | Description                                                                                                                                                                                                                        |
 |:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --vm-hostname        | Hostname of the VM to monitor. If not set, we check all VMs.                                                                                                                                                                                |
-| --filter             | Define which VMs should be monitored based on the devices' names. This option will be treated as a regular expression.                                                                                                                                                         |
+| --vm-hostname        | Hostname of the VM to check. If not set, we check all VMs.                                                                                                                                                                                |
+| --filter             | Define which VMs should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                                                       |
 | --filter-description | Define which VMs should be monitored based on their description. This option will be treated as a regular expression.                                                                                                                                                                        |
 | --filter-os          | Define which VMs should be monitored based on their OS. This option will be treated as a regular expression.                                                                                                                                                                            |
 | --scope-datacenter   | Search in the following datacenter(s) (can be a regexp).                                                                                                                                                                               |
@@ -842,14 +828,14 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                | Description                                                                                                                                                                  |
 |:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --vm-hostname         | Hostname of the VM to check. If not set, we check all VMs.                                                                                                                          |
-| --filter              | Define which VMs should be monitored based on the devices' names. This option will be treated as a regular expression.                                                           |
+| --filter              | Define which VMs should be monitored based on their names. This option will be treated as a regular expression.                     |
 | --filter-description  | Define which VMs should be monitored based on their description. This option will be treated as a regular expression.                                                                                                                  |
 | --filter-os           | Define which VMs should be monitored based on their OS. This option will be treated as a regular expression.                                                           |
 | --scope-datacenter    | Search in the following datacenter(s) (can be a regexp).                                                                                                                         |
 | --scope-cluster       | Search in the following cluster(s) (can be a regexp).                                                                                                                            |
 | --scope-host          | Search in the following host(s) (can be a regexp).                                                                                                                               |
 | --display-description | Display the description of the virtual machine.                                                                                                                                         |
-| --device              | Device to check (Required) (Example: --device='VirtualCdrom').                                                                                                               |
+| --device              | Device to check (required). (Example: --device='VirtualCdrom').                                                                                                               |
 | --unknown-status      | Define the conditions to match for the status to be UNKNOWN (Default: '%\{connection_state\} !~ /^connected$/i'). You can use the following variables: %\{connection_state\}   |
 | --warning-status      | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %\{connection_state\}                                         |
 | --critical-status     | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{connection_state\}                                        |
@@ -862,7 +848,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                   | Description                                                                                                                                                                                                                   |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --vm-hostname            | Hostname of the VM to check. If not set, we check all VMs.                                                                                                                                                                           |
-| --filter                 | Define which VMs should be monitored based on the devices' names. This option will be treated as a regular expression.                                                                                                                                                                                                      |
+| --filter                 | Define which VMs should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                                                                                                      |
 | --filter-description     | Define which VMs should be monitored based on their description. This option will be treated as a regular expression.                                                                                                                                                                   |
 | --filter-os              | Define which VMs should be monitored based on their OS. This option will be treated as a regular expression.                                                                                                                                                                       |
 | --display-description    | Display the description of the virtual machine.                                                                                                                                                                                          |
@@ -880,7 +866,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                | Description                                                                                                                                                                                                                        |
 |:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --vm-hostname         | Hostname of the VM to check. If not set, we check all VMs.                                                                                                                                                                                |
-| --filter              | Define which VMs should be monitored based on the devices' names. This option will be treated as a regular expression.                                                                                                                                                                                                           |
+| --filter              | Define which VMs should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                                                                                                          |
 | --filter-description  | Define which VMs should be monitored based on their description. This option will be treated as a regular expression.                                                                                                                                                                        |
 | --filter-os           | Define which VMs should be monitored based on their OS. This option will be treated as a regular expression.                                                                                                                                                                            |
 | --scope-datacenter    | Search in the following datacenter(s) (can be a regexp).                                                                                                                                                                               |
@@ -891,7 +877,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-status      | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %\{connection_state\}, %\{power_state\}                                                                              |
 | --critical-status     | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{connection_state\}, %\{power_state\}                                                                             |
 | --units               | Units of thresholds (Default: '%') ('%', 'B').                                                                                                                                                                                     |
-| --free                | Thresholds are on free space left.                                                                                                                                                                                                 |
+| --free                | Thresholds are applied on free space left.                                                                                                                                                                                                 |
 | --warning-*           | Warning threshold. Can be: 'consumed', 'active', 'overhead', 'ballooning', 'shared'.                                                                                                                                               |
 | --critical-*          | Critical threshold. Can be: 'consumed', 'active', 'overhead', 'ballooning', 'shared'.                                                                                                                                              |
 
@@ -901,7 +887,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                | Description                                                                                                                                                   |
 |:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --vm-hostname         | Hostname of the VM to check. If not set, we check all VMs.                                                                                                           |
-| --filter              | Define which VMs should be monitored based on the devices' names. This option will be treated as a regular expression.                                          |
+| --filter              | Define which VMs should be monitored based on their names. This option will be treated as a regular expression.       |
 | --filter-description  | Define which VMs should be monitored based on their description. This option will be treated as a regular expression.                                                                                                   |
 | --filter-os           | Define which VMs should be monitored based on their OS. This option will be treated as a regular expression.                                            |
 | --scope-datacenter    | Search in the following datacenter(s) (can be a regexp).                                                                                                          |
@@ -911,7 +897,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --check-consolidation | Check if VM needs consolidation (since vsphere 5.0).                                                                                                          |
 | --disconnect-status   | Status if the VM is disconnected (default: 'unknown').                                                                                                               |
 | --nopoweredon-skip    | Skip check if VM is not poweredOn.                                                                                                                            |
-| --empty-continue      | Ask to the connector that an empty response is ok.                                                                                                            |
+| --empty-continue      | Instructs the connector to proceed without error when no VMs match the specified criteria.                                                                                                            |
 | --unit                | Select the unit for performance data and thresholds. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds   |
 | --warning             | Warning threshold for snapshot's age.                                                                                                                         |
 | --critical            | Critical threshold for snapshot's age.                                                                                                                        |
@@ -922,7 +908,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                    | Description                                                                                                                                                                                   |
 |:--------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --vm-hostname             | Hostname of the VM to check. If not set, we check all VMs.                                                                                                                                           |
-| --filter                  | Define which VMs should be monitored based on the devices' names. This option will be treated as a regular expression.                                                                                                                                                                      |
+| --filter                  | Define which VMs should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                                                                     |
 | --filter-description      | Define which VMs should be monitored based on their description. This option will be treated as a regular expression.                                                                                                                                   |
 | --filter-os               | Define which VMs should be monitored based on their OS. This option will be treated as a regular expression.                                                                                                                                       |
 | --scope-datacenter        | Search in the following datacenter(s) (can be a regexp).                                                                                                                                          |
@@ -941,7 +927,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                | Description                                                                                                                                                                                                                        |
 |:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --vm-hostname         | Hostname of the VM to check. If not set, we check all VMs.                                                                                                                                                                                |
-| --filter              | Define which VMs should be monitored based on the devices' names. This option will be treated as a regular expression.                                                                                                                                                                                                           |
+| --filter              | Define which VMs should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                                                                                                           |
 | --filter-description  | Define which VMs should be monitored based on their description. This option will be treated as a regular expression.                                                                                                                                                                        |
 | --filter-os           | Define which VMs should be monitored based on their OS. This option will be treated as a regular expression.                                                                                                                                                                            |
 | --scope-datacenter    | Search in the following datacenter(s) (can be a regexp).                                                                                                                                                                               |
@@ -960,7 +946,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                    | Description                                                                                  |
 |:--------------------------|:---------------------------------------------------------------------------------------------|
 | --vm-hostname             | Hostname of the VM to check. If not set, we check all VMs.                                          |
-| --filter                  | Define which VMs should be monitored based on the devices' names. This option will be treated as a regular expression.                 |
+| --filter                  | Define which VMs should be monitored based on their names. This option will be treated as a regular expression.                         |
 | --filter-description      | Define which VMs should be monitored based on their description. This option will be treated as a regular expression.                                  |
 | --filter-os               | Define which VMs should be monitored based on their OS. This option will be treated as a regular expression.                                      |
 | --scope-datacenter        | Search in the following datacenter(s) (can be a regexp).                                         |
@@ -969,7 +955,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --disconnect-status       | Status if VM disconnected (default: 'unknown').                                              |
 | --nopoweredon-skip        | Skip check if VM is not poweredOn.                                                           |
 | --display-description     | Display the description of the virtual machine.                                                         |
-| --thinprovisioning-status | Thin provisioning status (default: none) Example: 'active,CRITICAL' or 'notactive,WARNING'    |
+| --thinprovisioning-status | Thin provisioning status (default: none). Example: 'active,CRITICAL' or 'notactive,WARNING'    |
 
 </TabItem>
 <TabItem value="Vm-Tools" label="Vm-Tools">
@@ -984,8 +970,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --scope-cluster             | Search in the following cluster(s) (can be a regexp).             |
 | --scope-host                | Search in the following host(s) (can be a regexp).                |
 | --disconnect-status         | Status if VM disconnected (default: 'unknown').               |
-| --nopoweredon-skip          | Skip check if VM is not powered on.                            |
-| --empty-continue            | Ask to the connector that an empty response is ok.            |
+| --nopoweredon-skip          | Skip check if VM is not poweredOn.                            |
+| --empty-continue            | Instructs the connector to proceed without error when no VMs match the specified criteria.            |
 | --display-description       | Display the description of the virtual machine.                          |
 | --tools-notinstalled-status | Status if vmtools is not installed (default: critical).       |
 | --tools-notrunning-status   | Status if vmtools is not running (default: critical).         |
