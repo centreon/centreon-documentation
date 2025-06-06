@@ -177,11 +177,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 To make the connector work, you will need the Perl VMware SDK.
 To download it, you'll need a (free of charge) account at Broadcom's.
-At the time this document is written, it can be downloaded from [this page](https://developer.broadcom.com/sdks/vsphere-perl-sdk/latest/). Download the latest version (the archive having `f9ef0fc7a4e4983cf0ca6aea08d9a778` as MD5 checksum).
+At the time of writing, it can be downloaded from [this page](https://developer.broadcom.com/sdks/vsphere-perl-sdk/latest/). Download the latest version (the archive that has `f9ef0fc7a4e4983cf0ca6aea08d9a778` as MD5 checksum).
 
 If you have vSAN clusters to monitor, you'll also need to download another archive from [this page](https://developer.broadcom.com/sdks/vsan-management-sdk-for-perl/latest/).
 
-Copy the downloaded files at `/tmp/` on all the servers where this program must run (usually pollers).
+Copy the downloaded files in a `/tmp/` directory on all the servers where this program must run (usually pollers).
 
 ### Centreon VMware daemon
 

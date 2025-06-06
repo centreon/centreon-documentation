@@ -176,14 +176,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Téléchargement du SDK Perl
 
-Pour faire fonctionner ce connecteur, il faut le SDK VMware Perl.
+Pour faire fonctionner ce connecteur, le SDK VMware Perl est nécessaire.
 Pour le télécharger, vous devez posséder un compte (non payant) chez Broadcom. À l'heure où ce document est rédigé, le téléchargement se fait depuis
 [cette page](https://developer.broadcom.com/sdks/vsphere-perl-sdk/latest/). Téléchargez la dernière version (l'archive dont la somme de contrôle MD5 vaut `f9ef0fc7a4e4983cf0ca6aea08d9a778`.
 
 Pour superviser des clusters vSAN, il vous faudra également télécharger une autre archive depuis [cette page](https://developer.broadcom.com/sdks/vsan-management-sdk-for-perl/latest/).
 
 Déposez ensuite les archives téléchargées à l'emplacement `/tmp/` de tous les serveurs où vous souhaiterez faire 
-fonctionner ce programme (généralement les pollers).
+fonctionner ce programme (généralement les collecteurs).
 
 ### Configuration du daemon Centreon VMware
 
@@ -251,7 +251,7 @@ perl Makefile.PL
 make pure_install
 ```
 
-- Installation du complément vSAN
+- Installation des modules vSAN
 
 ```bash
 cd /tmp
@@ -292,7 +292,7 @@ perl Makefile.PL
 make pure_install
 ```
 
-- Installation du complément vSAN
+- Installation des modules vSAN
 
 ```bash
 cd /tmp

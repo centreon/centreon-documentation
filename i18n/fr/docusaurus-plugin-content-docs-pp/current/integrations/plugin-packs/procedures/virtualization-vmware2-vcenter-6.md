@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias              | Modèle de service                       | Description                                                                                      |
 |:-------------------|:----------------------------------------|:-------------------------------------------------------------------------------------------------|
-| Vm-Snapshot-Global | Virt-VMWare2-Vc6-Snapshot-Global-custom | Contrôle permettant de vérifier l'âge des snapshosts sur plusieurs machine virtuelle (Vsphere 6) |
+| Vm-Snapshot-Global | Virt-VMWare2-Vc6-Snapshot-Global-custom | Contrôle permettant de vérifier l'âge des snapshosts sur plusieurs machines virtuelles (Vsphere 6) |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-VMWare2-VCenter-6-custom** est utilisé.
 
