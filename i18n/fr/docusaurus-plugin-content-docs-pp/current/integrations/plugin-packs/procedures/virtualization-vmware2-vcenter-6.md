@@ -310,14 +310,14 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::vmware::connector::plugin \
 	--mode=snapshot-vm \
 	--custommode=connector \
-	--connector-hostname='' \
-	--connector-port='' \
-	--container=''  \
-	--vm-hostname='' \
-	--filter \
-	--filter-uuid='' \
-	--warning='' \
-	--critical='' \
+    --connector-hostname='localhost' \
+    --connector-port='5700' \
+    --container='vcenter01' \
+    --vm-hostname='.*' \
+    --filter \
+    --filter-uuid='' \
+    --warning='259200' \
+    --critical='432000' \
 	--disconnect-status='ok' \
 	--nopoweredon-skip \
 	--check-consolidation \
