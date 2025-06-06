@@ -258,7 +258,7 @@ yum install
 | Macro                      | Description                                                                                                                              | Default value | Mandatory |
 |:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
 | CENTREONVMWAREPORT         | The port used for the connection (by default: 5700)                                                                                      |               |           |
-| CENTREONVMWARECONTAINER    | Name of your container in the file c`centreon_vmware.pm`                                                                                 |               |           |
+| CENTREONVMWARECONTAINER    | Name of your container in the `centreon_vmware.pm` file                                                                               |               |           |
 | CENTREONVMWAREHOST         | The Centreon server that launches the connection                                                                                         |               |           |
 | CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
