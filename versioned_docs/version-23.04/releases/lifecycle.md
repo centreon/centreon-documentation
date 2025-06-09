@@ -60,7 +60,7 @@ From version 21.10, versions are supported for 2 years. The lifecycle of a versi
 
 ### Version lifecycle diagram
 
-This diagram outlines the Centreon version lifecycle policy:
+This diagram outlines the Centreon version lifecycle policy at the time version 23.04 was released:
 
 ![image](../assets/releases/lifecycle.png)
 
@@ -71,7 +71,7 @@ This diagram outlines the Centreon version lifecycle policy:
 
 | Product        | Release      | End of support| State               |
 |----------------|--------------|---------------|---------------------|
-| Centreon 23.04 | 04/2023      | 04/2025       | Supported           |
+| Centreon 23.04 | 04/2023      | 04/2025       | No longer supported |
 | Centreon 22.10 | 10/2022      | 10/2024       | No longer supported |
 | Centreon 22.04 | 05/2022      | 05/2024       | No longer supported |
 | Centreon 21.10 | 11/2021      | 11/2023       | No longer supported |
@@ -81,4 +81,3 @@ This diagram outlines the Centreon version lifecycle policy:
 | Centreon 19.10 | 10/2019      | 04/2021       | No longer supported |
 | Centreon 19.04 | 04/2019      | 10/2020       | No longer supported |
 | Centreon 18.10 | 10/2018      | 04/2020       | No longer supported |
-

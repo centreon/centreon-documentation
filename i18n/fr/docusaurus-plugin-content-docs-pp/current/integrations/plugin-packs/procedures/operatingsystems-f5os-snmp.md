@@ -1,38 +1,37 @@
 ---
-id: hardware-ups-socomec-netvision-snmp
-title: UPS Socomec Net Vision SNMP
+id: operatingsystems-f5os-snmp
+title: F5OS SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Socomec Net Vision UPS SNMP** 
-depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **F5OS SNMP** 
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision **Socomec Net Vision UPS SNMP** apporte un modèle d'hôte :
+Le connecteur de supervision **F5OS SNMP** apporte un modèle d'hôte :
 
-* **HW-UPS-Socomec-Netvision-SNMP-custom**
+* **OS-F5OS-SNMP-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="HW-UPS-Socomec-Netvision-SNMP-custom" label="HW-UPS-Socomec-Netvision-SNMP-custom">
+<TabItem value="OS-F5OS-SNMP-custom" label="OS-F5OS-SNMP-custom">
 
-| Alias        | Modèle de service                                 | Description                                        |
-|:-------------|:--------------------------------------------------|:---------------------------------------------------|
-| Alarms       | HW-UPS-Socomec-Netvision-Alarms-SNMP-custom       | Contrôle la présence d'alarmes                     |
-| Battery      | HW-UPS-Socomec-Netvision-Battery-SNMP-custom      | Contrôle l'état de la batterie                     |
-| Input-Lines  | HW-UPS-Socomec-Netvision-Input-Lines-SNMP-custom  | Contrôle les métriques de la source d'alimentation |
-| Output-Lines | HW-UPS-Socomec-Netvision-Output-Lines-SNMP-custom | Contrôle les métriques des lignes de sortie        |
+| Alias     | Modèle de service             | Description                                           |
+|:----------|:------------------------------|:------------------------------------------------------|
+| Cpu-Usage | OS-F5OS-Cpu-Usage-SNMP-custom | Contrôle l'utilisation du CPU                         |
+| Hardware  | OS-F5OS-Hardware-SNMP-custom  | Contrôle le matériel                                  |
+| Memory    | OS-F5OS-Memory-SNMP-custom    | Contrôle permettant de vérifier l'utilisation mémoire |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-UPS-Socomec-Netvision-SNMP-custom** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-F5OS-SNMP-custom** est utilisé.
 
 </TabItem>
 </Tabs>
@@ -41,9 +40,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                           |
-|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-UPS-Socomec-Netvision-SNMP-custom**. |
+| Nom de la règle | Description                                                                                                                                                                                                                          |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **OS-F5OS-SNMP-custom**. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -52,45 +51,40 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Alarms" label="Alarms">
+<TabItem value="Cpu-Usage" label="Cpu-Usage">
+
+| Nom                                       | Unité |
+|:------------------------------------------|:------|
+| cpu.usage.percent                         | %     |
+| *cpu_core*#cpu.core.current.usage.percent | %     |
+| *cpu_core*#cpu.core.usage.avg.5s.percent  | %     |
+| *cpu_core*#cpu.core.usage.avg.1m.percent  | %     |
+| *cpu_core*#cpu.core.usage.avg.5m.percent  | %     |
+
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
+
+| Nom                            | Unité |
+|:-------------------------------|:------|
+| temperature.current.celsius    | C     |
+| temperature.average.1h.celsius | C     |
+| temperature.min.1h.celsius     | C     |
+| temperature.max.1h.celsius     | C     |
+| *fans*#fantray.fanspeed.rpm    | rpm   |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Nom                  | Unité |
 |:---------------------|:------|
-| alarms.current.count | count |
-
-</TabItem>
-<TabItem value="Battery" label="Battery">
-
-| Nom                                | Unité |
-|:-----------------------------------|:------|
-| status                             | N/A   |
-| battery.charge.remaining.percent   | %     |
-| battery.charge.remaining.minutes   | m     |
-| battery.current.ampere             | A     |
-| battery.voltage.volt               | V     |
-| battery.temperature.celsius        | C     |
-| battery.temperatureambient.celsius | C     |
-
-</TabItem>
-<TabItem value="Input-Lines" label="Input-Lines">
-
-| Nom                                | Unité |
-|:-----------------------------------|:------|
-| lines.input.frequence.hertz        | Hz    |
-| *iline1*#line.input.current.ampere | A     |
-| *iline2*#line.input.current.ampere | A     |
-| *iline1*#line.input.voltage.volt   | V     |
-| *iline2*#line.input.voltage.volt   | V     |
-
-</TabItem>
-<TabItem value="Output-Lines" label="Output-Lines">
-
-| Nom                                 | Unité |
-|:------------------------------------|:------|
-| source-status                       | N/A   |
-| *oline*#line.output.load.percentage | %     |
-| *oline*#line.output.current.ampere  | A     |
-| *oline*#line.output.voltage.volt    | V     |
+| memory.usage.bytes   | B     |
+| memory.usage.bytes   | B     |
+| memory.free.bytes    | B     |
+| memory.free.bytes    | B     |
+| memory.usage.percent | %     |
+| memory.usage.percent | %     |
+| memory.free.percent  | %     |
+| memory.free.percent  | %     |
 
 </TabItem>
 </Tabs>
@@ -98,22 +92,23 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 ## Prérequis
 
 ### Configuration SNMP
+
 L'agent SNMP doit être activé et configuré sur l'équipement. 
 Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
 Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
 Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
-La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers la ressource supervisée.
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
 ### Pack
 
-La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
-
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -122,35 +117,35 @@ associé à sa distribution :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-hardware-ups-socomec-netvision-snmp
+dnf install centreon-pack-operatingsystems-f5os-snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-hardware-ups-socomec-netvision-snmp
+dnf install centreon-pack-operatingsystems-f5os-snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-hardware-ups-socomec-netvision-snmp
+apt install centreon-pack-operatingsystems-f5os-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-hardware-ups-socomec-netvision-snmp
+yum install centreon-pack-operatingsystems-f5os-snmp
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Socomec Net Vision UPS SNMP**
-depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **F5OS SNMP**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 
@@ -167,28 +162,28 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Hardware-Ups-Socomec-Netvision-Snmp
+dnf install centreon-plugin-Operatingsystems-F5os-Snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Hardware-Ups-Socomec-Netvision-Snmp
+dnf install centreon-plugin-Operatingsystems-F5os-Snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-plugin-hardware-ups-socomec-netvision-snmp
+apt install centreon-plugin-operatingsystems-f5os-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Hardware-Ups-Socomec-Netvision-Snmp
+yum install centreon-plugin-Operatingsystems-F5os-Snmp
 ```
 
 </TabItem>
@@ -200,7 +195,7 @@ yum install centreon-plugin-Hardware-Ups-Socomec-Netvision-Snmp
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **HW-UPS-Socomec-Netvision-SNMP-custom**.
+3. Appliquez le modèle d'hôte **OS-F5OS-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
@@ -217,62 +212,51 @@ yum install centreon-plugin-Hardware-Ups-Socomec-Netvision-Snmp
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Alarms" label="Alarms">
+<TabItem value="Cpu-Usage" label="Cpu-Usage">
 
-| Macro                 | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGALARMSCURRENT  | Threshold                                                                                                                                        |                   |             |
-| CRITICALALARMSCURRENT | Threshold                                                                                                                                        |                   |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
-
-</TabItem>
-<TabItem value="Battery" label="Battery">
-
-| Macro                          | Description                                                                                                                                      | Valeur par défaut                   | Obligatoire |
-|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
-| UNKNOWNSTATUS                  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}                                    | %\{status\} =~ /unknown/i           |             |
-| WARNINGCHARGEREMAINING         | Threshold                                                                                                                                        |                                     |             |
-| CRITICALCHARGEREMAINING        | Threshold                                                                                                                                        |                                     |             |
-| WARNINGCHARGEREMAININGMINUTES  | Threshold                                                                                                                                        |                                     |             |
-| CRITICALCHARGEREMAININGMINUTES | Threshold                                                                                                                                        |                                     |             |
-| WARNINGCURRENT                 | Threshold                                                                                                                                        |                                     |             |
-| CRITICALCURRENT                | Threshold                                                                                                                                        |                                     |             |
-| WARNINGSTATUS                  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                                    | %\{status\} =~ /low/i               |             |
-| CRITICALSTATUS                 | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                                   | %\{status\} =~ /depleted\|failure/i |             |
-| WARNINGTEMPERATURE             | Threshold                                                                                                                                        |                                     |             |
-| CRITICALTEMPERATURE            | Threshold                                                                                                                                        |                                     |             |
-| WARNINGVOLTAGE                 | Threshold                                                                                                                                        |                                     |             |
-| CRITICALVOLTAGE                | Threshold                                                                                                                                        |                                     |             |
-| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                     |             |
+| Macro               | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCOREAVG1M    | Threshold in percentage                                                                                                                          |                   |             |
+| CRITICALCOREAVG1M   | Threshold in percentage                                                                                                                          |                   |             |
+| WARNINGCOREAVG5M    | Threshold in percentage                                                                                                                          |                   |             |
+| CRITICALCOREAVG5M   | Threshold in percentage                                                                                                                          |                   |             |
+| WARNINGCOREAVG5S    | Threshold in percentage                                                                                                                          |                   |             |
+| CRITICALCOREAVG5S   | Threshold in percentage                                                                                                                          |                   |             |
+| WARNINGCORECURRENT  | Threshold in percentage                                                                                                                          |                   |             |
+| CRITICALCORECURRENT | Threshold in percentage                                                                                                                          |                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
-<TabItem value="Input-Lines" label="Input-Lines">
+<TabItem value="Hardware" label="Hardware">
+
+| Macro                      | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGAVERAGETEMPERATURE  | Threshold in C                                                                                                                                   |                   |             |
+| CRITICALAVERAGETEMPERATURE | Threshold in C                                                                                                                                   |                   |             |
+| WARNINGCURRENTTEMPERATURE  | Threshold in C                                                                                                                                   |                   |             |
+| CRITICALCURRENTTEMPERATURE | Threshold in C                                                                                                                                   |                   |             |
+| WARNINGFANTRAYFANSPEED     | Threshold in RPM                                                                                                                                 |                   |             |
+| CRITICALFANTRAYFANSPEED    | Threshold in RPM                                                                                                                                 |                   |             |
+| WARNINGMAXTEMPERATURE      | Threshold in C                                                                                                                                   |                   |             |
+| CRITICALMAXTEMPERATURE     | Threshold in C                                                                                                                                   |                   |             |
+| WARNINGMINTEMPERATURE      | Threshold in C                                                                                                                                   |                   |             |
+| CRITICALMINTEMPERATURE     | Threshold in C                                                                                                                                   |                   |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
 
 | Macro             | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCURRENT    | Threshold                                                                                                                                        |                   |             |
-| CRITICALCURRENT   | Threshold                                                                                                                                        |                   |             |
-| WARNINGFREQUENCE  | Threshold                                                                                                                                        |                   |             |
-| CRITICALFREQUENCE | Threshold                                                                                                                                        |                   |             |
-| WARNINGVOLTAGE    | Threshold                                                                                                                                        |                   |             |
-| CRITICALVOLTAGE   | Threshold                                                                                                                                        |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
-
-</TabItem>
-<TabItem value="Output-Lines" label="Output-Lines">
-
-| Macro                | Description                                                                                                                                      | Valeur par défaut         | Obligatoire |
-|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
-| UNKNOWNSOURCESTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}                                    | %\{status\} =~ /unknown/i |             |
-| WARNINGCURRENT       | Threshold                                                                                                                                        |                           |             |
-| CRITICALCURRENT      | Threshold                                                                                                                                        |                           |             |
-| WARNINGLOAD          | Threshold                                                                                                                                        |                           |             |
-| CRITICALLOAD         | Threshold                                                                                                                                        |                           |             |
-| WARNINGSOURCESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                                    |                           |             |
-| CRITICALSOURCESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                                   |                           |             |
-| WARNINGVOLTAGE       | Threshold                                                                                                                                        |                           |             |
-| CRITICALVOLTAGE      | Threshold                                                                                                                                        |                           |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                 |             |
+| WARNINGFREE       | Threshold in bytes                                                                                                                               |                   |             |
+| CRITICALFREE      | Threshold in bytes                                                                                                                               |                   |             |
+| WARNINGFREEPRCT   | Threshold in percentage                                                                                                                          |                   |             |
+| CRITICALFREEPRCT  | Threshold in percentage                                                                                                                          |                   |             |
+| WARNINGUSAGE      | Threshold in bytes                                                                                                                               |                   |             |
+| CRITICALUSAGE     | Threshold in bytes                                                                                                                               |                   |             |
+| WARNINGUSAGEPRCT  | Threshold in percentage                                                                                                                          |                   |             |
+| CRITICALUSAGEPRCT | Threshold in percentage                                                                                                                          |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 </Tabs>
@@ -288,25 +272,26 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_ups_socomec_netvision_snmp.pl \
-	--plugin=hardware::ups::socomec::netvision::snmp::plugin \
-	--mode=input-lines \
-	--hostname='10.0.0.1' \
+/usr/lib/centreon/plugins/centreon_f5os_snmp.pl \
+	--plugin=os::f5os::snmp::plugin \
+	--mode=memory \
+	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--warning-frequence='' \
-	--critical-frequence='' \
-	--warning-current='' \
-	--critical-current='' \
-	--warning-voltage='' \
-	--critical-voltage='' \
-	--verbose
+	--warning-usage='' \
+	--critical-usage='' \
+	--warning-free='' \
+	--critical-free='' \
+	--warning-usage-prct='' \
+	--critical-usage-prct='' \
+	--warning-free-prct='' \
+	--critical-free-prct='' 
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: frequence: 84155 Hz All input lines are ok | 'lines.input.frequence.hertz'=84155Hz;;;; 'iline1#line.input.current.ampere'=30825A;;;0; 'iline2#line.input.current.ampere'=41222A;;;0; 'iline1#line.input.voltage.volt'=59604V;;;; 'iline2#line.input.voltage.volt'=34999V;;;; 
+OK: All memory usages are ok | 'memory.usage.bytes'=20963B;;;0;total 'memory.usage.bytes'=93248B;;;0;total 'memory.free.bytes'=63302B;;;0;total 'memory.free.bytes'=10505B;;;0;total 'memory.usage.percent'=99097%;;;0;100 'memory.usage.percent'=78694%;;;0;100 'memory.free.percent'=71522%;;;0;100 'memory.free.percent'=36014%;;;0;100 
 ```
 
 ### Diagnostic des erreurs communes
@@ -325,19 +310,18 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_ups_socomec_netvision_snmp.pl \
-	--plugin=hardware::ups::socomec::netvision::snmp::plugin \
+/usr/lib/centreon/plugins/centreon_f5os_snmp.pl \
+	--plugin=os::f5os::snmp::plugin \
 	--list-mode
 ```
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                         | Modèle de service associé                         |
-|:---------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------|
-| alarms [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/ups/socomec/netvision/snmp/mode/alarms.pm)]            | HW-UPS-Socomec-Netvision-Alarms-SNMP-custom       |
-| battery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/ups/socomec/netvision/snmp/mode/battery.pm)]          | HW-UPS-Socomec-Netvision-Battery-SNMP-custom      |
-| input-lines [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/ups/socomec/netvision/snmp/mode/inputlines.pm)]   | HW-UPS-Socomec-Netvision-Input-Lines-SNMP-custom  |
-| output-lines [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/ups/socomec/netvision/snmp/mode/outputlines.pm)] | HW-UPS-Socomec-Netvision-Output-Lines-SNMP-custom |
+| Mode                                                                                                            | Modèle de service associé     |
+|:----------------------------------------------------------------------------------------------------------------|:------------------------------|
+| cpu-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/cpuusage.pm)] | OS-F5OS-Cpu-Usage-SNMP-custom |
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/hardware.pm)]  | OS-F5OS-Hardware-SNMP-custom  |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/memory.pm)]      | OS-F5OS-Memory-SNMP-custom    |
 
 ### Options disponibles
 
@@ -412,39 +396,59 @@ Les options génériques sont listées ci-dessous :
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Alarms" label="Alarms">
+<TabItem value="Cpu-Usage" label="Cpu-Usage">
 
-| Option                   | Description                                |
-|:-------------------------|:-------------------------------------------|
-| --warning-* --critical-* |   Thresholds. Can be: 'alarms-current'.    |
-
-</TabItem>
-<TabItem value="Battery" label="Battery">
-
-| Option                   | Description                                                                                                                                                         |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status         |   Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}              |
-| --warning-status         |   Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /low/i'). You can use the following variables: %\{status\}                  |
-| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /depleted\|failure/i'). You can use the following variables: %\{status\}   |
-| --warning-* --critical-* |   Thresholds. Can be: 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V), 'temperature' (C), 'temperatureambient' (C).                |
-
-</TabItem>
-<TabItem value="Input-Lines" label="Input-Lines">
-
-| Option                   | Description                                                 |
-|:-------------------------|:------------------------------------------------------------|
-| --warning-* --critical-* |   Thresholds. Can be: 'frequence', 'voltage', 'current'.    |
+| Option                  | Description                                                                                                                                                    |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters       |   Only display some counters (regexp can be used). Can be : core-current, core-avg-5s, core-avg-1m, core-avg-5m Example : --filter-counters='^core-current$'   |
+| --include-id            |   Filter by CPU id (regexp can be used). Example : --include-id='2'                                                                                            |
+| --include-name          |   Filter by CPU name (regexp can be used). Example : --include-name='cpu02'                                                                                    |
+| --exclude-id            |   Exclude CPU id from check (regexp can be used). Example : --exclude-id='21'                                                                                  |
+| --exclude-name          |   Exclude CPU name from check (regexp can be used). Example : --exclude-name='cpu02'                                                                           |
+| --warning-core-current  |   Threshold in percentage.                                                                                                                                     |
+| --critical-core-current |   Threshold in percentage.                                                                                                                                     |
+| --warning-core-avg-5s   |   Threshold in percentage.                                                                                                                                     |
+| --critical-core-avg-5s  |   Threshold in percentage.                                                                                                                                     |
+| --warning-core-avg-1m   |   Threshold in percentage.                                                                                                                                     |
+| --critical-core-avg-1m  |   Threshold in percentage.                                                                                                                                     |
+| --warning-core-avg-5m   |   Threshold in percentage.                                                                                                                                     |
+| --critical-core-avg-5m  |   Threshold in percentage.                                                                                                                                     |
 
 </TabItem>
-<TabItem value="Output-Lines" label="Output-Lines">
+<TabItem value="Hardware" label="Hardware">
 
-| Option                   | Description                                                                                                                                              |
-|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --ignore-zero-counters   |   Ignore counters equals to 0.                                                                                                                           |
-| --unknown-source-status  |   Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}   |
-| --warning-source-status  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                                          |
-| --critical-source-status |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                                         |
-| --warning-* --critical-* |   Thresholds. Can be: 'load', 'voltage', 'current'.                                                                                                      |
+| Option                         | Description                                                                                                                                                                                                 |
+|:-------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component                    |   Which component to check (default: '.*'). Can be: 'temperature', 'fantray'.                                                                                                                               |
+| --no-component                 |   Define the expected status if no components are found (default: critical).                                                                                                                                |
+| --filter-counters              |   Only display some counters (regexp can be used). Can be : fantray-fan-speed current-temperature average-temperature min-temperature max-temperature Example : --filter-counters='^current-temperature$'   |
+| --include-id                   |   Filter by fan id (regexp can be used). Example : --include-id='2'                                                                                                                                         |
+| --exclude-id                   |   Exclude fan id from check (can be a regexp). Example : --exclude-id='10'                                                                                                                                  |
+| --warning-current-temperature  |   Threshold in C.                                                                                                                                                                                           |
+| --critical-current-temperature |   Threshold in C.                                                                                                                                                                                           |
+| --warning-average-temperature  |   Threshold in C.                                                                                                                                                                                           |
+| --critical-average-temperature |   Threshold in C.                                                                                                                                                                                           |
+| --warning-min-temperature      |   Threshold in C.                                                                                                                                                                                           |
+| --critical-min-temperature     |   Threshold in C.                                                                                                                                                                                           |
+| --warning-max-temperature      |   Threshold in C.                                                                                                                                                                                           |
+| --critical-max-temperature     |   Threshold in C.                                                                                                                                                                                           |
+| --warning-fantray-speed        |   Threshold in rpm.                                                                                                                                                                                         |
+| --critical-fantray-speed       |   Threshold in rpm.                                                                                                                                                                                         |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Option                | Description                                                                                                                         |
+|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters     |   Only display some counters (regexp can be used). Can be : usage free usage-prct free-prct Example : --filter-counters='^usage$'   |
+| --warning-free        |   Threshold in bytes.                                                                                                               |
+| --critical-free       |   Threshold in bytes.                                                                                                               |
+| --warning-free-prct   |   Threshold in percentage.                                                                                                          |
+| --critical-free-prct  |   Threshold in percentage.                                                                                                          |
+| --warning-usage       |   Threshold in bytes.                                                                                                               |
+| --critical-usage      |   Threshold in bytes.                                                                                                               |
+| --warning-usage-prct  |   Threshold in percentage.                                                                                                          |
+| --critical-usage-prct |   Threshold in percentage.                                                                                                          |
 
 </TabItem>
 </Tabs>
@@ -453,8 +457,8 @@ Pour un mode, la liste de toutes les options disponibles et leur signification p
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_ups_socomec_netvision_snmp.pl \
-	--plugin=hardware::ups::socomec::netvision::snmp::plugin \
-	--mode=input-lines \
+/usr/lib/centreon/plugins/centreon_f5os_snmp.pl \
+	--plugin=os::f5os::snmp::plugin \
+	--mode=memory \
 	--help
 ```
