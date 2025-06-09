@@ -79,6 +79,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | hardware.board.status | N/A   |
 | hardware.fan.status   | N/A   |
 | hardware.psu.status   | N/A   |
+| hardware.board.count | count   |
+| hardware.fan.count   | count  |
+| hardware.psu.count   | count   |
 
 </TabItem>
 <TabItem value="Load" label="Load">

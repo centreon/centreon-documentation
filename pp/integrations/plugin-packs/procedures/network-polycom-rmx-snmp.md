@@ -75,9 +75,12 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 | Name                  | Unit |
 |:----------------------|:-----|
-| hardware.board.status | N/A  |
-| hardware.fan.status   | N/A  |
-| hardware.psu.status   | N/A  |
+| hardware.board.status | N/A   |
+| hardware.fan.status   | N/A   |
+| hardware.psu.status   | N/A   |
+| hardware.board.count | count   |
+| hardware.fan.count   | count  |
+| hardware.psu.count   | count   |
 
 </TabItem>
 <TabItem value="Load" label="Load">
