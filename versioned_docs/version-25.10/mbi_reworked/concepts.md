@@ -3,8 +3,6 @@ id: mbi-concepts
 title: MBI Concepts
 ---
 
-## Concepts
-
 MBI is a module we developed to help you generate reports in different formats such as CSV. It is an extension of Centreon with its own vocabulary and concepts. This section breaks down the key concepts to understanding Centreon MBI. 
 
 Note that this section expects you to be familiar with the regular Centreon (vocabulary)[glossary.md]
