@@ -832,11 +832,11 @@
       "items": [
         {
           "type": "doc",
-          "id": "mbi-reworked/intro-to-mbi"
+          "id": "mbi-reworked/mbi-intro"
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/concepts"
+          "id": "mbi-reworked/mbi-concepts"
         },
         {
           "type": "doc",
