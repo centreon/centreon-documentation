@@ -16,21 +16,21 @@ More information about configuration is available in our [offical documentation]
 
 **Centreon Dashboards**
 
-No big new feature for our Centreon Dashboards feature this time but still few improvements have been made.
-Readability of Business Activities Diagram widget has been improved by adding host name to service KPIs and increasing the number of characters displayed. 
-Designing dashboards hes been eased by the possibility the possibility to resize the widgets in all direction, and reduce unused spacing between widgets.
+No big new features for Centreon Dashboards this time, but still some improvements have been made.
+The readability of the Business Activities Diagram widget has been improved by adding the host's name to service KPIs and by increasing the number of characters displayed. 
+Designing dashboards has been made easier: you can now resize the widgets in all directions, and reduce unused spacing between widgets.
 
-**Resource stattus**
+**Resource status**
 
-Resource Status page performances have been improved by optimizing filtering requests.
+Performance for the Resource Status page has been improved by optimizing filtering requests.
 
 ### Centreon Business Edition
 
 **MAP**
 
-We are enhancing access control on maps by adding the possibility to assign privileges amongst owner, editor, viewer or none to Geo Views.
-Note that for now, it is only possible to select ACL groups derived either from roles (Administrator, Editor, Viewer) or from Resource Access Management feature. Section based on user groups will follow.
-Widget to dispaly output of a check has also been improved by adding more macros editor can display.
+We have enhanced access control on maps: you can now assign privileges (owner, editor, viewer or none) to geographic views.
+Note that for now, it is only possible to select ACL groups derived either from roles (Administrator, Editor, Viewer) or from Resource Access Management rules. A section based on user groups will follow.
+The widget that displays the output of a check has also been improved by adding more macros that the editor can display.
 
 
 ## March 18th, 2025
