@@ -32,3 +32,23 @@ The metric that measures the amount of time a host has been available.
 ## Publication rules
 
 By default, the report is only available on the Centreon user interface, publication rules allow you to make it so the report is sent to specific users every time it is generated.
+
+
+MBI > General options
+
+Scheduler options
+Permet d’archiver des rapports
+
+ETL options 
+Détermine ce qui doit être calculé (performance et capacité ou disponibilité ou les deux) et sur quelles périodes
+
+Data retention options
+Pendant combien de temps doivent être stockées les données
+
+Report parameter
+Permet d’autoriser des utilisateurs non-admins
+
+ 
+
+Chaque hôte doit appartenir non seulement à un groupe d’hôtes mais aussi à une catégorie d’hôte
+Chaque service doit être lié à un modèle de service
