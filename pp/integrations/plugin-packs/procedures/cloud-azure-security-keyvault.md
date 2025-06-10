@@ -5,20 +5,13 @@ title: Azure Key Vault
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control
-access to, such as API keys, passwords, certificates, or cryptographic keys. Key Vault service supports two types of containers:
-vaults and managed HSM pools. Vaults support storing software and HSM-backed keys, secrets, and certificates. Managed HSM pools
-only support HSM-backed keys.
-
-The Centreon Monitoring Connector *Azure Key Vault* can rely on Azure API or Azure CLI to collect the metrics related to the
+The **Azure Key Vault** Centreon Monitoring Connector can rely on Azure API or Azure CLI to collect the metrics related to the
 Key Vault service.
 
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Azure Key Vault** connector through the
-**Configuration > Connecteurs > Connecteurs de supervision** menu:
+**Configuration > Connectors > Monitoring connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -100,7 +93,7 @@ The installation procedures for monitoring connectors are slightly different dep
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Connecteurs > Connecteurs de supervision** menu.
+**Configuration > Connectors > Monitoring connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -136,7 +129,7 @@ yum install centreon-pack-cloud-azure-security-keyvault
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Azure Key Vault** connector through
-the **Configuration > Connecteurs > Connecteurs de supervision** menu.
+the **Configuration > Connectors > Monitoring connectors** menu.
 
 ### Plugin
 
