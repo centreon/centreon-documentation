@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Outscale** connector through the
+The following monitoring connectors will be installed when you install the **Outscale API** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Out
 
 ### Templates
 
-The Monitoring Connector **Outscale** brings a host template:
+The Monitoring Connector **Outscale API** brings a host template:
 
 * **Cloud-Outscale-Osscli-custom**
 
@@ -292,7 +292,7 @@ yum install centreon-pack-cloud-outscale
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Outscale** connector through
+2. Whatever the license type (*online* or *offline*), install the **Outscale API** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
