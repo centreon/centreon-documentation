@@ -1,13 +1,13 @@
 ---
 id: cloud-microsoft-office365-onedrive
-title: Office365 OneDrive
+title: Office 365 OneDrive
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Office365 OneDrive** connector through the
+The following monitoring connectors will be installed when you install the **Office 365 OneDrive** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Off
 
 ### Templates
 
-The Monitoring Connector **Office365 OneDrive** brings a host template:
+The Monitoring Connector **Office 365 OneDrive** brings a host template:
 
 * **Cloud-Microsoft-Office365-Onedrive-Api-custom**
 
@@ -93,14 +93,14 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-Refer to the official documentation of Office365 Management or follow the link
-in the [More information section](#more-information) to create an Office365 account and get help
+Refer to the official documentation of Office 365 Management or follow the link
+in the [More information section](#more-information) to create an Office 365 account and get help
 about the management features.
 
 ### Register an application
 
-The Office365 Management API uses Azure AD to authenticate against Office365. To
-access the Office365 Management API, you need to register your application in
+The Office 365 Management API uses Azure AD to authenticate against Office 365. To
+access the Office 365 Management API, you need to register your application in
 Azure AD. *Application* is here used by Microsoft as a conceptual term,
 referring not only to the application software, but also to the Azure AD
 registration and role in authentication/authorization "conversations" at runtime.
@@ -108,7 +108,7 @@ registration and role in authentication/authorization "conversations" at runtime
 
 More detailed information is available [here](./cloud-microsoft-office365-management.md#prerequisites).
 
-### Office365 Management API authorization
+### Office 365 Management API authorization
 
 To collect data from OneDrive Online, you need to specify the following
 authorization:
@@ -116,7 +116,7 @@ authorization:
 * Microsoft Graph :
     * Reports.Read.All (Type : Application)
     * User.Read (Type : Delegated)
-* Office365 Management APIs :
+* Office 365 Management APIs :
     * ServiceHealth.Read (Type : Application)
     * ActivityFeed.Read (Type : Application)
 
@@ -167,7 +167,7 @@ yum install centreon-pack-cloud-microsoft-office365-onedrive
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Office365 OneDrive** connector through
+2. Whatever the license type (*online* or *offline*), install the **Office 365 OneDrive** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -309,9 +309,9 @@ is able to monitor a resource using a command like this one (replace the sample 
 /usr/lib/centreon/plugins/centreon_office365_onedrive_api.pl \
 	--plugin=cloud::microsoft::office365::onedrive::plugin \
 	--mode=site-usage \
-	--tenant='' \
-	--client-id='' \
-	--client-secret=''  \
+	--tenant='XXXX' \
+	--client-id='XXXX' \
+	--client-secret='XXXX'  \
 	--filter-url='' \
 	--filter-owner='' \
 	--warning-usage='' \
