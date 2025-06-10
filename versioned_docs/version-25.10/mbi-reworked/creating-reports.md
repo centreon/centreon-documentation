@@ -1,4 +1,4 @@
 ---
 id: creating-reports
-title: Creating reports
+title: Creating your own reports
 ---
