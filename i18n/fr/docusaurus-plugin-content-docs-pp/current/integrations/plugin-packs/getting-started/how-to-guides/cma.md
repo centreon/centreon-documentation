@@ -10,7 +10,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 ## Introduction
 
-L'Agent de supervision Centreon (Centreon Monitoring Agent, CMA) est un logicial qu'on installe sur les hôtes à superviser : il collecte des métriques et calcule des statuts, et les envoie à Centreon.
+L'Agent de supervision Centreon (Centreon Monitoring Agent, CMA) est un logiciel qu'on installe sur les hôtes à superviser : il collecte des métriques et calcule des statuts, et les envoie à Centreon.
 
 L'agent peut exécuter des contrôles natifs ou utiliser des plugins Centreon pour exécuter des contrôles non natifs. Les contrôles natifs sont exécutés directement par l'agent (contrairement aux contrôles non natifs, qui nécessitent l'installation de plugins locaux sur l'hôte). Les contrôles natifs sont plus performants et ont une meilleure empreinte (réduction de l'utilisation du processeur et de la mémoire).
 
@@ -51,10 +51,10 @@ Stockez les certificats dans le répertoire **/etc/pki** du collecteur. Stockez-
 
 Le collecteur sera configuré de la manière suivante, en utilisant la page **Poller/agent configuration**, dans la section **Récepteur OTLP** :
 
-* Certificat public (obligatoire). Si vous avez stocké le certificat du collecteur dans le magasin de certificats, vous n'avez pas besoin d'entrer un fichier pour la clé publique. Dans le cas contraire, vous devez indiquer le chemin d'accès au fichier contenant la clé publique du serveur opentelemetry du collecteur.
+* Certificat public (obligatoire). Si vous avez stocké le certificat du collecteur dans le magasin de certificats, vous n'avez pas besoin d'entrer un fichier pour la clé publique (.crt). Dans le cas contraire, vous devez indiquer le chemin d'accès au fichier contenant la clé publique du serveur opentelemetry du collecteur.
       * Le nom DNS que l'agent utilisera pour se connecter au collecteur doit être identique au CN du certificat.
       * Si cela n'est pas possible, vous pouvez ajouter une correspondance IP **collector_host_name** dans le fichier **C:\Windows\System32\drivers\etc\hosts** (Windows) ou **/etc/hosts** (Linux).
-* Clé privée (obligatoire)
+* Clé privée au format .key (obligatoire)
 * CA : rarement nécessaire dans ce cas, sauf pour gérer un "double handshake". Le protocole TLS avec certificats valide l'identité du serveur pour le client, mais le "double handshake" va plus loin : il ajoute la validation de l'identité du client par le serveur. Cela est utile pour renforcer la sécurité, mais rarement nécessaire sur internet.
 
 L'agent sera configuré de la manière suivante sur l'hôte [(pour Windows à l'aide de l'installeur ou de la CLI, et pour Linux à l'aide du fichier **centagent.json**)](#étape-2--préparez-lhôte).
@@ -86,8 +86,8 @@ Le collecteur sera configuré de la manière suivante, en utilisant la page **Po
 L'agent sera configuré de la manière suivante sur l'hôte [(pour Windows à l'aide de l'installeur ou de la CLI, et pour Linux à l'aide du fichier **centagent.json**)](#étape-2--préparez-lhôte).
 
 * Encryption = yes
-* Fichier de certificat public
-* Fichier de clé privée
+* Fichier de certificat public (.crt)
+* Fichier de clé privée (.key)
 
 </TabItem>
 </Tabs>
@@ -99,6 +99,14 @@ You can leave the connection unencrypted for test purposes (note that this conne
 The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
 
 * Encryption = no-->
+
+### Générer un certificat autosigné
+
+Pour générer un certificat autosigné valide un an, exécutez la commande suivante sur votre collecteur (remplacez **poller_hostname** par la valeur correcte) :
+
+```shell
+openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout {key} -out {cert} -subj '/CN={poller_hostname}'
+```
 
 ### OS supportés
 
