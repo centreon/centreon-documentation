@@ -51,10 +51,10 @@ Store the certificates in the **/etc/pki** directory of the poller. Store them w
 
 The poller will be configured the following way, using the **Poller/agent configuration** page, in the **OTLP receiver** section:
 
-* Public certificate (mandatory). If you have stored the poller's certificate in the Certificate Store, you don't need to enter a file for the public key. Otherwise, you need to provide the path to the file containing the public key of the poller's opentelemetry server.
+* Public certificate (mandatory). If you have stored the poller's certificate in the Certificate Store, you don't need to enter a file for the public key (.crt). Otherwise, you need to provide the path to the file containing the public key of the poller's opentelemetry server.
         The DNS name that the agent will use to connect to the poller must be identical to the CN of the certificate.
         If this is not possible, you can add an IP **collector_host_name** mapping in the **C:\Windows\System32\drivers\etc\hosts** file (Windows) or **/etc/hosts** (Linux).
-* Private key (mandatory)
+* Private key in .key format (mandatory)
 * CA: rarely necessary in this case, except to manage a double handshake. The TLS protocol with certificates validates the identity of the server for the client, but the "double handshake" goes further: it adds the validation of the client's identity by the server. This is useful for enhanced security but rarely necessary on the internet.
 
 The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
@@ -86,8 +86,8 @@ The poller will be configured the following way, using the **Poller/agent config
 The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
 
 * Encryption = yes
-* Public certificate file
-* Private key file
+* Public certificate file (.crt)
+* Private key file (.key)
 
 </TabItem>
 </Tabs>
@@ -99,6 +99,14 @@ You can leave the connection unencrypted for test purposes (note that this conne
 The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
 
 * Encryption = no-->
+
+### Generating a self-signed certificate
+
+To generate a self-signed certificate that is valid for a year, run the following command on your poller (replace **poller_hostname** by the correct value):
+
+```shell
+openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout {key} -out {cert} -subj '/CN={poller_hostname}'
+```
 
 ### Supported OSs
 
