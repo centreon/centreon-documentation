@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Outscale**
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Outscale API**
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Outscale** apporte un modèle d'hôte :
+Le connecteur de supervision **Outscale API** apporte un modèle d'hôte :
 
 * **Cloud-Outscale-Osscli-custom**
 
@@ -293,7 +293,7 @@ yum install centreon-pack-cloud-outscale
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Outscale**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Outscale API**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
