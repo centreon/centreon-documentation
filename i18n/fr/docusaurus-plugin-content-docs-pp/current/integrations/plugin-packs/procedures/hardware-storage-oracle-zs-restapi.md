@@ -224,8 +224,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=storage::oracle::zs::restapi::plugin \
 	--mode=pools \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
 	--port='215' \
 	--proto='https'  \
 	--filter-name='' \
@@ -243,7 +243,9 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All pools are ok | 'pool1#pool.space.usage.bytes'=75760B;;;0;total_space 'pool2#pool.space.usage.bytes'=15056B;;;0;total_space 'pool1#pool.space.free.bytes'=88839B;;;0;total_space 'pool2#pool.space.free.bytes'=34021B;;;0;total_space 'pool1#pool.space.usage.percentage'=79755%;;;0;100 'pool2#pool.space.usage.percentage'=65998%;;;0;100 
+OK: All pools are ok | 'Pool_Exalogic#pool.space.usage.bytes'=19730301416448B;;;0;33432025432064 'Pool_Exalogic#pool.space.free.bytes'=13176557201408B;;;0;33432025432064 'Pool_Exalogic#pool.space.usage.percentage'=59.02%;;;0;100
+Pool 'Pool_Exadata' status : exported
+Pool 'Pool_Exalogic' status : online, space usage total: 30.41 TB used: 17.94 TB (59.02%) free: 11.98 TB (39.41%)
 ```
 
 ### Diagnostic des erreurs communes
