@@ -211,7 +211,7 @@ jobs:
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 
-      - name: Clear previous docker image from cache
+      - name: Clear previous docusaurus build from cache
         run: |
           curl \
             -X DELETE \
