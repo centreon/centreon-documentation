@@ -1,13 +1,13 @@
 ---
 id: cloud-microsoft-office365-onedrive
-title: Office365 OneDrive
+title: Office 365 OneDrive
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Office365 OneDrive** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Office 365 OneDrive** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Office365 OneDrive** apporte un modèle d'hôte :
+Le connecteur de supervision **Office 365 OneDrive** apporte un modèle d'hôte :
 
 * **Cloud-Microsoft-Office365-Onedrive-Api-custom**
 
@@ -115,7 +115,7 @@ autorisations que votre application requiert. Dans le portail de gestion Azure :
 * Microsoft Graph :
     * Reports.Read.All (Type : Application)
     * User.Read (Type : Delegated)
-* Office365 Management APIs :
+* Office 365 Management APIs :
     * ServiceHealth.Read (Type : Application)
     * ActivityFeed.Read (Type : Application)
 
@@ -165,7 +165,7 @@ yum install centreon-pack-cloud-microsoft-office365-onedrive
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Office365 OneDrive**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Office 365 OneDrive**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
