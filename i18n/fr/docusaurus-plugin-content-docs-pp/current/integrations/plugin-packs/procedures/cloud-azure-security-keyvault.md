@@ -5,21 +5,13 @@ title: Azure Key Vault
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Azure Key Vault est un service cloud permettant de stocker les secrets et d’y accéder en toute sécurité. Un secret est un élément
-pour lequel vous voulez contrôler étroitement l’accès. Il peut s’agir de clés d’API, de mots de passe, de certificats ou de clés
-de chiffrement. Le service Key Vault prend en charge deux types de conteneurs : les coffres et les pools HSM managés. Les coffres
-prennent en charge le stockage des clés logicielles et sauvegardées avec HSM, les secrets et les certificats. Les pools HSM managés
-prennent uniquement en charge les clés sauvegardées avec HSM.
-
-Le connecteur de supervision Centreon *Azure Key Vault* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
-Key Vault. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
+Le connecteur de supervision Centreon **Azure Key Vault** s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Key Vault. Il est possible d'utiliser les 2 modes proposés par Microsoft : RestAPI ou Azure CLI.
 
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure Key Vault**
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -102,7 +94,7 @@ les prérequis nécessaires pour interroger les API d'Azure.
 La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -139,7 +131,7 @@ yum install centreon-pack-cloud-azure-security-keyvault
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Azure Key Vault**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
