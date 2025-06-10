@@ -307,9 +307,9 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 /usr/lib/centreon/plugins/centreon_office365_onedrive_api.pl \
 	--plugin=cloud::microsoft::office365::onedrive::plugin \
 	--mode=site-usage \
-	--tenant='' \
-	--client-id='' \
-	--client-secret=''  \
+	--tenant='XXXX' \
+	--client-id='XXXX' \
+	--client-secret='XXXX'  \
 	--filter-url='' \
 	--filter-owner='' \
 	--warning-usage='' \
