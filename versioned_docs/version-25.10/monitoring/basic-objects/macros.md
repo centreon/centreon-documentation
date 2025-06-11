@@ -135,9 +135,9 @@ The following is an exhaustive list of macros by resource type, each type of res
 | \$LASTHOSTUNREACHABLE\$       | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
 | \$HOSTOUTPUT\$                | Yes            | Yes                    | Yes (1)     | Yes                 | Yes                    | Yes                 |
 | \$LONGHOSTOUTPUT\$            | Yes            | Yes                    | Yes (1)     | Yes                 | Yes                    | Yes                 |
-| \$HOSTPERFDATA\$              | Yes            | Yes                    | Yes (1)     | Yes                 | Yes                    | Yes                 |
+| \$HOSTPERFDATA\$              | Yes            | Yes                    | Yes [(1)](#notes)     | Yes                 | Yes                    | Yes                 |
 | \$HOSTCHECKCOMMAND\$          | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
-| \$HOSTACKAUTHOR\$ (8)         | No             | No                     | No          | Yes                 | No                     | No                  |
+| \$HOSTACKAUTHOR\$ [(8)](#notes)         | No             | No                     | No          | Yes                 | No                     | No                  |
 | \$HOSTACKAUTHORNAME\$ (8)     | No             | No                     | No          | Yes                 | No                     | No                  |
 | \$HOSTACKAUTHORALIAS\$ (8)    | No             | No                     | No          | Yes                 | No                     | No                  |
 | \$HOSTACKCOMMENT\$ (8)        | No             | No                     | No          | Yes                 | No                     | No                  |
