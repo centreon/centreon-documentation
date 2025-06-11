@@ -16,7 +16,7 @@ e.g.:
 * The macro called **$HOSTADDRESS$** enables us to retrieve the IP address of a host
 * The macro called **$CONTACTEMAIL$** enables us to retrieve the e-mail address of the contact
 
-> We have a complete [list of macros](#list-of-all-macros) at your disposal as well as a [description](#macro-descriptions) of what they represent. Note that there are some additional notes.
+> We have a complete [list of macros](#list-of-macros) at your disposal as well as a description of what they represent.
 
 ## Custom macros
 
@@ -99,7 +99,7 @@ object consumes resources.
 
 ## List of macros
 
-The following is an exhaustive list of macros by resource type, each type of resource also has a description section. Some macros may have a number between parenthesis next to them (i.e. **(2)**). The [notes section](#notes) further explains possible restrictions or recommendations related to these macros.
+The following is an exhaustive list of macros by resource type, each type of resource also has a description section. Some macros may have a number next to them (i.e. **(2)**). The [notes section](#notes) further explains possible restrictions or recommendations related to these macros.
 
 ### Host Macros
 
