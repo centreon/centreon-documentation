@@ -368,7 +368,7 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11/12" label="Debian 11/12">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt-get update
@@ -393,6 +393,8 @@ apt install centreon-monitoring-agent
 </TabItem>
 <TabItem value="Ubuntu 22.04" label="Ubuntu 22.04">
 
+1. Execute the following commands:
+
 ```shell
 apt-get update
 apt-get -y install lsb-release gpg wget
@@ -400,13 +402,13 @@ echo "deb https://packages.centreon.com/ubuntu-standard-24.10-stable $(lsb_relea
 echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
-Then, import the repository key :
+2. Import the repository key:
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
 
-Then, install agent :
+3. Install the agent :
 
 ```shell
 apt-get update
@@ -522,7 +524,7 @@ systemctl status centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-[Download the CMA installer](https://download.centreon.com  tab **Custom Platform** and tab **Monitoring Agent** ) on every server you want to monitor.
+[Download the CMA installer](https://download.centreon.com, **Custom Platform** tab then **Monitoring Agent** tab) on every server you want to monitor.
 
 <Tabs groupId="sync">
 <TabItem value="Interactive mode" label="Interactive mode">

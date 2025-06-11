@@ -369,7 +369,7 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11/12" label="Debian 11/12">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt-get update
@@ -394,6 +394,8 @@ apt install centreon-monitoring-agent
 </TabItem>
 <TabItem value="Ubuntu 22.04" label="Ubuntu 22.04">
 
+1. Exécutez les commandes suivantes :
+
 ```shell
 apt-get update
 apt-get -y install lsb-release gpg wget
@@ -401,13 +403,13 @@ echo "deb https://packages.centreon.com/ubuntu-standard-24.10-stable $(lsb_relea
 echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
-Ensuite, importez la clé du dépôt :
+2. Importez la clé du dépôt :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
 
-Ensuite, installez l'agent :
+3. Installez l'agent :
 
 ```shell
 apt-get update
@@ -519,7 +521,7 @@ systemctl status centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-[Téléchargez l'installer de l'agent](https://download.centreon.com  onglet **Custom Platform** et l'onglet **Monitoring Agent**) sur tous les serveurs que vous voulez superviser.
+[Téléchargez l'installer de l'agent](https://download.centreon.com  onglet **Custom Platform**, puis onglet **Monitoring Agent**) sur tous les serveurs que vous voulez superviser.
 
 Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
 
