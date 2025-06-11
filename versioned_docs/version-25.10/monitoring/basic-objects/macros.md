@@ -99,11 +99,13 @@ object consumes resources.
 
 ## List of macros
 
-The following is an exhaustive list of macros by resource type, each type of resource also has a description section. Some macros may have a number next to them (i.e. **(2)**). The [notes section](#notes) further explains possible restrictions or recommendations related to these macros.
+The following is an exhaustive list of macros by resource type, each type of resource also has a description section. 
+
+> Some macros may have a number next to them (i.e. **(2)**). The [notes section](#notes) at the end of this page further explains possible restrictions or recommendations related to these macros.
 
 ### Host Macros
 
-| Macro Name [(3)](#notes)       | Service Checks | Service Notifications | Host Checks | Host Notifications | Service Event Handlers | Host Event Handlers |
+| Macro Name (3)                | Service Checks | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers |
 |-------------------------------|----------------|------------------------|-------------|---------------------|------------------------|---------------------|
 | \$HOSTNAME\$                  | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
 | \$HOSTDISPLAYNAME\$           | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
@@ -135,9 +137,9 @@ The following is an exhaustive list of macros by resource type, each type of res
 | \$LASTHOSTUNREACHABLE\$       | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
 | \$HOSTOUTPUT\$                | Yes            | Yes                    | Yes (1)     | Yes                 | Yes                    | Yes                 |
 | \$LONGHOSTOUTPUT\$            | Yes            | Yes                    | Yes (1)     | Yes                 | Yes                    | Yes                 |
-| \$HOSTPERFDATA\$              | Yes            | Yes                    | Yes [(1)](#notes)     | Yes                 | Yes                    | Yes                 |
+| \$HOSTPERFDATA\$              | Yes            | Yes                    | Yes (1)     | Yes                 | Yes                    | Yes                 |
 | \$HOSTCHECKCOMMAND\$          | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
-| \$HOSTACKAUTHOR\$ [(8)](#notes)         | No             | No                     | No          | Yes                 | No                     | No                  |
+| \$HOSTACKAUTHOR\$ (8)         | No             | No                     | No          | Yes                 | No                     | No                  |
 | \$HOSTACKAUTHORNAME\$ (8)     | No             | No                     | No          | Yes                 | No                     | No                  |
 | \$HOSTACKAUTHORALIAS\$ (8)    | No             | No                     | No          | Yes                 | No                     | No                  |
 | \$HOSTACKCOMMENT\$ (8)        | No             | No                     | No          | Yes                 | No                     | No                  |
@@ -150,7 +152,7 @@ The following is an exhaustive list of macros by resource type, each type of res
 | \$TOTALHOSTSERVICESUNKNOWN\$  | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
 | \$TOTALHOSTSERVICESCRITICAL\$ | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
 
-### Host Macros description [(3)](#notes)
+### Host Macros description (3)
 
 - **\$HOSTNAME\$**: Short name for the host (i.e. "biglinuxbox"). This value is taken from the host_name directive in the host definition.
 - **\$HOSTDISPLAYNAME\$**: An alternate display name for the host. This value is taken from the display_name directive in the host definition.
@@ -199,7 +201,7 @@ The following is an exhaustive list of macros by resource type, each type of res
 
 ### Host Group Macros
 
-| Macro Name [(5)](#notes)                | Service Checks | Service Notifications* | Host Checks | Host Notifications* | Service Event Handlers | Host Event Handlers |
+| Macro Name (5)                | Service Checks | Service Notifications* | Host Checks | Host Notifications* | Service Event Handlers | Host Event Handlers |
 |-------------------------------|----------------|------------------------|-------------|---------------------|------------------------|---------------------|
 | \$HOSTGROUPALIAS\$            | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
 | \$HOSTGROUPMEMBERS\$          | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
@@ -318,7 +320,7 @@ The following is an exhaustive list of macros by resource type, each type of res
 | \$SERVICEGROUPALIAS\$     | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
 | \$SERVICEGROUPMEMBERS\$   | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
 
-### Service Group Macros description (6)](#notes)
+### Service Group Macros description (6)
 
 - **\$SERVICEGROUPALIAS\$**: The long name / alias of either
   - 1) the servicegroup name passed as an on-demand macro argument or
