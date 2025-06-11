@@ -133,7 +133,7 @@ Cet utilisateur doit avoir au moins un accès en lecture seule à la baie de sto
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -170,7 +170,7 @@ yum install centreon-pack-hardware-storage-purestorage-flasharray-v2-restapi
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Pure Storage FlashArray Rest API v2**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -303,7 +303,7 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Flasharray-V2-Restapi
 
 | Macro                  | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PERFRESOLUTION         | Time resolution for volumes performance. Can be: C\<1s\>, C\<30s\>, C\<5m\>, C\<30m\>, C\<2h\>, C\<8h\>, C\<24h\>                                | 5m                |             |
+| PERFRESOLUTION         | Time resolution for volume performance. Can be: C\<1s\>, C\<30s\>, C\<5m\>, C\<30m\>, C\<2h\>, C\<8h\>, C\<24h\>                                | 5m                |             |
 | FILTERID               | Filter volumes by ID (can be a regexp)                                                                                                           |                   |             |
 | FILTERNAME             | Filter volumes by name (can be a regexp)                                                                                                         |                   |             |
 | WARNINGDATAREDUCTION   | Threshold                                                                                                                                        |                   |             |
@@ -339,7 +339,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--mode=volumes \
 	--hostname='10.0.0.1' \
 	--api-version='2.4' \
-	--api-token='' \
+	--api-token='XXXX' \
 	--proto='' \
 	--port=''  \
 	--filter-id='' \
@@ -368,7 +368,7 @@ OK:    data reduction: 3583 read: 94094 94094/s write: 40346 40346/s | 'volumes~
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
@@ -515,7 +515,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='data-reduction'                                            |
 | --filter-id              |   Filter volumes by ID (can be a regexp).                                                                                                 |
 | --filter-name            |   Filter volumes by name (can be a regexp).                                                                                               |
-| --perf-resolution        |   Time resolution for volumes performance. Can be: C\<1s\>, C\<30s\>, C\<5m\>, C\<30m\>, C\<2h\>, C\<8h\>, C\<24h\> (default: C\<5m\>).   |
+| --perf-resolution        |   Time resolution for volume performance. Can be: C\<1s\>, C\<30s\>, C\<5m\>, C\<30m\>, C\<2h\>, C\<8h\>, C\<24h\> (default: C\<5m\>).   |
 | --warning-* --critical-* |   Thresholds. Can be: 'space-usage' (B), 'space-usage-free' (B), 'space-usage-prct' (%), 'data-reduction', 'read', 'write'.               |
 
 </TabItem>

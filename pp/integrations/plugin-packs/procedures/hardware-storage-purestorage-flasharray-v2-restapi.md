@@ -135,7 +135,7 @@ This account must have at least a read only access to the storage array.
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -171,7 +171,7 @@ yum install centreon-pack-hardware-storage-purestorage-flasharray-v2-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Pure Storage FlashArray Rest API v2** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -306,7 +306,7 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Flasharray-V2-Restapi
 
 | Macro                  | Description                                                                                                                            | Default value | Mandatory |
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| PERFRESOLUTION         | Time resolution for volumes performance. Can be: C\<1s\>, C\<30s\>, C\<5m\>, C\<30m\>, C\<2h\>, C\<8h\>, C\<24h\>                      | 5m            |           |
+| PERFRESOLUTION         | Time resolution for volume performance. Can be: C\<1s\>, C\<30s\>, C\<5m\>, C\<30m\>, C\<2h\>, C\<8h\>, C\<24h\>                      | 5m            |           |
 | FILTERID               | Filter volumes by ID (can be a regexp)                                                                                                 |               |           |
 | FILTERNAME             | Filter volumes by name (can be a regexp)                                                                                               |               |           |
 | WARNINGDATAREDUCTION   | Threshold                                                                                                                              |               |           |
@@ -340,7 +340,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--mode=volumes \
 	--hostname='10.0.0.1' \
 	--api-version='2.4' \
-	--api-token='' \
+	--api-token='XXXX' \
 	--proto='' \
 	--port=''  \
 	--filter-id='' \
@@ -516,7 +516,7 @@ All available options for each service template are listed below:
 | --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='data-reduction'                                            |
 | --filter-id              |   Filter volumes by ID (can be a regexp).                                                                                                 |
 | --filter-name            |   Filter volumes by name (can be a regexp).                                                                                               |
-| --perf-resolution        |   Time resolution for volumes performance. Can be: C\<1s\>, C\<30s\>, C\<5m\>, C\<30m\>, C\<2h\>, C\<8h\>, C\<24h\> (default: C\<5m\>).   |
+| --perf-resolution        |   Time resolution for volume performance. Can be: C\<1s\>, C\<30s\>, C\<5m\>, C\<30m\>, C\<2h\>, C\<8h\>, C\<24h\> (default: C\<5m\>).   |
 | --warning-* --critical-* |   Thresholds. Can be: 'space-usage' (B), 'space-usage-free' (B), 'space-usage-prct' (%), 'data-reduction', 'read', 'write'.               |
 
 </TabItem>
