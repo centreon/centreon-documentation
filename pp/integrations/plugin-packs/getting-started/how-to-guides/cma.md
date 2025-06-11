@@ -167,11 +167,11 @@ If your Centreon is in a version older than 24.10.6, you need to create the CMA 
 1. Go to **Configuration > Commands > Connectors**.
 2. Create a new connector with the following values:
 
-| Parameter             | Value                                                                                                                                                                                         |	
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |	
-| Connector Name        | Centreon Monitoring Agent Beta                                                                                                                                                                     |	
-| Connector Description | Centreon Monitoring Agent Beta                                                                                                                                                                     |	
-| Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |	
+| Parameter             | Value                                                                                                                                                                                         |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Connector Name        | Centreon Monitoring Agent Beta                                                                                                                                                                |
+| Connector Description | Centreon Monitoring Agent Beta                                                                                                                                                                |
+| Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
 | Used by command       | Type `Centreon-Monitoring-Agent` and click **Select all**                                                                                                                                     |
 | Connector Status      | Enabled                                                                                                                                                                                       |
 
@@ -368,13 +368,36 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 11/12" label="Debian 11/12">
 
 ```shell
 apt-get update
 apt-get -y install lsb-release gpg wget
 echo "deb https://packages.centreon.com/apt-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+```
+
+Then, import the repository key :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Then, install agent :
+
+```shell
+apt-get update
+apt install centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Ubuntu 22.04" label="Ubuntu 22.04">
+
+```shell
+apt-get update
+apt-get -y install lsb-release gpg wget
+echo "deb https://packages.centreon.com/ubuntu-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 Then, import the repository key :
@@ -499,7 +522,7 @@ systemctl status centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-[Download the CMA installer](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true) on every server you want to monitor.
+[Download the CMA installer](https://download.centreon.com  tab **Custom Platform** and tab **Monitoring Agent** ) on every server you want to monitor.
 
 <Tabs groupId="sync">
 <TabItem value="Interactive mode" label="Interactive mode">
