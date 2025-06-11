@@ -2142,6 +2142,20 @@ message Severity {
 </TabItem>
 </Tabs>
 
+### Adaptive service status
+
+This is a real time event. It contains a small part of a service status. It was
+introduced with BBDO v3.
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+No BBDO v2 version of this event exists.
+
+</TabItem>
+
+<TabItem value="BBDO v3" label="BBDO v3">
+
 #### NEB::PbAdaptiveServiceStatus
 
 | Category | element | ID    |
@@ -2167,6 +2181,20 @@ message AdaptiveServiceStatus {
 </TabItem>
 </Tabs>
 
+### Adaptive host status
+
+This is a real time event. It contains a small part of a host status. It was
+introduced with BBDO v3.
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+No BBDO v2 version of this event exists.
+
+</TabItem>
+
+<TabItem value="BBDO v3" label="BBDO v3">
+
 #### NEB::PbAdaptiveHostStatus
 
 | Category | element | ID    |
@@ -2188,7 +2216,6 @@ message AdaptiveHostStatus {
 
 </TabItem>
 </Tabs>
-
 
 ## Storage
 
