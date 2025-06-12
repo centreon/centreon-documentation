@@ -62,18 +62,18 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                             | Description                                      |
 |:--------------------------------------------|:-------------------------------------------------|
-| Cloud-Outscale-Osccli-Client-Gateway-Name   | Découvre les passerelles clientes et supervise le statut                                                 |
+| Cloud-Outscale-Osccli-Client-Gateway-Name   | Découvre les passerelles clientes et supervise leur statut                                                 |
 | Cloud-Outscale-Osccli-Internet-Service-Name | Découvre les services et supervise leur utilisation système |
-| Cloud-Outscale-Osccli-Load-Balancer-Name    | Découvre les load balancers et supervise le statut                                                 |
+| Cloud-Outscale-Osccli-Load-Balancer-Name    | Découvre les load balancers et supervise leur statut                                                 |
 | Cloud-Outscale-Osccli-Nat-Service-Name      | Découvre les services et supervise leur utilisation système |
-| Cloud-Outscale-Osccli-Net-Name              | Découvre les Nets et supervise le statut                                                 |
-| Cloud-Outscale-Osccli-Quota-Type-Name       | Découvre les quotas et supervise le statut                                                 |
-| Cloud-Outscale-Osccli-Route-Table-Id        | Découvre les tables de routage et supervise le statut                                                 |
-| Cloud-Outscale-Osccli-Subnet-Name           | Découvre les sous-réseaux et supervise le statut                                                 |
-| Cloud-Outscale-Osccli-Virtual-Gateway-Name  | Découvre les passerelles virtuelles et supervise le statut                                                 |
-| Cloud-Outscale-Osccli-Vm-Name               | Découvre les machines virtuelles et supervise le statut                                                 |
-| Cloud-Outscale-Osccli-Volume-Id             | Découvre les volumes et supervise le statut                                                 |
-| Cloud-Outscale-Osccli-Vpn-Connection-Name   | Découvre les connexions VPN et supervise le statut                                                 |
+| Cloud-Outscale-Osccli-Net-Name              | Découvre les Nets et supervise leur statut                                                 |
+| Cloud-Outscale-Osccli-Quota-Type-Name       | Découvre les quotas et supervise leur statut                                                 |
+| Cloud-Outscale-Osccli-Route-Table-Id        | Découvre les tables de routage et supervise leur statut                                                 |
+| Cloud-Outscale-Osccli-Subnet-Name           | Découvre les sous-réseaux et supervise leur statut                                                 |
+| Cloud-Outscale-Osccli-Virtual-Gateway-Name  | Découvre les passerelles virtuelles et supervise leur statut                                                 |
+| Cloud-Outscale-Osccli-Vm-Name               | Découvre les machines virtuelles et supervise leur statut                                                 |
+| Cloud-Outscale-Osccli-Volume-Id             | Découvre les volumes et supervise leur statut                                                 |
+| Cloud-Outscale-Osccli-Vpn-Connection-Name   | Découvre les connexions VPN et supervise leur statut                                                 |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
