@@ -20,15 +20,15 @@ import TabItem from '@theme/TabItem';
 
 - [**F5 BigIP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - Added new modes **certificates**, from a [The Watch idea](https://thewatch.centreon.com/ideas/monitor-certificate-with-f5-bigip-3074).
 - [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Added **uptime** service template.
-- [**Juniper EX Series**](../procedures/network-switchs-juniper-ex-snmp.md) - Rework plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
-- [**Juniper GGSN**](../procedures/network-juniper-ggsn-snmp.md) - Rework plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
-- [**Juniper ISG**](../procedures/network-juniper-isg-snmp.md) - Rework plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
-- [**Juniper M-Series**](../procedures/network-routers-juniper-mseries-snmp.md) - Rework plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
-- [**Juniper Mag**](../procedures/network-firewalls-juniper-mag-snmp.md) - Rework plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
-- [**Juniper SA**](../procedures/network-firewalls-juniper-sa-snmp.md) - Rework plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
-- [**Juniper SRX**](../procedures/network-firewalls-juniper-srx-snmp.md) - Rework plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
-- [**Juniper SSG**](../procedures/network-firewalls-juniper-ssg-snmp.md) - Rework plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
-- [**Juniper Trapeze**](../procedures/network-juniper-trapeze-snmp.md) - Rework plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper EX Series**](../procedures/network-switchs-juniper-ex-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper GGSN**](../procedures/network-juniper-ggsn-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper ISG**](../procedures/network-juniper-isg-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper M-Series**](../procedures/network-routers-juniper-mseries-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper Mag**](../procedures/network-firewalls-juniper-mag-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper SA**](../procedures/network-firewalls-juniper-sa-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper SRX**](../procedures/network-firewalls-juniper-srx-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper SSG**](../procedures/network-firewalls-juniper-ssg-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper Trapeze**](../procedures/network-juniper-trapeze-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
 - [**Nmap CLI**](../procedures/applications-nmap-cli.md) - Enhanced secure execution of commands.
 - [**Office365 OneDrive**](../procedures/cloud-microsoft-office365-onedrive.md) - Added template for **users-activity** and service discovery for **site-usage**.
 - [**Pure Storage FlashArray Rest API v2**](../procedures/hardware-storage-purestorage-flasharray-v2-restapi.md) - Added performances counters in **arrays** mode, based on community contribution [PR 5355](https://github.com/centreon/centreon-plugins/pull/5355).
