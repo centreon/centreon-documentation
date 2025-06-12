@@ -2141,6 +2141,81 @@ message Severity {
 </TabItem>
 </Tabs>
 
+### Adaptive service status
+
+This is a real time event. It contains a small part of a service status. It was
+introduced with BBDO v3.
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+No BBDO v2 version of this event exists.
+
+</TabItem>
+
+<TabItem value="BBDO v3" label="BBDO v3">
+
+#### NEB::PbAdaptiveServiceStatus
+
+| Category | element | ID    |
+| -------- | ------- | ----- |
+| 1        | 55      | 65591 |
+
+This event comes with BBDO 3. It contains a small part of a service status.
+
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
+
+```text
+message AdaptiveServiceStatus {
+  uint64 host_id = 1;
+  uint64 service_id = 2;
+  ServiceType type = 3;
+  uint64 internal_id = 4;
+  optional int32 scheduled_downtime_depth = 5;
+  optional AckType acknowledgement_type = 6;
+  optional int32 notification_number = 7;
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Adaptive host status
+
+This is a real time event. It contains a small part of a host status. It was
+introduced with BBDO v3.
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+No BBDO v2 version of this event exists.
+
+</TabItem>
+
+<TabItem value="BBDO v3" label="BBDO v3">
+
+#### NEB::PbAdaptiveHostStatus
+
+| Category | element | ID    |
+| -------- | ------- | ----- |
+| 1        | 56      | 65592 |
+
+This event comes with BBDO 3. It contains a small part of a host status.
+
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
+
+```text
+message AdaptiveHostStatus {
+  uint64 host_id = 1;
+  optional int32 scheduled_downtime_depth = 2;
+  optional AckType acknowledgement_type = 3;
+  optional int32 notification_number = 4;
+}
+```
+
+</TabItem>
+</Tabs>
+
 ## Storage
 
 ### Metric

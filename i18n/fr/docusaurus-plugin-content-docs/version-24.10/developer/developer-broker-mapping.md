@@ -2058,6 +2058,79 @@ message Severity {
 </TabItem>
 </Tabs>
 
+### Adaptive service status
+
+Ce message concerne le temps réel. Il contient une partie d'un Service status. Il a
+été introduit avec BBDO v3.
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+Ce message n'existe pas dans la version BBDO v2.
+
+</TabItem>
+
+<TabItem value="BBDO v3" label="BBDO v3">
+
+#### NEB::PbAdaptiveServiceStatus
+
+| Catégorie | élément | ID    |
+| --------- | ------- | ----- |
+| 1         | 55      | 65591 |
+
+La définition [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) de ce message est
+la suivante :
+
+```text
+message AdaptiveServiceStatus {
+  uint64 host_id = 1;
+  uint64 service_id = 2;
+  ServiceType type = 3;
+  uint64 internal_id = 4;
+  optional int32 scheduled_downtime_depth = 5;
+  optional AckType acknowledgement_type = 6;
+  optional int32 notification_number = 7;
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Adaptive host status
+
+Ce message concerne le temps réel. Il contient une partie d'un host status. Il a
+été introduit avec BBDO v3.
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+Ce message n'existe pas dans la version BBDO v2.
+
+</TabItem>
+
+<TabItem value="BBDO v3" label="BBDO v3">
+
+#### NEB::PbAdaptiveHostStatus
+
+| Catégorie | élément | ID    |
+| --------- | ------- | ----- |
+| 1         | 56      | 65592 |
+
+La définition [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) de ce message est
+la suivante :
+
+```text
+message AdaptiveHostStatus {
+  uint64 host_id = 1;
+  optional int32 scheduled_downtime_depth = 2;
+  optional AckType acknowledgement_type = 3;
+  optional int32 notification_number = 4;
+}
+```
+
+</TabItem>
+</Tabs>
+
 ## Storage
 
 ### Metric
