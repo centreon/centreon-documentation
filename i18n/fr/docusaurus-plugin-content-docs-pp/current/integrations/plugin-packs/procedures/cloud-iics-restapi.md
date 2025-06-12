@@ -42,7 +42,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Nom de la règle               | Description |
 |:------------------------------|:------------|
-| Cloud-Iics-Restapi-Agent-Name | Découvre les agents et supervise le statut            |
+| Cloud-Iics-Restapi-Agent-Name | Découvre les agents et supervise leur statut            |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
