@@ -40,7 +40,7 @@ import TabItem from '@theme/TabItem';
 - [**Office365 OneDrive**](../procedures/cloud-microsoft-office365-onedrive.md) - Fixed discovery mode for **site-usage**.
 - [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed segmentation fault with glibc latest version.
 - [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - Fixed issue with token renew.
-- [**VMWare Deamon**] - Change rights after install to allows apache (central) and centreon-gorgone (poller) to update the file after a config export.
+- **VMWare Deamon** - Change rights after install to allows apache (central) and centreon-gorgone (poller) to update the file after a config export.
 - [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
 - [**VMware vCenter v6**](../procedures/virtualization-vmware2-vcenter-6.md) - Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
 - [**VMware vCenter**](../procedures/virtualization-vmware2-vcenter-generic.md) - Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
