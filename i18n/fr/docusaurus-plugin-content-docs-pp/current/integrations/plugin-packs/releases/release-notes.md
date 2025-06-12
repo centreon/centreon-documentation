@@ -30,7 +30,7 @@ import TabItem from '@theme/TabItem';
 - [**Juniper SSG**](../procedures/network-firewalls-juniper-ssg-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
 - [**Juniper Trapeze**](../procedures/network-juniper-trapeze-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
 - [**Nmap CLI**](../procedures/applications-nmap-cli.md) - Enhanced secure execution of commands.
-- [**Office365 OneDrive**](../procedures/cloud-microsoft-office365-onedrive.md) - Added template for **users-activity** and service discovery for **site-usage**.
+- [**Office365 OneDrive**](../procedures/cloud-microsoft-office365-onedrive.md) - Added template for **users-activity** and service discovery rule for **site-usage**.
 - [**Pure Storage FlashArray Rest API v2**](../procedures/hardware-storage-purestorage-flasharray-v2-restapi.md) - Added performances counters in **arrays** mode, based on community contribution [PR 5355](https://github.com/centreon/centreon-plugins/pull/5355).
 - [**Qnap**](../procedures/hardware-storage-qnap-snmp.md) - Added QuTS Operating System handling for **hardware**, **pools** and **volumes** modes, from community contribution [PR 5564](https://github.com/centreon/centreon-plugins/pull/5564).
 
