@@ -37,8 +37,8 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed segmentation fault with glibc latest version.
 - [**Office365 OneDrive**](../procedures/cloud-microsoft-office365-onedrive.md) - Fixed discovery mode for **site-usage**.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed segmentation fault with glibc latest version.
 - [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - Fixed issue with token renew.
 - [**VMWare Deamon**] - Change rights after install to allows apache (central) and centreon-gorgone (poller) to update the file after a config export.
 - [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
