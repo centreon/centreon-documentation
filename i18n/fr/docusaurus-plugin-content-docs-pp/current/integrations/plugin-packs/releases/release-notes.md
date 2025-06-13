@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**F5 BigIP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - Added new modes **certificates**, from a [The Watch idea](https://thewatch.centreon.com/ideas/monitor-certificate-with-f5-bigip-3074).
+- [**F5 BigIP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - Added new **certificates** mode, from a [The Watch idea](https://thewatch.centreon.com/ideas/monitor-certificate-with-f5-bigip-3074).
 - [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Added **uptime** service template.
 - [**Juniper EX Series**](../procedures/network-switchs-juniper-ex-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
 - [**Juniper GGSN**](../procedures/network-juniper-ggsn-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
@@ -31,29 +31,37 @@ import TabItem from '@theme/TabItem';
 - [**Juniper Trapeze**](../procedures/network-juniper-trapeze-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
 - [**Nmap CLI**](../procedures/applications-nmap-cli.md) - Enhanced secure execution of commands.
 - [**Office365 OneDrive**](../procedures/cloud-microsoft-office365-onedrive.md) - Added template for **users-activity** and service discovery rule for **site-usage**.
-- [**Pure Storage FlashArray Rest API v2**](../procedures/hardware-storage-purestorage-flasharray-v2-restapi.md) - Added performances counters in **arrays** mode, based on community contribution [PR 5355](https://github.com/centreon/centreon-plugins/pull/5355).
+- [**Pure Storage FlashArray Rest API v2**](../procedures/hardware-storage-purestorage-flasharray-v2-restapi.md) - Added performance counters in **arrays** mode, based on community contribution [PR 5355](https://github.com/centreon/centreon-plugins/pull/5355).
 - [**Qnap**](../procedures/hardware-storage-qnap-snmp.md) - Added QuTS Operating System handling for **hardware**, **pools** and **volumes** modes, from community contribution [PR 5564](https://github.com/centreon/centreon-plugins/pull/5564).
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**Office365 OneDrive**](../procedures/cloud-microsoft-office365-onedrive.md) - Fixed service discovery mode for **site-usage**.
-- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed segmentation fault with glibc latest version.
-- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - Fixed issue with token renew.
-- **VMWare Deamon** - Change rights after install to allows apache (central) and centreon-gorgone (poller) to update the file after a config export.
+- [**Office 365 OneDrive**](../procedures/cloud-microsoft-office365-onedrive.md) - Fixed service discovery mode for **site-usage**.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed segmentation fault that occurred with glibc's latest version.
+- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - Fixed an issue affecting token renewal.
+- **VMWare Daemon** - Change rights after installation to allow apache (central) and centreon-gorgone (poller) to update the **centreon_vmware.json** file after a configuration export.
 - [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
 - [**VMware vCenter v6**](../procedures/virtualization-vmware2-vcenter-6.md) - Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
 - [**VMware vCenter**](../procedures/virtualization-vmware2-vcenter-generic.md) - Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
 - [**VMware VM**](../procedures/virtualization-vmware2-vm.md) - Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
 
-> How to patch the VSAN bug on Debian 11 & 12 and Alma/RHEL/Oracle 9?
+#### How to patch the VSAN bug on Debian 11 & 12 and Alma/RHEL/Oracle 9?
 
-- First, locate the file that must be patched.
+1. Locate the file that must be patched.
+
+
 ```bash
 find /usr/ -name VICommon.pm
 ```
+
+
 It should be `/usr/local/share/perl5/5.32/VMware/VICommon.pm` on EL9, `/usr/local/share/perl/5.32.1/VMware/VICommon.pm` on Debian 11 and `/usr/local/share/perl/5.36.0/VMware/VICommon.pm` on Debian 12.
-- Then run this command to apply the patch (replace "FILE_TO_PATCH" with the result of the previous command):
+
+
+2. Run the following command to apply the patch (replace "FILE_TO_PATCH" with the results of the previous command):
+
+
 ```bash
 patch --backup FILE_TO_PATCH <<'EOF'
 --- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
@@ -68,8 +76,11 @@ patch --backup FILE_TO_PATCH <<'EOF'
  }
 EOF
 ```
-The result of this command should be `patching file /usr/your/path/to/VICommon.pm`.
-- Then restart the daemon:
+
+The results of this command should be `patching file /usr/your/path/to/VICommon.pm`.
+3. Then restart the daemon:
+
+
 ```bash
 systemctl restart centreon_vmware
 ```
