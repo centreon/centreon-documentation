@@ -12,7 +12,7 @@ title: Centreon Cloud release notes
 The Beta version of the Centreon Monitoring Agent is now available for our Centreon Cloud customers.
 The Centreon Monitoring Agent (CMA) collects metrics and computes statuses on the servers it monitors, and sends them to Centreon. 
 Centreon plugins as well as Nagios-compatible plugins can be used with this agent.
-More information about configuration is available in our [offical documentation](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/) and in a dedicated [TheWatch group](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
+More information about configuration is available in our [official documentation](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/) and in a dedicated [TheWatch group](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
 
 **Centreon Dashboards**
 
