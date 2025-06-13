@@ -218,9 +218,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+The Netconf service must be enabled on the Juniper M-Series router, and the router must be configured to allow connections from the Centreon server or poller.
+A user account with the necessary rights to access Netconf data must also be created.
 
 ## Installing the monitoring connector
 
