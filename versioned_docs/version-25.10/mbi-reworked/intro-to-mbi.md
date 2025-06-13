@@ -3,20 +3,22 @@ id: mbi-intro
 title: Introduction to MBI
 ---
 
-## Overview
+The report generating capabilites of Centreon rely on the **Monitoring Business Intelligence (MBI)** extension.
 
-MBI is an extension/module that can be used to generate reports in many different formats. We have hundreds of report designs at your disposal that 
-MBI is not originally included with Centreon and must be [installed separately(link) and requires a valid licence to use. Contact [Centreon support(link) to obtain a licence and start using Centreon.
+> Centreon BAM is a Centreon **extension** that requires a valid [license](../administration/licenses.md). To
+> purchase one and retrieve the necessary repositories, contact
+> [Centreon](mailto:sales@centreon.com).
 
-Note that MBI requires the user to respect specific settings and procedures to work, we highly recommend you read our documentation to avoid running into issues.
+## What is Centreon MBI?
 
-MBI uses jobs to schedule the generation of reports using ou
+Centreon MBI is a Centreon extension that is used to generate reports about groups of hosts. MBI requires the user to respect specific settings and procedures or the reports will not be generated.
+We highly recommend you read our documentation to avoid running into issues.
 
 ## What does MBI do?
-brève description de ce que ça fait et lien vers topic "comment ça marche" (situé potentiellement dans troubleshooting)
+MBI runs "jobs" to collect data from host groups and generate reports that allow for an overview of the performance of the host groups over a given period of time. These reports can be configured to be generated once immediately or on a regular basis (i.e. once per day, week, month...). Monthly uptime reports, weekly infrastructure performance summaries
 
 ## What are the possible outputs?
-les potentiels résultats; lien vers les templates possibles formats de sorties (csv, pdf) et possibilité de le visualiser sur l'interface 
+MBI generates reports that can be exported to different formats such as CSV or PDF. Not all reports can be exported to every format, check our [available reports list](available-reports.md) to learn more about the specifics of each report.
+By default, these reports are to be visualized from Centreon but can be configured to be sent to specific people when generated. They can also be consulted on your Centreon dashboard using dedicated widgets.
 
-brève description de ce que ça fait, comment ça marche, 
 
