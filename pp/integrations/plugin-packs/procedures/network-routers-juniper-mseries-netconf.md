@@ -59,13 +59,13 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                                | Description                                                   |
 |:-----------------------------------------|:--------------------------------------------------------------|
-| Net-Juniper-Mseries-Netconf-Bgp          |                                                               |
+| Net-Juniper-Mseries-Netconf-Bgp          | Discover BGP peers and monitor them                           |
 | Net-Juniper-Mseries-Netconf-Disks        | Discover the disk partitions and monitor space occupation     |
 | Net-Juniper-Mseries-Netconf-Interfaces   | Discover network interfaces and monitor bandwidth utilization |
-| Net-Juniper-Mseries-Netconf-Ldp          |                                                               |
-| Net-Juniper-Mseries-Netconf-Lsp          |                                                               |
-| Net-Juniper-Mseries-Netconf-Rsvp         |                                                               |
-| Net-Juniper-Mseries-Netconf-Services-Rpm | Discover services and monitor their system usage              |
+| Net-Juniper-Mseries-Netconf-Ldp          | Discover LDP sessions and monitor their status                |
+| Net-Juniper-Mseries-Netconf-Lsp          | Discover LSP and monitor their status                         |
+| Net-Juniper-Mseries-Netconf-Rsvp         | Discover RSVP sessions and monitor them                       |
+| Net-Juniper-Mseries-Netconf-Services-Rpm | Discover RPM services and monitor them                        |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -342,8 +342,8 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Netconf
 | FILTERRIBNAME                    | Filter BGP RIB by RIB name                                                                                                                                                                                                |                                  |           |
 | WARNINGBGPPEERDETECTED           | Warning threshold for number of BGP peers detected                                                                                                                                                                        |                                  |           |
 | CRITICALBGPPEERDETECTED          | Critical threshold for number of BGP peers detected                                                                                                                                                                       |                                  |           |
-| WARNINGBGPPEERRIBPREFIXESACTIVE  |                                                                                                                                                                                                                           |                                  |           |
-| CRITICALBGPPEERRIBPREFIXESACTIVE |                                                                                                                                                                                                                           |                                  |           |
+| WARNINGBGPPEERRIBPREFIXESACTIVE  | Warning threshold for number of active prefixes in BGP peer RIB                                                                                                                                                           |                                  |           |
+| CRITICALBGPPEERRIBPREFIXESACTIVE | Critical threshold for number of active prefixes in BGP peer RIB                                                                                                                                                          |                                  |           |
 | WARNINGBGPPEERTRAFFICIN          | Warning threshold for BGP peer traffic in                                                                                                                                                                                 |                                  |           |
 | CRITICALBGPPEERTRAFFICIN         | Critical threshold for BGP peer traffic in                                                                                                                                                                                |                                  |           |
 | WARNINGBGPPEERTRAFFICOUT         | Warning threshold for BGP peer traffic out                                                                                                                                                                                |                                  |           |
@@ -537,8 +537,8 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Netconf
 | Macro                     | Description                                                                                                                                                                        | Default value         | Mandatory |
 |:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:---------:|
 | FILTERNEIGHBORADDRESS     | Filter neighbors by address (can be a regexp)                                                                                                                                      |                       |           |
-| WARNINGNEIGHBORSCHANGED   |                                                                                                                                                                                    |                       |           |
-| CRITICALNEIGHBORSCHANGED  |                                                                                                                                                                                    |                       |           |
+| WARNINGNEIGHBORSCHANGED   | Warning threshold for number of OSPF neighbors changed                                                                                                                             |                       |           |
+| CRITICALNEIGHBORSCHANGED  | Critical threshold for number of OSPF neighbors changed                                                                                                                            |                       |           |
 | WARNINGNEIGHBORSDETECTED  | Warning threshold for number of OSPF neighbors detected                                                                                                                            |                       |           |
 | CRITICALNEIGHBORSDETECTED | Critical threshold for number of OSPF neighbors detected                                                                                                                           |                       |           |
 | CRITICALNEIGHBORSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /down/i'). You can use the following variables: %\{state\}, %\{address\}, %\{interfaceName\} | %\{state\} =~ /down/i |           |

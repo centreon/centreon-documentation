@@ -78,7 +78,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Blade-Temperature" label="Blade-Temperature">
 
-| Métrique    | Unité |
+| Name        | Unit  |
 |:------------|:------|
 | temperature | C     |
 

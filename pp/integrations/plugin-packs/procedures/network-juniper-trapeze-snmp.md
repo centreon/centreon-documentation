@@ -300,8 +300,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 
 The expected command output is shown below:
 
-```bash
-OK: average : 38808 % 1 minute : 67339 % 5 minutes : 56492 % 1 hour : 70911 % | 'average'=38808%;;;0;100 '1m'=67339%;;;0;100 '5m'=56492%;;;0;100 '1h'=70911%;;;0;100 
+```bash 
+OK: average : 83 % 1 minute : 46 % 5 minutes : 37 % 1 hour : 13 % | 'average'=83%;;;0;100'1m'=46%;;;0;100'5m'=37%;;;0;100'1h'=13%;;;0;100
 ```
 
 ### Troubleshooting

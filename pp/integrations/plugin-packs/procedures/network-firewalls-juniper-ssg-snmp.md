@@ -63,9 +63,9 @@ More information about discovering hosts automatically is available on the [dedi
 
 #### Service discovery
 
-| Rule name                | Description |
-|:-------------------------|:------------|
-| Net-Juniper-SSG-Vpn-Name |             |
+| Rule name                | Description                                                        |
+|:-------------------------|:-------------------------------------------------------------------|
+| Net-Juniper-SSG-Vpn-Name | Discover VPN and monitor them with the Vpn-Status service template |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).

@@ -517,21 +517,25 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 ```bash
 /usr/lib/centreon/plugins/centreon_juniper_mseries_snmp.pl \
 	--plugin=network::juniper::mseries::snmp::plugin \
-	--mode=rsvp-session-status \
+	--mode=interfaces \
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--filter-name='' \
-	--filter-from='' \
-	--filter-to='' \
-	--warning-status='' \
-	--critical-status='%\{state\} !~ /up/i' 
+	--interface='.*' \
+	--name \
+	--add-status \
+	--add-traffic \
+	--critical-status='' \
+	--warning-in-traffic='80' \
+	--critical-in-traffic='90' \
+	--warning-out-traffic='80' \
+	--critical-out-traffic='90' 
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All sessions status are ok 
+OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#interface.traffic.in.bitspersecond'=20b/s;80;90;;'*interface_name*#interface.traffic.out.bitspersecond'=20b/s;80;90;;
 ```
 
 ### Diagnostic des erreurs communes

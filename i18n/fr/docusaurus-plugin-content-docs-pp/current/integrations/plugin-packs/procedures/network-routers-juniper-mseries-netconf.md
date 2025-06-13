@@ -58,15 +58,15 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de services
 
-| Nom de la règle                          | Description                                                                                       |
-|:-----------------------------------------|:--------------------------------------------------------------------------------------------------|
-| Net-Juniper-Mseries-Netconf-Bgp          |                                                                                                   |
-| Net-Juniper-Mseries-Netconf-Disks        | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé               |
-| Net-Juniper-Mseries-Netconf-Interfaces   | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
-| Net-Juniper-Mseries-Netconf-Ldp          |                                                                                                   |
-| Net-Juniper-Mseries-Netconf-Lsp          |                                                                                                   |
-| Net-Juniper-Mseries-Netconf-Rsvp         |                                                                                                   |
-| Net-Juniper-Mseries-Netconf-Services-Rpm | Discover services and monitor their system usage                                                  |
+| Nom de la règle                          | Description                                                                 |
+|:-----------------------------------------|:----------------------------------------------------------------------------|
+| Net-Juniper-Mseries-Netconf-Bgp          | Découvre les pairs BGP et les supervise                                     |
+| Net-Juniper-Mseries-Netconf-Disks        | Découvre les partitions du disque et supervise l'espace occupé              |
+| Net-Juniper-Mseries-Netconf-Interfaces   | Découvre les interfaces réseau et supervise leur statut et leur utilisation |
+| Net-Juniper-Mseries-Netconf-Ldp          | Découvre les sessions LDP et supervise leur statut                          |
+| Net-Juniper-Mseries-Netconf-Lsp          | Découvre les LSP et supervise leur statut                                   |
+| Net-Juniper-Mseries-Netconf-Rsvp         | Découvre les sessions RSVP et les supervise                                 |
+| Net-Juniper-Mseries-Netconf-Services-Rpm | Découvre les services RPM et les supervise                                  |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -341,8 +341,8 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Netconf
 | FILTERRIBNAME                    | Filter BGP RIB by RIB name                                                                                                                                                                                                |                                  |             |
 | WARNINGBGPPEERDETECTED           | Warning threshold for number of BGP peers detected                                                                                                                                                                        |                                  |             |
 | CRITICALBGPPEERDETECTED          | Critical threshold for number of BGP peers detected                                                                                                                                                                       |                                  |             |
-| WARNINGBGPPEERRIBPREFIXESACTIVE  |                                                                                                                                                                                                                           |                                  |             |
-| CRITICALBGPPEERRIBPREFIXESACTIVE |                                                                                                                                                                                                                           |                                  |             |
+| WARNINGBGPPEERRIBPREFIXESACTIVE  | Warning threshold for number of active prefixes in BGP peer RIB                                                                                                                                                           |                                  |             |
+| CRITICALBGPPEERRIBPREFIXESACTIVE | Critical threshold for number of active prefixes in BGP peer RIB                                                                                                                                                          |                                  |             |
 | WARNINGBGPPEERTRAFFICIN          | Warning threshold for BGP peer traffic in                                                                                                                                                                                 |                                  |             |
 | CRITICALBGPPEERTRAFFICIN         | Critical threshold for BGP peer traffic in                                                                                                                                                                                |                                  |             |
 | WARNINGBGPPEERTRAFFICOUT         | Warning threshold for BGP peer traffic out                                                                                                                                                                                |                                  |             |
