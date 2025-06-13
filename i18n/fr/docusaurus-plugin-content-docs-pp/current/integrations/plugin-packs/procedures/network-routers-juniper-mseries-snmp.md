@@ -38,7 +38,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                      | Modèle de service                                          | Description                                                                                                                                                 | Découverte |
 |:---------------------------|:-----------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Bgp-Peer-Prefix-Statistics | Net-Juniper-Mseries-SNMP-Bgp-Peer-Prefix-Statistics-custom | Contrôle les statistiques des prefix des pairs BGP                                                                                                          |            |
+| Bgp-Peer-Prefix-Statistics | Net-Juniper-Mseries-SNMP-Bgp-Peer-Prefix-Statistics-custom | Contrôle les statistiques des préfixes des pairs BGP                                                                                                          |            |
 | Bgp-Peer-State             | Net-Juniper-Mseries-SNMP-Bgp-Peer-State-custom             | Contrôle le statut des pairs BGP                                                                                                                            |            |
 | Disk-Generic-Id            | Net-Juniper-Mseries-Disk-Generic-Id-custom                 | Contrôle du taux d'espace libre disponible du disque (via l'ID). Les seuils pourront être en pourcentage, en espace libre restant                           |            |
 | Disk-Generic-Name          | Net-Juniper-Mseries-Disk-Generic-Name-custom               | Contrôle du taux d'espace libre disponible du disque (via le nom. Difficile à utiliser). Les seuils pourront être en pourcentage, en espace libre restant   |            |
@@ -184,7 +184,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-Coming soon
+| Nom                                           | Unité |
+|:-----------------------------------------------------|:------|
+| *interface_name*#status                              | N/A   |
+| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+
+> Concerne les modèles de service suivants : Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
 
 </TabItem>
 </Tabs>
@@ -207,7 +213,7 @@ Centreon vers la ressource supervisée.
 
 ### Pack
 
-La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md). de supervision
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md) de supervision.
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de Connecteurs de supervision**.

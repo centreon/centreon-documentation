@@ -112,7 +112,7 @@ Centreon vers la ressource supervisée.
 
 ### Pack
 
-La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md). de supervision
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md) de supervision.
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de Connecteurs de supervision**.
@@ -302,7 +302,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: average : 38808 % 1 minute : 67339 % 5 minutes : 56492 % 1 hour : 70911 % | 'average'=38808%;;;0;100 '1m'=67339%;;;0;100 '5m'=56492%;;;0;100 '1h'=70911%;;;0;100 
+OK: average : 83 % 1 minute : 46 % 5 minutes : 37 % 1 hour : 13 % | 'average'=83%;;;0;100'1m'=46%;;;0;100'5m'=37%;;;0;100'1h'=13%;;;0;100
 ```
 
 ### Diagnostic des erreurs communes

@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 | CPU     | Net-Juniper-SA-Cpu-SNMP-custom     | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU |
 | Logfile | Net-Juniper-SA-Logfile-SNMP-custom | Contrôle l'utilisation du journal                                                                                         |
 | Memory  | Net-Juniper-SA-Memory-SNMP-custom  | Contrôle l'utilisation mémoire du matériel                                                                                |
-| Swap    | Net-Juniper-SA-Swap-SNMP-custom    | Contrôle l'utilisation de la swap du matériel                                                                             |
+| Swap    | Net-Juniper-SA-Swap-SNMP-custom    | Contrôle l'utilisation du swap du matériel                                                                             |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Juniper-SA-custom** est utilisé.
 
@@ -199,7 +199,7 @@ Centreon vers la ressource supervisée.
 
 ### Pack
 
-La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md). de supervision
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md) de supervision.
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de Connecteurs de supervision**.

@@ -183,7 +183,13 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-Coming soon
+| Name                                          | Unit  |
+|:-----------------------------------------------------|:------|
+| *interface_name*#status                              | N/A   |
+| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+
+> Applies to the following service templates: Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
 
 </TabItem>
 </Tabs>

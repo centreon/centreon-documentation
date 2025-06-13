@@ -82,14 +82,16 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Cp-Sessions" label="Cp-Sessions">
 
-| Nom | Unité |
-|:----|:------|
+| Name                 | Unit  |
+|:---------------------|:------|
+| sessions\_*instance* | count |
 
 </TabItem>
 <TabItem value="Cpu-Forwarding" label="Cpu-Forwarding">
 
-| Nom | Unité |
-|:----|:------|
+| Name            | Unit  |
+|:----------------|:------|
+| cpu\_*instance* | %     |
 
 </TabItem>
 <TabItem value="Cpu-Routing" label="Cpu-Routing">
@@ -119,8 +121,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Flow-Sessions" label="Flow-Sessions">
 
-| Nom | Unité |
-|:----|:------|
+| Name                 | Unit  |
+|:---------------------|:------|
+| sessions\_*instance* | count |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
@@ -137,8 +140,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Memory-Forwarding" label="Memory-Forwarding">
 
-| Nom | Unité |
-|:----|:------|
+| Name | Unit |
+|:----------------|:------|
+| mem\_*instance* | %     |
 
 </TabItem>
 <TabItem value="Memory-Routing" label="Memory-Routing">
@@ -154,7 +158,13 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-Coming soon
+| Name                                         | Unit  |
+|:-----------------------------------------------------|:------|
+| *interface_name*#status                              | N/A   |
+| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+
+> Applies to the following service templates: Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
 
 </TabItem>
 </Tabs>
@@ -374,7 +384,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Srx-Snmp
 
 | Macro             | Description                                                                                        | Default value     | Mandatory   |
 |:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER            | Filter operating (default: 'routing\|fpc')                                                         | routing           |             |
+| FILTER            | Filter operating                                                       | routing           |             |
 | WARNING           | Threshold                                                                                          | 80                |             |
 | CRITICAL          | Threshold                                                                                          | 90                |             |
 | WARNINGUSAGE      | Threshold                                                                                          |                   |             |

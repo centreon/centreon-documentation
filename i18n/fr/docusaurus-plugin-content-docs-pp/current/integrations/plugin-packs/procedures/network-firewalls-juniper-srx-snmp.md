@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 |:------------------|:----------------------------------------|:---------------------------------------------------------------|
 | Cpu-Forwarding    | Net-JuniperSRX-Cpu-Forwarding-custom    | Contrôle l'utilisation CPU du 'Packet Forwarding Engine'       |
 | Cpu-Routing       | Net-JuniperSRX-Cpu-Routing-custom       | Contrôle l'utilisation CPU du 'routing engine'                 |
-| Flow-Sessions     | Net-JuniperSRX-Flow-Sessions-custom     | Contrôle l'utilisation des 'Packet Forwarding Engine' sessions |
+| Flow-Sessions     | Net-JuniperSRX-Flow-Sessions-custom     | Contrôle l'utilisation sessions de 'Packet Forwarding Engine' |
 | Hardware          | Net-JuniperSRX-Hardware-custom          | Contrôle l'état du matériel                                    |
 | Memory-Forwarding | Net-JuniperSRX-Memory-Forwarding-custom | Contrôle l'utilisation mémoire du 'Packet Forwarding Engine'   |
 | Memory-Routing    | Net-JuniperSRX-Memory-Routing-custom    | Contrôle l'utilisation mémoire du 'Routing Engine'             |
@@ -84,13 +84,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <TabItem value="Cp-Sessions" label="Cp-Sessions">
 
 | Nom | Unité |
-|:----|:------|
+|:---------------------|:------|
+| sessions\_*instance* | count |
 
 </TabItem>
 <TabItem value="Cpu-Forwarding" label="Cpu-Forwarding">
 
 | Nom | Unité |
-|:----|:------|
+|:----------------|:------|
+| cpu\_*instance* | %     |
 
 </TabItem>
 <TabItem value="Cpu-Routing" label="Cpu-Routing">
@@ -121,7 +123,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <TabItem value="Flow-Sessions" label="Flow-Sessions">
 
 | Nom | Unité |
-|:----|:------|
+|:---------------------|:------|
+| sessions\_*instance* | count |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
@@ -139,7 +142,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <TabItem value="Memory-Forwarding" label="Memory-Forwarding">
 
 | Nom | Unité |
-|:----|:------|
+|:----------------|:------|
+| mem\_*instance* | %     |
 
 </TabItem>
 <TabItem value="Memory-Routing" label="Memory-Routing">
@@ -155,7 +159,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-Coming soon
+| Nom                                       | Unité  |
+|:-----------------------------------------------------|:------|
+| *interface_name*#status                              | N/A   |
+| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+
+> Concerne les modèles de service suivants : Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
 
 </TabItem>
 </Tabs>
@@ -178,7 +188,7 @@ Centreon vers la ressource supervisée.
 
 ### Pack
 
-La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md). de supervision
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md) de supervision.
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de Connecteurs de supervision**.
@@ -373,7 +383,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Srx-Snmp
 
 | Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER            | Filter operating (default: 'routing\|fpc')                                                         | routing           |             |
+| FILTER            | Filter operating                                                         | routing           |             |
 | WARNING           | Threshold                                                                                          | 80                |             |
 | CRITICAL          | Threshold                                                                                          | 90                |             |
 | WARNINGUSAGE      | Threshold                                                                                          |                   |             |
