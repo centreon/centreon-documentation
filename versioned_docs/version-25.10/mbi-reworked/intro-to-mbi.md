@@ -18,5 +18,4 @@ brève description de ce que ça fait et lien vers topic "comment ça marche" (s
 ## What are the possible outputs?
 les potentiels résultats; lien vers les templates possibles formats de sorties (csv, pdf) et possibilité de le visualiser sur l'interface 
 
-brève description de ce que ça fait, comment ça marche, 
 
