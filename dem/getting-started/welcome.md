@@ -3,7 +3,7 @@ id: welcome
 title: Quanta by Centreon
 ---
 
-[Quanta by Centreon](https://www.quanta.io/) is our Digital Experience Monitoring solution. Its documentation will soon be available in this space, but for now please [access the product documentation on the Quanta site](https://quantaio.notion.site/QUANTA-by-Centreon-User-Documentation-EN-2c993c11baff4671a2a1de6154255ab9).
+[Quanta by Centreon](https://www.quanta.io/) is our Digital Experience Monitoring (DEM) solution. Its documentation will soon be available in this space, but for now please [access the product documentation on the Quanta site](https://quantaio.notion.site/QUANTA-by-Centreon-User-Documentation-EN-2c993c11baff4671a2a1de6154255ab9).
 
 ![image](../assets/quanta_doc_homepage.png)
 
