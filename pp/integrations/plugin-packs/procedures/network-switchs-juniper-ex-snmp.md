@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Juniper EX Series** connector through the
-**Configuration > Monitoring Connectors** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                     | Service Description                  |
 |:---------------|:-------------------------------------|:-------------------------------------|
-| Cpu-Routing    | Net-Juniper-Ex-Cpu-Routing-custom    | Check CPU Usage of routing engine    |
+| Cpu-Routing    | Net-Juniper-Ex-Cpu-Routing-custom    | Check CPU usage of routing engine    |
 | Hardware       | Net-Juniper-Ex-Hardware-custom       | Check hardware                       |
-| Memory-Routing | Net-Juniper-Ex-Memory-Routing-custom | Check Memory Usage of routing engine |
+| Memory-Routing | Net-Juniper-Ex-Memory-Routing-custom | Check Memory usage of routing engine |
 
 > The services listed above are created automatically when the **Net-Juniper-EX-custom** host template is used.
 
@@ -37,12 +37,12 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                           | Service Description                                                                                                                     | Discovery  |
 |:---------------------|:-------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Disk-Generic-Id      | Net-Juniper-Ex-Disk-Generic-Id-custom      | Check the rate of free space on the disk (use the ID). Thresholds can be in percentage or in free space remaining                       |            |
-| Disk-Generic-Name    | Net-Juniper-Ex-Disk-Generic-Name-custom    | Check the rate of free space on the disk (use the Name. Difficult to use                                                                |            |
-| Disk-Global          | Net-Juniper-Ex-Disk-Global-custom          | Check the rate of free space on the disk (use the Name. Difficult to use                                                                | X          |
-| Traffic-Generic-Id   | Net-Juniper-Ex-Traffic-Generic-Id-custom   | Check the bandwidth of the interface. For each checks the name of the interface will appear ("label" shortcut describing the interface) |            |
-| Traffic-Generic-Name | Net-Juniper-Ex-Traffic-Generic-Name-custom | Check the bandwidth of the interface. For each checks the name of the interface will appear ("label" shortcut describing the interface) |            |
-| Traffic-Global       | Net-Juniper-Ex-Traffic-Global-custom       | Check the bandwidth of  interfaces. For each checks the name of the interface will appear ("label" shortcut describing the interface)   | X          |
+| Disk-Generic-Id      | Net-Juniper-Ex-Disk-Generic-Id-custom      | Check the rate of free space on the disk (use the ID). Thresholds can be in percentage or in free remaining space |            |
+| Disk-Generic-Name    | Net-Juniper-Ex-Disk-Generic-Name-custom    | Check the rate of free space on the disk (use the Name.                                                                 |            |
+| Disk-Global          | Net-Juniper-Ex-Disk-Global-custom          | Check the rate of free space on the disk (use the Name.                                                                 | X          |
+| Traffic-Generic-Id   | Net-Juniper-Ex-Traffic-Generic-Id-custom   | Check the bandwidth of the interface. For each check the name of the interface will appear ("label" shortcut describing the interface) |            |
+| Traffic-Generic-Name | Net-Juniper-Ex-Traffic-Generic-Name-custom | Check the bandwidth of the interface. For each check the name of the interface will appear ("label" shortcut describing the interface) |            |
+| Traffic-Global       | Net-Juniper-Ex-Traffic-Global-custom       | Check the bandwidth of  interfaces. For each check the name of the interface will appear ("label" shortcut describing the interface)   | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -159,7 +159,7 @@ The installation procedures for monitoring connectors are slightly different dep
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connectors** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -195,7 +195,7 @@ yum install centreon-pack-network-switchs-juniper-ex-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Juniper EX Series** connector through
-the **Configuration > Monitoring Connectors** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -268,7 +268,7 @@ yum install centreon-plugin-Network-Switchs-Juniper-Ex-Snmp
 
 | Macro           | Description                                                                                        | Default value     | Mandatory   |
 |:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER          | Filter operating (default: C\<'routing\|fpc'\>)                                                    | routing           |             |
+| FILTER          | Filter operating                                                   | routing           |             |
 | WARNING         | Warning threshold for CPU utilization (in percent)                                                 | 80                |             |
 | CRITICAL        | Critical threshold for CPU utilization (in percent)                                                | 90                |             |
 | WARNINGLOAD15M  | Warning threshold for CPU load 15 minutes (in percent)                                             |                   |             |
