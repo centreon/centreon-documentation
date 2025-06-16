@@ -252,8 +252,8 @@ yum install centreon-plugin-Network-Juniper-Isg-Snmp
 
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent (1min,5min,15min)                                                     |                   |             |
-| CRITICAL     | Critical threshold in percent (1min,5min,15min)                                                    |                   |             |
+| WARNING      | Warning threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes.                                                      |                   |             |
+| CRITICAL     | Critical threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes.                                                     |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
