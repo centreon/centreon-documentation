@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Juniper M-Series** connector through the
-**Configuration > Monitoring Connectors** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                          | Service Description                  |
 |:---------------|:------------------------------------------|:-------------------------------------|
-| Cpu-Routing    | Net-Juniper-Mseries-Cpu-Routing-custom    | Check CPU Usage of routing engine    |
+| Cpu-Routing    | Net-Juniper-Mseries-Cpu-Routing-custom    | Check CPU usage of routing engine    |
 | Hardware       | Net-Juniper-Mseries-Hardware-custom       | Check hardware                       |
-| Memory-Routing | Net-Juniper-Mseries-Memory-Routing-custom | Check Memory Usage of routing engine |
+| Memory-Routing | Net-Juniper-Mseries-Memory-Routing-custom | Check memory usage of routing engine |
 
 > The services listed above are created automatically when the **Net-Juniper-Mseries-SNMP-custom** host template is used.
 
@@ -39,9 +39,9 @@ The connector brings the following service templates (sorted by the host templat
 |:---------------------------|:-----------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
 | Bgp-Peer-Prefix-Statistics | Net-Juniper-Mseries-SNMP-Bgp-Peer-Prefix-Statistics-custom | Check BGP peers prefix statistics                                                                                                         |            |
 | Bgp-Peer-State             | Net-Juniper-Mseries-SNMP-Bgp-Peer-State-custom             | Check BGP peers status                                                                                                                    |            |
-| Disk-Generic-Id            | Net-Juniper-Mseries-Disk-Generic-Id-custom                 | Check the rate of free space on the disk (use the ID). Thresholds can be in percentage or in free space remaining                         |            |
-| Disk-Generic-Name          | Net-Juniper-Mseries-Disk-Generic-Name-custom               | Check the rate of free space on the disk (use the Name. Difficult to use                                                                  |            |
-| Disk-Global                | Net-Juniper-Mseries-Disk-Global-custom                     | Check the rate of free space on the disk (use the Name. Difficult to use                                                                  | X          |
+| Disk-Generic-Id            | Net-Juniper-Mseries-Disk-Generic-Id-custom                 | Check the rate of free space on the disk (use the ID). Thresholds can be in percentage or in free remaining space                        |            |
+| Disk-Generic-Name          | Net-Juniper-Mseries-Disk-Generic-Name-custom               | Check the rate of free space on the disk (use the Name.                                                                   |            |
+| Disk-Global                | Net-Juniper-Mseries-Disk-Global-custom                     | Check the rate of free space on the disk (use the Name.                                                              | X          |
 | Ldp-Session-Status         | Net-Juniper-Mseries-SNMP-Ldp-Session-Status-custom         | Check LDP sessions status                                                                                                                 |            |
 | Lsp-Status                 | Net-Juniper-Mseries-SNMP-Lsp-Status-custom                 | Check LSP status                                                                                                                          |            |
 | Rsvp-Session-Status        | Net-Juniper-Mseries-SNMP-Rsvp-Session-Status-custom        | Check RSVP sessions status                                                                                                                |            |
@@ -216,7 +216,7 @@ The installation procedures for monitoring connectors are slightly different dep
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connectors** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -252,7 +252,7 @@ yum install centreon-pack-network-routers-juniper-mseries-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Juniper M-Series** connector through
-the **Configuration > Monitoring Connectors** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -346,8 +346,8 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Snmp
 | FILTER         | Filter by peer identifier (can be regexp)                                                                                                                                                                                                                                                                                                                                                                      |                                                                     |             |
 | FILTERREMOTEIP | Filter by remote IP address (can be regexp)                                                                                                                                                                                                                                                                                                                                                                    |                                                                     |             |
 | FILTERLOCALAS  | Filter by local AS (can be regexp)                                                                                                                                                                                                                                                                                                                                                                             |                                                                     |             |
-| CRITICALSTATUS | Specify critical threshold (default: C\<'%\{peer\_status\} =~ /running/ && %\{peer\_state\} !~ /established/'\>). Can use special variables like C\<%\{peer\_identifier\}\>, C\<%\{peer\_state\}\>, C\<%\{peer\_status\}\>, C\<%\{local\_type\}\>, C\<%\{local\_ip\}\>, C\<%\{local\_port\}\>, C\<%\{local\_as\}\>, C\<%\{remote\_type\}\>, C\<%\{remote\_ip\}\>, C\<%\{remote\_port\}\>, C\<%\{remote\_as\}\> | %\{peer\_status\} =~ /running/ && %\{peer\_state\} !~ /established/ |             |
-| WARNINGSTATUS  | Specify warning threshold. Can use special variables like C\<%\{peer\_identifier\}\>, C\<%\{peer\_state\}\>, C\<%\{peer\_status\}\>, C\<%\{local\_type\}\>, C\<%\{local\_ip\}\>, C\<%\{local\_port\}\>, C\<%\{local\_as\}\>, C\<%\{remote\_type\}\>, C\<%\{remote\_ip\}\>, C\<%\{remote\_port\}\>, C\<%\{remote\_as\}\>                                                                                        |                                                                     |             |
+ CRITICALSTATUS | Specify critical threshold (default: '%\{peer_status\} =~ /running/ && %\{peer_state\} !~ /established/'). Can use special variables like %\{peer_identifier\}, %\{peer_state\}, %\{peer_status\}, %\{local_type\}, %\{local_ip\}, %\{local_port\}, %\{local_as\}, %\{remote_type\}, %\{remote_ip\}, %\{remote_port\}, %\{remote_as\} | %\{peer_status\} =~ /running/ && %\{peer_state\} !~ /established/ |             |
+| WARNINGSTATUS  | Specify warning threshold. Can use special variables like %\{peer_identifier\}, %\{peer_state\}, %\{peer_status\}, %\{local_type\}, %\{local_ip\}, %\{local_port\}, %\{local_as\}, %\{remote_type\}, %\{remote_ip\}, %\{remote_port\}, %\{remote_as\}                                                                               |                                                                 |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                                                                                                                                                                             |                                                                     |             |
 
 </TabItem>
@@ -407,7 +407,7 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Snmp
 
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: C\<'.*'\>). Can be: `fru`, `operating`, `alarm`                 | .*                |             |
+| COMPONENT    | Which component to check. Can be: `fru`, `operating`, `alarm`                 | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -433,8 +433,8 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Snmp
 | FILTERTO                | Threshold                                                                                                                                                |                     |             |
 | WARNINGLASTTRANSITION   | Threshold                                                                                                                                                |                     |             |
 | CRITICALLASTTRANSITION  | Threshold                                                                                                                                                |                     |             |
-| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL (default: C\<'%\{state\} !~ /up/i'\>). You can use the following variables: C\<%\{state\}\> | %\{state\} !~ /up/i |             |
-| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING (default: `''`). You can use the following variables: C\<%\{state\}\>                        |                     |             |
+| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} !~ /up/i'). You can use the following variables: %\{state\} | %\{state\} !~ /up/i |             |
+| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}                   |                   |             |
 | WARNINGTRANSITIONCOUNT  | Threshold                                                                                                                                                |                     |             |
 | CRITICALTRANSITIONCOUNT | Threshold                                                                                                                                                |                     |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                       |                     |             |
