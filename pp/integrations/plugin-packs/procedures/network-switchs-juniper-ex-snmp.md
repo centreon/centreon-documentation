@@ -405,7 +405,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=17989b/s;;;; 'interface_name2#interface.traffic.in.bitspersecond'=68335b/s;;;; 'interface_name1#interface.traffic.out.bitspersecond'=46076b/s;;;; 'interface_name2#interface.traffic.out.bitspersecond'=22412b/s;;;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=19b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=68b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=46b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=22b/s;80;90;; 
 ```
 
 ### Troubleshooting
