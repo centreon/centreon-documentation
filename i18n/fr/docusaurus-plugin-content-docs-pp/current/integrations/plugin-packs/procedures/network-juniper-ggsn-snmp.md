@@ -121,10 +121,10 @@ Centreon vers la ressource supervisée.
 
 ### Pack
 
-La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md) de supervision.
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de Connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -161,7 +161,7 @@ yum install centreon-pack-network-juniper-ggsn-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper GGSN**
-depuis l'interface web et le menu **Configuration > Gestionnaire de Connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -267,7 +267,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Traffic In : 31928 31928/s Traffic Out : 17041 17041/s | 'traffic-in'=31928b/s;;;0; 'traffic-out'=17041b/s;;;0; 
+OK: Traffic In : 90 90/s Traffic Out : 80 80/s | 'traffic-in'=90b/s;;;0;'traffic-out'=80b/s;;;0;'drop-in'=23;;;0;ggsnUplinkPackets'drop-out'=57;;;0;ggsnDownlinkPackets'active-pdp'=38;;;0;'attempted-activation-pdp'=2;;;0;'attempted-deactivation-pdp'=98;;;0;'attempted-deactivation-pdp'=15;;;0;'attempted-self-deactivation-pdp'=31;;;0;'attempted-update-pdp'=27;;;0;'completed-activation-pdp'=82;;;0;'completed-deactivation-pdp'=98;;;0;'completed-self-deactivation-pdp'=45;;;0;'completed-update-pdp'=38;;;0;
 ```
 
 ### Diagnostic des erreurs communes

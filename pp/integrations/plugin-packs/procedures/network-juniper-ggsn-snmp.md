@@ -266,7 +266,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: Traffic In : 31928 31928/s Traffic Out : 17041 17041/s | 'traffic-in'=31928b/s;;;0; 'traffic-out'=17041b/s;;;0; 
+OK: Traffic In : 90 90/s Traffic Out : 80 80/s | 'traffic-in'=90b/s;;;0;'traffic-out'=80b/s;;;0;'drop-in'=23;;;0;ggsnUplinkPackets'drop-out'=57;;;0;ggsnDownlinkPackets'active-pdp'=38;;;0;'attempted-activation-pdp'=2;;;0;'attempted-deactivation-pdp'=98;;;0;'attempted-deactivation-pdp'=15;;;0;'attempted-self-deactivation-pdp'=31;;;0;'attempted-update-pdp'=27;;;0;'completed-activation-pdp'=82;;;0;'completed-deactivation-pdp'=98;;;0;'completed-self-deactivation-pdp'=45;;;0;'completed-update-pdp'=38;;;0;
 ```
 
 ### Troubleshooting
