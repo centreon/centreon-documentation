@@ -461,7 +461,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All memories are ok | 'memory1#memory.usage.bytes'=40460B;;;0;total 'memory2#memory.usage.bytes'=15823B;;;0;total 'memory1#memory.free.bytes'=79777B;;;0;total 'memory2#memory.free.bytes'=26745B;;;0;total 'memory1#memory.usage.percentage'=38436%;;;0;100 'memory2#memory.usage.percentage'=27676%;;;0;100 
+OK: All memories are ok | 'memory1#memory.usage.bytes'=40460B;;;0;total 'memory2#memory.usage.bytes'=15823B;;;0;total 'memory1#memory.free.bytes'=79777B;;;0;total 'memory2#memory.free.bytes'=26745B;;;0;total 'memory1#memory.usage.percentage'=38%;80;90;0;100 'memory2#memory.usage.percentage'=27%;80;90;0;100 
 ```
 
 ### Troubleshooting

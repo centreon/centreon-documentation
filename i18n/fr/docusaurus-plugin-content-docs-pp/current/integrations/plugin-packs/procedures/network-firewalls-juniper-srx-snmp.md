@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Juniper SRX** 
-depuis la page **Configuration > Gestionnaire de Connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 |:------------------|:----------------------------------------|:---------------------------------------------------------------|
 | Cpu-Forwarding    | Net-JuniperSRX-Cpu-Forwarding-custom    | Contrôle l'utilisation CPU du 'Packet Forwarding Engine'       |
 | Cpu-Routing       | Net-JuniperSRX-Cpu-Routing-custom       | Contrôle l'utilisation CPU du 'routing engine'                 |
-| Flow-Sessions     | Net-JuniperSRX-Flow-Sessions-custom     | Contrôle l'utilisation sessions de 'Packet Forwarding Engine' |
+| Flow-Sessions     | Net-JuniperSRX-Flow-Sessions-custom     | Contrôle l'utilisation des sessions de 'Packet Forwarding Engine' |
 | Hardware          | Net-JuniperSRX-Hardware-custom          | Contrôle l'état du matériel                                    |
 | Memory-Forwarding | Net-JuniperSRX-Memory-Forwarding-custom | Contrôle l'utilisation mémoire du 'Packet Forwarding Engine'   |
 | Memory-Routing    | Net-JuniperSRX-Memory-Routing-custom    | Contrôle l'utilisation mémoire du 'Routing Engine'             |
@@ -41,7 +41,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                          | Description                                                                                                                                                 | Découverte |
 |:---------------------|:-------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Cp-Sessions          | Net-JuniperSRX-Cp-Sessions-custom          | Contrôle l'utilisation des CP ('central point') sessions                                                                                                    |            |
+| Cp-Sessions          | Net-JuniperSRX-Cp-Sessions-custom          | Contrôle l'utilisation des sessions                                         CP ('central point') |            |
 | Disk-Generic-Id      | Net-JuniperSRX-Disk-Generic-Id-custom      | Contrôle du taux d'espace libre disponible du disque (via l'ID). Les seuils pourront être en pourcentage, en espace libre restant                           |            |
 | Disk-Generic-Name    | Net-JuniperSRX-Disk-Generic-Name-custom    | Contrôle du taux d'espace libre disponible du disque (via le nom. Difficile à utiliser). Les seuils pourront être en pourcentage, en espace libre restant   |            |
 | Disk-Global          | Net-JuniperSRX-Disk-Global-custom          | Contrôle du taux d'espace libre disponible du disque (via le nom. Difficile à utiliser). Les seuils pourront être en pourcentage, en espace libre restant   | X          |
@@ -188,10 +188,10 @@ Centreon vers la ressource supervisée.
 
 ### Pack
 
-La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md) de supervision.
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de Connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -228,7 +228,7 @@ yum install centreon-pack-network-firewalls-juniper-srx-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper SRX**
-depuis l'interface web et le menu **Configuration > Gestionnaire de Connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -281,7 +281,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Srx-Snmp
 3. Appliquez le modèle d'hôte **Net-Juniper-SRX-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -462,7 +462,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All memories are ok | 'memory1#memory.usage.bytes'=40460B;;;0;total 'memory2#memory.usage.bytes'=15823B;;;0;total 'memory1#memory.free.bytes'=79777B;;;0;total 'memory2#memory.free.bytes'=26745B;;;0;total 'memory1#memory.usage.percentage'=38436%;;;0;100 'memory2#memory.usage.percentage'=27676%;;;0;100 
+OK: All memories are ok | 'memory1#memory.usage.bytes'=40460B;;;0;total 'memory2#memory.usage.bytes'=15823B;;;0;total 'memory1#memory.free.bytes'=79777B;;;0;total 'memory2#memory.free.bytes'=26745B;;;0;total 'memory1#memory.usage.percentage'=38%;80;90;0;100 'memory2#memory.usage.percentage'=27%;80;90;0;100 
 ```
 
 ### Diagnostic des erreurs communes
