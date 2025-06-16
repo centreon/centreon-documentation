@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Juniper M-Series Netconf** 
-depuis la page **Configuration > Gestionnaire de Connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -219,17 +219,17 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Le service Netconf doit être activé sur le routeur Juniper M-Series, et le routeur doit être configuré pour autoriser les connexions depuis le serveur ou le poller Centreon.
+Le service Netconf doit être activé sur le routeur Juniper M-Series, et le routeur doit être configuré pour autoriser les connexions depuis le serveur ou le collecteur Centreon.
 Un compte utilisateur avec les droits nécessaires pour accéder aux données Netconf doit également être créé.
 
 ## Installer le connecteur de supervision
 
 ### Pack
 
-La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md) de supervision.
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de Connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -266,7 +266,7 @@ yum install centreon-pack-network-routers-juniper-mseries-netconf
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper M-Series Netconf**
-depuis l'interface web et le menu **Configuration > Gestionnaire de Connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -516,8 +516,8 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Netconf
 | CRITICALLSPSESSIONSDETECTED | Define the LSP sessions detected conditions to match for the status to be CRITICAL                                                                                                                                                    |                        |             |
 | WARNINGLSPSESSIONTRAFFIC    | Define the LSP session traffic conditions to match for the status to be WARNING                                                                                                                                                       |                        |             |
 | CRITICALLSPSESSIONTRAFFIC   | Define the LSP session traffic conditions to match for the status to be CRITICAL                                                                                                                                                      |                        |             |
-| CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL (default: '%\{lspState\} !~ /up/i'). You can use the following variables: C\<%\{type\}\>, C\<%\{name\}\>, C\<%\{srcAddress\}\>, C\<%\{dstAddress\}\>, C\<%\{lspState\}\> | %\{lspState\} !~ /up/i |             |
-| WARNINGSTATUS               | Define the conditions to match for the status to be WARNING. You can use the following variables: C\<%\{type\}\>, C\<%\{name\}\>, C\<%\{srcAddress\}\>, C\<%\{dstAddress\}\>, C\<%\{lspState\}\>                                      |                        |             |
+| CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL (default: '%\{lspState\} !~ /up/i'). You can use the following variables: <%\{type\}\>, <%\{name\}\>, <%\{srcAddress\}\>, <%\{dstAddress\}\>, <%\{lspState\}\> | %\{lspState\} !~ /up/i |             |
+| WARNINGSTATUS               | Define the conditions to match for the status to be WARNING. You can use the following variables: <%\{type\}\>, <%\{name\}\>, <%\{srcAddress\}\>, <%\{dstAddress\}\>, <%\{lspState\}\>                                      |                        |             |
 | EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                      |                        |             |
 
 </TabItem>
@@ -573,8 +573,8 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Netconf
 | CRITICALSERVICERPMPROBERTTDELAYSTDEV    | Define the service RPM probe route-trip time delay standard deviation conditions to match for the status to be CRITICAL                                                                                             |                   |             |
 | WARNINGSERVICESDETECTED                 | Define the services detected conditions to match for the status to be WARNING                                                                                                                                       |                   |             |
 | CRITICALSERVICESDETECTED                | Define the services detected conditions to match for the status to be CRITICAL                                                                                                                                      |                   |             |
-| WARNINGSTATUS                           | Define the conditions to match for the status to be WARNING. You can use the following variables: C\<%\{testName\}\>, C\<%\{probeType\}\>, C\<%\{sourceAddress\}\>, C\<%\{targetAddress\}\>, C\<%\{probeStatus\}\>  |                   |             |
-| CRITICALSTATUS                          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: C\<%\{testName\}\>, C\<%\{probeType\}\>, C\<%\{sourceAddress\}\>, C\<%\{targetAddress\}\>, C\<%\{probeStatus\}\> |                   |             |
+| WARNINGSTATUS                           | Define the conditions to match for the status to be WARNING. You can use the following variables: <%\{testName\}\>, <%\{probeType\}\>, <%\{sourceAddress\}\>, <%\{targetAddress\}\>, <%\{probeStatus\}\>  |                   |             |
+| CRITICALSTATUS                          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: <%\{testName\}\>, <%\{probeType\}\>, <%\{sourceAddress\}\>, <%\{targetAddress\}\>, <%\{probeStatus\}\> |                   |             |
 | EXTRAOPTIONS                            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                    |                   |             |
 
 </TabItem>
