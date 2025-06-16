@@ -316,7 +316,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Srx-Snmp
 
 | Macro           | Description                                                                                        | Default value     | Mandatory   |
 |:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER          | Filter operating (default: <'routing\|fpc'\>)                                                    | routing           |             |
+| FILTER          | Filter operating                                                  | routing           |             |
 | WARNING         | Warning threshold for CPU utilization (in percent)                                                 | 80                |             |
 | CRITICAL        | Critical threshold for CPU utilization (in percent)                                                | 90                |             |
 | WARNINGLOAD15M  | Warning threshold for CPU load 15 minutes (in percent)                                             |                   |             |
