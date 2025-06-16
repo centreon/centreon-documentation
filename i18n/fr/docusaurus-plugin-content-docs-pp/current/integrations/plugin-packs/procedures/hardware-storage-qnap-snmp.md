@@ -15,11 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles d'équipement supportés
 
-* EKI utilisant le système d'opération QTS.
-
-### Modèles d'équipement non supportés
-
-* **Uniquement pour le service volume** : LAGMT utilisant le système d'opération QuTS hero (L'information "volume" n'est pas présente dans le fichier MIB du QuTS hero).
+* EKI utilisant le système d'opération QTS et QuTS hero.
 
 ### Modèles
 
