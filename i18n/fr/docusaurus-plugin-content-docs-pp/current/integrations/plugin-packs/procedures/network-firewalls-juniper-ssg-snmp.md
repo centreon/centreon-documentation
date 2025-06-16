@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Juniper SSG** 
-depuis la page **Configuration > Gestionnaire de Connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs  > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -166,10 +166,10 @@ Centreon vers la ressource supervisée.
 
 ### Pack
 
-La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md) de supervision.
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de Connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -206,7 +206,7 @@ yum install centreon-pack-network-firewalls-juniper-ssg-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper SSG**
-depuis l'interface web et le menu **Configuration > Gestionnaire de Connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -259,7 +259,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 3. Appliquez le modèle d'hôte **Net-Juniper-SSG-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -277,8 +277,8 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 
 | Macro    | Description                                     | Valeur par défaut | Obligatoire |
 |:---------|:------------------------------------------------|:------------------|:-----------:|
-| CRITICAL | Critical threshold in percent (1min,5min,15min) | 90,85,80          |             |
-| WARNING  | Warning threshold in percent (1min,5min,15min)  | 80,75,70          |             |
+| CRITICAL | Critical threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes. | 90,85,80          |             |
+| WARNING  | Warning threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes.  | 80,75,70          |             |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
@@ -348,7 +348,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 
 | Macro              | Description                                                                                                                                                                                           | Valeur par défaut                                          | Obligatoire |
 |:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|:-----------:|
-| FILTERNAME         | Filter VPN name (can be a regexp)                                                                                                                                                                     | .*                                                         |             |
+| FILTERNAME         | Check only VPNs whose name match the given regular expression                                                                                                                                                                     | .*                                                         |             |
 | CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%\{p1state\} eq "inactive" \|\| %\{p2state\} eq "inactive"'). You can use the following variables: %\{p1state\}, %\{p2state\} | %\{p1state\} eq "inactive" \|\| %\{p2state\} eq "inactive" |             |
 | WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{p1state\}, %\{p2state\}                                                                          |                                                            |             |
 | WARNINGUPDATETIME  | Warning threshold for update time (in seconds)                                                                                                                                                        |                                                            |             |
@@ -360,7 +360,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 
 | Macro              | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME         | Filter VPN name (can be a regexp)                                                                  | .*                |             |
+| FILTERNAME         | Fheck only VPNs whose name match the given regular expression                                                                  | .*                |             |
 | WARNINGTRAFFICIN   | Threshold                                                                                          |                   |             |
 | CRITICALTRAFFICIN  | Threshold                                                                                          |                   |             |
 | WARNINGTRAFFICOUT  | Threshold                                                                                          |                   |             |

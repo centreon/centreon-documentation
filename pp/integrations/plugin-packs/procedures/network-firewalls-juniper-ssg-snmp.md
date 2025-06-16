@@ -278,8 +278,8 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 
 | Macro    | Description                                     | Default value     | Mandatory   |
 |:---------|:------------------------------------------------|:------------------|:-----------:|
-| CRITICAL | Critical threshold in percent (1min,5min,15min) | 90,85,80          |             |
-| WARNING  | Warning threshold in percent (1min,5min,15min)  | 80,75,70          |             |
+| CRITICAL | Critical threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes. | 90,85,80          |             |
+| WARNING  | Warning threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes.  | 80,75,70          |             |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
@@ -349,7 +349,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 
 | Macro              | Description                                                                                                                                                                                           | Default value                                              | Mandatory   |
 |:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|:-----------:|
-| FILTERNAME         | Filter VPN name (can be a regexp)                                                                                                                                                                     | .*                                                         |             |
+| FILTERNAME         | Check only VPNs whose name match the given regular expression                                                                                                                                                                    | .*                                                         |             |
 | CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%\{p1state\} eq "inactive" \|\| %\{p2state\} eq "inactive"'). You can use the following variables: %\{p1state\}, %\{p2state\} | %\{p1state\} eq "inactive" \|\| %\{p2state\} eq "inactive" |             |
 | WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{p1state\}, %\{p2state\}                                                                          |                                                            |             |
 | WARNINGUPDATETIME  | Warning threshold for update time (in seconds)                                                                                                                                                        |                                                            |             |
@@ -361,7 +361,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 
 | Macro              | Description                                                                                        | Default value     | Mandatory   |
 |:-------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME         | Filter VPN name (can be a regexp)                                                                  | .*                |             |
+| FILTERNAME         | Check only VPNs whose name match the given regular expression                                                                  | .*                |             |
 | WARNINGTRAFFICIN   | Threshold                                                                                          |                   |             |
 | CRITICALTRAFFICIN  | Threshold                                                                                          |                   |             |
 | WARNINGTRAFFICOUT  | Threshold                                                                                          |                   |             |
