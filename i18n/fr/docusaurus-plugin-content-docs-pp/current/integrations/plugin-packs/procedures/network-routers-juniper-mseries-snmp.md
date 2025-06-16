@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Juniper M-Series** 
-depuis la page **Configuration > Gestionnaire de Connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -213,10 +213,10 @@ Centreon vers la ressource supervisée.
 
 ### Pack
 
-La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md) de supervision.
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de Connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -253,7 +253,7 @@ yum install centreon-pack-network-routers-juniper-mseries-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper M-Series**
-depuis l'interface web et le menu **Configuration > Gestionnaire de Connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -306,7 +306,7 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Snmp
 3. Appliquez le modèle d'hôte **Net-Juniper-Mseries-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -345,8 +345,8 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Snmp
 | FILTER         | Filter by peer identifier (can be regexp)                                                                                                                                                                                                                                                                                                                                                                      |                                                                     |             |
 | FILTERREMOTEIP | Filter by remote IP address (can be regexp)                                                                                                                                                                                                                                                                                                                                                                    |                                                                     |             |
 | FILTERLOCALAS  | Filter by local AS (can be regexp)                                                                                                                                                                                                                                                                                                                                                                             |                                                                     |             |
-| CRITICALSTATUS | Specify critical threshold (default: C\<'%\{peer\_status\} =~ /running/ && %\{peer\_state\} !~ /established/'\>). Can use special variables like C\<%\{peer\_identifier\}\>, C\<%\{peer\_state\}\>, C\<%\{peer\_status\}\>, C\<%\{local\_type\}\>, C\<%\{local\_ip\}\>, C\<%\{local\_port\}\>, C\<%\{local\_as\}\>, C\<%\{remote\_type\}\>, C\<%\{remote\_ip\}\>, C\<%\{remote\_port\}\>, C\<%\{remote\_as\}\> | %\{peer\_status\} =~ /running/ && %\{peer\_state\} !~ /established/ |             |
-| WARNINGSTATUS  | Specify warning threshold. Can use special variables like C\<%\{peer\_identifier\}\>, C\<%\{peer\_state\}\>, C\<%\{peer\_status\}\>, C\<%\{local\_type\}\>, C\<%\{local\_ip\}\>, C\<%\{local\_port\}\>, C\<%\{local\_as\}\>, C\<%\{remote\_type\}\>, C\<%\{remote\_ip\}\>, C\<%\{remote\_port\}\>, C\<%\{remote\_as\}\>                                                                                        |                                                                     |             |
+| CRITICALSTATUS | Specify critical threshold (default: <'%\{peer\_status\} =~ /running/ && %\{peer\_state\} !~ /established/'\>). Can use special variables like <%\{peer\_identifier\}\>, <%\{peer\_state\}\>, <%\{peer\_status\}\>, <%\{local\_type\}\>, <%\{local\_ip\}\>, <%\{local\_port\}\>, <%\{local\_as\}\>, <%\{remote\_type\}\>, <%\{remote\_ip\}\>, <%\{remote\_port\}\>, <%\{remote\_as\}\> | %\{peer\_status\} =~ /running/ && %\{peer\_state\} !~ /established/ |             |
+| WARNINGSTATUS  | Specify warning threshold. Can use special variables like <%\{peer\_identifier\}\>, <%\{peer\_state\}\>, <%\{peer\_status\}\>, <%\{local\_type\}\>, <%\{local\_ip\}\>, <%\{local\_port\}\>, <%\{local\_as\}\>, <%\{remote\_type\}\>, <%\{remote\_ip\}\>, <%\{remote\_port\}\>, <%\{remote\_as\}\>                                                                                        |                                                                     |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                                                                                                                             |                                                                     |             |
 
 </TabItem>
@@ -406,7 +406,7 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Snmp
 
 | Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: C\<'.*'\>). Can be: `fru`, `operating`, `alarm`                 | .*                |             |
+| COMPONENT    | Which component to check (default: \<'.*'\>). Can be: `fru`, `operating`, `alarm`                 | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -427,13 +427,13 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Snmp
 
 | Macro                   | Description                                                                                                                                              | Valeur par défaut   | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
-| FILTERNAME              | Threshold                                                                                                                                                |                     |             |
-| FILTERFROM              | Threshold                                                                                                                                                |                     |             |
-| FILTERTO                | Threshold                                                                                                                                                |                     |             |
+| FILTERNAME              | Filter LSPs                                                                                                                                |                   |             |
+| FILTERFROM              | Filter LSPs                                                                                                                                |                   |             |
+| FILTERTO                | Filter LSPs                                                                                                                                |                   |             |
 | WARNINGLASTTRANSITION   | Threshold                                                                                                                                                |                     |             |
 | CRITICALLASTTRANSITION  | Threshold                                                                                                                                                |                     |             |
-| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL (default: C\<'%\{state\} !~ /up/i'\>). You can use the following variables: C\<%\{state\}\> | %\{state\} !~ /up/i |             |
-| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING (default: `''`). You can use the following variables: C\<%\{state\}\>                        |                     |             |
+| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL (default: <'%\{state\} !~ /up/i'\>). You can use the following variables: <%\{state\}\> | %\{state\} !~ /up/i |             |
+| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING (default: `''`). You can use the following variables: <%\{state\}\>                        |                     |             |
 | WARNINGTRANSITIONCOUNT  | Threshold                                                                                                                                                |                     |             |
 | CRITICALTRANSITIONCOUNT | Threshold                                                                                                                                                |                     |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                       |                     |             |
@@ -457,9 +457,9 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Snmp
 
 | Macro          | Description                                                                                                                                    | Valeur par défaut   | Obligatoire |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
-| FILTERNAME     | Threshold                                                                                                                                      |                     |             |
-| FILTERFROM     | Threshold                                                                                                                                      |                     |             |
-| FILTERTO       | Threshold                                                                                                                                      |                     |             |
+| FILTERNAME     | Filter sessions                                                                                                                            |                   |             |
+| FILTERFROM     | Filter sessions                                                                                                                            |                   |             |
+| FILTERTO       | Filter sessions                                                                                                                            |                   |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} !~ /up/i'). You can use the following variables: %\{state\} | %\{state\} !~ /up/i |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{state\}                     |                     |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                             |                     |             |
@@ -498,7 +498,7 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Snmp
 | CRITICALIN     | Set critical threshold for in traffic                                                                                                                                                                                                                    | 90                |             |
 | WARNINGOUT     | Set warning threshold for out traffic                                                                                                                                                                                                                    | 80                |             |
 | CRITICALOUT    | Set critical threshold for out traffic                                                                                                                                                                                                                   | 90                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: C\<'%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'\>). You can use the following variables: C\<%\{admstatus\}\>, C\<%\{opstatus\}\>, C\<%\{duplexstatus\}\>, C\<%\{display\}\> |                   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                       |                   |             |
 
 </TabItem>

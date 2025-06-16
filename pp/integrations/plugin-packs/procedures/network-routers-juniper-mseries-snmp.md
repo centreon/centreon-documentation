@@ -415,8 +415,8 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Snmp
 
 | Macro              | Description                                                                                                                                             | Default value                | Mandatory   |
 |:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| FILTERENTITY       | Threshold                                                                                                                                               |                              |             |
-| FILTERPEER         | Threshold                                                                                                                                               |                              |             |
+| FILTERENTITY       | Filter entities                                                                                                                         |                            |             |
+| FILTERPEER         | Filter peers                                                                                                                         |                            |             |
 | WARNINGLASTCHANGE  | Warning threshold in seconds                                                                                                                            |                              |             |
 | CRITICALLASTCHANGE | Critical threshold in seconds                                                                                                                           |                              |             |
 | CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} !~ /operational/i'). You can use the following variables: %\{state\} | %\{state\} !~ /operational/i |             |
