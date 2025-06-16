@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Juniper ISG** connector through the
-**Configuration > Monitoring Connectors** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -143,7 +143,7 @@ The installation procedures for monitoring connectors are slightly different dep
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connectors** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -179,7 +179,7 @@ yum install centreon-pack-network-juniper-isg-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Juniper ISG** connector through
-the **Configuration > Monitoring Connectors** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -330,7 +330,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=40742b/s;;;; 'interface_name2#interface.traffic.in.bitspersecond'=6680b/s;;;; 'interface_name1#interface.traffic.out.bitspersecond'=20119b/s;;;; 'interface_name2#interface.traffic.out.bitspersecond'=39675b/s;;;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=42b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=66b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=29b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=35b/s;80;90;; 
 ```
 
 ### Troubleshooting
