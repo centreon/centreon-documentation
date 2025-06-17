@@ -197,9 +197,9 @@ yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 
 | Macro         | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:--------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| AWSACCESSKEY  | Set AWS access key                                                                                   |                   | X           |
+| AWSACCESSKEY  | Set AWS access key                                                                                   |                   |             |
 | AWSASSUMEROLE | Set Amazon Resource Name of the role to be assumed                                                   |                   |             |
-| AWSSECRETKEY  | Set AWS secret key                                                                                   |                   | X           |
+| AWSSECRETKEY  | Set AWS secret key                                                                                   |                   |             |
 | PROXYURL      | Proxy URL if any                                                                                     |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
@@ -257,16 +257,15 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=cloud::aws::cloudwatch::plugin \
 	--mode=get-metrics \
 	--custommode='awscli' \
-	--aws-secret-key='XXXX' \
-	--aws-access-key='XXXX' \
+	--aws-secret-key='' \
+	--aws-access-key='' \
 	--aws-role-arn='' \
 	--proxyurl=''  \
-	--region='eu-west-1' \
+	--region='' \
 	--namespace='' \
-	--dimension='Dimension' \
-	--metric='metric' \
-	--statistic='average' \
-	--period='60' \
+	--dimension='' \
+	--metric='' \
+	--statistic='average' u2013-period='60' \
 	--timeframe='600' \
 	--warning-metric='' \
 	--critical-metric='' \
@@ -276,7 +275,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All metrics are ok | 'Dimension_metric_average'=56722;;;; 
+OK: All metrics are ok 
 ```
 
 ### Diagnostic des erreurs communes

@@ -256,16 +256,15 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 	--plugin=cloud::aws::cloudwatch::plugin \
 	--mode=get-metrics \
 	--custommode='awscli' \
-	--aws-secret-key='XXXX' \
-	--aws-access-key='XXXX' \
+	--aws-secret-key='' \
+	--aws-access-key='' \
 	--aws-role-arn='' \
 	--proxyurl=''  \
-	--region='eu-west-1' \
+	--region='' \
 	--namespace='' \
-	--dimension='Dimension' \
-	--metric='metric' \
-	--statistic='average' \
-	--period='60' \
+	--dimension='' \
+	--metric='' \
+	--statistic='average' u2013-period='60' \
 	--timeframe='600' \
 	--warning-metric='' \
 	--critical-metric='' \
@@ -275,7 +274,7 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 The expected command output is shown below:
 
 ```bash
-OK: All metrics are ok | 'Dimension_metric_average'=56722;;;; 
+OK: All metrics are ok 
 ```
 
 ### Troubleshooting
