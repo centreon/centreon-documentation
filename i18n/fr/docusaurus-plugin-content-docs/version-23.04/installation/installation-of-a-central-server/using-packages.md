@@ -5,8 +5,6 @@ title: À partir des paquets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Cette version de Centreon est ancienne. Nous vous recommandons d'installer la dernière version.
-
 Centreon fournit des paquets RPM et DEB pour ses produits via la version Centreon Open Source disponible gratuitement dans notre dépôt.
 
 Ces paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9 et sur Debian 11.
@@ -516,7 +514,7 @@ mysql_secure_installation
 ```
 
 Ensuite, dans la base de données distante, créez un utilisateur avec des privilèges **root**. Vous devrez entrer cet utilisateur pendant 
-le processus d'installation web (à [étape 6](../web-and-post-installation.md#étape-6-database-information),
+le processus d'installation web (à [étape 6](../web-and-post-installation.md#étape-6--database-information),
 dans les champs **Root user** et **Root password**).
 
 ```SQL
@@ -789,4 +787,4 @@ systemctl start apache2
 </Tabs>
 
 2. Pour terminer l'installation, suivez la procédure
-d'[installation web](../web-and-post-installation.md#web-installation).
+d'[installation web](../web-and-post-installation.md#installation-web).

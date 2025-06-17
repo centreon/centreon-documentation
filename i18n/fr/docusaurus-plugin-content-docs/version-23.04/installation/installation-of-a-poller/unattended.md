@@ -5,8 +5,6 @@ title: Installation silencieuse d'un collecteur
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Cette version de Centreon est ancienne. Nous vous recommandons d'installer la dernière version.
-
 Pour installer un collecteur plus rapidement, vous pouvez utiliser un script. Le script exécutera les étapes d'installation proprement dites. Vous devrez ensuite enregistrer le collecteur et le rattacher au serveur central ou au serveur distant.
 
 ## Procédure d'installation
@@ -72,7 +70,7 @@ bash /tmp/unattended.sh install -t poller -v 23.04 -r stable -l DEBUG  2>&1 |tee
 
   Vous obtiendrez un fichier de log complet avec toutes les erreurs dans votre répertoire **tmp**, fichier nommé **unattended(date).log**.
 
-4. Une fois le script exécuté, suivez les [étapes 3 à 5 de la procédure d'installation d'un collecteur](./using-packages.md#step-3-register-the-server).
+4. Une fois le script exécuté, suivez les [étapes 3 à 5 de la procédure d'installation d'un collecteur](using-packages.md#étape-3--enregistrer-le-serveur).
 
 ## Aide
 

@@ -622,7 +622,7 @@ systemctl restart telegraf
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -658,7 +658,7 @@ yum install centreon-pack-operatingsystems-linux-telegraf-agent
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Linux Telegraf-Agent** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 3. Add the new connector.
 
@@ -666,8 +666,8 @@ In the **Configuration > Commands > Connectors** menu, click **Add** and fill th
 
 | Parameter             | Value                                                                                                                                                                                                                            |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connector Name        | Telegraf Agent                                                                                                                                                                                                                   |
-| Connector Description | Telegraf Agent                                                                                                                                                                                                                   |
+| Connector Name        | Telegraf Agent Beta                                                                                                                                                                                                                   |
+| Connector Description | Telegraf Agent Beta                                                                                                                                                                                                                  |
 | Command Line          | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resourceMetrics.scopeMetrics.metrics.dataPoints.attributes.host --service_path=resourceMetrics.scopeMetrics.metrics.dataPoints.attributes.service` |
 | Used by command       | Select all the commands whose names match `OS-Linux-Telegraf-Agent-*`                                                                                                                                                            |
 | Connector Status      | Enabled                                                                                                                                                                                                                          |
@@ -688,8 +688,8 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 | Macro                | Description                                                                                                                                        | Valeur par défaut           | Obligatoire |
 | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------- | :---------: |
 | TELEGRAFPLUGINS      | Path where the Centreon Plugins can be found.                                                                                                      | `/usr/lib/centreon/plugins` |      X      |
-| TELEGRAFSTATEFILEDIR | Define the cache directory.                                                                                                                        | `/var/lib/telegraf`         |      X      |
-| TELEGRAFEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                             |             |
+| TELEGRAFSTATEFILEDIR | Define the cache directory.                                                                                                                        | `/var/lib/telegraf`          |      X      |
+| TELEGRAFEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                              |             |
 
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.

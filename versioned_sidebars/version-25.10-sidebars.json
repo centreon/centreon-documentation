@@ -475,7 +475,7 @@
               "type": "doc",
               "id": "alerts-notifications/event-log"
             }
-           
+
             ]
         },
         {
@@ -678,10 +678,6 @@
             },
             {
               "type": "doc",
-              "id": "service-mapping/migrate"
-            },
-            {
-              "type": "doc",
               "id": "service-mapping/remote-server"
             }
           ]
@@ -807,7 +803,7 @@
             },
             {
               "type": "doc",
-              
+
               "id": "graph-views/map-web-known-issues"
             },
             {
@@ -834,6 +830,10 @@
         "type": "generated-index"
       },
       "items": [
+        {
+          "type": "doc",
+          "id": "alerts-notifications/availability"
+        },
         {
           "type": "doc",
           "id": "reporting/introduction"
@@ -1214,7 +1214,7 @@
             },
             {
               "type": "doc",
-              "id": "integrations/event-management/sc-opsgenie"
+              "id": "integrations/event-management/sc-opsgenie-events"
             },
             {
               "type": "doc",

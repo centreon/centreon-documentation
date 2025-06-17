@@ -5,8 +5,6 @@ title: Installation silencieuse d'un serveur central
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Cette version de Centreon est ancienne. Nous vous recommandons d'installer la dernière version.
-
 Pour installer un serveur central plus rapidement, vous pouvez utiliser un script. Le script exécutera la procédure d'installation complète, installation web incluse.
 
 ## Procédure d'installation
@@ -85,7 +83,7 @@ Dans les deux cas, vous obtiendrez un fichier de log complet avec toutes les err
 4. Configurez Centreon
 
 Connectez-vous à l'interface web de Centreon avec l'URL `http://[SERVER_IP]/centreon` en remplaçant [SERVER_IP] par l'adresse IP de votre serveur.
-Une fois connecté, suivez les instructions décrites [ici](../../web-and-post-installation/#initialization-of-the-monitoring).
+Une fois connecté, suivez les instructions décrites [ici](../web-and-post-installation.md#initialisation-de-la-supervision).
 
 5. Commencez à utiliser Centreon
 

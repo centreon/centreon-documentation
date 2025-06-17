@@ -8,6 +8,199 @@ import TabItem from '@theme/TabItem';
 
 ## 2025
 
+### June
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Juniper M-Series Netconf**](../procedures/network-routers-juniper-mseries-netconf.md) - Initial release of Juniper M-series with Netconf.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**F5 BigIP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - Added new **certificates** mode, from a [The Watch idea](https://thewatch.centreon.com/ideas/monitor-certificate-with-f5-bigip-3074).
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Added **uptime** service template.
+- [**Juniper EX Series**](../procedures/network-switchs-juniper-ex-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper GGSN**](../procedures/network-juniper-ggsn-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper ISG**](../procedures/network-juniper-isg-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper M-Series**](../procedures/network-routers-juniper-mseries-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper Mag**](../procedures/network-firewalls-juniper-mag-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper SA**](../procedures/network-firewalls-juniper-sa-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper SRX**](../procedures/network-firewalls-juniper-srx-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper SSG**](../procedures/network-firewalls-juniper-ssg-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Juniper Trapeze**](../procedures/network-juniper-trapeze-snmp.md) - Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [**Nmap CLI**](../procedures/applications-nmap-cli.md) - Enhanced secure execution of commands.
+- [**Office 365 OneDrive**](../procedures/cloud-microsoft-office365-onedrive.md) - Added template for **users-activity** and service discovery rule for **site-usage**.
+- [**Pure Storage FlashArray Rest API v2**](../procedures/hardware-storage-purestorage-flasharray-v2-restapi.md) - Added performance counters in **arrays** mode, based on community contribution [PR 5355](https://github.com/centreon/centreon-plugins/pull/5355).
+- [**Qnap**](../procedures/hardware-storage-qnap-snmp.md) - Added QuTS Operating System handling for **hardware**, **pools** and **volumes** modes, from community contribution [PR 5564](https://github.com/centreon/centreon-plugins/pull/5564).
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Office 365 OneDrive**](../procedures/cloud-microsoft-office365-onedrive.md) - Fixed service discovery mode for **site-usage**.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed segmentation fault that occurred with glibc's latest version.
+- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - Fixed an issue affecting token renewal.
+- **VMWare Daemon** - Change rights after installation to allow apache (central) and centreon-gorgone (poller) to update the **centreon_vmware.json** file after a configuration export.
+- [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
+- [**VMware vCenter v6**](../procedures/virtualization-vmware2-vcenter-6.md) - Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
+- [**VMware vCenter**](../procedures/virtualization-vmware2-vcenter-generic.md) - Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
+- [**VMware VM**](../procedures/virtualization-vmware2-vm.md) - Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
+
+#### How to patch the VSAN bug on Debian 11 & 12 and Alma/RHEL/Oracle 9?
+
+1. Locate the file that must be patched.
+
+
+```bash
+find /usr/ -name VICommon.pm
+```
+
+
+It should be `/usr/local/share/perl5/5.32/VMware/VICommon.pm` on EL9, `/usr/local/share/perl/5.32.1/VMware/VICommon.pm` on Debian 11 and `/usr/local/share/perl/5.36.0/VMware/VICommon.pm` on Debian 12.
+
+
+2. Run the following command to apply the patch (replace "FILE_TO_PATCH" with the results of the previous command):
+
+
+```bash
+patch --backup FILE_TO_PATCH <<'EOF'
+--- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
++++ VICommon.pm	2025-04-24 17:18:18.690399614 +0200
+@@ -2319,6 +2319,8 @@
+    my $user_agent = $self->{user_agent};
+    $user_agent->cookie_jar->as_string
+       =~ m/(.*)vmware_soap_session=\"\\\"([0-9a-zA-Z-](.*)+)\\\"\"(.*)/;
++   $user_agent->cookie_jar->as_string
++      =~ m/(.*)vmware_soap_session=[\\\"]*([0-9a-zA-Z-]+)/ unless $2;
+    return $2;
+ }
+EOF
+```
+
+The results of this command should be `patching file /usr/your/path/to/VICommon.pm`.
+3. Then restart the daemon:
+
+
+```bash
+systemctl restart centreon_vmware
+```
+
+</TabItem>
+</Tabs>
+
+### May
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**F5OS SNMP**](../procedures/operatingsystems-f5os-snmp.md) - Initial release of F5OS SNMP.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Centreon Central**](../procedures/applications-monitoring-centreon-central.md) - Added the detection of systemd-timesyncd into `SERVICEPROCESSNAME` macro default value in proc-ntpd service.
+- [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - Added the detection of systemd-timesyncd into `SERVICEPROCESSNAME` macro default value in proc-ntpd service.
+- [**Cisco Small Business**](../procedures/network-switchs-cisco-smallbusiness-standard-snmp.md) - Added a new **stack** mode, based on community contribution [PR 5317](https://github.com/centreon/centreon-plugins/pull/5317).
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Added new threshold macro `SERVICEWARNINGSPACEUSAGEPRCT` and `SERVICECRITICALSPACEUSAGEPRCT` in filesystems template.
+- [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Added new **lte-interfaces** mode and service discovery rules for **list-interfaces** and **list-lte-interfaces**, from a [The Watch idea](https://thewatch.centreon.com/ideas/mikrotik-lte-signal-strength-support-2579).
+- [**Socomec Net Vision UPS SNMP**](../procedures/hardware-ups-socomec-netvision-snmp.md) - Added the `battery.temperatureambient.celsius` counter in **battery** service, from community contribution [PR 5493](https://github.com/centreon/centreon-plugins/pull/5493).
+- [**Stormshield API**](../procedures/network-stormshield-api.md) - Added new **vpn-tunnels** mode and **list-vpn-tunnels** discovery rule, based on community contribution [PR 5048](https://github.com/centreon/centreon-plugins/pull/5048).
+- [**VMware vCenter v4**](../procedures/virtualization-vmware2-vcenter-4.md) - Deprecated VMware vCenter v4.
+- [**VMware vCenter v5**](../procedures/virtualization-vmware2-vcenter-5.md) - Deprecated VMware vCenter v5.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Azure Storage Sync**](../procedures/cloud-azure-storage-storagesync.md) - Removed deprecated `StorageSyncRecallIOTotalSizeBytes` metric in **recalls** mode.
+- [**Cambium cnPilot SNMP**](../procedures/network-cambium-cnpilot-snmp.md) - Fixed a wrong plugin executable name.
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Fixed wrong threshold default values in filesystems template.
+
+</TabItem>
+</Tabs>
+
+### April
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Exense Step REST API**](../procedures/applications-exense-step-restapi.md) - Initial release of Exense Step REST API.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**APC UPS SNMP**](../procedures/hardware-ups-apc-snmp.md) - Enhance **replace-lasttime** output to be humanly readable in **battery-status** mode, from a [The Watch idea](https://thewatch.centreon.com/ideas/hardware-ups-apc-snmp-plugin-warn-crit-output-with-options-warning-replace-lasttime-critical-replace-lasttime-3427).
+- [**Colubris SNMP**](../procedures/network-colubris-snmp.md) - Added the `--check-overload` option to the **uptime** service template.
+- [**F5 BigIP SNMP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - Added new **cpu-usage** mode, based on community contribution [PR 4701](https://github.com/centreon/centreon-plugins/pull/4701).
+- [**Fortinet FortiMail SNMP**](../procedures/network-fortinet-fortimail-snmp.md) - Added the `--check-overload` option to the **uptime** service template.
+- [**Fortinet FortiSwitch SNMP**](../procedures/network-fortinet-fortiswitch-snmp.md) - Added the `--check-overload` option to the **uptime** service template.
+- [**Fortinet Fortigate Rest API**](../procedures/network-fortinet-fortigate-restapi.md) - Added a new **certificates** mode, from community contribution [PR 5473](https://github.com/centreon/centreon-plugins/pull/5473).
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Added **switch-usage** mode, **switch discovery rule** and **vdom discovery rule**, from community contribution [PR 5474](https://github.com/centreon/centreon-plugins/pull/5474).
+- [**HP-UX SNMP**](../procedures/operatingsystems-hpux-snmp.md) - Added the `--check-overload` option to the **uptime** service template.
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Steps are now displayed in the actual step order instead of alphabetical.
+- [**JMeter**](../procedures/applications-jmeter.md) - Added `--command-path` option as macro in host template.
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Enhance uptime date display in **uptime** mode, based on community contribution [PR 4853](https://github.com/centreon/centreon-plugins/pull/4853).
+- [**Silverpeak SNMP**](../procedures/network-silverpeak-snmp.md) - Added **interfaces discovery rule**.
+- [**Synology SNMP**](../procedures/hardware-storage-synology-snmp.md) - Added the `--check-overload` option to the **uptime** service template.
+- [**VMware8 ESX REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - Added new **diskio**, **network** and **swap** modes.
+- [**Veeam Backup Enterprise Manager Rest API**](../procedures/applications-veeam-vbem-restapi.md) - Added handling of replication jobs to **jobs** mode.
+- [**Viptela SNMP**](../procedures/network-viptela-snmp.md) - Added the `--check-overload` option to the **uptime** service template.
+- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added new native checks: **cma-health**, **eventlog** and **services**.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Cisco Standard SNMP**](../procedures/network-cisco-standard-snmp.md) - The `status` metric has been changed in `config-running-ahead`, leading to a breaking-change state.
+- [**F5 BigIP SNMP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - Switched metrics to v2, leading to a breaking-change state.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Cisco Standard SNMP**](../procedures/network-cisco-standard-snmp.md) - Fixed an issue concerning wrong calculations after reboot (sysuptime was not considered) in **configuration** mode, from community contribution [PR 5282](https://github.com/centreon/centreon-plugins/pull/5282).
+- [**Eclipse Mosquitto MQTT**](../procedures/applications-eclipse-mosquitto-mqtt.md) - Fixed perfdata options in **numeric-value** mode, from community contribution [PR 5462](https://github.com/centreon/centreon-plugins/pull/5462).
+- [**IBM FlashSystem 900 SNMP**](../procedures/hardware-storage-ibm-fs900-snmp.md) - Fixed wrong default value for CRITICALSTATUS in **arrays-status** template.
+- [**Sonus SBC SNMP**](../procedures/network-sonus-sbc-snmp.md) - Fixed unknown call method map instance in **dsp-stats** mode, based on community contribution [PR 5477](https://github.com/centreon/centreon-plugins/pull/5477).
+
+</TabItem>
+</Tabs>
+
+### March
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**VMware8 ESX REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - Initial release of VMWare 8 ESX.
+- [**Veeam Centreon Monitoring Agent**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Initial release of Veeam using the Centreon Monitoring Agent, from a [The Watch idea](https://thewatch.centreon.com/ideas/prepare-veeam-template-with-centreon-monitoring-agent-4024).
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**ArubaOS-CX SNMP**](../procedures/network-aruba-aoscx-snmp.md) - Added **uptime**, **spanning tree** and **spanning tree discovery** modes, based on community contribution [PR 5424](https://github.com/centreon/centreon-plugins/pull/5424).
+- [**ChapsVision CrossinG SNMP**](../procedures/network-chapsvision-crossing-snmp.md) - Added handling of new OIDs for **antivirus** mode.
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Added ` ipsec-tunnels-count` in **vpn** mode, from community contribution [PR 5382](https://github.com/centreon/centreon-plugins/pull/5382).
+- [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Added capability to use AS400 SSL connection.
+- [**Pure Storage FlashArray Rest API v2**](../procedures/hardware-storage-purestorage-flasharray-v2-restapi.md) - Added `flagged` status attribute in **alerts** mode, from community contribution [PR 5307](https://github.com/centreon/centreon-plugins/pull/5307).
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Azure VPN Gateway**](../procedures/cloud-azure-network-vpngateway.md) - Fixed wrong variable assignment in **vpn-gateway-status** mode.
+- [**Cisco UCS SNMP**](../procedures/hardware-servers-cisco-ucs-snmp.md) - Fixed wrong count when memory component is not equipped in **equipment** mode.
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Added `--timezone` option for equipment in **cleaning** mode to avoid misinterpreting the clean time frame.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Added missing mandatory parameter in SNMP collection discovery command.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [**HTTP Server**](../procedures/applications-protocol-http.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Fixed previous pending error.
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Fixed step metrics when scenario failed in **scenario** mode.
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed OS-Linux-SSH-Lvm command.
+- [**MongoDB**](../procedures/applications-databases-mongodb.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on a community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Fixed hardware API requests for bays.
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [**Raritan PDU SNMP**](../procedures/hardware-pdu-raritan-snmp.md) - Fixed an issue with sensors when powerFactor value is missing.
+
+</TabItem>
+</Tabs>
+
 ### February
 
 <Tabs groupId="sync">
@@ -25,7 +218,7 @@ import TabItem from '@theme/TabItem';
 - [**Windows NSClient 0.5 NRPE**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Changed pack display name to make it clear that it uses the NRPE protocol.
 
 </TabItem>
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Azure Database for PostgreSQL**](../procedures/cloud-azure-database-postgresql.md) - Fixed **storage** command by adding spaces before warning options.
 - [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed **sdwan** mode incorrect traffic calculation and units, based on a community contribution ([PR 5343](https://github.com/centreon/centreon-plugins/pull/5343)).

@@ -5,8 +5,6 @@ title: À partir des paquets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Cette version de Centreon est ancienne. Nous vous recommandons d'installer la dernière version.
-
 Centreon fournit des paquets RPM et DEB pour ses produits au travers de la solution
 Centreon Open Source disponible gratuitement sur notre dépôt.
 
@@ -150,7 +148,7 @@ SELinux n'est pas installé sur Debian 11, continuez.
 
 ### Configurer ou désactiver le pare-feu
 
-Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.md#enable-firewalld).
+Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.md#activer-firewalld).
 Vous pouvez également le désactiver le temps de l'installation :
 
 ```shell
@@ -158,7 +156,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.md#enable-firewalld)
+> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.md#activer-firewalld)
 > pour configurer le pare-feu.
 
 ### Installer les dépôts

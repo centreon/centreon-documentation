@@ -5,8 +5,6 @@ title: Using packages
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> This is an older version of Centreon. We recommend you install the latest version.
-
 Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
@@ -521,7 +519,7 @@ mysql_secure_installation
 > It is mandatory to set a password for the root user of the database.
 
 Then, in the remote dabatase, create a user with **root** privileges. You will have to enter this user during the 
-web installation process (at [step 6](../web-and-post-installation.md#step-6-database-infomation),
+web installation process (at [step 6](../web-and-post-installation.md#step-6-database-information),
 in the **Root user** and **Root password** fields).
 
 ```SQL

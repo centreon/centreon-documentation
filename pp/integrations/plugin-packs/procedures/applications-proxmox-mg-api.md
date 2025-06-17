@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Proxmox Mail Gateway** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -76,7 +76,7 @@ https://pmg.proxmox.com/pmg-docs/api-viewer/index.html
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -112,7 +112,7 @@ yum install centreon-pack-applications-proxmox-mg-api
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Proxmox Mail Gateway** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -123,7 +123,7 @@ You still have to manually install the plugin on the poller(s) when:
 - Automatic plugin installation is turned off
 - You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks#installing-the-plugin) section.
 
 Use the commands below according to your operating system's package manager:
 
@@ -175,7 +175,7 @@ yum install centreon-plugin-Applications-Proxmox-Mg-Api
 | PROXMOXMGAPIPORT         | API port                                                                                             | 8006              |             |
 | PROXMOXMGAPIREALM        | Set user realm                                                                                       | mg                |             |
 | PROXMOXMGAPIURL          | API url path                                                                                         | /api2/json        |             |
-| PROXMOXMGAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| PROXMOXMGAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 

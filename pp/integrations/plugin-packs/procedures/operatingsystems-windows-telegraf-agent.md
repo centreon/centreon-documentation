@@ -124,7 +124,7 @@ chown centreon-engine: /etc/centreon-engine/conf-*
 > The `-days 365` option limits the certificate's validity to one year. You may choose a longer or shorter duration according to your security/maintainance preferences.
 
 2. On your central server, go to **Configuration > Monitoring Connector Manager**.
-3. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the **Windows Telegraf Agent** monitoring connector.
+3. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the **Windows Telegraf Agent** monitoring connector.
 
 ### Configure Engine
 
@@ -224,8 +224,8 @@ In the **Configuration > Commands > Connectors** menu, click **Add** and fill th
 
 | Parameter             | Value                                                                                                                                                                                                                            |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connector Name        | Telegraf Agent                                                                                                                                                                                                                   |
-| Connector Description | Telegraf Agent                                                                                                                                                                                                                   |
+| Connector Name        | Telegraf Agent Beta                                                                                                                                                                                                                   |
+| Connector Description | Telegraf Agent Beta                                                                                                                                                                                                                   |
 | Command Line          | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resourceMetrics.scopeMetrics.metrics.dataPoints.attributes.host --service_path=resourceMetrics.scopeMetrics.metrics.dataPoints.attributes.service` |
 | Used by command       | Select all the commands named like `OS-Windows-Telegraf-Agent-*`                                                                                                                                                                 |
 | Connector Status      | Enabled                                                                                                                                                                                                                          |
@@ -261,6 +261,17 @@ This connector relies on an integration supported by Centreon Engine and does no
 <Tabs groupId="sync">
 <TabItem value="Certificates" label="Certificates">
 
+| Macro        | Description                                                                                         | Default value     | Mandatory   |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSUBJECT                | Filter certificate by subject (can be a regexp).                                                                                                            |                   |             |
+| FILTERTHUMBPRINT             | Filter certificate by thumbprint (can be a regexp).                                                                                                         |                   |             |
+| FILTERPATH                   | Filter certificate by path (can be a regexp).                                                                                                               |                   |             |
+| THRESHOLDSUNIT               | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. | d                 |             |
+| WARNINGCERTIFICATEEXPIRES    | Thresholds.                                                                                                                                                 | 60:               |             |
+| CRITICALCERTIFICATEEXPIRES   | Thresholds.                                                                                                                                                 | 30:               |             |
+| WARNINGCERTIFICATESDETECTED  | Thresholds.                                                                                                                                                 |                   |             |
+| CRITICALCERTIFICATESDETECTED | Thresholds.                                                                                                                                                 |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                    |                   |             |
 | Macro                        | Description                                                                                                                                                 | Default value | Mandatory |
 | :--------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------ | :-------: |
 | FILTERSUBJECT                | Filter certificate by subject (can be a regexp).                                                                                                            |               |           |
@@ -271,7 +282,7 @@ This connector relies on an integration supported by Centreon Engine and does no
 | CRITICALCERTIFICATEEXPIRES   | Thresholds.                                                                                                                                                 | 30:           |           |
 | WARNINGCERTIFICATESDETECTED  | Thresholds.                                                                                                                                                 |               |           |
 | CRITICALCERTIFICATESDETECTED | Thresholds.                                                                                                                                                 |               |           |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                    |               |           |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                    |               |           |
 
 
 </TabItem>

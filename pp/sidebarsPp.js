@@ -210,6 +210,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-exense-step-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-github-restapi'
         },
         {
@@ -643,6 +647,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-veeam-vbem-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-veeam-centreon-monitoring-agent'
         },
         {
           type: 'doc',
@@ -1850,6 +1858,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-routers-juniper-mseries-netconf'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-firewalls-juniper-mag-snmp'
         },
         {
@@ -2141,6 +2153,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/base-generic'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-f5os-snmp'
         },
         {
           type: 'doc',
@@ -2489,6 +2505,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-emc-symmetrix-nrpe'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-emc-symmetrix-nsclient-05-restapi'
         },
         {
           type: 'doc',
@@ -2935,6 +2955,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-vmware2-vm'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/application-virtualization-vmware8-esx-restapi'
         }
       ]
     }
