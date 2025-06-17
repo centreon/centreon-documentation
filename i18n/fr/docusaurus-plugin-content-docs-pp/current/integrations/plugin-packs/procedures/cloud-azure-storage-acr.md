@@ -5,12 +5,8 @@ title: Azure Container Registry
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
 
-Azure Container Registry est un service de registre Docker managé privé, qui est basé sur le registre open source Docker 2.0. Il permet de créer et de
-tenir à jour des registres de conteneurs Azure pour stocker et gérer des images conteneur Docker privées et les artefacts associés.
-
-Le Plugin Centreon *Azure Container Registry* s'appuie sur les API Azure Monitor afin de récupérer les métriques relatives au service
+Le Plugin Centreon **Azure Container Registry** s'appuie sur les API Azure Monitor afin de récupérer les métriques relatives au service
 Container Registry.
 
 ## Dépendances du connecteur de supervision
