@@ -201,7 +201,7 @@ The following is an exhaustive list of macros by resource type, each type of res
 
 ### Host Group Macros
 
-| Macro Name [(5)](#notes)      | Service Checks | Service Notifications* | Host Checks | Host Notifications* | Service Event Handlers | Host Event Handlers |
+| Macro Name [(5)](#notes)      | Service Checks | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers |
 |-------------------------------|----------------|------------------------|-------------|---------------------|------------------------|---------------------|
 | \$HOSTGROUPALIAS\$            | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
 | \$HOSTGROUPMEMBERS\$          | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
@@ -229,7 +229,7 @@ The following is an exhaustive list of macros by resource type, each type of res
 
 ### Service Macros
 
-| Macro Name                              | Service Checks    | Service Notifications* | Host Checks | Host Notifications* | Service Event Handlers | Host Event Handlers |
+| Macro Name                              | Service Checks    | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers |
 |-----------------------------------------|-------------------|------------------------|-------------|---------------------|------------------------|---------------------|
 | \$SERVICEDESC\$                         | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
 | \$SERVICEDISPLAYNAME\$                  | Yes               | Yes                    | No          | No                  | Yes                    | No                  |
@@ -313,9 +313,9 @@ The following is an exhaustive list of macros by resource type, each type of res
 - **\$SERVICENOTESURL\$**: Notes URL for the service. This macro may contain other macros (e.g. \$HOSTNAME\$ or \$SERVICEDESC\$), which can be useful when you want to pass the service name to a web page.
 - **\$SERVICENOTES\$**: Notes for the service. This macro may contain other macros (e.g. \$HOSTNAME\$ or \$SERVICESTATE\$), which can be useful when you want to service-specific status information, etc. in the description
 
-### Service Group Macros description
+### Service Group Macros
 
-| Macro Name [(6)](#notes)  | Service Checks | Service Notifications* | Host Checks | Host Notifications* | Service Event Handlers | Host Event Handlers |
+| Macro Name [(6)](#notes)  | Service Checks | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers |
 |---------------------------|----------------|------------------------|-------------|---------------------|------------------------|---------------------|
 | \$SERVICEGROUPALIAS\$     | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
 | \$SERVICEGROUPMEMBERS\$   | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
@@ -325,13 +325,13 @@ The following is an exhaustive list of macros by resource type, each type of res
 - **\$SERVICEGROUPALIAS\$**: The long name / alias of either
   - 1) the servicegroup name passed as an on-demand macro argument or
   - 2) the primary servicegroup associated with the current service (if not used in the context of an on-demand macro). This value is taken from the alias directive in the servicegroup definition.
-- **\$SERVICEGROUPMEMBERS\$**: **A comma-separated list of all services that belong to either
+- **\$SERVICEGROUPMEMBERS\$**: A comma-separated list of all services that belong to either
   - 1) the servicegroup name passed as an on-demand macro argument or
   - 2) the primary servicegroup associated with the current service (if not used in the context of an on-demand macro).
 
 ### Contact Macros
 
-| Macro Name          | Service Checks | Service Notifications* | Host Checks | Host Notifications* | Service Event Handlers | Host Event Handlers |
+| Macro Name          | Service Checks | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers |
 |---------------------|----------------|------------------------|-------------|---------------------|------------------------|---------------------|
 | \$CONTACTNAME\$     | No             | Yes                    | No          | Yes                 | No                     | No                  |
 | \$CONTACTALIAS\$    | No             | Yes                    | No          | Yes                 | No                     | No                  |
@@ -351,7 +351,7 @@ The following is an exhaustive list of macros by resource type, each type of res
 
 ### Contact Group Macros
 
-| Macro Name [(7)](#notes)  | Service Checks | Service Notifications* | Host Checks | Host Notifications* | Service Event Handlers | Host Event Handlers |
+| Macro Name [(7)](#notes)  | Service Checks | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers |
 |---------------------------|----------------|------------------------|-------------|---------------------|------------------------|---------------------|
 | \$CONTACTGROUPALIAS\$     | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
 | \$CONTACTGROUPMEMBERS\$   | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
@@ -367,7 +367,7 @@ The following is an exhaustive list of macros by resource type, each type of res
 
 ### Summary Macros
 
-| Macro Name [(10)](#notes)          | Service Checks | Service Notifications* | Host Checks | Host Notifications* | Service Event Handlers | Host Event Handlers |
+| Macro Name [(10)](#notes)          | Service Checks | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers |
 |------------------------------------|----------------|------------------------|-------------|---------------------|------------------------|---------------------|
 | \$TOTALHOSTSUP\$                   | Yes            | Yes [(4)](#notes)      | Yes         | Yes [(4)](#notes)   | Yes                    | Yes                 |
 | \$TOTALHOSTSDOWN\$                 | Yes            | Yes [(4)](#notes)      | Yes         | Yes [(4)](#notes)   | Yes                    | Yes                 |
@@ -407,7 +407,7 @@ The following is an exhaustive list of macros by resource type, each type of res
 
 ### Notification Macros
 
-| Macro Name                    | Service Checks | Service Notifications* | Host Checks | Host Notifications* | Service Event Handlers | Host Event Handlers |
+| Macro Name                    | Service Checks | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers |
 |-------------------------------|----------------|------------------------|-------------|---------------------|------------------------|---------------------|
 | \$NOTIFICATIONTYPE\$          | No             | Yes                    | No          | Yes                 | No                     | No                  |
 | \$NOTIFICATIONRECIPIENTS\$    | No             | Yes                    | No          | Yes                 | No                     | No                  |
@@ -437,7 +437,7 @@ The following is an exhaustive list of macros by resource type, each type of res
 
 ### Date/Time Macros
 
-| Macro Name                      | Service Checks | Service Notifications* | Host Checks | Host Notifications* | Service Event Handlers | Host Event Handlers |
+| Macro Name                      | Service Checks | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers |
 |---------------------------------|----------------|------------------------|-------------|---------------------|------------------------|---------------------|
 | \$LONGDATETIME\$                | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
 | \$SHORTDATETIME\$               | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
@@ -464,7 +464,7 @@ The following is an exhaustive list of macros by resource type, each type of res
 
 ### Misc Macros
 
-| Macro Name           | Service Checks | Service Notifications* | Host Checks | Host Notifications* | Service Event Handlers | Host Event Handlers |
+| Macro Name           | Service Checks | Service Notifications  | Host Checks | Host Notifications  | Service Event Handlers | Host Event Handlers |
 |----------------------|----------------|------------------------|-------------|---------------------|------------------------|---------------------|
 | \$PROCESSSTARTTIME\$ | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
 | \$EVENTSTARTTIME\$   | Yes            | Yes                    | Yes         | Yes                 | Yes                    | Yes                 |
