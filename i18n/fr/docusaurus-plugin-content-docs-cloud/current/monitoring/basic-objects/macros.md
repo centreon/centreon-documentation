@@ -56,13 +56,13 @@ Dans une commande de contrôle de service, les macros suivantes sont utilisées 
 Les champs **Communauté SNMP** et **Version** présents au sein d'une fiche d'hôte génèrent automatiquement les macros
 personnalisées suivantes : \$_HOSTSNMPCOMMUNITY$ et \$_HOSTSNMPVERSION$.
 
-## List of macros
+## Liste des macros
 
 The following is an exhaustive list of macros by resource type, each type of resource also has a description section. 
 
 > Some macros may have a number next to them (i.e. **(2)**). The [notes section](#notes) at the end of this page further explains possible restrictions or recommendations related to these macros.
 
-### Host Macros
+### Macros d'hôte
 
 | Macro Name [(3)](#notes)             | Service Checks | Host Checks       | Service Event Handlers | Host Event Handlers |
 |--------------------------------------|----------------|-------------------|------------------------|---------------------|
@@ -187,7 +187,7 @@ The following is an exhaustive list of macros by resource type, each type of res
   - 1) au nom du groupe d'hôtes passé comme argument de macro à la demande, soit  
   - 2) au groupe d'hôtes principal associé à l'hôte actuel (s'il n'est pas utilisé dans le contexte d'une macro à la demande). Cette valeur est issue de la directive action_url dans la définition du groupe d'hôtes.
 
-### Service Macros
+### Macros des service
 
 | Macro Name                              | Service Checks    | Host Checks | Service Event Handlers | Host Event Handlers |
 |-----------------------------------------|-------------------|-------------|------------------------|---------------------|
@@ -289,7 +289,7 @@ The following is an exhaustive list of macros by resource type, each type of res
   - 1) soit au nom du groupe de services passé comme argument de macro sur demande,  
   - 2) soit au groupe de services principal associé au service actuel (s'il n'est pas utilisé dans le contexte d'une macro sur demande).
 
-### Contact Macros
+### Macros de contat
 
 | Macro Name          | Service Checks | Host Checks | Service Event Handlers | Host Event Handlers |
 |---------------------|----------------|-------------|------------------------|---------------------|
