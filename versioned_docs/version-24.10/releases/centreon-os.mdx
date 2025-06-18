@@ -23,6 +23,47 @@ Read more about version 24.10 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 24.10.8
+
+Release date: `June 19, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Agent configuration] Added a "No TLS" connection mode for CMA (limited) & Telegraf.
+- [Agent configuration] Sub-directories are now allowed in certificate configuration.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Command is now mandatory when Add/Edit a service.
+- [Configuration] Fixed an issue when adding/editing service when command's template is not the direct parent.
+- [Configuration] Fixed an issue which blocked Time period entries with more than 200 characters in UI.
+- [Custom Views] The "Battery Status" information is now available in the Gridmap widget.
+- [Dashboards][Public Playlists] Fixed issue with Metrics Graph displaying too many curves.
+- [Graph] Fixed issue preventing "fill" and "invert" options from being considered in the graphs from Resource Status and Dashboards.
+- [Install] Fixed an upgrade fail linked to duplicate entry in topology table.
+- [LDAP] Fixed a validation issue on custom filter for users and groups.
+- [Purge] Fixed an issue on data purge cron with partitioned tables.
+- [Remote Server] Fixed issue preventing Business Activities from being displayed on remote servers.
+- [Resource Status] Fixed an issue where timeline period filter was nos properly applied.
+- [Resource Status] Fixed an issue when searching for an item containing a slash "/".
+- [Resource Status] Fixed dual display of the calculation type tile in the "Details" panel of a resource.
+- [Status Chart widget] Displayed the correct list of resources when hovering the legend.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Install] Fixed a password visibility issue on /etc/centreon/config.d/10-database.yaml.
+- [Vulnerability] Upgraded axios to version 1.8.1.
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+</details>
+
 ### 24.10.7
 
 Release date: `April 22, 2025`
@@ -620,6 +661,17 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Open Tickets
+
+### 24.10.3
+
+Release date: `June 19, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Fixed issue preventing non admin users from opening tickets.
+
+</details>
 
 ### 24.10.2
 
