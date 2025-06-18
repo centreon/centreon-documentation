@@ -15,7 +15,7 @@ the Centreon command line API.
 Users can be authorized to perform API calls by configuring the corresponding fields located in the [**Centreon Authentication**](../monitoring/basic-objects/contacts-create.md#centreon-authentication) tab.
 - The [**Configuration API**](#configuration) can only be called by administrators.
 - The [**Realtime API**](#realtime-information) can be called by non-administrator users as long as the corresponding field is checked.
-- Administrators are able to call both the [**Configuration API**](#configuration) and the [**Realtime API**](#realtime-information) regardless of the corresponding field of the API being checked. They are also the only ones allowed to use [**CLAPI**](clapi.md) while others can only use Rest API.
+- Administrators are able to call both the [**Configuration API**](#configuration) and the [**Realtime API**](#realtime-information) even if these fields are not checked. They are also the only ones allowed to use [**CLAPI**](clapi.md) while others can only use the Rest API.
 
 Note that you need to be authenticated before you perform each [API call](#api-calls).
 
