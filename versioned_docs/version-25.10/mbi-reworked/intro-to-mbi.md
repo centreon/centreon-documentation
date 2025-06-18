@@ -3,9 +3,9 @@ id: mbi-intro
 title: Introduction to MBI
 ---
 
-The report generating capabilites of Centreon rely on the **Monitoring Business Intelligence (MBI)** extension.
+Centreon offers the possibility of creating regular reports on various metrics using the **Monitoring Business Intelligence (MBI)** extension.
 
-> Centreon BAM is a Centreon **extension** that requires a valid [license](../administration/licenses.md). To
+> Centreon MBI is a Centreon **extension** that requires a valid [license](../administration/licenses.md). To
 > purchase one and retrieve the necessary repositories, contact
 > [Centreon](mailto:sales@centreon.com).
 

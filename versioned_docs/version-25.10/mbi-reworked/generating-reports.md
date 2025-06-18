@@ -3,27 +3,27 @@ id: generating-reports
 title: Generating reports
 ---
 
-La première chose que fait la procédure est de me dire ce qu’est un job. On devrait d’abord introduire le concept en expliquant que c’est bien lié à mbi, sinon j’ai l’impression que la page sur laquelle je suis n’est pas forcément liée à mbi.
+MBI is a Centreon extension that has some terms you may not have heard elsewhere in our documentation. We strongly suggest you read the [concepts page](mbi-concepts.md) before following MBI-related procedures.
 
 
 # Jobs
-Report templates comme le nouveau terme
-Les informations ici seraient plus pertinentes données au fur et à mesure qu’elles deviennent nécessaires.
+"Report templates" as the new term 
 
 Reporting > MBI > jobs > add
 Configuration
-Je ne vois pas à quoi sert la ligne “state”
+specify the use of the “state” field
 
 Report parameters
-Page très générale par nécessité mais peu claire
+page is vague out of necessity because its contents depend on the report template/design but should still be clear on its purpose
 Report publication
-Aucune info sur comment ajouter des publication rules
-Spécifier que le job détermine la fréquence des rapports, pas les publication rules. Actuellement, La partie "envoi de reports MBI par mail" est à revoir, notamment sur l'aspect fréquence d'envoi.
-La fréquence d'envoi est basée sur la fréquence de génération du rapport (daily, weekly ou monthly). Le rapport est automatiquement envoyé à chaque fois qu’il est généré (à vérifier).
-Tuning  
-On me dit dans la doc que je peux modifier le thème par défaut sur un autre écran. Ça m’a donné l’impression que je pouvais créer ma propre palette de couleurs pour les rapports alors que c’est juste pour choisir un des thèmes existants comme celui à utiliser par défaut.
+properly explain how to add publication rules
+Specify jobs determine the frequency of the reports, not the publication rules and review the "send MBI reports by email" part, specifically the frequency of the emails sent. That frequency is the same as the frequency of report generation specified in the job (daily, weekly or monthly), the report is automtically sent each time it is generated (double check this last point).
 
-Aucune idée de ce que sont les jobs groups. On penserait que ce sont des ensembles de jobs comme pour les host groups ou contact groups mais je dois les ajouter dans un job pour qu’il soit valide
+Tuning
+Choosing a default theme does not mean one creates their own color palette for their reports. It is actually only to allow the user to choose one of our existing themes as the default theme.
+
+
+Need to clarify what job groups are, the name can misdirect users: one would expect them to be a group of jobs similar to host groups or contact groups but they are actually more similar to ACLs, determining who can access each report
 
 
 # Publication tab
