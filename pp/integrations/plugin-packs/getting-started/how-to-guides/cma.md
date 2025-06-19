@@ -93,13 +93,17 @@ The agent will be configured the following way on the host [(for Windows using t
 </TabItem>
 </Tabs>
 
-<!--#### Unencrypted communication
+#### Testing mode: unencrypted communication
 
-You can leave the connection unencrypted for test purposes (note that this connection will only last for one hour). Do not use this setting in production.
+You can leave the connection unencrypted **for test purposes only**. In this mode, you do not need any certificates or tokens.
 
-The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
+> Note that this connection will only last for one hour. Do not use this setting in production!
 
-* Encryption = no-->
+To configure this mode, select **No TLS** from the **Encryption level** list in the [**Agent configuration**](#configure-polleragent-communication) window.
+
+The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host):
+
+* Encryption = no
 
 ### Generating a self-signed certificate
 

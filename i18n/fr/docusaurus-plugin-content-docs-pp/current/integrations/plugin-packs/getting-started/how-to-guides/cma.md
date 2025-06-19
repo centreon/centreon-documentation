@@ -93,13 +93,17 @@ L'agent sera configuré de la manière suivante sur l'hôte [(pour Windows à l'
 </TabItem>
 </Tabs>
 
-<!--#### Unencrypted communication
+#### Mode test : communication non chiffrée
 
-You can leave the connection unencrypted for test purposes (note that this connection will only last for one hour). Do not use this setting in production.
+Vous pouvez laisser la connexion non chiffrée **à des fins de test uniquement**. Dans ce mode, vous n'avez besoin d'aucun certificat ou jeton.
 
-The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
+> Notez que cette connexion ne durera qu'une heure. N'utilisez pas ce paramètre en production !
 
-* Encryption = no-->
+Pour configurer ce mode, sélectionnez **No TLS** dans la liste **Niveau de chiffrement** de la fenêtre [**Configuration collecteur/agent**](#configurez-la-communication-collecteuragent).
+
+L'agent sera configuré de la manière suivante sur l'hôte [(pour Windows en utilisant le programme d'installation ou le CLI, et pour Linux en utilisant le fichier **centagent.json**)](#étape-2--préparez-lhôte) :
+
+* Encryption = no
 
 ### Générer un certificat autosigné
 
