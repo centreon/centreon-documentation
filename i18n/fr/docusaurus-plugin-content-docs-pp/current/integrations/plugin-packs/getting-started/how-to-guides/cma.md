@@ -108,9 +108,9 @@ Pour générer un certificat autosigné valide un an, exécutez la commande suiv
 ```shell
 openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout {key} -out {cert} -subj '/CN={poller_hostname}'
 ```
-- {key} = chemin du fichier clé privée
-- {cert} = chemin du fichier clé publique ou certificat
-- {poller_hostname} = nom DNS du collecteur
+- \{key\} = chemin du fichier clé privée
+- \{cert\} = chemin du fichier clé publique ou certificat
+- \{poller_hostname\} = nom DNS du collecteur
 
 ### OS supportés
 

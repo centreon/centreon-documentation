@@ -108,9 +108,9 @@ To generate a self-signed certificate that is valid for a year, run the followin
 ```shell
 openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout {key} -out {cert} -subj '/CN={poller_hostname}'
 ```
-- {key} = path to the private key file
-- {cert} = path to the public key file or certificate
-- {poller_hostname} = DNS name of the poller
+- \{key\} = path to the private key file
+- \{cert\} = path to the public key file or certificate
+- \{poller_hostname\} = DNS name of the poller
 
 ### Supported OSs
 
