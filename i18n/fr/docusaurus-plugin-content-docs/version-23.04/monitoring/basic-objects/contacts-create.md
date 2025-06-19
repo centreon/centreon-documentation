@@ -41,8 +41,7 @@ les notifications pourront être envoyées. En-dehors de ces périodes de temps,
 
   > La possibilité de connexion automatique (auto login) doit être activée dans le menu : **Administration > Options**.
 
-* Le champ **Source d'authentification** spécifie si les informations de connexion proviennent d’un annuaire LDAP ou
-d’informations stockées localement sur le serveur (définies via l'interface Centreon).
+* Le champ **Source d'authentification** spécifie si les informations de connexion proviennent d’un annuaire LDAP ou d’informations stockées localement sur le serveur (définies via l'interface Centreon).
 * Les trois champs qui suivent servent à autoriser les utilisateurs à faire appel à l'[API v1](../../api/rest-api-v1.md#api-calls) et à l'[API v2](https://docs-api.centreon.com/api/centreon-web/23.04/) (à noter que la documentation API n'est disponible qu'en anglais et est destinée à des développeurs familiers avec les requêtes HTTP et JSON).
   - Le champ **API de configuration** ne s'applique qu'aux API V2. (Seuls les administrateurs peuvent utiliser cette API en v1).
   - L'[**API de temps réel**](../../api/rest-api-v1.md#realtime-information) peut être appelée par les non-administrateurs dans les deux versions lorsque ce champ est coché.
