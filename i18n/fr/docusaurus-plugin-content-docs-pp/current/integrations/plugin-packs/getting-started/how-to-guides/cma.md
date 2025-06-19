@@ -95,7 +95,7 @@ L'agent sera configuré de la manière suivante sur l'hôte [(pour Windows à l'
 
 #### Mode test : communication non chiffrée
 
-Vous pouvez laisser la connexion non chiffrée **à des fins de test uniquement**. Dans ce mode, vous n'avez besoin d'aucun certificat ou jeton.
+Dans Centreon OnPrem 24.10, vous pouvez laisser la connexion non chiffrée **à des fins de test uniquement**. Dans ce mode, vous n'avez besoin d'aucun certificat ou jeton.
 
 > Notez que cette connexion ne durera qu'une heure. N'utilisez pas ce paramètre en production !
 
