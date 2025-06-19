@@ -49,15 +49,16 @@ Stockez les certificats dans le répertoire **/etc/pki** du collecteur. Stockez-
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/cma/TLS_SEC_initiated-by-agent.png)
 
-Le collecteur sera configuré de la manière suivante, en utilisant la page **Poller/agent configuration**, dans la section **Récepteur OTLP** :
+Le collecteur sera configuré de la manière suivante, en utilisant la page **Configuration d'agent**, dans la section **Récepteur OTLP** :
 
-* Certificat public (obligatoire). Si vous avez stocké le certificat du collecteur dans le magasin de certificats, vous n'avez pas besoin d'entrer un fichier pour la clé publique (.crt). Dans le cas contraire, vous devez indiquer le chemin d'accès au fichier contenant la clé publique du serveur opentelemetry du collecteur.
-      * Le nom DNS que l'agent utilisera pour se connecter au collecteur doit être identique au CN du certificat.
-      * Si cela n'est pas possible, vous pouvez ajouter une correspondance IP **collector_host_name** dans le fichier **C:\Windows\System32\drivers\etc\hosts** (Windows) ou **/etc/hosts** (Linux).
-* Clé privée au format .key (obligatoire)
+* Certificat public (.crt)
+* Clé privée (.key)
 * CA : rarement nécessaire dans ce cas, sauf pour gérer un "double handshake". Le protocole TLS avec certificats valide l'identité du serveur pour le client, mais le "double handshake" va plus loin : il ajoute la validation de l'identité du client par le serveur. Cela est utile pour renforcer la sécurité, mais rarement nécessaire sur internet.
 
 L'agent sera configuré de la manière suivante sur l'hôte [(pour Windows à l'aide de l'installeur ou de la CLI, et pour Linux à l'aide du fichier **centagent.json**)](#étape-2--préparez-lhôte).
+
+Le nom DNS que l'agent utilisera pour se connecter au collecteur (champ "Poller endpoint") doit être identique au Common Name du certificat.
+Si cela n'est pas possible, vous pouvez ajouter une correspondance IP **collector_host_name** dans le fichier **C:\Windows\System32\drivers\etc\hosts** (Windows) ou **/etc/hosts** (Linux).
 
 * Encryption = yes
 * Fichier de certificat de l'autorité de certification de confiance (peut être chargé dans le magasin de certificats et non référencé dans la configuration de l'agent)
@@ -107,6 +108,9 @@ Pour générer un certificat autosigné valide un an, exécutez la commande suiv
 ```shell
 openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout {key} -out {cert} -subj '/CN={poller_hostname}'
 ```
+- {key} = chemin du fichier clé privée
+- {cert} = chemin du fichier clé publique ou certificat
+- {poller_hostname} = nom DNS du collecteur
 
 ### OS supportés
 
