@@ -3,7 +3,7 @@ id: generating-reports
 title: Generating reports
 ---
 
-MBI is a Centreon extension that has some terms you may not have heard elsewhere in our documentation. We strongly suggest you read the [concepts page](mbi-concepts.md) before following MBI-related procedures.
+MBI is a Centreon extension that has some terms you may not have heard elsewhere in our documentation. We strongly suggest you read the [concepts page](concepts.md) before following MBI-related procedures.
 
 
 # Jobs
