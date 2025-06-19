@@ -1858,6 +1858,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-routers-juniper-mseries-netconf'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-firewalls-juniper-mag-snmp'
         },
         {
@@ -2149,6 +2153,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/base-generic'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-f5os-snmp'
         },
         {
           type: 'doc',
@@ -2497,6 +2505,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-emc-symmetrix-nrpe'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-emc-symmetrix-nsclient-05-restapi'
         },
         {
           type: 'doc',

@@ -677,10 +677,6 @@
             },
             {
               "type": "doc",
-              "id": "service-mapping/migrate"
-            },
-            {
-              "type": "doc",
               "id": "service-mapping/remote-server"
             }
           ]
@@ -1443,10 +1439,6 @@
           ]
         }
       ]
-    },
-    {
-      "type": "doc",
-      "id": "installation/installation-of-centreon-ha/overview"
     },
     {
       "type": "category",

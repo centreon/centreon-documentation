@@ -23,6 +23,40 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 23.10.25
+
+Release date: `June 16, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Added missing update file for version 23.10.24.
+
+</details>
+
+### 23.10.24
+
+Release date: `June 4, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Cron] The script that deletes expired tokens is now run with the **apache** user to avoid invalid permissions on a web log file.
+- [Install] Fixed incorrect rights on a database configuration file.
+- [Resource Status] Searching for an item containing a slash character is now handled correctly.
+- [Resource Status] The **Select all** checkbox in the view by host now works correctly.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed XSS in host listing.
+- [Vulnerability] Upgraded axios to version 1.8.1.
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+</details>
+
 ### 23.10.23
 
 Release date: `March 31, 2025`
@@ -953,6 +987,17 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Gorgone
+
+### 23.10.12
+
+Release date: `May 21, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Fixed missing part on the Poller-Performances report.
+
+</details>
 
 ### 23.10.11
 
