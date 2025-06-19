@@ -101,7 +101,9 @@ In Centreon OnPrem 24.10, you can leave the connection unencrypted **for test pu
 
 To configure this mode, select **No TLS** from the **Encryption level** list in the [**Agent configuration**](#configure-polleragent-communication) window.
 
-The agent will be configured the following way on the host [(for Windows using the corresponding option in the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host):
+The agent will be configured the following way on the host:
+- [for Windows, using the corresponding option in the installer or the CLI](#step-2-prepare-the-host)
+- for Linux, using the **centagent.json** file:
 
 <Tabs groupId="sync">
 <TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">

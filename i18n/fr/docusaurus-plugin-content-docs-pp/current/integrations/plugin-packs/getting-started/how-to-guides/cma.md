@@ -101,7 +101,9 @@ Dans Centreon OnPrem 24.10, vous pouvez laisser la connexion non chiffrée **à 
 
 Pour configurer ce mode, sélectionnez **No TLS** dans la liste **Niveau de chiffrement** de la fenêtre [**Configuration collecteur/agent**](#configurez-la-communication-collecteuragent).
 
-L'agent sera configuré de la manière suivante sur l'hôte [(pour Windows en utilisant l'option correspondante dans le programme d'installation ou la CLI, et pour Linux en utilisant le fichier **centagent.json**)](#étape-2--préparez-lhôte) :
+L'agent sera configuré de la manière suivante sur l'hôte :
+- [pour Windows, en utilisant l'option correspondante dans le programme d'installation ou la CLI](#étape-2--préparez-lhôte)
+- pour Linux, en utilisant le fichier **centagent.json** :
 
 <Tabs groupId="sync">
 <TabItem value="Non chiffré, l'agent se connecte au collecteur" label="Non chiffré, l'agent se connecte au collecteur">
