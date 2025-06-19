@@ -101,9 +101,40 @@ In Centreon OnPrem 24.10, you can leave the connection unencrypted **for test pu
 
 To configure this mode, select **No TLS** from the **Encryption level** list in the [**Agent configuration**](#configure-polleragent-communication) window.
 
-The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host):
+The agent will be configured the following way on the host [(for Windows using the corresponding option in the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host):
 
-* Encryption = no
+<Tabs groupId="sync">
+<TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">
+
+
+```json
+{
+  "log_level":"info",
+  "endpoint":"<IP POLLER>:4317",
+  "encryption" : "no",
+  "host":"host_1",
+  "log_type":"file",
+  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" 
+}
+```
+
+</TabItem>
+<TabItem value="No encryption, poller connects to agent" label="No encryption, poller connects to agent">
+
+```json
+{
+  "log_level":"info",
+  "endpoint":"0.0.0.0:4317",
+   "encryption" : "no",
+  "host":"host_1",
+  "log_type":"file",
+  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
+  "reversed_grpc_streaming":true
+}
+```
+
+</TabItem>
+</Tabs>
 
 ### Generating a self-signed certificate
 
@@ -231,27 +262,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
   > The poller can work in both modes simultaneously (some agents connect to the poller, while the poller connects to some other agents).
 
 <Tabs groupId="sync">
-<TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">
 
-```json
-{
-   "otel_server":{
-      "host":"0.0.0.0",
-      "port":4317
-   },
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":10
-   }
-}
-```
-
-```bash
-chown centreon-engine: /etc/centreon-engine/otl_server.json
-```
-
-</TabItem>
 <TabItem value="Encryption, agent connects to poller" label="Encryption, agent connects to poller">
 
 ```json
@@ -411,24 +422,10 @@ apt install centreon-monitoring-agent
 
 #### Configure **centreon-monitoring-agent**
 
-Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** file with the following parameters (4 cases):
+Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** file with the following parameters (2 cases):
 
 <Tabs groupId="sync">
-<TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">
-
-
-```json
-{
-  "log_level":"info",
-  "endpoint":"<IP POLLER>:4317",
-  "host":"host_1",
-  "log_type":"file",
-  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" 
-}
-```
-
-</TabItem>
-<TabItem value="Encryption, agent connects to poller" label="Encryption, agent connects to poller">
+<TabItem value="Agent connects to poller" label="Agent connects to poller">
 
 ```json
 {
@@ -443,21 +440,7 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 ```
 
 </TabItem>
-<TabItem value="No encryption, poller connects to agent" label="No encryption, poller connects to agent">
-
-```json
-{
-  "log_level":"info",
-  "endpoint":"0.0.0.0:4317",
-  "host":"host_1",
-  "log_type":"file",
-  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
-  "reversed_grpc_streaming":true
-}
-```
-
-</TabItem>
-<TabItem value="Encryption, poller connects to agent" label="Encryption, poller connects to agent">
+<TabItem value="Poller connects to agent" label="Poller connects to agent">
 
 ```json
 {
@@ -472,7 +455,6 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
   "public_cert":"/tmp/server_1234.crt",
   "ca_certificate":"/tmp/ca_1234.crt"
 }
-
 ```
 
 </TabItem>
