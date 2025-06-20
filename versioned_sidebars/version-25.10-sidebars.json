@@ -823,7 +823,65 @@
     }
     ]
     },
+    {
+      "type": "category",
+      "label": "MBI reworked",
+      "link": {
+        "type": "generated-index"
+      },
+      "items": [
         {
+          "type": "doc",
+          "id": "mbi-reworked/mbi-intro"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/mbi-concepts"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/available-reports"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/creating-reports"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/installation"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/preparing-data"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/generating-reports"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/widgets"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/customizing-reports"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/troubleshooting"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/backup-restore"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/update-upgrade-migrate"
+        }
+      ]
+    },
+      
+    {
       "type": "category",
       "label": "Reporting",
       "link": {
