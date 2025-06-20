@@ -169,8 +169,8 @@ If your Centreon is in a version older than 24.10.6, you need to create the CMA 
 
 | Parameter             | Value                                                                                                                                                                                         |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connector Name        | Centreon Monitoring Agent Beta                                                                                                                                                                |
-| Connector Description | Centreon Monitoring Agent Beta                                                                                                                                                                |
+| Connector Name        | Centreon Monitoring Agent                                                                                                                                           |
+| Connector Description | Centreon Monitoring Agent                                                                                                                                                     |
 | Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
 | Used by command       | Type `Centreon-Monitoring-Agent` and click **Select all**                                                                                                                                     |
 | Connector Status      | Enabled                                                                                                                                                                                       |
@@ -391,7 +391,7 @@ apt install centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Ubuntu 22.04" label="Ubuntu 22.04">
+<TabItem value="Ubuntu 22.04 & 24.04" label="Ubuntu 22.04 & 24.04">
 
 1. Execute the following commands:
 
@@ -524,7 +524,7 @@ systemctl status centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-[Download the CMA installer](https://download.centreon.com, **Custom Platform** tab then **Monitoring Agent** tab) on every server you want to monitor.
+[Download the CMA installer](https://download.centreon.com), **Custom Platform** tab then **Monitoring Agent** tab
 
 <Tabs groupId="sync">
 <TabItem value="Interactive mode" label="Interactive mode">

@@ -169,8 +169,8 @@ Si vous êtes sur une version antérieure à la 24.10.6, vous devez créer le co
 
 | Paramètre                 | Valeur                                                                                                                                                                                        |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nom du connecteur         | Centreon Monitoring Agent Beta                                                                                                                                                                |
-| Description du connecteur | Centreon Monitoring Agent Beta                                                                                                                                                                |
+| Nom du connecteur         | Centreon Monitoring Agent                                                                                                                                                          |
+| Description du connecteur | Centreon Monitoring Agent                                                                                                                                                      |
 | Ligne de commande         | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
 | Utilisé par la commande   | Entrez `Centreon-Monitoring-Agent` et cliquez sur **Sélectionner tout**                                                                                                                       |
 | Statut du connecteur      | Activé                                                                                                                                                                                        |
@@ -392,7 +392,7 @@ apt install centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Ubuntu 22.04" label="Ubuntu 22.04">
+<TabItem value="Ubuntu 22.04 & 24.04" label="Ubuntu 22.04 & 24.04">
 
 1. Exécutez les commandes suivantes :
 
@@ -521,7 +521,7 @@ systemctl status centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-[Téléchargez l'installer de l'agent](https://download.centreon.com  onglet **Custom Platform**, puis onglet **Monitoring Agent**) sur tous les serveurs que vous voulez superviser.
+[Téléchargez l'installer de l'agent](https://download.centreon.com)  onglet **Custom Platform**, puis onglet **Monitoring Agent**
 
 Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
 
