@@ -14,7 +14,7 @@ We highly recommend you read our documentation to avoid running into issues. You
 
 ## What does MBI do?
 
-**image d'un rapport**
+![image](../assets/reporting/guide/available-reports/Hostgroups-Rationalization-Of-Resources-1_1.png)
 
 MBI runs "jobs" to collect data from host groups and generate reports. This allows for an overview of the performance of the selected host groups over a given period of time. These reports can be configured to be generated once or on a regular basis (i.e. once per day, week, month...). This will help you keep track of your IT environment with monthly uptime reports, weekly infrastructure performance summaries...
 
