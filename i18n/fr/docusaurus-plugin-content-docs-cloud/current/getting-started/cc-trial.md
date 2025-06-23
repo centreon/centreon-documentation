@@ -21,7 +21,7 @@ Les comptes utilisateurs sont gérés dans le module [Centreon CIAM](../ciam/cia
 
 La mise en place de la plateforme d'essai de Centreon Cloud se fait en trois étapes :
 
-- Le futur administrateur remplit le [formulaire disponible sur notre site web](https://www.centreon.com/free-trial/) en utilisant une adresse email professionnelle.
+- Le futur administrateur remplit le [formulaire disponible sur notre site web](https://www.centreon.com/fr/essai-gratuit/#essayez_la_version_saas) en utilisant une adresse email professionnelle.
 
 - Un email est envoyé à cette adresse pour créer son mot de passe sur le Centreon CIAM.
 
