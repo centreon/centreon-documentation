@@ -2,7 +2,6 @@
 id: macros
 title: Macros
 ---
-TEST
 A macro is a variable that defines a value to be used in a [command](commands.md) when checking hosts or services. Macros allow you to customize checks by defining a particular value for each host or service being checked by the same template: the value of the macro for a specific host of service is defined by the user in the configuration form for the host or the service.
 
 Example: In the following command (used to check the uptime on a Linux server) **$HOSTADDRESS$**, **$_SERVICEWARNING$** and **$_HOSTSNMPEXTRAOPTIONS$** are macros.
