@@ -29,7 +29,7 @@ Example:
 * The macro called **$HOSTADDRESS$** enables us to retrieve the IP address of a host
 * The macro called **$CONTACTEMAIL$** enables us to retrieve the e-mail address of a contact.
 
-> We have a complete [list of macros](#list-of-macros) at your disposal as well as a description of what they represent.
+> A complete [list of macros](#list-of-macros) is available as well as a description of what they represent.
 
 ## Custom macros
 
