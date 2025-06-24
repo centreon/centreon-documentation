@@ -93,13 +93,50 @@ L'agent sera configuré de la manière suivante sur l'hôte [(pour Windows à l'
 </TabItem>
 </Tabs>
 
-<!--#### Unencrypted communication
+#### Mode test : communication non chiffrée
 
-You can leave the connection unencrypted for test purposes (note that this connection will only last for one hour). Do not use this setting in production.
+Dans Centreon OnPrem 24.10, vous pouvez laisser la connexion non chiffrée **à des fins de test uniquement**. Dans ce mode, vous n'avez besoin d'aucun certificat ou jeton.
 
-The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
+> Notez que cette connexion ne durera qu'une heure. N'utilisez pas ce paramètre en production !
 
-* Encryption = no-->
+Pour configurer ce mode, sélectionnez **No TLS** dans la liste **Niveau de chiffrement** de la fenêtre [**Configuration collecteur/agent**](#configurez-la-communication-collecteuragent).
+
+L'agent sera configuré de la manière suivante sur l'hôte :
+- [pour Windows, en utilisant l'option correspondante dans le programme d'installation ou la CLI](#étape-2--préparez-lhôte)
+- pour Linux, en utilisant le fichier **centagent.json** :
+
+<Tabs groupId="sync">
+<TabItem value="Non chiffré, l'agent se connecte au collecteur" label="Non chiffré, l'agent se connecte au collecteur">
+
+
+```json
+{
+  "log_level":"info",
+  "endpoint":"<IP POLLER>:4317",
+  "encryption" : "no",
+  "host":"host_1",
+  "log_type":"file",
+  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" 
+}
+```
+
+</TabItem>
+<TabItem value="Non chiffré, le collecteur se connecte à l'agent" label="Non chiffré, le collecteur se connecte à l'agent">
+
+```json
+{
+  "log_level":"info",
+  "endpoint":"0.0.0.0:4317",
+  "encryption" : "no",
+  "host":"host_1",
+  "log_type":"file",
+  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
+  "reversed_grpc_streaming":true
+}
+```
+
+</TabItem>
+</Tabs>
 
 ### Générer un certificat autosigné
 
@@ -408,22 +445,9 @@ apt install centreon-monitoring-agent
 
 #### Configurez **centreon-monitoring-agent**
 
-1. Remplacez le contenu du fichier **/etc/centreon-monitoring-agent/centagent.json** par le contenu suivant (4 cas) :
+1. Remplacez le contenu du fichier **/etc/centreon-monitoring-agent/centagent.json** par le contenu suivant (2 cas) :
 
 <Tabs groupId="sync">
-<TabItem value="Non chiffré, l'agent se connecte au collecteur" label="Non chiffré, l'agent se connecte au collecteur">
-
-```json
-{
-  "log_level":"info",
-  "endpoint":"<IP POLLER>:4317",
-  "host":"host_1",
-  "log_type":"file",
-  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" 
-}
-```
-
-</TabItem>
 <TabItem value="Chiffré, l'agent se connecte au collecteur" label="Chiffré, l'agent se connecte au collecteur">
 
 ```json
@@ -438,19 +462,6 @@ apt install centreon-monitoring-agent
 }
 ```
 
-</TabItem>
-<TabItem value="Non chiffré, le collecteur se connecte à l'agent" label="Non chiffré, le collecteur se connecte à l'agent">
-
-```json
-{
-  "log_level":"info",
-  "endpoint":"0.0.0.0:4317",
-  "host":"host_1",
-  "log_type":"file",
-  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
-  "reversed_grpc_streaming":true
-}
-```
 </TabItem>
 <TabItem value="Chiffré, le collecteur se connecte à l'agent" label="Chiffré, le collecteur se connecte à l'agent">
 
