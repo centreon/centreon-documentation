@@ -46,7 +46,7 @@ les notifications pourront être envoyées. En-dehors de ces périodes de temps,
   - Le champ **API de configuration** ne s'applique qu'aux API V2. (Seuls les administrateurs peuvent utiliser cette API en v1).
   - L'[**API de temps réel**](../../api/rest-api-v1.md#realtime-information) peut être appelée par les non-administrateurs dans les deux versions lorsque ce champ est coché.
   - Les administrateurs peuvent faire appel à l'**API de configuration** et l'[**API de temps réel**](../../api/rest-api-v1.md#realtime-information) indépendamment de si le champ correspondant à ces APIs est coché. Ceci est valable pour l'API v1 et l'API v2. Les administrateurs sont également les seuls à pouvoir utiliser [**CLAPI**](../../api/clapi.md), les autres utilisteurs n'ont accès qu'à l'API Rest.
-* Le champ **Groupes de liste d'accès** permet de définir un groupe d’accès pour un utilisateur, groupe utilisé pour les contrôles d’accès (ACL).
+* Le champ **Groupes de liste d'accès** permet de définir un groupe d’accès pour un utilisateur, groupe utilisé pour les [contrôles d’accès (ACL)](../../administration/access-control-lists.md).
 
 > Un utilisateur Administrateur a tous les droits et les règles de contrôle d’accès ne s'appliquent pas à lui, même si vous l'incluez dans un groupe d’accès.
 

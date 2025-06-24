@@ -42,7 +42,7 @@ http://[IP_DU_SERVER_CENTRAL]/centreon/main.php?autologin=1&useralias=[login_use
   - The **Configuration API** field only applies to the v2 API as only administrators can call this API using v1.
   - The [**Realtime API**](../../api/rest-api-v1.md#realtime-information) can be called by a non-administrator user in both versions as long as this field is checked.
   - Administrators are able to call both the **Configuration API** and the [**Realtime API**](../../api/rest-api-v1.md#realtime-information) even if these fields are not checked. This is true for both v1 and v2. They are also the only ones allowed to use [**CLAPI**](../../api/clapi.md) while others can only use the Rest API.
-* The **Access list groups** field serves to define an access group to a user (group use for access control (ACL)).
+* The **Access list groups** field serves to define an access group to a user (group uses for [access control (ACL)](../../administration/access-control-lists.md)).
 
 > An Administrative user is never concerned by access control even linked to an access group.
 
