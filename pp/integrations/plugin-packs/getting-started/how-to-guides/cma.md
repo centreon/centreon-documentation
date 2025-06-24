@@ -113,7 +113,7 @@ The agent will be configured the following way on the host:
 {
   "log_level":"info",
   "endpoint":"<IP POLLER>:4317",
-  "encryption" : "no",
+  "encryption" : "false",
   "host":"host_1",
   "log_type":"file",
   "log_file":"/var/log/centreon-monitoring-agent/centagent.log" 
@@ -127,7 +127,7 @@ The agent will be configured the following way on the host:
 {
   "log_level":"info",
   "endpoint":"0.0.0.0:4317",
-   "encryption" : "no",
+   "encryption" : "false",
   "host":"host_1",
   "log_type":"file",
   "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
