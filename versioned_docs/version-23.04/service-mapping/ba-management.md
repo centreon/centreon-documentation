@@ -32,7 +32,7 @@ There are four calculation methods that you can use:
 -   **Worst status**: When you immediately want to know that at least 1
     indicator is not-ok
 -   **Ratio**: When you want to model Cluster concepts by specifying a
-    number of percentage of critical resources that you don't want to
+    number or percentage of critical resources that you don't want to
     exceed
 -   **Impact**: When you want to precisely define the weight of each
     indicators and reflect that on your BA status
