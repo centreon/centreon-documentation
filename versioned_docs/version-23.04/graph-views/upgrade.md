@@ -72,7 +72,7 @@ Run the following commands to upgrade your Centreon MAP (Legacy) server:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el8/centreon-23.04.repo
 ```
 
 > Install Centreon MAP (Legacy) repository, you can find it on the
@@ -89,7 +89,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/e
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el9/centreon-23.04.repo
 ```
 
 > Install the Centreon Business repository, you can find it on the
