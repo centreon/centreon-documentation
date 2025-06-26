@@ -67,7 +67,7 @@ Exécutez la commande suivante :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el8/centreon-22.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/22.10/el8/centreon-22.10.repo
 ```
 
 </TabItem>
@@ -75,7 +75,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/e
 
 ```shell
 yum install -y yum-utils
-yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
+yum-config-manager --add-repo https://archives.centreon.com/standard/22.10/el7/centreon-22.10.repo
 ```
 
 </TabItem>
@@ -435,7 +435,7 @@ Exécutez la commande suivante sur le serveur de base de données dédié :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el8/centreon-22.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/22.10/el8/centreon-22.10.repo
 ```
 
 </TabItem>
@@ -443,7 +443,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/e
 
 ```shell
 yum install -y yum-utils
-yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
+yum-config-manager --add-repo https://archives.centreon.com/standard/22.10/el7/centreon-22.10.repo
 ```
 
 </TabItem>
@@ -613,7 +613,7 @@ Exécutez la commande suivante :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el8/centreon-22.10.repo
+dnf config-manager --add-repo https://archives.centreon.com/standard/22.10/el8/centreon-22.10.repo
 ```
 
 </TabItem>
@@ -621,7 +621,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/e
 
 ```shell
 yum install -y yum-utils
-yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
+yum-config-manager --add-repo https://archives.centreon.com/standard/22.10/el7/centreon-22.10.repo
 ```
 
 </TabItem>
