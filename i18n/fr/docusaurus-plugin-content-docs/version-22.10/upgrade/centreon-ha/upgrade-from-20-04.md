@@ -38,7 +38,7 @@ Exécutez la commande suivante :
 
 ```bash
 yum install -y yum-utils
-yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
+yum-config-manager --add-repo https://archives.centreon.com/standard/22.10/el7/centreon-22.10.repo
 ```
 
 > **Attention:** pour éviter des problèmes de dépendances manquantes, référez-vous à la documentation des modules additionnels pour mettre à jour les dépôts Centreon Business

@@ -65,7 +65,7 @@ Then install the Gorgone daemon using the following commands:
 
 ```shell
 yum install -y yum-utils
-yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
+yum-config-manager --add-repo https://archives.centreon.com/standard/22.10/el7/centreon-22.10.repo
 yum install centreon-gorgone
 ```
 
