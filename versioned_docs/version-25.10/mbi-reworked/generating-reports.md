@@ -19,6 +19,8 @@ Report publication
 properly explain how to add publication rules
 Specify jobs determine the frequency of the reports, not the publication rules and review the "send MBI reports by email" part, specifically the frequency of the emails sent. That frequency is the same as the frequency of report generation specified in the job (daily, weekly or monthly), the report is automtically sent each time it is generated (double check this last point).
 
+In the fields where you move the objects you want to include to the left, having something in the left side is MANDATORY. Even if it's the "No Category" option
+
 Tuning
 Choosing a default theme does not mean one creates their own color palette for their reports. It is actually only to allow the user to choose one of our existing themes as the default theme.
 
@@ -29,3 +31,11 @@ Need to clarify what job groups are, the name can misdirect users: one would exp
 # Publication tab
 
 used to apply the publication rules which in turn determine what is done with the generated report (i.e. who it is sent to and how)
+
+on ne sait pas dans l'interface si tes paramètres de rétention sont trop élevés (obligé de faire un df -h)
+
+# Bonnes pratiques 
+
+single sourced ?
+
+si vous voulez ajouter une metrique, le rapport est recalculé dans sa totalité. Cela implique un long temps d'attente, l'utilisateur doit donc anticiper ses besoins.
