@@ -162,4 +162,4 @@ Body: {
 
 ## More information
 
-> Follow this [link](https://docs-api.centreon.com/api/centreon-map/) to access Centreon API documentation and preview the API capabilities.
+> Follow this [link](https://docs-api.centreon.com/api/centreon-map/23.04/) to access Centreon API documentation and preview the API capabilities.
