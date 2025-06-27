@@ -10,7 +10,7 @@ import DatabaseRemoteInstall from '../_database-remote-install.mdx';
 import DatabaseEnableRestart from '../_database-enable-restart.mdx';
 
 Centreon provides RPM and DEB packages for its products through the Centreon Open
-Source version available free of charge in our repository.
+Source version available free of charge in our repository. 
 
 These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 12.
 

@@ -49,15 +49,16 @@ Store the certificates in the **/etc/pki** directory of the poller. Store them w
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/cma/TLS_SEC_initiated-by-agent.png)
 
-The poller will be configured the following way, using the **Poller/agent configuration** page, in the **OTLP receiver** section:
+The poller will be configured the following way, using the **Agent configuration** page, in the **OTLP receiver** section:
 
-* Public certificate (mandatory). If you have stored the poller's certificate in the Certificate Store, you don't need to enter a file for the public key. Otherwise, you need to provide the path to the file containing the public key of the poller's opentelemetry server.
-        The DNS name that the agent will use to connect to the poller must be identical to the CN of the certificate.
-        If this is not possible, you can add an IP **collector_host_name** mapping in the **C:\Windows\System32\drivers\etc\hosts** file (Windows) or **/etc/hosts** (Linux).
-* Private key (mandatory)
+* Public certificate (.crt)
+* Private key (.key)
 * CA: rarely necessary in this case, except to manage a double handshake. The TLS protocol with certificates validates the identity of the server for the client, but the "double handshake" goes further: it adds the validation of the client's identity by the server. This is useful for enhanced security but rarely necessary on the internet.
 
 The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
+
+The DNS name that the agent will use to connect to the poller must be identical to the Common Name of the certificate.
+If this is not possible, you can add an IP **collector_host_name** mapping in the **C:\Windows\System32\drivers\etc\hosts** file (Windows) or **/etc/hosts** (Linux).
 
 * Encryption = yes
 * Trusted CA’s certificate file (can be loaded into the certificate store and not referenced in the agent's configuration)
@@ -86,19 +87,67 @@ The poller will be configured the following way, using the **Poller/agent config
 The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
 
 * Encryption = yes
-* Public certificate file
-* Private key file
+* Public certificate file (.crt)
+* Private key file (.key)
 
 </TabItem>
 </Tabs>
 
-<!--#### Unencrypted communication
+#### Testing mode: unencrypted communication
 
-You can leave the connection unencrypted for test purposes (note that this connection will only last for one hour). Do not use this setting in production.
+In Centreon OnPrem 24.10, you can leave the connection unencrypted **for test purposes only**. In this mode, you do not need any certificates or tokens.
 
-The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
+> Note that this connection will only last for one hour. Do not use this setting in production!
 
-* Encryption = no-->
+To configure this mode, select **No TLS** from the **Encryption level** list in the [**Agent configuration**](#configure-polleragent-communication) window.
+
+The agent will be configured the following way on the host:
+- [for Windows, using the corresponding option in the installer or the CLI](#step-2-prepare-the-host)
+- for Linux, using the **centagent.json** file:
+
+<Tabs groupId="sync">
+<TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">
+
+
+```json
+{
+  "log_level":"info",
+  "endpoint":"<IP POLLER>:4317",
+  "encryption" : "false",
+  "host":"host_1",
+  "log_type":"file",
+  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" 
+}
+```
+
+</TabItem>
+<TabItem value="No encryption, poller connects to agent" label="No encryption, poller connects to agent">
+
+```json
+{
+  "log_level":"info",
+  "endpoint":"0.0.0.0:4317",
+   "encryption" : "false",
+  "host":"host_1",
+  "log_type":"file",
+  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
+  "reversed_grpc_streaming":true
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Generating a self-signed certificate
+
+To generate a self-signed certificate that is valid for a year, run the following command on your poller (replace **poller_hostname** by the correct value):
+
+```shell
+openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout {key} -out {cert} -subj '/CN={poller_hostname}'
+```
+- \{key\} = path to the private key file
+- \{cert\} = path to the public key file or certificate
+- \{poller_hostname\} = DNS name of the poller
 
 ### Supported OSs
 
@@ -141,13 +190,13 @@ On your central server, you need to install the monitoring connector that will p
 <TabItem value="Linux" label="Linux">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
-2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the [**Linux Centreon Monitoring Agent**](../../procedures/operatingsystems-linux-centreon-monitoring-agent.md) monitoring connector.
+2. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the [**Linux Centreon Monitoring Agent**](../../procedures/operatingsystems-linux-centreon-monitoring-agent.md) monitoring connector.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
-2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the [**Windows Centreon Monitoring Agent**](../../procedures/operatingsystems-windows-centreon-monitoring-agent.md) monitoring connector.
+2. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the [**Windows Centreon Monitoring Agent**](../../procedures/operatingsystems-windows-centreon-monitoring-agent.md) monitoring connector.
 
 </TabItem>
 </Tabs>
@@ -215,27 +264,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
   > The poller can work in both modes simultaneously (some agents connect to the poller, while the poller connects to some other agents).
 
 <Tabs groupId="sync">
-<TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">
 
-```json
-{
-   "otel_server":{
-      "host":"0.0.0.0",
-      "port":4317
-   },
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":10
-   }
-}
-```
-
-```bash
-chown centreon-engine: /etc/centreon-engine/otl_server.json
-```
-
-</TabItem>
 <TabItem value="Encryption, agent connects to poller" label="Encryption, agent connects to poller">
 
 ```json
@@ -395,24 +424,10 @@ apt install centreon-monitoring-agent
 
 #### Configure **centreon-monitoring-agent**
 
-Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** file with the following parameters (4 cases):
+Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** file with the following parameters (2 cases):
 
 <Tabs groupId="sync">
-<TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">
-
-
-```json
-{
-  "log_level":"info",
-  "endpoint":"<IP POLLER>:4317",
-  "host":"host_1",
-  "log_type":"file",
-  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" 
-}
-```
-
-</TabItem>
-<TabItem value="Encryption, agent connects to poller" label="Encryption, agent connects to poller">
+<TabItem value="Agent connects to poller" label="Agent connects to poller">
 
 ```json
 {
@@ -427,21 +442,7 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 ```
 
 </TabItem>
-<TabItem value="No encryption, poller connects to agent" label="No encryption, poller connects to agent">
-
-```json
-{
-  "log_level":"info",
-  "endpoint":"0.0.0.0:4317",
-  "host":"host_1",
-  "log_type":"file",
-  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
-  "reversed_grpc_streaming":true
-}
-```
-
-</TabItem>
-<TabItem value="Encryption, poller connects to agent" label="Encryption, poller connects to agent">
+<TabItem value="Poller connects to agent" label="Poller connects to agent">
 
 ```json
 {
@@ -456,7 +457,6 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
   "public_cert":"/tmp/server_1234.crt",
   "ca_certificate":"/tmp/ca_1234.crt"
 }
-
 ```
 
 </TabItem>

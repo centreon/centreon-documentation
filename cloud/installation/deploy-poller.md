@@ -27,8 +27,7 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
 
 6. On the server that will become your poller, in your terminal, paste the install command and execute it (this should take about 10 minutes).
 
-7. When this is finished, log out and back in so that poller information is refreshed in the interface.
-8. In the user interface, go to **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
+7. In the user interface, go to **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
    * The address in the **IP Address** column is that of the poller as seen by the SaaS platform.
    * The poller is not running yet (**No** in the **Is running?** column).
 

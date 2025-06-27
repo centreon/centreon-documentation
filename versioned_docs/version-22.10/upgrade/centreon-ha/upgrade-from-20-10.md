@@ -38,7 +38,7 @@ Run the following commands:
 
 ```shell
 yum install -y yum-utils
-yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
+yum-config-manager --add-repo https://archives.centreon.com/standard/22.10/el7/centreon-22.10.repo
 ```
 
 > **WARNING:** to avoid broken dependencies, please refer to the documentation of the additional modules to update the Centreon Business Repositories.
