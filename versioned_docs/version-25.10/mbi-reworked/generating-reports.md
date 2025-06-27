@@ -38,4 +38,5 @@ on ne sait pas dans l'interface si tes paramètres de rétention sont trop élev
 
 single sourced ?
 
-si vous voulez ajouter une metrique, le rapport est recalculé dans sa totalité. Cela implique un long temps d'attente, l'utilisateur doit donc anticiper ses besoins.
+A running job is restarted from scratch if a new metric is added. Anticipate needs to avoid jobs starting over as they may take some time to compile all the data.
+
