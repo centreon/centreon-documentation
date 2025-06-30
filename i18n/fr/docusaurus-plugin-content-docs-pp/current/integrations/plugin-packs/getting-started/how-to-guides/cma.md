@@ -521,7 +521,7 @@ systemctl status centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-[Téléchargez l'installer de l'agent](https://download.centreon.com)  onglet **Custom Platform**, puis onglet **Monitoring Agent**
+[Téléchargez l'installer de l'agent](https://download.centreon.com)  (onglet **Custom Platform**, puis onglet **Monitoring Agent**), sur tous les serveurs que vous voulez superviser.
 
 Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
 
