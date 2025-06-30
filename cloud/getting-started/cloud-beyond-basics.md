@@ -19,7 +19,7 @@ Benefit from the [notification](../alerts-notifications/notif-configuration.md) 
 
 Add your new hosts and services automatically to your platform using a discovery mechanism. Find out about the [Auto Discovery](../monitoring/discovery/introduction.md) module.
 
-## Discover optional module features
+## Discover additional module features
 
 The Centreon platform also provides modules such as service mapping or graphical views allowing you to monitor more complex business IT flows. These modules help you handle IT issues more efficiently and respect your SLAs.
 
