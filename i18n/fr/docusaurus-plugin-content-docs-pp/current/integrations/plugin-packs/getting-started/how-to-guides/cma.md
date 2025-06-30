@@ -107,11 +107,11 @@ L'agent peut être installé sur et superviser les OS suivants :
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-* Alma 8
-* Alma 9
+* RHEL/Oracle Linux/Alma Linux 8
+* RHEL/Oracle Linux/Alma Linux 9
 * Debian 11
 * Debian 12
-* Ubuntu 22.04 LTS
+* Ubuntu 22.04/24.04 LTS
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
