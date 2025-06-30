@@ -156,11 +156,11 @@ L'agent peut être installé sur et superviser les OS suivants :
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-* Alma 8
-* Alma 9
+* RHEL/Oracle Linux/Alma Linux 8
+* RHEL/Oracle Linux/Alma Linux 9
 * Debian 11
 * Debian 12
-* Ubuntu 22.04 LTS
+* Ubuntu 22.04/24.04 LTS
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
@@ -206,7 +206,9 @@ Sur votre serveur central, vous devez installer le connecteur de supervision qui
 <Tabs groupId="sync">
 <TabItem value="Version OnPrem 24.10.6 ou plus récente" label="Version OnPrem 24.10.6 ou plus récente">
 
-Pour cette version, aucune configuration n'est nécessaire. Passez à l'[étape suivante](#configurez-la-communication-collecteuragent).
+1. Allez à la page **Configuration > Commandes > Connecteurs**.
+
+2. Mettez à jour le connecteur **Centreon Monitoring Agent** de la façon suivante : dans le champ **Utilisé par la commande**, entrez **Centreon-Monitoring-Agent** puis cliquez sur  **Select all**.
 
 </TabItem>
 <TabItem value="Version OnPrem antérieure à la 24.10.6" label="Version OnPrem antérieure à la 24.10.6">
@@ -218,8 +220,8 @@ Si vous êtes sur une version antérieure à la 24.10.6, vous devez créer le co
 
 | Paramètre                 | Valeur                                                                                                                                                                                        |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nom du connecteur         | Centreon Monitoring Agent Beta                                                                                                                                                                     |
-| Description du connecteur | Centreon Monitoring Agent Beta                                                                                                                                                                     |
+| Nom du connecteur         | Centreon Monitoring Agent                                                                                                                                                          |
+| Description du connecteur | Centreon Monitoring Agent                                                                                                                                                      |
 | Ligne de commande         | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
 | Utilisé par la commande   | Entrez `Centreon-Monitoring-Agent` et cliquez sur **Sélectionner tout**                                                                                                                       |
 | Statut du connecteur      | Activé                                                                                                                                                                                        |
@@ -418,7 +420,7 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt-get update
@@ -434,6 +436,31 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 ```
 
 Ensuite, installez l'agent :
+
+```shell
+apt-get update
+apt install centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Ubuntu 22.04 & 24.04" label="Ubuntu 22.04 & 24.04">
+
+1. Exécutez les commandes suivantes :
+
+```shell
+apt-get update
+apt-get -y install lsb-release gpg wget
+echo "deb https://packages.centreon.com/ubuntu-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+```
+
+2. Importez la clé du dépôt :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+3. Installez l'agent :
 
 ```shell
 apt-get update
@@ -519,7 +546,7 @@ systemctl status centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-[Téléchargez l'installer de l'agent](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true) sur tous les serveurs que vous voulez superviser.
+[Téléchargez l'installer de l'agent](https://download.centreon.com)  (onglet **Custom Platform**, puis onglet **Monitoring Agent**), sur tous les serveurs que vous voulez superviser.
 
 Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
 
