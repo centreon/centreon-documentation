@@ -19,7 +19,7 @@ Utilisez la fonctionnalité [notification](../alerts-notifications/notif-configu
 
 Ajoutez automatiquement de nouveaux hôtes et services à votre plateforme en utilisant un mécanisme de découverte. Informez-vous sur le module [Auto Discovery](../monitoring/discovery/introduction.md).
 
-## Découvrir les fonctionnalités avancées
+## Découvrir les fonctionnalités des modules optionnels
 
 La plateforme Centreon propose également des modules tels que le service mapping, les vues graphiques, permettant de superviser des flux informatiques plus complexes. Ces modules vous aident à gérer les incidents informatiques plus efficacement et à respecter vos accords de niveaux de service (SLA).
 
