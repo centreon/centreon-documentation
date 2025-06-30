@@ -524,7 +524,7 @@ systemctl status centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-[Download the CMA installer](https://download.centreon.com), **Custom Platform** tab then **Monitoring Agent** tab
+[Download the CMA installer](https://download.centreon.com) (**Custom Platform** tab then **Monitoring Agent** tab), on every server you want to monitor.
 
 <Tabs groupId="sync">
 <TabItem value="Interactive mode" label="Interactive mode">
