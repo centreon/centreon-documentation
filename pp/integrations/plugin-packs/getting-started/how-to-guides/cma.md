@@ -157,7 +157,9 @@ On your central server, you need to install the monitoring connector that will p
 <Tabs groupId="sync">
 <TabItem value="OnPrem version 24.10.6 or newer" label="OnPrem version 24.10.6 or newer">
 
-For this version, no configuration is needed. Move on to the [next step](#configure-polleragent-communication).
+1. Go to **Configuration > Commands > Connectors**.
+
+2. Update the Centreon Monitoring Agent connector in the following way: in the **Used by command** field, type **Centreon-Monitoring-Agent** and then click **Select all**.
 
 </TabItem>
 <TabItem value="OnPrem version older than 24.10.6" label="OnPrem version older than 24.10.6">
