@@ -157,7 +157,9 @@ Sur votre serveur central, vous devez installer le connecteur de supervision qui
 <Tabs groupId="sync">
 <TabItem value="Version OnPrem 24.10.6 ou plus récente" label="Version OnPrem 24.10.6 ou plus récente">
 
-Pour cette version, aucune configuration n'est nécessaire. Passez à l'[étape suivante](#configurez-la-communication-collecteuragent).
+1. Allez à la page **Configuration > Commandes > Connecteurs**.
+
+2. Mettez à jour le connecteur **Centreon Monitoring Agent** de la façon suivante : dans le champ **Utilisé par la commande**, entrez **Centreon-Monitoring-Agent** puis cliquez sur  **Select all**.
 
 </TabItem>
 <TabItem value="Version OnPrem antérieure à la 24.10.6" label="Version OnPrem antérieure à la 24.10.6">
