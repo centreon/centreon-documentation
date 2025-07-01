@@ -3,7 +3,7 @@ id: quickstart
 title: Quickstart Guide
 ---
 
-Using MBI to its full extent requires a lot of specific configuration. This topic helps you get a quick grasp of MBI, intentionally glossing over several aspects of the extension and leaving many settings in default configuration. A complete guide for [installing and configuring MBI](installation.md) as well as a complete guide for [generating reports](generating-reports.md) are also available.
+Using MBI to its full extent requires specific configuration. This topic helps you get a quick grasp of MBI, intentionally glossing over several aspects of the extension and leaving many settings in default configuration. A complete guide for [installing and configuring MBI](installation.md) as well as a complete guide for [generating reports](generating-reports.md) are also available.
 
 ## Configuration
 
@@ -32,7 +32,7 @@ Go to **Reporting > Monitoring Business Intelligence > Jobs** and click on Add
 
 2. 
 
-3. The **Report Parameters** tab's content depend on the report design so we cannot provide accurate step by step instructions. However note that all fields should be filled and fields that require you to move categories from left to right should have at least one categorie in the right side for each field.
+3. The **Report Parameters** tab's content depend on the report design, it is not possible to provide accurate step by step instructions. However note that all fields should be filled and fields that require you to move categories from left to right should have at least one category in the right side for each field.
 
 4. 
 

@@ -1,3 +1,9 @@
+---
+id: general-options
+title: General configuration options
+---
+
+
 ## Notification options
 
 SMTP server properties
