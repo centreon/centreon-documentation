@@ -848,7 +848,15 @@
         },
         {
           "type": "doc",
+          "id": "mbi-reworked/general-options"
+        },
+        {
+          "type": "doc",
           "id": "mbi-reworked/preparing-data"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/quickstart"
         },
         {
           "type": "doc",
