@@ -7,7 +7,7 @@ Commencez par créer des tableaux de bord et ajoutez des widgets spécialement c
 
 ## Découvrir la fonctionnalité Tableau de bord
 
-Suivez ce tutoriel (en Anglais) pour apprendre à concevoir un tableau de bord en y ajoutant un widget.
+Suivez ce tutoriel pour apprendre à concevoir un tableau de bord en y ajoutant un widget.
 
 > Il s'agit d'un tutoriel interactif qui peut nécessiter un clic pour passer à l'étape suivante (le son est activé par défaut).
 
