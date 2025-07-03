@@ -392,7 +392,7 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 
 ### Ajouter les commandes CMA à la liste blanche du collecteur
 
-Si vous utilisez des listes blanches sur le collecteur ([les collecteurs Cloud ont des listes blanches par défaut](/cloud/monitoring/basic-objects/commands/#command-whitelist)), celles-ci doivent autoriser les commandes CMA. Dans votre fichier personnalisé de liste blanche (par exemple, **/etc/centreon-engine-whitelist/my-whitelist.yml**), incluez les lignes suiantes : 
+Si vous utilisez des listes blanches sur le collecteur ([les collecteurs Cloud ont des listes blanches par défaut](/cloud/monitoring/basic-objects/commands#liste-blanche-de-commandes)), celles-ci doivent autoriser les commandes CMA. Dans votre fichier personnalisé de liste blanche (par exemple, **/etc/centreon-engine-whitelist/my-whitelist.yml**), incluez les lignes suiantes : 
 
 ```text
 whitelist:
