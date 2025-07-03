@@ -206,6 +206,8 @@ yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 | WARNINGINITSTATUS  | Set warning threshold for initialization status                                                                                        |                            |           |
 | CRITICALSEALSTATUS | Set critical threshold for seal status                                                                                                 | %\{sealed\} ne "unsealed"  |           |
 | WARNINGSEALSTATUS  | Set warning threshold for seal status                                                                                                  |                            |           |
+| WARNINGSTANDBYSTATUS  | Set warning threshold for standby status                                         |                            |             |
+| CRITICALSTANDBYSTATUS | Set critical threshold for standby status                                        |                            |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                  |           |
 
 </TabItem>
