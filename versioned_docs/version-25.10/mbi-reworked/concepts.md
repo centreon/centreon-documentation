@@ -13,7 +13,7 @@ Is the definition of a report that is to be generated or has already been genera
 
 ## Job groups
 
-Job groups determine who is allowed to access each report, they are similar to ACLs.
+Job groups serve as a way to categorize jobs and will determine who is allowed to access each report, they are similar to ACLs.
 
 ## Report
 

@@ -848,6 +848,10 @@
         },
         {
           "type": "doc",
+          "id": "mbi-reworked/configuring-mbi"
+        },
+        {
+          "type": "doc",
           "id": "mbi-reworked/general-options"
         },
         {
