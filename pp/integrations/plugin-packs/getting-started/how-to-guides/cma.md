@@ -156,11 +156,11 @@ The CMA can be installed on and monitor the following OSs:
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-* Alma 8
-* Alma 9
+* RHEL/Oracle Linux/Alma Linux 8
+* RHEL/Oracle Linux/Alma Linux 9
 * Debian 11
 * Debian 12
-* Ubuntu 22.04 LTS
+* Ubuntu 22.04/24.04 LTS
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
@@ -190,13 +190,13 @@ On your central server, you need to install the monitoring connector that will p
 <TabItem value="Linux" label="Linux">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
-2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the [**Linux Centreon Monitoring Agent**](../../procedures/operatingsystems-linux-centreon-monitoring-agent.md) monitoring connector.
+2. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the [**Linux Centreon Monitoring Agent**](../../procedures/operatingsystems-linux-centreon-monitoring-agent.md) monitoring connector.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
-2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the [**Windows Centreon Monitoring Agent**](../../procedures/operatingsystems-windows-centreon-monitoring-agent.md) monitoring connector.
+2. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the [**Windows Centreon Monitoring Agent**](../../procedures/operatingsystems-windows-centreon-monitoring-agent.md) monitoring connector.
 
 </TabItem>
 </Tabs>
@@ -206,7 +206,9 @@ On your central server, you need to install the monitoring connector that will p
 <Tabs groupId="sync">
 <TabItem value="OnPrem version 24.10.6 or newer" label="OnPrem version 24.10.6 or newer">
 
-For this version, no configuration is needed. Move on to the [next step](#configure-polleragent-communication).
+1. Go to **Configuration > Commands > Connectors**.
+
+2. Update the Centreon Monitoring Agent connector in the following way: in the **Used by command** field, type **Centreon-Monitoring-Agent** and then click **Select all**.
 
 </TabItem>
 <TabItem value="OnPrem version older than 24.10.6" label="OnPrem version older than 24.10.6">
@@ -216,11 +218,11 @@ If your Centreon is in a version older than 24.10.6, you need to create the CMA 
 1. Go to **Configuration > Commands > Connectors**.
 2. Create a new connector with the following values:
 
-| Parameter             | Value                                                                                                                                                                                         |	
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |	
-| Connector Name        | Centreon Monitoring Agent Beta                                                                                                                                                                     |	
-| Connector Description | Centreon Monitoring Agent Beta                                                                                                                                                                     |	
-| Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |	
+| Parameter             | Value                                                                                                                                                                                         |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Connector Name        | Centreon Monitoring Agent                                                                                                                                           |
+| Connector Description | Centreon Monitoring Agent                                                                                                                                                     |
+| Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
 | Used by command       | Type `Centreon-Monitoring-Agent` and click **Select all**                                                                                                                                     |
 | Connector Status      | Enabled                                                                                                                                                                                       |
 
@@ -367,6 +369,20 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 </TabItem>
 </Tabs>
 
+### Whitelist CMA commands
+
+If you are using whitelists on the poller ([Cloud pollers have whitelists set by default](/cloud/monitoring/basic-objects/commands/#command-whitelist)), these must allow CMA commands. In your custom whitelist file (e.g., **/etc/centreon-engine-whitelist/my-whitelist.yml**), include the following lines: 
+
+```text
+whitelist:
+  regex:
+    - /usr/lib(?:64){0,1}/nagios/plugins/.*
+    - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+    - ^\{\s*"check":".*\}$
+    - \/usr\/bin\/echo\s+Host\s+alive
+    - cmd\.exe\s+\/C\s+echo\s+Centreon\s+Agent
+```
+
 ## Step 2: Prepare the host
 
 ### Download and install the agent
@@ -397,7 +413,7 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt-get update
@@ -413,6 +429,31 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 ```
 
 Then, install agent :
+
+```shell
+apt-get update
+apt install centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Ubuntu 22.04 & 24.04" label="Ubuntu 22.04 & 24.04">
+
+1. Execute the following commands:
+
+```shell
+apt-get update
+apt-get -y install lsb-release gpg wget
+echo "deb https://packages.centreon.com/ubuntu-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/ubuntu-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+```
+
+2. Import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+3. Install the agent :
 
 ```shell
 apt-get update
@@ -499,7 +540,7 @@ systemctl status centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-[Download the CMA installer](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true) on every server you want to monitor.
+[Download the CMA installer](https://download.centreon.com) (**Custom Platform** tab then **Monitoring Agent** tab), on every server you want to monitor.
 
 <Tabs groupId="sync">
 <TabItem value="Interactive mode" label="Interactive mode">
