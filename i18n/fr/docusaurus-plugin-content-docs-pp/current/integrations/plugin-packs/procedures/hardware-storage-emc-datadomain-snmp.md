@@ -8,8 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **EMC Data Domain SNMP** 
-depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
-
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -31,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 | Alerts          | HW-Storage-EMC-DataDomain-Alerts-SNMP-custom          | Contrôle des alertes en cours                          |            |
 | Cleaning        | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom        | Contrôle du dernier nettoyage des systèmes de fichiers |            |
 | Filesystems     | HW-Storage-EMC-DataDomain-Filesystems-SNMP-custom     | Contrôle des systèmes de fichiers                      |     X      |
-| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Contrôle l'ensemble du matériel           |            |
+| Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Contrôle l'ensemble du matériel                        |            |
 | Mtrees          | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom          | Contrôle des MTrees                                    |     X      |
 | Process         | HW-Storage-EMC-DataDomain-Process-SNMP-custom         | Contrôle de l'état des processus                       |            |
 | Replications    | HW-Storage-EMC-DataDomain-Replications-SNMP-custom    | Contrôle des réplications                              |     X      |
@@ -76,7 +75,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | HW-Storage-EMC-DataDomain-SNMP-Filesystems  | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
 | HW-Storage-EMC-DataDomain-SNMP-Interfaces   | Découvre des interfaces réseau et supervise l'utilisation de la bande passante      |
 | HW-Storage-EMC-DataDomain-SNMP-Mtrees       | Découvre les MTrees                                                                 |
-| HW-Storage-EMC-DataDomain-SNMP-Replications | Découvre les réplications |
+| HW-Storage-EMC-DataDomain-SNMP-Replications | Découvre les réplications                                                           |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -118,7 +117,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:---------------------------------------------------|:------|
 | status                                             | N/A   |
 | *battery*~hardware.battery.nvram.charge.percentage | %     |
-| hardware.battery.count                             | N/A   |
+| hardware.battery.count                             | count |
 
 </TabItem>
 <TabItem value="Hardware-Disk" label="Hardware-Disk">
@@ -126,7 +125,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom                 | Unité |
 |:--------------------|:------|
 | status              | N/A   |
-| hardware.disk.count | N/A   |
+| hardware.disk.count | count |
 
 </TabItem>
 <TabItem value="Hardware-Fan" label="Hardware-Fan">
@@ -134,7 +133,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom                | Unité |
 |:-------------------|:------|
 | status             | N/A   |
-| hardware.fan.count | N/A   |
+| hardware.fan.count | count |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
@@ -148,21 +147,21 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | temperature.status | N/A   |
 
 </TabItem>
-<TabItem value="Hardware-Psu*" label="Hardware-Psu*">
+<TabItem value="Hardware-Psu" label="Hardware-Psu">
 
 | Nom                | Unité |
 |:-------------------|:------|
 | status             | N/A   |
-| hardware.psu.count | N/A   |
+| hardware.psu.count | count |
 
 </TabItem>
 <TabItem value="Hardware-Temperature" label="Hardware-Temperature">
 
-| Nom                                        | Unité |
-|:-------------------------------------------|:------|
-| status                                     | N/A   |
-| *temperature*~hardware.temperature.celsius | C     |
-| hardware.temperature.count                 | N/A   |
+| Nom                                      | Unité |
+|:-----------------------------------------|:------|
+| status                                   | N/A   |
+| temperature~hardware.temperature.celsius | C     |
+| hardware.temperature.count               | count |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
@@ -229,7 +228,7 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -265,8 +264,8 @@ yum install centreon-pack-hardware-storage-emc-datadomain-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **EMC Data Domain**
-depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **EMC Data Domain SNMP**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 
@@ -338,7 +337,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 
 | Macro                 | Description                                                                                                                                      | Valeur par défaut                                       | Obligatoire |
 |:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| TRULYALERT            | Expression to define an actual alert (default: '%\{severity\} =~ /emergency\ |alert\|warning\|critical/i') | %\{severity\} =~ /emergency\|alert\|warning\|critical/i |             |
+| TRULYALERT            | Expression to define an actual alert                                                                                                               | %\{severity\} =~ /emergency\|alert\|warning\|critical/i |             |
 | WARNINGALERTSCURRENT  | Threshold                                                                                                                                        |                                                         |             |
 | CRITICALALERTSCURRENT | Threshold                                                                                                                                        |                                                         |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                                         |             |
@@ -355,12 +354,14 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 </TabItem>
 <TabItem value="Filesystems" label="Filesystems">
 
-| Macro              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERFSNAME       | Check filesystems by name                                                                                                                        | .*                |             |
-| WARNINGSPACEUSAGE  | Threshold                                                                                                                                        | 80                |             |
-| CRITICALSPACEUSAGE | Threshold                                                                                                                                        | 90                |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro                  | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERFSNAME           | Check filesystems by name                                                                                                                        | .*                |             |
+| WARNINGSPACEUSAGE      | Threshold                                                                                                                                        |                   |             |
+| CRITICALSPACEUSAGE     | Threshold                                                                                                                                        |                   |             |
+| WARNINGSPACEUSAGEPRCT  | Threshold                                                                                                                                        | 80                |             |
+| CRITICALSPACEUSAGEPRCT | Threshold                                                                                                                                        | 90                |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hardware-Battery" label="Hardware-Battery">
@@ -413,26 +414,26 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro              | Description                                                                                                                                                       | Valeur par défaut                                | Obligatoire |
-|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-----------:|
-| OIDFILTER          | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                          | ifname                                           |             |
-| OIDDISPLAY         | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                 | ifname                                           |             |
-| INTERFACENAME      | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                         |                                                  |             |
-| WARNINGINDISCARD   | Threshold                                                                                                                                                         |                                                  |             |
-| CRITICALINDISCARD  | Threshold                                                                                                                                                         |                                                  |             |
-| WARNINGINERROR     | Threshold                                                                                                                                                         |                                                  |             |
-| CRITICALINERROR    | Threshold                                                                                                                                                         |                                                  |             |
-| WARNINGINTRAFFIC   | Threshold                                                                                                                                                         |                                                  |             |
-| CRITICALINTRAFFIC  | Threshold                                                                                                                                                         |                                                  |             |
-| WARNINGOUTDISCARD  | Threshold                                                                                                                                                         |                                                  |             |
-| CRITICALOUTDISCARD | Threshold                                                                                                                                                         |                                                  |             |
-| WARNINGOUTERROR    | Threshold                                                                                                                                                         |                                                  |             |
-| CRITICALOUTERROR   | Threshold                                                                                                                                                         |                                                  |             |
-| WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                         |                                                  |             |
-| CRITICALOUTTRAFFIC | Threshold                                                                                                                                                         |                                                  |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up/ |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}  |                                                  |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                  | --verbose                                        |             |
+| Macro              | Description                                                                                                                                                        | Valeur par défaut                                | Obligatoire |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-----------:|
+| OIDFILTER          | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                           | ifname                                           |             |
+| OIDDISPLAY         | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                  | ifname                                           |             |
+| INTERFACENAME      | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                          |                                                  |             |
+| WARNINGINDISCARD   | Threshold                                                                                                                                                          |                                                  |             |
+| CRITICALINDISCARD  | Threshold                                                                                                                                                          |                                                  |             |
+| WARNINGINERROR     | Threshold                                                                                                                                                          |                                                  |             |
+| CRITICALINERROR    | Threshold                                                                                                                                                          |                                                  |             |
+| WARNINGINTRAFFIC   | Threshold                                                                                                                                                          |                                                  |             |
+| CRITICALINTRAFFIC  | Threshold                                                                                                                                                          |                                                  |             |
+| WARNINGOUTDISCARD  | Threshold                                                                                                                                                          |                                                  |             |
+| CRITICALOUTDISCARD | Threshold                                                                                                                                                          |                                                  |             |
+| WARNINGOUTERROR    | Threshold                                                                                                                                                          |                                                  |             |
+| CRITICALOUTERROR   | Threshold                                                                                                                                                          |                                                  |             |
+| WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                          |                                                  |             |
+| CRITICALOUTTRAFFIC | Threshold                                                                                                                                                          |                                                  |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL . You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up/ |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}   |                                                  |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                   | --verbose                                        |             |
 
 </TabItem>
 <TabItem value="Mtrees" label="Mtrees">
@@ -491,14 +492,13 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--snmp-community='my-snmp-community'  \
 	--filter-mtree-name='' \
 	--warning-status='' \
-	--critical-status=''
+	--critical-status=''  
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: detected: 33552 space precompression used: 20257 20257 precompression: 52436 52436 postcompression: 56937 56937 | 'mtrees.detected.count'=33552;;;0; 'mtrees~mtree.precompression.space.usage.bytes'=20257B;;;0; 'mtrees~mtree.daily.precompression.data.written.bytes'=52436B;;;0; 'mtrees~mtree.daily.postcompression.data.written.bytes'=56937B;;;0;
-
 ```
 
 ### Diagnostic des erreurs communes
@@ -508,7 +508,7 @@ pour le diagnostic des erreurs communes des plugins Centreon.
 
 ### Modes disponibles
 
-Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
 du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
 implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
 modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
@@ -700,7 +700,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                            |
 
 </TabItem>
-<TabItem value="Hardware-Psu*" label="Hardware-Psu*">
+<TabItem value="Hardware-Psu" label="Hardware-Psu">
 
 | Option               | Description                                                                                                                                                                                                                |
 |:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
