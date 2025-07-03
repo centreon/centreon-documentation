@@ -5,7 +5,7 @@ title: Quickstart Guide
 
 Using MBI to its full extent requires specific configuration. This topic helps you get a quick grasp of MBI, intentionally glossing over several aspects of the extension and leaving many settings in default configuration. A complete guide for [installing and configuring MBI](installation.md) as well as a complete guide for [generating reports](generating-reports.md) are also available.
 
-## Configuration
+## Step 1: Configuring MBI
 
 Go to **Reporting > Monitoring Business Intelligence > General Options** 
 
@@ -19,23 +19,21 @@ Go to **Reporting > Monitoring Business Intelligence > General Options**
 
 5. In the **Reporting Widgets** tab, fill in the datawarehouse as well as the MySQL credentials that will grant access to the data necessary for widgets.
 
-## Create the necessary groups and categories
+## Step 2: Creating the necessary groups and categories
 
-MBI requires you to have host groups, host categories and service categories. Even if your the report you want to generate concerns only one host, MBI requires a host group to function and so you should create a host group containing only this one host to generate the report.
+MBI requires you to have host groups, host categories and service categories. If the report you want to generate concerns only one host, create a host group containing only this one host.
 
-## Create a job
+## Step 3: Creating a job
 
 You will now create a job that will generate an immediate report
 Go to **Reporting > Monitoring Business Intelligence > Jobs** and click on Add
 
 1. In the **Configuration** tab, choose a name for the report and select one of the [available report designs](available-reports.md)
 
-2. 
+2. Select the corresponding [job group](concepts.md#job-groups) and the period the report should contain.
 
-3. The **Report Parameters** tab's content depend on the report design, it is not possible to provide accurate step by step instructions. However note that all fields should be filled and fields that require you to move categories from left to right should have at least one category in the right side for each field.
+3. The **Report Parameters** tab's content depend on the report design. However note that all fields should be filled and fields that require you to add categories from left to right should have at least one category in the right side for each field.
 
-4. 
+4. Click **Save**, you will be taken back to the previous page where you can see your job being executed.
 
-5. 
-
-6. 
+5. Go to **Reporting > Monitoring Business Intelligence > Report view** to find your report.
