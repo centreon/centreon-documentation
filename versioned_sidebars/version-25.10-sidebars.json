@@ -64,7 +64,7 @@
           "collapsed": true,
           "items": [
             "getting-started/actions",
-            "getting-started/create-custom-view"
+            "getting-started/create-dashboard"
           ]
         },
         {
@@ -844,15 +844,19 @@
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/creating-reports"
-        },
-        {
-          "type": "doc",
           "id": "mbi-reworked/installation"
         },
         {
           "type": "doc",
+          "id": "mbi-reworked/general-options"
+        },
+        {
+          "type": "doc",
           "id": "mbi-reworked/preparing-data"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/quickstart"
         },
         {
           "type": "doc",

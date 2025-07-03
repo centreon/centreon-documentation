@@ -21,7 +21,7 @@ User accounts are managed in the [Centreon CIAM](../ciam/ciam.md) (Customer Iden
 
 There are three steps to setting up your Centreon Cloud trial platform for an organization:
 
-- Your future administrator fills in [the form available on our website](https://www.centreon.com/free-trial/) using a professional email address.
+- Your future administrator fills in [the form available on our website](https://www.centreon.com/free-trial/#saas_trial) using a professional email address.
 
 - An email will be sent to that address to activate the account and create a password for it on Centreon CIAM.
 

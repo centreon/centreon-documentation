@@ -6,7 +6,7 @@ title: MBI Concepts
 MBI is an extension of Centreon with its own vocabulary and concepts, this section breaks down the key concepts to understanding Centreon MBI. 
 
 Note that this section expects you to be familiar with the [regular Centreon vocabulary](../resources/glossary.md).
-
+ 
 ## Jobs
 
 Is the definition of a report that is to be generated or has already been generated. Jobs can be scheduled to be performed immediately or at a specified time and date. You can also decide if the report is to be generated only once or if it should be generated periodically.
