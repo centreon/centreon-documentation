@@ -840,6 +840,10 @@
         },
         {
           "type": "doc",
+          "id": "mbi-reworked/how-mbi-works"
+        },
+        {
+          "type": "doc",
           "id": "mbi-reworked/available-reports"
         },
         {
