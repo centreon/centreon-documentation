@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
 - [**VMware8 vCenter REST API**](../procedures/applications-virtualization-vmware8-vcenter-restapi.md) - Initial release of VMware8 vCenter REST API.
-- [**HPE Alletra REST API**](../procedures/hardware-storage-hpe-alletra-restapi.md) - Initial release of HPE Alletra REST API, from a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-baie-hp-alletra-mp-3721) and based on a community contribution [PR 5174](https://github.com/centreon/centreon-plugins/pull/5174).
+- [**HPE Alletra REST API**](../procedures/hardware-storage-hpe-alletra-restapi.md) - Initial release of HPE Alletra REST API, from a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-baie-hp-alletra-mp-3721) and based on community contribution [PR 5174](https://github.com/centreon/centreon-plugins/pull/5174).
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
