@@ -175,11 +175,11 @@ yum install centreon-plugin-Cloud-Gcp-Management-Stackdriver-Api
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | TIMEFRAME         | Set timeframe in seconds (i.e. 3600 to check last hour)                                                                                            | 900               |             |
 | AGGREGATION       | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | average           |             |
-| DIMENSIONNAME     | Set dimension name (required)                                                                                                                      |                   |             |
-| DIMENSIONOPERATOR | Set dimension operator (default: 'equals'. Can also be: 'regexp', 'starts')                                                                        |                   |             |
-| DIMENSIONVALUE    | Set dimension value (required)                                                                                                                     |                   |             |
-| API               | Set GCP API (required)                                                                                                                             |                   |             |
-| METRIC            | Set stackdriver metric (required)                                                                                                                  |                   |             |
+| DIMENSIONNAME     | Set dimension name                                                                                                                                 |                   |       X     |
+| DIMENSIONOPERATOR | Set dimension operator (default: 'equals'. Can also be: 'regexp', 'starts')                                                                        |                   |       X     |
+| DIMENSIONVALUE    | Set dimension value                                                                                                                                |                   |       X     |
+| API               | Set GCP API                                                                                                                                        |                   |       X     |
+| METRIC            | Set stackdriver metric                                                                                                                             |                   |             |
 | WARNINGMETRIC     | Warning threshold                                                                                                                                  |                   |             |
 | CRITICALMETRIC    | Critical threshold                                                                                                                                 |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                 | --verbose         |             |
@@ -202,13 +202,13 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=cloud::google::gcp::management::stackdriver::plugin \
 	--mode=get-metrics \
 	--proxyurl='' \
-	--key-file='/path/key.json' \
-	--scope-endpoint='https://www.googleapis.com/auth/cloud-platform'  \
-	--dimension-name='instance-centreon1-drb5' \
-	--dimension-operator='equals' \
-	--dimension-value='instance-centreon1-drb5' \
-	--api='api.googleapis.com' \
-	--metric='instance/cpu/utilization' \
+	--key-file='' \
+	--scope-endpoint=''  \
+	--dimension-name='XXXX' \
+	--dimension-operator='' \
+	--dimension-value='XXXX' \
+	--api='XXXX' \
+	--metric='XXXX' \
 	--timeframe='900' \
 	--aggregation='average' \
 	--warning-metric='' \
