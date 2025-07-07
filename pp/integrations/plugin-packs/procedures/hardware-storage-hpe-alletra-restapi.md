@@ -1,6 +1,6 @@
 ---
 id: hardware-storage-hpe-alletra-restapi
-title: Alletra
+title: HPE Alletra REST API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
