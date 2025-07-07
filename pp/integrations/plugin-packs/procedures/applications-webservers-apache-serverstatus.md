@@ -224,7 +224,7 @@ and check that:
 
   - If not already configured, add the followings lines:
 
-bash``` 
+``` bash
     <Location /server-status>
         SetHandler server-status 
         Order Deny,Allow
