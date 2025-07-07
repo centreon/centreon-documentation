@@ -11,13 +11,13 @@ This connector is designed to be compatible with the following products.
 
 | Product     | Model        | Versions |
 |-------------|--------------|----------|
-| HPE Alletra | 9000         | NA       |
+| HPE Alletra | 9000         | N/A      |
 
 
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **HPE Alletra REST API** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -65,16 +65,16 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                                           | Description                                               |
-|:----------------------------------------------------|:----------------------------------------------------------|
-| HW-Storage-HPE-Alletra-Restapi-Disk-Status-Id       | Discover the physical disks and monitor their status.     | 
-| HW-Storage-HPE-Alletra-Restapi-Disk-Status-Position | Discover the physical disks and monitor their status.     |
-| HW-Storage-HPE-Alletra-Restapi-Disk-Usage-Id        | Discover the physical disks and monitor their usage.      |
-| HW-Storage-HPE-Alletra-Restapi-Disk-Usage-Position  | Discover the physical disks and monitor their usage.      |
-| HW-Storage-HPE-Alletra-Restapi-Volume-Status-Id     | Discover the volumes and monitor their status.            |
-| HW-Storage-HPE-Alletra-Restapi-Volume-Status-Name   | Discover the volumes and monitor their status.            |  
-| HW-Storage-HPE-Alletra-Restapi-Volume-Usage-Id      | Discover the volumes and monitor their usage.             |
-| HW-Storage-HPE-Alletra-Restapi-Volume-Usage-Name    | Discover the volumes and monitor their usage.             |
+| Rule name                                           | Description                                                    |
+|:----------------------------------------------------|:---------------------------------------------------------------|
+| HW-Storage-HPE-Alletra-Restapi-Disk-Status-Id       | Discover the physical disks by Id and monitor their status.    |
+| HW-Storage-HPE-Alletra-Restapi-Disk-Status-Position | Discover the physical disks by name and monitor their status.  |
+| HW-Storage-HPE-Alletra-Restapi-Disk-Usage-Id        | Discover the physical disks by Id and monitor their usage.     |
+| HW-Storage-HPE-Alletra-Restapi-Disk-Usage-Position  | Discover the physical disks by name and monitor their usage.   |
+| HW-Storage-HPE-Alletra-Restapi-Volume-Status-Id     | Discover the volumes by Id and monitor their status.           |
+| HW-Storage-HPE-Alletra-Restapi-Volume-Status-Name   | Discover the volumes by name and monitor their status.         |
+| HW-Storage-HPE-Alletra-Restapi-Volume-Usage-Id      | Discover the volumes by Id and monitor their usage.            |
+| HW-Storage-HPE-Alletra-Restapi-Volume-Usage-Name    | Discover the volumes by name and monitor their usage.          |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -163,17 +163,17 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-he following procedure is a excerpt from the official [HPE documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=a00118592en_us&page=GUID-77CF1ECF-98D5-44E1-B040-F54F17374A20.html).
+The following procedure is an excerpt from the official [HPE documentation](https://support.hpe.com/hpesc/public/docDisplay?docId=a00118592en_us&page=GUID-77CF1ECF-98D5-44E1-B040-F54F17374A20.html).
 
 1. Log in to the CLI as `Super`, `Service`, or any role granted the `wsapi_set` right.
 2. Start the WSAPI server.
-    ```
+```bash
    cli%
    startwsapi
-   ```
+```
 3. To configure WSAPI, enter `setwsapi` in the CLI.
 
-Please refer to the official documentation for the details.
+Please refer to the official documentation for more details.
 
 ## Installing the monitoring connector
 
@@ -181,7 +181,7 @@ Please refer to the official documentation for the details.
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -217,7 +217,7 @@ yum install centreon-pack-hardware-storage-hpe-alletra-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **HPE Alletra REST API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

@@ -5,20 +5,20 @@ title: HPE Alletra REST API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
-
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **HPE Alletra REST API** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
-* [Base Pack](./base-generic.md)
-
 ## Compatibilité
 
 Ce connecteur a été conçu pour être compatible avec les produits suivants.
 
 | Produit     | Modèles       | Versions |
 | ----------- | ------------- | -------- |
-| HPE Alletra | 9000          | NA       |
+| HPE Alletra | 9000          | N/A      |
 
+
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **HPE Alletra REST API** 
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
 ## Contenu du pack
 
@@ -66,16 +66,16 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de services
 
-| Nom de la règle                                     | Description                                                           |
-|:----------------------------------------------------|:----------------------------------------------------------------------|
-| HW-Storage-HPE-Alletra-Restapi-Disk-Status-Id       | Découvre les disques physiques et en supervise le statut.             |
-| HW-Storage-HPE-Alletra-Restapi-Disk-Status-Position | Découvre les disques physiques et en supervise le statut.             |
-| HW-Storage-HPE-Alletra-Restapi-Disk-Usage-Id        | Découvre les disques physiques et en supervise l'utilisation.         |
-| HW-Storage-HPE-Alletra-Restapi-Disk-Usage-Position  | Découvre les disques physiques et en supervise l'utilisation.         |
-| HW-Storage-HPE-Alletra-Restapi-Volume-Status-Id     | Découvre les volumes et en supervise le status.                       |
-| HW-Storage-HPE-Alletra-Restapi-Volume-Status-Name   | Découvre les volumes et en supervise le status.                       |
-| HW-Storage-HPE-Alletra-Restapi-Volume-Usage-Id      | Découvre les volumes et en supervise l'utilisation.                   |
-| HW-Storage-HPE-Alletra-Restapi-Volume-Usage-Name    | Découvre les volumes et en supervise l'utilisation.                   |
+| Nom de la règle                                     | Description                                                                                 |
+|:----------------------------------------------------|:--------------------------------------------------------------------------------------------|
+| HW-Storage-HPE-Alletra-Restapi-Disk-Status-Id       | Découvre les disques physiques en utilisant leur Id et en supervise le statut.              |
+| HW-Storage-HPE-Alletra-Restapi-Disk-Status-Position | Découvre les disques physiques en utilisant leur nom et en supervise le statut.             |
+| HW-Storage-HPE-Alletra-Restapi-Disk-Usage-Id        | Découvre les disques physiques en utilisant leur Id et en supervise l'utilisation.          |
+| HW-Storage-HPE-Alletra-Restapi-Disk-Usage-Position  | Découvre les disques physiques en utilisant leur nom et en supervise l'utilisation.         |
+| HW-Storage-HPE-Alletra-Restapi-Volume-Status-Id     | Découvre les volumes en utilsant leur Id et en supervise le status.                         |
+| HW-Storage-HPE-Alletra-Restapi-Volume-Status-Name   | Découvre les volumes en utilsant leur nom et en supervise le status.                        |
+| HW-Storage-HPE-Alletra-Restapi-Volume-Usage-Id      | Découvre les volumes en utilsant leur Id et en supervise l'utilisation.                     |
+| HW-Storage-HPE-Alletra-Restapi-Volume-Usage-Name    | Découvre les volumes en utilsant leur nom et en supervise l'utilisation.                    |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -168,10 +168,10 @@ La procédure ci-dessous est extraite de la [documentation officielle de HPE](ht
 
 1. Loggez-vous à la CLI en tant que `Super`, `Service`, ou tout autre rôle disposant de la permission `wsapi_set`.
 2. Démarrez le serveur WSAPI.
-    ```
+```bash
    cli%
    startwsapi
-   ```
+```
 3. Pour configurer WSAPI, entrez `setwsapi` dans la CLI.
 
 Veuillez vous référer à la documentation officielle pour plus de détails.
@@ -181,7 +181,7 @@ Veuillez vous référer à la documentation officielle pour plus de détails.
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -218,7 +218,7 @@ yum install centreon-pack-hardware-storage-hpe-alletra-restapi
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **HPE Alletra REST API**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
