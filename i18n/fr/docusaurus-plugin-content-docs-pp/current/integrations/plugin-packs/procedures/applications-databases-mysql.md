@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **MySQL/MariaDB** 
-depuis la page **Configuration > Gestionnaire de Connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 |:-------------------|:---------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|
 | Connection-Time    | App-DB-MySQL-Connection-Time-custom    | Contrôle permettant de vérifier la durée de connexion au serveur. Ce temps est donné en secondes                                |
 | Connections-Number | App-DB-MySQL-Connections-Number-custom | Contrôle permettant de vérifier le nombre de connexions ouvertes                                                                |
-| Database-Size      | App-DB-MySQL-Database-Size-custom      | Contrôle permettant de vérifier la taille des bases de données. Aucunes alertes par défaut                                      |
+| Database-Size      | App-DB-MySQL-Database-Size-custom      | Contrôle permettant de vérifier la taille des bases de données. Aucune alerte par défaut                                      |
 | Myisam-Keycache    | App-DB-MySQL-Myisam-Keycache-custom    | Contrôle permettant de vérifier le taux de succès des tables MyISAM                                                             |
 | Open-Files         | App-DB-MySQL-Open-Files-custom         | Contrôle permettant de vérifier le nombre de fichiers ouverts                                                                   |
 | Queries            | App-DB-MySQL-Queries-custom            | Contrôle permettant de vérifier le nombre moyen de requêtes exécutées par seconde                                               |
@@ -46,10 +46,10 @@ Le connecteur apporte les modèles de service suivants
 | Innodb-Bufferpool    | App-DB-MySQL-Innodb-Bufferpool-custom            | Contrôle permettant de vérifier le taux de succès du tampon InnoDB                                                                 |
 | Long-Queries         | App-DB-MySQL-Long-Queries-custom                 | Contrôle permettant de vérifier les requêtes courantes longues                                                                     |
 | MariaDB-Replication  | App-DB-MySQL-MariaDB-Replication-custom          | Contrôle permettant de vérifier l'état de la réplication entre deux bases de données                                                |
-| Password-Expiration  | App-DB-MySQL-Password-Expiration-custom          | Contrôle permettant de vérifier l'expiration des mots de passe utilisateurs                                                        |
+| Password-Expiration  | App-DB-MySQL-Password-Expiration-custom          | Contrôle permettant de vérifier l'expiration des mots de passe utilisateur                                                       |
 | Qcache-Hitrate       | App-DB-MySQL-Qcache-Hitrate-custom               | Contrôle permettant de vérifier le taux d'utilisation du 'query cache'                                                             |
 | Sql-Statement        | App-DB-MySQL-Sql-Statement-Generic-custom        | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique                                        |
-| Sql-Statement-String | App-DB-MySQL-Sql-Statement-String-Generic-custom | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaine de caractères                                    |
+| Sql-Statement-String | App-DB-MySQL-Sql-Statement-String-Generic-custom | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaîne de caractères                                    |
 | Uptime               | App-DB-MySQL-Uptime-custom                       | Contrôle permettant d'indiquer le temps de fonctionnement du serveur depuis son dernier démarrage. Ce temps est exprimé en minutes |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -230,7 +230,7 @@ Voici la liste des privilèges utilisateur nécessaires par service :
 La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de Connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -267,7 +267,7 @@ yum install centreon-pack-applications-databases-mysql
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **MySQL/MariaDB**
-depuis l'interface web et le menu **Configuration > Gestionnaire de Connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -340,7 +340,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | Macro                     | Description                                                                                                                                                                                                                                                                     | Valeur par défaut                                                                               | Obligatoire |
 |:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------|:-----------:|
 | FILTERTYPE                | Filter backups by type (regexp can be used)                                                                                                                                                                                                                                     |                                                                                                 |             |
-| CRITICALSTATUS            | Define the conditions to match for the status to be CRITICAL (default: '%\{has\_backup\} eq "yes" and %\{exit\_state\} ne "SUCCESS" and %\{last\_error\} ne "NO\_ERROR"'). You can use the following variables: %\{has\_backup\}, %\{last\_error\}, %\{exit\_state\}, %\{type\} | %\{has\_backup\} eq "yes" and %\{exit\_state\} ne "SUCCESS" and %\{last\_error\} ne "NO\_ERROR" |             |
+| CRITICALSTATUS            | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{has\_backup\}, %\{last\_error\}, %\{exit\_state\}, %\{type\} | %\{has\_backup\} eq "yes" and %\{exit\_state\} ne "SUCCESS" and %\{last\_error\} ne "NO\_ERROR" |             |
 | WARNINGSTATUS             | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{has\_backup\}, %\{last\_error\}, %\{exit\_state\}, %\{type\}                                                                                                               |                                                                                                 |             |
 | WARNINGTIMELASTEXECUTION  | Threshold                                                                                                                                                                                                                                                                       |                                                                                                 |             |
 | CRITICALTIMELASTEXECUTION | Threshold                                                                                                                                                                                                                                                                       |                                                                                                 |             |
@@ -371,7 +371,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 
 | Macro              | Description                                                                                                                                            | Valeur par défaut                                     | Obligatoire |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| FILTERDATABASE     | Filter the databases to monitor with a regular expression                                                                                              | ^(?!(information\_schema\|performance\_schema\|test)) |             |
+| FILTERDATABASE     | Filter by database name (can be a regexp)                                                                                        | ^(?!(information\_schema\|performance\_schema\|test)) |             |
 | FILTERPERFDATA     | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data | database                                              |             |
 | WARNINGDBFREE      | Threshold                                                                                                                                              |                                                       |             |
 | CRITICALDBFREE     | Threshold                                                                                                                                              |                                                       |             |
@@ -403,8 +403,8 @@ yum install centreon-plugin-Applications-Databases-Mysql
 
 | Macro         | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SECONDS       | The minimum execution time in seconds for a long query (default: 60)                               | 60                |             |
-| FILTERCOMMAND | Filter by command (can be a regexp. Default: '^(?!(sleep)$)')                                      | ^(?!(sleep)$)     |             |
+| SECONDS       | The minimum execution time in seconds for a long query                             | 60                |             |
+| FILTERCOMMAND | Filter by command (can be a regexp.                                     | ^(?!(sleep)$)     |             |
 | FILTERUSER    | Filter by user (can be a regexp)                                                                   |                   |             |
 | WARNING       | Warning threshold (number of long queries)                                                         |                   |             |
 | CRITICAL      | Critical threshold (number of long queries)                                                        |                   |             |
@@ -418,13 +418,13 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | PEERPORT                  | Database Server Port                                                                                                                                                                                       | 3306                                                |             |
 | PEERUSERNAME              |                                                                                                                                                                                                            | USERNAME                                            |             |
 | PEERPASSWORD              |                                                                                                                                                                                                            | PASSWORD                                            |             |
-| UNKNOWNREPLICATIONSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: '%\{replication\_status\} =~ /configurationIssue/i'). You can use the following variables: %\{replication\_status\}, %\{display\}    | %\{replication\_status\} =~ /configurationIssue/i   |             |
+| UNKNOWNREPLICATIONSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{replication\_status\}, %\{display\}    | %\{replication\_status\} =~ /configurationIssue/i   |             |
 | PEERHOST                  | Hostname to query                                                                                                                                                                                          |                                                     |             |
 | UNKNOWNCONNECTIONSTATUS   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables:  %\{status\}, %\{error\_message\}, %\{display\}                                                          |                                                     |             |
-| CRITICALCONNECTIONSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} ne "ok"'). You can use the following variables: %\{status\}, %\{error\_message\}, %\{display\}                         | %\{status\} ne "ok"                                 |             |
+| CRITICALCONNECTIONSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{error\_message\}, %\{display\}                         | %\{status\} ne "ok"                                 |             |
 | WARNINGCONNECTIONSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables:  %\{status\}, %\{error\_message\}, %\{display\}                                                          |                                                     |             |
-| WARNINGREPLICATIONSTATUS  | Define the conditions to match for the status to be WARNING (default: '%\{replication\_status\} =~ /inProgress/i'). You can use the following variables: %\{replication\_status\}, %\{display\}            | %\{replication\_status\} =~ /inProgress/i           |             |
-| CRITICALREPLICATIONSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{replication\_status\} =~ /connectIssueToMaster/i'). You can use the following variables: %\{replication\_status\}, %\{display\} | %\{replication\_status\} =~ /connectIssueToMaster/i |             |
+| WARNINGREPLICATIONSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{replication\_status\}, %\{display\}            | %\{replication\_status\} =~ /inProgress/i           |             |
+| CRITICALREPLICATIONSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{replication\_status\}, %\{display\} | %\{replication\_status\} =~ /connectIssueToMaster/i |             |
 | WARNINGSLAVELATENCY       | Threshold                                                                                                                                                                                                  |                                                     |             |
 | CRITICALSLAVELATENCY      | Threshold                                                                                                                                                                                                  |                                                     |             |
 | CRITICALSLAVESRUNNING     | Threshold                                                                                                                                                                                                  | 1:1                                                 |             |
@@ -458,7 +458,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 
 | Macro          | Description                                                                                                                                                                                                 | Valeur par défaut                                 | Obligatoire |
 |:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------|:-----------:|
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{expire\} ne "never" and %\{expire\_time\} == 0'). You can use the following variables: %\{user\}, %\{expire\}, %\{expire\_time\} | %\{expire\} ne "never" and %\{expire\_time\} == 0 |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{user\}, %\{expire\}, %\{expire\_time\} | %\{expire\} ne "never" and %\{expire\_time\} == 0 |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{user\}, %\{expire\}, %\{expire\_time\}                                                                 |                                                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                          | --verbose                                         |             |
 
@@ -576,15 +576,15 @@ Le plugin apporte les modes suivants :
 | Mode                                                                                                                                             | Modèle de service associé                        |
 |:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|
 | backup [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/backup.pm)]                                     | App-DB-MySQL-Backup-custom                       |
-| collection [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/collection.pm)]              | Pas uttilisé dans ce connecteur de supervision   |
+| collection [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/collection.pm)]              | Pas utilisé dans ce connecteur de supervision   |
 | connection-time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/connectiontime.pm)]     | App-DB-MySQL-Connection-Time-custom              |
 | databases-size [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/databasessize.pm)]                      | App-DB-MySQL-Database-Size-custom                |
 | innodb-bufferpool-hitrate [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/innodbbufferpoolhitrate.pm)] | App-DB-MySQL-Innodb-Bufferpool-custom            |
 | long-queries [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/longqueries.pm)]                          | App-DB-MySQL-Long-Queries-custom                 |
 | myisam-keycache-hitrate [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/myisamkeycachehitrate.pm)]     | App-DB-MySQL-Myisam-Keycache-custom              |
-| name [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/db_socket.pm)]                                                        | Pas uttilisé dans ce connecteur de supervision   |
+| name [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/db_socket.pm)]                                                        | Pas utilisé dans ce connecteur de supervision   |
 | open-files [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/openfiles.pm)]                              | App-DB-MySQL-Open-Files-custom                   |
-| open-tables [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/opentables.pm)]                            | Pas uttilisé dans ce connecteur de supervision   |
+| open-tables [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/opentables.pm)]                            | Pas utilisé dans ce connecteur de supervision   |
 | password-expiration [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/passwordexpiration.pm)]            | App-DB-MySQL-Password-Expiration-custom          |
 | qcache-hitrate [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/qcachehitrate.pm)]                      | App-DB-MySQL-Qcache-Hitrate-custom               |
 | queries [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/queries.pm)]                                   | App-DB-MySQL-Queries-custom                      |

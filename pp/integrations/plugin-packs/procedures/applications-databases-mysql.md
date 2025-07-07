@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **MySQL/MariaDB** connector through the
-**Configuration > Monitoring Connectors** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -230,7 +230,7 @@ The installation procedures for monitoring connectors are slightly different dep
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connectors** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -266,7 +266,7 @@ yum install centreon-pack-applications-databases-mysql
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **MySQL/MariaDB** connector through
-the **Configuration > Monitoring Connectors** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -341,7 +341,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | Macro                     | Description                                                                                                                                                                                                                                                                     | Default value                                                                                   | Mandatory   |
 |:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------|:-----------:|
 | FILTERTYPE                | Filter backups by type (regexp can be used)                                                                                                                                                                                                                                     |                                                                                                 |             |
-| CRITICALSTATUS            | Define the conditions to match for the status to be CRITICAL (default: '%\{has\_backup\} eq "yes" and %\{exit\_state\} ne "SUCCESS" and %\{last\_error\} ne "NO\_ERROR"'). You can use the following variables: %\{has\_backup\}, %\{last\_error\}, %\{exit\_state\}, %\{type\} | %\{has\_backup\} eq "yes" and %\{exit\_state\} ne "SUCCESS" and %\{last\_error\} ne "NO\_ERROR" |             |
+| CRITICALSTATUS            | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{has\_backup\}, %\{last\_error\}, %\{exit\_state\}, %\{type\} | %\{has\_backup\} eq "yes" and %\{exit\_state\} ne "SUCCESS" and %\{last\_error\} ne "NO\_ERROR" |             |
 | WARNINGSTATUS             | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{has\_backup\}, %\{last\_error\}, %\{exit\_state\}, %\{type\}                                                                                                               |                                                                                                 |             |
 | WARNINGTIMELASTEXECUTION  | Threshold                                                                                                                                                                                                                                                                       |                                                                                                 |             |
 | CRITICALTIMELASTEXECUTION | Threshold                                                                                                                                                                                                                                                                       |                                                                                                 |             |
@@ -419,13 +419,13 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | PEERPORT                  | Database Server Port                                                                                                                                                                                       | 3306                                                |             |
 | PEERUSERNAME              |                                                                                                                                                                                                            | USERNAME                                            |             |
 | PEERPASSWORD              |                                                                                                                                                                                                            | PASSWORD                                            |             |
-| UNKNOWNREPLICATIONSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: '%\{replication\_status\} =~ /configurationIssue/i'). You can use the following variables: %\{replication\_status\}, %\{display\}    | %\{replication\_status\} =~ /configurationIssue/i   |             |
+| UNKNOWNREPLICATIONSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{replication\_status\}, %\{display\}    | %\{replication\_status\} =~ /configurationIssue/i   |             |
 | PEERHOST                  | Hostname to query                                                                                                                                                                                          |                                                     |             |
 | UNKNOWNCONNECTIONSTATUS   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables:  %\{status\}, %\{error\_message\}, %\{display\}                                                          |                                                     |             |
-| CRITICALCONNECTIONSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} ne "ok"'). You can use the following variables: %\{status\}, %\{error\_message\}, %\{display\}                         | %\{status\} ne "ok"                                 |             |
+| CRITICALCONNECTIONSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{error\_message\}, %\{display\}                         | %\{status\} ne "ok"                                 |             |
 | WARNINGCONNECTIONSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables:  %\{status\}, %\{error\_message\}, %\{display\}                                                          |                                                     |             |
-| WARNINGREPLICATIONSTATUS  | Define the conditions to match for the status to be WARNING (default: '%\{replication\_status\} =~ /inProgress/i'). You can use the following variables: %\{replication\_status\}, %\{display\}            | %\{replication\_status\} =~ /inProgress/i           |             |
-| CRITICALREPLICATIONSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{replication\_status\} =~ /connectIssueToMaster/i'). You can use the following variables: %\{replication\_status\}, %\{display\} | %\{replication\_status\} =~ /connectIssueToMaster/i |             |
+| WARNINGREPLICATIONSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{replication\_status\}, %\{display\}            | %\{replication\_status\} =~ /inProgress/i           |             |
+| CRITICALREPLICATIONSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{replication\_status\}, %\{display\} | %\{replication\_status\} =~ /connectIssueToMaster/i |             |
 | WARNINGSLAVELATENCY       | Threshold                                                                                                                                                                                                  |                                                     |             |
 | CRITICALSLAVELATENCY      | Threshold                                                                                                                                                                                                  |                                                     |             |
 | CRITICALSLAVESRUNNING     | Threshold                                                                                                                                                                                                  | 1:1                                                 |             |
@@ -459,7 +459,7 @@ yum install centreon-plugin-Applications-Databases-Mysql
 
 | Macro          | Description                                                                                                                                                                                                 | Default value                                     | Mandatory   |
 |:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------|:-----------:|
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{expire\} ne "never" and %\{expire\_time\} == 0'). You can use the following variables: %\{user\}, %\{expire\}, %\{expire\_time\} | %\{expire\} ne "never" and %\{expire\_time\} == 0 |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{user\}, %\{expire\}, %\{expire\_time\} | %\{expire\} ne "never" and %\{expire\_time\} == 0 |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{user\}, %\{expire\}, %\{expire\_time\}                                                                 |                                                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                          | --verbose                                         |             |
 
