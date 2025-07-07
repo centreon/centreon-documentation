@@ -2959,7 +2959,12 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/application-virtualization-vmware8-esx-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vmware8-vcenter-restapi'
         }
+
       ]
     }
   ]
