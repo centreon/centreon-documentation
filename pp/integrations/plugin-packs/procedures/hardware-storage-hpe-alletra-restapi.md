@@ -37,10 +37,10 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:----------------------------------------------------|:--------------------------------------|:----------:|
 | Capacity      | HW-Storage-HPE-Alletra-Capacity-Restapi-custom      | Check capacity by storage type        |            |
 | Disk-Status   | HW-Storage-HPE-Alletra-Disk-Status-Restapi-custom   | Check the state of the physical disks | X          |
-| Disk-Usage    | HW-Storage-HPE-Alletra-Disk-Usage-Restapi-custom    | Check the disk usage                  | X          |
+| Disk-Usage    | HW-Storage-HPE-Alletra-Disk-Usage-Restapi-custom    | Check disk usage                  | X          |
 | Licenses      | HW-Storage-HPE-Alletra-Licenses-Restapi-custom      | Check the state of the licenses       |            |
 | Volume-Status | HW-Storage-HPE-Alletra-Volume-Status-Restapi-custom | Check the status of the volumes       | X          |
-| Volume-Usage  | HW-Storage-HPE-Alletra-Volume-Usage-Restapi-custom  | Check the volume usage                | X          |
+| Volume-Usage  | HW-Storage-HPE-Alletra-Volume-Usage-Restapi-custom  | Check volume usage                | X          |
 
 > The services listed above are created automatically when the **HW-Storage-HPE-Alletra-API-custom** host template is used.
 
@@ -51,8 +51,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                   | Service Description    | Discovery  |
 |:--------------|:---------------------------------------------------|:-----------------------|:----------:|
-| Disk-Usage    | HW-Storage-HPE-Alletra-Disk-Usage-RESTAPI-custom   | Check the disk usage   | X          |
-| Volume-Usage  | HW-Storage-HPE-Alletra-Volume-Usage-RESTAPI-custom | Check the volume usage | X          |
+| Disk-Usage    | HW-Storage-HPE-Alletra-Disk-Usage-RESTAPI-custom   | Check disk usage   | X          |
+| Volume-Usage  | HW-Storage-HPE-Alletra-Volume-Usage-RESTAPI-custom | Check volume usage | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -348,8 +348,8 @@ yum install centreon-plugin-Hardware-Storage-Hpe-Alletra-Restapi
 | CRITICALDISKSTOTAL    | Threshold                                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
 | WARNINGDISKSUNKNOWN   | Threshold                                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
 | CRITICALDISKSUNKNOWN  | Threshold                                                                                                                                                                                                                                                                                                                                                                                  |                                             |             |
-| WARNINGSTATUS         | Threshold                                                                                                                                                                                                                                                                                                                                                                                  | %\{status\} =~ /^(new\|degraded\|unknown)$/ |             |
-| CRITICALSTATUS        | Threshold                                                                                                                                                                                                                                                                                                                                                                                  | %\{status\} =~ /failed/                     |             |
+| WARNINGSTATUS         | Define the condition to match for the returned status to be WARNING                                                                                                                                                                                                                                                                                                                                                                   | %\{status\} =~ /^(new\|degraded\|unknown)$/ |             |
+| CRITICALSTATUS        | Define the condition to match for the returned status to be CRITICAL                                                                                                                                                                                                                                                                                                                                                                    | %\{status\} =~ /failed/                     |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                                                                                                                                           |                                             |             |
 
 </TabItem>
