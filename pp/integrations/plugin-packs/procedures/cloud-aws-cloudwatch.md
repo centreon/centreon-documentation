@@ -232,10 +232,10 @@ yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 | AWSSTATISTIC   | Set cloudwatch statistics (can be: 'minimum', 'maximum', 'average', 'sum')                                                 | average       |           |
 | AWSPERIOD      |                                                                                                                            | 60            |           |
 | AWSTIMEFRAME   | Set timeframe in seconds                                                                                                   | 600           |           |
-| AWSREGION      | Set the region name (required)                                                                                             |               | X         |
-| AWSNAMESPACE   | Set CloudWatch namespace (required)                                                                                        |               | X         |
+| AWSREGION      | Set the region name                                                                                           |               | X         |
+| AWSNAMESPACE   | Set CloudWatch namespace                                                                                     |               | X         |
 | AWSDIMENSION   | Set CloudWatch dimensions                                                                                                  |               |           |
-| AWSMETRIC      | Set CloudWatch metrics (required)                                                                                          |               | X         |
+| AWSMETRIC      | Set CloudWatch metrics                                                                                       |               | X         |
 | WARNINGMETRIC  | Warning threshold                                                                                                          |               |           |
 | CRITICALMETRIC | Critical threshold                                                                                                         |               |           |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                         | --verbose     |           |
@@ -262,7 +262,7 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 	--proxyurl=''  \
 	--region='eu-west-1' \
 	--namespace='' \
-	--dimension='Dimension' \
+	--dimension='' \
 	--metric='metric' \
 	--statistic='average' \
 	--period='60' \
