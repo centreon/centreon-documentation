@@ -14,6 +14,8 @@ Time periods define a time interval for each day of the week. They enable the fu
 
 To configure a time period, go to **Configuration \> Users \> Time periods**.
 
+The button to the left of the description of each time period lets us visualize the active timeframes.
+
 1. In the **Time Period Name** and **Alias** fields, enter a name and a description.
 
 2. In the **Basic settings** section, for each day of the week, define the time periods during which the checks and notifications will be enabled. (Use the [syntax described below](#syntax-of-a-time-period).) 
@@ -21,19 +23,22 @@ To configure a time period, go to **Configuration \> Users \> Time periods**.
     - These definitions are applied every week, indefinitely.
     - If you leave the field blank for a specific day, there will be no monitoring on that day for actions to which this time period is applied.
 
-3. Use the [**Time Range Exceptions** tab](#time-range-exceptions-tab) to include days that would not normally belong to the time period.
+3. Use the [**Time Range Exceptions** tab](#time-range-exceptions-tab) to include or exclude specific days for a time period.
 
 4. Once you have created your time period, you can use it:
     - In the **Check Period** field for hosts, host templates, services and service templates.
-    - In the **Notification Period** field for notifications defined for hosts, host templates, services, service templates, contacts, or in the **Escalation Period** field for an escalation of notifications. 
+    - In the **Notification Period** field for notifications defined for hosts, host templates, services, service templates, contacts, or in the **Escalation Period** field for an escalation of notifications.
+    - In the configuration of other time periods. All time periods can be reused through the [timeperiod templates](#timeperiod-templates)
+  
+The **Reset** button deletes all unsaved changes.
 
 ### Syntax of a time period
 
 Use the following characters to define time periods:
 
 * The character “:” separates the hours from the minutes, e.g.: HH:MM
-* The character “-” indicates continuity between two time periods
-* The character ”,” separates two time periods
+* The character “-” indicates continuity between two time periods, e.g.: 9:00-13:00
+* The character ”,” separates two time periods, e.g.: 9:00-13:00,14:00-17:00
 
 Here are a few examples:
 
@@ -42,6 +47,14 @@ Here are a few examples:
 * To not monitor during a whole day, leave the corresponding field blank.
 
 ![image](../../assets/configuration/05timeperiod.png)
+
+### Timeperiod templates
+
+The timeperiod templates field allows you to reuse timeperiods previously created to add their configuration to other timeperiods.
+
+- For example, if you already created a timeperiod that includes saturday mornings, you can select it so the timeperiod you are editing also includes saturday mornings.
+
+- If you combine a timeperiod template that excludes Sundays and one that includes Sundays, Sundays will be included.
 
 ### Time Range Exceptions tab
 
@@ -70,7 +83,7 @@ The table below shows some possible examples:
 | day 1 - 20        | 00:00-24:00             | All day from the 1st to the 20th of every month           |
 | saturday -1       | 08:00-12:00,14:00-18:45 | Every last Saturday of the month during opening hours     |
 | monday -2         | 00:00-24:00             | All day every second to last Monday of the month          |
-| june 6 - june 21  | 00:00-00:00             | Do not monitor all day, every day from June 6th to the 21st        |
+| june 6 - june 21  | leave blank             | Do not monitor all day, every day from June 6th to the 21st        |
 | june 12           | 00:00-08:00,18:00-24:00 | Monitor every June 12th, except between 08h00 and 18h00 |
 
 > Exceptions are not taken into account in [BAM](../../service-mapping/introduction.md), and in reports concerning BAM in [MBI](../../reporting/introduction.md).
