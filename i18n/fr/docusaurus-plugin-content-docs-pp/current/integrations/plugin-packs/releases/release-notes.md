@@ -22,22 +22,22 @@ import TabItem from '@theme/TabItem';
 - [**Apache Server**](../procedures/applications-webservers-apache-serverstatus.md) - Reworked **requests** mode and enhanced **slot-states** mode, based on community contribution [PR 4920](https://github.com/centreon/centreon-plugins/pull/4920).
 - [**Azure Management Costs**](../procedures/cloud-azure-management-costs.md) - Added an option to choose `cost-metric`, from community contribution [PR 4756](https://github.com/centreon/centreon-plugins/pull/4756).
 - [**Google Stackdriver**](../procedures/cloud-gcp-management-stackdriver.md) - Allowed compatibility with `distribution` type values in **get-metrics** mode.
-- [**HashiCorp Vault Rest API**](../procedures/applications-hashicorp-vault-restapi.md) - Enhanced standy-status and added code parameters options in **health** mode, from community contributions [PR 5522](https://github.com/centreon/centreon-plugins/pull/5522) and [PR 4839](https://github.com/centreon/centreon-plugins/pull/4839).
+- [**HashiCorp Vault Rest API**](../procedures/applications-hashicorp-vault-restapi.md) - Enhanced standby-status counter and added code parameters options in **health** mode, from community contributions [PR 5522](https://github.com/centreon/centreon-plugins/pull/5522) and [PR 4839](https://github.com/centreon/centreon-plugins/pull/4839).
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**Amazon CloudWatch**](../procedures/cloud-aws-cloudwatch.md) - Fixed `zeroed` option when metrics are empty in **get-metrics** mode.
-- [**DenyAll (Rohde & Schwarz) SNMP**](../procedures/network-denyall-snmp.md) - Fixed `FILTERSTORAGE` macro default value.
-- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Fixed an issue when default value for `timezone` option was empty leading to unknown in **cleaning** mode.
-- [**EMC Unisphere Rest API**](../procedures/hardware-storage-emc-unisphere-restapi.md) - Added missing madatories parameters for discovery rules and fixed storage discovery rule.
+- [**Amazon CloudWatch**](../procedures/cloud-aws-cloudwatch.md) - Fixed an issue with the `zeroed` option, occurring when metrics were empty in **get-metrics** mode.
+- [**DenyAll (Rohde & Schwarz) SNMP**](../procedures/network-denyall-snmp.md) - Fixed `FILTERSTORAGE` default macro value.
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Fixed an issue where default value for `timezone` option was empty, leading to an unknown status being returned in **cleaning** mode.
+- [**EMC Unisphere Rest API**](../procedures/hardware-storage-emc-unisphere-restapi.md) - Added missing mandatory parameters for discovery rules and fixed storage discovery rule.
 - [**Huawei HMM**](../procedures/hardware-servers-huawei-hmm-snmp.md) - Removed experimental keys on scalar in **blade** mode components.
-- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Fixed issue when a pod IP is empty in **list-pods** discovery rule.
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Fixed an issue occurring when a pod IP was empty in the **list-pods** discovery rule.
 - [**Microsoft IIS Server WSMAN**](../procedures/applications-iis-wsman.md) - Fixed typo in `App-Iis-WSMAN-Application-Pools` command.
 - [**Microsoft SCCM**](../procedures/applications-sccm-nsclient.md) - Fixed wrong argument in `App-Sccm-Site-Status` command.
-- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Fixed error when retrieving the server version.
-- [**Podman REST API**](../procedures/applications-podman-restapi.md) - Fixed api endpoint for **container-usage** mode.
-- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - Removed `App-Rubrik-Restapi-Agent-Status` discovery rule that doesn't exist.
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Fixed an error occurring when retrieving the server version.
+- [**Podman REST API**](../procedures/applications-podman-restapi.md) - Fixed API endpoint for **container-usage** mode.
+- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - Removed `App-Rubrik-Restapi-Agent-Status` discovery rule that didn't exist.
 - [**NetApp Santricity Restapi**](../procedures/hardware-storage-netapp-santricity-restapi.md) - Fixed `cmd` component count in **hardware** mode.
 
 </TabItem>
