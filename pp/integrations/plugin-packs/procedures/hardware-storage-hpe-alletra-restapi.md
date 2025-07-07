@@ -37,10 +37,8 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:----------------------------------------------------|:--------------------------------------|:----------:|
 | Capacity      | HW-Storage-HPE-Alletra-Capacity-Restapi-custom      | Check capacity by storage type        |            |
 | Disk-Status   | HW-Storage-HPE-Alletra-Disk-Status-Restapi-custom   | Check the state of the physical disks | X          |
-| Disk-Usage    | HW-Storage-HPE-Alletra-Disk-Usage-Restapi-custom    | Check disk usage                  | X          |
 | Licenses      | HW-Storage-HPE-Alletra-Licenses-Restapi-custom      | Check the state of the licenses       |            |
 | Volume-Status | HW-Storage-HPE-Alletra-Volume-Status-Restapi-custom | Check the status of the volumes       | X          |
-| Volume-Usage  | HW-Storage-HPE-Alletra-Volume-Usage-Restapi-custom  | Check volume usage                | X          |
 
 > The services listed above are created automatically when the **HW-Storage-HPE-Alletra-API-custom** host template is used.
 

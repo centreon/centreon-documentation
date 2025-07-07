@@ -38,10 +38,8 @@ Le connecteur apporte les modèles de service suivants
 |:--------------|:----------------------------------------------------|:--------------------------------------------------------|:----------:|
 | Capacity      | HW-Storage-HPE-Alletra-Capacity-Restapi-custom      | Contrôle la capacité des différents types de stockage   |            |
 | Disk-Status   | HW-Storage-HPE-Alletra-Disk-Status-Restapi-custom   | Contrôle l'état de fonctionnement des disques physiques | X          |
-| Disk-Usage    | HW-Storage-HPE-Alletra-Disk-Usage-Restapi-custom    | Contrôle l'utilisation des disques                      | X          |
 | Licenses      | HW-Storage-HPE-Alletra-Licenses-Restapi-custom      | Contrôle l'état des licences                            |            |
 | Volume-Status | HW-Storage-HPE-Alletra-Volume-Status-Restapi-custom | Contrôle l'état de fonctionnement des volumes           | X          |
-| Volume-Usage  | HW-Storage-HPE-Alletra-Volume-Usage-Restapi-custom  | Contrôle le taux d'utilisation des volumes              | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-HPE-Alletra-API-custom** est utilisé.
 
