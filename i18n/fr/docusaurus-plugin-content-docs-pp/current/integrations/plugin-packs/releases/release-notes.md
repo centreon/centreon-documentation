@@ -25,7 +25,7 @@ import TabItem from '@theme/TabItem';
 - [**HashiCorp Vault Rest API**](../procedures/applications-hashicorp-vault-restapi.md) - Enhanced standby-status counter and added code parameters options in **health** mode, from community contributions [PR 5522](https://github.com/centreon/centreon-plugins/pull/5522) and [PR 4839](https://github.com/centreon/centreon-plugins/pull/4839).
 
 </TabItem>
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Amazon CloudWatch**](../procedures/cloud-aws-cloudwatch.md) - Fixed an issue with the `zeroed` option, occurring when metrics were empty in **get-metrics** mode.
 - [**DenyAll (Rohde & Schwarz) SNMP**](../procedures/network-denyall-snmp.md) - Fixed `FILTERSTORAGE` default macro value.
