@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **VMware8 vCenter REST API** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -87,7 +87,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 ## Prerequisites
 
 To use this connector, you must have a user account having access to the [vCenter API](https://developer.broadcom.com/xapis/vsphere-automation-api/latest/)
-of version 8 or above and having the following privileges:
+in version 8 or above and having the following privileges:
 - Collect Stats Data
 - Query Stats Data
 
@@ -99,7 +99,7 @@ NB: This connector has only been tested with a 'Basic' authentication (like `use
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -135,7 +135,7 @@ yum install centreon-pack-applications-virtualization-vmware8-vcenter-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **VMware8 vCenter REST API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
