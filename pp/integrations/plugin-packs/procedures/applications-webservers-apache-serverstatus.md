@@ -107,9 +107,49 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Warning: The following procedure is an example. Cannot be applied on all
+context.
+
+The module *mod\_status* allows the generation of a live Apache report,
+available on a dedicated web page. This report is used to generate statistics in
+Centreon. To activate this module, you have to open your httpd configuration
+file:
+
+```bash
+vi /etc/httpd/conf/httpd.conf
+```
+
+and check that:
+
+  - The module is loaded by Apache:
+
+```bash
+   LoadModule status_module modules/mod_status.so
+```
+
+  - If not already configured, add the followings lines:
+
+``` bash
+    <Location /server-status>
+        SetHandler server-status
+        Order Deny,Allow
+        Allow from <centreon-poller_@IP>
+        Deny from All
+    </Location>
+```
+
+  - And finally, check that `ExtendedStatus` is activated (Mandatory if you
+    wants precise statistics on query processed by the WebServer):
+
+```bash
+    ExtendedStatus On
+```
+
+Apache must be reloaded to take this modification into account:
+
+```bash
+systemctl reload httpd
+```
 
 ## Installing the monitoring connector
 
@@ -198,53 +238,6 @@ yum install centreon-plugin-Applications-Webservers-Apache-Serverstatus
 
 </TabItem>
 </Tabs>
-
-## mod\_status and extendedstatus
-
-Warning: The following procedure is an example. Cannot be applied on all
-context.
-
-The module *mod\_status* allows the generation of a live Apache report,
-available on a dedicated web page. This report is used to generate statistics in
-Centreon. To activate this module, you have to open your httpd configuration
-file:
-
-```bash
-vi /etc/httpd/conf/httpd.conf
-```
-
-
-and check that:
-
-  - The module is loaded by Apache:
-    
-```bash
-   LoadModule status_module modules/mod_status.so
-```
-
-  - If not already configured, add the followings lines:
-
-``` bash
-    <Location /server-status>
-        SetHandler server-status 
-        Order Deny,Allow
-        Allow from <centreon-poller_@IP>
-        Deny from All
-    </Location>
-```
-
-  - And finally, check that `ExtendedStatus` is activated (Mandatory if you
-    wants precise statistics on query processed by the WebServer):
-    
-```bash
-    ExtendedStatus On
-```
-
-Apache must be reloaded to take this modification into account:
-
-```bash
-systemctl reload httpd
-```
 
 ## Using the monitoring connector
 
@@ -340,7 +333,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK:   | 'idle_workers'=70000;;;0; 'busy_workers'=14558;;;0; 
+OK: Busy workers: 1 Idle workers: 4 (Server Limit: 150 - 0 % Busy) | 'idle_workers'=4;;;0;150 'busy_workers'=1;;;0;150
 ```
 
 ### Troubleshooting

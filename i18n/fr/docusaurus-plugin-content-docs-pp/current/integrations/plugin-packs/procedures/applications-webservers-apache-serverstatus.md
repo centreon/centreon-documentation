@@ -108,9 +108,47 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Remarque: La procédure suivante est un exemple et ne peut pas être appliquée dans tous les contextes.
+
+Le module *mod\_status* permet de générer un rapport Apache et de le rendre disponible sur une page web dédiée. Ce rapport est utilisé pour générer des statistiques dans Centreon.
+
+Pour activer ce module, vous devez ouvrir votre fichier de configuration Apache.
+
+```bash
+vi /etc/httpd/conf/httpd.conf
+```
+
+Et contrôler sa validité:
+
+  - Le module est chargé par Apache:
+
+```bash
+    LoadModule status_module modules/mod_status.so
+```
+
+  - Ajouter les lignes suivantes si la configuration n'a pas encore été effectuée:
+
+```bash
+    <Location /server-status>
+        SetHandler server-status
+        Order Deny,Allow
+        Allow from <centreon-poller_@IP>
+        Deny from All
+    </Location>
+```
+
+  - And finally, check that `ExtendedStatus` is activated (Mandatory if you
+    wants precise statistics on query processed by the WebServer):
+
+```bash
+    ExtendedStatus On
+```
+
+Apache doit être rechargé pour prendre en compte cette modification.
+
+```bash
+systemctl reload httpd
+```
 
 ## Installer le connecteur de supervision
 
@@ -197,53 +235,6 @@ yum install centreon-plugin-Applications-Webservers-Apache-Serverstatus
 
 </TabItem>
 </Tabs>
-
-## mod\_status and extendedstatus
-
-Warning: The following procedure is an example. Cannot be applied on all
-context.
-
-The module *mod\_status* allows the generation of a live Apache report,
-available on a dedicated web page. This report is used to generate statistics in
-Centreon. To activate this module, you have to open your httpd configuration
-file:
-
-```bash
-vi /etc/httpd/conf/httpd.conf
-```
-
-and check that:
-
-  - The module is loaded by Apache:
-    
-```bash
-    LoadModule status_module modules/mod_status.so
-```
-
-  - If not already configured, add the followings lines:
-
-```bash
-    <Location /server-status>
-        SetHandler server-status 
-        Order Deny,Allow
-        Allow from <centreon-poller_@IP>
-        Deny from All
-    </Location>
-```
-
-  - And finally, check that `ExtendedStatus` is activated (Mandatory if you
-    wants precise statistics on query processed by the WebServer):
-    
-```bash
-    ExtendedStatus On
-```
-
-Apache must be reloaded to take this modification into account:
-
-```bash
-systemctl reload httpd
-```
-
 
 ## Utiliser le connecteur de supervision
 
@@ -341,7 +332,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK:   | 'idle_workers'=70000;;;0; 'busy_workers'=14558;;;0; 
+OK: Busy workers: 1 Idle workers: 4 (Server Limit: 150 - 0 % Busy) | 'idle_workers'=4;;;0;150 'busy_workers'=1;;;0;150
 ```
 
 ### Diagnostic des erreurs communes
