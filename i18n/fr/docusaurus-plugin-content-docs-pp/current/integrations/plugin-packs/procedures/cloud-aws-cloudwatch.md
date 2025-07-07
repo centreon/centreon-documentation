@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Amazon CloudWatch** 
-depuis la page **Configuration > Connecteurs > Gestionnaire de Connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -73,7 +73,7 @@ Configurez un compte de service (via une combinaison d'access et secret key) et 
 * cloudwatch:getMetricStatistics
 * ec2:DescribeVpcs
 
-### Dépendances du Plugin
+### Dépendances du plugin
 
 Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli* fourni par Amazon, soit le SDK Perl *paws*. Le SDK est recommandé car plus performant.
 
@@ -105,7 +105,7 @@ sudo ./aws/install
 La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Gestionnaire de Connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -142,7 +142,7 @@ yum install centreon-pack-cloud-aws-cloudwatch
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Amazon CloudWatch**
-depuis l'interface web et le menu **Configuration > Connecteurs > Gestionnaire de Connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -218,8 +218,8 @@ yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 | AWSCUSTOMMODE   | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                                                                                                         | awscli                                     |             |
 | AWSREGION       | Set the region name (required)                                                                                                                                                                                                     |                                            | X           |
 | FILTERALARMNAME | Filter by alarm name (can be a regexp)                                                                                                                                                                                             |                                            |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING (default: '%\{state\_value\} =~ /INSUFFICIENT\_DATA/i') You can use the following variables: %\{alarm\_name\}, %\{state\_value\}, %\{metric\_name\}, %\{last\_update\} | %\{state\_value\} =~ /INSUFFICIENT\_DATA/i |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%\{state\_value\} =~ /ALARM/i'). You can use the following variables: %\{alarm\_name\}, %\{state\_value\}, %\{metric\_name\}, %\{last\_update\}            | %\{state\_value\} =~ /ALARM/i              |             |
+| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{alarm\_name\}, %\{state\_value\}, %\{metric\_name\}, %\{last\_update\} | %\{state\_value\} =~ /INSUFFICIENT\_DATA/i |             |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{alarm\_name\}, %\{state\_value\}, %\{metric\_name\}, %\{last\_update\}            | %\{state\_value\} =~ /ALARM/i              |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                 | --verbose                                  |             |
 
 </TabItem>
@@ -228,7 +228,7 @@ yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 | Macro          | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | AWSCUSTOMMODE  | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | awscli            |             |
-| AWSSTATISTIC   | Set cloudwatch statistics (can be: 'minimum', 'maximum', 'average', 'sum')                                                 | average           |             |
+| AWSSTATISTIC   | Set CloudWatch statistics (can be: 'minimum', 'maximum', 'average', 'sum')                                                 | average           |             |
 | AWSPERIOD      |                                                                                                                            | 60                |             |
 | AWSTIMEFRAME   | Set timeframe in seconds                                                                                                   | 600               |             |
 | AWSREGION      | Set the region name (required)                                                                                             |                   | X           |
@@ -304,10 +304,10 @@ Le plugin apporte les modes suivants :
 
 | Mode                                                                                                                          | Modèle de service associé                      |
 |:------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|
-| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/cloudwatch/mode/discovery.pm)]      | Pas uttilisé dans ce connecteur de supervision |
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/cloudwatch/mode/discovery.pm)]      | Pas utilisé dans ce connecteur de supervision |
 | get-alarms [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/cloudwatch/mode/getalarms.pm)]     | Cloud-Aws-Cloudwatch-Get-Alarms-Api-custom     |
 | get-metrics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/cloudwatch/mode/getmetrics.pm)]   | Cloud-Aws-Cloudwatch-Get-Metrics-Api-custom    |
-| list-metrics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/cloudwatch/mode/listmetrics.pm)] | Pas uttilisé dans ce connecteur de supervision |
+| list-metrics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/cloudwatch/mode/listmetrics.pm)] | Pas utilisé dans ce connecteur de supervision |
 
 ### Options disponibles
 
