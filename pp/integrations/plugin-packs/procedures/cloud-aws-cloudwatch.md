@@ -5,79 +5,78 @@ title: Amazon CloudWatch
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du connecteur de supervision
+## Connector dependencies
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Amazon CloudWatch** 
-depuis la page **Configuration > Connecteurs > Gestionnaire de Connecteurs de supervision** :
+The following monitoring connectors will be installed when you install the **Amazon CloudWatch** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
-## Contenu du pack
+## Pack assets
 
-### Modèles
+### Templates
 
-Le connecteur de supervision **Amazon CloudWatch** apporte un modèle d'hôte :
+The Monitoring Connector **Amazon CloudWatch** brings a host template:
 
 * **Cloud-Aws-CloudWatch-custom**
 
-Le connecteur apporte les modèles de service suivants
-(classés selon le modèle d'hôte auquel ils sont rattachés) :
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
 <TabItem value="Cloud-Aws-CloudWatch-custom" label="Cloud-Aws-CloudWatch-custom">
 
-Ce modèle d'hôte n'a pas de modèle de service associé.
+This host template doesn't have any associated services.
 
 </TabItem>
-<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Alias                  | Modèle de service                           | Description                                                                   |
-|:-----------------------|:--------------------------------------------|:------------------------------------------------------------------------------|
-| Cloudwatch-Get-Alarms  | Cloud-Aws-Cloudwatch-Get-Alarms-Api-custom  | Contrôle les alarmes Cloudwatch                                               |
-| Cloudwatch-Get-Metrics | Cloud-Aws-Cloudwatch-Get-Metrics-Api-custom | Contrôle permettant de vérifier des métriques Cloudwatch d'une même dimension |
+| Service Alias          | Service Template                            | Service Description                                     |
+|:-----------------------|:--------------------------------------------|:--------------------------------------------------------|
+| Cloudwatch-Get-Alarms  | Cloud-Aws-Cloudwatch-Get-Alarms-Api-custom  | Check Cloudwatch alarms                                 |
+| Cloudwatch-Get-Metrics | Cloud-Aws-Cloudwatch-Get-Metrics-Api-custom | Check Cloudwatch metrics (same dimension and namespace) |
 
-> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
 </TabItem>
 </Tabs>
 
-### Métriques & statuts collectés
+### Collected metrics & status
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Cloudwatch-Get-Alarms" label="Cloudwatch-Get-Alarms">
 
-| Nom    | Unité |
-|:-------|:------|
-| status | N/A   |
+| Name   | Unit |
+|:-------|:-----|
+| status | N/A  |
 
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Cloudwatch-Get-Metrics" label="Cloudwatch-Get-Metrics">
 
-| Nom    | Unité |
-|:-------|:------|
-| metric | N/A   |
+| Name   | Unit |
+|:-------|:-----|
+| metric | N/A  |
 
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 </Tabs>
 
-## Prérequis
+## Prerequisites
 
-### Privilèges AWS
+### AWS Configuration
 
-Configurez un compte de service (via une combinaison d'access et secret key) et affectez-lui les privilèges suivants :
+Configure a service account (access/secret key combo) for which the following privileges have to be granted:
 * cloudwatch:getMetricStatistics
 * ec2:DescribeVpcs
 
-### Dépendances du Plugin
+### Plugin dependencies
 
-Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli* fourni par Amazon, soit le SDK Perl *paws*. Le SDK est recommandé car plus performant.
+To interact with the Amazon APIs, you can use either use the *awscli* binary provided by Amazon or *paws*, a Perl AWS SDK (recommended). You must install it on every poller expected to monitor AWS resources.
 
-> **Attention**, il n'est pas possible d'utiliser *paws* si la connexion s'effectue au travers d'un proxy.
+> For now, it is not possible to use *paws* if you are using a proxy to reach the AWS Cloudwatch APIs.
 
 <Tabs groupId="sync">
 <TabItem value="perl-Paws-installation" label="perl-Paws-installation">
@@ -98,17 +97,17 @@ sudo ./aws/install
 </TabItem>
 </Tabs>
 
-## Installer le connecteur de supervision
+## Installing the monitoring connector
 
 ### Pack
 
-La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
 
-1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Gestionnaire de Connecteurs de supervision**.
-Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquets
-associé à sa distribution :
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -141,19 +140,21 @@ yum install centreon-pack-cloud-aws-cloudwatch
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Amazon CloudWatch**
-depuis l'interface web et le menu **Configuration > Connecteurs > Gestionnaire de Connecteurs de supervision**.
+2. Whatever the license type (*online* or *offline*), install the **Amazon CloudWatch** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
-À partir de Centreon 22.04, il est possible de demander le déploiement automatique
-du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
-que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
-étape n'est pas requise.
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -186,71 +187,69 @@ yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 </TabItem>
 </Tabs>
 
-## Utiliser le connecteur de supervision
+## Using the monitoring connector
 
-### Utiliser un modèle d'hôte issu du connecteur
+### Using a host template provided by the connector
 
-1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
-2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **Cloud-Aws-CloudWatch-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **Cloud-Aws-CloudWatch-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory, in particular the macro for defining the [custom mode](#available-custom-modes), i.e. the connection method to the resource.
 
-| Macro         | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:--------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| AWSACCESSKEY  | Set AWS access key                                                                                   |                   | X           |
-| AWSASSUMEROLE | Set Amazon Resource Name of the role to be assumed                                                   |                   |             |
-| AWSSECRETKEY  | Set AWS secret key                                                                                   |                   | X           |
-| PROXYURL      | Proxy URL if any                                                                                     |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro         | Description                                                                                          | Default value | Mandatory |
+|:--------------|:-----------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| AWSACCESSKEY  | Set AWS access key                                                                                   |               | X         |
+| AWSASSUMEROLE | Set Amazon Resource Name of the role to be assumed                                                   |               |           |
+| AWSSECRETKEY  | Set AWS secret key                                                                                   |               | X         |
+| PROXYURL      | Proxy URL if any                                                                                     |               |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
-5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-### Utiliser un modèle de service issu du connecteur
+### Using a service template provided by the connector
 
-1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
-2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
 <TabItem value="Cloudwatch-Get-Alarms" label="Cloudwatch-Get-Alarms">
 
-| Macro           | Description                                                                                                                                                                                                                        | Valeur par défaut                          | Obligatoire |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------|:-----------:|
-| AWSCUSTOMMODE   | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                                                                                                         | awscli                                     |             |
-| AWSREGION       | Set the region name (required)                                                                                                                                                                                                     |                                            | X           |
-| FILTERALARMNAME | Filter by alarm name (can be a regexp)                                                                                                                                                                                             |                                            |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING (default: '%\{state\_value\} =~ /INSUFFICIENT\_DATA/i') You can use the following variables: %\{alarm\_name\}, %\{state\_value\}, %\{metric\_name\}, %\{last\_update\} | %\{state\_value\} =~ /INSUFFICIENT\_DATA/i |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%\{state\_value\} =~ /ALARM/i'). You can use the following variables: %\{alarm\_name\}, %\{state\_value\}, %\{metric\_name\}, %\{last\_update\}            | %\{state\_value\} =~ /ALARM/i              |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                 | --verbose                                  |             |
+| Macro           | Description                                                                                                                                                                                                                        | Default value                              | Mandatory |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------|:---------:|
+| AWSCUSTOMMODE   | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                                                                                                         | awscli                                     |           |
+| AWSREGION       | Set the region name (required)                                                                                                                                                                                                     |                                            | X         |
+| FILTERALARMNAME | Filter by alarm name (can be a regexp)                                                                                                                                                                                             |                                            |           |
+| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{alarm\_name\}, %\{state\_value\}, %\{metric\_name\}, %\{last\_update\} | %\{state\_value\} =~ /INSUFFICIENT\_DATA/i |           |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{alarm\_name\}, %\{state\_value\}, %\{metric\_name\}, %\{last\_update\}            | %\{state\_value\} =~ /ALARM/i              |           |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                 | --verbose                                  |           |
 
 </TabItem>
 <TabItem value="Cloudwatch-Get-Metrics" label="Cloudwatch-Get-Metrics">
 
-| Macro          | Description                                                                                                                | Valeur par défaut | Obligatoire |
-|:---------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| AWSCUSTOMMODE  | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | awscli            |             |
-| AWSSTATISTIC   | Set cloudwatch statistics (can be: 'minimum', 'maximum', 'average', 'sum')                                                 | average           |             |
-| AWSPERIOD      |                                                                                                                            | 60                |             |
-| AWSTIMEFRAME   | Set timeframe in seconds                                                                                                   | 600               |             |
-| AWSREGION      | Set the region name (required)                                                                                             |                   | X           |
-| AWSNAMESPACE   | Set CloudWatch namespace (required)                                                                                        |                   | X           |
-| AWSDIMENSION   | Set CloudWatch dimensions                                                                                                  |                   |             |
-| AWSMETRIC      | Set CloudWatch metrics (required)                                                                                          |                   | X           |
-| WARNINGMETRIC  | Warning threshold                                                                                                          |                   |             |
-| CRITICALMETRIC | Critical threshold                                                                                                         |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                         | --verbose         |             |
+| Macro          | Description                                                                                                                | Default value | Mandatory |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| AWSCUSTOMMODE  | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | awscli        |           |
+| AWSSTATISTIC   | Set cloudwatch statistics (can be: 'minimum', 'maximum', 'average', 'sum')                                                 | average       |           |
+| AWSPERIOD      |                                                                                                                            | 60            |           |
+| AWSTIMEFRAME   | Set timeframe in seconds                                                                                                   | 600           |           |
+| AWSREGION      | Set the region name (required)                                                                                             |               | X         |
+| AWSNAMESPACE   | Set CloudWatch namespace (required)                                                                                        |               | X         |
+| AWSDIMENSION   | Set CloudWatch dimensions                                                                                                  |               |           |
+| AWSMETRIC      | Set CloudWatch metrics (required)                                                                                          |               | X         |
+| WARNINGMETRIC  | Warning threshold                                                                                                          |               |           |
+| CRITICALMETRIC | Critical threshold                                                                                                         |               |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                         | --verbose     |           |
 
 </TabItem>
 </Tabs>
 
-3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
-## Comment puis-je tester le plugin et que signifient les options des commandes ?
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis votre collecteur Centreon en vous connectant avec
-l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
-que le connecteur arrive bien à superviser une instance AWS en utilisant une commande
-telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor an AWS Instance using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_cloudwatch_api.pl \
@@ -273,26 +272,26 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--verbose
 ```
 
-La commande devrait retourner un message de sortie similaire à :
+The expected command output is shown below:
 
 ```bash
 OK: All metrics are ok | 'Dimension_metric_average'=56722;;;; 
 ```
 
-### Diagnostic des erreurs communes
+### Troubleshooting
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des plugins Centreon.
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
 
-### Modes disponibles
+### Available modes
 
-Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
-du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
-implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
-modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
 
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
-`--list-mode` à la commande :
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_cloudwatch_api.pl \
@@ -300,20 +299,20 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 	--list-mode
 ```
 
-Le plugin apporte les modes suivants :
+The plugin brings the following modes:
 
-| Mode                                                                                                                          | Modèle de service associé                      |
-|:------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|
-| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/cloudwatch/mode/discovery.pm)]      | Pas uttilisé dans ce connecteur de supervision |
-| get-alarms [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/cloudwatch/mode/getalarms.pm)]     | Cloud-Aws-Cloudwatch-Get-Alarms-Api-custom     |
-| get-metrics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/cloudwatch/mode/getmetrics.pm)]   | Cloud-Aws-Cloudwatch-Get-Metrics-Api-custom    |
-| list-metrics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/cloudwatch/mode/listmetrics.pm)] | Pas uttilisé dans ce connecteur de supervision |
+| Mode                                                                                                                          | Linked service template                     |
+|:------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/cloudwatch/mode/discovery.pm)]      | Not used in this Monitoring Connector       |
+| get-alarms [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/cloudwatch/mode/getalarms.pm)]     | Cloud-Aws-Cloudwatch-Get-Alarms-Api-custom  |
+| get-metrics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/cloudwatch/mode/getmetrics.pm)]   | Cloud-Aws-Cloudwatch-Get-Metrics-Api-custom |
+| list-metrics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/aws/cloudwatch/mode/listmetrics.pm)] | Not used in this Monitoring Connector       |
 
-### Options disponibles
+### Available options
 
-#### Options génériques
+#### Generic options
 
-Les options génériques sont listées ci-dessous :
+All generic options are listed here:
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |:-------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -355,9 +354,9 @@ Les options génériques sont listées ci-dessous :
 | --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  \<output\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-counters                          | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-#### Options des custom modes
+#### Custom modes options
 
-Les options spécifiques aux **custom modes** sont listées ci-dessous :
+All **custom modes** specific options are listed here:
 
 <Tabs groupId="sync">
 <TabItem value="paws" label="paws">
@@ -402,9 +401,9 @@ Les options spécifiques aux **custom modes** sont listées ci-dessous :
 </TabItem>
 </Tabs>
 
-#### Options des modes
+#### Modes options
 
-Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+All available options for each service template are listed below:
 
 <Tabs groupId="sync">
 <TabItem value="Cloudwatch-Get-Alarms" label="Cloudwatch-Get-Alarms">
@@ -442,8 +441,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 </Tabs>
 
-Pour un mode, la liste de toutes les options disponibles et leur signification peut être
-affichée en ajoutant le paramètre `--help` à la commande :
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_aws_cloudwatch_api.pl \
