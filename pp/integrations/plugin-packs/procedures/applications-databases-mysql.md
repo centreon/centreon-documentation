@@ -417,8 +417,8 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | Macro                     | Description                                                                                                                                                                                                | Default value                                       | Mandatory   |
 |:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-----------:|
 | PEERPORT                  | Database Server Port                                                                                                                                                                                       | 3306                                                |             |
-| PEERUSERNAME              |                                                                                                                                                                                                            | USERNAME                                            |             |
-| PEERPASSWORD              |                                                                                                                                                                                                            | PASSWORD                                            |             |
+| PEERUSERNAME              |  Peer username                                                                                                                                                                                                            | USERNAME                                            |             |
+| PEERPASSWORD              |  Peer password                                                                                                                                                                                                            | PASSWORD                                            |             |
 | UNKNOWNREPLICATIONSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{replication\_status\}, %\{display\}    | %\{replication\_status\} =~ /configurationIssue/i   |             |
 | PEERHOST                  | Hostname to query                                                                                                                                                                                          |                                                     |             |
 | UNKNOWNCONNECTIONSTATUS   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables:  %\{status\}, %\{error\_message\}, %\{display\}                                                          |                                                     |             |
@@ -430,10 +430,10 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | CRITICALSLAVELATENCY      | Threshold                                                                                                                                                                                                  |                                                     |             |
 | CRITICALSLAVESRUNNING     | Threshold                                                                                                                                                                                                  | 1:1                                                 |             |
 | WARNINGSLAVESRUNNING      | Threshold                                                                                                                                                                                                  |                                                     |             |
-| WARNINGTHREADIOSTATUS     |                                                                                                                                                                                                            |                                                     |             |
-| CRITICALTHREADIOSTATUS    |                                                                                                                                                                                                            |                                                     |             |
-| WARNINGTHREADSQLSTATUS    |                                                                                                                                                                                                            |                                                     |             |
-| CRITICALTHREADSQLSTATUS   |                                                                                                                                                                                                            |                                                     |             |
+| WARNINGTHREADIOSTATUS     | Threshold                                                                                                                                                                                                            |                                                     |             |
+| CRITICALTHREADIOSTATUS    |  Threshold                                                                                                                                                                                                           |                                                     |             |
+| WARNINGTHREADSQLSTATUS    | Threshold                                                                                                                                                                                                            |                                                     |             |
+| CRITICALTHREADSQLSTATUS   | Threshold                                                                                                                                                                                                            |                                                     |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                         | --verbose                                           |             |
 
 </TabItem>
@@ -496,8 +496,8 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SQLSTATEMENT | SQL statement that returns a number                                                                |                   | X           |
-| WARNING      |                                                                                                    |                   |             |
-| CRITICAL     |                                                                                                    |                   |             |
+| WARNING      | Threshold                                                                                          |                   |             |
+| CRITICAL     | Threshold                                                                                          |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
@@ -539,14 +539,14 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--password='XXXX' \
 	--port='3306'  \
 	--mode=uptime \
-	--warning='44444444' \
-	--critical='9999999' 
+	--warning='' \
+	--critical='' 
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: database is up since 53 days (Start time = 2025/04/11 12:37:57) | 'database.uptime.seconds'=4661146s;0:44444444;0:9999999;0;
+OK: database is up since 53 days (Start time = 2025/04/11 12:37:57) | 'database.uptime.seconds'=4661146s;;;0;
 ```
 
 ### Troubleshooting
