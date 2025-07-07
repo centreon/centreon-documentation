@@ -22,6 +22,47 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 24.10.8
+
+Release date: `June 20, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Agent configuration] Added a "No TLS" connection mode for CMA & Telegraf. For CMA, this mode is only active within a limited timeframe.
+- [Agent configuration] Sub-directories are now allowed in certificate configuration fields.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Cases where no check command is defined when creating or editing a service are now detected before saving.
+- [Configuration] Fixed an issue where adding/editing a service failed when a command was configured on a template that was not the direct parent of the service.
+- [Configuration] Time period names can now have more than 200 characters.
+- [Custom Views] The "Battery Status" information is now available in the Gridmap widget.
+- [Dashboards][Public Playlists] Fixed an issue where Metrics Graphs were displaying too many curves.
+- [Graph] Fixed an issue preventing "fill" and "invert" options from being considered in the graphs in Resource Status and Dashboards.
+- [Install] Upgrades to version 24.10 no longer fail (a duplicate entry in the topology table has been removed).
+- [LDAP] Fixed the syntax that validates custom filters for users and groups.
+- [Cron] Fixed an issue where some partitioned tables were not deleted from the database.
+- [Remote Server] Fixed an issue preventing Business Activities from being displayed on remote servers.
+- [Resource Status] Fixed an issue with timeline period filter not being properly applied.
+- [Resource Status] Searching for an item containing a slash character is now handled correctly.
+- [Resource Status] In the **Details** panel of a resource, the **Calculation type** tile is no longer displayed twice.
+- [Status Chart widget] Hovering over the legend of the donut now displays the correct list of resources.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Install] Fixed incorrect rights on a database configuration file.
+- [Vulnerability] Upgraded axios to version 1.8.1.
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+</details>
+
 ### 24.10.7
 
 Release date: `April 22, 2025`
@@ -373,6 +414,17 @@ Release date: `October 31, 2024`
 
 ## Centreon Collect
 
+### 24.10.7
+
+Release date: `June 20, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Acknowledgements are now handled for all types of BAs in BAM.
+
+</details>
+
 ### 24.10.6
 
 Release date: `April 10, 2025`
@@ -509,6 +561,31 @@ Release date: `October 31, 2024`
 
 ## Centreon Monitoring Agent
 
+### 24.10.5
+
+Release date: `June 20, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Added a native Eventlog check for Windows.
+- [CMA] Added a native Process check for Windows.
+- [CMA] Added a No TLS connection mode. This mode is only active within a limited timeframe.
+- [CMA] Improved error handling for syntax checks.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [CMA] Added debug. 
+
+</details>
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
 <details open>
   <summary>Enhancements</summary>
 
@@ -519,6 +596,17 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.10.5
+
+Release date: `June 20, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Removed an unnecessary error that was present at every first start of Gorgone.
+
+</details>
 
 ### 24.10.4
 
@@ -621,6 +709,17 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Open Tickets
+
+### 24.10.3
+
+Release date: `June 20, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Fixed an issue preventing non-admin users from opening tickets.
+
+</details>
 
 ### 24.10.2
 
