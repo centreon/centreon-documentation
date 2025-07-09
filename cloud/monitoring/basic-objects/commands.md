@@ -53,7 +53,16 @@ For security reasons, Centreon Cloud has a built-in whitelist that defines which
 
 1. Log in as **root** to the poller that will run the commmand.
 2. Edit (or create) the following file: **/etc/centreon-engine-whitelist/my-whitelist.yml**. (You can create as many whitelist files as you want in this directory.)
-3. Use a regex to define which commands to authorize. Example:
+3. Make sure the correct access rigts are defined on all whitelist files:
+
+   ```yaml
+   chown root:centreon-engine /etc/centreon-engine-whitelist/my-whitelist.yml
+   chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
+   chown root:centreon-engine /etc/centreon-engine-whitelist
+   chmod 750 /etc/centreon-engine-whitelist
+   ```
+
+4. Use a regex to define which commands to authorize. Example:
 
    ```yaml /etc/centreon-engine-whitelist/my_whitelist.yml
    whitelist:
