@@ -27,9 +27,11 @@ Les groupes d’hôtes et de services sont utilisés pour :
 Rendez-vous dans le menu **Configuration > Hôtes > Groupes d'hôtes (simplifiés)** et cliquez sur **Ajouter**.
 
 * Les champs **Nom** et **Alias** regroupent le nom et l’alias du groupe d’hôtes.
-* Le champ **Coordonnées géographiques** définit les coordonnées géographiques utilisées par le module Centreon Map pour positionner
-  l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20"
-* La liste **Membres** permet d’ajouter des hôtes au sein du nouveau groupe d’hôtes.
+* La liste **Membres du groupe** permet d’ajouter des hôtes au sein du nouveau groupe d’hôtes.
+* Les [Règles d'accès aux ressources](../administration/resource_access.md) servent à donner au groupe l'accès aux ressources.
+* Le champ **Coordonnées géographiques** définit les coordonnées géographiques utilisées par le module Centreon Map pour positionner l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20"
+* L'**Icône** choisi s'affichera dans la list des groupes d'hôtes.
+* Le champ **Commentaires** permet de laisser des commentaires sur le groupe.
 
 ## Créer un groupe de services
 
