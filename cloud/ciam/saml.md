@@ -1,6 +1,6 @@
 ---
 id: cloud-saml
-title: Configuring an SAML connection
+title: Configuring a connection with SAML
 ---
 
 You can link your organization in the [CIAM](ciam.md) to an identity provider, so that your users do not need to log in every time they want to use Centreon Cloud.
