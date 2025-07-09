@@ -3,6 +3,12 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## July Xth, 2025
+
+### Centreon IT Edition
+
+### Centreon Cloud Pro
+
 ## June 12th, 2025
 
 ### Centreon IT Edition
