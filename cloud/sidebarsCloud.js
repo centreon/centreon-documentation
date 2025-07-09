@@ -144,10 +144,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'ciam/cloud-saml',
-        },
-        {
-          type: 'doc',
           id: 'users/users',
         },
         {
@@ -157,6 +153,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'administration/ram',
+        },
+        {
+          type: 'doc',
+          id: 'ciam/cloud-saml',
         },
       ],
     },
