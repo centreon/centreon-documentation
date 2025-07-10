@@ -29,7 +29,7 @@ The amount of time a host has been "available". When calculating availability, o
 
 ## Publication rules
 
-By default, the report is only available on the Centreon user interface, publication rules allow you to make it so the report is sent to specific users every time it is generated.
+By default, the report is only available on the Centreon user interface, publication rules allow you to make it so the report is sent out to specific users every time it is generated.
 
 
 MBI > General options

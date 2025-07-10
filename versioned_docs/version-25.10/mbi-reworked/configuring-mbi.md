@@ -122,10 +122,18 @@ Parameters to connect to the reporting database
 - Reporting MySQL user:
 - Reporting MySQL password:
 
+## Disk partitionning
+
+When partitioning for your database, prepare another partition of 60% of your database's size for backups
+
 ## ACLs
 
-In addition to regular ACLs, MBI will follow ACL Rules. These can be configured by an administrator inside **Administration > ACL > ACL Rules**. 
-Here, administrators can choose which report designs, jobs and job groups each user is allowed to access.
+In addition to [resources ACLs](../administration/access-control-lists.md), MBI will follow ACL Rules(**LINK**). These can be configured by an administrator inside **Administration > ACL > ACL Rules**. 
+Here, administrators can choose which report designs, and job groups each user is allowed to access.
+
+Job groups are a tag added to jobs to categorize the contents of the report the job will generate (i.e. reports about the customer side), you then use ACLs to determine which tags each user should be able to see.
+
+> ACLs and ACL rules are only applied within the Centreon environment, using [publication rules](#publication-rules) to send reports outside of Centreon makes all its contents available to anyone who has the report regardless of their authorizations within Centreon.
 
 
 ## Publication rules
@@ -133,3 +141,4 @@ Here, administrators can choose which report designs, jobs and job groups each u
 By default, reports generated are available on the Centreon platform to be downloaded. It is also possible to make it so generated reports are automatically sent to certain users by email or made available on a DropBox for example.
 
 To do this, go to **Reporting > Monitoring Business Intelligence > Publication Rules**.
+
