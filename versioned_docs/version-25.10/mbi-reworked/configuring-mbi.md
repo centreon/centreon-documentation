@@ -99,6 +99,8 @@ Availability data retention
 - Availability data aggregated by day:
 - Availability data aggregated by month:
 
+on ne sait pas dans l'interface si tes paramètres de rétention sont trop élevés (obligé de faire un df -h)
+
 ### Report parameter
 
 Syncrhonize ACL
