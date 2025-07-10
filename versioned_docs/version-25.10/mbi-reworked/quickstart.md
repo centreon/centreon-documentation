@@ -21,7 +21,7 @@ Go to **Reporting > Monitoring Business Intelligence > General Options**
 
 ## Step 2: Creating the necessary groups and categories
 
-MBI requires you to have host groups, host categories and service categories. If the report you want to generate concerns only one host, create a host group containing only this one host.
+MBI requires you to use host groups, host categories and service categories. If the report you want to generate concerns only one resource, create a group/category containing only that resource.
 
 ## Step 3: Creating a job
 
