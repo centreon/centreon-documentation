@@ -27,7 +27,7 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 # rewrite file with new cron line
 CRONTAB_EXEC_USER=""
 
-0 2 * * * root bash /usr/share/centreon-map-server/bin/centreon-map-server-backup.sh >> /var/log/centreon-studio/backup.log 2>&1
+0 2 * * * root bash /usr/share/centreon-map-engine/bin/centreon-map-engine-backup.sh >> /var/log/centreon-map/backup.log 2>&1
 ```
 
 La sauvegarde **centreon-map-server-yyyy-mm-dd.tar.gz** est stockée dans **BACKUP\_DIR**, qui est défini dans le fichier de configuration.
@@ -58,15 +58,80 @@ Récupérez la dernière sauvegarde **centreon-map-server-yyyy-mm-dd.tar.gz** et
 
 ```shell
 cd /tmp
-tar xzf centreon-map-server-yyyy-mm-dd.tar.gz
+tar -xf centreon-map-engine-yyyy-mm-dd.tar.gz
+```
+(où **yyyy-mm-dd** correspond à la date de sauvegarde) 
+
+Voici ce que vous devez voir en sortie :
+
+```shell
+ls -lrt /tmp/
+-rw-r--r--. 1 root             root                37353 Jul  8 13:44 centreon-map-engine.dump
 ```
 
 ### Restaurer les fichiers de configuration
 
-Pour restaurer les fichiers de configuration, exécutez la commande suivante :
+Vous venez d'extraire le fichier **centreon-map-engine-yyyy-mm-dd.tar.gz** à l'étape précédente. Vous pouvez maintenant vérifier la présence du fichier **.dump** et du répertoire **etc** :
 
 ```shell
-cp -R etc/centreon-map/* /etc/centreon-map/
+ls -lrt /var/cache/centreon-map/backup
+```
+
+Voici ce que vous devez voir en sortie :
+
+```shell
+-rw-r--r--. 1 root root 18667 Jul  8 18:00 centreon-map-engine-2025-07-08.tar.gz
+-rw-r--r--. 1 root root 18667 Jul  9 23:58 centreon-map-engine-2025-07-09.tar.gz
+drwxr-xr-x. 4 root root  4096 Jul 10 12:42 etc
+-rw-r--r--. 1 root root 39504 Jul 10 12:42 centreon-map-engine.dump
+-rw-r--r--. 1 root root 18667 Jul 10 12:44 centreon-map-engine-2025-07-10.tar.gz
+```
+
+Exécutez la commande suivante :
+
+```shell
+cp -R /var/cache/centreon-map/backup/etc/* /etc/centreon-map/
+```
+Si les fichiers existent, voici ce que vous devez voir en sortie :
+
+```shell
+cp: overwrite '/etc/centreon-map/backup.conf'? y
+cp: overwrite '/etc/centreon-map/centreon-database.properties'? y
+cp: overwrite '/etc/centreon-map/centreon-map.conf'? y
+cp: overwrite '/etc/centreon-map/configure.sh'? y
+cp: overwrite '/etc/centreon-map/diagnostic.sh'? y
+cp: overwrite '/etc/centreon-map/extractor.php'? y
+cp: overwrite '/etc/centreon-map/map-config.properties'? y
+cp: overwrite '/etc/centreon-map/map-database.properties'? y
+cp: overwrite '/etc/centreon-map/map-log.xml'? y
+cp: overwrite '/etc/centreon-map/templates/centreon-database.properties'? y
+cp: overwrite '/etc/centreon-map/templates/map-config.properties'? y
+cp: overwrite '/etc/centreon-map/templates/map-database.properties'? y
+cp: overwrite '/etc/centreon-map/templates/map-log.xml'? y
+cp: overwrite '/etc/centreon-map/utils/findSpecialCharacters.sh'? y
+cp: overwrite '/etc/centreon-map/vars.sh'? y
+```
+
+La sauvegarde des fichiers de configuration s'est bien déroulée !
+
+Vous pouvez maintenant vérifier la date et l'heure de copie des fichiers. Entrez la commande suivante :
+
+```shell
+ls -lrt /etc/centreon-map/
+```
+Voici ce que vous devez voir en sortie :
+
+```shell
+-rw-r--r--.  1 root         root            165 Jul 10 12:53 backup.conf
+-rwxr-xr-x.  1 centreon-map centreon-map   1265 Jul 10 12:53 centreon-database.properties
+-rw-r--r--.  1 centreon-map centreon-map    124 Jul 10 12:53 centreon-map.conf
+-rwxr-xr-x.  1 centreon-map centreon-map  30382 Jul 10 12:53 configure.sh
+-rwxr-xr-x.  1 centreon-map centreon-map   9470 Jul 10 12:53 diagnostic.sh
+-rwxr-xr-x.  1 centreon-map centreon-map    473 Jul 10 12:53 extractor.php
+-rwxr-xr-x.  1 centreon-map centreon-map   1979 Jul 10 12:53 map-config.properties
+-rwxr-xr-x.  1 centreon-map centreon-map    645 Jul 10 12:53 map-database.properties
+-rwxr-xr-x.  1 centreon-map centreon-map   1472 Jul 10 12:53 map-log.xml
+-rwxr-xr-x.  1 centreon-map centreon-map   1062 Jul 10 12:53 vars.sh
 ```
 
 ### Restaurer la base de données
@@ -75,6 +140,6 @@ Pour restaurer la base de données **centreon\_map**, exécutez la commande suiv
 
 ```shell
 systemctl stop centreon-map-engine
-mysql -h <db_host> -u <db_user> -p<db_password> <centreon_map> < centreon-map-server.dump
+mysql -h <db_host> -u <db_user> -p<db_password> <centreon_map> < centreon-map-engine.dump
 systemctl start centreon-map-engine
 ```
