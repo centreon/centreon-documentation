@@ -18,7 +18,7 @@ A token is linked to one [Centreon user](../users/users.md) and is valid only fo
 
 1. Go to **Administration > API Tokens**.
 2. Click **Add**. A pop-up window appears.
-3. Fill in the required fields and select API in the dropdown menu then click **Generate new token**. A **Token** field appears in the window. You can click the eye icon to display the token if you want.
+3. Fill in the required fields, select API in the dropdown menu then click **Generate new token**. A **Token** field appears in the window. You can click the eye icon to display the token if you want.
 4. Copy the token using the "copy" button to the right of the field. Store the token carefully: you will not be able to display it a second time.
 5. Click **Close**.
 
