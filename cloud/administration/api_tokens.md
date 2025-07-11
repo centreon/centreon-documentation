@@ -1,6 +1,6 @@
 ---
 id: api-tokens
-title: API tokens
+title: Authentication tokens
 ---
 
 Using an API token, a third-party application can call the Centreon API to perform actions in Centreon (webhooks).
