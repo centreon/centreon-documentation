@@ -26,7 +26,7 @@ Les groupes d’hôtes et de services sont utilisés pour :
 
 Allez à la page **Configuration > Hôtes > Groupes d'hôtes** et cliquez sur **Ajouter**.
 
-* Utilisez le champ **Nom** pour définir un nom clair et parlant pour le groupe d’hôtes. Le nom du groupe peut être utilisé dans la barre de recherche de **Statut des ressources** pour afficher les hôtes contenus dans le groupe.
+* Utilisez le champ **Nom** pour définir un nom clair et parlant pour le groupe d’hôtes. Le nom du groupe peut être utilisé dans la barre de recherche de **Statut des ressources** précédé par la syntaxe "host_group:" pour afficher les hôtes contenus dans le groupe.
 * Utilisez le champ **Alias** pour décrire le groupe d'hôtes. L'alias n'est visible que dans la liste des groupes d'hôtes.
 * Utilisez la section [règles d'accès aux ressources](../administration/resource_access.md) pour donner aux membres du groupe accès aux ressources définies dans les règles.
 * Le champ **Coordonnées géographiques** est utilisé par le module [Centreon Map](../graphical-views/introduction-map.md) pour positionner l'élément sur la carte.
