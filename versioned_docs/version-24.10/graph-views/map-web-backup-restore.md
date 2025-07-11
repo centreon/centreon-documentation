@@ -17,7 +17,7 @@ The saved items are:
 ### How it works?
 
 The backup script is executed on a daily basis (2AM) with a cron job located in
-**/etc/cron.d/centreon-map-server-backup**:
+**/etc/cron.d/centreon-map-engine-backup**:
 
 ```text
 #
@@ -31,7 +31,7 @@ CRONTAB_EXEC_USER=""
 0 2 * * * root bash /usr/share/centreon-map-engine/bin/centreon-map-engine-backup.sh >> /var/log/centreon-map/backup.log 2>&1
 ```
 
-The backup **centreon-map-server-yyyy-mm-dd.tar.gz** is stored in
+The backup **centreon-map-engine-yyyy-mm-dd.tar.gz** is stored in
 **BACKUP\_DIR**, which is defined in configuration file.
 
 ### Backup parameters

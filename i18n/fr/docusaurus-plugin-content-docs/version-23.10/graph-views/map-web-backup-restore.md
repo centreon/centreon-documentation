@@ -16,7 +16,7 @@ Les éléments sauvegardés sont :
 
 ### Comment ça marche ?
 
-Le script de sauvegarde est exécuté quotidiennement (2 heures du matin) avec une tâche cron située dans **/etc/cron.d/centreon-map-server-backup** :
+Le script de sauvegarde est exécuté quotidiennement (2 heures du matin) avec une tâche cron située dans **/etc/cron.d/centreon-map-engine-backup** :
 
 ```text
 #
@@ -30,7 +30,7 @@ CRONTAB_EXEC_USER=""
 0 2 * * * root bash /usr/share/centreon-map-engine/bin/centreon-map-engine-backup.sh >> /var/log/centreon-map/backup.log 2>&1
 ```
 
-La sauvegarde **centreon-map-server-yyyy-mm-dd.tar.gz** est stockée dans **BACKUP\_DIR**, qui est défini dans le fichier de configuration.
+La sauvegarde **centreon-map-engine-yyyy-mm-dd.tar.gz** est stockée dans **BACKUP\_DIR**, qui est défini dans le fichier de configuration.
 
 ### Paramètres de sauvegarde
 
@@ -54,7 +54,7 @@ Le processus de restauration est divisé en plusieurs étapes :
 
 ### Extraire la sauvegarde
 
-Récupérez la dernière sauvegarde **centreon-map-server-yyyy-mm-dd.tar.gz** et extrayez-la dans le répertoire **/tmp** :
+Récupérez la dernière sauvegarde **centreon-map-engine-yyyy-mm-dd.tar.gz** et extrayez-la dans le répertoire **/tmp** :
 
 ```shell
 cd /tmp
