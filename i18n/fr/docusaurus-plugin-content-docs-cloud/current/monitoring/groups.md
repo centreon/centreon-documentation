@@ -31,7 +31,7 @@ Allez à la page **Configuration > Hôtes > Groupes d'hôtes** et cliquez sur **
 * Utilisez la section [règles d'accès aux ressources](../administration/resource_access.md) pour donner qux membres du groupe accès aux ressources définies dans les règles.
 * Le champ **Coordonnées géographiques** est utilisé par le module [Centreon Map](../graphical-views/introduction-map.md) pour positionner l'élément sur la carte.
 * L'**Icône** sélectionnée s'affichera dans la liste des groupes d'hôtes.
-* Le champ **Commentaires** permet de laisser des notes qui ne sont visibles que sur cet écran.
+* Le champ **Commentaires** permet de laisser des notes qui ne sont visibles que sur cette fenêtre.
 
 ## Créer un groupe de services
 

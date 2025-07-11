@@ -33,13 +33,13 @@ We also try to group services by application jobs. Example: Salary management ap
 
 Go to **Configuration > Hosts > Host Groups** and click **Add**.
 
-* Use the **Name** field to define a clear, relevant name for the host group. The name can be used to find the host group with the research bar.
+* Use the **Name** field to define a clear, relevant name for the host group. The name can be used in the **Resource status** search bar to display the group's hosts.
 * Use the **Alias** field to better describe the host group. The alias is only visible in the host groups list.
 * Use the **Group members** field to add hosts to the hostgroup.
 * Use the [**Resource access rules**](../administration/resource_access.md) section to grant members of the group access to the resources defined in the rule.
 * The **Geographic coordinates** field is used by the Centreon [MAP module](../graphical-views/introduction-map.md) to position the resource on a map.
 * The selected **Icon** will be displayed in the list of host groups.
-* The **Comments** added here are only visible on this page.
+* The **Comments** added here are only visible on this window.
 
 ## Creating a service group
 
