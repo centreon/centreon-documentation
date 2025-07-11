@@ -18,7 +18,7 @@ Un jeton est lié à un [utilisateur Centreon](../users/users.md) et a une duré
 
 1. Allez à la page **Administration > Jetons d'API**.
 2. Cliquer sur **Ajouter**. Une fenêtre pop-up apparaît.
-3. Remplissez les champs demandés, sélectionnez API dans le menu déroulant puis cliquez sur **Créer un nouveau jeton**. Un champ **Jeton** apparaît dans la fenêtre. Vous pouvez cliquer sur l'icône en forme d'oeil pour afficher le jeton si vous le souhaitez. 
+3. Remplissez les champs demandés, sélectionnez **API** dans la liste **Type**, puis cliquez sur **Créer un nouveau jeton**. Un champ **Jeton** apparaît dans la fenêtre. Vous pouvez cliquer sur l'icône en forme d'œil pour afficher le jeton si vous le souhaitez. 
 4. Copiez le jeton à l'aide du bouton "copie" à droite du champ. Stockez le jeton avec soin : vous ne pourrez pas l'afficher une deuxième fois.
 5. Cliquez sur **Fermer**.
 
