@@ -2588,6 +2588,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hpe-alletra-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hpe-primera-restapi'
         },
         {
@@ -2959,7 +2963,12 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/application-virtualization-vmware8-esx-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vmware8-vcenter-restapi'
         }
+
       ]
     }
   ]
