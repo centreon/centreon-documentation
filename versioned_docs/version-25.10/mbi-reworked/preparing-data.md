@@ -31,10 +31,10 @@ Select the perimeters for the reports, the time periods and the service categori
 By default, ELT is configured to compute availability and performance for all existings dimensions: hostgroups, hostcategories and servicecategories. If some dimensions are not mandatory, you can uncheck "All group dimensions" to select only required dimensions.
 
 There is consistency between supervision and reports, the hostgroups, hostcategories and servicecategories conditions the visibility of the data in the report. So if you need to generate report on any resource, you have to be sure than :
-- this resource configuration is up to date, 
-- this resource is not empty, 
-- this resource is yet configured for ETL compute, 
-- very important: this resource is yet monitored by Centreon. 
+- Resource configuration is up to date, 
+- Resource configuration is not empty, 
+- Resource is yet configured for ETL compute, 
+- very important: resource is yet monitored by Centreon. 
 
 Notes:
 - It is possible to generate a report job with a scope without data if there is mismatch ETL configuration or there isn't existing monitored resources/datas
