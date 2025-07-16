@@ -11,7 +11,7 @@ For business activities and business views availability reports template, the re
 
 Notes:
 - Be sure than all desired resources are monitored by Centreon (pollers)
-- Be sure than all monitored resources return status and metrics
+- Be sure than all monitored resources return status (for availability reports) and metrics (for performance reports)
 
 ## Configuring MBI
 
@@ -36,7 +36,7 @@ There is consistency between supervision and reports, the hostgroups, hostcatego
 - very important: this resource is yet monitored by Centreon. 
 
 Notes:
-- It is possible to generate a report job with a scope without data if there is mismatch configuration or there isn't well dimension configuration 
+- It is possible to generate a report job with a scope without data if there is mismatch ETL configuration or there isn't existing monitored resources/datas
 - The ETL is static; it does not automatically detect configuration changes on Centreon outside of its regular checks (scheduled for 4:30 a.m. by default). The user who updates their data must launch a rebuild of the ETL for the data to be taken into account immediately. Otherwise, we must wait until the next day for the latest changes to be taken into account.
 - If there is less historical data than 1 month, it's possible to get gaps in the generated report
 
