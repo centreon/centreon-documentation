@@ -5,6 +5,222 @@ title: Centreon Cloud - notes de release
 
 ## July Xth, 2025
 
+## Centreon Anomaly detection 
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14).
+
+  </details>
+  
+<details>
+  <summary>Security fixes</summary>
+  
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+</details>
+
+## Centreon Auto-discovery 
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14).
+
+  </details>
+
+## Centreon-it-Edition-extentions
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14).
+- [Playlists] The MAP widget is now operational when displayed in the public Playlists of Dashboards.
+
+</details>
+    
+## Centreon Bam
+
+<details open>
+  <summary>Enhancements</summary>
+  
+-  [Core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14).
+-  [Dashboards] Added new widget "Business Activity Status Timeline" that displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
+- [Monitoring] A new, modern version of the BA monitoring page is now available.
+
+  </details>
+  
+<details>
+  <summary>Bug fixes</summary>
+  
+- [Configuration] Fixed KPI search and pagination.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+  
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+</details>
+  
+## Centreon-Map
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14).
+- [Dashboards] When displaying an existing public Playlist containing a Map widget with no Map selected, a message is now displayed indicating that one must first be selected for it to be displayed.
+- [Editor] Added "display icons" option for Map containers and resources. If checked, custom and state icons are displayed on the shape.
+- [Editor] It is now possible to use sub-groups of items in a Map.
+- [Playlists] The MAP widget is now operational when displayed in the public Playlists of Dashboards.
+
+  </details>
+  
+<details>
+  <summary>Bug fixes</summary>
+  
+- [Custom Views] Fixed issue preventing Map widget from being displayed.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+  
+- Fixed tomcat CVE-2025-24813 vulnerability.
+- [Vulnerability] Upgraded spring security web dependency to version 6.2.8.
+
+</details>
+
+## Centreon MBI 
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [Core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14).
+- [Dashboards] The MBI reporting widget "Metric Capacity Planning" is now available within Dashboards. It allows to display the future evolution of a metric in relation to its history using linear regression.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+  
+- [MBI] Fixed error with special character in CBIS log.
+- [Packaging] Enforce permissions on centreon-bi backup cron.
+
+</details>
+  
+## Centreon-Cloud-Extensions
+
+<details open>
+  <summary>Enhancements</summary>
+  
+-  [core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14).
+-  Metaservices are now available for Cloud platforms.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+  
+- [Dashboards] Fixed issue preventing non admin users from opening tickets.
+
+</details>
+
+## Centreon Collect
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- Cbmod is no longer needed in the Engine configuration as it is automatically loaded when Engine starts.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+  
+- Acknowledgements are now handled correctly for all BA types in BAM.
+- Engine 25.05 is now able to read configurations files from previous versions.
+- Fixed an issue with long checks that prevented Engine from stopping.
+
+</details>
+
+## Centreon Monitoring Agent
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [CMA] Added a No TLS connection mode (limited duration).
+- [CMA] Added a native Process check for Windows.
+- [CMA] Added a native EventLog check for Windows.
+- [CMA] Added a native Counter check for Windows.
+- [CMA] Added token management for Agent-initiated connection.
+- [CMA] Check intervals are taken into account for each service.
+- [CMA] Improved error handling for syntax checks.
+
+</details>
+
+## Centreon Gorgone
+
+<details>
+  <summary>Bug fixes</summary>
+  
+- Fixed a bug where anomaly detection script would not start.
+- Removed useless error present at every first start of gorgone.
+
+</details>
+
+## Centreon Web
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [Agent configuration] Added a "No TLS" connection mode for CMA (limited) & Telegraf.
+- [Agent configuration] Sub-directories are now allowed in certificate configuration.
+- [API Token] Added a feature to generate CMA Tokens.
+- [Configuration] Added inseure TLS connection mode to Agent configuration.
+- [Configuration] Host groups - Resource access rule is now mandatory.
+- [Configuration] Improved Host Group Add/Edit.
+- [Configuration] Improved Host Group listing (columns, filtering, sorting).
+- [Core] Migrate to PNPM 10 and upgrade dependencies (React 19 and Cypress 14).
+- [Dashboards] Added new widget "Business Activity Status Timeline" that displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
+- [Dashboards] Metrics are now clearly identifiable in the Metrics Graph widget, thanks to the addition of service and/or host related names, when needed.
+- Metaservices are now available for Cloud platforms.
+- [Monitoring] A new, modern version of the BA monitoring page is now available.
+- [Resource Status] Added the possibility to export in CSV format the current data being displayed.
+- Vault paths are now exported in plain-text to Pollers.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+  
+- [Configuration] Fixed an issue on edit host and host template.
+- [Packaging] Fixed a packaging dependency issue between centreon-web and centreon-perl-libs.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+  
+- [Vulnerability] Fixed issue allowing a non admin user to logout another user.
+- [Vulnerability] Fixed SQL injection on meta-service configuration page.
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+ </details>
+    
+## Centreon-open-tickets
+
+<details>
+  <summary>Bug fixes</summary>
+- [Dashboards] Fixed issue preventing non admin users from opening tickets.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+  
 ### Centreon IT Edition
 
 ### Centreon Cloud Pro
