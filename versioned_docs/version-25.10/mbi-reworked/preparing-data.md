@@ -5,11 +5,16 @@ title: Preparing data for report generation
 
 ## Making your resources available to MBI
 
-For hosts and services availability and performance reports template, the resources you want to see appear in reports need to be organized in [host groups](../monitoring/groups.md#creating-a-host-group), [host categories](../monitoring/categories.md#hosts-category) and [service categories](../monitoring/categories.md#services-category). 
+For hosts/services availability and performance reports template, the resources you want to see appear in reports need to be organized in [host groups](../monitoring/groups.md#creating-a-host-group), [host categories](../monitoring/categories.md#hosts-category) and [service categories](../monitoring/categories.md#services-category). 
 
 For business activities and business views availability reports template, the resources you want to see appear in reports need to be organized in [businessactivities], [businessviews]
 
 Notes:
+- Be sure than all dimensions used by ETL are not empty:
+    - Each hostgroup must be filled with at least one host
+    - Each hostcategory must be filled with at least one host or host template
+    - Each servicecategory must be filled with at least one service template
+    - Each business activity must be linked with at least one business view
 - Be sure than all desired resources are monitored by Centreon (pollers)
 - Be sure than all monitored resources return status (for availability reports) and metrics (for performance reports)
 
@@ -18,10 +23,6 @@ Notes:
 Configuration of the ETL should be done shortly after installation and is normally done once. It is not necessary to change the configurations it for different types of reports and should only be done if you are [havinng issues](troubleshooting.md). 
 
 Go to **Reporting > Monitoring Business Intelligence > General options**
-
-<!-- ### Scheduler options tab
-
-Fill in the CBIS server IP address -->
 
 ### ETL options tab
 
@@ -39,6 +40,10 @@ Notes:
 - It is possible to generate a report job with a scope without data if there is mismatch ETL configuration or there isn't existing monitored resources/datas
 - The ETL is static; it does not automatically detect configuration changes on Centreon outside of its regular checks (scheduled for 4:30 a.m. by default). The user who updates their data must launch a rebuild of the ETL for the data to be taken into account immediately. Otherwise, we must wait until the next day for the latest changes to be taken into account.
 - If there is less historical data than 1 month, it's possible to get gaps in the generated report
+
+<!-- ### Scheduler options tab
+
+Fill in the CBIS server IP address -->
 
 <!-- rappeler de mettre à jour les host groups, host categories et service categoires pour que les données soient prises en compte dans les rapports. Ces trois types de ressources sont essentiels pour le fonctionnement de MBI et on doit rappeler de les mettre à jour -->
 
