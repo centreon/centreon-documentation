@@ -65,7 +65,7 @@ title: Centreon Cloud release notes
 
 </details>
   
-## Cenntreon-Map
+## Centreon-Map
 
 <details open>
   <summary>Enhancements</summary>
