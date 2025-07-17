@@ -1,3 +1,8 @@
+---
+id: cloud-release-notes
+title: Centreon Cloud - notes de release
+---
+
 ## July XXX, 2025
 
 **Centreon Monitoring Agent**
