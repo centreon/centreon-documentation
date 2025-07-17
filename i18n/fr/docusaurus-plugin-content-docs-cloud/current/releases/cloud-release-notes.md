@@ -5,6 +5,8 @@ title: Centreon Cloud - notes de release
 
 ## July XXX, 2025
 
+### Centreon IT Edition
+
 **Centreon Monitoring Agent**
 
 As the Centreon Monitoring Agent (CMA) is about to be generally available, enhancements in its configuration are now available for our Centreon Cloud customers.
