@@ -11,9 +11,9 @@ For business activities and business views availability reports template, the re
 
 Notes:
 - Be sure than all dimensions used by ETL are filled:
-    - Each hostgroup must be filled with at least one host
-    - Each hostcategory must be filled with at least one host or host template
-    - Each servicecategory must be filled with at least one service template
+    - Each host group must be filled with at least one host
+    - Each host category must be filled with at least one host or host template
+    - Each service category must be filled with at least one service template
     - Each business activity must be linked with at least one business view
 - Be sure than all desired resources are monitored by Centreon (pollers)
 - Be sure than all monitored resources return status (for availability reports) and metrics (for performance reports)
@@ -29,9 +29,9 @@ Go to **Reporting > Monitoring Business Intelligence > General options**
 
 Select the perimeters for the reports, the time periods and the service categories (disk, ping, memory, traffic). This is also where you configure how precise you want the data statistics to be (I.E. per months, days, hours...)
 
-By default, ELT is configured to compute availability and performance for all existings dimensions: hostgroups, hostcategories and servicecategories. If some dimensions are not mandatory, you can uncheck "All group dimensions" to select only required dimensions.
+By default, ELT is configured to compute availability and performance for all existings dimensions: host groups, host categories and service categories. If some dimensions are not mandatory, you can uncheck "All group dimensions" to select only required dimensions.
 
-There is consistency between supervision and reports, the hostgroups, hostcategories and servicecategories conditions the visibility of the data in the report. So if you need to generate report on any resource, you have to be sure than :
+There is consistency between supervision and reports, the host groups, host categories and service categories conditions the visibility of the data in the report. So if you need to generate report on any resource, you have to be sure than :
 - Resource (host/service) is yet monitored by Centreon
 - Resource configuration is up to date
 - Resource configuration is not empty 

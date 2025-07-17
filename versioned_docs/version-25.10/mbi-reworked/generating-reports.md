@@ -1,6 +1,6 @@
 ---
 id: generating-reports
-title: Generating reports
+title: Generating reports with jobs
 ---
 
 # Creating a job
