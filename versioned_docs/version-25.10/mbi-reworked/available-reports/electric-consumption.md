@@ -17,18 +17,18 @@ the first table displays the cost, consumption, average power and
 maximum power reached for month N. A reminder of these values for the
 previous month is provided along with the evolution over time.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part1.png)
 
 The next two graphs display the average power used per day of the month
 and per hour of the day. A comparison with the previous month also
 appears.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part2.png)
 
 Then, the top five most energy-consuming UPSs are displayed, along with
 consumption distribution by UPS, average consumption and cost by UPS.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part3.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part3.png)
 
 > If the host group contains more than five UPSs, only the four most
 > energy-consuming ones will be displayed. A fifth category will include
@@ -36,7 +36,7 @@ consumption distribution by UPS, average consumption and cost by UPS.
 
 Finally, a graph is shown of the monthly cost year over year (YOY).
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part4.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part4.png)
 
 #### Parameters
 

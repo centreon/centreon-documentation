@@ -26,7 +26,7 @@ Intervals are:
 
 These intervals are configurable.
 
-![image](../assets/reporting/guide/available-reports/HG-Traffic-By-Interface-And-Bandwith-Ranges_1.png)
+![image](../../assets/reporting/guide/available-reports/HG-Traffic-By-Interface-And-Bandwith-Ranges_1.png)
 
 #### Following pages
 
@@ -38,9 +38,9 @@ bandwidth usage by interval with distribution by:
 - Day of the week
 - Day of the month.
 
-![image](../assets/reporting/guide/available-reports/HG-Traffic-By-Interface-And-Bandwith-Ranges_2.png)
+![image](../../assets/reporting/guide/available-reports/HG-Traffic-By-Interface-And-Bandwith-Ranges_2.png)
 
-![image](../assets/reporting/guide/available-reports/HG-Traffic-By-Interface-And-Bandwith-Ranges_3.png)
+![image](../../assets/reporting/guide/available-reports/HG-Traffic-By-Interface-And-Bandwith-Ranges_3.png)
 
 #### Parameters
 
@@ -99,7 +99,7 @@ Intervals are:
 
 These intervals are configurable.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Traffic-average-By-Interface_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Traffic-average-By-Interface_1.png)
 
 #### Following pages
 
@@ -128,7 +128,7 @@ bandwidth distribution by:
 - The maximum reached of incoming and outgoing traffic per day of
   the month for the reporting period.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Traffic-average-By-Interface_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Traffic-average-By-Interface_2.png)
 
 #### Parameters
 
@@ -186,13 +186,13 @@ The first page displays three types of information:
 - 10 interfaces having the maximum average inbound traffic in percentage
 - 10 interfaces having the maximum average outbound traffic in percentage.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup_Monthly_Network_Centile_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup_Monthly_Network_Centile_1.png)
 
 On the following page(s), all interfaces are listed, sorted by host and
 service name, each with the corresponding inbound and outbound traffic
 statistics.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup_Monthly_Network_Centile_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup_Monthly_Network_Centile_2.png)
 
 #### Parameters
 

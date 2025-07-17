@@ -22,15 +22,15 @@ displayed by host categories and service categories.
 
 #### First page
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Storage-Capacity-1_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Storage-Capacity-1_1.png)
 
 #### Second page
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Storage-Capacity-1_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Storage-Capacity-1_2.png)
 
 #### For each host group
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Storage-Capacity-1_3.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Storage-Capacity-1_3.png)
 
 > Statistics displayed in evolution tables and graphs by month
 > correspond to values of indicators measured on the last day of the
@@ -102,21 +102,21 @@ and estimated time before saturation.
 
 #### First page
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_1.png)
 
 ##### Second & third pages
 
 ##### By service categories
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_2.png)
 
 ##### By host categories
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_3.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_3.png)
 
 #### Fourth page
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_4.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_4.png)
 
 > Statistics displayed in evolution tables and graphs by month
 > correspond to values of indicators measured on the last day of the
@@ -178,7 +178,7 @@ a hostgroup's resources. Detailed information is provided on the
 allocated and used space, the change since the last month, and
 estimated time before saturation.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-List.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-List.png)
 
 > Statistics displayed in evolution tables and graphs by month
 > correspond to values of indicators measured on the last day of the

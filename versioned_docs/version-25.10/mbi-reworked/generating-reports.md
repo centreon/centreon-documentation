@@ -32,17 +32,16 @@ The Output formats determine in what formats you will be able to download the ge
 Select wether you want the job to be executed immediately or schedule it for later. For immediate jobs, you must specify the reporting period that the report should be about. 
 
 In the case of a scheduled job, it depends on whether it is a regular job or a one shot:
+
 - Regular jobs are executed at the defined interval and will use its own interval as the reporting period. This means daily jobs will contain the data of the previous day, weekly reports will contain the data of the previous week, etc.
+
 - One shot jobs will execute once at the scheduled time. Like for an immediate job, you will need to specify the period the report should take into account.
 
 ## Step 2: Report parameters tab
 
 This tab is for selecting the resources which should be taken into account for the generation of the report.
-The fields of the tab vary according to the selected report design. However note that all fields should be filled and fields that require you to add categories from left to right should have at least one category in the right side each.
 
-Report publication
-properly explain how to add publication rules
-Specify jobs determine the frequency of the reports, not the publication rules and review the "send MBI reports by email" part, specifically the frequency of the emails sent. That frequency is the same as the frequency of report generation specified in the job (daily, weekly or monthly), the report is automtically sent each time it is generated (double check this last point).
+The fields of the tab change according to the report design selected in the previous tab. However note that all fields should be filled and fields that require you to add categories from left to right should have at least one category in the right side each.
 
 Steps 3 and 4 are optional and not required to generate a report, you may save your job now and get the report from **Reporting > Monitoring Business Intelligence > Report view**.
 
@@ -57,10 +56,9 @@ Rules marked as global, such as the default rule, do not appear here but are aut
 ## Step 4: Tuning
 
 Here you can change the theme of the report, the default theme will be the one you designated as such in the [scheduler options tab when configuring MBI](./configuring-mbi.md#scheduler-options).
+
 The job weight multiplicator allows you to increase the priority of a job. If MBI is not able to generate all the reports it should at the same time, it will first generate those with the highest multiplicator.
 
 ## General recommendations
 
-
 A running job is restarted from scratch if a new metric is added. Anticipate needs to avoid jobs starting over as they take time to compile all the data.
-

@@ -30,19 +30,19 @@ host group.
 
 #### Cover sheet
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_1.png)
 
 #### First page
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_2.png)
+![image](../../../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_2.png)
 
 #### Second page
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_3.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_3.png)
 
 #### For each host group
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_4.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_4.png)
 
 #### Parameters
 
@@ -83,17 +83,17 @@ unavailability and exception events.
 
 #### First page
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Availability-1_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Availability-1_1.png)
 
 #### For each host group
 
 ##### First page
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Availability-1_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Availability-1_2.png)
 
 ##### Second page
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Availability-1_3.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Availability-1_3.png)
 
 #### Parameters
 
@@ -135,19 +135,19 @@ terms of service unavailability and exception events.
 
 #### First page
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Availability-2_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Availability-2_1.png)
 
 #### Second page
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Availability-2_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Availability-2_2.png)
 
 #### Third & Fourth pages
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Availability-2_3.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Availability-2_3.png)
 
 and
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Availability-2_4.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Availability-2_4.png)
 
 #### Parameters
 
@@ -177,7 +177,7 @@ generating the most events for a given host group.
 The first graph displays the rate of acknowledged and resolved events
 within a specific time frame.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_1.png)
 
 The second graph displays the top 10 longest events with the start, end and
 resolution time.
@@ -185,16 +185,16 @@ resolution time.
 Indicators in a critical-state appear in red, in a warning-state in orange, and
 an unknown state in gray.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_2.png)
 
 The third graph in the report displays the top 10 the least reliable
 indicators.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_3.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_3.png)
 
 Finally, the top 10 hosts generating the most events.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_4.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_4.png)
 
 #### Parameters
 
@@ -225,7 +225,7 @@ within a hostgroup.
 For each host, the table lists the percentage of availability,
 unavailability and number of exception events and trends.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Host-Availability-List.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Host-Availability-List.png)
 
 This report is optimized for generating XLS files.
 
@@ -255,7 +255,7 @@ exception events on hosts indicating start, acknowledgment and end
 dates. The report also calculates the real and the effective MTRS for
 each event.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Host-Event-List.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Host-Event-List.png)
 
 This report is optimized for generating XLS files.
 
@@ -284,7 +284,7 @@ For each service, detailed statistics are provided: availability (in
 percentage), unavailability, exception and warning events, as well as the trends
 for these various indicators.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Availability-List.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Availability-List.png)
 
 This report is optimized for generating XLS files.
 
@@ -315,7 +315,7 @@ The report also calculates the real and the effective MTRS for each alarm. A
 table contains detailed statistics on events occurring on hosts indicating start,
 acknowledgment and end dates.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Event-List.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Event-List.png)
 
 #### Parameters
 
@@ -349,7 +349,7 @@ This report helps you to focus on the most problematic hosts by applying
 the Pareto principle (or 80-20 rule): approximately 80% of the effects
 come from 20% of the causes.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Host-Pareto.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Host-Pareto.png)
 
 #### Parameters
 
@@ -384,7 +384,7 @@ addition:
 - A report can have fewer than four parts by specifying the value -1 in its
   title.
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Host-Current-Events.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Host-Current-Events.png)
 
 #### Parameters
 
@@ -428,7 +428,7 @@ report is generated. In addition:
 - A report can have fewer than four parts by specifying the value -1 in its
   title.
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Service-Current-Events.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Service-Current-Events.png)
 
 ####  Parameters
 

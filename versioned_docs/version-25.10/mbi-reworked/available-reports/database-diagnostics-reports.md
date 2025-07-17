@@ -18,7 +18,7 @@ time period.
 
 > This report does not describe data quality, only data availability.
 
-![image](../assets/reporting/guide/available-reports/Content-diagnostic_png.png)
+![image](../../assets/reporting/guide/available-reports/Content-diagnostic_png.png)
 
 #### Parameters
 
@@ -43,7 +43,7 @@ the following information: availability of each host by day,
 unavailability and unreachability. This data is shown for each time
 period and organized by group and category.
 
-![image](../assets/reporting/guide/available-reports/content-diagnostic-availability.png)
+![image](../../assets/reporting/guide/available-reports/content-diagnostic-availability.png)
 
 #### Parameters
 
@@ -66,7 +66,7 @@ displaying the following information: availability for each service by
 day, warning time and critical time. This data is shown for each time
 period and organized by group, host category and service category.
 
-![image](../assets/reporting/guide/available-reports/content-diagnostic-service-availability.png)
+![image](../../assets/reporting/guide/available-reports/content-diagnostic-service-availability.png)
 
 #### Parameters
 
@@ -89,7 +89,7 @@ This report provides a calendar view of average values by metrics and
 time periods. It also indicates the maximum value reachable for each
 metric. Data is organized by group, host and service categories.
 
-![image](../assets/reporting/guide/available-reports/content-diagnostic-performance.png)
+![image](../../assets/reporting/guide/available-reports/content-diagnostic-performance.png)
 
 #### Parameters
 
@@ -120,7 +120,7 @@ If a warning is displayed on a line:
 - Warning and Critical thresholds are not set.
 - The maximum value was not returned by the plugin.
 
-![image](../assets/reporting/guide/available-reports/Metric-integrity-check.png)
+![image](../../assets/reporting/guide/available-reports/Metric-integrity-check.png)
 
 #### Parameters
 

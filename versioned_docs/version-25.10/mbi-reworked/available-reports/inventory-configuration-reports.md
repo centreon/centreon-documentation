@@ -11,20 +11,20 @@ This report displays information on the hosts in the reporting
 datawarehouse, their parent template, relation to groups and categories
 and creation date. You can filter on host groups and categories.
 
-![image](../assets/reporting/guide/available-reports/host_information.png)
+![image](../../assets/reporting/guide/available-reports/host_information.png)
 
 The table below shows the links between host templates:
 
-![image](../assets/reporting/guide/available-reports/link_between_host_templates.png)
+![image](../../assets/reporting/guide/available-reports/link_between_host_templates.png)
 
 The following table shows the link between service and host templates:
 
-![image](../assets/reporting/guide/available-reports/relation_between_service_and_host_templates.png)
+![image](../../assets/reporting/guide/available-reports/relation_between_service_and_host_templates.png)
 
 The following table presents an overview of the host templates and their
 check and notification properties:
 
-![image](../assets/reporting/guide/available-reports/host_templates_info.png)
+![image](../../assets/reporting/guide/available-reports/host_templates_info.png)
 
 #### Parameters
 
@@ -47,20 +47,20 @@ datawarehouse, their parent template, their relationship with groups and
 categories, and creation date. You can filter on host groups, host
 categories and service categories.
 
-![image](../assets/reporting/guide/available-reports/service_information.png)
+![image](../../assets/reporting/guide/available-reports/service_information.png)
 
 The table below shows the links between host templates:
 
-![image](../assets/reporting/guide/available-reports/link_between_templates.png)
+![image](../../assets/reporting/guide/available-reports/link_between_templates.png)
 
 The following table shows the link between host and service templates:
 
-![image](../assets/reporting/guide/available-reports/relation_netween_host_and_service.png)
+![image](../../assets/reporting/guide/available-reports/relation_netween_host_and_service.png)
 
 The following table presents an overview of the service templates and
 their check and notification properties:
 
-![image](../assets/reporting/guide/available-reports/templates_info.png)
+![image](../../assets/reporting/guide/available-reports/templates_info.png)
 
 #### Parameters
 
@@ -87,7 +87,7 @@ the Centreon Engine running on a poller.
 The poller name, IP address, version number and state of the engine, and
 date of the last restart are displayed in the first part of the report.
 
-![image](../assets/reporting/guide/available-reports/Poller-Performances_1.png)
+![image](../../assets/reporting/guide/available-reports/Poller-Performances_1.png)
 
 The report then shows the status of the hosts and services monitored by
 the poller.
@@ -95,12 +95,12 @@ the poller.
 Statistics on latencies and execution times are presented along with the
 hosts and services that exceed tolerated thresholds.
 
-![image](../assets/reporting/guide/available-reports/Poller-Performances_2.png)
+![image](../../assets/reporting/guide/available-reports/Poller-Performances_2.png)
 
 Finally, the report displays the current configuration of the Centreon
 Engine and offers tips to optimize it (in case of performance issues).
 
-![image](../assets/reporting/guide/available-reports/Poller-Performances_3.png)
+![image](../../assets/reporting/guide/available-reports/Poller-Performances_3.png)
 
 #### Parameters
 
@@ -142,7 +142,7 @@ both tables.
 Any changes to host classification will appear the day after the
 change is made.
 
-![image](../assets/reporting/guide/available-reports/Hosts-not-classified.png)
+![image](../../assets/reporting/guide/available-reports/Hosts-not-classified.png)
 
 #### Parameters
 
@@ -162,7 +162,7 @@ presented in a table.
 Any changes to service classification will be appear the day after the
 change is made.
 
-![image](../assets/reporting/guide/available-reports/Services-not-classified.png)
+![image](../../assets/reporting/guide/available-reports/Services-not-classified.png)
 
 #### Parameters
 

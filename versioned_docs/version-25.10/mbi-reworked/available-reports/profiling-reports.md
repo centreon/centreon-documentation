@@ -21,17 +21,17 @@ The final page is an appendix displaying the alarms that occurred on the host.
 
 #### First page
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_1_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_1_png.png)
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_2_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_2_png.png)
 
 #### Second page
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_3_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_3_png.png)
 
 #### Third page
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_4_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_4_png.png)
 
 1 - Storage statistics on the last day of the reporting period
 
@@ -44,9 +44,9 @@ the last day of the previous period.
 
 #### Appendix
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_5_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_5_png.png)
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_6_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_6_png.png)
 
 #### Parameters
 
@@ -111,17 +111,17 @@ Finally, an appendix lists all the alarms occurring on the host.
 
 #### First page
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_1_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_1_png.png)
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_2_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_2_png.png)
 
 #### Second page
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_3_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_3_png.png)
 
 #### Third page
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_4_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_4_png.png)
 
 1 - Storage statistics on the last day of the reporting period
 
@@ -134,13 +134,13 @@ the last day of the previous period.
 
 #### Fourth page
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-3_traffic.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-3_traffic.png)
 
 #### Appendix
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_5_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_5_png.png)
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_6_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_6_png.png)
 
 #### Parameters
 
@@ -208,17 +208,17 @@ of all interfaces of the host.
 
 #### First part
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_1_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_1_png.png)
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_2_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_2_png.png)
 
 #### Second part
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_3_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_3_png.png)
 
 #### Third part
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_4_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_4_png.png)
 
 1 - Storage statistics on the last day of the reporting period
 
@@ -231,7 +231,7 @@ the last day of the previous period.
 
 #### Fourth part
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-3_traffic.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-3_traffic.png)
 
 #### Parameters
 
