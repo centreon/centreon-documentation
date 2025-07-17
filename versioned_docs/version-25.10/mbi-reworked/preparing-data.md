@@ -10,13 +10,14 @@ For hosts/services availability and performance reports template, the resources 
 For business activities and business views availability reports template, the resources you want to see appear in reports need to be organized in [businessactivities], [businessviews]
 
 Notes:
-- Be sure than all dimensions used by ETL are not empty:
+- Be sure than all dimensions used by ETL are filled:
     - Each hostgroup must be filled with at least one host
     - Each hostcategory must be filled with at least one host or host template
     - Each servicecategory must be filled with at least one service template
     - Each business activity must be linked with at least one business view
 - Be sure than all desired resources are monitored by Centreon (pollers)
 - Be sure than all monitored resources return status (for availability reports) and metrics (for performance reports)
+
 
 ## Configuring MBI
 
@@ -31,15 +32,28 @@ Select the perimeters for the reports, the time periods and the service categori
 By default, ELT is configured to compute availability and performance for all existings dimensions: hostgroups, hostcategories and servicecategories. If some dimensions are not mandatory, you can uncheck "All group dimensions" to select only required dimensions.
 
 There is consistency between supervision and reports, the hostgroups, hostcategories and servicecategories conditions the visibility of the data in the report. So if you need to generate report on any resource, you have to be sure than :
-- Resource configuration is up to date, 
-- Resource configuration is not empty, 
-- Resource is yet configured for ETL compute, 
-- very important: resource is yet monitored by Centreon. 
+- Resource (host/service) is yet monitored by Centreon
+- Resource configuration is up to date
+- Resource configuration is not empty 
+- Resource is yet configured for ETL compute
 
 Notes:
-- It is possible to generate a report job with a scope without data if there is mismatch ETL configuration or there isn't existing monitored resources/datas
+- It is possible to generate a report job with a scope without data if there is mismatch ETL configuration or there is no monitoring on the resource (no status/metric return)
 - The ETL is static; it does not automatically detect configuration changes on Centreon outside of its regular checks (scheduled for 4:30 a.m. by default). The user who updates their data must launch a rebuild of the ETL for the data to be taken into account immediately. Otherwise, we must wait until the next day for the latest changes to be taken into account.
 - If there is less historical data than 1 month, it's possible to get gaps in the generated report
+
+
+## ACL Configuration
+
+### ACL Resources
+
+For all non-admin user, during job report creation, you will provide some dimensions for your report. Remember that you will only see the resources you are entitled to.
+If needed, ask your Centreon admin to modify your ACL resources and add missing resource.
+
+### ACL menu
+
+For all non-admin user, you will be subject to the menu ACL rule. In the case where you will not be able to see generated reports or job configuration, contact your Centreon admin to make sure you are in the acl mbi menu.
+
 
 <!-- ### Scheduler options tab
 
