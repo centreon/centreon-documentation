@@ -20,6 +20,9 @@ This version adds the following enhancements to agent communication configuratio
 - It is now possible to store certificates in sub-directories
 - It is now possible to generate a token for the CMA agent
 
+> With the changes introduced in communication schemes, if you are planning on using CMA,
+> it is important to update your poller to at a minimum v24.10.8 of the Centreon Collect package
+
 **Centreon Dashboards**
 
 The Metrics Graph widget has been enhanced to add the name of the service and/or host when needed in order to more clearly identify metrics that have the same name.
