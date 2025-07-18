@@ -3,6 +3,20 @@ id: troubleshooting
 title: Troubleshooting MBI
 ---
 
+## How do I know MBI is properly configurated?
+
+Use the following command to verify MBI is properly configured
+
+```shell
+/usr/share/centreon-bi/tools/diagnostic.sh | less
+```
+
+Use this command to verify the CBIS service status
+
+```shell
+systemctl status cbis
+```
+
 ## The report I generated is empty
 
 A cronjob is launched at approximately 4h30 AM that will compile and calculate all the data of the day before. CBIS then goes into the compiled data at the scheduled time to pick out the data relevant to the report it needs to generate. If reports are being generated without data in them, it's possible CBIS is sending its SQL requests before the cronjob is finished and so the data CBIS requests does not exist yet. Try pushing back the cyclic launch hour so that CBIS does not request data before the cronjob has finished. 
