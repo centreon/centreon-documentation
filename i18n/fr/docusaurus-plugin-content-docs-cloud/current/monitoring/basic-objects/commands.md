@@ -53,7 +53,16 @@ Pour des raisons de sécurité, Centreon Cloud inclut une liste blanche préremp
 
 1. Connectez-vous en **root** au collecteur qui exécutera la commande.
 2. Éditez (ou créez) le fichier suivant : **/etc/centreon-engine-whitelist/my-whitelist.yml**. (Vous pouvez créer autant de fichiers de whitelists que vous souhaitez dans ce répertoire.)
-3. Utilisez une regex pour définir les comandes autorisées. Exemple : 
+3. Assurez-vous que les droits d'accès corrects sont définis sur tous les fichiers de liste blanche :
+
+   ```yaml
+   chown root:centreon-engine /etc/centreon-engine-whitelist/my-whitelist.yml
+   chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
+   chown root:centreon-engine /etc/centreon-engine-whitelist
+   chmod 750 /etc/centreon-engine-whitelist
+   ```
+   
+4. Utilisez une regex pour définir les commandes autorisées. Exemple : 
 
    ```yaml /etc/centreon-engine-whitelist/my_whitelist.yml
    whitelist:

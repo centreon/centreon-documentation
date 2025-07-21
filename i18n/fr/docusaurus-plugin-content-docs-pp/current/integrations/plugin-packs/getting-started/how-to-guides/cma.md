@@ -397,11 +397,21 @@ Si vous utilisez des listes blanches sur le collecteur ([les collecteurs Cloud o
 ```text
 whitelist:
   regex:
-    - /usr/lib(?:64){0,1}/nagios/plugins/.*
+    - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+    - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
     - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
     - ^\{\s*"check":".*\}$
     - \/usr\/bin\/echo\s+Host\s+alive
-    - cmd\.exe\s+\/C\s+echo\s+Centreon\s+Agent
+    - cmd\.exe\s+\/C\s+echo\s+.*
+```
+
+Assurez-vous que les droits d'accès corrects sont définis sur tous les fichiers de liste blanche :
+
+```
+chown root:centreon-engine /etc/centreon-engine-whitelist/my-whitelist.yml
+chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
+chown root:centreon-engine /etc/centreon-engine-whitelist
+chmod 750 /etc/centreon-engine-whitelist
 ```
 
 ## Étape 2 : Préparez l'hôte

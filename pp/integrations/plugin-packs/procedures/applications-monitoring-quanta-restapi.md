@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 ## Pack assets
 
+> This connector will be redesigned in the near future to exploit Quanta's full potential following [recent events](https://www.centreon.com/news/centreon-augments-observability-by-acquiring-quanta-io/).
+
 ### Templates
 
 The Monitoring Connector **Quanta Rest API** brings a host template:
