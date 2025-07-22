@@ -11,7 +11,7 @@ For business activities and business views availability reports template, the re
 
 Notes:
 - Be sure than all dimensions used by ETL are filled:
-    - Each hostgroup (hg) must be filled with at least one host
+    - Each host group (hg) must be filled with at least one host
     - Each hostcategory (hc) must be filled with at least one host or host template
     - Each servicecategory (sc) must be filled with at least one service template
     - Each business activity must be linked with at least one business view
@@ -40,7 +40,7 @@ Go to **Reporting > Monitoring Business Intelligence > General options**
 
 Select the perimeters for the reports, the time periods and the service categories (disk, ping, memory, traffic). This is also where you configure how precise you want the data statistics to be (I.E. per months, days, hours...)
 
-By default, ELT is configured to compute availability and performance for all existings dimensions: hostgroups, hostcategories and servicecategories. If some dimensions are not mandatory, you can uncheck "All group dimensions" to select only desired dimensions.
+By default, ELT is configured to compute availability and performance for all existings dimensions: host groups, hostcategories and servicecategories. If some dimensions are not mandatory, you can uncheck "All group dimensions" to select only desired dimensions.
 
 There is consistency between supervision and reports, the host groups, host categories and service categories conditions the visibility of the data in the report. So if you need to generate report on any resource, you have to be sure than :
 - Resource (host/service) is yet monitored by Centreon
