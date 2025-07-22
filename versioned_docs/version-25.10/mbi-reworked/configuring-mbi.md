@@ -140,7 +140,8 @@ Job groups are a tag added to jobs to categorize the contents of the report the 
 
 ## Publication rules
 
-By default, reports generated are available on the Centreon platform to be downloaded. It is also possible to make it so generated reports are automatically sent to certain users by email or made available on a DropBox for example.
+By default, reports generated are available on the Centreon platform to be downloaded. It is also possible to make it so generated reports are automatically sent to certain users or made available on a DropBox for example.
 
-To do this, go to **Reporting > Monitoring Business Intelligence > Publication Rules**.
+To do this, go to **Reporting > Monitoring Business Intelligence > Publication Rules** and select the appropriate protocol.
 
+To have the reports sent by email using SMTP, you need to have an emailing server. If you do not currently have one, it is possible to [install it directly on the MBI server](../administration/postfix.md).
