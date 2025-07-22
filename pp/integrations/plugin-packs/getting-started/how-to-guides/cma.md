@@ -369,6 +369,30 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 </TabItem>
 </Tabs>
 
+### Whitelist CMA commands
+
+If you are using whitelists on the poller ([Cloud pollers have whitelists set by default](/cloud/monitoring/basic-objects/commands#command-whitelist)), these must allow CMA commands. In your custom whitelist file (e.g., **/etc/centreon-engine-whitelist/my-whitelist.yml**), include the following lines: 
+
+```text
+whitelist:
+  regex:
+    - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+    - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+    - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+    - ^\{\s*"check":".*\}$
+    - \/usr\/bin\/echo\s+Host\s+alive
+    - cmd\.exe\s+\/C\s+echo\s+.*
+```
+
+Make sure the correct access rigts are defined on all whitelist files:
+
+   ```yaml
+   chown root:centreon-engine /etc/centreon-engine-whitelist/my-whitelist.yml
+   chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
+   chown root:centreon-engine /etc/centreon-engine-whitelist
+   chmod 750 /etc/centreon-engine-whitelist
+   ```
+
 ## Step 2: Prepare the host
 
 ### Download and install the agent
