@@ -18,18 +18,18 @@ The first page presents a focus on the following attributes:
 
 - Availability
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page1-1.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page1-1.png)
 
 - Unavailability
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page1-2.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page1-2.png)
 
 The weather icons change according to the SLAs defined in each business
 activity, in terms of minutes.
 
 - Reliability and Maintainability
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page1-3.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page1-3.png)
 
 The following pages display additional statistics for each business activity in
 the business view:
@@ -37,14 +37,14 @@ the business view:
 - Availability, unavailability, downtime, service performance index
   and number of events that occurred.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-1.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-1.png)
 
 The weather icons change according to the SLAs defined in each business
 activity, in terms of percentages and minutes.
 
 - Change in availability, performance and number of events.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-2.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-2.png)
 
 - An availability calendar displays only days when availability was below 100%.
 - For days with 100% availability, the cell background color appears in a light
@@ -52,12 +52,12 @@ activity, in terms of percentages and minutes.
 - If data are not present on a specific day, the cell background color appears
   in white with no values displayed.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-3.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-3.png)
 
 - As an option, the list of events appears with their respective key performance
   indicators (KPIs).
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-4.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-4.png)
 
 #### Parameters
 
@@ -100,24 +100,24 @@ business activity:
 - Availability, unavailability, downtime, service performance index and number
   of events.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-1.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-1.png)
 
 The weather icons change according to the SLAs defined in each business
 activity, in terms of percentages and minutes.
 
 - Change in the availability, performance and number of events
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-2.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-2.png)
 
 - An availability calendar displays only the days when availability was below
   SLA in terms of percentage defined in the business activity configuration.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-3.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-3.png)
 
 - As an option, the list of events appears with their respective key performance
   indicators (KPIs).
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-4.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-4.png)
 
 #### Parameters
 
@@ -161,7 +161,7 @@ Changes are calculated in relation to the previous period:
 - In all other cases, the change is calculated by the number of days
   preceding the number of days of the reporting period.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-list.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-list.png)
 
 Parameters required for the report:
 
@@ -196,7 +196,7 @@ This report displays a list of events that occurred for a business activity.
 
 The report displays a list of events for a business activity during a given period and the related KPIs. The time period applied is the default value set in the configuration BA menu.
 
-![image](../assets/reporting/guide/available-reports/ba-event-list.png)
+![image](../../assets/reporting/guide/available-reports/ba-event-list.png)
 
 #### Parameters
 
@@ -229,7 +229,7 @@ current state. The report also indicates whether the application has been
 acknowledged or in downtime. Depending on the parameter selected, the report
 displays availability and failures for each application.
 
-![image](../assets/reporting/guide/available-reports/BV-BA-Current-Health-VS-Past.png)
+![image](../../assets/reporting/guide/available-reports/BV-BA-Current-Health-VS-Past.png)
 
 #### Parameters
 
@@ -284,14 +284,14 @@ availability is below 100% or if unavailability > 0 seconds. The time
 period that applies is the "Default reporting period" selected for
 each business activity.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-calendar-first-page.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-calendar-first-page.png)
 
 The third calendar displays availability for each business activity by
 day. Cells are colored according to time frames (in minutes) of
 unavailability, configured for the report. If unavailability is below
 100%, availability is displayed for that day.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-calendar-detailed.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-calendar-detailed.png)
 
 #### Parameters
 
@@ -314,7 +314,7 @@ Parameters required for the report:
 
 \* SLA thresholds appear above the calendar displaying availability by day.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-calendar-legende.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-calendar-legende.png)
 
 \* *If different from "Default", be sure that the selected time period is
 defined as a Default or Extra reporting time period in the BA configuration or

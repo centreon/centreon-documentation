@@ -34,7 +34,7 @@ host group.
 
 #### First page
 
-![image](../../../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_2.png)
 
 #### Second page
 
