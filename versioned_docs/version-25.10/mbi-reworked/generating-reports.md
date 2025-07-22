@@ -25,11 +25,11 @@ Consult our [available reports catalog](available-reports.md) to find the approp
 You can change the language of the report between French or English. The spinning arrows icon next to the language field is an obsolete feature and will have no impact on the language of the report.
 The Output formats determine in what formats you will be able to download the generated report.
 
-[Job groups](concepts.md#job-groups) determine who can access each report, only the job gorups you have access to will be listed here.
+[Job groups](concepts.md#job-groups) determine who can access each report, only the job groups you have access to will be listed here.
 
 ### Scheduling parameters
 
-Select wether you want the job to be executed immediately or schedule it for later. For immediate jobs, you must specify the reporting period that the report should be about. 
+Select wether you want the job to be executed immediately or schedule it for later. For immediate jobs, you must specify the reporting period that the report will include. 
 
 In the case of a scheduled job, it depends on whether it is a regular job or a one shot:
 
@@ -46,7 +46,8 @@ The **State** field has **Schedule** checked by default to allow the job to run 
 
 This tab is for selecting the resources which should be taken into account for the generation of the report.
 
-The fields of the tab change according to the report design selected in the previous tab. However note that all fields should be filled and fields that require you to add categories from left to right should have at least one category in the right side each.
+The fields of the tab change according to the report design selected in the previous tab. However note that all fields should be filled. 
+Fields that require you to add categories from left to right should have at least one category in the right side each.
 
 The field related to the time periods is the exception, it is present on all reports. Use it to choose which hours should be taken into account for the period the report will cover.
 
