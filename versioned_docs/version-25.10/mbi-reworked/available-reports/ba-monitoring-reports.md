@@ -139,7 +139,7 @@ Parameters required for the report:
 \* *If different from "Default", be sure that the selected time period is
 defined as a Default or Extra reporting time period in the BA configuration.*
 
-> In the **Time period** field, do not use time periods that include [exceptions](../../../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
+> In the **Time period** field, do not use time periods that include [exceptions](../../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
 
 ### BV-BA-Availabilities-List
 
