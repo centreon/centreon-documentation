@@ -33,12 +33,12 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias                   | Service Template                                        | Service Description   |
-|:--------------------------------|:--------------------------------------------------------|:----------------------|
-| Licenses                        | App-Veeam-Licenses-Centreon-Monitoring-Agent-custom     | Check licenses        |
-| Repositories                    | App-Veeam-Repositories-Centreon-Monitoring-Agent-custom | Check repositories    |
-| Tape-Jobs                       | App-Veeam-Tape-Jobs-Centreon-Monitoring-Agent-custom    | Check job tape status |
-| Vsb-Jobs                        | App-Veeam-Vsb-Jobs-Centreon-Monitoring-Agent-custom     | Check SureBackup jobs |
+| Service Alias | Service Template                                        | Service Description   |
+|:--------------|:--------------------------------------------------------|:----------------------|
+| Licenses      | App-Veeam-Licenses-Centreon-Monitoring-Agent-custom     | Check licenses        |
+| Repositories  | App-Veeam-Repositories-Centreon-Monitoring-Agent-custom | Check repositories    |
+| Tape-Jobs     | App-Veeam-Tape-Jobs-Centreon-Monitoring-Agent-custom    | Check job tape status |
+| Vsb-Jobs      | App-Veeam-Vsb-Jobs-Centreon-Monitoring-Agent-custom     | Check SureBackup jobs |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -107,9 +107,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 Only one TCP flow must be open from the host to the poller.
 
-| Source         | Destination | Protocol | Port | Purpose                                          |
-|----------------|-------------|----------|------|--------------------------------------------------|
-| Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval, and OpenTelemetry data flow. |
+| Source         | Destination | Protocol | Port | Purpose                                              |
+|----------------|-------------|----------|------|------------------------------------------------------|
+| Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval, and OpenTelemetry data flow |
 
 ### System prerequisites on the poller
 
@@ -228,10 +228,11 @@ yum install
 3. Apply the **App-Veeam-Centreon-Monitoring-Agent-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                | Description                                             | Default value                     | Mandatory  |
-|:---------------------|:--------------------------------------------------------|:----------------------------------|:----------:|
-| CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |     X      |
-| SYSTEMLANGUAGE       | Language installed on the Windows system                | en                                |            |
+| Macro                | Description                                             | Default value                     | Mandatory |
+|:---------------------|:--------------------------------------------------------|:----------------------------------|:---------:|
+| CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |     X     |
+| SYSTEMLANGUAGE       | Language installed on the Windows system                | en                                |           |
+| TIMEOUT              | Timeout time for command execution                      | 120                               |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -248,10 +249,10 @@ yum install
 
 | Macro           | Description                                                                                                                                                               | Default value                                           | Mandatory   |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| FILTERENDTIME   | Tolerance value in seconds, to avoid skipping jobs whose end time is earlier than the current time                                                                                               | 86400                                                   |             |
+| FILTERENDTIME   | Tolerance value in seconds, to avoid skipping jobs whose end time is earlier than the current time                                                                        | 86400                                                   |             |
 | FILTERNAME      | Filter job name (can be a regexp)                                                                                                                                         |                                                         |             |
-| FILTERSTARTTIME | Tolerance value in seconds, to avoid skipping jobs whose start time is earlier than the current time                                                                                              |                                                         |             |
-| FILTERCOUNTERS  | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                 |                                                         |             |
+| FILTERSTARTTIME | Tolerance value in seconds, to avoid skipping jobs whose start time is earlier than the current time                                                                      |                                                         |             |
+| FILTERCOUNTERS  | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\                                                        |yyyy$'                                                 |                                                         |             |
 | OKSTATUS        | Define the conditions to match for the status to be OK. You can use the following variables: %\{display\}, %\{status\}, %\{type\}, %\{is\_running\}, %\{scheduled\}       |                                                         |             |
 | WARNINGLONG     | Set warning threshold for long jobs. You can use the following variables:  %\{display\}, %\{status\}, %\{type\}, %\{elapsed\}                                             |                                                         |             |
 | CRITICALLONG    | Set critical threshold for long jobs. You can use the following variables:  %\{display\}, %\{status\}, %\{type\}, %\{elapsed\}                                            |                                                         |             |
@@ -345,6 +346,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 "/centreon_plugins.exe" \
 	--plugin apps::backup::veeam::local::plugin \
 	--mode vsb-jobs \
+	--timeout=120 \
 	--filter-name="" \
 	--filter-type="" \
 	--warning-jobs-detected="" \

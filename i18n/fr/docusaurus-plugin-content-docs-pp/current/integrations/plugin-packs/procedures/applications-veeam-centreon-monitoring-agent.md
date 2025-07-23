@@ -34,12 +34,12 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                           | Modèle de service                                       | Description                                               |
-|:--------------------------------|:--------------------------------------------------------|:----------------------------------------------------------|
-| Licenses                        | App-Veeam-Licenses-Centreon-Monitoring-Agent-custom     | Contrôle les licences                                     |
-| Repositories                    | App-Veeam-Repositories-Centreon-Monitoring-Agent-custom | Contrôle les dépôts                                       |
-| Tape-Jobs                       | App-Veeam-Tape-Jobs-Centreon-Monitoring-Agent-custom    | Contrôle permettant de vérifier l'état des jobs sur bande |
-| Vsb-Jobs                        | App-Veeam-Vsb-Jobs-Centreon-Monitoring-Agent-custom     | Contrôle l'état des jobs SureBackup                       |
+| Alias        | Modèle de service                                       | Description                                               |
+|:-------------|:--------------------------------------------------------|:----------------------------------------------------------|
+| Licenses     | App-Veeam-Licenses-Centreon-Monitoring-Agent-custom     | Contrôle les licences                                     |
+| Repositories | App-Veeam-Repositories-Centreon-Monitoring-Agent-custom | Contrôle les dépôts                                       |
+| Tape-Jobs    | App-Veeam-Tape-Jobs-Centreon-Monitoring-Agent-custom    | Contrôle permettant de vérifier l'état des jobs sur bande |
+| Vsb-Jobs     | App-Veeam-Vsb-Jobs-Centreon-Monitoring-Agent-custom     | Contrôle l'état des jobs SureBackup                       |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -233,6 +233,7 @@ yum install
 |:---------------------|:--------------------------------------------------------|:----------------------------------|:-----------:|
 | CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |      X      |
 | SYSTEMLANGUAGE       | Language installed on the Windows system                | en                                |             |
+| TIMEOUT              | Timeout time for command execution                      | 120                               |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -249,10 +250,10 @@ yum install
 
 | Macro           | Description                                                                                                                                                               | Valeur par défaut                                       | Obligatoire |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| FILTERENDTIME   | Tolerance value in seconds, to avoid skipping jobs whose end time is earlier than the current time                                                                                               | 86400                                                   |             |
+| FILTERENDTIME   | Tolerance value in seconds, to avoid skipping jobs whose end time is earlier than the current time                                                                        | 86400                                                   |             |
 | FILTERNAME      | Filter job name (can be a regexp)                                                                                                                                         |                                                         |             |
-| FILTERSTARTTIME | Tolerance value in seconds, to avoid skipping jobs whose start time is earlier than the current time                                                                                              |                                                         |             |
-| FILTERCOUNTERS  | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                 |                                                         |             |
+| FILTERSTARTTIME | Tolerance value in seconds, to avoid skipping jobs whose start time is earlier than the current time                                                                      |                                                         |             |
+| FILTERCOUNTERS  | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\                                                        |yyyy$'                                                 |                                                         |             |
 | OKSTATUS        | Define the conditions to match for the status to be OK. You can use the following variables: %\{display\}, %\{status\}, %\{type\}, %\{is\_running\}, %\{scheduled\}       |                                                         |             |
 | WARNINGLONG     | Set warning threshold for long jobs. You can use the following variables:  %\{display\}, %\{status\}, %\{type\}, %\{elapsed\}                                             |                                                         |             |
 | CRITICALLONG    | Set critical threshold for long jobs. You can use the following variables:  %\{display\}, %\{status\}, %\{type\}, %\{elapsed\}                                            |                                                         |             |
@@ -348,6 +349,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 "/centreon_plugins.exe" \
 	--plugin apps::backup::veeam::local::plugin \
 	--mode vsb-jobs \
+	--timeout=120 \
 	--filter-name="" \
 	--filter-type="" \
 	--warning-jobs-detected="" \
