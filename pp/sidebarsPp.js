@@ -342,6 +342,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/infrastructure-active-directory-centreon-monitoring-agent'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/infrastructure-active-directory-nrpe'
         },
         {
