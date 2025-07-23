@@ -23,6 +23,38 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 23.10.26
+
+Release date: `July 23, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Authentication] Improved SAML configuration by adding a "Requested Authentication Context" parameter.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Custom Views] Servicegroup monitoring widget - Fixed issue preventing non admin users from seeing widget data.
+- [Metaservices] Fixed SQLi issues. Fixed several issues occuring when using MySQL 8.
+- [Upgrade] Fixed migration script for version 23.10.8.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed vulnerability on notification escalation pages.
+- [Security] Fixed SQLi vulnerabilities on Configuration > Users > Contact templates.
+- [Vulnerability] Fixed SQL injection in Monitoring > Event Logs page.
+- [Vulnerability] Fixed SQL injection on meta-service configuration page.
+- [Vulnerability] SQL injections are now prevented on Host Category configuration page.
+- [Vulnerability] SQL injections are now prevented on the Host dependency field, in the Host configuration page.
+
+</details>
+
 ### 23.10.25
 
 Release date: `June 16, 2025`
@@ -1163,6 +1195,17 @@ Release date: `October 30, 2023`
 
 ## Centreon High Availability
 
+### 23.10.1
+
+Release date: `July 23, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [HA] Fixed an issue on cron for outdated token removal.
+
+</details>
+
 ### 23.10.0
 
 Release date: `October 30, 2023`
@@ -1175,6 +1218,12 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon DSM
+
+### 23.10.4
+
+Release date: `July 23, 2025`
+
+No changes for this module in this version.
 
 ### 23.10.3
 
