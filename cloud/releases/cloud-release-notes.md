@@ -30,13 +30,6 @@ The Metrics graph widget has been enhanced to add the name of the service and/or
 **Resource status**
 
 It is now possible to export the current data being as filtered by Resource status in CSV format.
-
-**Meta-services**
-
-A meta-service is a virtual service providing the aggregation of metrics from different services via a mathematical operation. 
-Meta-services are managed in the same way as a service, i.e. they have thresholds, a notification process, generate a performance graph, etc.
-Meta-services can now be configured in Centreon Cloud.
-
 The Resource status filter window has been improved by adding 'resource type' and 'host name' filters.
 
 **Host group configuration**
