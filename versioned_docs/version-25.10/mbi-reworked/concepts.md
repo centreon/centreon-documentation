@@ -5,7 +5,7 @@ title: MBI Concepts
 
 MBI is an extension of Centreon with its own vocabulary and concepts, this section breaks down the key concepts to understanding Centreon MBI. 
 
-Note that this section expects you to be familiar with the [regular Centreon vocabulary](../resources/glossary.md).
+Note that this section expects you to be familiar with the [regular Centreon vocabulary](https://docs.centreon.com/docs/resources/glossary/).
  
 ## Jobs
 
