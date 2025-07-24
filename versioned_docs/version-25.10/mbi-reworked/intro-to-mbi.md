@@ -19,7 +19,7 @@ MBI runs "jobs" to collect data from host groups and generate reports. This allo
 ![image](../assets/reporting/guide/available-reports/Hostgroups-Rationalization-Of-Resources-1_1.png)
 
 
-Note that MBI only takes into account [hard statuses](../alerts-notifications/concepts.md#status-types) for its outputs.
+Note that MBI only takes into account [hard statuses](https://docs.centreon.com/docs/alerts-notifications/concepts/) for its outputs.
 
 ## What are the possible outputs formats?
   
