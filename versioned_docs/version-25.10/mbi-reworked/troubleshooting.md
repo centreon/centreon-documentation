@@ -68,8 +68,8 @@ mysql -e "select from_unixtime(PARTITION_DESCRIPTION), PARTITION_DESCRIPTION, PA
 
 After launching the query, you will see 4 columns for each partitioned table: 
 
-- The partition date with the date
-- The partition description
+- The partition datestamp (including the time), made readable to us thanks to the from_unixtime function
+- The partition description, the datestamp in its raw state
 - The PARTITION_ORDINAL_POSITION which is the position of the partition in the table. This value is unique and always increasing.
 - The number of lines in the partition.
 
