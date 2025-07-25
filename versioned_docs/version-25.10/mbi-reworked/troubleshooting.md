@@ -37,3 +37,56 @@ trop de choses dans general options et tout dépend de la même table : si trop 
 
 MBI follows the rules of ACLs. If you can not see certain report designs or certain resources, it is possible you have not been authorized to do so in the ACLs. 
 These can be configured by an administrator inside **Administration > ACL > ACL Rules**. Here, administrators can choose which report designs, jobs and job groups each user is allowed to access.
+
+## I am still facing data-related issues after using the partitions and db-content commands.
+
+The --db-content and --partitions options in the /usr/share/centreon-bi/etl/centreonbiMonitoring.pl script may not fully represent the data in MBI. If you did not find any issues using them but continue running into data-related issues, we have a series of queries to help. They will list all partitions of a singular table or tables to find missing partitions or empty ones.
+
+- The --db-content option displays the date of the latest data present in each table. If the displayed information is recent, there could be data missing in dates previous to the one specified.
+
+- The --partitions option indicates the number of partitions missing since the first partition of the table and today as well when they've been missing. However, partitions could be properly created but also be empty.
+
+Each of these queries is a shell command which generates a file. This file will contain the partition list of each partitioned table of the db.
+
+For all partitioned tables:
+
+```shell
+for i in $(mysql -Ne "select distinct TABLE_NAME from information_schema.partitions where TABLE_SCHEMA='centreon_storage' and (TABLE_NAME like 'mod_bi%' OR TABLE_NAME like 'data_bin') and PARTITION_NAME is NOT NULL;"); do echo $i && mysql -e "select from_unixtime(PARTITION_DESCRIPTION), PARTITION_DESCRIPTION, PARTITION_ORDINAL_POSITION, TABLE_ROWS from information_schema.partitions where table_schema = 'centreon_storage' and table_name = '$i' order by PARTITION_ORDINAL_POSITION desc;";done > /tmp/result
+```
+
+For all “mod_bi*” tables:
+
+```shell
+for i in $(mysql -Ne "select distinct TABLE_NAME from information_schema.partitions where TABLE_SCHEMA='centreon_storage' and TABLE_NAME like 'mod_bi%' and PARTITION_NAME is NOT NULL;"); do echo $i && mysql -e "select from_unixtime(PARTITION_DESCRIPTION), PARTITION_DESCRIPTION, PARTITION_ORDINAL_POSITION, TABLE_ROWS from information_schema.partitions where table_schema = 'centreon_storage' and table_name = '$i' order by PARTITION_ORDINAL_POSITION desc;";done > /tmp/result
+```
+
+For a specific table :
+
+```shell
+mysql -e "select from_unixtime(PARTITION_DESCRIPTION), PARTITION_DESCRIPTION, PARTITION_ORDINAL_POSITION, TABLE_ROWS from information_schema.partitions where table_schema = 'centreon_storage' and table_name = '<table_name>' order by PARTITION_ORDINAL_POSITION desc;"
+```
+
+After launching the query, you will see 4 columns for each partitioned table: 
+
+- The partition date with the date
+- The partition description
+- The PARTITION_ORDINAL_POSITION which is the position of the partition in the table. This value is unique and always increasing.
+- The number of lines in the partition.
+
+**This allows you to see empty partitions:**
+
+![image](../assets/reporting/empty-partition.png)
+
+You can see the partitions from 18/04 to 22/04 exist but they contain no lines
+
+**As well as partitions with an unusually low number of lines:**
+
+![image](../assets/reporting/low-partition.png)
+
+Partitions 81, 82 and 83 have particularly low number of lines. We can ignore this for 79 and 80 since they are from a week-end
+
+**You can also notice missing partitions:**
+
+![image](../assets/reporting/missing-partition.png)
+
+Notice there are no partitions between 28/04 and 04/05
