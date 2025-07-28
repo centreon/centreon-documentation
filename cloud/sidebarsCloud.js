@@ -440,7 +440,7 @@ module.exports = {
                 }
 
               ]
-            }
+            },
             {
               "type": "category",
               "label": "Customizing tickets",
