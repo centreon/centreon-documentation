@@ -45,11 +45,11 @@ Ce modèle d'hôte n'apporte pas de modèle de service mais utilise une commande
 <Tabs groupId="sync">
 <TabItem value="Host" label="Host">
 
-| Nom de la règle              | Description                                                  |
-|:-----------------------------|:-------------------------------------------------------------|
-| SNMP Agents                  | Discover hosts by requesting their SNMP agents               |
-| SNMP v3 Agents               | Discover hosts by requesting their SNMP agents using SNMP v3 |
-| SNMP IP Addresses (RFC 4293) | Discover IP addresses by requesting a SNMP agent (RFC 4293)  |
+| Nom de la règle              | Description                                                                    |
+|:-----------------------------|:-------------------------------------------------------------------------------|
+| SNMP Agents                  | Découvre les hôtes en interrogeant leur agent SNMP                             |
+| SNMP v3 Agents               | Découvre les hôtes en interrogeant leur agent SNMP en utilisant SNMP version 3 |
+| SNMP IP Addresses (RFC 4293) | Découvre les adresses IP en interrogeant un agent SNMP (RFC 4293)              |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -96,7 +96,10 @@ Aucune métrique
 
 ### Configuration SNMP
 
-Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent de l'équipement en s'appuyant sur la documentation de ce dernier.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -309,16 +312,16 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 Le plugin apporte les modes suivants :
 
-| Mode                | Modèle de service associé              |
-|:--------------------|:---------------------------------------|
-| cache               | Non utilisé dans ce connecteur de supervision  |
-| collection          | Non utilisé dans ce connecteur de supervision  |
-| discovery           | Utilisé pour la découverte d'hôtes                |
-| dynamic-command     | Non utilisé dans ce connecteur de supervision  |
-| numeric-value       | App-Protocol-SNMP-Numeric-Value-custom |
-| response-time       | Non utilisé dans ce connecteur de supervision  |
-| string-value        | App-Protocol-SNMP-String-Value-custom  |
-| uptime              | App-Protocol-SNMP-Uptime-custom        |
+| Mode                | Modèle de service associé                     |
+|:--------------------|:----------------------------------------------|
+| cache               | Non utilisé dans ce connecteur de supervision |
+| collection          | Non utilisé dans ce connecteur de supervision |
+| discovery           | Utilisé pour la découverte d'hôtes            |
+| dynamic-command     | Non utilisé dans ce connecteur de supervision |
+| numeric-value       | App-Protocol-SNMP-Numeric-Value-custom        |
+| response-time       | Non utilisé dans ce connecteur de supervision |
+| string-value        | App-Protocol-SNMP-String-Value-custom         |
+| uptime              | App-Protocol-SNMP-Uptime-custom               |
 
 ### Options disponibles
 

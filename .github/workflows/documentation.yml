@@ -179,7 +179,7 @@ jobs:
           run_install: false
 
       - name: Set up Node
-        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
           cache: pnpm
@@ -291,7 +291,7 @@ jobs:
             core.exportVariable('preview_urls',preview_urls.join('\n'));
 
       - name: Leave a comment after deployment
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@d2ad0de260ae8b0235ce059e63f2949ba9e05943 # v2.9.3
         with:
           header: pr-preview
           message: "\

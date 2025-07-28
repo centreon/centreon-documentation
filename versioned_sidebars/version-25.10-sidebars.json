@@ -64,7 +64,7 @@
           "collapsed": true,
           "items": [
             "getting-started/actions",
-            "getting-started/create-custom-view"
+            "getting-started/create-dashboard"
           ]
         },
         {
@@ -678,10 +678,6 @@
             },
             {
               "type": "doc",
-              "id": "service-mapping/migrate"
-            },
-            {
-              "type": "doc",
               "id": "service-mapping/remote-server"
             }
           ]
@@ -834,6 +830,10 @@
         "type": "generated-index"
       },
       "items": [
+        {
+          "type": "doc",
+          "id": "alerts-notifications/availability"
+        },
         {
           "type": "doc",
           "id": "reporting/introduction"
@@ -1126,6 +1126,10 @@
             {
               "type": "doc",
               "id": "migrate/migrate-from-el-to-debian"
+            },
+            {
+              "type": "doc",
+              "id": "migrate/migrate-from-debian-to-debian"
             },
             {
               "type": "doc",
