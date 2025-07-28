@@ -436,25 +436,25 @@ module.exports = {
               "link": {
                 "type": "doc",
                 "id": "alerts-notifications/ticketing/ticketing-advanced-body"
-            },
-            "items": [
-              {
-                "type": "doc",
-                "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
               },
-              {
-                "type": "doc",
-                "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
-              },
-              {
-                "type": "doc",
-                "id": "alerts-notifications/ticketing/ticketing-advanced-mapping"
-              },
-              {
-                "type": "doc",
-                "id": "alerts-notifications/ticketing/glossary"
-              },
-            ]
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-mapping"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/glossary"
+                }
+              ]
             },
             {
               "type": "doc",
