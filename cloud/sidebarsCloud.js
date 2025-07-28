@@ -432,6 +432,17 @@ module.exports = {
             },
             {
               "type": "category",
+              "id": "alert-notifications/ticketing/providers",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "alert-notifications/ticketing/providers/easyvista_rest",
+                }
+
+              ]
+            }
+            {
+              "type": "category",
               "label": "Customizing tickets",
               "link": {
                 "type": "doc",
