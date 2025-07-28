@@ -864,10 +864,6 @@
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/quickstart"
-        },
-        {
-          "type": "doc",
           "id": "mbi-reworked/generating-reports"
         },
         {
@@ -1196,6 +1192,10 @@
             {
               "type": "doc",
               "id": "migrate/migrate-from-el-to-debian"
+            },
+            {
+              "type": "doc",
+              "id": "migrate/migrate-from-debian-to-debian"
             },
             {
               "type": "doc",

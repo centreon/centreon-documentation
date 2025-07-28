@@ -390,6 +390,30 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 </TabItem>
 </Tabs>
 
+### Ajouter les commandes CMA à la liste blanche du collecteur
+
+Si vous utilisez des listes blanches sur le collecteur ([les collecteurs Cloud ont des listes blanches par défaut](/cloud/monitoring/basic-objects/commands#liste-blanche-de-commandes)), celles-ci doivent autoriser les commandes CMA. Dans votre fichier personnalisé de liste blanche (par exemple, **/etc/centreon-engine-whitelist/my-whitelist.yml**), incluez les lignes suiantes : 
+
+```text
+whitelist:
+  regex:
+    - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+    - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+    - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+    - ^\{\s*"check":".*\}$
+    - \/usr\/bin\/echo\s+Host\s+alive
+    - cmd\.exe\s+\/C\s+echo\s+.*
+```
+
+Assurez-vous que les droits d'accès corrects sont définis sur tous les fichiers de liste blanche :
+
+```
+chown root:centreon-engine /etc/centreon-engine-whitelist/my-whitelist.yml
+chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
+chown root:centreon-engine /etc/centreon-engine-whitelist
+chmod 750 /etc/centreon-engine-whitelist
+```
+
 ## Étape 2 : Préparez l'hôte
 
 ### Téléchargez et installez l'agent sur l'hôte
