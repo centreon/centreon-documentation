@@ -4,6 +4,6 @@ title: Installing MBI
 ---
 
 
-mentionner ici l'installation à postériori de l'ETL ?
+talk about the MBI connector which greatly facilitates troubleshooting.
 
 
