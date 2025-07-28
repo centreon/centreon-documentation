@@ -436,11 +436,11 @@ module.exports = {
               "items": [
                 {
                   "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/easyvista_rest"
+                  "id": "alerts-notifications/ticketing/providers/easyvista-rest"
                 },
                 {
                   "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/glpi_api_rest"
+                  "id": "alerts-notifications/ticketing/providers/glpi-api-rest"
                 },
                 {
                   "type": "doc",
@@ -448,7 +448,7 @@ module.exports = {
                 },
                 {
                   "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/service_now"
+                  "id": "alerts-notifications/ticketing/providers/service-now"
                 },
                 {
                   "type": "doc",
@@ -461,6 +461,22 @@ module.exports = {
                 {
                   "type": "doc",
                   "id": "alerts-notifications/ticketing/providers/bmc-footprints-11"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/providers/mail"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/providers/jira"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/providers/request-tracker-2"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/providers/serena"
                 }
               ]
             },

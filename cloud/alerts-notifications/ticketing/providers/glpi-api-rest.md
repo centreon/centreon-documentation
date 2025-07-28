@@ -1,5 +1,5 @@
 ---
-id: glpi_api_rest
+id: glpi-api-rest
 title: GlpiApiRest
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: easyvista_rest
+id: easyvista-rest
 title: Easyvista Rest
 ---
 

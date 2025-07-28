@@ -1,5 +1,5 @@
 ---
-id: request_tracker_2
+id: request-tracker-2
 title: Request Tracker 2
 ---
 

@@ -1,5 +1,5 @@
 ---
-id: service_now
+id: service-now
 title: ServiceNow
 ---
 
