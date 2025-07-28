@@ -47,7 +47,7 @@ Before you activate SAML authentication, you need to fill in all necessary param
 5. **Group mapping**:
 
    * **Group attribute path**: Retrieve this value from your application's metadata.
-   * Using the lists below, match the correct attribute values with the [CIAM user groups](../users/user_groups.md) you want. This will determine [which rights users will have on resources](../administration/ram.md).
+   * Using the lists below, match the correct attribute values with the [CIAM user groups](../users/user_groups.md) you want. This will determine [which rights users will have on resources](../administration/resource_access.md).
 
 ## Step 3: Test the connection and activate SAML
 
