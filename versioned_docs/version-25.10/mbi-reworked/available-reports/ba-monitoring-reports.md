@@ -1,5 +1,5 @@
 ---
-id: ba-monitoring.md
+id: ba-monitoring-reports
 title: Business Activity Monitoring reports
 ---
 
