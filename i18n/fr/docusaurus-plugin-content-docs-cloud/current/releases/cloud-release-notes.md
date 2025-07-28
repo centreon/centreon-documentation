@@ -13,7 +13,7 @@ As the Centreon Monitoring Agent (CMA) is about to be generally available, enhan
 
 As a reminder, CMA collects metrics and computes statuses on the servers it monitors, and sends them to Centreon. 
 Centreon plugins as well as Nagios-compatible plugins can be used with this agent.
-More information about configuration is available in our [official documentation](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/).
+More information about configuration is available in our [official documentation](https://docs.centreon.com/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/).
 
 This version adds the following enhancements to agent communication configuration:
 - A "no TLS" option was added for troubleshooting purposes (valid for a time-limited period).
@@ -30,7 +30,6 @@ The Metrics graph widget has been enhanced to add the name of the service and/or
 **Resource status**
 
 It is now possible to export the current data being as filtered by Resource status in CSV format.
-The Resource status filter window has been improved by adding 'resource type' and 'host name' filters.
 
 **Host group configuration**
 
