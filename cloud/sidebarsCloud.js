@@ -432,13 +432,12 @@ module.exports = {
             },
             {
               "type": "category",
-              "id": "alert-notifications/ticketing/providers",
+              "label": "Providers",
               "items": [
                 {
                   "type": "doc",
-                  "id": "alert-notifications/ticketing/providers/easyvista_rest",
+                  "id": "alert-notifications/ticketing/providers/easyvista_rest"
                 }
-
               ]
             },
             {
