@@ -436,7 +436,31 @@ module.exports = {
               "items": [
                 {
                   "type": "doc",
-                  "id": "alert-notifications/ticketing/providers/easyvista_rest"
+                  "id": "alerts-notifications/ticketing/providers/easyvista_rest"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/providers/glpi_api_rest"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/providers/bmc-remedy"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/providers/service_now"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/providers/bmc-footprints-11"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/providers/itop"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/providers/bmc-footprints-11"
                 }
               ]
             },
