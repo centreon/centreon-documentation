@@ -476,7 +476,7 @@ module.exports = {
                 },
                 {
                   "type": "doc",
-                  "id": "alerts-notifications/ticketing/providers/serena"
+                  "id": "alerts-notifications/ticketing/providers/serena-itsm"
                 }
               ]
             },
