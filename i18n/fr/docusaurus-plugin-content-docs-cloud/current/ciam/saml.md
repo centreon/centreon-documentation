@@ -42,12 +42,12 @@ Avant d'activer l'authentification SAML, vous devez remplir tous les paramètres
 4. **Role mapping**:
 
    * **Role attribute path**: Récupérez cette valeur dans les métadonnées de votre application. Exemple : `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role`.
-   * Créez 3 mappings, un pour chaque rôle dans le CIAM (**Viewer**, **Editor** et **Administrator**), qui correspondront à chaque rôle d'application créé dans votre fournisseur d'identité. Dans le champ **Valeur de l'attribut**, entrez la valeur exacte que vous avez définie pour chaque rôle dans votre fournisseur d'identité (la valeur, pas le nom d'affichage). Les utilisateurs qui se connectent à Centreon se verront automatiquement attribuer des droits, car un rôle leur sera attribué selon les règles que vous avez définies.
+   * Créez 3 mappings, un pour chaque [rôle dans le CIAM (**Viewer**, **Editor** et **Administrator**)](../users.md#user-roles), qui correspondront à chaque rôle d'application créé dans votre fournisseur d'identité. Dans le champ **Valeur de l'attribut**, entrez la valeur exacte que vous avez définie pour chaque rôle dans votre fournisseur d'identité (la valeur, pas le nom d'affichage). Les utilisateurs qui se connectent à Centreon se verront automatiquement attribuer des droits sur les menus et les actions, car un rôle leur sera attribué selon les règles que vous avez définies.
 
 5. **Group mapping**:
 
    * **Group attribute path**: Récupérez cette valeur dans les métadonnées de votre application.
-   * Grâce aux listes apparaissant en dessous, faites correspondre les valeurs d'attribut correctes avec les [groupes d'utilisateurs du CIAM](users/user_groups.md) désirés.
+   * Grâce aux listes apparaissant en dessous, faites correspondre les valeurs d'attribut correctes avec les [groupes d'utilisateurs du CIAM](../users/user_groups.md) désirés. Cela déterminera [quels droits les utilisateurs auront sur les ressources](../administration/ram.md).
 
 ## Étape 3 : Tester la connexion et activer SAML
 
