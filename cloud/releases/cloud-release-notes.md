@@ -18,7 +18,6 @@ More information about configuration is available in our [official documentation
 This version adds the following enhancements to agent communication configuration:
 - A "no TLS" option was added for troubleshooting purposes (valid for a time-limited period).
 - It is now possible to store certificates in sub-directories.
-- It is now possible to generate a token for the CMA agent.
 
 > With the changes introduced in communication schemes, if you are planning on using CMA,
 > it is important to update your poller to at a minimum v24.10.8 of the Centreon Collect package.
