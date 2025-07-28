@@ -58,7 +58,7 @@ Easy vista allow their users to create custom fields for their tickets form. Sin
 
 - Add a new **Mapping ticket arguments** with the **+ Add a new entry** button.
   - In the **Argument** field, select **Custom Field**
-  - In the **Value** field, write `{$select.e_<your_field_name>.value}` where `<your_field_name>` must be replaced by the name of your custom field in Easy vista. For exemple, a **city** custom field could become **{$select.e_city.value}**
+  - In the **Value** field, write `{$select.e_<your_field_name>.value}` where `<your_field_name>` must be replaced by the name of your custom field in Easy vista. For exemple, a **city** custom field could become **\{$select.e_city.value\}**
 
 ![arg list](../../../assets/alerts/ticketing/easy-vista-rest/custom_field.png)
 
