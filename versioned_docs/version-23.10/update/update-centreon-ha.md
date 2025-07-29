@@ -73,7 +73,7 @@ apt install --only-upgrade centreon\*
 </TabItem>
 </Tabs>
 
-Once the package updates have been completed on both centrals, all that remains is to apply the update via the web interface **only on the master exchange** by closing the current session or refreshing the login page or by API [as shown here](https://docs.centreon.com/docs/update/update-centreon-platform/#update-the-centreon-central-server).
+Once the package updates have been completed on both centrals, all that remains is to apply the update via the web interface **only on the master exchange** by closing the current session or refreshing the login page or by API [as shown here](update-centreon-platform.md#update-the-centreon-central-server).
 
 On the **"slave" central node**, you must move the **"install" directory** and regenerate the Symfony cache to avoid displaying the update interface again following a switchover.
 
@@ -186,4 +186,4 @@ You should now check that everything works fine:
 
 ## Updating the pollers
 
-Pollers can then be updated by following the [procedure indicated here](https://docs.centreon.com/docs/update/update-centreon-platform/#update-the-pollers).
+Pollers can then be updated by following the [procedure indicated here](update-centreon-platform.md#update-the-pollers).
