@@ -5,18 +5,18 @@ title: Preparing data for report generation
 
 ## Making your resources available to MBI
 
-For hosts/services availability and performance reports , the resources you want to see appear in reports need to be organized in [host groups](https://docs.centreon.com/docs/monitoring/groups/#creating-a-host-group), [host categories](https://docs.centreon.com/cloud/monitoring/categories/#hosts-category) and [service categories](https://docs.centreon.com/cloud/monitoring/categories/#services-category). 
+For hosts/services availability and performance reports, the resources you want to see appear in reports need to be organized in [host groups](../monitoring/groups.md#creating-a-host-group), [host categories](../monitoring/categories.md#hosts-category) and [service categories](../monitoring/categories.md#services-category). 
 
-For business activities and business views availability reports template, the resources you want to see appear in reports need to be organized in [businessactivities](https://docs.centreon.com/cloud/service-mapping/ba-management/#business-activities-ba), [businessviews](https://docs.centreon.com/cloud/service-mapping/ba-management/#business-view-bv)
+For business activities and business views availability reports template, the resources you want to see appear in reports need to be organized in [business activities](../service-mapping/ba-management.md#business-activities-ba) and [business views](../service-mapping/ba-management.md#business-view-bv)
 
 Notes:
-- Be sure than all dimensions used by ETL are filled:
-    - Each host group (hg) must be filled with at least one host
-    - Each hostcategory (hc) must be filled with at least one host or host template
-    - Each servicecategory (sc) must be filled with at least one service template
+- Be sure that all perimeters used by ETL are filled:
+    - Each host group must be filled with at least one host
+    - Each host category must be filled with at least one host or host template
+    - Each service category must be filled with at least one service template
     - Each business activity must be linked with at least one business view
-- Be sure than all desired resources are monitored by Centreon (pollers)
-- Be sure than all monitored resources return status (for availability reports) and metrics (for performance reports)
+- Be sure that all desired resources are monitored by Centreon (pollers)
+- Be sure that all monitored resources return status (for availability reports) and metrics (for performance reports)
 
 ### Time period
 
@@ -27,7 +27,7 @@ For example:
 - DSI create an automatic shutdown of all internal servers at 7 PM and restarting at 7 A, so for analyze the situation they need "workhour" timeperiod
 - Data team need to analyse nightly jobs than begin at 10 PM and can finished at 7 AM, so for analyze the situation, they need "non-workhours" timeperiod
 
-If you need to add specific timeperiod, go to  **Configuration > User > Time Periods** and create new one following [this procedure](https://docs.centreon.com/cloud/monitoring/basic-objects/timeperiods/)
+If you need to use a specific timeperiod, go to  **Configuration > User > Time Periods** and create new one following [this procedure](../monitoring/basic-objects/timeperiods.md)
 
 
 ## Configuring MBI
@@ -40,12 +40,12 @@ Go to **Reporting > Monitoring Business Intelligence > General options**
 
 Select the perimeters for the reports, the time periods and the service categories (disk, ping, memory, traffic). This is also where you configure how precise you want the data statistics to be (I.E. per months, days, hours...)
 
-By default, ELT is configured to compute availability and performance for all existings dimensions: host groups, hostcategories and servicecategories. If some dimensions are not mandatory, you can uncheck "All group dimensions" to select only desired dimensions.
+By default, ELT is configured to compute availability and performance for all existings perimeters: host groups, hostcategories and servicecategories. If some perimeters are not mandatory, you can uncheck "All group perimeters" to select only desired perimeters.
 
 There is consistency between supervision and reports, the host groups, host categories and service categories conditions the visibility of the data in the report. So if you need to generate report on any resource, you have to be sure than :
 - Resource (host/service) is yet monitored by Centreon
-- Dimension (hg,hc,sc) configuration is up to date and not empty 
-- Dimension is yet computed by ETL
+- perimeter (hg,hc,sc) configuration is up to date and not empty 
+- perimeter is yet computed by ETL
 
 Notes:
 - It is possible to generate a report job with a scope without data if there is mismatch ETL configuration or there is no monitoring on the resource (no status/metric return)
@@ -56,7 +56,7 @@ Notes:
 
 ### ACL Resources
 
-For all non-admin user, during job report creation, you will provide some dimensions for your report. Remember that you will only see the resources you are entitled to.
+For all non-admin user, during job report creation, you will provide some perimeters for your report. Remember that you will only see the resources you are entitled to.
 If needed, ask your Centreon admin to modify your ACL resources and add missing resource.
 
 ### ACL menu

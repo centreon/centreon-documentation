@@ -844,10 +844,6 @@
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/available-reports"
-        },
-        {
-          "type": "doc",
           "id": "mbi-reworked/installation"
         },
         {
@@ -885,7 +881,56 @@
         {
           "type": "doc",
           "id": "mbi-reworked/update-upgrade-migrate"
+        },
+      {"type": "category",
+      "label": "Available reports",
+      "link": {
+        "type": "doc",
+        "id":"mbi-reworked/available-reports/available-reports"
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "mbi-reworked/available-reports/ba-monitoring-reports"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/available-reports/availability-events-reports"
+        },
+       {
+          "type": "doc",
+          "id": "mbi-reworked/available-reports/performance-reports"
+        },
+       {
+          "type": "doc",
+          "id": "mbi-reworked/available-reports/storage-reports"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/available-reports/network-reports"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/available-reports/virtualization-reports"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/available-reports/electric-consumption-reports"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/available-reports/profiling-reports"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/available-reports/inventory-configuration-reports"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/available-reports/database-diagnostics-reports"
         }
+      ]
+    }
       ]
     },
       
