@@ -16,9 +16,9 @@ server being a SPOF, or if you are an MSP and you install the stream connector o
 poller or a remote server within your customer's infrastructure).
 - By default, the Canopsis Events stream connector sends events from 
 **[host_status](../../developer/developer-broker-mapping.md#host-status)**, 
-**[service_status](../../developer-broker-mapping.md#service-status)**,  
+**[service_status](../../developer/developer-broker-mapping.md#service-status)**,  
 **[acknowledgement](../../developer/developer-broker-mapping.md#acknowledgement)** 
-and **[downtime](../../developer-broker-mapping.md#downtime)**. 
+and **[downtime](../../developer/developer-broker-mapping.md#downtime)**. 
 Broker events. The event format is shown **[here](#event-format)**.
 - These events are sent each time a host or a service is checked. Various parameters let 
 you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-canopsis).
