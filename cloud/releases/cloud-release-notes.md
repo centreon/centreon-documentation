@@ -20,21 +20,21 @@ This version adds the following enhancements to agent communication configuratio
 - It is now possible to store certificates in sub-directories.
 
 > With the changes introduced in communication schemes, if you are planning on using CMA,
-> it is important to update your poller to at a minimum v24.10.8 of the Centreon Collect package.
+> it is important to update your poller to at least version 24.10.8 of the Centreon Collect package.
 
 **Centreon Dashboards**
 
-The Metrics graph widget has been enhanced to add the name of the service and/or host when needed in order to more clearly identify metrics that have the same name.
+The **Metrics graph** widget has been enhanced to add the name of the service and/or host when needed in order to more clearly identify metrics that have the same name.
 
 **Resource status**
 
-It is now possible to export the current data being as filtered by Resource status in CSV format.
+It is now possible to export the current data as filtered by Resource status in CSV format.
 
 **Host group configuration**
 
 The configuration page for host groups has been improved to provide a better experience with listing, adding, editing etc.
 
-### Centreon Business Edition
+### Centreon Cloud Pro
 
 **MAP**
 
@@ -43,8 +43,8 @@ An option to "Display icons" was added to map containers and resources. If check
 
 **Business Activities**
 
-A new Dashboard widget was added: "Business Activity status timeline". It displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
-In addition, a new, modern version of the BA monitoring page is now available that includes the BA tree, BA timeline, and lists BA KPIs.
+A new Dashboard widget was added: **Business Activity status timeline**. It displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
+In addition, a new, modern version of the BA monitoring page is now available. It includes the BA tree and the BA timeline, and lists BA KPIs.
 
 ## June 12th, 2025
 
