@@ -42,6 +42,7 @@ These can be configured by an administrator inside **Administration > ACL > ACL 
 
 ## Check the logs
 
-MBI logs are located in ```var/log/centreon``` 
+Use SSH to connect to your MBI server and switch to root.
 
-How to look through logs? Does it need to be explained ?
+MBI logs are located in the file ```var/log/centreon-bi```.
+

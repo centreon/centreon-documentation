@@ -20,7 +20,7 @@ Notes:
 
 ### Time period
 
-Each time you will create new job report, you will use "Time-period" parameter: 24x7, workhours, non-workhours, etc...
+Each time you create a new job , you will use "Time-period" parameter: 24x7, workhours, non-workhours, etc...
 Time-period applied for each job report is used to considered only time needed for your reporting analysis depending your use case and your function.
 For example:
 - SRE team need to consider in their scope every hour applincation running, so for analyze the situation they need "24x7" timeperiod.

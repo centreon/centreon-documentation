@@ -10,6 +10,7 @@ title: Generating reports with jobs
 The following procedure requires you to have [prepared your data](preparing-data.md) as per the MBI requirements.
 
 A job is a scheduled report pending its time to be generated. This also applies to reports that are to be generated immediately. 
+
 Jobs are created by clicking the **Add** button in the **Reporting  >  Monitoring Business Intelligence  >  Jobs** page.
 
 ## Configuration tab
