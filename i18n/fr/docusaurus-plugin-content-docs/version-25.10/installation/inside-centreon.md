@@ -48,7 +48,7 @@ Dans cet exemple, nous avons un serveur central (sans modules Business installé
 
 Voir aussi :
 
-* [Centreon Broker dans la section Ressources développeur](https://docs.centreon.com/fr/docs/developer/developer-centreon-broker).
+* [Centreon Broker dans la section Ressources développeur](https://docs.centreon.com/fr/docs/developer/centreon-broker).
 * [Configuration avancée de Centreon Broker](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/advanced-configuration/#pour-aller-plus-loin-avec-centreon-broker).
 
 ### Gorgone
@@ -58,7 +58,7 @@ Voir aussi :
 * Les données de configuration sont transférées depuis le central vers les engines des collecteurs et des serveurs distants au format ZMQ.
 * Quand vous [déployez la configuration](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/deploying-a-configuration), Gorgone prend les fichiers générés et les copie sur tous les engines des collecteurs et des serveurs distants, et redémarre ceux-ci.
 
-Voir aussi : [Centreon Gorgone dans la section Ressources développeur](https://docs.centreon.com/fr/docs/developer/developer-centreon-gorgone).
+Voir aussi : [Centreon Gorgone dans la section Ressources développeur](https://docs.centreon.com/fr/docs/developer/centreon-gorgone).
 
 ### Une base de données MariaDB/MySQL
 
