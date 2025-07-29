@@ -3,7 +3,7 @@ id: available-reports
 title: Available reports
 ---
 
-intro
+Preview report designs and get information on their parameters and prerequisite.
 
 import DocCardList from '@theme/DocCardList';
 

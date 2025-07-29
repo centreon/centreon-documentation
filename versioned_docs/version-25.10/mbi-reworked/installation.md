@@ -4,6 +4,5 @@ title: Installing MBI
 ---
 
 
-talk about the MBI connector which greatly facilitates troubleshooting.
-
+> It is strongly advised that you install the [Centreon MBI connector](../../../pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi.md) which allows you to monitor the status of your MBI server.
 
