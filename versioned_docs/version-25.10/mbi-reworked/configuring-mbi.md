@@ -144,4 +144,4 @@ By default, reports generated are available on the Centreon platform to be downl
 
 To do this, go to **Reporting > Monitoring Business Intelligence > Publication Rules** and select the appropriate protocol.
 
-To have the reports sent by email using SMTP, you need to have an emailing server. If you do not currently have one, it is possible to [install it directly on the MBI server](../administration/postfix.md/).
+To have the reports sent by email using SMTP, you need to have an emailing server. If you do not currently have one, it is possible to [install it directly on the MBI server](../administration/postfix.md).
