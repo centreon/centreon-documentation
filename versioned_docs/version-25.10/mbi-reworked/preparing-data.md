@@ -5,9 +5,9 @@ title: Preparing data for report generation
 
 ## Making your resources available to MBI
 
-For hosts/services availability and performance reports, the resources you want to see appear in reports need to be organized in [host groups](https://docs.centreon.com/docs/monitoring/groups/#creating-a-host-group), [host categories](https://docs.centreon.com/cloud/monitoring/categories/#hosts-category) and [service categories](https://docs.centreon.com/cloud/monitoring/categories/#services-category). 
+For hosts/services availability and performance reports, the resources you want to see appear in reports need to be organized in [host groups](../monitoring/groups.md#creating-a-host-group), [host categories](../monitoring/categories.md#hosts-category) and [service categories](../monitoring/categories.md#services-category). 
 
-For business activities and business views availability reports template, the resources you want to see appear in reports need to be organized in [businessa ctivities](https://docs.centreon.com/cloud/service-mapping/ba-management/#business-activities-ba) and [business views](https://docs.centreon.com/cloud/service-mapping/ba-management/#business-view-bv)
+For business activities and business views availability reports template, the resources you want to see appear in reports need to be organized in [business activities](../service-mapping/ba-management.md#business-activities-ba) and [business views](../service-mapping/ba-management.md#business-view-bv)
 
 Notes:
 - Be sure that all perimeters used by ETL are filled:
@@ -27,7 +27,7 @@ For example:
 - DSI create an automatic shutdown of all internal servers at 7 PM and restarting at 7 A, so for analyze the situation they need "workhour" timeperiod
 - Data team need to analyse nightly jobs than begin at 10 PM and can finished at 7 AM, so for analyze the situation, they need "non-workhours" timeperiod
 
-If you need to use a specific timeperiod, go to  **Configuration > User > Time Periods** and create new one following [this procedure](https://docs.centreon.com/cloud/monitoring/basic-objects/timeperiods/)
+If you need to use a specific timeperiod, go to  **Configuration > User > Time Periods** and create new one following [this procedure](../monitoring/basic-objects/timeperiods.md)
 
 
 ## Configuring MBI
