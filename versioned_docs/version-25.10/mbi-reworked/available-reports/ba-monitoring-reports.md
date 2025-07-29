@@ -139,7 +139,7 @@ Parameters required for the report:
 \* *If different from "Default", be sure that the selected time period is
 defined as a Default or Extra reporting time period in the BA configuration.*
 
-> In the **Time period** field, do not use time periods that include [exceptions](../../../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
+> In the **Time period** field, do not use time periods that include [exceptions](../../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
 
 ### BV-BA-Availabilities-List
 
@@ -182,7 +182,7 @@ Parameters required for the report:
 is defined as a Default or Extra reporting time period in the BA
 configuration or it will not appear in the report.*
 
-> In the **Time period** field, do not use time periods that include [exceptions](../../../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
+> In the **Time period** field, do not use time periods that include [exceptions](../../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
 
 #### Prerequisites
 
@@ -212,7 +212,7 @@ The report displays a list of events for a business activity during a given peri
 \* *If different from "Default", be sure that the selected time period is
 defined as a Default or Extra reporting time period in the BA configuration.*
 
-> In the **Time period** field, do not use time periods that include [exceptions](../../../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
+> In the **Time period** field, do not use time periods that include [exceptions](../../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
 
 ### BV-BA-Current-Health-VS-Past
 
@@ -249,7 +249,7 @@ Parameters required for the report:
 defined as a Default or Extra reporting time period in the BA configuration or
 it will not appear in the report.*
 
-> In the **Time period** field, do not use time periods that include [exceptions](../../../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
+> In the **Time period** field, do not use time periods that include [exceptions](../../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
 
 #### Prerequisites
 
@@ -320,7 +320,7 @@ Parameters required for the report:
 defined as a Default or Extra reporting time period in the BA configuration or
 it will not appear in the report.*
 
-> In the **Time period** field, do not use time periods that include [exceptions](../../../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
+> In the **Time period** field, do not use time periods that include [exceptions](../../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
 
 #### Prerequisites
 
