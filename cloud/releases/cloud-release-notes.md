@@ -34,7 +34,7 @@ It is now possible to export the current data as filtered by Resource status in 
 
 The configuration page for host groups has been improved to provide a better experience with listing, adding, editing etc.
 
-### Centreon Cloud Pro
+### Centreon Pro Edition
 
 **MAP**
 
