@@ -60,7 +60,8 @@ Chaque service doit être lié à un modèle de service
 
 ## Quickstart Guide
 
-Using MBI to its full extent requires specific configuration. This topic helps you get a quick grasp of MBI, intentionally glossing over several aspects of the extension and leaving many settings in default configuration. A complete guide for [installing and configuring MBI](installation.md) as well as a complete guide for [generating reports](generating-reports.md) are also available.
+Using MBI to its full extent requires specific configuration. This topic helps you get a quick grasp of MBI, intentionally glossing over several aspects of the extension and leaving many settings in default configuration. A complete guide for
+[installing and configuring MBI](installation.md) as well as a complete guide for [generating reports](generating-reports.md) are also available.
 
 ### Step 1: Configuring MBI
 
@@ -85,7 +86,8 @@ MBI requires you to use host groups, host categories and service categories. If 
 You will now create a job that will generate an immediate report
 Go to **Reporting > Monitoring Business Intelligence > Jobs** and click on Add
 
-1. In the **Configuration** tab, choose a name for the report and select one of the [available report designs](available-reports/available-reports.md)
+1. In the **Configuration** tab, choose a name for the report and select one of the 
+[available report designs](available-reports/available-reports.md).
 
 2. Select the corresponding [job group](concepts.md#job-groups) and the period the report should contain.
 

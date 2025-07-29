@@ -27,7 +27,8 @@ For example:
 - DSI create an automatic shutdown of all internal servers at 7 PM and restarting at 7 A, so for analyze the situation they need "workhour" timeperiod
 - Data team need to analyse nightly jobs than begin at 10 PM and can finished at 7 AM, so for analyze the situation, they need "non-workhours" timeperiod
 
-If you need to use a specific timeperiod, go to  **Configuration > User > Time Periods** and create new one following [this procedure](../monitoring/basic-objects/timeperiods.md)
+If you need to use a specific timeperiod, go to  **Configuration > User > Time Periods** and create new one following
+[this procedure](../monitoring/basic-objects/timeperiods.md).
 
 
 ## Configuring MBI
