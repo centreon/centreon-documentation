@@ -19,13 +19,13 @@ MBI runs "jobs" to collect data from host groups and generate reports. This allo
 ![image](../assets/reporting/guide/available-reports/Hostgroups-Rationalization-Of-Resources-1_1.png)
 
 
-Note that MBI only takes into account [hard statuses](../alerts-notifications/concepts.md#status-types) for its outputs.
+Note that MBI only takes into account [hard statuses](../alerts-notifications/concepts.md#status-types) for its reports.
 
 ## What are the possible outputs formats?
   
 * MBI generates reports in different formats such as CSV or PDF. 
 * Not all reports can be exported to every format, check our [available reports list](available-reports/available-reports.md) to learn more about the specifics of each report.
-* By default, these reports are to be visualized from Centreon but can be configured to be sent to specific people when generated. 
+* By default, these reports are to be downloaded from Centreon but can be configured to be sent to specific people when generated. 
 * Reports can also be consulted on your Centreon dashboard using dedicated widgets.
 
 
