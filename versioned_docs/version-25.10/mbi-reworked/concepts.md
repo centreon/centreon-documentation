@@ -3,40 +3,113 @@ id: mbi-concepts
 title: MBI Concepts
 ---
 
-MBI is an extension of Centreon with its own vocabulary and concepts, this section breaks down the key concepts to understanding Centreon MBI. 
+MBI is an extension of Centreon with its own vocabulary and concepts. This section breaks down the key concepts to understanding Centreon MBI. Note that this section expects you to be familiar with the [regular Centreon vocabulary](../resources/glossary.md).
 
-Note that this section expects you to be familiar with the [regular Centreon vocabulary](../resources/glossary.md).
+## Dimension
+
+In MBI, a dimension represents an axis of data analysis. MBI reports calculate data according to dimensions (but can present data with details of individual hosts or host groups, for example).
+
+The list of dimensions present for each host and service is calculated by the ETL every day (script **dimension_builder.pl** launched at 4:30 a.m. by default).
+
+The hosts and services taken into account by MBI (and thus included in the calculation of dimensions), are those selected in the **Reporting > Monitoring Business Intelligence > General options** page, on the **ETL options** tab, in the **Reporting perimeter selection** section.
+
+### Hosts
+
+For a host, a dimension is a combination of host group and host category to which the host belongs. Each host must belong to at least one host group and one host category.
+
+Example: the host **Paris** belongs to the host groups **Île-de-France**, **France**, and **Europe**, and to the host categories **Routers** and **Switches**. The host **Paris** therefore belongs to the following 6 dimensions:
+
+* **Île-de-France**/**Routers**
+* **France**/**Routers**
+* **Europe**/**Routers**
+* **Île-de-France**/**Switches**
+* **France**/**Switches**
+* **Europe**/**Switches**
+
+### Services
+
+Each service belongs to at least one service category. As explained above, its parent host belongs to a number of dimensions. So, the possible dimensions for a service are the combination of each service category to which the service belongs and each dimension to which its parent host belongs.
+
+Example: The **Paris** host has a service called **CPU**. **CPU** belongs to the **Processor** and **Important** service categories. This means **CPU** belongs to 12 dimensions (the combination of the 2 service categories and the 6 parent dimensions for the **Paris** host).
+
+### Metrics
+
+All metrics for each service are taken into account. For each metric, 5 statistics are calculated: average, min, max, first, last.
+
+Make sure your services only have the necessary metrics, as this may have an impact on performance. You may also want to make sure MBI only takes into account a limited number of host groups, host categories and service categories (see above).
+
+## Event
+
+In MBI, an event is a period of time associated with a status. It has a start date/time, an end date/time, and a status. Its purpose is to be able to calculate [availability](#availability).
+
+Check results are converted into events by the central server every day at 3AM (**eventReportBuilder** script). Only checks in a HARD state are taken into account.
 
 ## Jobs
 
-Is the definition of a report that is to be generated or has already been generated. 
-Jobs can be scheduled to be performed immediately or at a specified time and date. 
-You can also decide if the report is to be generated only once or if it should be generated periodically.
+A job is a report definition. Running a job generates a report.
+
+* Jobs can be performed immediately or be scheduled at a specified time and date.
+* You can also decide if the job is to be run only once or if it should be run periodically.
 
 ## Job groups
 
-Job groups serve as a way to categorize jobs and will determine who is allowed to access each report, they are similar to ACLs.
+Job groups determine who is allowed to access each report.
+
+* You create job groups using the **Reporting > Monitoring Business Intelligence > Job groups** page.
+* For each job, you define which people will be able to see the report in the **Configuration** tab of the job (**Linked job groups** fields). A report will be visible to users that are linked to the selected [job groups](concepts.md#job-groups).
+* Please note that the data included in the report depends on the [rights on resources](../administration/access-control-lists.md#access-filters-on-resources) of the user who creates the job. It is the responsibility of the user who creates the job to make sure that the ACLs on his resources and the ACLs of the users linked to job groups match.
+
+   Example: if **user 1** has rights on the **Paris** and **London** hosts, the report will contain data for **Paris** and **London**. If the report is shared with **user 2** who doesn't have rights on **London**, **user 2** will still be able to see the data for **London**, as the report has been generated this way.
+
+
+crée un access group
+
+
+16:57
+tu vas dans ACL rules
+16:58
+tu crées une règle ACL
+16:58
+t'ajoutes le access group dessus dans le tab general information (edited) 
+16:58
+puis tu vas dans le tab jobs et tu lies le job groups à ta règle
+16:59
+mais c'est là que ça devient vraiment marrant attends
+16:59
+parce que dans le tab jobs
+16:59
+t'as aussi linked jobs
+16:59
+pour lier des jobs à la règle
+17:00
+fallait que je teste ça d'ailleurs parce que ça sous-entend que tu dois créer le job
+"fais une acl spécifique à mbi pour y ajouter une acl normale puis lier l'acl mbi à un autre type de acl mbi"
 
 ## Report
 
 End-result of a job, they are summaries of the selected hosts generated by MBI. The appearance and data shown are determined by the report design which can be selected from our [catalog of available reports](available-reports/available-reports.md). You can also create your own report designs using BIRT.
 
-
 ## CBIS user
 
-Service user created automatically when the extension is installed. This user will obtain data from the resources monitored by Centreon. CBIS must be granted access to all resources using the regular Centreon ACLs to function properly.
+Service user created automatically when the extension is installed. This user will obtain data from the resources monitored by Centreon. CBIS must be granted access to all resources using [the regular Centreon ACLs](../administration/access-control-lists.md) to function properly.
 
 ## Report perimeter
 
-The scope of the reports meaning the resources that will be included in them. The perimeter is configured for all reports from the [ETL tab](configuring-mbi.md#etl-options).
+The scope of the reports, meaning the resources that will be included in them. The perimeter is configured for all reports from the [**ETL options** tab](configuring-mbi.md#etl-options).
 
 ## Availability
 
-The amount of time a host has been "available". When calculating availability, only the time the host has spent in an UP or DOWN status is taken into account, not the time spent in an UNREACHABLE state or in DOWNTIME.
+The amount of time a host has spent in an "available" [status](../alerts-notifications/concepts.md), in the selected time period.
+
+* For hosts: When calculating availability, only the time the host has spent in an UP or DOWN status is taken into account, not the time spent in an UNREACHABLE state or in downtime.
+* For services:
 
 ## Publication rules
 
-By default, the report is only available on the Centreon user interface, publication rules allow you to make it so the report is sent out to specific users every time it is generated.
+By default, a report is only available for download on the (XXX > XXX) page. publication rules allow you to make it so the report is sent out to specific users every time it is generated.
+**Publication** tab of a job.
+The only exception is publication rules that are defined as global, which do not appear 
+All publication rules defined as "global" are executed every time a report is generated.
 
 
 MBI > General options
