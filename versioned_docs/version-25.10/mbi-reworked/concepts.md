@@ -5,7 +5,7 @@ title: MBI Concepts
 
 MBI is an extension of Centreon with its own vocabulary and concepts, this section breaks down the key concepts to understanding Centreon MBI. 
 
-Note that this section expects you to be familiar with the [regular Centreon vocabulary](../resources/glossary.md).
+Note that this section expects you to be familiar with the [regular Centreon vocabulary](https://docs.centreon.com/docs/resources/glossary/).
 
 ## Jobs
 
@@ -34,7 +34,7 @@ The scope of the reports meaning the resources that will be included in them. Th
 
 ## Availability
 
-The amount of time a host has been "available". When calculating availability, only the time the host has spent in an [UP or DOWN status](../monitoring/) is taken into account, not the time spent in an UNREACHABLE state or in DOWNTIME.
+The amount of time a host has been "available". When calculating availability, only the time the host has spent in an [UP or DOWN status](../alerts-notifications/concepts.md#host-status) is taken into account, not the time spent in an UNREACHABLE state or in DOWNTIME.
 
 ## Publication rules
 
