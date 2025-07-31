@@ -11,7 +11,7 @@ MBI works in 3 independent main phases:
 
 Because each phase is independent from the others, incorrect configuration in any of the 3 phases may cause the report generation to fail.
 
-## Step 1: Data is prepared by the central server
+## Phase 1: Data is prepared by the central server
 
 1. As checks are performed, each check result (status + metric) is recorded in the central database (**centreon_storage.logs** table).
 
@@ -19,7 +19,7 @@ Because each phase is independent from the others, incorrect configuration in an
 
 > The conversion of check results into events must be totally finished **before** [the ETL is launched](#step-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated), otherwise the reports will be empty. If in doubt, check this log to see if conversion is finished: **/var/log/centreon/eventReportBuilder.log**.
 
-## Step 2: The ETL is launched (data is copied to MBI and aggregated)
+## Phase 2: The ETL is launched (data is copied to MBI and aggregated)
 
 On the MBI server, a cronjob launches the ETL every day at 4.30 AM. This makes Gorgone execute 4 scripts, taking into account the options defined on the **Reporting > Monitoring Business Intelligence > General options** page:
 
@@ -40,7 +40,7 @@ Once all aggregations have been calculated, MBI is ready to generate reports.
 
 Note that for [BAM](https://docs.centreon.com/docs/service-mapping/introduction/), aggregated data has already been computed by the central server. The ETL just copies it to the MBI server.
 
-## Step 3: CBIS generates the reports
+## Phase 3: CBIS generates the reports
 
 Reports can be generated immediately at the user's request, or when they are scheduled.
 
