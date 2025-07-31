@@ -52,5 +52,5 @@ Your regular monitoring and reports are linked: the host groups, host categories
 
 ## ACL Configuration
 
-The user creating a job determines its perimeter while only seeing the resources their [ACLs](../administration/access-control-lists.md) allows them.
+The user creating a job determines its perimeter while only seeing the resources their [ACLs](https://docs.centreon.com/docs/administration/access-control-lists/) allows them.
 If needed, ask an admin to modify your ACL to add missing resources.
