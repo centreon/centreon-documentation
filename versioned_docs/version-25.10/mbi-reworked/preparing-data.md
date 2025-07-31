@@ -20,12 +20,12 @@ Notes:
 
 ### Time periods
 
-Every job uses [time-period](../monitoring/basic-objects/timeperiods.md) as a parameter: 24x7, workhours, non-workhours, etc...
+Every job uses [time-period](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) as a parameter: 24x7, workhours, non-workhours, etc...
 
 This defines the timeframes that should be included in the report.
 
 If you need to create a custom timeperiod, go to  **Configuration > User > Time Periods** and create a new one following
-[this procedure](../monitoring/basic-objects/timeperiods.md).
+[this procedure](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/).
 
 
 ## Configuring MBI

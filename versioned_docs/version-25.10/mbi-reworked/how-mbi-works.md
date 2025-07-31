@@ -55,4 +55,4 @@ Reports can be generated immediately at the user's request, or when they are sch
 
 Once it has written the reports to the central server and executed all global publication rules, CBIS checks whether any non-global [publication rules](concepts.md#publication-rules) exist for the job - and executes them.
 
-Example: Centreon can send reports by emails according to parameters defined in an SMTP [publication rule](concepts.md#publication-rules) ([postfix](../administration/postfix.md) must be configured).
+Example: Centreon can send reports by emails according to parameters defined in an SMTP [publication rule](concepts.md#publication-rules) ([postfix](https://docs.centreon.com/docs/administration/postfix/) must be configured).

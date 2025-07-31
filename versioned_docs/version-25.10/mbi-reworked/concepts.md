@@ -75,7 +75,7 @@ The scope of the reports, meaning the resources that will be included in them. T
 
 ## Availability
 
-The amount of time a host has spent in an "available" [status](../alerts-notifications/concepts.md), in the selected time period.
+The amount of time a host has spent in an "available" [status](https://docs.centreon.com/docs/alerts-notifications/concepts/#host-status), in the selected time period.
 
 * For hosts: When calculating availability, only the time the host has spent in an UP or DOWN status is taken into account, not the time spent in an UNREACHABLE state or in downtime.
 * For services:

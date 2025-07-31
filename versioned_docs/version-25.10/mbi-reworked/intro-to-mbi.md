@@ -25,4 +25,4 @@ Note that MBI only takes into account [HARD statuses](https://docs.centreon.com/
 * MBI generates reports in different formats, such as CSV or PDF.
 * Not all reports can be exported to every format: check our [list of available reports](available-reports/available-reports.md) to learn more about the specifics of each report.
 * By default, these reports can be downloaded from the **Reports view** page, but they can also be configured to be sent to specific people when generated.
-* Report data can also be displayed in your Centreon [custom views](../alerts-notifications/custom-views.md) using dedicated widgets.
+* Report data can also be displayed in your Centreon [custom views](https://docs.centreon.com/docs/alerts-notifications/custom-views/) using dedicated widgets.
