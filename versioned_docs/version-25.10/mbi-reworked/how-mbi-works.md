@@ -38,7 +38,7 @@ Once all aggregations have been calculated, MBI is ready to generate reports.
 
 > Aggregating data must be totally finished **before** [reports can be generated](#step-3-cbis-generates-the-reports), otherwise the reports will be empty or incomplete. Depending on your amount of data, the 4 steps of the ETL may take a long time. If in doubt, check the logs to know whether the ETL has finished its work (**/var/log/centreon-bi/centreonBIETL.log**).
 
-Note that for [BAM](../service-mapping/introduction.md), aggregated data has already been computed by the central server. The ETL just copies it to the MBI server.
+Note that for [BAM](https://docs.centreon.com/docs/service-mapping/introduction/), aggregated data has already been computed by the central server. The ETL just copies it to the MBI server.
 
 ## Step 3: CBIS generates the reports
 

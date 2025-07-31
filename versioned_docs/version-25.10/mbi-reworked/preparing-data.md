@@ -7,7 +7,7 @@ title: Preparing data for report generation
 
 For hosts/services availability and performance reports, the resources you want to see appear in reports need to be organized in [host groups](https://docs.centreon.com/docs/monitoring/groups/#creating-a-host-group), [host categories](https://docs.centreon.com/docs/monitoring/groups/#hosts-category) and [service categories](https://docs.centreon.com/docs/monitoring/groups/#services-category). 
 
-For business activities and business views availability reports template, the resources you want to see appear in reports need to be organized in [business activities](../service-mapping/ba-management.md#business-activities-ba) and [business views](../service-mapping/ba-management.md#business-view-bv)
+For business activities and business views availability reports template, the resources you want to see appear in reports need to be organized in [business activities](https://docs.centreon.com/docs/service-mapping/ba-management/#business-activities-ba) and [business views](https://docs.centreon.com/docs/service-mapping/ba-management/#business-view-bv)
 
 Notes:
 - Be sure that all perimeters used by ETL are filled:
