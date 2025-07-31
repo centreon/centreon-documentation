@@ -1,6 +1,6 @@
 ---
 id: widgets
-title: Les widgets
+title: Widgets MBI
 ---
 
 Les widgets de Centreon MBI s"utilisent dans les [vues personnalisées](../../getting-started/create-custom-view.md) de Centreon. Il vous est de ce fait possible de créer des

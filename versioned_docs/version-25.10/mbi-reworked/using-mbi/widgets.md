@@ -1,6 +1,6 @@
 ---
 id: widgets
-title: Widgets
+title: MBI Widgets
 ---
 
 Centreon MBI widgets are used in Centreon [custom views](../../getting-started/create-custom-view.md). This means you can use custom views to create real-time AND
