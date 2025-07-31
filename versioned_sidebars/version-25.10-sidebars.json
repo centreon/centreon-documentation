@@ -842,7 +842,6 @@
       "label": "Setting up MBI",
       "link": {
         "type": "generated-index",
-        "id":"mbi-reworked/setting-up-mbi"
       },
       "items": [
         {
@@ -863,7 +862,6 @@
       "label": "Using MBI",
       "link": {
         "type": "generated-index",
-        "id":"mbi-reworked/using-mbi"
       },
       "items": [
         {
@@ -884,7 +882,6 @@
       "label": "Using MBI",
       "link": {
         "type": "generated-index",
-        "id":"mbi-reworked/administration"
       },
       "items": [
         {
