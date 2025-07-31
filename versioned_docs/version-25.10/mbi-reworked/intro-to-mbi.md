@@ -5,7 +5,7 @@ title: Introduction to MBI
 
 ## What is Centreon MBI?
 
-Centreon Monitoring Business Intelligence (MBI) is an extension that is used to generate reports on host groups, host categories and service categories. MBI requires users to [prepare their data](../setting-up-mbi/preparing-data.md) carefully so that reports can be generated.
+Centreon Monitoring Business Intelligence (MBI) is an extension that is used to generate reports on host groups, host categories and service categories. MBI requires users to [prepare their data](setting-up-mbi/preparing-data.md) carefully so that reports can be generated.
 We highly recommend you read our documentation to avoid running into issues. You can start with our [concepts](concepts.md) page.
 
 > Centreon MBI is a Centreon **extension** that requires a valid [license](https://docs.centreon.com/docs/administration/licenses/). To
@@ -41,6 +41,6 @@ Note that MBI only takes into account [HARD statuses](https://docs.centreon.com/
 ## What are the possible output formats?
   
 * MBI generates reports in different formats, such as CSV or PDF.
-* Not all reports can be exported to every format: check our [list of available reports](../available-reports/available-reports.md) to learn more about the specifics of each report.
+* Not all reports can be exported to every format: check our [list of available reports](available-reports/available-reports.md) to learn more about the specifics of each report.
 * By default, these reports can be downloaded from the **Reports view** page, but they can also be configured to be sent to specific people when generated.
 * Report data can also be displayed in your Centreon [custom views](https://docs.centreon.com/docs/alerts-notifications/custom-views/) using dedicated widgets.

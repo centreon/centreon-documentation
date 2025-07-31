@@ -7,7 +7,7 @@ title: Generating reports with jobs
 
 >MBI is a Centreon extension that has some terms you may not have heard elsewhere in our documentation. We strongly suggest you read the [concepts page](../concepts.md) before following MBI-related procedures.
 
-The following procedure requires you to have [prepared your data](setting-up-mbi/preparing-data.md) as per the MBI requirements.
+The following procedure requires you to have [prepared your data](../setting-up-mbi/preparing-data.md) as per the MBI requirements.
 
 A job is a scheduled report pending its time to be generated. This also applies to reports that are to be generated immediately. 
 

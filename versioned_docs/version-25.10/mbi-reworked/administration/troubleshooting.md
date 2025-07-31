@@ -25,7 +25,7 @@ systemctl status cbis
 
 ## Review the manual configuration of MBI
 
-Follow our [MBI configuration procedure](../setting-up/configuring-mbi.md) to ensure proper configuration.
+Follow our [MBI configuration procedure](../setting-up-mbi/configuring-mbi.md) to ensure proper configuration.
 
 ## The report I generated is empty
 
