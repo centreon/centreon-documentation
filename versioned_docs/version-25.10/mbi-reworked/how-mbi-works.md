@@ -30,9 +30,9 @@ On the MBI server, a cronjob launches the ETL every day at 4.30 AM. This makes G
 
 2. **dimension_builder.pl**: MBI prepares a list of all [dimensions](concepts.md#dimension) present in the imported data, for each host, service and metric.
 
-3. **eventStatisticsBuilder.pl**: MBI calculates the [availability](concepts.md#availability) of resources, based on the data copied from the central server and the dimensions calculated just before. The availability of each dimension is calculated by day and by month, taking into account the [time periods](../monitoring/basic-objects/timeperiods.md) selected in the **Live services for availability statistics calculation** field of the **General options** page, on the **ETL options** tab.
+3. **eventStatisticsBuilder.pl**: MBI calculates the [availability](concepts.md#availability) of resources, based on the data copied from the central server and the dimensions calculated just before. The availability of each dimension is calculated by day and by month, taking into account the [time periods](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) selected in the **Live services for availability statistics calculation** field of the **General options** page, on the **ETL options** tab.
 
-4. **perfdataStatisticsBuilder.pl**: MBI aggregates all metrics by hour/day/month, taking into account the [time periods](../monitoring/basic-objects/timeperiods.md) selected in the **Live services for performance data statistics calculation** field of the **General options** page, on the **ETL options** tab.
+4. **perfdataStatisticsBuilder.pl**: MBI aggregates all metrics by hour/day/month, taking into account the [time periods](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) selected in the **Live services for performance data statistics calculation** field of the **General options** page, on the **ETL options** tab.
 
 Once all aggregations have been calculated, MBI is ready to generate reports.
 
