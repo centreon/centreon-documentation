@@ -866,15 +866,15 @@
       "items": [
         {
           "type": "doc",
-          "id": "mbi-reworked/setting-up-mbi/generating-reports"
+          "id": "mbi-reworked/using-mbi/generating-reports"
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/setting-up-mbi/how-mbi-works"
+          "id": "mbi-reworked/using-mbi/how-mbi-works"
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/setting-up-mbi/widgets"
+          "id": "mbi-reworked/using-mbi/widgets"
         }
       ]
       },
@@ -894,7 +894,7 @@
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/troubleshooting"
+          "id": "mbi-reworked/administration/troubleshooting"
         }
       ]
       },
