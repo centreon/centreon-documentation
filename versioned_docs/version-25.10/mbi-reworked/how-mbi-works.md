@@ -17,7 +17,7 @@ Because each phase is independent from the others, incorrect configuration in an
 
 2. On the central server, a script (**eventReportBuilder**) is launched by a cronjob every day at 3 AM: it converts check results into [events](concepts.md#event) that will be used to calculate availability. The time this script is launched is defined in **/etc/cron.d/centreon**.
 
-> The conversion of check results into events must be totally finished **before** [the ETL is launched](#step-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated), otherwise the reports will be empty. If in doubt, check this log to see if conversion is finished: **/var/log/centreon/eventReportBuilder.log**.
+> The conversion of check results into events must be totally finished **before** [the ETL is launched](#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated), otherwise the reports will be empty. If in doubt, check this log to see if conversion is finished: **/var/log/centreon/eventReportBuilder.log**.
 
 ## Phase 2: The ETL is launched (data is copied to MBI and aggregated)
 
@@ -36,7 +36,7 @@ On the MBI server, a cronjob launches the ETL every day at 4.30 AM. This makes G
 
 Once all aggregations have been calculated, MBI is ready to generate reports.
 
-> Aggregating data must be totally finished **before** [reports can be generated](#step-3-cbis-generates-the-reports), otherwise the reports will be empty or incomplete. Depending on your amount of data, the 4 steps of the ETL may take a long time. If in doubt, check the logs to know whether the ETL has finished its work (**/var/log/centreon-bi/centreonBIETL.log**).
+> Aggregating data must be totally finished **before** [reports can be generated](#phase-3-cbis-generates-the-reports), otherwise the reports will be empty or incomplete. Depending on your amount of data, the 4 steps of the ETL may take a long time. If in doubt, check the logs to know whether the ETL has finished its work (**/var/log/centreon-bi/centreonBIETL.log**).
 
 Note that for [BAM](https://docs.centreon.com/docs/service-mapping/introduction/), aggregated data has already been computed by the central server. The ETL just copies it to the MBI server.
 
