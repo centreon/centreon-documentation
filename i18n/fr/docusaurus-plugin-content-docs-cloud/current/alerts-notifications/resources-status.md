@@ -39,6 +39,20 @@ Cliquez sur le bouton dédié pour faciliter la lecture des informations contenu
 - Mode vue "compact" ![image](../assets/alerts/resources-status/compact-icon.png)
 - Mode vue "extended" ![image](../assets/alerts/resources-status/extended-icon.png)
 
+### Exporter au format CSV
+
+Vous pouvez rapidement obtenir un rapport détaillé sur l'état de vos ressources dans un fichier au format CSV, facile à utiliser. Le fichier créé contient la liste des ressources que vous avez filtrées et vous pouvez exporter jusqu'à 10 000 lignes.
+
+- Cliquez sur le bouton **Exporter en CSV** situé au-dessus de la liste des ressources.
+- Dans la fenêtre qui s'ouvre, définissez les paramètres suivants :
+  - **Sélectionner les colonnes** : **Colonnes visibles seulement** ou **Toutes les colonnes**.
+  - **Sélectionner les pages** : **Page courante seulement** ou **Toutes les pages**.
+- Cliquez sur **Exporter** pour démarrer le traitement de l'export. Vous obtiendrez un fichier téléchargé.
+
+> Notez que le traitement de l'export peut prendre un certain temps. Les données en temps réel affichées à la sortie peuvent avoir changé depuis le début du traitement.
+
+- Une fois le téléchargement terminé, récupérez le fichier dans le dossier **Téléchargements**.
+
 ## Exécuter des actions sur les évènements
 
 ### Prendre en compte un évènement
