@@ -5,7 +5,7 @@ title: How does MBI work?
 
 MBI works in 3 independent main phases:
 
-* The central server prepares raw availability data.
+* The central server prepares the raw data.
 * The ETL copies the data to the MBI server and aggregates it.
 * CBIS picks out the data that is relevant for a report and generates it.
 
