@@ -841,7 +841,7 @@
       {"type": "category",
       "label": "Setting up MBI",
       "link": {
-        "type": "generated-index",
+        "type": "generated-index"
       },
       "items": [
         {
@@ -861,7 +861,7 @@
       {"type": "category",
       "label": "Using MBI",
       "link": {
-        "type": "generated-index",
+        "type": "generated-index"
       },
       "items": [
         {
@@ -881,7 +881,7 @@
       {"type": "category",
       "label": "Using MBI",
       "link": {
-        "type": "generated-index",
+        "type": "generated-index"
       },
       "items": [
         {
