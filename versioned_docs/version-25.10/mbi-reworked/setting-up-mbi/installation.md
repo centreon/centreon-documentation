@@ -996,9 +996,9 @@ Centreon MBI integrates an ETL that allows you to:
 - Feed statistical data to the reporting server databases
 - Control the retention of data on the reporting server
 
-Before proceeding to the next steps, read the
-chapter on [best practices](../concepts.md#best-practices-for-monitoring) to make sure that the configuration of
-the objects in Centreon (groups, categories, etc.) is in accordance with the expectations of Centreon MBI.
+<!-- Before proceeding to the next steps, read the
+chapter on best practices to make sure that the configuration of
+the objects in Centreon (groups, categories, etc.) is in accordance with the expectations of Centreon MBI.-->
 
 In the `Reporting > Monitoring Business Intelligence > General Options > ETL Options` tab, specify the following options:
 

@@ -1000,8 +1000,8 @@ Centreon MBI intègre un ETL qui permet de :
   données statistiques
 - Contrôler la rétention des données sur le serveur de reporting
 
-Avant de passer aux étapes suivantes, il est nécessaire de lire le chapitre des [bonnes pratiques](../concepts.md#bonnes-pratiques-de-supervision) afin de
-vous assurer que la configuration des objets dans Centreon (groupes, catégories...) est conforme aux attentes de Centreon MBI.
+<!--Avant de passer aux étapes suivantes, il est nécessaire de lire le chapitre des bonnes pratiques afin de
+vous assurer que la configuration des objets dans Centreon (groupes, catégories...) est conforme aux attentes de Centreon MBI.-->
 
 Dans le menu `Rapports > Monitoring Business Intelligence > Options générales > Options de l'ETL`, spécifiez les options
 suivantes :
