@@ -68,7 +68,7 @@ Reports with a custom publication rule are automatically sent every time they ar
 
 ## Tuning tab
 
-Here you can change the theme of the report, the default theme will be the one you defined as such in the [scheduler options tab when configuring MBI](../setting-up-mbi/configuring-mbi.md#scheduler-options).
+Here you can change the theme of the report, the default theme will be the one you defined as such in the scheduler options tab when configuring MBI.
 
 The job weight multiplicator allows you to increase the priority of a job. If MBI is not able to generate all the reports it should at the same time, it will first generate those with the highest multiplicator.
 
