@@ -5,6 +5,10 @@ title: MBI Concepts
 
 MBI is an extension of Centreon with its own vocabulary and concepts. This section breaks down the key concepts to understanding Centreon MBI. Note that this section expects you to be familiar with the [regular Centreon vocabulary](https://docs.centreon.com/docs/resources/glossary/).
 
+## ETL
+
+The ETL obtains the raw data from the central server and transforms it to a format readable by MBI, it then stores it in the database where CBIS will retrieve it for generating the reports.
+
 ## Dimension
 
 In MBI, a dimension represents an axis of data analysis. MBI reports calculate data according to dimensions (but can present data with details of individual hosts or host groups, for example).
