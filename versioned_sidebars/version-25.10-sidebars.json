@@ -838,53 +838,65 @@
           "type": "doc",
           "id": "mbi-reworked/mbi-concepts"
         },
+      {"type": "category",
+      "label": "Setting up MBI",
+      "link": {
+        "type": "generated-index"
+      },
+      "items": [
         {
           "type": "doc",
-          "id": "mbi-reworked/how-mbi-works"
+          "id": "mbi-reworked/setting-up-mbi/installation"
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/installation"
+          "id": "mbi-reworked/setting-up-mbi/preparing-data"
+        }
+      ]
+      },
+      {"type": "category",
+      "label": "Using MBI",
+      "link": {
+        "type": "generated-index"
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "mbi-reworked/using-mbi/generating-reports"
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/configuring-mbi"
+          "id": "mbi-reworked/using-mbi/how-mbi-works"
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/general-options"
+          "id": "mbi-reworked/using-mbi/widgets"
+        }
+      ]
+      },
+      {"type": "category",
+      "label": "Administration",
+      "link": {
+        "type": "generated-index"
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "mbi-reworked/administration/backup-restore"
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/preparing-data"
+          "id": "mbi-reworked/administration/update-upgrade-migrate"
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/generating-reports"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/widgets"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/customizing-reports"
-        },
+          "id": "mbi-reworked/administration/troubleshooting"
+        }
+      ]
+      },
         {
           "type": "doc",
           "id": "mbi-reworked/rebuilding-data"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/troubleshooting"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/backup-restore"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/update-upgrade-migrate"
         },
       {"type": "category",
       "label": "Available reports",
@@ -932,12 +944,15 @@
         {
           "type": "doc",
           "id": "mbi-reworked/available-reports/database-diagnostics-reports"
+        },
+        {
+          "type": "doc",
+          "id": "mbi-reworked/available-reports/customizing-reports"
         }
       ]
     }
       ]
     },
-      
     {
       "type": "category",
       "label": "Reporting",

@@ -5,6 +5,10 @@ title: MBI Concepts
 
 MBI is an extension of Centreon with its own vocabulary and concepts. This section breaks down the key concepts to understanding Centreon MBI. Note that this section expects you to be familiar with the [regular Centreon vocabulary](https://docs.centreon.com/docs/resources/glossary/).
 
+## ETL
+
+The ETL obtains the raw data from the central server and transforms it to a format readable by MBI, it then stores it in the database where CBIS will retrieve it for generating the reports.
+
 ## Dimension
 
 In MBI, a dimension represents an axis of data analysis. MBI reports calculate data according to dimensions (but can present data with details of individual hosts or host groups, for example).
@@ -56,7 +60,7 @@ A job is a report definition. Running a job generates a report.
 Job groups determine who is allowed to access each report.
 
 * You create job groups using the **Reporting > Monitoring Business Intelligence > Job groups** page.
-* For each job, you define which people will be able to see the report in the **Configuration** tab of the job (**Linked job groups** fields). A report will be visible to users that are linked to the selected [job groups](concepts.md#job-groups).
+* For each job, you define which people will be able to see the report in the **Configuration** tab of the job (**Linked job groups** fields). A report will be visible to users that are linked to the selected job groups
 * Please note that the data included in the report depends on the [rights on resources](https://docs.centreon.com/docs/administration/access-control-lists/#access-filters-on-resources) of the user who creates the job. It is the responsibility of the user who creates the job to make sure that the ACLs on his resources and the ACLs of the users linked to job groups match.
 
    Example: if **user 1** has rights on the **Paris** and **London** hosts, the report will contain data for **Paris** and **London**. If the report is shared with **user 2** who doesn't have rights on **London**, **user 2** will still be able to see the data for **London**, as the report has been generated this way.
@@ -71,7 +75,7 @@ Service user created automatically when the extension is installed. This user wi
 
 ## Report perimeter
 
-The scope of the reports, meaning the resources that will be included in them. The perimeter is configured for all reports from the [**ETL options** tab](configuring-mbi.md#etl-options).
+The scope of the reports, meaning the resources that will be included in them. The perimeter is configured for all reports from the **ETL options** tab.
 
 ## Availability
 
@@ -90,7 +94,7 @@ All publication rules defined as "global" are executed every time a report is ge
 ## Quickstart Guide
 
 Using MBI to its full extent requires specific configuration. This topic helps you get a quick grasp of MBI, intentionally glossing over several aspects of the extension and leaving many settings in default configuration. A complete guide for
-[installing and configuring MBI](installation.md) as well as a complete guide for [generating reports](generating-reports.md) are also available.
+[installing and configuring MBI](setting-up-mbi/installation.md) as well as a complete guide for [generating reports](using-mbi/generating-reports.md) are also available.
 
 ### Step 1: Configuring MBI
 
@@ -118,7 +122,7 @@ Go to **Reporting > Monitoring Business Intelligence > Jobs** and click on Add
 1. In the **Configuration** tab, choose a name for the report and select one of the 
 [available report designs](available-reports/available-reports.md).
 
-2. Select the corresponding [job group](concepts.md#job-groups) and the period the report should contain.
+2. Select the corresponding [job group](#job-groups) and the period the report should contain.
 
 3. The **Report Parameters** tab's content depend on the report design. However note that all fields should be filled and fields that require you to add categories from left to right should have at least one category in the right side for each field.
 

@@ -5,7 +5,7 @@ title: Troubleshooting MBI
 
 > It is strongly advised that you install the [Centreon MBI connector](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi) which allows you to monitor the status of your MBI server.
 
-Before going further, make sure that [the extension is up to date](update-upgrade-migrate.md).
+Before going further, make sure that [the extension is up to date](../administration/update-upgrade-migrate.md).
 
 ## How do I know MBI is properly configurated?
 
@@ -25,13 +25,15 @@ systemctl status cbis
 
 ## Review the manual configuration of MBI
 
-Follow our [MBI configuration procedure](mbi-reworked/configuring-mbi.md) to ensure proper configuration.
+Follow our [post-installation configuration procedure](../setting-up-mbi/installation.md) to ensure proper configuration.
 
 ## The report I generated is empty
 
 A cronjob is launched at approximately 4h30 AM that will compile and calculate all the data of the day before. CBIS then goes into the compiled data at the scheduled time to pick out the data relevant to the report it needs to generate. 
 
-If reports are being generated without data in them, it's possible CBIS is sending its SQL requests before the cronjob is finished and so the data CBIS requests does not exist yet. Try pushing back the cyclic launch hour so that CBIS does not request data before the cronjob has finished. 
+If reports are being generated without data in them, it's possible CBIS is sending its SQL requests before the cronjob is finished and so the data CBIS requests does not exist yet, check this log to see if conversion is finished: **/var/log/centreon/eventReportBuilder.log**. 
+
+Try pushing back the cyclic report generation hour so that CBIS does not request data before the cronjob has finished in the **Scheduler options** tab of **Reporting > Monitoring business Intelligence > General options**.
 
 ## I cannot see the report design/the hosts I need
 
