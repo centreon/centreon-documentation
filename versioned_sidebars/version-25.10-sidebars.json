@@ -850,10 +850,6 @@
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/setting-up-mbi/configuring-mbi"
-        },
-        {
-          "type": "doc",
           "id": "mbi-reworked/setting-up-mbi/preparing-data"
         }
       ]

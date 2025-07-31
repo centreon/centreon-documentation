@@ -5,7 +5,7 @@ title: Troubleshooting MBI
 
 > It is strongly advised that you install the [Centreon MBI connector](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi) which allows you to monitor the status of your MBI server.
 
-Before going further, make sure that [the extension is up to date](update-upgrade-migrate.md).
+Before going further, make sure that [the extension is up to date](../administration/update-upgrade-migrate.md).
 
 ## How do I know MBI is properly configurated?
 
@@ -25,7 +25,7 @@ systemctl status cbis
 
 ## Review the manual configuration of MBI
 
-Follow our [MBI configuration procedure](mbi-reworked/configuring-mbi.md) to ensure proper configuration.
+Follow our [MBI configuration procedure](../setting-up/configuring-mbi.md) to ensure proper configuration.
 
 ## The report I generated is empty
 
