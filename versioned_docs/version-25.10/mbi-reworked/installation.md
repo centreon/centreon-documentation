@@ -430,7 +430,7 @@ systemctl restart mariadb
 
 ### Give rights to the cbis user
 
-When you install Centreon MBI, a [user](../monitoring/basic-objects/contacts.md) named **cbis** is automatically created.
+When you install Centreon MBI, a [user](https://docs.centreon.com/docs/monitoring/basic-objects/contacts/) named **cbis** is automatically created.
 It allows the report generation engine to extract data from Centreon (using the APIs) in order to insert them in the report.
 This user must [have access to all resources monitored by Centreon](../administration/access-control-lists.md) in order to extract the performance graphs for the following reports:
 
