@@ -69,7 +69,7 @@ reporting server, for performance and isolation reasons.
 
 #### Software requirements
 
-See the [software requirements](../installation/prerequisites.md#characteristics-of-the-servers).
+See the [software requirements](https://docs.centreon.com/docs/installation/prerequisites/#characteristics-of-the-servers).
 
 You should install the MariaDB/MySQL database at the same time. We highly recommend
 installing the database on the same server, due to performance and isolation
