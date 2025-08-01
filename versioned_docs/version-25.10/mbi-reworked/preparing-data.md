@@ -24,14 +24,14 @@ We recommend you create all the custom time periods you need before starting to 
 
 ## Defining the scope of data for MBI
 
-Only [data compiled by the ETL](../using-mbi/how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated) is available to be imported into MBI.
+Only [data compiled by the ETL](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated) is available to be imported into MBI.
 For perfomance reasons, it is recommended to limit the scope of data for MBI to what you want to see on reports as large amounts of data takes more time to compile.
 
 To define the scope of the data used by MBI, go to **Reporting > Monitoring Business Intelligence > General options, ETL options** tab.
 
 By default, the ETL is configured to compute availability and performance for all existings perimeters: host groups, hostcategories and servicecategories. If some perimeters are not mandatory, you can uncheck "All group perimeters" to select only desired perimeters.
 
-Select the [perimeters](../concepts.md#report-perimeter) for the reports, the time periods and the service categories (disk, ping, memory, traffic). This is also where you configure how precise you want the data statistics to be (I.E. per months, days, hours...)
+Select the [perimeters](concepts.md#report-perimeter) for the reports, the time periods and the service categories (disk, ping, memory, traffic). This is also where you configure how precise you want the data statistics to be (I.E. per months, days, hours...)
 
 
 - An empty report may be generated if there is mismatch in the ETL configuration or there is no monitoring on the resource (no status/metric return)

@@ -475,8 +475,7 @@
               "type": "doc",
               "id": "alerts-notifications/event-log"
             }
-
-            ]
+          ]
         },
         {
           "type": "category",
@@ -657,7 +656,7 @@
             }
           ]
         },
-                {
+        {
           "type": "category",
           "label": "Administrate",
           "link": {
@@ -684,7 +683,7 @@
         }
       ]
     },
-        {
+    {
       "type": "category",
       "label": "Data Visualization",
       "link": {
@@ -724,14 +723,14 @@
             }
           ]
         },
-    {
-      "type": "category",
-      "label": "Graphical views (maps)",
-      "link": {
-        "type": "generated-index",
-        "description": "The graphical view capabilities in Centreon rely on the Centreon MAP module."
-      },
-        "items": [
+        {
+          "type": "category",
+          "label": "Graphical views (maps)",
+          "link": {
+            "type": "generated-index",
+            "description": "The graphical view capabilities in Centreon rely on the Centreon MAP module."
+          },
+          "items": [
             {
               "type": "doc",
               "id": "graph-views/introduction-map"
@@ -742,20 +741,20 @@
               "link": {
                 "type": "generated-index"
               },
-                    "items":[
-                      {
-                        "type": "doc",
-                        "id": "graph-views/map-legacy-eol"
-                      },
-                      {
-                        "type": "doc",
-                        "id": "graph-views/upgrading-map-legacy"
-                      },
-                      {
-                        "type": "doc",
-                        "id": "graph-views/import-into-map-web"
-                      }
-                    ]
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-legacy-eol"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/upgrading-map-legacy"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/import-into-map-web"
+                }
+              ]
             },
             {
               "type": "doc",
@@ -803,7 +802,6 @@
             },
             {
               "type": "doc",
-
               "id": "graph-views/map-web-known-issues"
             },
             {
@@ -813,15 +811,14 @@
             {
               "type": "doc",
               "id": "api/map-api"
-                  }
-              ]
             }
-          ,
-            {
-      "type": "doc",
-      "id": "alerts-notifications/custom-views"
-    }
-    ]
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "alerts-notifications/custom-views"
+        }
+      ]
     },
     {
       "type": "category",
@@ -838,119 +835,123 @@
           "type": "doc",
           "id": "mbi-reworked/mbi-concepts"
         },
-      {"type": "category",
-      "label": "Setting up MBI",
-      "link": {
-        "type": "generated-index"
-      },
-      "items": [
         {
-          "type": "doc",
-          "id": "mbi-reworked/installation"
+          "type": "category",
+          "label": "Setting up MBI",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "mbi-reworked/installation"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/preparing-data"
+            }
+          ]
         },
         {
-          "type": "doc",
-          "id": "mbi-reworked/preparing-data"
-        }
-      ]
-      },
-      {"type": "category",
-      "label": "Using MBI",
-      "link": {
-        "type": "generated-index"
-      },
-      "items": [
-        {
-          "type": "doc",
-          "id": "mbi-reworked/generating-reports"
+          "type": "category",
+          "label": "Using MBI",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "mbi-reworked/generating-reports"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/how-mbi-works"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/widgets"
+            }
+          ]
         },
         {
-          "type": "doc",
-          "id": "mbi-reworked/how-mbi-works"
+          "type": "category",
+          "label": "Administration",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "mbi-reworked/backup-restore"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/update-upgrade-migrate"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/troubleshooting"
+            }
+          ]
         },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/widgets"
-        }
-      ]
-      },
-      {"type": "category",
-      "label": "Administration",
-      "link": {
-        "type": "generated-index"
-      },
-      "items": [
-        {
-          "type": "doc",
-          "id": "mbi-reworked/backup-restore"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/update-upgrade-migrate"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/troubleshooting"
-        }
-      ]
-      },
         {
           "type": "doc",
           "id": "mbi-reworked/rebuilding-data"
         },
-      {"type": "category",
-      "label": "Available reports",
-      "link": {
-        "type": "doc",
-        "id":"mbi-reworked/available-reports/available-reports"
-      },
-      "items": [
         {
-          "type": "doc",
-          "id": "mbi-reworked/available-reports/ba-monitoring-reports"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/available-reports/availability-events-reports"
-        },
-       {
-          "type": "doc",
-          "id": "mbi-reworked/available-reports/performance-reports"
-        },
-       {
-          "type": "doc",
-          "id": "mbi-reworked/available-reports/storage-reports"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/available-reports/network-reports"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/available-reports/virtualization-reports"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/available-reports/electric-consumption-reports"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/available-reports/profiling-reports"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/available-reports/inventory-configuration-reports"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/available-reports/database-diagnostics-reports"
-        },
-        {
-          "type": "doc",
-          "id": "mbi-reworked/available-reports/customizing-reports"
+          "type": "category",
+          "label": "Available reports",
+          "link": {
+            "type": "doc",
+            "id": "mbi-reworked/available-reports/available-reports"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "mbi-reworked/available-reports/ba-monitoring-reports"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/available-reports/availability-events-reports"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/available-reports/performance-reports"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/available-reports/storage-reports"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/available-reports/network-reports"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/available-reports/virtualization-reports"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/available-reports/electric-consumption-reports"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/available-reports/profiling-reports"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/available-reports/inventory-configuration-reports"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/available-reports/database-diagnostics-reports"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/available-reports/customizing-reports"
+            }
+          ]
         }
-      ]
-    }
       ]
     },
     {
@@ -1612,10 +1613,10 @@
               "type": "doc",
               "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
             },
-        {
-          "type": "doc",
-          "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
-        }
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
+            }
           ]
         }
       ]

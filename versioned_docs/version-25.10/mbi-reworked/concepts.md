@@ -94,7 +94,7 @@ All publication rules defined as "global" are executed every time a report is ge
 ## Quickstart Guide
 
 Using MBI to its full extent requires specific configuration. This topic helps you get a quick grasp of MBI, intentionally glossing over several aspects of the extension and leaving many settings in default configuration. A complete guide for
-[installing and configuring MBI](setting-up-mbi/installation.md) as well as a complete guide for [generating reports](using-mbi/generating-reports.md) are also available.
+[installing and configuring MBI](installation.md) as well as a complete guide for [generating reports](generating-reports.md) are also available.
 
 ### Step 1: Configuring MBI
 
