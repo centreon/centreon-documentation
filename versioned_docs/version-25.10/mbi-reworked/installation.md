@@ -261,8 +261,8 @@ vgdisplay vg_data | grep -i free*
 
 - OS: see [compatibility info here](https://docs.centreon.com/docs/installation/compatibility/#operating-systems)
 - SGBD: see [compatibility info here](https://docs.centreon.com/docs/installation/compatibility/#dbms)
-- Firewalld: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#configure-or-disable-the-firewall))
-- SELinux: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#disable-selinux))
+- Firewalld: Disabled ([look here](https://docs.centreon.com/docs/installation/installation-of-a-central-server/using-packages/#configure-or-disable-the-firewall))
+- SELinux: Disabled ([look here](https://docs.centreon.com/docs/installation/installation-of-a-central-server/using-packages/#disable-selinux))
 
 > Make sure that the reporting server and the central server have the same time zone; otherwise report publications will fail (link to download missing).
 > The same time zone must be displayed with the `timedatectl` command.
