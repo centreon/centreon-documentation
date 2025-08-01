@@ -23,7 +23,6 @@ MBI runs [jobs](concepts.md#jobs) to generate reports.
 
 ## What kind of data can appear on the reports ?
 
-
 Reports can display data about:
 - Host groups
 - Host categories
@@ -33,7 +32,7 @@ Reports can display data about:
 
 Data is segmented in these categories but different report designs allows you to determine how the data is presented in the report.
 
-les rapports peuvent concerner de l'availability, performance, storage...
+Reports also determine the metrics shown in reports. These metrics are related to performance or capacity.
 
 MBI also creates reports on availability by converting checks into [events](concepts.md#event).
 Note that MBI only takes into account [HARD statuses](https://docs.centreon.com/docs/alerts-notifications/concepts/#status-types) for its outputs.
