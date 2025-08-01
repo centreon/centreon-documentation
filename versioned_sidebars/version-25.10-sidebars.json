@@ -846,11 +846,11 @@
       "items": [
         {
           "type": "doc",
-          "id": "mbi-reworked/setting-up-mbi/installation"
+          "id": "mbi-reworked/installation"
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/setting-up-mbi/preparing-data"
+          "id": "mbi-reworked/preparing-data"
         }
       ]
       },
@@ -862,15 +862,15 @@
       "items": [
         {
           "type": "doc",
-          "id": "mbi-reworked/using-mbi/generating-reports"
+          "id": "mbi-reworked/generating-reports"
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/using-mbi/how-mbi-works"
+          "id": "mbi-reworked/how-mbi-works"
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/using-mbi/widgets"
+          "id": "mbi-reworked/widgets"
         }
       ]
       },
@@ -882,15 +882,15 @@
       "items": [
         {
           "type": "doc",
-          "id": "mbi-reworked/administration/backup-restore"
+          "id": "mbi-reworked/backup-restore"
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/administration/update-upgrade-migrate"
+          "id": "mbi-reworked/update-upgrade-migrate"
         },
         {
           "type": "doc",
-          "id": "mbi-reworked/administration/troubleshooting"
+          "id": "mbi-reworked/troubleshooting"
         }
       ]
       },
