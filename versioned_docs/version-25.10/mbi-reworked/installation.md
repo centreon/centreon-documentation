@@ -1149,7 +1149,7 @@ systemctl restart cron
 > Make sure that the **centreonBIETL** batch only starts after the **eventReportBuilder** 
 > batch has finished on the monitoring server (check the **/etc/cron.d/centreon** cron file on the monitoring server).
 
-The installation of Centreon MBI is now complete. See [the tutorial](../getting-started/analyze-resources-availability.md).
+The installation of Centreon MBI is now complete. See [the tutorial](https://docs.centreon.com/docs/getting-started/analyze-resources-availability/).
 
 ## Monitor your MBI server with Centreon
 
