@@ -46,19 +46,19 @@ Release date: `August 4, 2025`
 <details open>
   <summary>Bug fixes</summary>
 
-- [Administration] Fixed an issue on user group and template where importing LDAP with non admin user.
-- [API Tokens] Fixed an issue in creation form with custom duration.
-- [API] Fixed an issue on service template listing endpoint.
-- [CLAPI] Fixed an issue where warning was returned when using getmacro.
-- [Configuration] Fixed a display issue on command information popin.
+- [Administration] Fixed an issue on user groups and templates that occurred when importing non-admin users from LDAP.
+- [API Tokens] Fixed an issue where an invalid expiration date was sent when creating a token with a custom duration.
+- [API] Fixed a 500 error affecting the service template listing endpoint.
+- [CLAPI] Fixed an issue where a warning was returned when using getmacro.
+- [Configuration] Fixed a display issue affecting some command tooltips.
 - [Configuration] Fixed an issue where adding/editing a service failed when a command was configured on a template that was not the direct parent of the service.
-- [Configuration] Fixed an issue where mass Change on Linked Service Templates cause a 500 Internal Server Error.
+- [Configuration] Fixed an issue where mass change on Linked Service Templates caused a 500 internal server error.
 - [Dashboards] Fixed auto-adjustment of curves in graphics.
 - [Dashboards] Optimized threshold display in the Single Metric widget.
 - [Language] Fixed issue preventing modern pages from being translated when choosing "detection by browser" as a language.
-- [Meta] Fixed several issues occuring when using MySQL 8.
+- [Metaservices] Fixed several issues occuring when using MySQL 8.
 - [Resource Status] Default values for monitoring options are now also applied to non-admins.
-- [Resource Status] Fixed issue preventing the selection of multiple resources when using advanced filters.
+- [Resource Status] Fixed an issue preventing the selection of multiple resources when using advanced filters.
 - [Resource Status] Optimized legend rendering in graphs.
 - [Resource Status] The correct pictogram is now used when displaying a parent resource in downtime.
 - [Upgrade] Fixed migration script for version 23.10.8.
@@ -68,15 +68,10 @@ Release date: `August 4, 2025`
 <details open>
   <summary>Security fixes</summary>
 
-- [Security] Fixed SQLi vulnerabilities on Configuration > Users > Contact templates.
-- [Security] Fixed vulnerability on notification escalation pages.
-- [Security] Fixed XSS in host listing.
+- [Vulnerability] Fixed vulnerabilities on several pages.
 - [Vulnerability] Added ACL check when exporting configuration.
-- [Vulnerability] Fixed issue allowing a non admin user to logout another user.
+- [Vulnerability] Fixed an issue allowing a non admin user to logout another user.
 - [Vulnerability] Fixed SQL injection in Monitoring > Event Logs page.
-- [Vulnerability] Fixed SQL injection on meta-service configuration page.
-- [Vulnerability] SQL injections are now prevented on Host Category configuration page.
-- [Vulnerability] SQL injections are now prevented on the Host dependency field, in the Host configuration page.
 
 </details>
 
@@ -770,7 +765,7 @@ Release date: `August 4, 2025`
 <details>
   <summary>Bug fixes</summary>
 
-- [Metaservices] Fixed several issues occuring when using MySQL 8.
+- [Metaservices] Fixed several issues occurring when using MySQL 8.
 
 </details>
 
