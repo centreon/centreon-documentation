@@ -259,8 +259,8 @@ vgdisplay vg_data | grep -i free*
 
 #### Firmware and software layer
 
-- OS: see [compatibility info here](../installation/compatibility.md#operating-systems)
-- SGBD: see [compatibility info here](../installation/compatibility.md#dbms)
+- OS: see [compatibility info here](https://docs.centreon.com/docs/installation/compatibility/#operating-systems)
+- SGBD: see [compatibility info here](https://docs.centreon.com/docs/installation/compatibility/#dbms)
 - Firewalld: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#configure-or-disable-the-firewall))
 - SELinux: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#disable-selinux))
 
