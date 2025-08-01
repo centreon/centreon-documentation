@@ -23,6 +23,70 @@ Read more about version 24.10 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 24.10.9
+
+Release date: `August 4, 2025`
+
+<details open>
+  <summary>Features</summary>
+- [Monitoring] A new, modern version of the BA monitoring page is now available.
+- [Resource Status] Added the possibility to export in CSV format the current data being displayed.
+- [Dashboards] Added new widget "Business Activity Status Timeline" that displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
+- [Configuration] Added Tokens management in Agent configuration.
+
+</details>
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API Token] Added a feature to generate CMA Tokens.
+- [Authentication] Improved SAML configuration by adding a "Requested Authentication Context" parameter.
+- [Configuration] Host name is now displayed in Agent configuration (poller-initiated connection)
+- [Dashboards] Metrics are now clearly identifiable in the Metrics Graph widget, thanks to the addition of service and/or host related names, when needed.
+- [Dashboards][Resource Table widget] Added FQDN, Alias, Parent Alias and Monitoring Server columns.
+- [Metaservices] Fixed several issues occuring when using MySQL 8.
+- [Resource Status] It is now possible to avoid performance issues when using free text search, by using a new option named "Free text search behavior" in the Administration > Parameters > Centreon UI menu.
+
+</details>
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- [Administration] Fixed an issue on user group and template where importing LDAP with non admin user.
+- [API Tokens] Fixed an issue in creation form with custom duration.
+- [API] Fixed an issue on service template listing endpoint.
+- [CLAPI] Fixed an issue where warning was returned when using getmacro.
+- [Configuration] Fixed a display issue on command information popin.
+- [Configuration] Fixed an issue where adding/editing a service failed when a command was configured on a template that was not the direct parent of the service.
+- [Configuration] Fixed an issue where mass Change on Linked Service Templates cause a 500 Internal Server Error.
+- [Dashboards] Fixed auto-adjustment of curves in graphics.
+- [Dashboards] Optimized threshold display in the Single Metric widget.
+- [HA] Fixed an issue on cron for outdated token removal.
+- [Language] Fixed issue preventing modern pages from being translated when choosing "detection by browser" as a language.
+- [Meta] Fixed several issues occuring when using MySQL 8.
+- [Resource Status] Default values for monitoring options are now also applied to non-admins.
+- [Resource Status] Fixed issue preventing the selection of multiple resources when using advanced filters.
+- [Resource Status] Optimized legend rendering in graphs.
+- [Resource Status] The correct pictogram is now used when displaying a parent resource in downtime.
+- [Upgrade] Fixed migration script for version 23.10.8.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi vulnerabilities on Configuration > Users > Contact templates.
+- [Security] Fixed vulnerability on notification escalation pages.
+- [Security] Fixed XSS in host listing.
+- [Vulnerability] Added ACL check when exporting configuration.
+- [Vulnerability] Fixed issue allowing a non admin user to logout another user.
+- [Vulnerability] Fixed SQL injection in Monitoring > Event Logs page.
+- [Vulnerability] Fixed SQL injection on meta-service configuration page.
+- [Vulnerability] SQL injections are now prevented on Host Category configuration page.
+- [Vulnerability] SQL injections are now prevented on the Host dependency field, in the Host configuration page.
+
+</details>
+
 ### 24.10.8
 
 Release date: `June 20, 2025`
