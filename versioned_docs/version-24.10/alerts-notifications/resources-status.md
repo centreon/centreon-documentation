@@ -160,7 +160,7 @@ If you type text into the search bar, the search may performed on the following 
 
 For instance, if you type "rta", all resources containing "rta" in one of the above fields will be displayed (e.g., a metaservice called **Ping-RTA-Average**).
 
-The behavior depends on what you have configured in the **Administration > Parameters > Centreon UI** page:
+The behavior depends on what you have configured in the **Administration > Parameters > Centreon UI** page, in the **Free text search behavior** field:
 * **Limited search**: Free text search will be performed only on the following fields: host name, alias and address, and service description (i.e., its name). Use if you have a large amount of data.
 * **Full search**: Free text search will also be performed on the "information" field. This is appropriate only if you have a small amount of data, as it affects performance.
 
