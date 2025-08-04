@@ -39,8 +39,6 @@ This script acts in 4 steps:
 
 > **Note**: We will focus on "-r" options during this documentation
 
-
-
 #### Arguments for option `-r`
 
 | Option | Description |
@@ -52,16 +50,6 @@ This script acts in 4 steps:
 
 > **Note**: If none of the following is specified (only "-r" option), these arguments are selected by default: `-IDEP`.
 
-
-#### Extra Arguments for option `-I`
-
-| Option | Description |
-|--------|-------------|
-| `-C`   | Extract Centreon configuration database only. Works with `-I`. |
-| `-i`   | Ignore perfdata extraction from monitoring server. |
-| `-o`   | Extract only perfdata from monitoring server. |
-
-
 #### Common Options for `-rIDEP`
 
 | Option | Description |
@@ -71,6 +59,17 @@ This script acts in 4 steps:
 | `-p`   | Do not empty statistic tables; delete only entries for the processed period. Not applicable to raw data tables. |
 
 > **Note**: If no start or end date is provided, the script calculates them automatically using the retention parameters from the interface under **General Option > Data retention Parameter**.
+
+
+#### Extra Arguments for option `-I` (import step)
+
+| Option | Description |
+|--------|-------------|
+| `-C`   | Extract Centreon configuration database only. Works with `-I`. |
+| `-i`   | Ignore perfdata extraction from monitoring server. |
+| `-o`   | Extract only perfdata from monitoring server. |
+
+
 
 
 ## Start to work on MBI 
@@ -160,9 +159,9 @@ nohup /usr/share/centreon-bi/bin/centreonBIETL -rIiDEP -s 2025-07-01 -e 2025-08-
 > Use this combination of options when you want to **rebuild data for a specific period** without erasing previously calculated metrics.
 
 
-## Debug on MBI
+## Troubleshooting 
 
-### Troubleshooting
+### Context
 
 During daily compute, you can encounter severals errors:
 - database errors (mysql crashed table, disk full)
@@ -175,10 +174,15 @@ When erros occurs, you may watch plugin's informations (normally setup before in
 /usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
 ```
 
-> **Note**: In normal situation, you have to see OK return like "ETL OK - Database is up to date".
+```shell
+[Table mod_bam_reporting, last entry: 2025-07-01 00:00:00] [Table mod_bam_reporting_ba_events, last entry: 2025-07-01 00:00:00] [Table hoststateevents, last entry: 2025-07-01 00:00:00]
+[Table servicestateevents, last entry: 2025-07-01 00:00:00] [Table mod_bi_hoststateevents, last entry: 2025-07-01 00:00:00]
+[Table mod_bi_servicestateevents, last entry: 2025-07-01 00:00:00] [Table mod_bi_hostavailability, last entry: 2025-07-01 00:00:00]
+[Table mod_bi_serviceavailability, last entry: 2025-07-01 00:00:00] [Table data_bin, last entry: 2025-08-01 00:00:00] [Table mod_bi_metricdailyvalue, last entry: 2025-08-01 00:00:00]
+[Table mod_bi_metrichourlyvalue, last entry: 2025-08-01 23:00:00]
+```
 
-
-In this example below, you can see different missed table data as: 
+Severals tables can be empty on differents periods, it can create some gaps in your reports. 
 - mod_bam_reporting
 - hoststateevents
 - mod_bi_hoststateevents
@@ -187,36 +191,24 @@ In this example below, you can see different missed table data as:
 - ...
 
 
-```shell
-[Table mod_bam_reporting, last entry: 2025-07-01 00:00:00] [Table mod_bi_ba_incidents, last entry: 2025-07-01 00:00:00] [Table hoststateevents, last entry: 2025-07-01 00:00:00]
-[Table servicestateevents, last entry: 2025-07-01 00:00:00] [Table mod_bi_hoststateevents, last entry: 2025-07-01 00:00:00]
-[Table mod_bi_servicestateevents, last entry: 2025-07-01 00:00:00] [Table mod_bi_hostavailability, last entry: 2025-07-01 00:00:00]
-[Table mod_bi_serviceavailability, last entry: 2025-07-01 00:00:00] [Table data_bin, last entry: 2025-08-01 00:00:00] [Table mod_bi_metricdailyvalue, last entry: 2025-08-01 00:00:00]
-[Table mod_bi_metrichourlyvalue, last entry: 2025-08-01 23:00:00]
-```
+> **Note**: In normal situation, you have to see OK return like "ETL OK - Database is up to date".
+
 
 ### Root cause issues
 
 
 | Visible Tables                                                   | Meaning                                                                      | Action to Take                                 |
 |------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------|
-| Only `mod_bi` tables                                             | Issue with **aggregated data**, not with Centreon raw data.                  | **Skip** the "Import Missing Data" section.    |
-| `hoststateevents`, `servicestateevents`,<br/>`mod_bam_reporting*`, `data_bin` | Problem with **raw data** imported from Centreon.                   | Investigate and fix the issue with **raw data**.|
-
-
+| `hoststateevents`, `servicestateevents`,<br>`mod_bam_reporting*`, `data_bin` | Problem with **raw data** imported from Centreon.                            | Investigate and fix the issue with **raw data**. Apply the import script to import missing datas. |
+| `mod_bi_servicemetrics`,`mod_bi_hosts`, `mod_bi_services`,  `mod_bi_hostgroups` tables                                             | Issue with **dimensions data**.                 | Apply the dimensions builder script.    |
+| `mod_bi_*availability`,`mod_bi_metric*` and all others `mod_bi*` tables                                             | Issue with **aggregated data**, not with Centreon raw data.                  | Apply the event or performance aggregation script    |
 
 
 ### How to rebuild missing reporting data
 
-<!-- Take an example: your mbi server goes down from July 21 at 2AM to July 27 at 10 AM, you have to recompute missing data from day 20 to day 26. 
+#### Importing and rebuilding missing data 
 
-You can launch this command to included only desired period with "-s" and "-e" options to aggregate datas, keeping the other tables intact thanks to "-p" options. -->
-
-<!-- ```shell
-/usr/share/centreon-bi/bin/centreonBIETL -rIDEP -s 2025-07-20 -e 2025-07-27 -p 
-``` -->
-
-In this case, you will have to use scripts included in the ETL:
+In this case, you will have to apply scripts used by the ETL:
 
 - /usr/share/centreon-bi/etl/importData.pl
 - /usr/share/centreon-bi/etl/dimensionsBuilder.pl
@@ -224,14 +216,18 @@ In this case, you will have to use scripts included in the ETL:
 - /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl
 
 
-#### Importing and rebuilding missing data 
+> **Note**: 
+> For each ETL part, you will apply specific period to get or compute datas
+> - "date_start" should be replaced according to the data you want to retrieve, based on retention period or starting point of missing data.
+> - "date_end" most of the time corresponds to the "today" date
+
 
 | Step | Description | Command | Execution Time |
 |------|-------------|---------|----------------|
-| **1. Import event and availability data (excluding performance data)** | Import data without performance data (`data_bin`) from a specific date according to the *Availability retention period* defined in *Centreon MBI > Generation Option > Data Retention Parameters*. | `nohup /usr/share/centreon-bi/etl/importData.pl -r -s $date_start$ -e $date_end$ --ignore-databin > /var/log/centreon-bi/rebuild_importDataEvents.log &` | **Fast** (minutes) |
+| **1. Import event and availability data (excluding performance data)** | Import data without performance data (`data_bin`) from a specific date. (visible next to `mod_bam_reporting`, `hoststateevents`,`servicestateevents` tables via plugin). | `nohup /usr/share/centreon-bi/etl/importData.pl -r -s $date_start$ -e $date_end$ --ignore-databin > /var/log/centreon-bi/rebuild_importDataEvents.log &` | **Fast** (minutes) |
 | **2. Import performance data (`data_bin`)** | Import only `data_bin` data starting from the last available date in the database (visible next to `data_bin` table via plugin). | `nohup /usr/share/centreon-bi/etl/importData.pl -r --no-purge --databin-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_importDataBin.log &` | **Fast** (minutes), depending on number of days imported |
 | **3. Update reporting dimensions** | Updates configuration dimensions. Using `-d` preserves history of configuration changes. Avoid `-r` to prevent needing to rebuild all stats. | `nohup /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d > /var/log/centreon-bi/rebuild_dimensions.log &` | **Fast** (seconds to minutes) |
-| **4. Rebuild events and availability** | Rebuild events based on the retention period defined in *Centreon MBI > Generation Option > Data Retention Parameters*. | `nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --events-only > /var/log/centreon-bi/rebuild_events.log &` | Varies: **several hours** (rarely more than 24h). Contact support if exceeded. |
+| **4. Rebuild events tables** | Rebuild events based on the retention period defined in *Centreon MBI > Generation Option > Data Retention Parameters*. | `nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --events-only > /var/log/centreon-bi/rebuild_events.log &` | **Few minutes to several hours**. (rarely more than 24h).  |
 | **5. Rebuild availability tables** | Rebuild availability stats starting from the last known data (check `mod_bi_hostavailability` and `mod_bi_serviceavailability` dates via plugin). | `nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --no-purge --availability-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_availability.log &` | **Few minutes to hours**, depending on rebuild duration |
 | **6. Rebuild performance statistics** | Rebuild performance stats based on earliest date in `mod_bi_metrichourlyvalue` and `mod_bi_metricdailyvalue` tables (as shown by plugin). | `nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --no-purge -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_perfData.log &` | **Few minutes to several hours**. Longer if rebuilding more days than hourly retention allows. |
 
