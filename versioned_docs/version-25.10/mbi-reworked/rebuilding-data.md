@@ -206,20 +206,28 @@ Severals tables can be empty on differents periods, it can create some gaps in y
 
 ### How to rebuild missing reporting data
 
-#### Importing and rebuilding missing data 
+This is the **official, approved, and most efficient method** to rebuild missing data in Centreon MBI. It follows the standard ETL structure and ensures consistent and complete synchronization of reporting data.
 
-In this case, you will have to apply scripts used by the ETL:
+You will manually run the following core ETL scripts:
 
-- /usr/share/centreon-bi/etl/importData.pl
-- /usr/share/centreon-bi/etl/dimensionsBuilder.pl
-- /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl
-- /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl
+1. `/usr/share/centreon-bi/etl/importData.pl`  
+   *Imports raw data (configurations, events, metrics, BAM) from the Centreon central server.*
 
+2. `/usr/share/centreon-bi/etl/dimensionsBuilder.pl`  
+   *Rebuilds configuration dimensions: hosts, services, categories, etc.*
 
-> **Note**: 
-> For each ETL part, you will apply specific period to get or compute datas
-> - "date_start" should be replaced according to the data you want to retrieve, based on retention period or starting point of missing data.
-> - "date_end" most of the time corresponds to the "today" date
+3. `/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`  
+   *Recomputes host and service event statistics, including availability.*
+
+4. `/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`  
+   *Recalculates performance statistics (perfdata), including centile metrics if configured.*
+ 
+> **Note:**  
+> For each script, a **time period can be specified** using the `-s` (start date) and `-e` (end date) options:
+> 
+> - `date_start`: Define this based on the **retention period** or the **first day of missing data**.  
+> - `date_end`: Typically set to **today’s date**, unless you want to limit the rebuild period.
+
 
 
 | Step | Description | Command | Execution Time |
@@ -231,3 +239,59 @@ In this case, you will have to apply scripts used by the ETL:
 | **5. Rebuild availability tables** | Rebuild availability stats starting from the last known data (check `mod_bi_hostavailability` and `mod_bi_serviceavailability` dates via plugin). | `nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --no-purge --availability-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_availability.log &` | **Few minutes to hours**, depending on rebuild duration |
 | **6. Rebuild performance statistics** | Rebuild performance stats based on earliest date in `mod_bi_metrichourlyvalue` and `mod_bi_metricdailyvalue` tables (as shown by plugin). | `nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --no-purge -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_perfData.log &` | **Few minutes to several hours**. Longer if rebuilding more days than hourly retention allows. |
 
+#### Why Use This Method?
+
+- **Standard & supported** by Centreon.
+- **Efficient** and works across all types of data (events, availability, performance).
+- **Minimal risk** and restores full integrity to reporting data.
+
+
+### How to rebuild missing BAM statistics
+
+If BAM statistics are not up to date, follow this procedure:
+
+On the central server, execute the following command to rebuild BAM statistics:
+```shell
+/usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
+``` 
+
+Then, re-import the updated data on the reporting server:
+```shell
+/usr/share/centreon-bi/etl/importData.pl -r --bam-only
+``` 
+
+
+
+### How to rebuild Centile statistics
+
+To use the **"Monthly Network Percentile"** report, you must activate centile calculation and storage. Go to:  **Reporting > Business Intelligence > General Options > ETL Tab**  , then configure the **"Centile parameters"** subsection as described below to define the appropriate centile/time period combination(s).
+
+#### Required Configuration
+
+| Parameter                                      | Value                                                       |
+|-----------------------------------------------|-------------------------------------------------------------|
+| **Calculate centile aggregation**              | Monthly (minimum)                                           |
+| **Select service categories to aggregate on**  | Select at least one traffic service category                |
+| **Set first day of the week**                 | Monday (default)                                            |
+| **Create centile-time period combination(s)**  | Create at least one, e.g., `99.0000 - 24x7`                 |
+
+Only service categories selected in the **"Reporting perimeter selection"** will appear in the list of service categories available for centile statistics.
+
+You can create as many **centile–time period combinations** as needed. However, note that increasing the number of combinations may **increase calculation time**. It is recommended to start with a **small number** of combinations to evaluate performance impact.
+
+#### Import configuration data on the reporting server
+
+```shell
+/usr/share/centreon-bi/bin/centreonBIETL -rIC
+``` 
+
+#### Update centile configuration in the data warehouse
+
+```shell
+/usr/share/centreon-bi/etl/dimensionsBuilder.pl -d
+``` 
+
+#### Calculate Centile Statistics Only
+```shell
+/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --centile-only
+``` 
