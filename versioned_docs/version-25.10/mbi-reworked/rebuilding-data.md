@@ -3,26 +3,74 @@ id: rebuilding-data
 title: Rebuilding MBI data
 ---
 
-The purpose of this documentation is to provide a comprehensive framework in the event that a customer wishes to reset their MBI database to a healthy start. This type of action is requested when you:
+## Rebuild process
+
+The purpose of this article is to provide a comprehensive way for a customer to reset their MBI database to a healthy start or rebuid some data gaps. This type of action is needed when you:
 - Start to work on MBI: when you start working on MBI, you can make some changes on Resources or ACL configurations to create desired context (dimensions). When all is done, you have to launch rebuild process to make change, compute and store data into datawarehouse.
 - Modify configuration from Central: in the case you do lot of transformation in your resource configuration and you dont want keep old configuration in MBI side, you can launch complete rebuild to delete all previous configuration and make right new aggregated data 
+- Modify configuration and keep old aggregated data: 
 - Debug on MBI: Depending what's happened, sometimes it will be necessary to launch complete or partial rebuild to address data gaps. This may be due to one or more daily treatments that failed to complete.
 
-The script used is the following: /usr/share/centreon-bi/bin/centreonBIETL
 
-There are 2 main options: 
--rebuild (-r)
--daily compute (-d)
 
-We will focus on "-r" options during this documentation
+### ELT Processing Options
 
-How it's work?
+The script used is the following, developped in perl: 
 
-This script act in 4 steps:
-1/Delete all existing data from the reporting server and import configuration and raw monitoring data from the monitoring server to the reporting server (depending on retention settings).
-2/Populate the tables containing host and service dimensions.
-3/Populate the tables containing host and service availability statistics.
-4/Populate the tables containing host and service performance and capacity statistics.
+```shell
+/usr/share/centreon-bi/bin/centreonBIETL
+```
+### How it's work?
+
+This script acts in 4 steps:
+1. **import configuration and raw monitoring data** from the monitoring server to the reporting server depending on retention settings or rebuild options. (**Delete existing data** from the reporting server by default)
+2. **Populate dimension tables** containing host,service,business_activity,metrics and other informations as timeperiod, acl, etc...
+3. **Populate availability statistics tables** for hosts and services.
+4. **Populate performance and capacity statistics tables** for hosts and services based on metrics.
+
+### Execution Options
+
+| Option | Description |
+|--------|-------------|
+| `-c`   | Create the reporting database model. |
+| `-d`   | Daily execution to calculate statistics on yesterday. |
+| `-r`   | Rebuild mode to calculate statistics on a historical period. |
+
+
+> **Note**: We will focus on "-r" options during this documentation
+
+
+
+#### Arguments for option `-r`
+
+| Option | Description |
+|--------|-------------|
+| `-I`   | Extract data from the monitoring server. |
+| `-D`   | Calculate dimensions. |
+| `-E`   | Calculate event and availability statistics. |
+| `-P`   | Calculate perfdata statistics. |
+
+> **Note**: If none of the following is specified (only "-r" option), these arguments are selected by default: `-IDEP`.
+
+
+#### Extra Arguments for option `-I`
+
+| Option | Description |
+|--------|-------------|
+| `-C`   | Extract Centreon configuration database only. Works with `-I`. |
+| `-i`   | Ignore perfdata extraction from monitoring server. |
+| `-o`   | Extract only perfdata from monitoring server. |
+
+
+#### Common Options for `-rIDEP`
+
+| Option | Description |
+|--------|-------------|
+| `-s`   | Start date in format `YYYY-MM-DD`. Defaults to data retention period from Centreon MBI configuration. |
+| `-e`   | End date in format `YYYY-MM-DD`. Defaults to data retention period from Centreon MBI configuration. |
+| `-p`   | Do not empty statistic tables; delete only entries for the processed period. Not applicable to raw data tables. |
+
+> **Note**: If no start or end date is provided, the script calculates them automatically using the retention parameters from the interface under **General Option > Data retention Parameter**.
 
 
 ## Start to work on MBI 
@@ -32,7 +80,8 @@ In more, be sure than gorgoned process works fine or restart it if needed
 
 ```shell
 systemctl status gorgoned
-systemctl restart gorgoned
+
+systemctl restart gorgoned 
 ```
 
 Last thing before reconstruction
@@ -81,7 +130,7 @@ Go to the log file /var/log/centreon-bi//centreonBIETL.log, you will normally se
 
 ## Modify configuration from Central
 
-For some reasons, you modify Resource confiruation from Central and you want update aggregated datas into your datawarehouse, you can import only configuration without raw datas to avoid this long time step.
+For some reasons, you modify some resource configuration from Central (ex: hostgroup) and you want update datas into your datawarehouse, you can import only the configuration without raw datas to avoid this long time step and rebuild with your new resource configuration.
 
 
 ```shell
@@ -92,9 +141,24 @@ The "-rIiDEP" option means that you will exclude the import of raw data but impo
 
 ## Debug on MBI
 
-During daily aggregation, you can encounter erros because some database connection can failed or compute steps can timeout for differents reasons.
+During daily compute, you can encounter severals errors:
+- database errors (mysql crashed table, disk full)
+- database connection errors (mysql timeout, dns issues)
+- computing errors (server down or others issues)
 
-Take an example: your mbi server goes down from July 21 at 2AM to July 27 at 10 AM, you have to recompute missing data from day 20 to day 26. You can launch this command to specify desired period to aggregate datas.
+When erros occurs, you may watch plugin's informations (normally setup before in your Monitoring Interface) or execute on MBI servers the following command:
+
+```shell
+/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
+```
+
+
+
+### Recover old data 
+
+Take an example: your mbi server goes down from July 21 at 2AM to July 27 at 10 AM, you have to recompute missing data from day 20 to day 26. 
+
+You can launch this command to included only desired period with "-s" and "-e" options to aggregate datas, keeping the other tables intact thanks to "-p" options.
 
 ```shell
 /usr/share/centreon-bi/bin/centreonBIETL -rIDEP -s 2025-07-20 -e 2025-07-27 -p 
