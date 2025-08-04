@@ -199,7 +199,7 @@ Severals tables can be empty on differents periods, it can create some gaps in y
 
 | Visible Tables                                                   | Meaning                                                                      | Action to Take                                 |
 |------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------|
-| `hoststateevents`, `servicestateevents`,<br>`mod_bam_reporting*`, `data_bin` | Problem with **raw data** imported from Centreon.                            | Investigate and fix the issue with **raw data**. Apply the import script to import missing datas. |
+| `hoststateevents`, `servicestateevents`,<br/>`mod_bam_reporting*`, `data_bin` | Problem with **raw data** imported from Centreon.                            | Investigate and fix the issue with **raw data**. Apply the import script to import missing datas. |
 | `mod_bi_servicemetrics`,`mod_bi_hosts`, `mod_bi_services`,  `mod_bi_hostgroups` tables                                             | Issue with **dimensions data**.                 | Apply the dimensions builder script.    |
 | `mod_bi_*availability`,`mod_bi_metric*` and all others `mod_bi*` tables                                             | Issue with **aggregated data**, not with Centreon raw data.                  | Apply the event or performance aggregation script    |
 
