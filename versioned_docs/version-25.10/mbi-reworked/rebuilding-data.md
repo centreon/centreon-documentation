@@ -19,7 +19,8 @@ The script used is the following, developped in perl:
 ```shell
 /usr/share/centreon-bi/bin/centreonBIETL -r 
 ```
-<<<<<<< HEAD
+
+HEAD
 
 ### How it's work?
 
