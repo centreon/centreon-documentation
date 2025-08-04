@@ -24,6 +24,43 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 24.04.16
+
+Release date: `August 5, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Resource Status] Optimized legend rendering in graphs.
+- [Authentication] Improved SAML configuration by adding a "Requested Authentication Context" parameter.
+- [Resource Status] It is now possible to avoid performance issues when using free text search, by using a new option named "Free text search behavior" in the Administration > Parameters > Centreon UI menu.
+- [Resource Status] It is now possible to avoid performance issues when using free text search, by using a new option named "Free text search behavior" in the Administration > Parameters > Centreon UI menu.
+
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Metaservices] Fixed several issues occuring when using MySQL 8.
+- [API] Fixed an issue on service template listing endpoint.
+- [Administration] Fixed an issue on user groups and templates when importing LDAP with a non admin user.
+- [Language] Fixed issue preventing modern pages from being translated when choosing "detection by browser" as a language.
+- [Resource Status] The correct pictogram is now used when displaying a parent resource in downtime.
+- [Configuration] Fixed an issue where the Mass Change action on Linked Service Templates caused a 500 Internal Server Error.
+- [Compatibility] Fixed issue preventing Business Activities from being displayed on remote servers.
+- [Configuration] Fixed an issue where adding/editing a service failed when a command was configured on a template that was not the direct parent of the service.
+- [Upgrade] Fixed migration script for version 23.10.8.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Fixed vulnerabilities on several pages.
+
+</details>
+
 ### 24.04.15
 
 Release date: `June 20, 2025`
@@ -886,6 +923,17 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon High Availability
+
+### 24.04.1
+
+Release date: `August 5, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [HA] Fixed an issue on cron for outdated token removal.
+
+</details>
 
 ### 24.04.0
 
