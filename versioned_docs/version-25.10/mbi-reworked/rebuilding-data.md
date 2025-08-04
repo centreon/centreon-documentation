@@ -198,10 +198,10 @@ In this example below, you can see different missed table data as:
 ### Root cause issues
 
 
-| Visible Tables                                                   | Meaning                                                                      | Action to Take                                |
+| Visible Tables                                                   | Meaning                                                                      | Action to Take                                 |
 |------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------|
 | Only `mod_bi` tables                                             | Issue with **aggregated data**, not with Centreon raw data.                  | **Skip** the "Import Missing Data" section.    |
-| `hoststateevents`, `servicestateevents`,<br>`mod_bam_reporting*`, `data_bin` | Problem with **raw data** imported from Centreon.                            | Investigate and fix the issue with **raw data**. |
+| `hoststateevents`, `servicestateevents`,<br/>`mod_bam_reporting*`, `data_bin` | Problem with **raw data** imported from Centreon.                   | Investigate and fix the issue with **raw data**.|
 
 
 
