@@ -24,12 +24,11 @@ Follow the steps below to create and configure a job:
 
 ### Job Configuration
 
-3. Enter a **name** for the job. This name will also be used for the generated report.  
-4. Select a **job design** from the drop-down menu. Refer to the [available reports catalog](available-reports/available-reports.md) to choose an appropriate design.  
-5. Select the **language** (French or English).  
-   *Ignore the spinning arrows icon next to the language field—it has no effect.*  
+3. Enter a **name** for the job. This will also be the name of the generated report.  
+4. Select a **job design** from the drop-down menu. Refer to our [available reports catalog](available-reports/available-reports.md) to choose an appropriate design.  
+5. Select the **language** (French or English). Ignore the spinning arrows icon next to the language field, it is obsolete and has no effect.
 6. Choose the **output formats** for the report.  
-   > **Note:** Not all designs support all formats. Refer to the [available reports catalog](available-reports/available-reports.md) to avoid errors.  
+   > Not all designs support all formats. Refer to the [available reports catalog](available-reports/available-reports.md) to avoid errors.  
 7. Select the appropriate [**job groups**](concepts.md#job-groups) that determine who can access the report.
 
 ### Scheduling Parameters
@@ -37,13 +36,13 @@ Follow the steps below to create and configure a job:
 8. Choose the **execution type**:
    - For **immediate jobs**, specify the **reporting period**.
    - For **scheduled jobs**, choose between:
-     - **Regular job**: Executes at defined intervals (daily, weekly, etc.) and uses its own interval as the reporting period.
+     - **Regular job**: Executes at defined intervals (daily, weekly, etc.) and uses its own interval as the reporting period i.e. weekly reports contain information about the past week.
      - **One shot job**: Executes once at the scheduled time. Set the **reporting period** manually.
 9. Set the **State**:
    - **Schedule** (default): Job runs at the intended time.
-   - **Stop**: Puts the job on hold.
+   - **Stop**: Puts the job on hold, preventing it from running.
    - **Finished**: Select **Schedule** and save to run again.
-   - **Failed**: Check **Schedule** after resolving the issue to rerun.
+   - **Failed**: Checked after a job was canceled because of an error, select **Schedule** after resolving the issue to rerun.
 
 
 ## Step 3: Define Report Parameters (Report Parameters Tab)
