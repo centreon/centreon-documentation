@@ -29,7 +29,7 @@ Release date: `August 4, 2025`
 - [Dashboards] When displaying an existing public playlist containing a MAP widget with no map selected, a message is now displayed indicating that one must first be selected for it to be displayed.
 - [Editor] Fixed an issue preventing groups of items to be duplicated.
 - [Editor] It is now possible to use sub-groups of items in a map.
-- [Playlists] The MAP widget is now operational when displayed in the public Playlists of Dashboards.
+- [Playlists] The MAP widget is now operational when displayed in the public playlists of Dashboards.
 - [Server] Modified SQL user rights to grant only necessary ones.
 
 </details>
@@ -38,22 +38,20 @@ Release date: `August 4, 2025`
   <summary>Bug fixes</summary>
 
 - [API] A new updated version of the API documentation is now available.
-- [Editor] Avoided possibility to have a rectangle shape with width or height of 0 pixel, which caused error when saving a map.
+- [Editor] Rectangle shapes can no longer have a width or height of 0 pixel, which caused errors when saving a map.
 - [Editor] Fixed an issue that caused links to be positioned differently in the editor when migrating from MAP Legacy to MAP.
 - [Editor] Line break management has been added to the extended Output widget when parsing BBDOv3 packets.
 - [Installation] Fixed my.cnf path for Debian.
 - [Map list] Fixed pagination.
 - [Migration] Added multiple information logs when migrating from MAP Legacy.
-- [Migration] Added multiple information logs when migrating from MAP Legacy.
-- [Migration] Added multiple information logs when migrating from MAP Legacy.
-- [Server] Fixed access right issue with the media directory, preventing images from being copied on a remote server.
-- [Server] Fixed an issue that may prevent user from duplicating a map.
-- [Server] Fixed issue causing BA to disappear after a BAM reinstallation.
-- [Server] Fixed issue preventing resources from being displayed when configuration contains a host without any service associated to it.
+- [Server] Fixed access right issue with the media directory, preventing images from being copied to a remote server.
+- [Server] Fixed an issue that sometimes prevented users from duplicating a map.
+- [Server] Fixed an issue causing BAs to disappear after a BAM reinstallation.
+- [Server] Fixed an issue preventing resources from being displayed when the configuration contained a host with no service associated to it.
 - [Viewer] Business Activities - Fixed visualisation of status and state of KPIs.
 - [Viewer] Fixed an issue where links to triangle shapes were shifted in view mode.
-- [Viewer] Fixed issue preventing data from being displayed when hovering on a meta-service.
-- Fixed naming issue when modifying resources to be displayed.
+- [Viewer] Fixed an issue preventing data from being displayed when hovering over a metaservice.
+- Fixed a naming issue that occurred when modifying resources to be displayed.
 
 </details>
 
@@ -673,7 +671,7 @@ Release date: `August 4, 2025`
 <details>
   <summary>Bug fixes</summary>
 
-- [Playlists] Status Grid widget is now filtering correctly the services to be displayed.
+- [Playlists] The Status Grid widget is now filtering correctly the services to be displayed.
 
 </details>
 
