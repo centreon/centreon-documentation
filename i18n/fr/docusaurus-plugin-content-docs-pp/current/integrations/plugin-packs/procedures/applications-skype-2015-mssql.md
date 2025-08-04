@@ -105,7 +105,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | recv-frame       | frames/s  |
 | inbound-frame    | %         |
 | outbound-frame   | %         |
-| stream-count     | streams/s |
+| stream-count     | streams/s  |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 

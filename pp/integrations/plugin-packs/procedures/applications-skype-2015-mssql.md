@@ -49,7 +49,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | spoiled-tile-prct-total-avg     | %         |
 | rdp-tile-processing-latency-avg | ms        |
 | relative-one-way-average        | ms        |
-| stream-count                    | streams/s |
+| stream-count                    | streams/s  |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
