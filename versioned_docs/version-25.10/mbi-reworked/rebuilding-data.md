@@ -20,6 +20,7 @@ The script used is the following, developped in perl:
 ```shell
 /usr/share/centreon-bi/bin/centreonBIETL
 ```
+
 ### How it's work?
 
 This script acts in 4 steps:

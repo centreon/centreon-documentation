@@ -5,9 +5,15 @@ title: MBI Concepts
 
 MBI is an extension of Centreon with its own vocabulary and concepts. This section breaks down the key concepts to understanding Centreon MBI. Note that this section expects you to be familiar with the [regular Centreon vocabulary](https://docs.centreon.com/docs/resources/glossary/).
 
+## Data retention
+
+By default, MBI retains the data for a limited amount of time. The amount of time depends on the type of data. This is configured in the **Reporting > Monitoring Business Intelligence >  General options, Data retention options** tab. Data retention can also be completely disabled from there.
+
 ## ETL
 
 The ETL obtains the raw data from the central server and transforms it to a format readable by MBI, it then stores it in the database where CBIS will retrieve it for generating the reports.
+
+The MBI ETL is static, it does not automatically detect changes to its configurations outside of its routine check the following morning. For changes to be taken into account right away, [launch a rebuild](rebuilding-data.md).
 
 ## Dimension
 
