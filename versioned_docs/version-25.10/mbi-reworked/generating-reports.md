@@ -47,7 +47,7 @@ Follow the steps below to create and configure a job:
 
 ## Step 3: Define Report Parameters (Report Parameters Tab)
 
-> This tab will be empty if no report design was selected in the [configuration tab](#configuration-tab).
+> This tab will be empty if no report design was selected in the [configuration tab](#job-configuration).
 
 10. Fill all fields based on the selected report design.  
     - Fields vary depending on the design.  
