@@ -36,18 +36,17 @@ Release date: `August 5, 2025`
   <summary>Bug fixes</summary>
 
 - [API] A new updated version of the API documentation is now available.
-- [Editor] Avoided possibility to have a rectangle shape with width or height of 0 pixel, which caused error when saving a map.
+- [Editor] Rectangle shapes can no longer have a width or height of 0 pixel, which caused errors when saving a map.
 - [Editor] Line break management has been added to the extended Output widget when parsing BBDOv3 packets.
 - [Installation] Fixed my.cnf path for Debian.
 - [Map list] Fixed pagination.
 - [Migration] Added multiple information logs when migrating from MAP Legacy.
-- [Migration] Added multiple information logs when migrating from MAP Legacy.
-- [Server] Fixed access right issue with the media directory, preventing images from being copied on a remote server.
-- [Server] Fixed an issue preventing resources from being displayed when configuration contained a host without any service associated to it.
-- [Server] Fixed an issue that may prevent user from duplicating a map.
-- [Server] Fixed issue causing BA to disappear after a BAM reinstallation.
+- [Server] Fixed access right issue with the media directory, preventing images from being copied to a remote server.
+- [Server] Fixed an issue preventing resources from being displayed when the configuration contained a host with no service associated to it.
+- [Server] Fixed an issue that sometimes prevented users from duplicating a map.
+- [Server] Fixed an issue causing BAs to disappear after a BAM reinstallation.
 - [Viewer] Fixed an issue where links to triangle shapes were shifted in view mode.
-- Fixed naming issue when modifying resources to be displayed.
+- Fixed a naming issue that occurred when modifying resources to be displayed.
 
 </details>
 
@@ -514,7 +513,7 @@ Release date: `August 5, 2025`
 - [Packaging] Enforced permissions on centreon-bi backup cron.
 - [Publication Rules] Fixed several issues and brought some enhancements and clarifications when sending a test email.
 - [Publication Rules] Fixed SFTP test.
-- Fixed issue preventing installation from being completed when database tables already existed.
+- Fixed an issue preventing installation from being completed when database tables already existed.
 - Increased column size for MTBF, MTRS and MTBSI columns.
 
 </details>
