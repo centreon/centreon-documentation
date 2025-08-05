@@ -5,7 +5,7 @@ title: Rebuilding MBI data
 
 ## Rebuild process
 
-The purpose of this article is to provide a comprehensive way to reset their MBI database to a healthy start or rebuid some data gaps. This type of action is needed when you:
+This procedure guides you on resetting the MBI database to a healthy start or rebuild data gaps. This type of action is needed when you:
 - Start to work on MBI: when you start working on MBI, you can make some changes on Resources or ACL configurations to create desired context (dimensions). When all is done, you have to launch rebuild process to make change, compute and store data into datawarehouse.
 - Apply a new configuration to historical data: in the case you do lot of transformation in your resource configuration and you dont want keep old configuration in MBI side, you can launch complete rebuild to delete all previous configuration and make right new aggregated data. In other hand, you can also modify configuration, keep old aggregated data and rebuild on specific period only. 
 - Troubleshoot on MBI: Depending what's happened, sometimes it will be necessary to launch complete or partial rebuild to address data gaps. This may be due to one or more daily treatments that failed to complete.
@@ -15,8 +15,6 @@ The purpose of this article is to provide a comprehensive way to reset their MBI
 ### ELT Processing Options
 
 Centreon MBI uses a Perl-based script to orchestrate its ETL (Extract, Transform, Load) operations.
-
-
 
 The main script responsible for triggering these processes is:
 
