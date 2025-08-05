@@ -163,6 +163,7 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
 
 ### Barre de recherche
 
+#### Recherche texte libre
 Si vous entrez du texte dans la barre de recherche, la recherche peut se faire sur tous les champs suivants :
 
 - Nom de l'hôte
