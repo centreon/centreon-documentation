@@ -12,19 +12,20 @@ This procedure guides you on resetting the MBI database to a healthy start or re
 
 
 
-### ELT Processing Options
+### ETL Process 
 
 Centreon MBI uses a Perl-based script to orchestrate its ETL (Extract, Transform, Load) operations.
+
 
 The main script responsible for triggering these processes is:
 
 ```shell
-/usr/share/centreon-bi/bin/centreonBIETL -r 
+/usr/share/centreon-bi/bin/centreonBIETL (-c|-d|-r) 
 ```
 
 This script supports several execution options to perform tasks such as model creation, daily data processing, or historical data rebuild.
 
-### Execution Options
+#### Execution Options
 
 | Option | Description |
 |--------|-------------|
@@ -33,16 +34,7 @@ This script supports several execution options to perform tasks such as model cr
 | `-r`   | Rebuild mode to calculate statistics on a historical period. |
 
 
-> **Note**: We will focus on "-r" options during this documentation
-
-### How does it work?
-
-This script acts in 4 steps:
-1. **import configuration and raw monitoring data** from the monitoring server to the reporting server depending on retention settings or rebuild options. (**Delete existing data** from the reporting server by default)
-2. **Populate dimension tables** containing host,service,business_activity,metrics and other informations as timeperiod, acl, etc...
-3. **Populate availability statistics tables** for hosts and services.
-4. **Populate performance and capacity statistics tables** for hosts and services based on metrics.
-
+>**Note**: This documentation focuses specifically on the `-r` (rebuild) option and its usage.
 
 #### Arguments for option `-r`
 
@@ -55,7 +47,7 @@ This script acts in 4 steps:
 
 > **Note**: If none of the following is specified (only "-r" option), these arguments are selected by default: `-IDEP`.
 
-#### Common Options for `-rIDEP`
+#### Extra Options for `-rIDEP`
 
 | Option | Description |
 |--------|-------------|
@@ -66,7 +58,7 @@ This script acts in 4 steps:
 > **Note**: If no start or end date is provided, the script calculates them automatically using the retention parameters from the interface under **General Option > Data retention Parameter**.
 
 
-#### Extra Arguments for option `-I` (import step)
+#### Extra Arguments for option `-I` 
 
 | Option | Description |
 |--------|-------------|
@@ -75,6 +67,34 @@ This script acts in 4 steps:
 | `-o`   | Extract only perfdata from monitoring server. |
 
 
+### How it's work?
+
+This ETL "centreonBIETL" acts as a wrapper of 4 scripts:
+<!-- 1. **import configuration and raw monitoring data** from the monitoring server to the reporting server depending on retention settings or rebuild options. (**Delete existing data** from the reporting server by default)
+2. **Populate dimension tables** containing host,service,business_activity,metrics and other informations as timeperiod, acl, etc...
+3. **Populate availability statistics tables** for hosts and services.
+4. **Populate performance and capacity statistics tables** for hosts and services based on metrics. -->
+
+
+1. `/usr/share/centreon-bi/etl/importData.pl`  
+   *Imports raw data (configurations, events, metrics, BAM) from the Centreon central server. depending on retention settings or rebuild options. (**Delete existing data** from the reporting server by default)* 
+
+2. `/usr/share/centreon-bi/etl/dimensionsBuilder.pl`  
+   *Rebuilds configuration dimensions: hosts, services, categories, metrics, etc.*
+
+3. `/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`  
+   *Computes host and service event statistics, including availability.*
+
+4. `/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`  
+   *Calculates performance statistics (perfdata), including centile metrics if configured.*
+ 
+> **Note:**  
+> For each script (except dimensionBuilder.pl), a **time period can be specified** using the `-s` (start date) and `-e` (end date) options:
+> 
+> - `--start`: Define this based on the **retention period** or the **first day of missing data**. 
+> - `--end`: Typically set to **today’s date**, unless you want to limit the rebuild period. 
+> - `--severity`: Adjusts the **logging level**. The default is `info`, but you can set it to `debug` or `error` as needed.  
+> - `--help`: Displays **all options** for the script. Useful for discovering advanced or lesser-known parameters.
 
 
 ## Start to work on MBI 
@@ -133,23 +153,74 @@ Go to the log file /var/log/centreon-bi//centreonBIETL.log, you will normally se
 2025-08-01 13:58:17 - INFO - [SCHEDULER] <<<<<<< end
 ```
 
-## Apply a new configuration to historical data
+## Apply a new configuration to historical statistics
 
-Context: You modify some resources from your Central (ex: hostgroup, service_category) and you want update datas into your datawarehouse. In this case, you dont need to import all raw datas, but only the new configurations tables. You can import only the table configuration with options "-Ii" (Ignore perfdata extraction from monitoring server) to avoid this long time extraction step, build new dimensions and rebuild availability and performance with options: "-DEP".
-
+When implementing Centreon reporting, you may expect to re-execute your statistical calculations a number of times if the Centreon configuration changes. After You've modified some resources from your Central (ex: hostgroup or service category) you want now update datas into your datawarehouse. This procedure does not include the importing of metrics raw data. Make sure all data imported from Centreon is up to date on your reporting server by running the following command:
 
 ```shell
-nohup /usr/share/centreon-bi//bin/centreonBIETL -rIiDEP >> /var/log/centreon-bi//centreonBIETL.log 2>&1 &
+/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
 ```
 
-The "-rIiDEP" option means that you will exclude the import of data_bin table but import the new configuration from hosts, hostgroups, services, servicecategory, etc... for then compute new dimensions, availability and performance aggregation data. All old data will be delete.
+And make sure "ETL OK - Database is up to date" appears OR that the following tables are not listed:
 
-### Keeping old datas
+- data_bin
+- hoststatevents
+- servicestateevents
 
-For some reason, you need to keep old configuration and apply new configuration only for the last month, you can execute this command:
+Now, you can execute the following commands.
+
+Import the latest Centreon configuration
+```shell
+/usr/share/centreon-bi/etl/importData.pl -r --centreon-only
+```
+
+Calculate reporting dimensions
+```shell
+/usr/share/centreon-bi/etl/dimensionsBuilder.pl -r
+```
+
+Aggregate events and availability
+```shell
+nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllEvents.log &
+```
+Aggregate performance data (storage, traffic, etc.)
+```shell
+nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllPerf.log &
+```
+
+if you don't have much data, you can do it also in One-Shot, by using options "-IC" (Extract Centreon configuration database only.) to avoid the long time step, then build new dimensions and rebuild availability and performance thanks to options: "-DEP".
 
 ```shell
-nohup /usr/share/centreon-bi/bin/centreonBIETL -rIiDEP -s 2025-07-01 -e 2025-08-02 -p  >> /var/log/centreon-bi//centreonBIETL.log 2>&1 &
+nohup /usr/share/centreon-bi//bin/centreonBIETL -rICDEP >> /var/log/centreon-bi//centreonBIETL.log 2>&1 &
+```
+
+> **Note**: 
+> - The "-rICDEP" option means that you will extract Centreon configuration database importing only the configuration from hosts, hostgroups, services, servicecategory, etc... 
+> - This procedure deletes all previously calculated data (and links between objects) and recalculates data based on the retention period in the latest Centreon configuration.
+
+
+### Keeping old statistics
+
+If you need to keep old aggregated statistics and apply new configuration only for specific period, you can execute this command:
+
+<!-- ```shell
+nohup /usr/share/centreon-bi/bin/centreonBIETL -rICDEP -s 2025-07-01 -e 2025-08-02 -p  >> /var/log/centreon-bi//centreonBIETL.log 2>&1 &
+``` -->
+
+```shell
+/usr/share/centreon-bi/etl/importData.pl -r --centreon-only -s $date_start$ -e $date_end$ --no-purge
+```
+
+```shell
+/usr/share/centreon-bi/etl/dimensionsBuilder.pl -d
+```
+
+```shell
+nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r  -s $date_start$ -e $date_end$ --no-purge > /var/log/centreon-bi/rebuildAllEvents.log &
+```
+
+```shell
+nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r -s $date_start$ -e $date_end$ --no-purge > /var/log/centreon-bi/rebuildAllPerf.log &
 ```
 
 > **Note**  
@@ -157,9 +228,7 @@ nohup /usr/share/centreon-bi/bin/centreonBIETL -rIiDEP -s 2025-07-01 -e 2025-08-
 > - `-s` sets the **start date** (`YYYY-MM-DD`)  
 > - `-e` sets the **end date** (`YYYY-MM-DD`)  
 >   
-> The `-p` option is used to **preserve existing statistical data** outside the specified date range. Only data within the selected period will be deleted and recalculated.  
->   
-> This option applies **only** to Centreon MBI **statistics tables**—it does **not** impact raw data tables like `data_bin`.  
+> The `--no-purge` option is used to **preserve existing statistical data** outside the specified date range. Only data within the selected period will be deleted and recalculated. This option applies **only** to Centreon MBI **statistics tables**—it does **not** impact raw data tables like `data_bin`.  
 >   
 > Use this combination of options when you want to **rebuild data for a specific period** without erasing previously calculated metrics.
 
@@ -209,17 +278,17 @@ Severals tables can be empty on differents periods, it can create some gaps in y
 | `mod_bi_*availability`,`mod_bi_metric*` and all others `mod_bi*` tables                                             | Issue with **aggregated data**, not with Centreon raw data.                  | Apply the event or performance aggregation script    |
 
 
-### How to rebuild missing reporting data
+### How to rebuild missing statistics
 
 This is the **official, approved, and most efficient method** to rebuild missing data in Centreon MBI. It follows the standard ETL structure and ensures consistent and complete synchronization of reporting data.
 
 You will manually run the following core ETL scripts:
-
+<!-- 
 1. `/usr/share/centreon-bi/etl/importData.pl`  
    *Imports raw data (configurations, events, metrics, BAM) from the Centreon central server.*
 
 2. `/usr/share/centreon-bi/etl/dimensionsBuilder.pl`  
-   *Rebuilds configuration dimensions: hosts, services, categories, etc.*
+   *Rebuilds configuration dimensions: hosts, services, categories, metrics, etc.*
 
 3. `/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`  
    *Recomputes host and service event statistics, including availability.*
@@ -230,9 +299,10 @@ You will manually run the following core ETL scripts:
 > **Note:**  
 > For each script, a **time period can be specified** using the `-s` (start date) and `-e` (end date) options:
 > 
-> - `date_start`: Define this based on the **retention period** or the **first day of missing data**.  
-> - `date_end`: Typically set to **today’s date**, unless you want to limit the rebuild period.
-
+> - `date_start`: Define this based on the **retention period** or the **first day of missing data**.  (Except dimensionBuilder.pl)
+> - `date_end`: Typically set to **today’s date**, unless you want to limit the rebuild period. (Except dimensionBuilder.pl)
+> - `--severity`: Adjusts the **logging level**. The default is `info`, but you can set it to `debug` or `error` as needed.  
+> - `--help`: Displays **all available options** for the script. Useful for discovering advanced or lesser-known parameters. -->
 
 
 | Step | Description | Command | Execution Time |
