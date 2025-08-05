@@ -3,6 +3,176 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## August Xth, 2025
+
+## Centreon Anomaly detection 
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CSS] The Tailwind framework is now used, that shall result in an optimized loading of CSS elements.
+
+  </details>
+
+## Centreon Auto-discovery 
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CSS] The Tailwind framework is now used, that shall result in an optimized loading of CSS elements.
+
+  </details>
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- Disable bash interpolation in discovery command
+
+</details>
+
+## Centreon-it-Edition-extentions
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CSS] The Tailwind framework is now used, that shall result in an optimized loading of CSS elements.
+
+</details>
+
+## Centreon Bam
+
+<details open>
+  <summary>Enhancements</summary>
+
+-  [CSS] The Tailwind framework is now used, that shall result in an optimized loading of CSS elements.
+
+  </details>
+
+## Centreon-Map
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CSS] The Tailwind framework is now used, that shall result in an optimized loading of CSS elements.
+
+  </details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed naming issue when modifying resources to be displayed.
+- [Map list] Fixed pagination.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded crypto-js to version 4.2.0.
+- [Vulnerability] Upgraded axios to version 1.8.4.
+
+</details>
+
+## Centreon MBI 
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CSS] The Tailwind framework is now used, that shall result in an optimized loading of CSS elements.
+
+</details>
+
+## Centreon-Cloud-Extensions
+
+## Centreon Collect
+
+<details open>
+  <summary>Features</summary>
+
+- [CMA] Added a native Files check for Windows & Linux.
+- New function in the lua cache to access hostgroups alias.
+
+</details>
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [configuration] a dedicated whitelist block is now available for Centreon Monitoring Agent.
+- CMA - check timeout default value has been set to 120s, in Agent configuration.
+- Engine 25.05 is able to read configurations files of previous versions. ????
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a segfault on Broker that was occuring when Engine stopped or was restarted, when Engine's version was older than 24.04.
+- Fix centreontrapd configuration file permissions when exporting poller configuration
+
+</details>
+
+## Centreon Monitoring Agent
+
+<details open>
+  <summary>Features</summary>
+
+- [CMA] Added a native Files check for Windows & Linux.
+- [CMA] Added a native Task scheduler check for Windows & Linux.
+
+</details>
+
+## Centreon Gorgone
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fix centreontrapd configuration file permissions when exporting poller configuration
+
+</details>
+
+## Centreon Web
+
+<details open>
+  <summary>Features</summary>
+
+- [Configuration] Added Tokens management in Agent configuration.
+
+</details>
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Configuration] Host groups - Resource access rule is now mandatory.
+- [Configuration] Agent configuration - All certificate fields are now optional, to handle public certificate use case.
+- [Configuration] host_down_disable_service_checks & flapping are now enabled by default on Pollers.
+- [BBDO2 sunset] Added BBDO 3.1 in Broker configuration dropdown.
+- [Configuration] ACC - vCenter/ESC names are now unique.
+- [Configuration] Harmonized the interface for Additional Configurations with other screens.
+- [Configuration] Host name is now displayed in Agent configuration (poller-initiated connection)
+- Service accounts are not displayed anymore in RAM contact list.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Added missing French translations for help messages.
+- Fixed warning issue when running centreon CLI.
+- Fixed issue preventing Business Activities from being displayed on remote servers.
+- [Language] Fixed issue preventing modern pages from being translated when choosing "detection by browser" as a language.
+- [Packaging] Removed obsolete dependencies for database related centreon packages
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+ </details>
+
+### Centreon IT Edition
+
+### Centreon Cloud Pro
+
 ## July 29th, 2025
 
 ### Centreon IT Edition
@@ -11,7 +181,7 @@ title: Centreon Cloud release notes
 
 As the Centreon Monitoring Agent (CMA) is about to be generally available, enhancements in its configuration are now available for our Centreon Cloud customers.
 
-As a reminder, CMA collects metrics and computes statuses on the servers it monitors, and sends them to Centreon. 
+As a reminder, CMA collects metrics and computes statuses on the servers it monitors, and sends them to Centreon.
 Centreon plugins as well as Nagios-compatible plugins can be used with this agent.
 More information about configuration is available in our [official documentation](https://docs.centreon.com/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/).
 
