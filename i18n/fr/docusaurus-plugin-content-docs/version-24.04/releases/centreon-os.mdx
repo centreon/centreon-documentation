@@ -32,7 +32,6 @@ Release date: `August 5, 2025`
 - [Resource Status] Optimized legend rendering in graphs.
 - [Authentication] Improved SAML configuration by adding a "Requested Authentication Context" parameter.
 - [Resource Status] It is now possible to avoid performance issues when using free text search, by using a new option named "Free text search behavior" in the Administration > Parameters > Centreon UI menu.
-- [Resource Status] It is now possible to avoid performance issues when using free text search, by using a new option named "Free text search behavior" in the Administration > Parameters > Centreon UI menu.
 
 
 </details>
@@ -41,12 +40,12 @@ Release date: `August 5, 2025`
   <summary>Bug fixes</summary>
 
 - [Metaservices] Fixed several issues occuring when using MySQL 8.
-- [API] Fixed an issue on service template listing endpoint.
-- [Administration] Fixed an issue on user groups and templates when importing LDAP with a non admin user.
-- [Language] Fixed issue preventing modern pages from being translated when choosing "detection by browser" as a language.
+- [API] Fixed a 500 error affecting the service template listing endpoint.
+- [Administration] Fixed an issue on user groups and templates that occurred when importing non-admin users from LDAP.
+- [Language] Fixed an issue preventing modern pages from being translated when choosing "detection by browser" as a language.
 - [Resource Status] The correct pictogram is now used when displaying a parent resource in downtime.
-- [Configuration] Fixed an issue where the Mass Change action on Linked Service Templates caused a 500 Internal Server Error.
-- [Compatibility] Fixed issue preventing Business Activities from being displayed on remote servers.
+- [Configuration] Fixed an issue where the Mass Change action on Linked Service Templates caused a 500 internal server error.
+- [Compatibility] Fixed an issue preventing Business Activities from being displayed on remote servers.
 - [Configuration] Fixed an issue where adding/editing a service failed when a command was configured on a template that was not the direct parent of the service.
 - [Upgrade] Fixed migration script for version 23.10.8.
 
