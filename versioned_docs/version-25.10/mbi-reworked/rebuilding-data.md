@@ -35,7 +35,7 @@ This script supports several execution options to perform tasks such as model cr
 
 > **Note**: We will focus on "-r" options during this documentation
 
-### How it's work?
+### How does it work?
 
 This script acts in 4 steps:
 1. **import configuration and raw monitoring data** from the monitoring server to the reporting server depending on retention settings or rebuild options. (**Delete existing data** from the reporting server by default)
