@@ -7,31 +7,25 @@ title: Rebuilding MBI data
 
 The purpose of this article is to provide a comprehensive way to reset their MBI database to a healthy start or rebuid some data gaps. This type of action is needed when you:
 - Start to work on MBI: when you start working on MBI, you can make some changes on Resources or ACL configurations to create desired context (dimensions). When all is done, you have to launch rebuild process to make change, compute and store data into datawarehouse.
-- Apply a new configuration to historical data: in the case you do lot of transformation in your resource configuration and you dont want keep old configuration in MBI side, you can launch complete rebuild to delete all previous configuration and make right new aggregated data, you can also modify configuration and keep old aggregated data. 
+- Apply a new configuration to historical data: in the case you do lot of transformation in your resource configuration and you dont want keep old configuration in MBI side, you can launch complete rebuild to delete all previous configuration and make right new aggregated data. In other hand, you can also modify configuration, keep old aggregated data and rebuild on specific period only. 
 - Troubleshoot on MBI: Depending what's happened, sometimes it will be necessary to launch complete or partial rebuild to address data gaps. This may be due to one or more daily treatments that failed to complete.
 
 
 
 ### ELT Processing Options
 
-The script used is the following, developped in perl: 
+Centreon MBI uses a Perl-based script to orchestrate its ETL (Extract, Transform, Load) operations.
+
+
+
+The main script responsible for triggering these processes is:
 
 ```shell
 /usr/share/centreon-bi/bin/centreonBIETL -r 
 ```
 
-HEAD
+This script supports several execution options to perform tasks such as model creation, daily data processing, or historical data rebuild.
 
-### How it's work?
-
-This script acts in 4 steps:
-1. **import configuration and raw monitoring data** from the monitoring server to the reporting server depending on retention settings or rebuild options. (**Delete existing data** from the reporting server by default)
-2. **Populate dimension tables** containing host,service,business_activity,metrics and other informations as timeperiod, acl, etc...
-3. **Populate availability statistics tables** for hosts and services.
-4. **Populate performance and capacity statistics tables** for hosts and services based on metrics.
-
-=======
->>>>>>> 0d53498756cb686a95e0d75270b2ad88d20b0665
 ### Execution Options
 
 | Option | Description |
