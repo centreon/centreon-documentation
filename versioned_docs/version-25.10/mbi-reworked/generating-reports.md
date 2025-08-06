@@ -74,3 +74,5 @@ Go to the **Tuning** tab
 
 
 You have now configured a job for generating reports with Centreon MBI, save the job for it to start running. Reports will be available under **Reporting > Monitoring Business Intelligence > Report view**.
+
+Ran into any issues? Try [troubleshooting](troubleshooting.md) your configuration.

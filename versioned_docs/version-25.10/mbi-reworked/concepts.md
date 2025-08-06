@@ -66,11 +66,11 @@ Service user created automatically when the extension is installed. This user wi
 
 ## Report perimeter
 
-The scope of the reports, meaning the resources that will be included in them. The perimeter is configured for all reports from the **ETL options** tab.
+The scope of the ETL, meaning the resources that will be made available to be used in reports. The perimeter is configured for all reports from the **ETL options** tab.
 
 ## Availability
 
-The amount of time a host has spent in an "available" [status](https://docs.centreon.com/docs/alerts-notifications/concepts/#host-status), in the selected time period.
+The amount of time a host has spent in an "available" [status](https://docs.centreon.com/docs/alerts-notifications/concepts/#host-status), in the selected time period. Only [hard statuses](https://docs.centreon.com/docs/alerts-notifications/concepts/#status-types) are taken into account when calculating availability.
 
 * For hosts: When calculating availability, only the time the host has spent in an UP or DOWN status is taken into account, not the time spent in an UNREACHABLE state or in downtime.
 * For services: When calculating availability, only the time the service has spent in an "OK" or "Warning" status is taken into account, not the time spent in an UNKNOWN state or in downtime.
@@ -81,6 +81,4 @@ This means if a host or service spent the previous day as available 90% of the t
 
 By default, a report is only available for download on **Reporting > Monitoring Business Intelligence > Report view**. Publication rules allow a report to be sent out to specific users every time the corresponding job finishes running.
 
-**Publication** tab of a job.
-The only exception is publication rules that are defined as global, which do not appear 
-All publication rules defined as "global" are executed every time a report is generated.
+They are selected in the **Publication** tab of job configuration. Global publication rules are not available for selection as they are always applied.
