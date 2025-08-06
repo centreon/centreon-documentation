@@ -22,6 +22,58 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 24.10.9
+
+Release date: `August 4, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Authentication] Improved SAML configuration by adding a "Requested Authentication Context" parameter.
+- [Configuration] Added Tokens management in Agent configuration.
+- [Configuration] Host name is now displayed in Agent configuration (poller-initiated connection)
+- [Dashboards] Added new widget "Business Activity Status Timeline" that displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
+- [Dashboards] Metrics are now clearly identifiable in the Metrics Graph widget, thanks to the addition of service and/or host related names, when needed.
+- [Dashboards][Resource Table widget] Added FQDN, Alias, Parent Alias and Monitoring Server columns.
+- [Metaservices] Fixed several issues occuring when using MySQL 8.
+- [Monitoring] A new, modern version of the BA monitoring page is now available.
+- [Resource Status] Added the possibility to export in CSV format the current data being displayed.
+- [Resource Status] It is now possible to avoid performance issues when using free text search, by using a new option named "Free text search behavior" in the Administration > Parameters > Centreon UI menu.
+
+</details>
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- [Administration] Fixed an issue on user groups and templates that occurred when importing non-admin users from LDAP.
+- [API Tokens] Fixed an issue where an invalid expiration date was sent when creating a token with a custom duration.
+- [API] Fixed a 500 error affecting the service template listing endpoint.
+- [CLAPI] Fixed an issue where a warning was returned when using getmacro.
+- [Configuration] Fixed a display issue affecting some command tooltips.
+- [Configuration] Fixed an issue where adding/editing a service failed when a command was configured on a template that was not the direct parent of the service.
+- [Configuration] Fixed an issue where mass change on Linked Service Templates caused a 500 internal server error.
+- [Dashboards] Fixed auto-adjustment of curves in graphics.
+- [Dashboards] Optimized threshold display in the Single Metric widget.
+- [Language] Fixed issue preventing modern pages from being translated when choosing "detection by browser" as a language.
+- [Metaservices] Fixed several issues occuring when using MySQL 8.
+- [Resource Status] Default values for monitoring options are now also applied to non-admins.
+- [Resource Status] Fixed an issue preventing the selection of multiple resources when using advanced filters.
+- [Resource Status] Optimized legend rendering in graphs.
+- [Resource Status] The correct pictogram is now used when displaying a parent resource in downtime.
+- [Upgrade] Fixed migration script for version 23.10.8.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Fixed vulnerabilities on several pages.
+- [Vulnerability] Added ACL check when exporting configuration.
+- [Vulnerability] Fixed an issue allowing a non admin user to logout another user.
+- [Vulnerability] Fixed SQL injection in Monitoring > Event Logs page.
+
+</details>
+
 ### 24.10.8
 
 Release date: `June 20, 2025`
@@ -683,6 +735,17 @@ Release date: `October 31, 2024`
 
 ## Centreon High Availability
 
+### 24.10.1
+
+Release date: `August 4, 2025`
+
+<details>
+  <summary>Bug Fixes</summary>
+
+- [HA] Fixed an issue on cron for outdated token removal.
+
+</details>
+
 ### 24.10.0
 
 Release date: `October 31, 2024`
@@ -695,6 +758,17 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon DSM
+
+### 24.10.2
+
+Release date: `August 4, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Metaservices] Fixed several issues occurring when using MySQL 8.
+
+</details>
 
 ### 24.10.1
 
