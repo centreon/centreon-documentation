@@ -151,7 +151,7 @@ Go to the log file /var/log/centreon-bi//centreonBIETL.log, you will normally se
 2025-08-01 13:58:17 - INFO - [SCHEDULER] <<<<<<< end
 ```
 
-When the rebuild is complete and the log shows the final **[SCHEDULER] <<<<<<< end** message without errors, you can proceed to the generated-report article to review your reports.
+When the rebuild is complete and the log shows the final **[SCHEDULER] \<\<\<\<\<\<\< end** message without errors, you can proceed to the generated-report article to review your reports.
 
 ## Rebuild historical data with new configuration
 
