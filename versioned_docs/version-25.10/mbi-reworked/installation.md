@@ -264,7 +264,7 @@ vgdisplay vg_data | grep -i free*
 - Firewalld: Disabled ([look here](https://docs.centreon.com/docs/installation/installation-of-a-central-server/using-packages/#configure-or-disable-the-firewall))
 - SELinux: Disabled ([look here](https://docs.centreon.com/docs/installation/installation-of-a-central-server/using-packages/#disable-selinux))
 
-> Make sure that the reporting server and the central server have the same time zone; otherwise report publications will fail (link to download missing).
+> Make sure that the reporting server and the central server have the same time zone; otherwise report publications will fail (the link to download them will be missing).
 > The same time zone must be displayed with the `timedatectl` command.
 > You can change the time zone with this command:
 >
