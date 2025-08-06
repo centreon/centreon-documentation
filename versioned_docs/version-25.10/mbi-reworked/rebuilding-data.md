@@ -5,12 +5,12 @@ title: Rebuilding MBI data
 
 ## Rebuild process
 
-This procedure guides you through resetting the MBI database to a clean state or rebuilding missing data. You need to rebuild the data when you:
-- Come-back to healthy start: You need to come-back to healhty start because you made some changes on Resources configurations to create desired dimensions and at this moment data history is not important. You can launch rebuild process to delete previous data, import new data, compute and store them into datawarehouse.
+This procedure guides you through resetting the MBI database to a clean state or rebuilding missing data. Rebuilding data is necessary when you need to:
+- Go back to a healthy start: changes were made on Resources configurations to create desired dimensions. You now want to remove these changes and data history is not important. You can launch rebuild process to delete previous data, import new data, compute and store them into datawarehouse.
 - Rebuild historical data with new configuration: 
-    - When you do lot of transformation in your resource and you have finished making changes to groups and categories, you can launch rebuild to delete all previous configuration, import the new configuration (skip import raws data) and aggregated data basing on it. 
-    - In other hand, you can also import new configuration, keep old aggregated data and rebuild on specific period only with the new configuration.
-- Troubleshoot on MBI: depending what's happened, it will be necessary to launch partial rebuild to address data gaps. This may be due to one or more daily treatments that failed to complete as database errors, network failure or whatever.
+    - After many changes on your resources, you can launch rebuild to delete all previous configuration, import the new configuration (skip import raws data) and aggregated data basing on it. 
+    - It is also possible to import new configuration while keeping old aggregated data and rebuild with the new configuration on a specific period.
+- Troubleshoot MBI: it may be necessary to launch a partial rebuild to address data gaps. This may be due to one or more daily treatments that failed to complete because of database errors or network failures for example.
 
 ### ETL Process
 
@@ -22,7 +22,7 @@ Centreon MBI uses a Perl-based script to orchestrate its ETL (Extract, Transform
 
 This script supports several execution options to perform tasks such as creating [dimensions](concepts.md#dimension), copying and aggregating the previous day's data, or rebuilding the whole MBI database.
 
->**Note**: This documentation focuses specifically on the `-r` (rebuild) option and its usage.
+This documentation focuses specifically on the `-r` (rebuild) option and its usage.
 
 #### Execution Options
 

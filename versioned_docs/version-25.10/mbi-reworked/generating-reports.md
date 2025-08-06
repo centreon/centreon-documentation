@@ -23,10 +23,10 @@ on the Configuration tab
 ### Job Configuration
 
 1. Enter a **name** for the job. This will also be the name of the generated report.  
-3. Select the **language** of the report: you can generate reports in French or English. (Ignore the spinning arrows icon next to the language field.)
-4. Choose the **output formats** for the report.  
+2. Select the **language** of the report: you can generate reports in French or English. (Ignore the spinning arrows icon next to the language field.)
+3. Choose the **output formats** for the report.  
    > Not all designs support all formats. Refer to the [available reports catalog](available-reports/available-reports.md) to avoid errors.  
-5. Select the appropriate [**job groups**](concepts.md#job-groups) that determine who can access the report.
+4. Select the appropriate [**job groups**](concepts.md#job-groups) that determine who can access the report.
 
 ### Scheduling Parameters
 

@@ -11,11 +11,11 @@ Publication rules are created in **Reporting > Monitoring Business Intelligence 
 
 The available protocols for publication rules are:
 * CIFS which allows you to transfer files between local nodes
-* Dropbox, a cloud storage service to access them from any location.
+* Dropbox, a cloud storage service to access them from any location. This protocol requires you to have a Dropbox account
 * FTP which allows you to transfer files through the internet, it is usually disregarded in favor of SFTP
 * Local
 * SFTP, a more secure version of SFTP; allows you to transfer files through the internet
-* SMTP is the protocol used to send and receive emails.
+* SMTP is the protocol used to send and receive emails. This protocol requires you to have an emailing server, we
 
 
 The **global** field allows you to make a publication rule be applied to all jobs. Global publication rules do not appear for selection in the **Publication** tab when configuring a job because their configuration is already applied.

@@ -73,7 +73,7 @@ expected result:
 
 ## Review the manual configuration of MBI
 
-Follow our [post-installation configuration procedure](installation.md) to ensure proper configuration.
+Follow our [post-installation configuration procedure](installation.md#step-4-configure-the-etl) to ensure proper configuration.
 
 ## The report I generated is empty
 
@@ -81,7 +81,7 @@ A cronjob is launched at approximately 4:30 AM that will compile and calculate a
 
 If reports are being generated without data in them, it's possible CBIS is sending its SQL requests before the cronjob is finished and so the data CBIS requests does not exist yet, check this log to see if conversion is finished: **/var/log/centreon/eventReportBuilder.log**. 
 
-Try pushing back the cyclic report generation hour so that CBIS does not request data before the cronjob has finished in the **Scheduler options** tab of **Reporting > Monitoring business Intelligence > General options**.
+Try pushing back the cyclic report generation hour in the **Scheduler options** tab of **Reporting > Monitoring business Intelligence > General options** so that CBIS does not request data before the cronjob has finished.
 
 ## I cannot see the report design/the hosts I need
 
