@@ -865,6 +865,10 @@
             },
             {
               "type": "doc",
+              "id": "mbi-reworked/publication-rules"
+            },
+            {
+              "type": "doc",
               "id": "mbi-reworked/how-mbi-works"
             },
             {
