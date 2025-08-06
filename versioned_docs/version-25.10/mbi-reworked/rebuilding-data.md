@@ -318,12 +318,16 @@ You will manually run the following core ETL scripts:
 
 ### Root gaps issues
 
+The following table summarizes common issues related to Centreon BI database tables, their meaning, and the recommended scripts to run for resolving each type of problem. If only the last step of the process failed (e.g., performance aggregation), you can fix the issue and rerun the corresponding script (such as `perfdataStatisticsBuilder.pl`). However, in most cases, it is recommended to follow the full procedures described earlier to ensure data consistency.
+
+
+
 | Visible Tables                                                   | Meaning                                                                      | Moving Forward                                 |
 |------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------|
-| `hoststateevents`, `servicestateevents`,<br/>`mod_bam_reporting*`, `data_bin` | Problem with **raw data** imported from Centreon.                            | Investigate and fix the issue with **raw data**. (Maybe you need to compute event from eventReportBuilder on Central). After resolving the issue, execute the import script to import missing datas `/usr/share/centreon-bi/etl/importData.pl`. |
-| `mod_bi_servicemetrics`,`mod_bi_hosts`, `mod_bi_services`,  `mod_bi_hostgroups` tables                                             | Issue with **dimensions data**.                 | After resolving the issue, run the `/usr/share/centreon-bi/etl/dimensionsBuilder.pl` ` script to restore consistency in dimensions.     |
-| `mod_bi_*availability` tables                                             | Issue with **aggregated availability data**, not raw data.            | After resolving the issue, run the availability aggregation script (`eventStatisticsBuilder.pl`). |
-| `mod_bi_metric*` tables                                                   | Issue with **aggregated metrics data** (e.g., performance), not raw data. | After resolving the issue, run the metrics aggregation script (`perfdataStatisticsBuilder.pl`).  |
+| `hoststateevents`, `servicestateevents`,<br/>`mod_bam_reporting*`, `data_bin` | Problem with **raw data** imported from Centreon.                            | Investigate and fix the issue with **raw data**. (Maybe you need to compute event from eventReportBuilder on Central). After resolving the issue, run the import script to import missing datas (`/usr/share/centreon-bi/etl/importData.pl`). |
+| `mod_bi_servicemetrics`,`mod_bi_hosts`, `mod_bi_services`,  `mod_bi_hostgroups` tables                                             | Issue with **dimensions data**.                 | After resolving the issue, run the dimension script to restore consistency in dimensions.  (`/usr/share/centreon-bi/etl/dimensionsBuilder.pl`)   |
+| `mod_bi_*availability` tables                                             | Issue with **aggregated availability data**, not raw data.            | After resolving the issue, run the availability aggregation script (`/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`). |
+| `mod_bi_metric*` tables                                                   | Issue with **aggregated metrics data** (e.g., performance), not raw data. | After resolving the issue, run the metrics aggregation script (`/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`).  |
 
 ### How to rebuild missing BAM statistics
 
