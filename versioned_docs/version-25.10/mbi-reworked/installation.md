@@ -7,12 +7,13 @@ import TabItem from '@theme/TabItem';
 
 > This page is intended for administrators who will install and configure Centreon MBI.
 
-This page presents the software architecture of the **Centreon MBI** extension, then explains how to install it. To do so, four main steps are required:
+This page presents the software architecture of the **Centreon MBI** extension, then explains how to install it. To do so, five main steps are required:
 
 1. [Check the system requirements](#step-1-check-the-system-requirements).
 2. [Install the Centreon MBI interface in the Centreon application](#step-2-install-the-extension-on-centreon).
 3. [Install the reporting server (Centreon MBI Reporting Server)](#step-3-install-the-reporting-server).
 4. [Configure the ETL in the Centreon interface](#step-4-configure-the-etl).
+5. [Build the MBI database](#step-5-build-the-mbi-database).
 
 Once installation is complete, you can [monitor your MBI server with Centreon](#monitor-your-mbi-server-with-centreon).
 
@@ -996,9 +997,7 @@ Centreon MBI integrates an ETL that allows you to:
 - Feed statistical data to the reporting server databases
 - Control the retention of data on the reporting server
 
-<!-- Before proceeding to the next steps, read the
-chapter on best practices to make sure that the configuration of
-the objects in Centreon (groups, categories, etc.) is in accordance with the expectations of Centreon MBI.-->
+### General configuration of the ETL
 
 In the `Reporting > Monitoring Business Intelligence > General Options > ETL Options` tab, specify the following options:
 
@@ -1007,8 +1006,21 @@ In the `Reporting > Monitoring Business Intelligence > General Options > ETL Opt
 | **General options**                                                                    |                                                                                                                                                                                                                                       |
 | Reporting engine uses a dedicated dedicated MariaDB server                             | Yes. You **must** use a reporting server                                                                                                                                                                                              |
 | Temporary file storage directory on reporting server                                   | Folder where dumps will be stored on the reporting server                                                                                                                                                                             |
-| Type of statistics to build                                                            | Select “Availability only” if you only use availability reports. Select “Performance and capacity only” if you only want to use capacity and performance reports. Select “All” to calculate the statistics for both types of report. |
 | Use large memory tweaks (store MariaDB temporary tables in memory)                     | Activated only if your MariaDB configuration and allocated physical memory on the server permit.                                                                                                                                     |
+| **Centile parameters**                                                                 |                                                                                                                                                                                                   |
+| Calculating centile aggregation by                                                     | Select the desired aggregation level. The standard percentile report provided with BI 2.1 uses Month data.                                                                                                                            |
+| Select service categories to aggregate centile on                                      | Filter on relevant service categories for centile statistics (e.g., Traffic).                                                                                                                                                         |
+| First day of the week                                                                  | Select the first day of the week for Week aggregation.                                                                                                                                                                                |
+| Centile / Timeperiod combination                                                       | Create a new centile/timeperiod combination on which to perform the calculation.                                                                                                                                                      |
+
+### Defining which data will be used by MBI
+
+Use the options on the **Reporting > Monitoring Business Intelligence > General Options** page, **ETL Options** tab to determine which data will be imported from your central server to the MBI database. Make sure you only import the data you want to see in reports: all unnecessary data will take space and use computation time for nothing.
+
+| **Options**                                                                            | **Values**                                                                                                                                                                                                                            |
+|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **General options**                                                                    |   
+| Type of statistics to build                                                            | Select “Availability only” if you only use availability reports. Select “Performance and capacity only” if you only want to use capacity and performance reports. Select “All” to calculate the statistics for both types of report. |
 | **Reporting perimeter selection**                                                      |                                                                                                                                                                                                                                       |
 | Hostgroups                                                                             | Select only host groups for which you want to aggregate data.                                                                                                                                                                         |
 | Hostcategories                                                                         | Select only host categories for which you want to aggregate data.                                                                                                                                                                     |
@@ -1022,17 +1034,12 @@ In the `Reporting > Monitoring Business Intelligence > General Options > ETL Opt
 | Live services for capacity statistics calculation                                      | Select the “24x7” time period.                                                                                                                                                                                                        |
 | Service categories related to capacity data monitoring	                                | Select the service categories that have been associated with capacity-type services.                                                                                                                                                  |
 | Exclude metrics from service categories that do not return capacity USAGE information  | Concerns the metrics linked to services which return capacity data. Select the metrics that do not return capacity usage information. but a maximum or total value. (e.g., the metric “size”).                                        |
-| **Centile parameters**                                                                 |                                                                                                                                                                                                                                       |
-| Calculating centile aggregation by                                                     | Select the desired aggregation level. The standard percentile report provided with BI 2.1 uses Month data.                                                                                                                            |
-| Select service categories to aggregate centile on                                      | Filter on relevant service categories for centile statistics (e.g., Traffic).                                                                                                                                                         |
-| First day of the week                                                                  | Select the first day of the week for Week aggregation.                                                                                                                                                                                |
-| Centile / Timeperiod combination                                                       | Create a new centile/timeperiod combination on which to perform the calculation.                                                                                                                                                      |
+
 
 **(1)** Reports requiring data granularity by the hour are listed below. 
 If you do not wish to use these reports, disable the calculation of hourly statistics:
 
 - Hostgroup-Host-details-1
-
 - Host-detail-v2
 - Hostgroup-traffic-Average-Usage-By-Interface
 - Hostgroup-traffic-by-Interface-And-Bandwith-Ranges
@@ -1098,37 +1105,25 @@ systemctl restart cron
 
 Please proceed to the next section to continue the installation.
 
-### ETL: Execution
+## Step 5: Build the MBI database
 
-> Before continuing, make sure you have installed the MariaDB configuration file as described above in the prerequisites. Configure 
-> and enable data retention so that only the required data is imported and calculated.
+### Prerequisites
 
-#### Reconstruction of statistics from historical data
+* Before continuing, make sure you have installed the MariaDB configuration file as described above in the prerequisites.
+* Configure the ETL and enable data retention so that only the required data is imported and calculated.
+* Make sure that [the data on the central server is ready](how-mbi-works.md#step-1-data-is-prepared-by-the-central-server). 
+* Make sure that the **gorgoned** process works fine: `systemctl status gorgoned`. If needed, restart it: `systemctl restart gorgoned`.
+* Bear in mind that if you are building the MBI database for the first time, you have to import all of the data in one go. If you have a large amount of data and/or if you start the process late in the day, it's important to be aware that the database building phase might take a significant amount of time, possibly extending into the next day. In this case, you need to disable the daily build [temporarily](#reenable-daily-script-execution), until the initial build is complete, so as to avoid duplicate entries or other problems.
+   1. Edit the **/etc/cron.d/centreon-bi-engine** cronfile and comment out the following line:
 
-Run the following command on the reporting server. This will:
+      ```shell
+      #30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
+      ```
 
-- Delete all existing data from the reporting server.
-- Import raw monitoring data from the monitoring server to the reporting server (depending on retention settings).
-- Fill tables containing availability statistics for hosts and services.
-- Fill tables containing performance and capacity statistics for hosts and services.
-
-```shell
-/usr/share/centreon-bi/bin/centreonBIETL -r
-```
-
-#### Enable daily script execution
-
-Once the data rebuilding process is complete, you can enable the calculation of statistics.
-On the reporting server, edit the file **/etc/cron.d/centreon-bi-engine** and uncomment the following line:
-
-```shell
-#30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
-```
+   2. Restart **crond**.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
-
-Restart the cron service on the reporting server:
 
 ```shell
 systemctl restart crond
@@ -1137,7 +1132,72 @@ systemctl restart crond
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-Restart the cron service on the reporting server:
+```shell
+systemctl restart cron
+```
+
+</TabItem>
+</Tabs>
+
+### Construction of statistics from historical data
+
+Run the following command on the reporting server. This will:
+
+- Delete any existing data from the reporting server.
+- Import raw monitoring data from the central server to the MBI server (depending on retention settings).
+- Fill tables containing availability statistics for hosts and services.
+- Fill tables containing performance and capacity statistics for hosts and services.
+
+```shell
+/usr/share/centreon-bi/bin/centreonBIETL -r
+```
+
+You may want to run it in the background and redirect the script's return to a log:
+
+```shell
+nohup /usr/share/centreon-bi//bin/centreonBIETL -r >> /var/log/centreon-bi/centreonBIETL.log 2>&1 &
+```
+
+Go to the **/var/log/centreon-bi/centreonBIETL.log** log file: you should see some lines appear with 4 parts like:
+
+```shell
+2025-08-01 13:34:16 - INFO - [SCHEDULER] >>>>>>> start
+2025-08-01 13:34:16 - INFO - [SCHEDULER][IMPORT] >>>>>>> start
+...
+2025-08-01 13:35:18 - INFO- [SCHEDULER][IMPORT] <<<<<<< end
+2025-08-01 13:35:18 - INFO - [SCHEDULER][DIMENSIONS] >>>>>>> start
+...
+2025-08-01 13:35:52 - INFO - [SCHEDULER][DIMENSIONS] <<<<<<< end
+2025-08-01 13:35:52 - INFO - [SCHEDULER][EVENT] >>>>>>> start
+...
+2025-08-01 13:38:37 - INFO - [SCHEDULER][EVENT] <<<<<<< end
+2025-08-01 13:38:37 - INFO - [SCHEDULER][PERFDATA] >>>>>>> start
+...
+2025-08-01 13:48:17 - INFO - [SCHEDULER][PERFDATA] <<<<<<< end
+2025-08-01 13:58:17 - INFO - [SCHEDULER] <<<<<<< end
+```
+
+### Reenable daily script execution
+
+Once the data building process is complete, you can reenable the daily calculation of statistics.
+
+1. On the reporting server, edit the **/etc/cron.d/centreon-bi-engine** file and uncomment the following line:
+
+   ```shell
+   #30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
+   ```
+
+2. Restart the cron service on the reporting server:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
+
+```shell
+systemctl restart crond
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 systemctl restart cron
@@ -1146,10 +1206,7 @@ systemctl restart cron
 </TabItem>
 </Tabs>
 
-> Make sure that the **centreonBIETL** batch only starts after the **eventReportBuilder** 
-> batch has finished on the monitoring server (check the **/etc/cron.d/centreon** cron file on the monitoring server).
-
-The installation of Centreon MBI is now complete. See [the tutorial](https://docs.centreon.com/docs/getting-started/analyze-resources-availability/).
+The installation of Centreon MBI is now complete. You can start creating [jobs](concepts.md#jobs) in order to generate reports. See [the tutorial](https://docs.centreon.com/docs/getting-started/analyze-resources-availability/).
 
 ## Monitor your MBI server with Centreon
 
