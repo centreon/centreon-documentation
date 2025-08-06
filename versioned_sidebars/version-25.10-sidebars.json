@@ -865,11 +865,19 @@
             },
             {
               "type": "doc",
+              "id": "mbi-reworked/publication-rules"
+            },
+            {
+              "type": "doc",
               "id": "mbi-reworked/how-mbi-works"
             },
             {
               "type": "doc",
               "id": "mbi-reworked/widgets"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/troubleshooting"
             }
           ]
         },
@@ -890,7 +898,7 @@
             },
             {
               "type": "doc",
-              "id": "mbi-reworked/troubleshooting"
+              "id": "mbi-reworked/report-development"
             }
           ]
         },
@@ -945,10 +953,6 @@
             {
               "type": "doc",
               "id": "mbi-reworked/available-reports/database-diagnostics-reports"
-            },
-            {
-              "type": "doc",
-              "id": "mbi-reworked/available-reports/customizing-reports"
             }
           ]
         }

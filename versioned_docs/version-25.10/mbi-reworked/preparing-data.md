@@ -17,21 +17,22 @@ The best way to link hosts to host categories and services to service categories
 
 ## Creating the time periods you need
 
-Every job uses a [time period](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) as a parameter: 24x7, workhours, non-workhours, etc...
-Only the data contained in these time periods will be included in the report.
+Every job uses a [time period](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) as a parameter: 24x7, workhours, non-workhours, etc... Only the data contained in the selected time periods will be included in the report.
 
-We recommend you create all the custom time periods you need before starting to configure reports.
+We recommend you create all the custom time periods you need before you start configuring reports.
 
 ## Defining the scope of data for MBI
 
-Only [data compiled by the ETL](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated) is available to be imported into MBI.
-For perfomance reasons, it is recommended to limit the scope of data for MBI to what you want to see on reports as large amounts of data takes more time to compile.
+Only [data compiled by the ETL](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated) can be used in reports.
+For perfomance reasons, it is recommended to limit the scope of data for MBI to what you want to see in reports as large amounts of data take more time to compile.
+
+Ideally, this should have been done as part of the installation process: see [Defining which data will be used by MBI](installation.md#defining-which-data-will-be-used-by-mbi).
 
 To define the scope of the data used by MBI, go to **Reporting > Monitoring Business Intelligence > General options**, **ETL options** tab.
 
 By default, the ETL is configured to compute availability and performance for all existings perimeters: host groups, hostcategories and servicecategories. If some perimeters are not mandatory, you can uncheck "All group perimeters" to select only desired perimeters.
 
-Select the [perimeters](concepts.md#report-perimeter) for the reports, the time periods and the service categories (disk, ping, memory, traffic). This is also where you configure how precise you want the data statistics to be (I.E. per months, days, hours...)
+Select the perimeters for the reports, the time periods and the service categories (disk, ping, memory, traffic). This is also where you configure how precise you want the data statistics to be (I.E. per months, days, hours...)
 
 - An empty report may be generated if there is mismatch in the ETL configuration or there is no monitoring on the resource (no status/metric return)
 - The ETL is static, it does not automatically detect configuration changes on Centreon outside of its regular checks (scheduled for 4:30 a.m. by default). You must launch a rebuild of the ETL for new data/configuration to be taken into account immediately.

@@ -3,32 +3,27 @@ id: generating-reports
 title: Generating reports using jobs
 ---
 
-# Generating reports using Jobs
-
 > MBI is a Centreon extension that has some terms you may not have heard elsewhere in our documentation. We strongly suggest you read the [concepts page](concepts.md) before following MBI-related procedures.
 
-The following procedure requires you to have [prepared your data](preparing-data.md) as per the MBI requirements.
+Reports are created using jobs. A job is a report definition, that can include several output formats, and several publication modes.
 
-A job is a scheduled report pending its time to be generated. This also applies to reports that are to be generated immediately. Note that reports only contain data up to the previous day. The data of each day is [aggregated by the ETL the following day](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated).
+## Create a new job
 
-Follow the steps below to create and configure a job:
+1. Make sure you have [prepared your data](preparing-data.md) as per the MBI requirements.
+2. Go to **Reporting > Monitoring Business Intelligence > Jobs**.  
+3. Click the **Add** button to create a new job.
+4. On the **Configuration** tab, in the **Report design** field, select the report template you want. Each report template contains specific data: use our [catalog of available reports](available-reports/available-reports.md) to choose the template best suited to your needs.
+   
+   Once you have selected a report template, the contents of the **Report parameters** tab changes
 
+## Configure the job
 
-## Create a New Job
-
-1. Go to **Reporting > Monitoring Business Intelligence > Jobs**.  
-2. Click the **Add** button to create a new job.
-
-
-## Configure the Job
-
-Creating a job lands you in the Configuration tab
+on the Configuration tab
 
 ### Job Configuration
 
 1. Enter a **name** for the job. This will also be the name of the generated report.  
-2. Select a **job design** from the drop-down menu. Refer to our [available reports catalog](available-reports/available-reports.md) to choose an appropriate design.  
-3. Select the **language** (French or English). Ignore the spinning arrows icon next to the language field, it is obsolete and has no effect.
+3. Select the **language** of the report: you can generate reports in French or English. (Ignore the spinning arrows icon next to the language field.)
 4. Choose the **output formats** for the report.  
    > Not all designs support all formats. Refer to the [available reports catalog](available-reports/available-reports.md) to avoid errors.  
 5. Select the appropriate [**job groups**](concepts.md#job-groups) that determine who can access the report.

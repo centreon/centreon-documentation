@@ -9,33 +9,28 @@ This procedure guides you through resetting the MBI database to a clean state or
 - Come-back to healthy start: You need to come-back to healhty start because you made some changes on Resources configurations to create desired dimensions and at this moment data history is not important. You can launch rebuild process to delete previous data, import new data, compute and store them into datawarehouse.
 - Rebuild historical data with new configuration: 
     - When you do lot of transformation in your resource and you have finished making changes to groups and categories, you can launch rebuild to delete all previous configuration, import the new configuration (skip import raws data) and aggregated data basing on it. 
-    - In other hand, you can also import new configuration, keep old aggregated data and rebuild on specific period only with the new configuration. 
+    - In other hand, you can also import new configuration, keep old aggregated data and rebuild on specific period only with the new configuration.
 - Troubleshoot on MBI: depending what's happened, it will be necessary to launch partial rebuild to address data gaps. This may be due to one or more daily treatments that failed to complete as database errors, network failure or whatever.
 
+### ETL Process
 
-### ETL Process 
-
-Centreon MBI uses a Perl-based script to orchestrate its ETL (Extract, Transform, Load) operations.
-
-The main script responsible for triggering these processes is:
+Centreon MBI uses a Perl-based script to orchestrate its ETL (Extract, Transform, Load) operations. The main script responsible for triggering these processes is:
 
 ```shell
 /usr/share/centreon-bi/bin/centreonBIETL (-c|-d|-r) 
 ```
 
-This script supports several execution options to perform tasks such as model creation, daily data processing, or historical data rebuild.
+This script supports several execution options to perform tasks such as creating [dimensions](concepts.md#dimension), copying and aggregating the previous day's data, or rebuilding the whole MBI database.
 
 >**Note**: This documentation focuses specifically on the `-r` (rebuild) option and its usage.
-
 
 #### Execution Options
 
 | Option | Description |
 |--------|-------------|
-| `-c`   | Create the reporting database model. |
+| `-c`   | Create the reporting dimensions. |
 | `-d`   | Daily execution to calculate statistics on yesterday. |
 | `-r`   | Rebuild mode to calculate statistics on a historical period. |
-
 
 #### Arguments for option `-r`
 
@@ -58,8 +53,7 @@ This script supports several execution options to perform tasks such as model cr
 
 > **Note**: If no start or end date is provided, the script calculates them automatically using the retention parameters from the interface under **General Option > Data retention Parameter**.
 
-
-#### Extra Arguments for option `-I` 
+#### Extra Arguments for option `-I`
 
 | Option | Description |
 |--------|-------------|
@@ -67,22 +61,21 @@ This script supports several execution options to perform tasks such as model cr
 | `-i`   | Ignore perfdata extraction from monitoring server. |
 | `-o`   | Extract only perfdata from monitoring server. |
 
+### How does the ETL work?
 
-### How ETL works?
-
-This ETL "centreonBIETL" acts as a wrapper of 4 scripts:
+The ETL "centreonBIETL" acts as a wrapper for 4 scripts:
 
 1. `/usr/share/centreon-bi/etl/importData.pl`  
-   *Imports raw data (configurations, events, metrics, BAM) from the Centreon central server. depending on retention settings or rebuild options. (**Delete existing data** from the reporting server by default)* 
+   Imports raw data (configurations, events, metrics, BAM) from the Centreon central server. depending on retention settings or rebuild options. (**Delete existing data** from the reporting server by default)
 
 2. `/usr/share/centreon-bi/etl/dimensionsBuilder.pl`  
-   *Rebuilds configuration dimensions: hosts, services, categories, metrics, etc.*
+   Rebuilds configuration dimensions: hosts, services, categories, metrics, etc.
 
 3. `/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`  
-   *Computes host and service event statistics, including availability.*
+   Computes host and service event statistics, including availability.
 
 4. `/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`  
-   *Calculates performance statistics (perfdata), including centile metrics if configured.*
+   Calculates performance statistics (perfdata), including centile metrics if configured.
  
 > **Note:**  
 > For each script (except dimensionBuilder.pl), a **time period can be specified** using the `-s` (start date) and `-e` (end date) options:

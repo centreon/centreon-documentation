@@ -30,12 +30,14 @@ Reports can display data about:
 - Business views
 - Business activities
 
-Data is segmented in these categories but different report designs allows you to determine how the data is presented in the report.
+Data is segmented into these categories but different report designs allows you to determine how the data is presented in the report.
 
 Reports also determine the metrics shown in reports. These metrics are related to performance or capacity.
 
 MBI also creates reports on availability by converting checks into [events](concepts.md#event).
 Note that MBI only takes into account [HARD statuses](https://docs.centreon.com/docs/alerts-notifications/concepts/#status-types) for its outputs.
+
+Note that reports only contain data up to the previous day. The data for each day is [aggregated by the ETL the following day](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated).
 
 ## What are the possible output formats?
   
