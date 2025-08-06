@@ -265,7 +265,7 @@ vgdisplay vg_data | grep -i free*
 - Firewalld: Disabled ([look here](https://docs.centreon.com/docs/installation/installation-of-a-central-server/using-packages/#configure-or-disable-the-firewall))
 - SELinux: Disabled ([look here](https://docs.centreon.com/docs/installation/installation-of-a-central-server/using-packages/#disable-selinux))
 
-> Make sure that the reporting server and the central server have the same time zone; otherwise report publications will fail (link to download missing).
+> Make sure that the reporting server and the central server have the same time zone; otherwise report publications will fail (the link to download them will be missing).
 > The same time zone must be displayed with the `timedatectl` command.
 > You can change the time zone with this command:
 >
@@ -1107,7 +1107,7 @@ systemctl restart cron
 
 * Before continuing, make sure you have installed the MariaDB configuration file as described above in the prerequisites.
 * Configure the ETL and enable data retention so that only the required data is imported and calculated.
-* Make sure that [the data on the central server is ready](how-mbi-works.md#step-1-data-is-prepared-by-the-central-server). 
+* Make sure that [the data on the central server is ready](how-mbi-works.md#phase-1-data-is-prepared-by-the-central-server). 
 * Make sure that the **gorgoned** process works fine: `systemctl status gorgoned`. If needed, restart it: `systemctl restart gorgoned`.
 * Bear in mind that if you are building the MBI database for the first time, you have to import all of the data in one go. If you have a large amount of data and/or if you start the process late in the day, it's important to be aware that the database building phase might take a significant amount of time, possibly extending into the next day. In this case, you need to disable the daily build [temporarily](#reenable-daily-script-execution), until the initial build is complete, so as to avoid duplicate entries or other problems.
    1. Edit the **/etc/cron.d/centreon-bi-engine** cronfile and comment out the following line:
