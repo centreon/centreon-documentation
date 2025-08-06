@@ -15,13 +15,61 @@ Use the following command to verify MBI is properly configured
 /usr/share/centreon-bi/tools/diagnostic.sh | less
 ```
 
+expected result:
+
+```shell
+#################### Check connection to databases ####################
+
+
+ --> Connection to monitoring databases:
+
+
+########## Java ##########
+
+    [OK]      Java 17 installed
+    [OK]      Connection to centreon database on db successful
+    [OK]      Connection to centreon_storage database on db successful
+
+ --> Connection to reporting server:
+
+    [OK]      Connection to centreon on db-bi successful
+    [OK]      Connection to centreon_storage on db-bi successful
+
+####################          CBIS deamon          ####################
+
+    [OK]      CBIS is running
+
+####################       ETL configuration       ####################
+
+   [INFO]     Use large memory tweaks  option is disabled
+    [OK]      ETL log file exists
+    [OK]      ETL cron activated 
+
+####################    Retention configuration    ####################
+
+    [OK]      Retention file exists
+    [OK]      Purge cron activate 
+    [OK]      Purge option is enabled
+```
+
 Use this command to verify the CBIS service status
 
 ```shell
 systemctl status cbis
 ```
 
-**expected result of these commands**
+expected result:
+
+```shell
+● cbis.service - Centreon MBI Scheduler
+   Loaded: loaded (/usr/lib/systemd/system/cbis.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2025-08-06 09:55:09 IST; 41min ago
+ Main PID: 584 (java)
+    Tasks: 39 (limit: 24325)
+   Memory: 381.4M
+   CGroup: /system.slice/cbis.service
+           └─584 /usr/bin/java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/javax.crypto=ALL-UNNAM>
+```
 
 ## Review the manual configuration of MBI
 
@@ -29,7 +77,7 @@ Follow our [post-installation configuration procedure](installation.md) to ensur
 
 ## The report I generated is empty
 
-A cronjob is launched at approximately 4h30 AM that will compile and calculate all the data of the day before. CBIS then goes into the compiled data at the scheduled time to pick out the data relevant to the report it needs to generate. 
+A cronjob is launched at approximately 4:30 AM that will compile and calculate all the data of the day before. CBIS then goes into the compiled data at the scheduled time to pick out the data relevant to the report it needs to generate. 
 
 If reports are being generated without data in them, it's possible CBIS is sending its SQL requests before the cronjob is finished and so the data CBIS requests does not exist yet, check this log to see if conversion is finished: **/var/log/centreon/eventReportBuilder.log**. 
 
@@ -51,5 +99,7 @@ The script ```/usr/share/centreon-bi/etl/centreonbiMonitoring.pl``` has the opti
 
 Use SSH to connect to your MBI server and switch to root.
 
-MBI logs are located in the file ```var/log/centreon-bi```.
+Navigate to the MBI logs located in the file ```var/log/centreon-bi```.
+
+CBIS creates a new log for each day located /var/log/centreon-bi/cbis.date-of-the-day.log the date is in the format YYYY-MM-DD.
 
