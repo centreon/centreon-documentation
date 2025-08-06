@@ -7,7 +7,7 @@ MBI is an extension of Centreon with its own vocabulary and concepts. This secti
 
 ## ACL rules
 
-ACL rules work as an intermediary between regular [Centreon ACLs](../administration/access-control-lists.md) and [job groups](#job-groups) as these two can not be linked directly. They are created at **Administration > ACL > ACL rules** and must contain both an ACL and a job group.
+ACL rules work as an intermediary between regular [Centreon ACLs](https://docs.centreon.com/docs/administration/access-control-lists/) and [job groups](#job-groups) as these two can not be linked directly. They are created at **Administration > ACL > ACL rules** and must contain both an ACL and a job group.
 
 ## Data retention
 
