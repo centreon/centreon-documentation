@@ -466,6 +466,46 @@ Release date: `October 31, 2024`
 
 ## Centreon Collect
 
+### 24.10.10
+
+Release date: `August 5, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+**Engine**
+- [CORE] Fixed compatibility of engine with older versions of Linux kernel.
+
+</details>
+
+### 24.10.9
+
+Release date: `August 4, 2025`
+
+<details>
+  <summary>Enhancements</summary>
+
+**Broker**
+- New function in the lua cache to access hostgroups aliases.
+
+**Engine**
+- [CMA] Check timeout default value has been set to 120s in agent configuration.
+- [CMA] Added token management for agent-initiated connection.
+- [configuration] A dedicated whitelist entry is now available for Centreon Monitoring Agent.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+**Broker**
+- [Resource status] Fixed issues on tags (filters on HG, HC, SG, SC).
+
+**Engine**
+- [Collect] Fixed a regression where an engine command could not launch several checks at the same time.
+
+</details>
+
 ### 24.10.8
 
 Release date: `July 25, 2025`
@@ -624,6 +664,31 @@ Release date: `October 31, 2024`
 
 ## Centreon Monitoring Agent
 
+### 24.10.8
+
+Release date: `August 5, 2025`
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- [CORE] Fixed compatibility of engine with older versions of Linux kernel.
+
+</details>
+
+### 24.10.7
+
+Release date: `August 4, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Added a native Counter check for Windows.
+- [CMA] Added a native Files check for Windows & Linux.
+- [CMA] Added a native Task scheduler check for Windows & Linux.
+- [CMA] Installer and CLI wording have been harmonized to fit with new UI labels.
+
+</details>
+
 ### 24.10.6
 
 Release date: `July 25, 2025`
@@ -665,6 +730,19 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.10.6
+
+Release date: `August 4, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Compatibility] Fixed an issue preventing installation from being completed when database tables already existed.
+- [Gorgone] Fixed an issue on Alma 9 where plugins were not installed because yum did not exist anymore.
+- [Gorgone] Removed unnecessary error present at every first start of Gorgone.
+
+</details>
 
 ### 24.10.5
 
