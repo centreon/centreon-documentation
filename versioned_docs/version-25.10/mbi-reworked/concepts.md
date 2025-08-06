@@ -5,9 +5,19 @@ title: MBI Concepts
 
 MBI is an extension of Centreon with its own vocabulary and concepts. This section breaks down the key concepts to understanding Centreon MBI. Note that this section expects you to be familiar with the [regular Centreon vocabulary](https://docs.centreon.com/docs/resources/glossary/).
 
+## ACL rules
+
+ACL rules work as an intermediary between regular [Centreon ACLs](https://docs.centreon.com/docs/administration/access-control-lists/) and [job groups](#job-groups) as these two can not be linked directly. They are created at **Administration > ACL > ACL rules** and must contain both an ACL and a job group.
+
+## Data retention
+
+By default, MBI retains the data for a limited amount of time. The amount of time depends on the type of data. This is configured in the **Reporting > Monitoring Business Intelligence >  General options, Data retention options** tab. Data retention can also be completely disabled from there.
+
 ## ETL
 
 The ETL obtains the raw data from the central server and transforms it to a format readable by MBI, it then stores it in the database where CBIS will retrieve it for generating the reports.
+
+The MBI ETL is static, it does not automatically detect changes to its configurations outside of its routine check the following morning. For changes to be taken into account right away, [launch a rebuild](rebuilding-data.md).
 
 ## Dimension
 
@@ -17,26 +27,7 @@ The list of dimensions present for each host and service is calculated by the ET
 
 The hosts and services taken into account by MBI (and thus included in the calculation of dimensions), are those selected in the **Reporting > Monitoring Business Intelligence > General options** page, on the **ETL options** tab, in the **Reporting perimeter selection** section.
 
-### Hosts
-
-For a host, a dimension is a combination of host group and host category to which the host belongs. Each host must belong to at least one host group and one host category.
-
-Example: the host **Paris** belongs to the host groups **Île-de-France**, **France**, and **Europe**, and to the host categories **Routers** and **Switches**. The host **Paris** therefore belongs to the following 6 dimensions:
-
-* **Île-de-France**/**Routers**
-* **France**/**Routers**
-* **Europe**/**Routers**
-* **Île-de-France**/**Switches**
-* **France**/**Switches**
-* **Europe**/**Switches**
-
-### Services
-
-Each service belongs to at least one service category. As explained above, its parent host belongs to a number of dimensions. So, the possible dimensions for a service are the combination of each service category to which the service belongs and each dimension to which its parent host belongs.
-
-Example: The **Paris** host has a service called **CPU**. **CPU** belongs to the **Processor** and **Important** service categories. This means **CPU** belongs to 12 dimensions (the combination of the 2 service categories and the 6 parent dimensions for the **Paris** host).
-
-### Metrics
+## Metrics
 
 All metrics for each service are taken into account. For each metric, 5 statistics are calculated: average, min, max, first, last.
 
@@ -82,50 +73,14 @@ The scope of the reports, meaning the resources that will be included in them. T
 The amount of time a host has spent in an "available" [status](https://docs.centreon.com/docs/alerts-notifications/concepts/#host-status), in the selected time period.
 
 * For hosts: When calculating availability, only the time the host has spent in an UP or DOWN status is taken into account, not the time spent in an UNREACHABLE state or in downtime.
-* For services:
+* For services: When calculating availability, only the time the service has spent in an "OK" or "Warning" status is taken into account, not the time spent in an UNKNOWN state or in downtime.
+
+This means if a host or service spent the previous day as available 90% of the time and was in downtime the remaining 10%, it will show as 100% available in the reports.
 
 ## Publication rules
 
-By default, a report is only available for download on the (XXX > XXX) page. publication rules allow a report to be sent out to specific users every time the corresponding job finishes running.
+By default, a report is only available for download on **Reporting > Monitoring Business Intelligence > Report view**. Publication rules allow a report to be sent out to specific users every time the corresponding job finishes running.
+
 **Publication** tab of a job.
 The only exception is publication rules that are defined as global, which do not appear 
 All publication rules defined as "global" are executed every time a report is generated.
-
-## Quickstart Guide
-
-Using MBI to its full extent requires specific configuration. This topic helps you get a quick grasp of MBI, intentionally glossing over several aspects of the extension and leaving many settings in default configuration. A complete guide for
-[installing and configuring MBI](installation.md) as well as a complete guide for [generating reports](generating-reports.md) are also available.
-
-### Step 1: Configuring MBI
-
-Go to **Reporting > Monitoring Business Intelligence > General Options** 
-
-1. In the **Scheduler options** tab, fill in the CBIS server IP address in the CBIS host field.
-
-2. In the **ETL options** tab, determine the dimensions that will be taken into account for the generation of reports.
-
-3. In the **Data retention options** tab, determine for how long should the data be kept before its deletion.
-
-4. In the **Report Parameters** tab, determine the admin user that will grant access to CBIS to calculate data and show it.
-
-5. In the **Reporting Widgets** tab, fill in the datawarehouse as well as the MySQL credentials that will grant access to the data necessary for widgets.
-
-### Step 2: Creating the necessary groups and categories
-
-MBI requires you to use host groups, host categories and service categories. If the report you want to generate concerns only one resource, create a group/category containing only that resource.
-
-### Step 3: Creating a job
-
-You will now create a job that will generate an immediate report
-Go to **Reporting > Monitoring Business Intelligence > Jobs** and click on Add
-
-1. In the **Configuration** tab, choose a name for the report and select one of the 
-[available report designs](available-reports/available-reports.md).
-
-2. Select the corresponding [job group](#job-groups) and the period the report should contain.
-
-3. The **Report Parameters** tab's content depend on the report design. However note that all fields should be filled and fields that require you to add categories from left to right should have at least one category in the right side for each field.
-
-4. Click **Save**, you will be taken back to the previous page where you can see your job being executed.
-
-5. Go to **Reporting > Monitoring Business Intelligence > Report view** to find your report.

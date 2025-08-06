@@ -1,76 +1,81 @@
 ---
 id: generating-reports
-title: Generating reports with jobs
+title: Generating reports using jobs
 ---
 
-# Generating reports with jobs
+# Generating reports using Jobs
 
->MBI is a Centreon extension that has some terms you may not have heard elsewhere in our documentation. We strongly suggest you read the [concepts page](concepts.md) before following MBI-related procedures.
+> MBI is a Centreon extension that has some terms you may not have heard elsewhere in our documentation. We strongly suggest you read the [concepts page](concepts.md) before following MBI-related procedures.
 
 The following procedure requires you to have [prepared your data](preparing-data.md) as per the MBI requirements.
 
-A job is a scheduled report pending its time to be generated. This also applies to reports that are to be generated immediately. 
+A job is a scheduled report pending its time to be generated. This also applies to reports that are to be generated immediately. Note that reports only contain data up to the previous day. The data of each day is [aggregated by the ETL the following day](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated).
 
-Jobs are created by clicking the **Add** button in the **Reporting  >  Monitoring Business Intelligence  >  Jobs** page.
+Follow the steps below to create and configure a job:
 
-## Configuration tab
 
-### Job configuration
+## Create a New Job
 
-Give a name to the new job, the name given to the job will also be given to the report once generated.
+1. Go to **Reporting > Monitoring Business Intelligence > Jobs**.  
+2. Click the **Add** button to create a new job.
 
-Select a job design from the drop-down menu. The design determines the overall appearance of the report and how its information is presented. 
 
-Consult our [available reports catalog](available-reports/available-reports.md) to find the appropriate report design. 
+## Configure the Job
 
-You can change the language of the report between French or English. The spinning arrows icon next to the language field is an obsolete feature and will have no impact on the language of the report.
-The Output formats determine in what formats you will be able to download the generated report. 
+Creating a job lands you in the Configuration tab
 
-> Note that a report design may not be available in all formats. Consult our [available reports catalog](available-reports/available-reports.md) to avoid format errors.
+### Job Configuration
 
-Choose which [job groups](concepts.md#job-groups) are determine who can access each report, only the job groups you have access to will be listed here.
+1. Enter a **name** for the job. This will also be the name of the generated report.  
+2. Select a **job design** from the drop-down menu. Refer to our [available reports catalog](available-reports/available-reports.md) to choose an appropriate design.  
+3. Select the **language** (French or English). Ignore the spinning arrows icon next to the language field, it is obsolete and has no effect.
+4. Choose the **output formats** for the report.  
+   > Not all designs support all formats. Refer to the [available reports catalog](available-reports/available-reports.md) to avoid errors.  
+5. Select the appropriate [**job groups**](concepts.md#job-groups) that determine who can access the report.
 
-### Scheduling parameters
+### Scheduling Parameters
 
-Select whether you want the job to be executed immediately or schedule it for later. For immediate jobs, you must specify the reporting period that the report will include. 
+1. Choose the **execution type**:
+   - For **immediate jobs**, specify the **reporting period**.
+   - For **scheduled jobs**, choose between:
+     - **Regular job**: Executes at defined intervals (daily, weekly, etc.) and uses its own interval as the reporting period i.e. weekly reports contain information about the past week.
+     - **One shot job**: Executes once at the scheduled time. Set the **reporting period** manually.
+2. Set the **State**:
+   - **Schedule** (default): Job runs at the intended time.
+   - **Stop**: Puts the job on hold, preventing it from running.
+   - **Finished**: Select **Schedule** and save to run again.
+   - **Failed**: Checked after a job was canceled because of an error, select **Schedule** after resolving the issue to rerun.
 
-In the case of a scheduled job, it depends on whether it is a regular job or a one shot:
 
-- Regular jobs are executed at the defined interval and will use its own interval as the reporting period. This means daily jobs will contain the data of the previous day, weekly reports will contain the data of the previous week, etc.
+## Define Report Parameters
 
-- One shot jobs will execute once at the scheduled time. Like for an immediate job, you will need to specify the period the report should take into account.
+Go to the **Report Parameters** tab.
 
-The **State** field has **Schedule** checked by default to allow the job to run at the intended time. 
-- Selecting **Stop** will put the job on hold.
-- A completed job will cause a checked **Finished** state to appear, you can select **Schedule** and save to run this job again.
-- A failed job will cause a checked **Failed** state to appear. You must manually check the **Schedule** state to make this job run again after fixing what caused it to fail, jobs do not automatically run when issues are fixed.
+> This tab will be empty if no report design was selected in the [configuration tab](#job-configuration).
 
-## Report parameters tab
+Fill all fields based on the selected report design.  
+    - Fields vary depending on the design.  
+    - Fields requiring category selection must have at least one category on the **right side**.  
+Select the **time periods** to define which hours are included in the report.
 
->This tab is empty if you have not selected a report design in the [configuration tab](#configuration-tab)
+The following steps are optional. You may save the job now. Reports will be available under **Reporting > Monitoring Business Intelligence > Report view**.
 
-This tab is for selecting the resources which should be taken into account for the generation of the report.
+## Set Publication Rules
 
-The fields of the tab change according to the report design selected in the previous tab. However note that all fields should be filled. 
-Fields that require you to add categories from left to right should have at least one category in the right side each.
+Go to the **Publication** tab
 
-The time periods field is the only one present on all reports. Use it to choose which hours should be taken into account for the period the report will cover.
+Select the [**publication rules**](concepts.md#publication-rules) to apply.  
+- **Global rules**, like the default, are not listed but applied automatically.  
+- Reports with custom rules will be sent every time they are generated, based on the job's schedule.
 
-Steps 3 and 4 are optional and not required to generate a report, you may save your job now and get the report from **Reporting > Monitoring Business Intelligence > Report view**.
+## Adjust Tuning Options
 
-## Publication tab
+Go to the **Tuning** tab
 
-Here you can use previously created [publication rules](concepts.md#publication-rules) to automatically send the reports generated by this job to certain users.
+- Select a **theme** for the report. The default is set in the scheduler options when configuring MBI.  
+- Set the **job weight multiplicator** to increase job priority if MBI cannot generate all scheduled reports at once.  
+- Enable **administrator notification** for administrators to be alerted whenever this report is generated.  
+> **Note:** Administrator notifications must first be enabled in **Reporting > Monitoring Business Intelligence > General Options, Notification options**.
 
-Select the publication rules you want to apply. Rules marked as global, such as the default rule, do not appear here but are automatically applied to all jobs.
 
-Reports with a custom publication rule are automatically sent every time they are generated, this means the frequency of the sendings is dictated by the job scheduling parameters.
-
-## Tuning tab
-
-Here you can change the theme of the report, the default theme will be the one you defined as such in the scheduler options tab when configuring MBI.
-
-The job weight multiplicator allows you to increase the priority of a job. If MBI is not able to generate all the reports it should at the same time, it will first generate those with the highest multiplicator.
-
-Enable the admnistrator notification to notify each time a report is generated by this specific job. Note that admnistrator notification needs to be first enabled in the **Reporting > Monitoring Business Intelligence > General Options, Notification options** tab for this field to work.
-
+You have now configured a job for generating reports with Centreon MBI, save the job for it to start running. Reports will be available under **Reporting > Monitoring Business Intelligence > Report view**.

@@ -42,6 +42,11 @@ These can be configured by an administrator inside **Administration > ACL > ACL 
 
 ## Using the partitions and db-content commands.
 
+The script ```/usr/share/centreon-bi/etl/centreonbiMonitoring.pl``` has the options --db-content and --partitions which allow you to potentially identify issues with data.
+
+* --ddb-content will indicate the date of the last data of each table
+* --partitions will indicate the number of missing partitions between the first partition of the table and now and since when they have been missing. Note that this doesn't work if there are many non-consecutive periods missins.
+
 ## Check the logs
 
 Use SSH to connect to your MBI server and switch to root.
