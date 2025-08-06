@@ -238,11 +238,16 @@ Configure how the poller and the agent will communicate:
 
 <PollerAgentConfiguration type="CMA" />
 
-5. If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), enable **Connection initiated by poller**. Then, in **Host configurations**, define all the hosts on which the agent will be installed.
+5. For Centreon OnPrem, from version 24.10.9, if the **TLS** encryption mode is selected, you can use an optional token to make your poller/agent connection even more secure:
+   * On the **Administration > Authentication tokens** page, create a CMA-type token.
+   * Select this token in the corresponding section of the agent configuration page.
+   * Add your token to the **/etc/centreon-monitoring-agent/centagent.json** file on your host.
+
+6. If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), enable **Connection initiated by poller**. Then, in **Host configurations**, define all the hosts on which the agent will be installed.
 > If you configure several pollers at once, make sure all certificate files have the same name.
 
-6. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
-7. Restart the monitoring engine:
+7. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
+8. Restart the monitoring engine:
 
    ```bash
    systemctl restart centengine

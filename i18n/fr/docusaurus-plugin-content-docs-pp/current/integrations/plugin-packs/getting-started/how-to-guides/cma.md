@@ -238,6 +238,11 @@ Configurez la communication entre collecteur collecteur et agent :
 
 <PollerAgentConfiguration type="CMA" />
 
+5. Pour Centreon OnPrem, à partir de la version 24.10.9, si le mode de chiffrement **TLS** est sélectionné, vous pouvez utiliser un jeton optionnel pour sécuriser davantage votre connexion collecteur/agent :
+   * À la page **Administration > Jetons d'authentification**, créez un jeton de type CMA.
+   * Sélectionnez ce jeton dans la section correspondante de la page de configuration de l'agent.
+   * Ajoutez votre jeton au fichier **/etc/centreon-monitoring-agent/centagent.json** sur votre hôte.
+
 5. Si l'agent n'est pas autorisé à se connecter au collecteur pour des raisons de sécurité (par exemple lorsque le collecteur est situé dans une DMZ), activez l'option **Connection initiée par le collecteur**. Puis, dans la section **Configuration des hôtes**, définissez tous les hôtes sur lesquels l'agent sera installé.
 
 > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
