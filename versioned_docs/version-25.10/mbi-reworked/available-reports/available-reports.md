@@ -7,7 +7,7 @@ Here you can preview report designs and get information on their parameters and 
 
 | Report category | Type of data |
 | --- | --- |
-| Business Activity Monitoring reports | [BAM](../../service-mapping/introduction.md) data. |
+| Business Activity Monitoring reports | [BAM](https://docs.centreon.com/docs/service-mapping/introduction) data. |
 | Availability and Events reports | [Availability](../concepts.md#availability) and [events](../concepts.md#event) data. |
 | Performance reports | Any metrics. |
 | Storage reports | **Disk** metrics. |
