@@ -368,8 +368,8 @@ Parameters required for the report:
 
 #### Description
 
-This is one of the only reports that displays the events occurring on hosts at the time it is
-generated rather than the events up to the previous day.
+This report displays the events occurring on hosts at the time it is
+generated.
 
 #### How to interpret the report
 
@@ -412,8 +412,8 @@ Parameters required for the report:
 
 #### Description
 
-This is one of the only reports that displays the events occurring on services at the time it is
-generated rather than the events up to the previous day.
+This report displays the events occurring with services at the time it is
+generated.
 
 #### How to interpret the report
 
