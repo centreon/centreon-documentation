@@ -58,7 +58,7 @@ Fill all fields based on the selected report design.
     - Fields requiring category selection must have at least one category on the **right side**.  
 Select the **time periods** to define which hours are included in the report.
 
-Steps 4 and 5 are optional. You may save the job now. Reports will be available under **Reporting > Monitoring Business Intelligence > Report view**.
+The following steps are optional. You may save the job now. Reports will be available under **Reporting > Monitoring Business Intelligence > Report view**.
 
 ## Set Publication Rules
 
@@ -68,7 +68,7 @@ Select the [**publication rules**](concepts.md#publication-rules) to apply.
 - **Global rules**, like the default, are not listed but applied automatically.  
 - Reports with custom rules will be sent every time they are generated, based on the job's schedule.
 
-## Step 5: Adjust Tuning Options
+## Adjust Tuning Options
 
 Go to the **Tuning** tab
 
