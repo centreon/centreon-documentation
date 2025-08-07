@@ -1,5 +1,8 @@
 ---
 id: backup-restore
+title: Creating a backup and restoring MBI
+------
+id: backup-restore
 title: Backup & restore
 ---
 import Tabs from '@theme/Tabs';
