@@ -79,6 +79,6 @@ This means if a host or service spent the previous day as available 90% of the t
 
 ## Publication rules
 
-By default, a report is only available for download on **Reporting > Monitoring Business Intelligence > Report view**. Publication rules allow a report to be sent out to specific users every time the corresponding job finishes running.
+By default, a report is only available for download on **Reporting > Monitoring Business Intelligence > Report view**. [Publication rules](reports-publication-rule.md) allow a report to be sent out to specific users every time the corresponding job finishes running.
 
 They are selected in the **Publication** tab of job configuration. Global publication rules are not available for selection as they are always applied.

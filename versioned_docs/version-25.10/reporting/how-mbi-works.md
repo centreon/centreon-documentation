@@ -48,11 +48,11 @@ Reports can be generated immediately at the user's request, or when they are sch
 
 * Only one report is generated per format: pdf, xlsx, docx, etc…
 * The scope of the data in the report is determined by the **Report parameters** tab of the job. Bear in mind that the report and all of its data will be shared to other users according to what you have defined in [job groups](concepts.md#job-groups), regardless of other users' ACLs on resources.
-* The generated reports are copied to the central server, in **/var/lib/centreon/centreon-bi-server/archives**. (This is done by executing the global SFTP [publication rule](concepts.md#publication-rules) called **Default**.)
-* All other **global** [publication rules](concepts.md#publication-rules) are then executed.
+* The generated reports are copied to the central server, in **/var/lib/centreon/centreon-bi-server/archives**. (This is done by executing the global SFTP [publication rule](reports-publication-rule.md) called **Default**.)
+* All other **global** [publication rules](reports-publication-rule.md) are then executed.
 
 ## Step 4 (optional): The reports are sent to users
 
-Once it has written the reports to the central server and executed all global publication rules, CBIS checks whether any non-global [publication rules](concepts.md#publication-rules) exist for the job - and executes them.
+Once it has written the reports to the central server and executed all global publication rules, CBIS checks whether any non-global [publication rules](reports-publication-rule.md) exist for the job - and executes them.
 
-Example: Centreon can send reports by emails according to parameters defined in an SMTP [publication rule](concepts.md#publication-rules) ([postfix](https://docs.centreon.com/docs/administration/postfix/) must be configured).
+Example: Centreon can send reports by emails according to parameters defined in an SMTP [publication rule](reports-publication-rule.md) ([postfix](https://docs.centreon.com/docs/administration/postfix/) must be configured).
