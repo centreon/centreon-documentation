@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
-> Note to Centreon Cloud users: The Centreon Monitoring Agent is still in its beta phase. To get support, visit [our dedicated group on The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
+> Note to Centreon Cloud users: The Centreon Monitoring Agent is still in its beta phase for Centreon Cloud. To get support, visit [our dedicated group on The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
 
 ## Introduction
 
