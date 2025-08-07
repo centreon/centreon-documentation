@@ -74,6 +74,6 @@ If you want to define extra settings for your job, go to the **Tuning** tab of t
 Once you are satisfied with its configuration, save the job.
 
 * The job appears in the list of jobs in the **Reporting > Monitoring Business Intelligence > Jobs** page. An icon on the left shows you the current status of the job (scheduled, running, failed, stopped, finished).
-* Once generated, reports will be available on the **Reporting > Monitoring Business Intelligence > Report view** page.
+* Once generated, reports will be available on the **Reporting > Monitoring Business Intelligence > Report view** page. Click the output icons on the right to download them.
 
 Ran into any issues? Try [troubleshooting](troubleshooting.md) your configuration.

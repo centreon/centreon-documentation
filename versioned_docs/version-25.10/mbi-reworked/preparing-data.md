@@ -5,7 +5,7 @@ title: Preparing data for report generation
 
 ## Making your resources available to MBI
 
-For hosts/services availability and performance reports, the resources you want to see appear in reports must be organized into [host groups](https://docs.centreon.com/docs/monitoring/groups/#creating-a-host-group), [host categories](https://docs.centreon.com/docs/monitoring/groups/#hosts-category) and [service categories](https://docs.centreon.com/docs/monitoring/groups/#services-category).
+For host/service availability and performance reports, the resources you want to see appear in reports must be organized into [host groups](https://docs.centreon.com/docs/monitoring/groups/#creating-a-host-group), [host categories](https://docs.centreon.com/docs/monitoring/groups/#hosts-category) and [service categories](https://docs.centreon.com/docs/monitoring/groups/#services-category).
 
 - Each host that you want to see in reports must belong to at least one [host group](https://docs.centreon.com/docs/monitoring/groups/#creating-a-host-group) and one [host category](https://docs.centreon.com/docs/monitoring/groups/#hosts-category).
 - Each service that you want to see in reports must belong to at least one [service category](https://docs.centreon.com/docs/monitoring/groups/#services-category). 
