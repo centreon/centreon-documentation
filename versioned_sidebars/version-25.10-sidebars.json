@@ -844,21 +844,12 @@
           "id": "reporting/mbi-concepts"
         },
         {
-          "type": "category",
-          "label": "Setting up MBI",
-          "link": {
-            "type": "generated-index"
-          },
-          "items": [
-            {
-              "type": "doc",
-              "id": "reporting/installation"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/preparing-data"
-            }
-          ]
+          "type": "doc",
+          "id": "reporting/how-mbi-works"
+        },
+        {
+          "type": "doc",
+           "id": "reporting/installation"
         },
         {
           "type": "category",
@@ -869,15 +860,15 @@
           "items": [
             {
               "type": "doc",
+              "id": "reporting/preparing-data"
+            },
+            {
+              "type": "doc",
               "id": "reporting/generating-reports"
             },
             {
               "type": "doc",
               "id": "reporting/reports-publication-rule"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/how-mbi-works"
             },
             {
               "type": "doc",

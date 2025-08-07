@@ -16,11 +16,11 @@ We highly recommend you read our documentation to avoid running into issues. You
 
 MBI runs [jobs](concepts.md#jobs) to generate reports.
 
-Generate insightful statistics using our 30+ reports designs\...
+Centreon MBI has more than 30 different templates (report designs) ready to use
 
 ![image](../assets/reporting/first_page.png)
 
-Centreon MBI provides a full package of standard reports that address:
+Select among reports that address:
 
 -   Capacity planning and management
 -   Availability management

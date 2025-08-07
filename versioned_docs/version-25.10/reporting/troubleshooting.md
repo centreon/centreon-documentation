@@ -112,3 +112,18 @@ Navigate to the MBI logs located in the file ```var/log/centreon-bi```.
 
 CBIS creates a new log for each day located /var/log/centreon-bi/cbis.date-of-the-day.log the date is in the format YYYY-MM-DD.
 
+-------
+
+Comment aller lire ses logs et les comprendre
+A quoi ser cbis.out, cbis.DATE.log, centreonBIETL.log. Ce que tu trouve dedans
+Une partie sur le rebuild (que tu as dans la rebuild) par rapport aux données manquantes / échecs d'import quotidien
+Une partie sur les rapports de l'interface : https://thewatch.centreon.com/troubleshooting-41/mbi-cannot-download-reports-from-the-web-ui-501
+Une partie sur les rapports de l'interface concernant les timezones Central MBI BDD Central BDD MBI (et ptet Java aussi) : https://centreon.atlassian.net/wiki/spaces/IPKB/pages/376472205/All+the+jobs+generated+a[…]oadable+even+if+the+default+publication+rule+is+set+on+OK
+En tl:dr, toutes les timezone doivent être exactement la même entre toutes les machines sinon ça ne permet pas de télécharger les rapports
+Le diag (comme déjà présent) et son utilité. : https://centreon.atlassian.net/wiki/spaces/IPKB/pages/2674032680/MBI+-+Tips+Tricks https://centreon.atlassian.net/wiki/spaces/IPKB/pages/2754543653/General+Troubleshooting+information
+Et quelques pistes si on à l'erreur X sur où regarder.
+Rapport vide => check db-content & partition
+=> Si err, voir partie rebuild  https://centreon.atlassian.net/wiki/spaces/IPKB/pages/2694512644/My+reports+are+completely+empty  https://centreon.atlassian.net/wiki/spaces/IPKB/pages/2693890055/My+reports+are+partially+empty
+=> Si rien, voir la conf du rapport / hôte et cie https://centreon.atlassian.net/wiki/spaces/IPKB/pages/2754543653/General+Troubleshooting+information#When-a-report-is-empty[…]-analyse-it-~-that-way
+Comment activer le debug de CBIS https://centreon.atlassian.net/wiki/spaces/IPKB/pages/2754543653/General+Troubleshooting+information
+
