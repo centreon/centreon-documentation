@@ -130,24 +130,24 @@ When configuring the SMTP publication rule, you must provide details about the l
 
 | **Field**                  | **Value**                            | **Description**                                                                 |
 |---------------------------|--------------------------------------|---------------------------------------------------------------------------------|
-| Name                      | SMTP Rule name **(mandatory)**                      | A name to identify the rule. Choose something meaningful.                       |
+| Name **(mandatory)**                     | SMTP rule name                       | A name to identify the rule. Choose something meaningful.                       |
 | Publication protocol      | SMTP                                 | Protocol used for sending emails. Must be set to `SMTP` for mail delivery.     |
 | Global                    | Yes / No                             | Defines whether the rule is available globally across reports.                 |
 | Description               | *(Optional)*                         | Internal description of the rule.                                              |
 | Publish log file          | Yes                                  | Whether to include the publish step in the log.                                   |
-| E-mail from               | my_user@my_server **(mandatory)**            | Sender address used in the "From" field of the email.                          |
-| SMTP server               | localhost **(mandatory)**                           | SMTP host. Use `localhost` if Postfix runs on the same server.                 |
-| SMTP port                 | 25 **(mandatory)**                                  | SMTP port. Default is `25` for non-secure connections.                         |
+| E-mail from  **(mandatory)**              | my_user@my_server            | Sender address used in the "From" field of the email.                          |
+| SMTP server  **(mandatory)**             | localhost                            | SMTP host. Use `localhost` if Postfix runs on the same server.                 |
+| SMTP port **(mandatory)**                | 25                                   | SMTP port. Default is `25` for non-secure connections.                         |
 | Use SSL                   | No                                   | Whether to use SSL encryption. Disabled for local Postfix setup.              |
 | Use credential            | No                                   | Use SMTP authentication. Set to `No` for local delivery without credentials.   |
 | E-mail default title      | MBI Report                            | Default subject/title used for outgoing emails. Can be customized.             |
 | Default E-mail body                 | *(Optional)*                         | Default content in the body of the email.                                      |
 | Default E-mail footer               | *(Optional)*                         | Default signature/footer at the bottom of the email.                           |
-| Maximum report size                 | 4 Mo **(mandatory)**                                 | Max allowed report size attached to the email (in megabytes).                  |
+| Maximum report size  **(mandatory)**                | 4 Mo                                 | Max allowed report size attached to the email (in megabytes).                  |
 | Centreon main server web protocol   | http                                 | Protocol used to access the Centreon UI (http or https).                       |
 | Centreon web URL extension          | /centreon                            | Web path extension, usually `/centreon`.                                       |
 | Centreon main server web address    | central_ip                       | IP or FQDN + port of Centreon web interface.                                   |
-| Contact Groups                      | cg-reports-mbi **(mandatory)**                           | Contact group(s) receiving the report. Must be configured in Centreon.         |
+| Contact Groups **(mandatory)**                      | cg-reports-mbi                           | Contact group(s) receiving the report. Must be configured in Centreon.         |
 
 ## Configuring the CIFS rule
 
@@ -161,7 +161,7 @@ When configuring the CIFS publication rule, you must provide details about the f
 
 | **Field**                  | **Value**                            | **Description**                                                                 |
 |----------------------------|--------------------------------------|---------------------------------------------------------------------------------|
-| Name                       | CIFS_publication      | A name to identify the rule. Choose something meaningful.                      |
+| Name                       | CIFS rule name      | A name to identify the rule. Choose something meaningful.                      |
 | Publication protocol       | CIFS                                 | Protocol used for file sharing. Must be set to `CIFS` for this configuration.  |
 | Global                     | No                                   | Defines whether the rule is available globally across reports.                 |
 | Description                | *(Optional)*                         | Internal description of the rule.                                              |
@@ -171,5 +171,50 @@ When configuring the CIFS publication rule, you must provide details about the f
 | User                       | *(mandatory)*                        | The username for authentication.                                               |
 | Password                   | *(mandatory)*                        | The password for authentication.                                               |
 | Password confirm           | *(mandatory)*                        | Confirmation of the password for authentication.                               |
+| Root directory             | *(mandatory)*                        | The root directory path for file storage.                                      |
+| Subdirectory               | @DAY@ *(optional)*                   | Subdirectory path, can include dynamic variables like @DAY@.                   |
+
+
+## Configuring the FTP rule
+
+To enable automated delivery of your generated reports to a remote server, you need to configure an FTP rule. This rule defines how Centreon BI will transfer PDF reports to a remote server using the FTP protocol.
+
+> **Note**  
+> - The FTP server must be reachable over the network (e.g., ftp://server).  
+> - Valid credentials (if required) must be provided in the FTP rule.
+
+
+
+| **Field**                  | **Value**                            | **Description**                                                                 |
+|----------------------------|--------------------------------------|---------------------------------------------------------------------------------|
+| Name **(mandatory)**                      | FTP rule name                 | A name to identify the rule. Choose something meaningful.                      |
+| Publication protocol       | FTP                                 | Protocol used for file transfer. Must be set to `FTP` for this configuration.  |
+| Global                     | No                                   | Defines whether the rule is available globally across reports.                 |
+| Description                | *(Optional)*                         | Internal description of the rule.                                              |
+| Publish log file           | No                                   | Whether to include the publish step in the log.                                |
+| Host                       | *(mandatory)*                        | The server host address for the publication.                                   |
+| Port                       | 21 *(mandatory)*                        | The port number for the connection.                                            |
+| User                       | *(mandatory)*                        | The username for authentication.                                               |
+| Password                   | *(mandatory)*                        | The password for authentication.                                               |
+| Password confirm           | *(mandatory)*                        | Confirmation of the password for authentication.                               |
+| Encryption                 | *(optional)*                         | The encryption method for the connection.                                      |
+| Root directory             | *(mandatory)*                        | The root directory path for file storage.                                      |
+| Subdirectory               | @DAY@ *(optional)*                   | Subdirectory path, can include dynamic variables like @DAY@.                   |
+
+
+## Configuring the Local rule
+
+To enable automated delivery of your generated reports to a local directory, you need to configure a Local rule. This rule defines how Centreon BI will create a simple copy of the PDF reports within a specified local directory on the server.
+
+> **Note**  
+> - The local directory must be accessible on the server (e.g., /var/www/reports).  
+
+| **Field**                  | **Value**                            | **Description**                                                                 |
+|----------------------------|--------------------------------------|---------------------------------------------------------------------------------|
+| Name **(mandatory)**                       | Local rule name              | A name to identify the rule. Choose something meaningful.                      |
+| Publication protocol       | Local                                | Protocol used for file transfer. Must be set to `Local` for this configuration.|
+| Global                     | Yes/No                                  | Defines whether the rule is available globally across reports.                 |
+| Description                | *(Optional)*                         | Internal description of the rule.                                              |
+| Publish log file           | Yes                                  | Whether to include the publish step in the log.                                |
 | Root directory             | *(mandatory)*                        | The root directory path for file storage.                                      |
 | Subdirectory               | @DAY@ *(optional)*                   | Subdirectory path, can include dynamic variables like @DAY@.                   |
