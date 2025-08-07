@@ -16,8 +16,16 @@ We highly recommend you read our documentation to avoid running into issues. You
 
 MBI runs [jobs](concepts.md#jobs) to generate reports.
 
+Generate insightful statistics using our 30+ reports designs\...
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Rationalization-Of-Resources-1_1.png)
+![image](../assets/reporting/first_page.png)
+
+Centreon MBI provides a full package of standard reports that address:
+
+-   Capacity planning and management
+-   Availability management
+-   SLA (Service Level Agreement) management
+-   Performance management.
 
  This allows for an overview of the performance of the selected resources over a given period of time. These reports can be configured to be generated once or on a regular basis (i.e. once per day, week, month...). This will help you keep track of your IT environment with monthly uptime reports, weekly infrastructure performance summaries...
 
