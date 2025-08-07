@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
-> L'agent CMA est encore en phase bêta. Pour obtenir de l'aide, visitez [notre groupe dédié sur The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
+> Utilisateurs de Centreon Cloud: l'agent CMA est encore en phase bêta. Pour obtenir de l'aide, visitez [notre groupe dédié sur The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
 
 ## Introduction
 
