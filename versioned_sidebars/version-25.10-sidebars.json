@@ -898,7 +898,15 @@
             },
             {
               "type": "doc",
-              "id": "mbi-reworked/update-upgrade-migrate"
+              "id": "mbi-reworked/update"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/upgrade"
+            },
+            {
+              "type": "doc",
+              "id": "mbi-reworked/migrate"
             },
             {
               "type": "doc",
@@ -1020,18 +1028,6 @@
             {
               "type": "doc",
               "id": "reporting/installation"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/update"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/upgrade"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/migrate"
             },
             {
               "type": "doc",
