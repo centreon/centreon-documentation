@@ -28,7 +28,7 @@ In the **Job Configuration** section of the **Configuration** tab:
 * Select the [**job groups**](concepts.md#job-groups) you want so as to share your report with other users:
    * They will be able to modify the job (if they have the correct ACL to access the **Reporting > Monitoring Business Intelligence > Jobs** page).
    * They will be able to see the generated report in the **Reporting > Monitoring Business Intelligence > Report view** page (if they have the correct ACL).
-   * This is not the same as [publishing your report for other users](publication_rules.md), wich is done using the **Publication** tab.
+   * This is not the same as [publishing your report for other users](reports-publication-rule.md), wich is done using the **Publication** tab.
 
 ### Schedule job execution
 
@@ -56,7 +56,7 @@ Go to the **Report Parameters** tab of the **Reporting > Monitoring Business Int
 
 If you want to share the generated reports for example via email or on a server, go to the **Publication** tab of the **Reporting > Monitoring Business Intelligence > Jobs** page.
 
-Select the [**Publication rules**](publication_rules.md) you want.
+Select the [**Publication rules**](reports-publication-rule.md) you want.
 
 - Global rules are not listed on this tab, but they are applied automatically every time the job is executed.
 - Reports with custom rules will be sent every time they are generated, based on the job's schedule.
