@@ -83,6 +83,15 @@ If reports are being generated without data in them, it's possible CBIS is sendi
 
 Try pushing back the cyclic report generation hour in the **Scheduler options** tab of **Reporting > Monitoring business Intelligence > General options** so that CBIS does not request data before the cronjob has finished.
 
+## All the jobs generated are not dowloadable
+
+Verify the central server and MBI server are time-synced 
+
+```
+timedatectl
+```
+
+
 ## I cannot see the report design/the hosts I need
 
 MBI follows the rules of ACLs. If you can not see certain report designs or certain resources, it is possible you have not been authorized to do so in the ACLs. 
