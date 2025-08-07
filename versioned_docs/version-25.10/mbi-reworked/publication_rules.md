@@ -149,3 +149,27 @@ When configuring the SMTP publication rule, you must provide details about the l
 | Centreon main server web address    | central_ip                       | IP or FQDN + port of Centreon web interface.                                   |
 | Contact Groups                      | cg-reports-mbi **(mandatory)**                           | Contact group(s) receiving the report. Must be configured in Centreon.         |
 
+## Configuring the CIFS rule
+
+To enable automated delivery of your generated reports to a network share, you need to configure a CIFS rule. This rule defines how Centreon BI will transfer PDF reports to a remote file share using the CIFS/SMB protocol.
+
+> **Note**  
+> - The shared folder must be reachable over the network (e.g., \\server\share).
+> - Valid credentials (if required) must be provided in the CIFS rule.
+
+When configuring the CIFS publication rule, you must provide details about the file server and authentication.
+
+| **Field**                  | **Value**                            | **Description**                                                                 |
+|----------------------------|--------------------------------------|---------------------------------------------------------------------------------|
+| Name                       | CIFS_publication      | A name to identify the rule. Choose something meaningful.                      |
+| Publication protocol       | CIFS                                 | Protocol used for file sharing. Must be set to `CIFS` for this configuration.  |
+| Global                     | No                                   | Defines whether the rule is available globally across reports.                 |
+| Description                | *(Optional)*                         | Internal description of the rule.                                              |
+| Publish log file           | No                                   | Whether to include the publish step in the log.                                |
+| Host                       | *(mandatory)*                        | The server host address for the publication.                                   |
+| Domain                     | *(mandatory)*                        | The domain for authentication purposes.                                        |
+| User                       | *(mandatory)*                        | The username for authentication.                                               |
+| Password                   | *(mandatory)*                        | The password for authentication.                                               |
+| Password confirm           | *(mandatory)*                        | Confirmation of the password for authentication.                               |
+| Root directory             | *(mandatory)*                        | The root directory path for file storage.                                      |
+| Subdirectory               | @DAY@ *(optional)*                   | Subdirectory path, can include dynamic variables like @DAY@.                   |

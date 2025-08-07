@@ -6,7 +6,7 @@ title: Rebuilding MBI data
 ## Rebuild process
 
 This procedure guides you through resetting the MBI database to a clean state or rebuilding missing data. Rebuilding data is necessary when you need to:
-- Go back to a healthy start: changes were made on Resources configurations to create desired dimensions. You now want to remove these changes and data history is not important. You can launch rebuild process to delete previous data, import new data, compute and store them into datawarehouse.
+- Go back to a healthy start: changes were made on Resources configurations to create desired dimensions and data history is not important? Oy maybe you want a clean BI database? You can launch rebuild process to delete previous data, import new data, compute and store them into datawarehouse.
 - Rebuild historical data with new configuration: 
     - After many changes on your resources, you can launch rebuild to delete all previous configuration, import the new configuration (skip import raws data) and aggregated data basing on it. 
     - It is also possible to import new configuration while keeping old aggregated data and rebuild with the new configuration on a specific period.
