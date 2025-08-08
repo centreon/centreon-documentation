@@ -17,7 +17,7 @@ The best way to link hosts to host categories and services to service categories
 
 ## Creating the time periods you need
 
-Every [job](concepts.md#jobs) uses a [time period](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) as a parameter: 24x7, workhours, non-workhours, etc... Only the data contained in the selected time periods will be included in the report.
+Every [job](https://docs.centreon.com/docs/reporting/concepts.md#jobs) uses a [time period](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) as a parameter: 24x7, workhours, non-workhours, etc... Only the data contained in the selected time periods will be included in the report.
 
 We recommend you create all the custom time periods you need before you start configuring reports.
 

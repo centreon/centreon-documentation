@@ -15,7 +15,7 @@ Because each phase is independent from the others, incorrect configuration in an
 
 1. As checks are performed, each check result is recorded in the central database (in the **centreon_storage.logs** table for statuses, in **data_bin** for metrics).
 
-2. On the central server, a script (**eventReportBuilder**) is launched by a cronjob every day at 3 AM: it converts check results into [events](concepts.md#event) that will be used to calculate availability. The time this script is launched is defined in **/etc/cron.d/centreon**.
+2. On the central server, a script (**eventReportBuilder**) is launched by a cronjob every day at 3 AM: it converts check results into [events](https://docs.centreon.com/docs/reporting/concepts.md#event) that will be used to calculate availability. The time this script is launched is defined in **/etc/cron.d/centreon**.
 
 > The conversion of check results into events must be totally finished **before** [the ETL is launched](#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated), otherwise the reports will be empty. If in doubt, check this log to see if conversion is finished: **/var/log/centreon/eventReportBuilder.log**.
 
@@ -23,14 +23,14 @@ Because each phase is independent from the others, incorrect configuration in an
 
 On the MBI server, a cronjob launches the ETL every day at 4.30 AM. This makes Gorgone execute 4 scripts, taking into account the options defined on the **Reporting > Monitoring Business Intelligence > General options** page:
 
-1. **import_data.pl**: [Events](./concepts.md#event) and metrics as well as the configuration (hosts, host categories, ACLs...) are copied from the central database to the MBI database for the last day (from midnight to midnight).
+1. **import_data.pl**: [Events](https://docs.centreon.com/docs/reporting/concepts.md#event) and metrics as well as the configuration (hosts, host categories, ACLs...) are copied from the central database to the MBI database for the last day (from midnight to midnight).
    * The script will only import the host groups, host categories and service categories you have defined in the **Reporting > Monitoring Business Intelligence > General options** page, on the **ETL options** tab, in the **Reporting perimeter selection** section.
    * In all cases, all metrics will be imported.
    * All hosts or services that do not belong to at least one host group, one host category or one service category are excluded.
 
-2. **dimension_builder.pl**: MBI prepares a list of all [dimensions](concepts.md#dimension) present in the imported data, for each host, service and metric.
+2. **dimension_builder.pl**: MBI prepares a list of all [dimensions](https://docs.centreon.com/docs/reporting/concepts.md#dimension) present in the imported data, for each host, service and metric.
 
-3. **eventStatisticsBuilder.pl**: MBI calculates the [availability](concepts.md#availability) of resources, based on the data copied from the central server and the dimensions calculated just before. The availability of each dimension is calculated by day and by month, taking into account the [time periods](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) selected in the **Live services for availability statistics calculation** field of the **General options** page, on the **ETL options** tab.
+3. **eventStatisticsBuilder.pl**: MBI calculates the [availability](https://docs.centreon.com/docs/reporting/concepts.md#availability) of resources, based on the data copied from the central server and the dimensions calculated just before. The availability of each dimension is calculated by day and by month, taking into account the [time periods](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) selected in the **Live services for availability statistics calculation** field of the **General options** page, on the **ETL options** tab.
 
 4. **perfdataStatisticsBuilder.pl**: MBI aggregates all metrics by hour/day/month, taking into account the [time periods](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) selected in the **Live services for performance data statistics calculation** field of the **General options** page, on the **ETL options** tab.
 
@@ -47,7 +47,7 @@ Reports can be generated immediately at the user's request, or when they are sch
 > In both cases, all aggregations need to have been calculated first. This means that if you have just made changes to host categories, host groups and service categories, the corresponding aggregations will not have been calculated yet. You will need to [rebuild the data](rebuilding-data.md).
 
 * Only one report is generated per format: pdf, xlsx, docx, etc…
-* The scope of the data in the report is determined by the **Report parameters** tab of the job. Bear in mind that the report and all of its data will be shared to other users according to what you have defined in [job groups](concepts.md#job-groups), regardless of other users' ACLs on resources.
+* The scope of the data in the report is determined by the **Report parameters** tab of the job. Bear in mind that the report and all of its data will be shared to other users according to what you have defined in [job groups](https://docs.centreon.com/docs/reporting/concepts.md#job-groups), regardless of other users' ACLs on resources.
 * The generated reports are copied to the central server, in **/var/lib/centreon/centreon-bi-server/archives**. (This is done by executing the global SFTP [publication rule](reports-publication-rule.md) called **Default**.)
 * All other **global** [publication rules](reports-publication-rule.md) are then executed.
 

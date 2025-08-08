@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 > It is strongly advised that you install the [Centreon MBI connector](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi) which allows you to monitor the status of your MBI server.
 
-Before going further, make sure that the extension is up to date ([update](./update.md) or [upgrade](upgrade.md) it if needed).
+Before going further, make sure that the extension is up to date ([update](https://docs.centreon.com/docs/reporting/update.md) or [upgrade](upgrade.md) it if needed).
 
 ## Running a diagnostic
 

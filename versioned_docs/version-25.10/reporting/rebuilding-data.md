@@ -20,7 +20,7 @@ Centreon MBI uses a Perl-based script to orchestrate its ETL (Extract, Transform
 /usr/share/centreon-bi/bin/centreonBIETL (-c|-d|-r) 
 ```
 
-This script supports several execution options to perform tasks such as creating [dimensions](concepts.md#dimension), copying and aggregating the previous day's data, or rebuilding the whole MBI database.
+This script supports several execution options to perform tasks such as creating [dimensions](https://docs.centreon.com/docs/reporting/concepts.md#dimension), copying and aggregating the previous day's data, or rebuilding the whole MBI database.
 
 This documentation focuses specifically on the `-r` (rebuild) option and its usage.
 
