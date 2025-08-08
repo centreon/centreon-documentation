@@ -143,6 +143,8 @@ To make sure a copy of your report is published every time the job is executed, 
 * mark the rule as global (no extra configuration is necessary as all global rules are executed every time a job is run - bear in mind that global rules apply to all the jobs executed by the platform).
 * in the job you want, select the desired custom rule on the **Publication** tab of the **Reporting > Monitoring Business Intelligence > Jobs** page.
 
+Please note that the data included in the report depends on the [rights on resources](https://docs.centreon.com/docs/administration/access-control-lists/#access-filters-on-resources) of the user who creates the job. It is the responsibility of the user creating the job to make sure that the resources included in the report are authorized for the users with which they want to share the report.
+
 ## How the Default publication rule works
 
 The default SFTP rule is the one that transfers the generated reports to your central server.

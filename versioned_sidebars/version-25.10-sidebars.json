@@ -870,6 +870,10 @@
               "type": "doc",
               "id": "reporting/reports-publication-rule"
             },
+                        {
+              "type": "doc",
+              "id": "reporting/share"
+            },
             {
               "type": "doc",
               "id": "reporting/widgets"

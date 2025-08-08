@@ -28,7 +28,7 @@ L'architecture et ces prérequis s'appliquent aux environnements de :
 
 Le schéma ci-dessous met en avant les principaux composants de Centreon MBI :
 
-![image](../../assets/reporting/installation/architecture.png)
+![image](../assets/reporting/installation/architecture.png)
 
 *La base de monitoring n'est pas nécessairement sur le même serveur que le serveur Centreon*
 

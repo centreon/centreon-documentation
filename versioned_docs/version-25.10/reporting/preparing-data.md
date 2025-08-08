@@ -8,7 +8,7 @@ title: Preparing data for report generation
 For host/service availability and performance reports, the resources you want to see appear in reports must be organized into [host groups](https://docs.centreon.com/docs/monitoring/groups/#creating-a-host-group), [host categories](https://docs.centreon.com/docs/monitoring/groups/#hosts-category) and [service categories](https://docs.centreon.com/docs/monitoring/groups/#services-category).
 
 - Each host that you want to see in reports must belong to at least one [host group](https://docs.centreon.com/docs/monitoring/groups/#creating-a-host-group) and one [host category](https://docs.centreon.com/docs/monitoring/groups/#hosts-category).
-- Each service that you want to see in reports must belong to at least one [service category](https://docs.centreon.com/docs/monitoring/groups/#services-category). 
+- Each service that you want to see in reports must belong to at least one [service category](https://docs.centreon.com/docs/monitoring/groups/#services-category).
 
 The best way to link hosts to host categories and services to service categories is to use the **Linked host template/Linked service template** fields in the category creation form. This will mean less maintenance, as this will ensure that all future hosts that inherit from the template will be added to the category automatically (and you don't have to add them one by one manually as you create them).
 
@@ -38,7 +38,6 @@ Select the perimeters for the reports, the time periods and the service categori
 - The ETL is static, it does not automatically detect configuration changes on Centreon outside of its regular checks (scheduled for 4:30 a.m. by default). You must launch a rebuild of the ETL for new data/configuration to be taken into account immediately.
 - If data has started being compiled for less than a month, it is possible to get gaps in the generated report.
 
-## Granting users access with ACLs
+## Making it possible to share reports
 
-The user creating a job determines its perimeter while only seeing the resources their [ACLs](https://docs.centreon.com/docs/administration/access-control-lists/) allows them.
-If needed, ask an admin to modify your ACL to add missing resources.
+Generated reports can be [shared locally (via the Centreon interface)](share.md), or [published by email or to a server](reports-publication-rule.md). Before you [create a job](generating-reports.md#step-1-create-a-new-job), make sure you ave created the job groups or the publication rules you need.

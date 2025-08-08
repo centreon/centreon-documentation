@@ -25,10 +25,10 @@ In the **Job Configuration** section of the **Configuration** tab:
 * Enter a **Name** for the job. This will also be the name of the generated report in the **Reporting > Monitoring Business Intelligence > Report view** page.  
 * Select the **Language** of the report: you can generate reports in French or English. (Ignore the refresh icon next to the list.)
 * Select the **Output formats** you want for this report: bear in mind that not all report designs support all formats. Refer to the [catalog of available reports](available-reports/available-reports.md) to find out which outputs are supported for the report design you selected.  
-* Select the [**job groups**](concepts.md#job-groups) you want so as to share your report with other users:
-   * They will be able to modify the job (if they have the correct ACL to access the **Reporting > Monitoring Business Intelligence > Jobs** page).
-   * They will be able to see the generated report in the **Reporting > Monitoring Business Intelligence > Report view** page (if they have the correct ACL).
-   * This is not the same as [publishing your report for other users](reports-publication-rule.md), wich is done using the **Publication** tab.
+* Select the [**job groups**](concepts.md#job-groups) you want so as to [share your report with other non-admin users](share.md):
+   * They will be able to edit the job (if they have the correct ACL to access the **Reporting > Monitoring Business Intelligence > Jobs** page).
+   * They will be able to see the generated report in the **Reporting > Monitoring Business Intelligence > Report view** page (if they have the correct ACL to access this page).
+   * This is not the same as [publishing your report for other users](https://docs.centreon.com/docs/reporting/reports-publication-rule), which is done using the **Publication** tab.
 
 ### Schedule job execution
 
