@@ -17,7 +17,7 @@ The best way to link hosts to host categories and services to service categories
 
 ## Creating the time periods you need
 
-Every [job](https://docs.centreon.com/docs/reporting/concepts.md#jobs) uses a [time period](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) as a parameter: 24x7, workhours, non-workhours, etc... Only the data contained in the selected time periods will be included in the report.
+Every [job](https://docs.centreon.com/docs/reporting/concepts/#jobs) uses a [time period](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) as a parameter: 24x7, workhours, non-workhours, etc... Only the data contained in the selected time periods will be included in the report.
 
 We recommend you create all the custom time periods you need before you start configuring reports.
 
@@ -26,7 +26,7 @@ We recommend you create all the custom time periods you need before you start co
 Only [data compiled by the ETL](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated) can be used in reports.
 For perfomance reasons, it is recommended to limit the scope of data for MBI to what you want to see in reports as large amounts of data take more time to compile, and take up storage space.
 
-Ideally, this should have been done as part of the installation process: see [Defining which data will be used by MBI](installation.md#defining-which-data-will-be-used-by-mbi). If you haven't already done so, go to **Reporting > Monitoring Business Intelligence > General options**, **ETL options** tab.
+Ideally, this should have been done as part of the installation process: see [Defining which data will be used by MBI](https://docs.centreon.com/docs/reporting/installation/#defining-which-data-will-be-used-by-mbi). If you haven't already done so, go to **Reporting > Monitoring Business Intelligence > General options**, **ETL options** tab.
 
 By default, the ETL is configured to compute availability and performance for all of your data: all host groups, host categories and service categories. If you don't want to see some of these groups and categories in your reports, uncheck **All group perimeters** and select only the data you want.
 
