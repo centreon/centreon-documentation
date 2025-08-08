@@ -2,6 +2,9 @@
 id: troubleshooting
 title: Troubleshooting MBI
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 > It is strongly advised that you install the [Centreon MBI connector](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi) which allows you to monitor the status of your MBI server.
 
@@ -161,7 +164,8 @@ After a modification, you need to restart rh-php73-php-fpm:
 systemctl restart rh-php73-php-fpm
 ```
 
-**If you use TimeZones in Centreon**
+<Tabs groupId="sync">
+<TabItem value="Time Zones" label="If you use time zones in Centreon">
 
 Is the scheduler set on the same TimeZone as the reporting server?
 
@@ -184,8 +188,8 @@ Finally, check that the content of /etc/sysconfig/clock is consistent with the d
 ```
 /etc/init.d/cbis restart .
 ```
-
-**If you do NOT use TimeZones in Centreon**
+</TabItem>
+<TabItem value="no time zone" label="If you do NOT use time zones in Centreon">
 
 This configuration is not advised and works only if ALL the Centreon users are in the TimeZone set in the file /etc/php.ini (with variable date.timezone)
 
@@ -203,7 +207,8 @@ tailf /var/log/centreon-bi/cbis.YYYY-MM-DD.log
 
 If the date is coherent with the TimeZone set in php.ini (date.tiemzone) on the Centreon server (not the date of the server), you have a different problem.
 
-
+</TabItem>
+</Tabs>
 
 ## I cannot see the report design/the hosts I need
 
