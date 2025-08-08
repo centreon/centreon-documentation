@@ -161,8 +161,7 @@ After a modification, you need to restart rh-php73-php-fpm:
 systemctl restart rh-php73-php-fpm
 ```
 
-<Tabs groupId="sync">
-<TabItem value="timezones" label="If you use TimeZones in Centreon">
+**If you use TimeZones in Centreon**
 
 Is the scheduler set on the same TimeZone as the reporting server?
 
@@ -186,8 +185,7 @@ Finally, check that the content of /etc/sysconfig/clock is consistent with the d
 /etc/init.d/cbis restart .
 ```
 
-</TabItem>
-<TabItem value="no_timezones" label="If you do NOT use TimeZones in Centreon">
+**If you do NOT use TimeZones in Centreon**
 
 This configuration is not advised and works only if ALL the Centreon users are in the TimeZone set in the file /etc/php.ini (with variable date.timezone)
 
@@ -205,8 +203,7 @@ tailf /var/log/centreon-bi/cbis.YYYY-MM-DD.log
 
 If the date is coherent with the TimeZone set in php.ini (date.tiemzone) on the Centreon server (not the date of the server), you have a different problem.
 
-</TabItem>
-</Tabs>
+
 
 ## I cannot see the report design/the hosts I need
 
