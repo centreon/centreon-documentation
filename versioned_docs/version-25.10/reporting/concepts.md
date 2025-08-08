@@ -1,5 +1,5 @@
 ---
-id: mbi-concepts
+id: concepts
 title: MBI Concepts
 ---
 
