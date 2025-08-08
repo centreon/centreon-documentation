@@ -77,4 +77,6 @@ This means if a host or service spent the previous day as available 90% of the t
 
 By default, a report is only available for download on **Reporting > Monitoring Business Intelligence > Report view**. [Publication rules](reports-publication-rule.md) allow a report to be sent out to specific users every time the corresponding job finishes running.
 
-Apply a publication rule to a job using the **Publication** tab of job configuration page.
+## Report designs
+
+Templates for reports. There are over [30 different ready-to-use report designs](available-reports/available-reports.md) that determine the data that can be shown in the report and the ayout of the report. You can also [create your own report designs using BIRT](report-development.md).
