@@ -38,4 +38,4 @@ Select the time periods and the service categories you want (disk, ping, memory,
 
 ## Making it possible to share reports
 
-Generated reports can be [shared locally (via the Centreon interface)](share.md), or [published by email or to a server](reports-publication-rule.md). Before you [create a job](generating-reports.md#step-1-create-a-new-job), make sure you ave created the job groups or the publication rules you need.
+Generated reports can be [shared locally (via the Centreon interface)](https://docs.centreon.com/docs/reporting/share.md), or [published by email or to a server](reports-publication-rule.md). Before you [create a job](generating-reports.md#step-1-create-a-new-job), make sure you ave created the job groups or the publication rules you need.

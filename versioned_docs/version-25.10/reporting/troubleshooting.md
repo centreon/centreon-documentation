@@ -98,7 +98,7 @@ Force the MBI and ETL processes
 /usr/share/centreon-bi/bin/centreonBIETL -r
 ```
 
-If any issues popped out, double check your MBI is configured according to our [post-installation configuration procedure](installation.md#step-4-configure-the-etl).
+If any issues popped out, double check your MBI is configured according to our [post-installation configuration procedure](https://docs.centreon.com/docs/reporting/installation.md#step-4-configure-the-etl).
 
 ## Locate missing data or partitions using the --partitions and db-content commands.
 
