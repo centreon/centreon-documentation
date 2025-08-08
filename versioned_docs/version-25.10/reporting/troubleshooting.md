@@ -71,6 +71,14 @@ expected result:
            └─584 /usr/bin/java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/javax.crypto=ALL-UNNAM>
 ```
 
+## Where can I find the logs?
+
+Use SSH to connect to your MBI server and switch to root.
+
+Navigate to the MBI logs located in the file ```var/log/centreon-bi```.
+
+CBIS creates a new log for each day located /var/log/centreon-bi/cbis.date-of-the-day.log the date is in the format YYYY-MM-DD.
+
 ## Review the manual configuration of MBI
 
 Follow our [post-installation configuration procedure](installation.md#step-4-configure-the-etl) to ensure proper configuration.
@@ -83,7 +91,7 @@ If reports are being generated without data in them, it's possible CBIS is sendi
 
 Try pushing back the cyclic report generation hour in the **Scheduler options** tab of **Reporting > Monitoring business Intelligence > General options** so that CBIS does not request data before the cronjob has finished.
 
-## All the jobs generated are not dowloadable
+## None of the reports generated are dowloadable
 
 Verify the central server and MBI server are time-synced 
 
@@ -104,13 +112,7 @@ The script ```/usr/share/centreon-bi/etl/centreonbiMonitoring.pl``` has the opti
 * --ddb-content will indicate the date of the last data of each table
 * --partitions will indicate the number of missing partitions between the first partition of the table and now and since when they have been missing. Note that this doesn't work if there are many non-consecutive periods missins.
 
-## Check the logs
 
-Use SSH to connect to your MBI server and switch to root.
-
-Navigate to the MBI logs located in the file ```var/log/centreon-bi```.
-
-CBIS creates a new log for each day located /var/log/centreon-bi/cbis.date-of-the-day.log the date is in the format YYYY-MM-DD.
 
 -------
 
