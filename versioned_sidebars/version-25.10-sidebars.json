@@ -877,12 +877,25 @@
             {
               "type": "doc",
               "id": "reporting/widgets"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/troubleshooting"
             }
           ]
+        },
+                {
+          "type": "category",
+          "label": "Fixing MBI issues",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+          {
+          "type": "doc",
+          "id": "reporting/troubleshooting"
+          },
+          {
+          "type": "doc",
+          "id": "reporting/rebuilding-data"
+          }
+         ]
         },
         {
           "type": "category",
@@ -912,10 +925,6 @@
               "id": "reporting/report-development"
             }
           ]
-        },
-        {
-          "type": "doc",
-          "id": "reporting/rebuilding-data"
         },
         {
           "type": "category",

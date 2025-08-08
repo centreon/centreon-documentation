@@ -1059,7 +1059,7 @@ la rétention des données peut être gérée par :
 
 Activez la gestion de la rétention des données en sélectionnant **Oui**, puis définissez les options de la configuration (exemple ci-dessous).
 
-![image](../../assets/reporting/installation/bi_retention.png)
+![image](../assets/reporting/installation/bi_retention.png)
 
 Pour activer la purge automatique des anciennes données, modifiez le fichier cron
 **/etc/cron.d/centreon-bi-purge** sur le serveur de reporting, puis décommentez la ligne suivante :

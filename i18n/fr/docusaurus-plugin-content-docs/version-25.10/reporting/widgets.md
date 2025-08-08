@@ -25,7 +25,7 @@ Ci-dessous la liste des widgets de reporting disponibles :
 Ce widget affiche la disponibilité des hôtes appartenant à un groupe
 d'hôtes en les répartissant par catégorie, par mois.
 
-![image](../../assets/reporting/guide/mbi-hg-availability-by-hc-graph-month.png)
+![image](../assets/reporting/guide/mbi-hg-availability-by-hc-graph-month.png)
 
 #### Paramètres
 

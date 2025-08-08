@@ -106,7 +106,7 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 </TabItem>
 <TabItem value="SMTP" label="SMTP">
 
-> Before configuring the SMTP rule in the MBI interface, make sure that [Postfix is properly installed and configured](../administration/postfix.md) on your MBI server to allow local mail delivery.
+> Before configuring the SMTP rule in the MBI interface, make sure that [Postfix is properly installed and configured](https://docs.centreon.com/docs/administration/postfix/) on your MBI server to allow local mail delivery.
 > 
 > By default, on MBI, Postfix is used as a mail relay without authentication. This means that:
 > - The SMTP configuration inside Centreon MBI does not require credentials or SSL.

@@ -23,7 +23,7 @@ Because each phase is independent from the others, incorrect configuration in an
 
 On the MBI server, a cronjob launches the ETL every day at 4.30 AM. This makes Gorgone execute 4 scripts, taking into account the options defined on the **Reporting > Monitoring Business Intelligence > General options** page:
 
-1. **import_data.pl**: [Events](concepts.md#event) and metrics as well as the configuration (hosts, host categories, ACLs...) are copied from the central database to the MBI database for the last day (from midnight to midnight).
+1. **import_data.pl**: [Events](./concepts.md#event) and metrics as well as the configuration (hosts, host categories, ACLs...) are copied from the central database to the MBI database for the last day (from midnight to midnight).
    * The script will only import the host groups, host categories and service categories you have defined in the **Reporting > Monitoring Business Intelligence > General options** page, on the **ETL options** tab, in the **Reporting perimeter selection** section.
    * In all cases, all metrics will be imported.
    * All hosts or services that do not belong to at least one host group, one host category or one service category are excluded.

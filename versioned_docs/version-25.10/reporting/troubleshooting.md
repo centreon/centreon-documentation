@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 > It is strongly advised that you install the [Centreon MBI connector](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi) which allows you to monitor the status of your MBI server.
 
-Before going further, make sure that the extension is up to date ([update](update.md) or [upgrade](upgrade.md) it if needed).
+Before going further, make sure that the extension is up to date ([update](./update.md) or [upgrade](upgrade.md) it if needed).
 
 ## Running a diagnostic
 
@@ -158,10 +158,10 @@ If the timezones are different, reconfigure the php file ```/etc/opt/rh/rh-php73
 
 then add the corresponding timezone line, for example: ```date.timezone = Europe/Paris```
 
-After a modification, you need to restart rh-php73-php-fpm:
+After a modification, you need to restart php-fpm:
 
 ```
-systemctl restart rh-php73-php-fpm
+systemctl restart php-fpm
 ```
 
 <Tabs groupId="sync">
