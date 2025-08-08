@@ -80,7 +80,7 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 | Publication protocol       | Local                                | In this case, **Local**. |
 | [Global](#global-rules-and-custom-rules)                     | No                                  | Defines whether the rule will be applied to all jobs. If set to No, the rule will be a custom rule applied only to the selected jobs.                 |
 | Description (optional)         |                         | The description of the rule appears only in the list of publication rules.                                              |
-| Publish log file           | Yes                                  |Whether to include the publishing step in the **cbis.DATE.log** log files.                                |
+| Publish log file           | Yes                                  | Whether to include the publishing step in the **cbis.DATE.log** log files.                                |
 | Root directory **(mandatory)**          | **/var/www/reports**                      | The path to the parent directory where the reports will be copied. The directory must already exist and the **centreonBI** user must be able to access it.                                     |
 | Subdirectory **(optional)**              | @DAY@                    | Subdirectory path, can include dynamic variables like @DAY@. Use if you want to organize your reports.  |
 
@@ -89,18 +89,18 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 
 | **Field**                   | **Value**                                                        | **Description** |
 |-----------------------------|-------------------------------------------------------------------|-----------------|
-| **Name** (mandatory)        | SFTP rule name                                                           | Local rule name. A name to identify the rule. Choose something meaningful. |
-| **Publication protocol**    | SFTP                                                              | In this case, SFTP (Secure File Transfer Protocol). |
-| **Global**                  | Yes / No                                                              | Defines whether the rule will be applied to all jobs. If set to No, the rule will be a custom rule applied only to the selected jobs. |
-| **Description** (optional)  | Default publication rule                                          | The description of the rule appears only in the list of publication rules. |
-| **Host** (mandatory)        | **Central server IP address**                                     | The IP address or hostname of the SFTP server. |
+| **Name** (mandatory)        | SFTP rule name                                                           | A name to identify the rule. Choose something meaningful. |
+| **Publication protocol**    | SFTP                                                              | In this case, **SFTP** (Secure File Transfer Protocol). |
+| **Global**                  | No                                                              | Defines whether the rule will be applied to all jobs. If set to **No**, the rule will be a custom rule applied only to the selected jobs. |
+| **Description** (optional)  |                                          | The description of the rule appears only in the list of publication rules. |
+| **Host** (mandatory)        |                                    | The IP address or hostname of the SFTP server to which you want to copy the reports. |
 | **Port**                    | 22                                                                | The network port used to connect to the SFTP server (default is 22). |
 | **Authentication type**     | User/Key                                                          | The method used for authentication. In this case, a combination of username and SSH key. |
 | **User** (mandatory)        | centreonBI                                                        | The username used to connect to the SFTP server. |
 | **Path to the SSH key**     | `/home/centreonBI/.ssh/id_rsa`                                    | The full path to the SSH private key used for authentication. |
-| **Passphrase for SSH key**  | *(leave empty)*                                                   | The passphrase for the SSH key, if one is set. Leave empty if none. |
-| **Confirm passphrase**      | *(same as above)*                                                 | Repeat the SSH key passphrase for confirmation, if used. |
-| **Root directory** (mandatory) | `/var/lib/centreon/centreon-bi-server/archives`                   | The path to the parent directory on the SFTP server where the reports will be copied. The directory must already exist and the centreonBI user must be able to access it. |
+| **Passphrase for SSH key**  | Leave empty                                                  | The passphrase for the SSH key, if one is set. Leave empty if none. |
+| **Confirm passphrase**      | Leave empty                                                 | Repeat the SSH key passphrase for confirmation, if used. |
+| **Root directory** (mandatory) | `/var/lib/centreon/centreon-bi-server/archives`                   | The path to the parent directory on the SFTP server where the reports will be copied. The directory must already exist and the **centreonBI** user must be able to access it. |
 | **Subdirectory** (optional) | `@JOBNAME@`                                                       | Subdirectory path, can include dynamic variables like `@JOBNAME@`. Use if you want to organize your reports. |
 
 </TabItem>
