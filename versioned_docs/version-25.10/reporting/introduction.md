@@ -14,18 +14,16 @@ We highly recommend you read our documentation to avoid running into issues. You
 
 ## What does MBI do?
 
-MBI runs [jobs](concepts.md#jobs) to generate reports.
-
-Centreon MBI has more than 30 different templates (report designs) ready to use
+Centreon MBI runs [jobs](concepts.md#jobs) to generate reports. MBI has more than 30 different ready-to-use templates (report "designs").
 
 ![image](../assets/reporting/first_page.png)
 
-Select among reports that address:
+Reports address:
 
--   Capacity planning and management
--   Availability management
--   SLA (Service Level Agreement) management
--   Performance management.
+* Capacity planning and management
+* Availability management
+* SLA (Service Level Agreement) management
+* Performance management.
 
  This allows for an overview of the performance of the selected resources over a given period of time. These reports can be configured to be generated once or on a regular basis (i.e. once per day, week, month...). This will help you keep track of your IT environment with monthly uptime reports, weekly infrastructure performance summaries...
 
@@ -38,12 +36,9 @@ Reports can display data about:
 - Business views
 - Business activities
 
-Although data must be organized into groups and categories, some reports allow you to see the details for hosts and services.
+Although data [must be organized into groups and categories](preparing-data.md#making-your-resources-available-to-mbi), some reports allow you to see the details of statuses and metrics for hosts and services.
 
-Reports also determine the metrics shown in reports. These metrics are related to performance or capacity.
-
-MBI also creates reports on availability by converting checks into [events](concepts.md#event).
-Note that MBI only takes into account [HARD statuses](https://docs.centreon.com/docs/alerts-notifications/concepts/#status-types) for its outputs.
+MBI also creates reports on availability by converting checks into [events](concepts.md#event). Note that MBI only takes into account [HARD statuses](https://docs.centreon.com/docs/alerts-notifications/concepts/#status-types) when calculating availability.
 
 Note that reports only contain data up to the previous day. The data for each day is [aggregated by the ETL the following day](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated).
 
