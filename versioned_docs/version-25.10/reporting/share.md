@@ -12,7 +12,7 @@ Please note that the data included in the report depends on the ACLs **of the pe
 
 ## Preparing ACLs
 
-1. Make sure your users belong to an [access group](../administration/access-control-lists.md#creating-an-access-group). Check which menus your users can access: at this step, for instance, you can choose to give them access to the list of generated reports but not to the list of jobs so that they cannot edit jobs.
+1. Make sure your users belong to an [access group](../administration/access-control-lists.md#creating-an-access-group). Check [which menus your users can access](../administration/access-control-lists.md#access-filters-on-menus): at this step, for instance, you can choose to give them access to the list of generated reports but not to the list of jobs so that they cannot edit jobs.
 2. Go to **Reporting > Monitoring Business Intelligence > Job groups** and create a new job group.
 3. Go to **Administration > ACL > Centreon MBI > ACL rules** and create a new ACL rule for MBI.
    * On the **General information** tab, add the access groups you want.  

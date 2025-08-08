@@ -13,7 +13,7 @@ Because each phase is independent from the others, incorrect configuration in an
 
 ## Phase 1: Data is prepared by the central server
 
-1. As checks are performed, each check result (status + metric) is recorded in the central database (**centreon_storage.logs** table).
+1. As checks are performed, each check result is recorded in the central database (in the **centreon_storage.logs** table for statuses, in **data_bin** for metrics).
 
 2. On the central server, a script (**eventReportBuilder**) is launched by a cronjob every day at 3 AM: it converts check results into [events](concepts.md#event) that will be used to calculate availability. The time this script is launched is defined in **/etc/cron.d/centreon**.
 
@@ -44,7 +44,7 @@ Note that for [BAM](https://docs.centreon.com/docs/service-mapping/introduction/
 
 Reports can be generated immediately at the user's request, or when they are scheduled.
 
-> In both cases, all aggregations need to have been calculated first. This means that if you are requesting data for today, or if you have just made changes to host categories, host groups and service categories, the corresponding aggregations will not have been calculated yet. You will need to [rebuild the data](rebuilding-data.md).
+> In both cases, all aggregations need to have been calculated first. This means that if you have just made changes to host categories, host groups and service categories, the corresponding aggregations will not have been calculated yet. You will need to [rebuild the data](rebuilding-data.md).
 
 * Only one report is generated per format: pdf, xlsx, docx, etc…
 * The scope of the data in the report is determined by the **Report parameters** tab of the job. Bear in mind that the report and all of its data will be shared to other users according to what you have defined in [job groups](concepts.md#job-groups), regardless of other users' ACLs on resources.
