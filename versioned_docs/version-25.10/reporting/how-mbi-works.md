@@ -3,11 +3,11 @@ id: how-mbi-works
 title: How does MBI work?
 ---
 
-MBI works in 3 independent main phases:
+Each day, MBI works in 3 independent main phases:
 
-* The central server prepares the raw data.
-* The ETL copies the data to the MBI server and aggregates it.
-* CBIS picks out the data that is relevant for a report and generates it.
+* [The central server prepares the raw data](#phase-1-data-is-prepared-by-the-central-server).
+* [The ETL copies the data of the previous day to the MBI server and aggregates it](#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated). The data is then ready to be used in reports.
+* At the scheduled times, [CBIS picks out the data that is relevant for a report and generates it](#phase-3-cbis-generates-the-reports).
 
 Because each phase is independent from the others, incorrect configuration in any of the 3 phases may cause the report generation to fail.
 
@@ -23,16 +23,16 @@ Because each phase is independent from the others, incorrect configuration in an
 
 On the MBI server, a cronjob launches the ETL every day at 4.30 AM. This makes Gorgone execute 4 scripts, taking into account the options defined on the **Reporting > Monitoring Business Intelligence > General options** page:
 
-1. **import_data.pl**: [Events](https://docs.centreon.com/docs/reporting/concepts/#event) and metrics as well as the configuration (hosts, host categories, ACLs...) are copied from the central database to the MBI database for the last day (from midnight to midnight).
+1. **/usr/share/centreon-bi/etl/importData.pl**: [Events](https://docs.centreon.com/docs/reporting/concepts/#event) and metrics as well as the configuration (hosts, host categories, ACLs...) are copied from the central database to the MBI database for the last day (from midnight to midnight).
    * The script will only import the host groups, host categories and service categories you have defined in the **Reporting > Monitoring Business Intelligence > General options** page, on the **ETL options** tab, in the **Reporting perimeter selection** section.
    * In all cases, all metrics will be imported.
    * All hosts or services that do not belong to at least one host group, one host category or one service category are excluded.
 
-2. **dimension_builder.pl**: MBI prepares a list of all [dimensions](https://docs.centreon.com/docs/reporting/concepts/#dimension) present in the imported data, for each host, service and metric.
+2. **/usr/share/centreon-bi/etl/dimensionsBuilder.pl**: MBI prepares a list of all [dimensions](https://docs.centreon.com/docs/reporting/concepts/#dimension) present in the imported data, for each host, service and metric.
 
-3. **eventStatisticsBuilder.pl**: MBI calculates the [availability](https://docs.centreon.com/docs/reporting/concepts/#availability) of resources, based on the data copied from the central server and the dimensions calculated just before. The availability of each dimension is calculated by day and by month, taking into account the [time periods](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) selected in the **Live services for availability statistics calculation** field of the **General options** page, on the **ETL options** tab.
+3. **/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl**: MBI calculates the [availability](https://docs.centreon.com/docs/reporting/concepts/#availability) of resources, based on the data copied from the central server and the dimensions calculated just before. The availability of each dimension is calculated by day and by month, taking into account the [time periods](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) selected in the **Live services for availability statistics calculation** field of the **General options** page, on the **ETL options** tab.
 
-4. **perfdataStatisticsBuilder.pl**: MBI aggregates all metrics by hour/day/month, taking into account the [time periods](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) selected in the **Live services for performance data statistics calculation** field of the **General options** page, on the **ETL options** tab.
+4. **/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl**: MBI aggregates all metrics by hour/day/month, taking into account the [time periods](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) selected in the **Live services for performance data statistics calculation** field of the **General options** page, on the **ETL options** tab. The script includes the calculation of centiles, if configured.
 
 Once all aggregations have been calculated, MBI is ready to generate reports.
 
@@ -51,7 +51,7 @@ Reports can be generated immediately at the user's request, or when they are sch
 * The generated reports are copied to the central server, in **/var/lib/centreon/centreon-bi-server/archives**. (This is done by executing the global SFTP [publication rule](reports-publication-rule.md) called **Default**.)
 * All other **global** [publication rules](reports-publication-rule.md) are then executed.
 
-## Step 4 (optional): The reports are sent to users
+## Phase 4 (optional): The reports are sent to users
 
 Once it has written the reports to the central server and executed all global publication rules, CBIS checks whether any non-global [publication rules](reports-publication-rule.md) exist for the job - and executes them.
 
