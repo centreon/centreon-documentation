@@ -1,79 +1,79 @@
 ---
 id: generating-reports
-title: Generating reports using jobs
+title: Générer des rapports avec des tâches planifiées
 ---
 
-> MBI is a Centreon extension that has some terms you may not have heard elsewhere in our documentation. We strongly suggest you read the [**Concepts** page](https://docs.centreon.com/docs/reporting/concepts/) before following MBI-related procedures.
+> MBI est une extension de Centreon avec des termes que vous n'avez potentiellement pas vu ailleurs dans notre documentation. Il est fortement recommandé de lire [la page de concepts](concepts.md) avant de suivre les procédures concernant MBI.
 
-Reports are created using jobs. A job is a report definition, that can include several output formats, and several publication modes.
+Les rapports de MBI sont créés en utilisant des tâches planifiées (ou jobs). Une tâche planifiée est la définition d'un rapport pouvant être généré dans plusieurs rapports et suivant plusieurs modes de publication.
 
-## Step 1: Create a new job
+## Étape 1 : Créer une nouvelle tâche
 
-1. Make sure you have [prepared your data](preparing-data.md) as per the MBI requirements.
-2. Go to **Reporting > Monitoring Business Intelligence > Jobs**.  
-3. Click the **Add** button to create a new job.
-4. On the **Configuration** tab, in the **Report design** field, select the report template you want. Each report template contains specific data: use our [catalog of available reports](available-reports/available-reports.md) to choose the template best suited to your needs (once you have selected a report template, the contents of the [**Report parameters** tab](#define-report-specific-parameters) display the options concerning this specific report template).
+1. Assurez-vous d'avoir [préparé vos données](preparing-data.md) en accord avec les besoins de MBI.
+2. Allez sur **Rapports > Monitoring Business Intelligence > Jobs**.
+3. Cliquez le bouton **Add** pour créer une nouvelle tâche.
+4. Dans l'onglet **Configuration**, dans le champs **Modèle de rapport**, séléctionnez le modèle de rapport que vous souhaitez utiliser. Chaque modèle de rapport contient des données spécifique, consultez notre [catalogue des rapports disponibles](available-reports/available-reports.md) pour choisir un modèle adapté à vos besoins (une fois que vous avez choisi un modèle de rapport, les contenus de l'onglet **Paramètres du rapport** sont mis à jour).
 
-## Step 2: Configure the job
+## Étape 2 : Configurer le job
 
-Go to the **Configuration** tab of the job creation page.
+Allez sur l'onglet **Configuration** de la page de création de tâches.
 
-### Configure the main parameters
+### Configuration des paramètres principaux
 
-In the **Job Configuration** section of the **Configuration** tab:
+Dans la section **Configuration de la tâche planifiée** de l'onglet **Configuration** :
 
-* Enter a **Name** for the job. This will also be the name of the generated report in the **Reporting > Monitoring Business Intelligence > Report view** page.  
-* Select the **Language** of the report: you can generate reports in French or English (ignore the refresh icon next to the list).
-* Select the **Output formats** you want for this report: bear in mind that not all report designs support all formats. Refer to the [catalog of available reports](available-reports/available-reports.md) to find out which outputs are supported for the report design you selected.  
-* Select the [**job groups**](https://docs.centreon.com/docs/reporting/concepts/#job-groups) you want so as to [share your report with other non-admin users](https://docs.centreon.com/docs/reporting/share/):
-   * They will be able to edit the job (if they have the correct ACL to access the **Reporting > Monitoring Business Intelligence > Jobs** page).
-   * They will be able to see the generated report in the **Reporting > Monitoring Business Intelligence > Report view** page (if they have the correct ACL to access this page).
-   * This is not the same as [publishing your report for other users](https://docs.centreon.com/docs/reporting/reports-publication-rule/), which is done using the **Publication** tab.
+* Choisissez un nom pour la tâche. Celui-ci sera également le nom du rapport généré dans la page **Rapports > Monitoring Business Intelligence > Report view**.
+* Sélectionnez le **Language** du rapport : vous pouvez générer des rapports en français ou en anglais (ignorez le bouton pour rafraichir à côté de la liste).
+* Sélectionnez le **Format de sortie** que vous voulez pour ce rapport : prennez en compte que tous les formats de sortie en sont pas supportés par tous les modèles de rapport. Consultez le [catalogue des modèles disponibles](available-reports/available-reports.md) pour confirmer quels sont les formats de sortie supportés par le rapport que vous avez choisi.
+* Sélectionnez le [**groupe de tâches**](https://docs.centreon.com/fr/docs/reporting/concepts/#groupes-de-tâches-planifiés) que vous voulez afin de [partager le rapport avec d'autres utilisateurs non-admin](https://docs.centreon.com/fr/docs/reporting/share/) :
+   * Ils seront en mesure de modifier la tâche (tant qu'ils ont les bons ACL pour accéder à la page **Reporting > Monitoring Business Intelligence > Jobs**).
+   * Ils seront en mesure de voir le rapport généré dans la page **Reporting > Monitoring Business Intelligence > Report View** (tant qu'ils ont les bons ACL pour accéder à cette page).
+   * Partager le rapport est diffère de [publier le rapport pour d'autres utilisateurs](https://docs.centreon.com/fr/docs/reporting/reports-publication-rule/), cette dernière option se fait depuis l'onglet **Publication**.
 
-### Schedule job execution
+### Planifier l'exécution d'une tâche
 
-In the **Scheduling parameters** section of the **Configuration** tab:
+Dans la section **Paramètres d'ordonnancement de l'onglet **Configuration** :
 
-* Select an **Execution mode**:
-   - **Immediate execution**: specify the reporting period (i.e. the time range) covered by the report. The report will be generated when you click the **Save** button once you have finished configuring the job. (Note that if you uncheck the **Periods** box, the report will be blank.)
-   - **Scheduled execution**, choose between:
-     - **Regular basis**: Executes at defined intervals (daily, weekly or monthly) and uses its own interval as the reporting period i.e. weekly reports contain information about the past week.
-     - **One shot job**: Executes once at the scheduled time. You need to specify the reporting period (i.e. the time range) covered by the report. (Note that if you uncheck the **Periods** box, the report will be blank.)
-* If needed, select a **State**:
-   - **Schedule** (default): The job will run at the intended time.
-   - **Stop**: The job will be put hold and will just not be run.
-   - **Finished**: Select **Schedule** and save to run again.
-   - **Failed**: Checked after a job was canceled because of an error, select **Schedule** after resolving the issue to rerun.
+* Sélectionnez un **mode d'exécution** :
+   - **Exécution immédiate** : spécifiez la période couverte par le rapport (par exemple la plage horaire). Le rapport sera généré lorsque vous cliquerez sur le bouton **Enregistrer** une fois que vous aurez terminé de configurer la tâche. (Notez que si vous décochez la case **Périodes**, le rapport sera vide.)
+   - **Exécution planifiée**, choisissez entre :
+- **Cyclique** : s'exécute à intervalles définis (quotidiennement, hebdomadairement ou mensuellement) et utilise son propre intervalle comme période de reporting. Par exemple, les rapports hebdomadaires contiennent des informations sur la semaine écoulée.
+- **Unique** : s'exécute une seule fois à l'heure prévue. Vous devez spécifier la période de rapport (c'est-à-dire la plage horaire) couverte par le rapport. (Notez que si vous décochez la case **Périodes**, le rapport sera vide.)
+* Si nécessaire, sélectionnez un **État** :
+- **Ordonnancer** (par défaut) : la tâche s'exécutera à l'heure prévue.
+   - **Arrêter** : la tâche sera mise en attente et ne sera tout simplement pas exécutée.
+- **Terminé** : sélectionnez **Planifier** et enregistrez pour relancer la tâche.
+- **Échec** : coché après l'annulation d'une tâche en raison d'une erreur, sélectionnez **Planifier** après avoir résolu le problème pour relancer la tâche.
 
-### Define report-specific parameters
+### Définir des paramètres spécifiques au rapport
 
-Go to the **Report Parameters** tab of the **Reporting > Monitoring Business Intelligence > Jobs** page. The contents of this tab varies according to the report design you selected on the [**Configuration** tab](#configure-the-main-parameters) (it will be empty if no report design is selected yet).
+Allez dans l'onglet **Paramètres du rapport** de la page de configuration de tâche. Le contenu de cette page varie en fonction du modèle de rapport que vous avez choisi dans [l'onglet de **Configuration**](#configuration-des-paramètres-principaux) (la page sera vide si vous n'avez pas encore choisi un modèle de rapport).
 
-* Typically, fields will allow you to define which host groups, host categories and service categories to include in the report. Fields with two sections (**Available/Selected**) must have at least one category or group in the **Selected** section.
-* You may need to select which **time periods** to include in the report.
+* Généralement, les champs vous permettront de définir les groupes d'hôtes, les catégories d'hôtes et les catégories de services à inclure dans le rapport. Les champs comportant deux sections (**Available/Selected**) doivent comporter au moins une catégorie ou un groupe dans la section **Selected**.
+* Vous devrez peut-être sélectionner les **périodes temporelles** à inclure dans le rapport.
 
-### Select publication rules to share your generated report (optional)
+### Choisir des règles de publication pour partager le rapport généré (facultatif)
 
-If you want to share the generated reports for example via email or on a server, go to the **Publication** tab of the **Reporting > Monitoring Business Intelligence > Jobs** page.
+Si vous souhaitez partager les rapports générés, par exemple par e-mail ou sur un serveur, accédez à l'onglet **Publication** de la page de configuration.
 
-Select the [**Publication rules**](reports-publication-rule.md) you want.
+Sélectionnez les [**Règles de publication**](reports-publication-rule.md) souhaitées.
 
-- Global rules are not listed on this tab, but they are applied automatically every time the job is executed.
-- Reports with custom rules will be sent every time they are generated, based on the job's schedule.
+- Les règles globales ne sont pas listées dans cet onglet, mais elles sont appliquées automatiquement à chaque exécution de la tâche.
+- Les rapports avec des règles personnalisées seront envoyés à chaque fois qu'ils seront générés, en fonction de l'ordonnancement de la tâche.
 
-### Adjust tuning options (optional)
+### Regler les options de tuning (facultatif)
 
-If you want to define extra settings for your job, go to the **Tuning** tab of the **Reporting > Monitoring Business Intelligence > Jobs** page.
+Si vous souhaitez définir des paramètres supplémentaires pour votre tâche, accédez à l'onglet **Tuning** de la page de configuration.
 
-- Select a **Report color theme**. The default color scheme is defined in the scheduler options when configuring MBI.  
-- Set the **Job weight multiplicator** to increase job priority if MBI cannot generate all scheduled reports at once.  
-- **Enable administrator notification** for administrators to be alerted whenever this report is generated. This option must be enabled in the **Reporting > Monitoring Business Intelligence > General Options** page, under **Notification options**.
+- Sélectionnez le **Thème de couleur du rapport**. Le thème de couleur par défaut est défini dans les options de l'ordonnanceur lors de la configuration de MBI.  
+- Définissez le **Multiplicateur du poids de la tâche planifiée** pour augmenter la priorité de la tâche si MBI ne peut pas générer tous les rapports planifiés à la fois seule fois.
+- **Activez la notification des administrateurs** pour que les administrateurs soient avertis chaque fois que ce rapport est généré. Cette option doit être activée dans la page **Rapports > Surveillance de la veille stratégique > Options générales**, sous **Options de notification**.
 
-## Step 3: Save the job
+## Étape 3 : Sauvegardez la tâche
 
-Once you are satisfied with its configuration, save the job.
+Une fois que la tâche est configurée comme vous le souhaitez, sauvegardez-la.
 
-* The job appears in the list of jobs in the **Reporting > Monitoring Business Intelligence > Jobs** page. An icon on the left shows you the current status of the job (scheduled, running, failed, stopped, finished).
-* Once generated, reports will be available on the **Reporting > Monitoring Business Intelligence > Report view** page. Click the output icons on the right to download them.
+* La tâche apparait dans la liste des tâches de la page **Reporting > Monitoring Business Intelligence > Tâches**. Un icône à gauche montre le statut actuel de la tâche (Ordonnancer, en cours, en échec, arrêté, terminé). 
+* Une fois généré, les rapports sont disponibles dnas la page **Reporting > Monitoring Business Intelligence > Report view**. Cliquez sur les icônes des formats de sortie pour les télécharger.
 
-Ran into any issues? Try [troubleshooting](troubleshooting.md) your configuration.
+Vous rencontrez des problèmes ? Tentez de [troubleshooter](troubleshooting.md) votre configuration.
