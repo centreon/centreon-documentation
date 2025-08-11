@@ -24,7 +24,7 @@ The ETL can run in 3 different contexts:
 
 * When the [initial build of the data](installation.md#step-5-build-the-mbi-database) is run after you install MBI.
 * [Every day (at 4.30 by default)](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated), when the data for the previous day is compiled.
-* When you do a [manual rebuild](#when-do-i-need-to-rebuild-data): this is the case this page addresses.
+* When you do a [manual rebuild](#when-is-rebuilding-data-necessary): this is the case this page addresses.
 
 ### How does the ETL work?
 
