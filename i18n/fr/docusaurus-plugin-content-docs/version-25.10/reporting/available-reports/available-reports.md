@@ -1,5 +1,5 @@
 ---
-id: reports
+id: available-reports
 title: Les rapports disponibles
 ---
 
