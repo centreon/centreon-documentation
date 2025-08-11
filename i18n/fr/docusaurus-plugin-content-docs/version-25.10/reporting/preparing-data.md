@@ -3,39 +3,39 @@ id: preparing-data
 title: Preparing data for report generation
 ---
 
-## Making your resources available to MBI
+## Mettre vos ressources à la disposition de MBI
 
-For host/service availability and performance reports, the resources you want to see appear in reports must be organized into [host groups](https://docs.centreon.com/docs/monitoring/groups/#creating-a-host-group), [host categories](https://docs.centreon.com/docs/monitoring/groups/#hosts-category) and [service categories](https://docs.centreon.com/docs/monitoring/groups/#services-category).
+Pour les rapports sur la disponibilité et les performances des hôtes/services, les ressources que vous souhaitez voir apparaître dans les rapports doivent être organisées en [groupes d'hôtes](https://docs.centreon.com/fr/docs/monitoring/groups/#cr%C3%A9er-un-groupes-dh%C3%B4tes), des [catégories d'hôtes](https://docs.centreon.com/fr/docs/monitoring/categories/#cat%C3%A9gories-dh%C3%B4tes) et des [catégories de services](https://docs.centreon.com/fr/docs/monitoring/categories/#cat%C3%A9gories-de-services).
 
-- Each host that you want to see in reports must belong to at least one [host group](https://docs.centreon.com/docs/monitoring/groups/#creating-a-host-group) and one [host category](https://docs.centreon.com/docs/monitoring/groups/#hosts-category).
-- Each service that you want to see in reports must belong to at least one [service category](https://docs.centreon.com/docs/monitoring/groups/#services-category).
+- Chaque hôte que vous souhaitez voir apparaître dans les rapports doit appartenir à au moins un [groupe d'hôtes](https://docs.centreon.com/fr/docs/monitoring/groups/#cr%C3%A9er-un-groupes-dh%C3%B4tes) et une [catégorie d'hôtes]https://docs.centreon.com/fr/docs/monitoring/categories/#cat%C3%A9gories-dh%C3%B4tes).
+- Chaque service que vous souhaitez voir apparaître dans les rapports doit appartenir à au moins une [catégorie de services](https://docs.centreon.com/fr/docs/monitoring/categories/#cat%C3%A9gories-de-services).
 
-The best way to link hosts to host categories and services to service categories is to use the **Linked host template/Linked service template** fields in the category creation form. This will mean less maintenance, as this will ensure that all future hosts that inherit from the template will be added to the category automatically (and you don't have to add them one by one manually as you create them).
+La meilleure façon de lier les hôtes aux catégories d'hôtes et les services aux catégories de services est d'utiliser les champs **Modèle d'hôte lié/Modèle de service lié** dans le formulaire de création de catégorie. Cela réduira la maintenance, car tous les futurs hôtes héritant du modèle seront automatiquement ajoutés à la catégorie (et vous n'aurez pas à les ajouter manuellement un par un au fur et à mesure que vous les créez).
 
-* If the report you want to generate concerns only one resource, you still need to create a group/category containing only that resource.
-* Make sure that all monitored resources return a status (for availability reports) and metrics (for performance reports).
+* Si le rapport que vous souhaitez générer ne concerne qu'une seule ressource, vous devez tout de même créer un groupe/une catégorie contenant uniquement cette ressource.
+* Assurez-vous que toutes les ressources surveillées renvoient un statut (pour les rapports de disponibilité) et des métriques (pour les rapports de performance).
 
-## Creating the time periods you need
+## Créer les périodes temporelles dont vous avez besoin
 
-Every [job](https://docs.centreon.com/docs/reporting/concepts/#jobs) uses a [time period](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) as a parameter: 24x7, workhours, non-workhours, etc... Only the data contained in the selected time periods will be included in the report.
+Chaque [tâche](https://docs.centreon.com/fr/docs/reporting/concepts/#tâches) utilise une [période](https://docs.centreon.com/fr/docs/monitoring/basic-objects/timeperiods/) comme paramètre : 24x7, heures de travail, heures non travaillées, etc. Seules les données contenues dans les périodes sélectionnées seront incluses dans le rapport.
 
-We recommend you create all the custom time periods you need before you start configuring reports.
+Nous vous recommandons de créer toutes les périodes personnalisées dont vous avez besoin avant de commencer à configurer les rapports.
 
-## Defining the scope of data for MBI
+## Définir la portée des données pour MBI
 
-Only [data compiled by the ETL](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated) can be used in reports.
-For perfomance reasons, it is recommended to limit the scope of data for MBI to what you want to see in reports as large amounts of data take more time to compile, and take up storage space.
+Seules les [données compilées par l'ETL](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated) peuvent être utilisées dans les rapports.
+Pour des raisons de performances, il est recommandé de limiter la portée des données pour MBI à ce que vous souhaitez voir dans les rapports, car de grandes quantités de données prennent plus de temps à compiler et occupent de l'espace de stockage.
 
-Ideally, this should have been done as part of the installation process: see [Defining which data will be used by MBI](https://docs.centreon.com/docs/reporting/installation/#defining-which-data-will-be-used-by-mbi). If you haven't already done so, go to **Reporting > Monitoring Business Intelligence > General options**, **ETL options** tab.
+Idéalement, cela a été fait dans le cadre du processus d'installation : voir [Définir les données qui seront utilisées par MBI](https://docs.centreon.com/docs/reporting/installation/#defining-which-data-will-be-used-by-mbi). Si vous ne l'avez pas encore fait, allez dans **Rapports > Monitoring Business Intelligence > General options**, onglet **Options ETL**.
 
-By default, the ETL is configured to compute availability and performance for all of your data: all host groups, host categories and service categories. If you don't want to see some of these groups and categories in your reports, uncheck **All group perimeters** and select only the data you want.
+Par défaut, l'ETL est configuré pour calculer la disponibilité et les performances de toutes vos données : tous les groupes d'hôtes, toutes les catégories d'hôtes et toutes les catégories de services. Si vous ne souhaitez pas voir certains de ces groupes et catégories dans vos rapports, décochez **Tous les périmètres de groupe** et sélectionnez uniquement les données que vous souhaitez.
 
-Select the time periods and the service categories you want (disk, ping, memory, traffic). This is also where you configure how precise you want the data statistics to be (i.e. calculated by month, day, hour...)
+Sélectionnez les périodes et les catégories de services que vous souhaitez (disque, ping, mémoire, trafic). C'est également ici que vous configurez le niveau de précision que vous souhaitez pour les statistiques de données (c'est-à-dire calculées par mois, jour, heure...).
 
-- An empty report may be generated if the ETL could not be executed, if there is a problem with the ETL configuration or there is no monitoring data for the resource (no status/metric are returned).
-- The ETL is static: it does not automatically detect configuration changes on Centreon outside of its regular checks (scheduled for 4:30 a.m. by default). You must [launch a rebuild of the ETL](rebuilding-data.md) for new data/configuration to be taken into account immediately.
-- If data has started being compiled for less than a month, it is possible to get gaps in reports that display data by month, or compare months between them.
+- Un rapport peut être généré vide si l'ETL n'a pas pu être exécuté, s'il y a un problème avec la configuration de l'ETL ou s'il n'y a pas de données de surveillance pour la ressource (aucun statut/métrique n'est renvoyé).
+- L'ETL est statique : il ne détecte pas automatiquement les changements de configuration sur Centreon en dehors de ses vérifications régulières (programmées à 4h30 du matin par défaut). Vous devez [lancer une reconstruction de l'ETL](rebuilding-data.md) pour que les nouvelles données/configurations soient immédiatement prises en compte.
+- Si la compilation des données a commencé depuis moins d'un mois, il est possible d'observer des creux dans les rapports qui affichent les données par mois ou comparent les mois entre eux.
 
-## Making it possible to share reports
+## Permettre le partage des rapports
 
-Generated reports can be [shared locally (via the Centreon interface)](https://docs.centreon.com/docs/reporting/share.md), or [published by email or to a server](reports-publication-rule.md). Before you [create a job](generating-reports.md#step-1-create-a-new-job), make sure you ave created the job groups or the publication rules you need.
+Les rapports générés peuvent être [partagés localement (via l'interface Centreon)](https://docs.centreon.com/docs/reporting/share.md) ou [publiés par e-mail ou sur un serveur](reports-publication-rule.md). Avant de [créer une tâche](generating-reports.md#étape-1--créer-une-nouvelle-tâche), assurez-vous d'avoir créé les groupes de tâches ou les règles de publication dont vous avez besoin.

@@ -47,14 +47,14 @@ In the **Scheduling parameters** section of the **Configuration** tab:
 
 ### Define report-specific parameters
 
-Go to the **Report Parameters** tab of the **Reporting > Monitoring Business Intelligence > Jobs** page. The contents of this tab varies according to the report design you selected on the [**Configuration** tab](#configure-the-main-parameters) (it will be empty if no report design is selected yet).
+Go to the **Report Parameters** tab of the job configuration page. The contents of this tab varies according to the report design you selected on the [**Configuration** tab](#configure-the-main-parameters) (it will be empty if no report design is selected yet).
 
 * Typically, fields will allow you to define which host groups, host categories and service categories to include in the report. Fields with two sections (**Available/Selected**) must have at least one category or group in the **Selected** section.
 * You may need to select which **time periods** to include in the report.
 
 ### Select publication rules to share your generated report (optional)
 
-If you want to share the generated reports for example via email or on a server, go to the **Publication** tab of the **Reporting > Monitoring Business Intelligence > Jobs** page.
+If you want to share the generated reports for example via email or on a server, go to the **Publication** tab of the configuration page.
 
 Select the [**Publication rules**](reports-publication-rule.md) you want.
 
@@ -63,7 +63,7 @@ Select the [**Publication rules**](reports-publication-rule.md) you want.
 
 ### Adjust tuning options (optional)
 
-If you want to define extra settings for your job, go to the **Tuning** tab of the **Reporting > Monitoring Business Intelligence > Jobs** page.
+If you want to define extra settings for your job, go to the **Tuning** tab of the configuration page.
 
 - Select a **Report color theme**. The default color scheme is defined in the scheduler options when configuring MBI.  
 - Set the **Job weight multiplicator** to increase job priority if MBI cannot generate all scheduled reports at once.  
