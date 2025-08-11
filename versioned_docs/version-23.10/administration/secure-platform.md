@@ -1615,7 +1615,7 @@ The **/etc/centreon-gorgone/config.d/whitelist.conf.d/centreon.yaml** file (on y
 
 ## Centreon Gorgone autodiscovery
 
-By default, gorgone allows autodiscovery commands to interpret bash meta-characters when executed. This can be a security risk if a user with the privilege to make a host discovery is breached.
+By default, gorgone allows autodiscovery commands to interpret bash meta-characters when executed. This can be a security risk if a user with the privilege to make a host discovery is compromised.
 
 To disable this, you can set the **no_shell_interpolation** parameter to **true** in the **/etc/centreon-gorgone/config.d/41-autodiscovery.yaml** file like this: 
 
