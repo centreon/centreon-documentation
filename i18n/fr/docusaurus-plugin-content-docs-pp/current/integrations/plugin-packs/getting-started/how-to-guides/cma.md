@@ -191,6 +191,23 @@ Cette configuration est déployée sur le collecteur dans le fichier /etc/centre
 
 Cette étape s'effectue sur le collecteur.
 
+### Configurez le firewall
+
+<Tabs groupId="sync">
+<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+
+```bash
+firewall-cmd --zone=public --add-port=4317/tcp --permanent
+```
+```bash
+firewall-cmd --reload 
+```
+</TabItem>
+<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+Pas d'action nécessaire.
+</TabItem>
+</Tabs>
+
 ### Configurez les paramètres de chiffrement
 
 Voir [section dédiée](#gestion-des-certificats) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
@@ -692,7 +709,7 @@ Sur les hôtes que vous voulez superviser, les plugins sont déjà installés pa
 
 
 
-## Test de bon fonctionnement 
+## Tests de bon fonctionnement 
 
 ### Vérifications sur l'hôte
 
@@ -732,12 +749,19 @@ Si le service n'est pas démarré, démarrez-le.
 
 Selon la configuration faite, utilisez l'observateur d'événements ou consultez le fichier spécifié.
 
+
+#### Vérifiez que la connexion se fait vers le collecteur
+```bash
+tnc chsysilsuper -p 4317
+```
+La valeur **true** doit être retournée.
+
 </TabItem>
 </Tabs>
 
 ### Vérifications sur le collecteur
 
-#### Vérifiez que le serveur est en écoute
+#### Vérifiez que le serveur est en écoute et que les packets arrivent
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
@@ -746,12 +770,20 @@ Selon la configuration faite, utilisez l'observateur d'événements ou consultez
    netstat -na | grep 4317
    ```
    Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
+   Le port 4317 doit être ouvert en entrée sur le collecteur.
+   
+   Exécutez la commande suivante : 
+   ```bash
+   tcpdump -i any port 4317
+   ```
+   Elle doit retourner des résultats, indiquant que des packets arrivent de l'agent.
    
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
-   * Aucune action n'est nécessaire.
+   Le port 4317 doit être ouvert en entrée sur l'Agent.
 </TabItem>
 </Tabs>
+
 
 #### Vérifiez que le fichier de log engine ne contient pas d'erreur
 ```bash
@@ -763,9 +795,6 @@ Aucune ligne ne doit être retournée.
 ### Vérifications dans Centreon
 
 L'hôte et les services configurés doivent remonter un statut et des métriques.
-
-> S'agissant de contrôles passifs, il n'est pas possible de réaliser de force check
-
 
 ## Gestion des certificats
 
