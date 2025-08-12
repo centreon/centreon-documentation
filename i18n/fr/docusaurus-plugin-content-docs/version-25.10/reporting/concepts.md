@@ -33,7 +33,7 @@ Toutes les [métriques](../monitoring/metrics.md) de chaque service sont prises 
 
 Assurez-vous que vos services ne disposent que des métriques nécessaires, car cela peut avoir un impact sur les performances. Vous pouvez également vous assurer que MBI ne prend en compte qu'un nombre limité de groupes d'hôtes, de catégories d'hôtes et de catégories de services.
 
-## Évènements 
+## Évènements
 
 Dans MBI, un évènement est une période de temps associée à un statut. Il a une heure et date de début, une heure et date de fin, et un statut. Il sert à calculer la [disponibilité](#disponibilité).
 
@@ -60,7 +60,7 @@ Les groupes de tâches déterminent [quels utilisateurs non administrateurs sont
 
 Résultat final d'une tâche. Les données contenues dans le rapport et sa mise en page sont déterminées par le modèle de rapport. Ce dernier est sélectionné parmi les options de [notre catalogue de rapports disponibles](available-reports/available-reports.md). Vous pouvez également [créer vos propres rapports avec BIRT](report-development.md).
 
-## CBIS user
+## Utilisateur CBIS
 
 Utilisateur de service créé automatiquement lors de l'installation de MBI. Cet utilisateur générera des rapports. L'utilisateur CBIS doit disposer d'un accès à toutes les ressources à l'aide des [ACLs Centreon](https://docs.centreon.com/fr/docs/administration/access-control-lists/) pour fonctionner correctement.
 
