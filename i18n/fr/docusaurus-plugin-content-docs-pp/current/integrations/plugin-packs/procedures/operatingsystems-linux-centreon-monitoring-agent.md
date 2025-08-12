@@ -9,7 +9,7 @@ Le connecteur **Linux Centreon Monitoring Agent** permet de fournir des modèles
 
 > Pour le moment, ce connecteur de supervision ainsi que l'agent sont en version **BETA**.
 
-Lisez [cette page](../getting-started/how-to-guides/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
+Lisez [cette page](../getting-started/how-to-guides/cma/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
 
 ## Contenu du pack
 
@@ -322,12 +322,12 @@ minimum la version <!--`24.09.0` pour les utilisateurs de Centreon Cloud, et la 
 
 ### Configuration de la communication collecteur/agent
 
-[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma.md#configurez-la-communication-collecteuragent).
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma.md#configurez-la-communication-collecteuragent).
 
 ### Prérequis système pour l'hôte à superviser
 
 La procédure d'installation et de configuration de Centreon Monitoring Agent pour Linux est détaillée
-[dans la page dédiée](../getting-started/how-to-guides/cma.md#étape-2--préparez-lhôte). (Cela comprend l'installation de l'agent et l'installation des plugins qui permettront d'exécuter les contrôles non natifs).
+[dans la page dédiée](../getting-started/how-to-guides/cma/cma.md#étape-2--préparez-lhôte). (Cela comprend l'installation de l'agent et l'installation des plugins qui permettront d'exécuter les contrôles non natifs).
 
 ## Installer le connecteur de supervision
 
@@ -378,7 +378,7 @@ depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de
 <Tabs groupId="sync">
 <TabItem value="Version OnPrem 24.10.6 ou plus récente" label="Version OnPrem 24.10.6 ou plus récente">
 
-Pour cette version, aucune configuration n'est nécessaire. Passez à l'[étape suivante](../getting-started/how-to-guides/cma.md#configurez-la-communication-collecteuragent).
+Pour cette version, aucune configuration n'est nécessaire. Passez à l'[étape suivante](../getting-started/how-to-guides/cma/cma.md#configurez-la-communication-collecteuragent).
 
 </TabItem>
 <TabItem value="Version OnPrem antérieure à la 24.10.6" label="Version OnPrem antérieure à la 24.10.6">

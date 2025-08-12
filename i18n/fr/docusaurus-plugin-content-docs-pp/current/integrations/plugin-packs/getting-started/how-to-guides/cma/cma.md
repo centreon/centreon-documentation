@@ -1,10 +1,8 @@
 ---
-id: cma
 title: Centreon Monitoring Agent
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 > Utilisateurs de Centreon Cloud: l'agent CMA est encore en phase bêta pour la version Cloud. 
 > Pour obtenir de l'aide ou échanger sur les évolutions de l'agent Centreon, visitez [notre groupe dédié sur The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
@@ -76,7 +74,7 @@ La connexion entre le collecteur et l'agent doit être sécurisée en production
 * TLS insecure: the certification authority and Common Name are not verified (self-signed certificates can be used).-->
 
 Cela passe par : 
-- [une connexion TLS par certificats](#gestion-des-certificats)
+- [une connexion TLS par certificats](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma-certificates/)
 - [l'utilisation d'un jeton d'authentification](#créez-le-jeton-dauthentification)
 
 #### Schéma de fonctionnement
@@ -86,9 +84,9 @@ TODO
 
 ## Étape 1: Configurez Centreon
 
-Cette étape s'effectue sur l'interface ou via API.
+Cette étape s'effectue sur l'interface ou via [l'API Centreon Web](https://docs-api.centreon.com/api/centreon-web/24.10/).
 
-### Installez le connecteur de supervision nécessaire
+### Installez le connecteur de supervision nécessaire (version onPrem)
 
 Sur votre serveur central, vous devez installer le connecteur de supervision qui fournira les modèles et les commandes qui vous permettront de configurer les hôtes et les services supervisés dans Centreon.
 Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
@@ -97,18 +95,18 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 <TabItem value="Linux" label="Linux">
 
 1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks#installer-un-connecteur-de-supervision) le connecteur de supervision [**Linux Centreon Monitoring Agent**](../../procedures/operatingsystems-linux-centreon-monitoring-agent.md).
+2. [Installez](/docs/monitoring/pluginpacks#installer-un-connecteur-de-supervision) le connecteur de supervision [**Linux Centreon Monitoring Agent**](../../../procedures/operatingsystems-linux-centreon-monitoring-agent.md).
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
 1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks#installer-un-connecteur-de-supervision) le connecteur de supervision [**Windows Centreon Monitoring Agent**](../../procedures/operatingsystems-windows-centreon-monitoring-agent.md).
+2. [Installez](/docs/monitoring/pluginpacks#installer-un-connecteur-de-supervision) le connecteur de supervision [**Windows Centreon Monitoring Agent**](../../../procedures/operatingsystems-windows-centreon-monitoring-agent.md).
 
 </TabItem>
 </Tabs>
 
-### Mettez à jour le connecteur Centreon Monitoring Agent
+### Mettez à jour le connecteur Centreon Monitoring Agent (version onPrem)
 
 1. Allez à la page **Configuration > Commandes > Connecteurs**.
 
@@ -118,7 +116,7 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
 1. Allez à la page **Administration > Jetons d'authentification**.
 
-2. Créez un jeton de type "Centreon monitoring agent"
+2. Créez un jeton de type **Centreon Monitoring Agent**
 
 Vous pouvez sélectionner une durée d'expiration. Par défaut, les jetons n'expirent pas.
 Conservez le jeton généré pour la configuration de l'agent.
@@ -131,15 +129,15 @@ Il est possible de n'utiliser qu'un jeton pour tous vos collecteurs et agents, o
 **Expiration** 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
-La connexion est tuée au prochain export de configuration ou envoi de données de performance. La mention “Token expired” apparait dans les logs Agent et Collecteur.
+Lorsque le jeton expire, la connexion est tuée au prochain export de configuration ou envoi de données de performance. La mention “Token expired” apparait dans les logs Agent et Collecteur.
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
-La connexion est tuée. La mention “Token expired” apparait dans les logs Agent et Collecteur.
+Lorsque le jeton expire, la connexion est tuée. La mention “Token expired” apparait dans les logs Agent et Collecteur.
 </TabItem>
 </Tabs>
 
 **Révocation**
-La prise en compte de la révocation nécessite de générer la configuration et de recharger le moteur de collecte.
+Lorsque vous révoquez un jeton, déployez la configuration pour que cela soit pris en compte. 
 
 ### Créez l'hôte et les services
 
@@ -168,7 +166,7 @@ Créez les services associés au modèle d'hôte.
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 4. Dans la section **Paramètres**, sélectionnez le ou les collecteurs qui recevront des données en provenance de l'agent. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
-5. Dans la section **Récepteur OTLP**, renseignez les chemins des fichiers de certificat. Voir [section dédiée](#gestion-des-certificats) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
+5. Dans la section **Récepteur OTLP**, renseignez les chemins des fichiers de certificat. Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
 > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
 6. [Déployez la configuration en redémarrant le moteur de collecte](/docs/monitoring/monitoring-servers/deploying-a-configuration).
 
@@ -176,7 +174,7 @@ Créez les services associés au modèle d'hôte.
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
 4. Dans la section **Paramètres**, sélectionnez le collecteur qui se connectera aux agents. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
 5. Dans la section **Hôtes supervisés**, sélectionnez l'hôte créé précédemment, son IP remonte et un port par défaut est renseigné. Modifier ces informations si nécessaire.
-6. Renseignez les chemins des fichiers de certificat. Voir [section dédiée](#gestion-des-certificats) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
+6. Renseignez les chemins des fichiers de certificat. Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
 7. Renseignez le jeton d'authentification créé précédemment. Il est aussi possible de créer un jeton depuis cet écran.
 8. Ajoutez l'hôte.
 9. Répétez l'opération pour chaque Hôte devant être lié à ce collecteur. Pour configurer de fortes volumétries, il est recommandé de passer par les API dédiées.
@@ -186,7 +184,7 @@ Créez les services associés au modèle d'hôte.
 
 Cette configuration est déployée sur le collecteur dans le fichier /etc/centreon-engine/otl_server.json. Ce fichier ne doit pas être édité à la main car il est écrasé par le déploiement de la configuration.
 
-## Etape 2 : Préparez le collecteur
+## Étape 2 : Préparez le collecteur
 
 Cette étape s'effectue sur le collecteur.
 
@@ -209,7 +207,7 @@ Pas d'action nécessaire.
 
 ### Configurez les paramètres de chiffrement
 
-Voir [section dédiée](#gestion-des-certificats) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
+Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
 
 ### Ajoutez les commandes CMA à vos listes blanches personnalisées
 
@@ -270,11 +268,13 @@ chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
 chown root:centreon-engine /etc/centreon-engine-whitelist
 chmod 750 /etc/centreon-engine-whitelist
 ```
+
+
 Le comportement est le suivant : 
-*Si le bloc whitelist est renseigné et le bloc cma-whitelist est absent → Le moteur de collecte appliquera la liste blanche et CMA n'appliquera pas de liste blanche (toute commande autorisée)
-*Si les blocs whitelist et cma-whitelist sont renseignés → Le moteur de collecte appliquera le bloc whitelist et CMA appliquera cma-whitelist 
-*Si le bloc whitelist est absent et le bloc cma-whitelist est renseigné → Le moteur de collecte n'appliquera pas de liste blanche (toute commande autorisée) and CMA appliquera cma-whitelist  
-*Si aucun bloc n'est renseigné → Aucune liste blanche n'est appliquée
+* Si le bloc whitelist est renseigné et le bloc cma-whitelist est absent → Le moteur de collecte appliquera la liste blanche et CMA n'appliquera pas de liste blanche (toute commande autorisée)
+* Si les blocs whitelist et cma-whitelist sont renseignés → Le moteur de collecte appliquera le bloc whitelist et CMA appliquera cma-whitelist 
+* Si le bloc whitelist est absent et le bloc cma-whitelist est renseigné → Le moteur de collecte n'appliquera pas de liste blanche (toute commande autorisée) and CMA appliquera cma-whitelist  
+* Si aucun bloc n'est renseigné → Aucune liste blanche n'est appliquée
 
 ## Étape 3 : Préparez l'hôte
 
@@ -403,7 +403,7 @@ apt install centreon-monitoring-agent
 
 #### Configurez les paramètres de chiffrement
 
-Voir [section dédiée](#gestion-des-certificats) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
+Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
 
 
 #### Configurez les logs
@@ -518,7 +518,7 @@ Les données renseignées via l'installer ou le mode silencieux sont écrites en
 
 #### Configurez les paramètres de chiffrement
 
-Voir [section dédiée](#gestion-des-certificats) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
+Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
 
 
 #### Configurez les logs
@@ -710,6 +710,8 @@ Sur les hôtes que vous voulez superviser, les plugins sont déjà installés pa
 
 ## Tests de bon fonctionnement 
 
+Voir page dédiée.
+
 ### Vérifications sur l'hôte
 
 <Tabs groupId="sync">
@@ -794,194 +796,3 @@ Aucune ligne ne doit être retournée.
 ### Vérifications dans Centreon
 
 L'hôte et les services configurés doivent remonter un statut et des métriques.
-
-## Gestion des certificats
-
-### TLS Full
-
-#### Principe de fonctionnement
-
-La connexion TLS Full (1.3) est négociée par le client (collecteur ou agent selon le sens), et nécessite des certificats.
-Selon le sens de connexion, l'agent/le collecteur vérifie que l'IP/DNS utilisée pour atteindre le serveur correspond strictement aux informations du certificat.
-Si ce n'est pas le cas, la connexion est refusée.
-La vérification est faite sur le bloc alt_names du certificat, qui peut contenir plusieurs DNS, IP ou CN.
-
-
-#### Fichiers de certificat
-
-Les formats supportés sont : 
-- .crt/.cer : fichier de certificat public, CA ou wildcard
-- .key : fichier de clé privée
-
-Les fichiers de certificat déposés sur le collecteur doivent être déposés dans /etc/pki/, à la racine ou dans un sous-repértoire.
-Ils doivent avoir les permissions suivantes : 
-```
-chmod 644 /etc/pki/agent*
-```
-
-Les fichiers de certificat déposés sur l'hôte peuvent être déposés dans un répertoire libre. 
-Ils doivent avoir les permissions suivantes : TODO
-Ces fichiers peuvent également être directement enregistrés dans le magasin de certificats.
-Dans ce cas, il n'est pas nécessaire de les renseigner dans la configuration faite sur l'hôte (colonne "Configuration de l'hôte" du tableau précédent).
-
-
-#### Synthèse des configurations possibles
-
-<Tabs groupId="sync">
-<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
-
-L'agent vérifie, lors de la connexion au collecteur, que l'IP/DNS renseignée dans "Poller endpoint" correspond strictement aux informations du certificat (SAN ou CN).
-Si ce n'est pas le cas, la connexion est refusée.
-
-| Cas d'usage      															  | Fichier(s) sur le collecteur | Fichier(s) sur l'hôte (si non chargés dans le magasin de certificats) | Configuration du Collecteur (interface) | Configuration de l'hôte    |
-| -----------      															  | -----------                  | -----------           |-----------							   | -----------				|
-| Certificat signé par CA           	 | Fichiers de certificat public et clé privée                         | Fichier de certificat public                       |	Récepteur OTLP - Certificat public : chemin du certificat public (ex : '/etc'/pki'/certificate.crt) Récepteur OTLP - Clé privée : chemin de la clé privée (ex : '/etc'/pki'/certificate.key) Récepteur OTLP - CA : vide | Poller endpoint : IP/DNS du Collecteur Private Key file/private_key : vide Certificate file : vide Trusted CA's certificate file/ca_certificate : chemin du certificat public  Certificate Common Name/ca_name : vide	|
-| Certificat autosigné         	 | Fichiers de certificat public et clé privée                         | Fichier de certificat public                       |	Récepteur OTLP - Certificat public : chemin du certificat public (ex : '/etc'/pki'/certificate.crt) Récepteur OTLP - Clé privée : chemin de la clé privée (ex : '/etc'/pki'/certificate.key) Récepteur OTLP - CA : vide, sauf besoin d'un double handshake | Poller endpoint : IP/DNS du Collecteur Private Key file/private_key : vide Certificate file/public_cert : vide Trusted CA's certificate file/ca_certificate : chemin du certificat public  Certificate Common Name/ca_name : vide	|
-| Certificat wildcard      | Fichiers wildcard et clé privée                         | Fichier wildcard              | Récepteur OTLP - Certificat public : obligatoire (sauf si ajouté dans les chaines de certification de l'hôte).Il s'agira du fichier de certificat wildcard Récepteur OTLP - Clé privée : chemin de la clé privée Récepteur OTLP - CA : vide	 | Private Key file/private_key : vide Certificate file/public_cert : vide Trusted CA's certificate file/ca_certificate : chemin du certificat wildcard  Certificate Common Name/ca_name : vide							|
-| Certificat public (service managé, par ex Collecteur central Centreon Cloud)        | Aucun                        | Aucun                 | Récepteur OTLP - Certificat public : vide Récepteur OTLP - Clé privée : vide Récepteur OTLP - CA : vide | Poller endpoint : IP/DNS du Load balancer portant le certificat public Private Key file/private_key : vide Certificate file/public_cert : vide Trusted CA's certificate file/ca_certificate : vide Certificate Common Name/ca_name : vide							|
-| Certificat public (fichiers de clés)        | Fichiers de certificat public et clé privée                         | Aucun                 | Récepteur OTLP - Certificat public : chemin du certificat public (ex : '/etc'/pki'/certificate.crt) Récepteur OTLP - Clé privée : chemin de la clé privée (ex : '/etc'/pki'/certificate.key) Récepteur OTLP - CA : vide | Poller endpoint : IP/DNS du Collecteur Private Key file/private_key : vide Certificate file/public_cert : vide Trusted CA's certificate file/ca_certificate : vide Certificate Common Name/ca_name : vide							|
-
-
-</TabItem>
-<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
-Le collecteur vérifie, lors de la connexion à l'agent, que l'IP/DNS renseignée pour l'hôte (dans la configuration d'agent) correspond strictement aux informations du certificat (SAN ou CN).
-Si ce n'est pas le cas, la connexion vers cet hôte est refusée.
-
-| Cas d'usage      															  | Fichier(s) sur le Collecteur | Fichier(s) sur l'hôte | Configuration du Collecteur (interface) | Configuration de l'hôte    |
-| -----------      															  | -----------                  | -----------           |-----------								       | -----------							|
-| Certificat signé par CA           	 | A confirmer que utile : fichier de certificat public                       | Fichiers de certificat public et clé privée                         | Configurations d'hôte - CA : vide Configurations d'hôte - Nom commun CA (CN) : vide	 | Private Key file/private_key : chemin de la clé privée Certificate file/public_cert : chemin du certificat public  Trusted CA's certificate file/ca_certificate : vide Certificate Common Name/ca_name : vide	|
-| Certificat autosigné           	 | A confirmer que utile : fichier de certificat public                       | Fichiers de certificat public et clé privée                         | Configurations d'hôte - CA : obligatoire (sauf si ajouté dans les chaines de certification de l'hôte).Il s'agira du fichier de certificat public Configurations d'hôte - Nom commun CA (CN) : vide	 | Private Key file/private_key : chemin de la clé privée Certificate file/public_cert : chemin du certificat public  Trusted CA's certificate file/ca_certificate : vide Certificate Common Name/ca_name : vide	|
-| Certificat wildcard      | Fichier wildcard                       | Fichiers wildcard et clé privée   | Configurations d'hôte - CA : obligatoire (sauf si ajouté dans les chaines de certification de l'hôte).Il s'agira du fichier de certificat wildcard Configurations d'hôte - Nom commun CA (CN) : vide									       | Private Key file/private_key : chemin de la clé privée Certificate file/public_cert : chemin du certificat wildcard  Trusted CA's certificate file/ca_certificate : vide Certificate Common Name/ca_name : vide							|
-</TabItem>
-</Tabs>
-
-
-
- 
-#### Génération d'un certificat autosigné (facultatif)
-
-Si vous ne possédez pas de certificat, il est possible de générer un certificat autosigné.
-Pour générer un certificat autosigné valide un an, exécutez la commande suivante sur votre collecteur ou votre hôte :
-
-```shell
-openssl req -new -subj '/CN={server_hostname}' \
-                 -addext "subjectAltName = CN:{server_hostname}, DNS:{alt_poller_DNS}, IP:{alt_poller_IP}" \
-                 -days 365 -nodes -x509 \
-                 -newkey rsa:2048 -keyout {key} -out {cert}
-```
-- \{key\} = chemin du fichier clé privée
-- \{cert\} = chemin du fichier de certificat public
-- \{server_hostname\} = nom DNS du serveur et/ou utiliser \{alt_poller_DNS\} et/ou utiliser \{alt_poller_IP\}
-Dans le mode de chiffrement TLS Full, le DNS/IP du serveur utilisé par le client doit obligatoirement correspondre à une entrée CN ou SAN (altName) du certificat (\{server_hostname\}).
-La ligne -subj '/CN=\{server_hostname\}' \ est facultative si des SAN sont définis.
-
-<Tabs groupId="sync">
-<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
-\{server_hostname\} doit correspondre au DNS/IP utilisé dans "Poller endpoint" (Installer) / "endpoint" (json), dans la configuration d'Agent, sur l'hôte.
-</TabItem>
-<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
-\{server_hostname\} doit correspondre au DNS/IP utilisé dans le champ "Configurations d'hôte - Hôte" de la configuration d'Agent, dans l'interface.
-
-</TabItem>
-</Tabs>
-
-### Mode test : communication non chiffrée
-
-Vous pouvez configurer une connexion non chiffrée **à des fins de test uniquement**. Dans ce mode, vous n'avez besoin d'aucun certificat ou jeton.
-
-> Notez que cette connexion ne durera qu'une heure. N'utilisez pas ce paramètre en production !
-
-Pour configurer ce mode, sélectionnez **No TLS** dans la liste **Niveau de chiffrement** de la fenêtre [**Configuration collecteur/agent**](#configurez-la-communication-collecteuragent).
-
-L'agent sera configuré de la manière suivante sur l'hôte :
-- [pour Windows, en utilisant l'option correspondante dans le programme d'installation ou la CLI](#étape-2--préparez-lhôte)
-- pour Linux, en utilisant le fichier **centagent.json** :
-
-<Tabs groupId="sync">
-<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
-
-
-```json
-{
-  "log_level":"info",
-  "endpoint":"<IP/DNS COLLECTEUR>:4317",
-  "encryption" : "false",
-  "host":"host_1",
-  "log_type":"file",
-  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" 
-}
-```
-
-</TabItem>
-<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
-
-```json
-{
-  "log_level":"info",
-  "endpoint":"0.0.0.0:4317",
-  "encryption" : "false",
-  "host":"host_1",
-  "log_type":"file",
-  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
-  "reversed_grpc_streaming":true
-}
-```
-
-</TabItem>
-</Tabs>
-
-
-
-
-
-## Configurez des scripts personnalisés
-
-Centreon Monitoring Agent est capable d'exécuter des scripts personnalisés.
-Les langages supportés sont : PS / Perl / Python / Bash
-Pour se faire, déposez le script sur l'hôte, et créez/adaptez la commande de la manière suivante : 
-
-**PowerShell (Windows) :**
-
-```bash
-"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -File Z:\\tmp\\custom_script.ps1
-```
-Chemin de l'intepréteur à adapter selon le cas et la version.
-
-**Perl (Windows) :**
-```bash
-C:/Strawberry/perl/bin/perl.exe Z:/tmp/custom_script.pl
-```
-
-**Perl (Linux) :**
-```bash
-/<path>/<to>/custom_script.pl
-```
-
-**Python (Windows) :**
-```bash
-"C:\\Program Files\\Python313\\python.exe" "Z:\\tmp\\custom_script.py"
-```
-Chemin de l'intepréteur à adapter selon le cas et la version.
-
-**Python (Linux) :**
-```bash
-/<path>/<to>/custom_script.py
-```
-**Bash (Windows, .bat) :**
-```bash
-"Z:\\tmp\\custom_script.bat"
-```
-
-**Bash (Linux, .sh) :**
-```bash
-/<path>/<to>/custom_script.sh
-```
-
-
-
-
-
-
-
-
-
