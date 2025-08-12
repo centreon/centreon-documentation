@@ -3,7 +3,7 @@ id: how-mbi-works
 title: How does MBI work?
 ---
 
-Each day, MBI works in 3 independent main phases:
+Each day, MBI relies on the execution of 3 independent main phases:
 
 * [The central server prepares the raw data](#phase-1-data-is-prepared-by-the-central-server).
 * [The ETL copies the data of the previous day to the MBI server and aggregates it](#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated). The data is then ready to be used in reports.
@@ -28,11 +28,11 @@ On the MBI server, a cronjob launches the ETL every day at 4.30 AM. This makes G
    * In all cases, all metrics will be imported.
    * All hosts or services that do not belong to at least one host group, one host category or one service category are excluded.
 
-2. **/usr/share/centreon-bi/etl/dimensionsBuilder.pl**: MBI prepares a list of all [dimensions](https://docs.centreon.com/docs/reporting/concepts/#dimension) present in the imported data, for each host, service and metric.
+2. **/usr/share/centreon-bi/etl/dimensionsBuilder.pl**: the ETL prepares a list of all [dimensions](https://docs.centreon.com/docs/reporting/concepts/#dimension) present in the imported data, for each host, service and metric.
 
-3. **/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl**: MBI calculates the [availability](https://docs.centreon.com/docs/reporting/concepts/#availability) of resources, based on the data copied from the central server and the dimensions calculated just before. The availability of each resource is calculated by day and by month, taking into account the [time periods](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) selected in the **Live services for availability statistics calculation** field of the **General options** page, on the **ETL options** tab.
+3. **/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl**: the ETL calculates the [availability](https://docs.centreon.com/docs/reporting/concepts/#availability) of resources, based on the data copied from the central server and the dimensions calculated just before. The availability of each resource is calculated by day and by month, taking into account the [time periods](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) selected in the **Live services for availability statistics calculation** field of the **General options** page, on the **ETL options** tab.
 
-4. **/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl**: MBI aggregates all metrics by hour/day/month, taking into account the [time periods](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) selected in the **Live services for performance data statistics calculation** field of the **General options** page, on the **ETL options** tab. The script includes the calculation of centiles, if configured.
+4. **/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl**: the ETL aggregates all metrics by hour/day/month, taking into account the [time periods](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/) selected in the **Live services for performance data statistics calculation** field of the **General options** page, on the **ETL options** tab. The script includes the calculation of centiles, if configured.
 
 Once all aggregations have been calculated, MBI is ready to generate reports.
 
@@ -48,7 +48,7 @@ Reports can be generated immediately at the user's request, or when they are sch
 
 * Only one report is generated per format: pdf, xlsx, docx, etc…
 * The scope of the data in the report is determined by the **Report parameters** tab of the job. Bear in mind that the report and all of its data will be shared to other users according to what you have defined in [job groups](https://docs.centreon.com/docs/reporting/concepts/#job-groups), regardless of other users' ACLs on resources.
-* The generated reports are copied to the central server, in **/var/lib/centreon/centreon-bi-server/archives**. (This is done by executing the global SFTP [publication rule](reports-publication-rule.md) called **Default**.)
+* The generated reports are copied to the central server, in **/var/lib/centreon/centreon-bi-server/archives**. (This is done by executing the global SFTP [publication rule](reports-publication-rule.md) called [**Default**](reports-publication-rule.md#how-the-default-publication-rule-works).)
 * All other **global** [publication rules](reports-publication-rule.md) are then executed.
 
 ## Phase 4 (optional): The reports are sent to users

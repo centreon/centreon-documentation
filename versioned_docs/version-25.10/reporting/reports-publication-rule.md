@@ -19,7 +19,7 @@ If you want to share a copy of your report (e.g. by email or on another server),
 | SFTP | Reports are copied to a remote server using the SFTP protocol |
 | SMTP | Reports are sent in an email |
 
-## Global rules and custom rules
+## Règles globales et règles personnalisées
 
 * Rules marked as **Global** in their configuration are applied automatically every time any job is executed. Bear in mind that they apply to **all** jobs. 
 * Global rules do not appear on the **Publication** tab of jobs, as they are applied every time anyway.
@@ -145,7 +145,7 @@ To make sure a copy of your report is published every time the job is executed, 
 
 Please note that the data included in the report depends on the [rights on resources](https://docs.centreon.com/docs/administration/access-control-lists/#access-filters-on-resources) of the user who creates the job. It is the responsibility of the user creating the job to make sure that the resources included in the report are authorized for the users with which they want to share the report.
 
-## How the Default publication rule works
+## Fonctionnement de la règle de publication Default
 
 The default SFTP rule is the one that transfers the generated reports to your central server.
 
