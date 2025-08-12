@@ -3,7 +3,7 @@ id: how-mbi-works
 title: How does MBI work?
 ---
 
-Each day, MBI relies on the execution of 3 independent main phases:
+Each day, MBI follows 3 independent main phases:
 
 * [The central server prepares the raw data](#phase-1-data-is-prepared-by-the-central-server).
 * [The ETL copies the data of the previous day to the MBI server and aggregates it](#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated). The data is then ready to be used in reports.
