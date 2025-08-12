@@ -35,9 +35,9 @@ Assurez-vous que vos services ne disposent que des métriques nécessaires, car 
 
 ## Évènements 
 
-Dans MBI, un évènement est une période de temps associée à un status. Il a une heure/date de début, une heure/date de fin et un statut. Il sert à calculer la [disponibilite](#disponibilité)
+Dans MBI, un évènement est une période de temps associée à un statut. Il a une heure et date de début, une heure et date de fin, et un statut. Il sert à calculer la [disponibilité](#disponibilité).
 
-Les résultats des vérifications sont convertis en évènements par le serveur central tous les jours à 3h du matin (script **eventReportBuilder**). Seules les contrôles dans un état HARD sont prises en compte.
+Les résultats des contrôles sont convertis en évènements par le serveur central tous les jours à 3h du matin (script **eventReportBuilder**). Seuls les contrôles dans un état HARD sont pris en compte.
 
 ## Tâches
 
