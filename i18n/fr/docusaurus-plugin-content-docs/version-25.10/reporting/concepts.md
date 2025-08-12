@@ -33,11 +33,11 @@ Toutes les [métriques](../monitoring/metrics.md) de chaque service sont prises 
 
 Assurez-vous que vos services ne disposent que des métriques nécessaires, car cela peut avoir un impact sur les performances. Vous pouvez également vous assurer que MBI ne prend en compte qu'un nombre limité de groupes d'hôtes, de catégories d'hôtes et de catégories de services.
 
-## Évènement
+## Évènements 
 
-In MBI, an event is a period of time associated with a status. It has a start date/time, an end date/time, and a status. Its purpose is to be able to calculate [availability](#availability).
+Dans MBI, un évènement est une période de temps associée à un status. Il a une heure/date de début, une heure/date de fin et un statut. Il sert à calculer la [disponibilite](#disponibilité)
 
-Check results are converted into events by the central server every day at 3AM (**eventReportBuilder** script). Only checks in a HARD state are taken into account.
+Les résultats des vérifications sont convertis en évènements par le serveur central tous les jours à 3h du matin (script **eventReportBuilder**). Seules les contrôles dans un état HARD sont prises en compte.
 
 ## Tâches
 
@@ -66,7 +66,7 @@ Utilisateur de service créé automatiquement lors de l'installation de MBI. Cet
 
 ## Disponibilité
 
-Le temps passé par un hôte dans un [statut](https://docs.centreon.com/fr/docs/alerts-notifications/concepts/#host-status) "disponible" au cours de la période sélectionnée. Seuls les [états HARD](https://docs.centreon.com/fr/docs/alerts-notifications/concepts/#status-types) sont pris en compte dans le calcul de la disponibilité.
+Le temps passé par un hôte dans un [statut](https://docs.centreon.com/fr/docs/alerts-notifications/concepts/#statut-des-hôtes) "disponible" au cours de la période sélectionnée. Seuls les [états HARD](https://docs.centreon.com/fr/docs/alerts-notifications/concepts/#types-de-statuts) sont pris en compte dans le calcul de la disponibilité.
 
 * Pour les hôtes : lors du calcul de la disponibilité, seule la durée pendant laquelle l'hôte a été dans un état **Disponible** ou **Indisponible** est prise en compte, et non la durée pendant laquelle il a été dans un état **INJOIGNABLE** ou en maintenance.
 * Pour les services : lors du calcul de la disponibilité, seule la durée pendant laquelle le service a été dans un état **OK** ou **Alerte** est prise en compte, et non la durée pendant laquelle il a été dans un état **INCONNU** ou en maintenance.
