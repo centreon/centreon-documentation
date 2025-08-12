@@ -27,15 +27,15 @@ hôte.
 
 #### Première page
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_1_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_1_png.png)
 
 #### Deuxième page
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_3_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_3_png.png)
 
 #### Troisième page
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_4_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_4_png.png)
 
 1 - Statistique de stockage sur le dernier jour de la période de
 reporting
@@ -50,9 +50,9 @@ veille du premier jour de la période
 
 #### Annexe
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_5_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_5_png.png)
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_6_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_6_png.png)
 
 #### Paramètres
 
@@ -122,15 +122,15 @@ Enfin, une page d'annexe affiche toutes les alarmes apparues sur cet hôte.
 
 #### Première page
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_1_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_1_png.png)
 
 #### Deuxième page
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_3_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_3_png.png)
 
 #### Troisième page
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_4_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_4_png.png)
 
 1 - Statistique de stockage sur le dernier jour de la période de
 reporting
@@ -145,13 +145,13 @@ veille du premier jour de la période
 
 #### Quatrième page
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-3_traffic.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-3_traffic.png)
 
 #### Annexe
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_5_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_5_png.png)
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_6_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_6_png.png)
 
 #### Paramètres
 
@@ -219,15 +219,15 @@ Pour chaque équipement, le rapport est divisé en quatre parties:
 
 #### Première partie
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_1_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_1_png.png)
 
 #### Deuxième partie
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_3_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_3_png.png)
 
 #### Troisième partie
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-2_4_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-2_4_png.png)
 
 1 - Statistique de stockage sur le dernier jour de la période de
 reporting
@@ -242,7 +242,7 @@ veille du premier jour de la période
 
 #### Quatrième partie
 
-![image](../assets/reporting/guide/available-reports/Host-Detail-3_traffic.png)
+![image](../../assets/reporting/guide/available-reports/Host-Detail-3_traffic.png)
 
 #### Paramètres
 

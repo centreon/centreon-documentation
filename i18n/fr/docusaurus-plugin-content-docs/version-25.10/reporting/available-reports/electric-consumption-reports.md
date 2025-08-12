@@ -19,20 +19,20 @@ Le coût, la consommation , la puissance moyenne et la puissance maximale
 sur le mois N, un rappel des mêmes valeurs sur le mois N-1, et
 l'évolution entre le mois N et le mois N - 1.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part1.png)
 
 Les 2 graphiques suivants affichent la répartition moyenne de la
 puissance utilisée par heure de la journée et jour de mois, avec une
 comparaison sur le mois N-1.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part2.png)
 
 Ensuite, un TOP 5 des onduleurs les plus consommateurs, avec le
 pourcentage de consommation de chaque UPS par rapport à la consommation
 totale, la cossommation moyenne ainsi que le coût de chaque UPS sur le
 mois.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part3.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part3.png)
 
 > Si il y a plus de 5 onduleurs dans le groupe selectionné, seuls les 4
 > les plus consommateurs seront affichés; la 5ème ligne regroupera le
@@ -40,7 +40,7 @@ mois.
 
 Enfin, l'évolution du coût total mensuel sur la dernière année.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part4.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Electricity-Consumption-1-part4.png)
 
 #### Paramètres
 

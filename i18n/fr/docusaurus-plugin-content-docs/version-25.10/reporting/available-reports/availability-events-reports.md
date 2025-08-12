@@ -29,19 +29,19 @@ indicateurs.
 
 #### Page de garde
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_1.png)
 
 #### Première page
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_2.png)
 
 #### Deuxième page
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_3.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_3.png)
 
 #### Pour chaque groupe
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_4.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Incidents-1_4.png)
 
 #### Paramètres
 
@@ -80,17 +80,17 @@ Deux pages sont ensuite générées pour chaque groupe d'hôtes :
 
 #### Première page
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Availability-1_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Availability-1_1.png)
 
 #### Pour chaque groupe d'hôtes
 
 ##### Première page
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Availability-1_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Availability-1_2.png)
 
 ##### Deuxième page
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Availability-1_3.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Availability-1_3.png)
 
 #### Paramètres
 
@@ -131,19 +131,19 @@ d'indisponibilité des services sont affichés.
 
 #### Première page
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Availability-2_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Availability-2_1.png)
 
 #### Deuxième page
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Availability-2_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Availability-2_2.png)
 
 #### Troisième & quatrième pages
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Availability-2_3.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Availability-2_3.png)
 
 et
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Availability-2_4.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Availability-2_4.png)
 
 #### Paramètres
 
@@ -171,7 +171,7 @@ Pour chaque équipement sont affichés :le pourcentage de disponibilité,
 le temps indisponible, le nombre d'évènements et les évolutions par
 rapport à la période précédente.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Host-Availability-List.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Host-Availability-List.png)
 
 #### Paramètres
 
@@ -203,7 +203,7 @@ de début, date de fin, temps avant acquittement, "real MTRS",
   de sa détection et uniquement calculé dans la plage horaire
   considérée
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Host-Event-List.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Host-Event-List.png)
 
 #### Paramètres
 
@@ -229,7 +229,7 @@ Pour chaque service du groupe on retrouve : la disponibilité, le temps
 d'indisponibilité, les évènements de type avertissement et exception
 ainsi que l'évolution de ces différents indicateurs.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Availability-List.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Availability-List.png)
 
 #### Paramètres
 
@@ -262,7 +262,7 @@ de début, date de fin, temps avant acquittement, "real MTRS",
   de sa détection et uniquement calculé dans la plage horaire
   considérée
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Event-List.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Event-List.png)
 
 #### Paramètres
 
@@ -290,7 +290,7 @@ plus de d'évènements.
 Le premier objet de ce rapport affichent le pourcentage d'évènements
 acquittées et résolues dans un délai donné en paramètre
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_1.png)
 
 Le second objet affiche un TOP x des évènements les plus longues, avec
 pour chaque évènement, l'heure de début et de fin ainsi que le temps
@@ -298,17 +298,17 @@ mis pour sa résolution. En rouge les incidateurs dans un status
 "critical". En orange les indicateurs "warning", et en gris les
 incidateurs "unknown".
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_2.png)
 
 Le troisième objet de ce rapport représente un TOP x des indicateurs les
 moins fiables.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_3.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_3.png)
 
 Enfin, un dernier TOP représentera les équipements générants le plus
 d'évènements.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_4.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Incident-Resolution-2_4.png)
 
 #### Paramètres
 
@@ -345,7 +345,7 @@ Ce rapport permet donc de prendre des mesures correctrices sur les bons
 hôtes en exploitant le principe de Pareto ou encore la loi des 80-20 :
 environ 80 % des effets sont le produit de 20 % des causes.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Host-Pareto.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Host-Pareto.png)
 
 #### Paramètres
 
@@ -379,7 +379,7 @@ des données temps réel du moment de la génération.
 - Il est possible générer le rapport sur moins de 4 parties, pour cela il suffit
   de renseigner la valeur -1 dans le titre dans la partie non utilisée
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Host-Current-Events.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Host-Current-Events.png)
 
 #### Paramètres
 
@@ -423,7 +423,7 @@ affichées sont des données temps réel du moment de la génération.
 - Il est possible générer le rapport sur moins de 4 parties, pour cela il suffit
   de renseigner la valeur -1 dans le titre dans la partie non utilisée
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Service-Current-Events.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Service-Current-Events.png)
 
 #### Paramètres
 
