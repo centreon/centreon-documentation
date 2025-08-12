@@ -14,7 +14,7 @@ Nous vous recommandons vivement de lire notre documentation afin d'éviter tout 
 
 ## Que fait MBI ?
 
-Centreon MBI exécute des [tâches](concepts.md#tâches) pour générer des rapports. MBI dispose de plus de 30 designs (des "modèles" rapport) prêts à l'emploi.
+Centreon MBI exécute des [tâches](concepts.md#tâches) pour générer des rapports. MBI dispose de plus de 30 designs (des "modèles" de rapport) prêts à l'emploi.
 
 ![image](../assets/reporting/first_page.png)
 
@@ -30,6 +30,7 @@ Les rapports traitent :
 ## Quel type de données peut apparaître dans les rapports ?
 
 Les rapports peuvent afficher des données sur :
+
 - Les groupes d'hôtes
 - Les catégories d'hôtes
 - Les catégories de services
@@ -38,13 +39,13 @@ Les rapports peuvent afficher des données sur :
 
 Bien que les données [doivent être organisées en groupes et catégories](preparing-data.md#making-your-resources-available-to-mbi), certains rapports vous permettent de voir les détails des statuts et des métriques des hôtes et des services.
 
-MBI crée également des rapports sur la disponibilité en convertissant les vérifications en [événements](concepts.md#événements). Notez que MBI ne prend en compte que les [statuts HARD](https://docs.centreon.com/docs/alerts-notifications/concepts/#status-types) lors du calcul de la disponibilité.
+MBI crée également des rapports sur la disponibilité en convertissant les contrôles en [évènements](concepts.md#évènements). Notez que MBI ne prend en compte que les [statuts HARD](https://docs.centreon.com/docs/alerts-notifications/concepts/#status-types) lors du calcul de la disponibilité.
 
-Veuillez noter que les rapports ne contiennent que les données jusqu'à la veille. Les données de chaque jour sont [agrégées par l'ETL le lendemain](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated).
+Notez que les rapports ne contiennent que les données jusqu'à la veille. Les données de chaque jour sont [agrégées par l'ETL le lendemain](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated).
 
 ## Quels sont les formats de sortie possibles ?
   
 * MBI génère des rapports dans différents formats : PDF, CSV, XLSX, DOCX, PPTX, ODT, ODS, ODP.
 * Tous les rapports ne peuvent pas être exportés dans tous les formats : consultez notre [liste des rapports disponibles](available-reports/available-reports.md) pour en savoir plus sur les spécificités de chaque rapport.
-* Par défaut, ces rapports peuvent être téléchargés à partir de la page **Report view**, mais ils peuvent également être [configurés pour être envoyés à des personnes spécifiques lorsqu'ils sont générés](reports-publication-rule.md).
+* Par défaut, ces rapports peuvent être téléchargés à partir de la page **Rapports > Monitoring Business Intelligence > Report view**, mais ils peuvent également être [configurés pour être envoyés à des personnes spécifiques lorsqu'ils sont générés](reports-publication-rule.md).
 * Les données des rapports peuvent également être affichées dans vos [vues personnalisées](https://docs.centreon.com/docs/alerts-notifications/custom-views/) Centreon à l'aide de [widgets](widgets.md) dédiés.
