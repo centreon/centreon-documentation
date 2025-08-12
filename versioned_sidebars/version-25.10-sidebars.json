@@ -803,6 +803,10 @@
             },
             {
               "type": "doc",
+              "id": "graph-views/map-web-backup-restore"
+            },
+            {
+              "type": "doc",
 
               "id": "graph-views/map-web-known-issues"
             },
@@ -813,7 +817,7 @@
             {
               "type": "doc",
               "id": "api/map-api"
-                  }
+            }
               ]
             }
           ,
