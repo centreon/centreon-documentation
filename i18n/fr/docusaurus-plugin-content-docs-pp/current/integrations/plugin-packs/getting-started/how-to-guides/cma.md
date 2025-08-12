@@ -83,8 +83,6 @@ Cela passe par :
 
 TODO
 
-Services passifs, comment fonctionne l'intervalle de check, la négociation, ...
-
 
 ## Étape 1: Configurez Centreon
 
