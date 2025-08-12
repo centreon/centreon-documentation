@@ -28,7 +28,7 @@ L'architecture et ces prérequis s'appliquent aux environnements de :
 
 Le schéma ci-dessous met en avant les principaux composants de Centreon MBI :
 
-![image](../../assets/reporting/installation/architecture.png)
+![image](../assets/reporting/installation/architecture.png)
 
 *La base de monitoring n'est pas nécessairement sur le même serveur que le serveur Centreon*
 
@@ -72,7 +72,7 @@ performances & d'isolation.
 
 #### Prérequis logiciels
 
-Voir les [prérequis logiciels](../../installation/prerequisites.md#caractéristiques-des-serveurs).
+Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiques-des-serveurs).
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -257,10 +257,10 @@ vgdisplay vg_data | grep -i free*
 
 #### Couche interlogiciel et logiciel
 
-- OS : voir la compatibilité [ici](../../installation/compatibility.md#système-dexploitation)
-- SGBD : voir la compatibilité [ici](../../installation/compatibility.md#sgbd)
-- Firewalld : Désactivé ([voir ici](../../installation/installation-of-a-central-server/using-packages.md#configurer-ou-désactiver-le-pare-feu))
-- SELinux : Désactivé ([voir ici](../../installation/installation-of-a-central-server/using-packages.md#désactiver-selinux))
+- OS : voir la compatibilité [ici](https://docs.centreon.com/fr/docs/installation/compatibility#système-dexploitation)
+- SGBD : voir la compatibilité [ici](https://docs.centreon.com/fr/docs/installation/compatibility/#sgbd)
+- Firewalld : Désactivé ([voir ici](https://docs.centreon.com/fr/docs/installation/installation-of-a-central-server/using-packages/#configurer-ou-désactiver-le-pare-feu))
+- SELinux : Désactivé ([voir ici](https://docs.centreon.com/fr/docs/installation/installation-of-a-central-server/using-packages/#désactiver-selinux))
 
 > Assurez-vous que le fuseau horaire du serveur de reporting est le même que celui du serveur central, sinon les publications de rapports échoueront (lien vers le téléchargement manquant).
 > Le même fuseau horaire doit être affiché avec la commande `timedatectl`.
@@ -272,7 +272,7 @@ vgdisplay vg_data | grep -i free*
 
 Veillez à optimiser MariaDB/MySQL sur votre serveur de reporting. Vous aurez besoin
 d'au moins 12GB de mémoire vive afin d'utiliser le
-[fichier suivant](../../assets/reporting/installation/centreon.cnf).
+[fichier suivant](../assets/reporting/installation/centreon.cnf).
 
 Assurez-vous d'avoir un dossier **tmp** dans **/var/lib/mysql**.
 
@@ -405,7 +405,7 @@ replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 
 Ensuite, créez les vues manuellement sur le serveur esclave :
 
-1. Téléchargez [le fichier suivant](../../assets/reporting/installation/view_creation.sql) dans un répertoire temporaire (ici, **/tmp**), par exemple en utilisant **wget**.
+1. Téléchargez [le fichier suivant](../assets/reporting/installation/view_creation.sql) dans un répertoire temporaire (ici, **/tmp**), par exemple en utilisant **wget**.
 
 2. Exécutez la commande suivante (changez le nom de votre répertoire temporaire si besoin):
 
@@ -429,7 +429,7 @@ systemctl restart mariadb
 
 ### Donner des droits à l'utilisateur cbis
 
-Lorsque vous installez Centreon MBI, un [utilisateur](../../monitoring/basic-objects/contacts.md) nommé **cbis** est créé automatiquement. Il permet au moteur de génération de rapports d'extraire les données de Centreon (en utilisant les APIs) afin de les insérer dans le rapport. Cet utilisateur doit [avoir accès à toutes les ressources supervisées par Centreon](../../administration/access-control-lists.md) afin de pouvoir extraire les graphes de performance pour les rapports suivants :
+Lorsque vous installez Centreon MBI, un [utilisateur](../monitoring/basic-objects/contacts.md) nommé **cbis** est créé automatiquement. Il permet au moteur de génération de rapports d'extraire les données de Centreon (en utilisant les APIs) afin de les insérer dans le rapport. Cet utilisateur doit [avoir accès à toutes les ressources supervisées par Centreon](../administration/access-control-lists.md) afin de pouvoir extraire les graphes de performance pour les rapports suivants :
 
 - Host-Graph-v2
 - Hostgroup-Graph-v2.
@@ -781,7 +781,7 @@ systemctl start gorgoned && systemctl enable gorgoned
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Assurez vous que [le fichier](../../assets/reporting/installation/centreon.cnf) de configuration
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration
 optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez
 le service MariaDB :
 
@@ -818,7 +818,7 @@ socket=$PATH_TO_SOCKET$
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Assurez vous que [le fichier](../../assets/reporting/installation/centreon.cnf) de configuration
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration
 optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez
 le service MariaDB :
 
@@ -855,7 +855,7 @@ socket=$PATH_TO_SOCKET$
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-Assurez vous que [le fichier](../../assets/reporting/installation/centreon.cnf) de configuration
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration
 optimisé fourni dans les pré-requis est bien présent dans `/etc/mysql/mariadb.conf.d/`.
 
 Renommez le fichier en `80-centreon.cnf` :
@@ -929,7 +929,7 @@ mysql_secure_installation
 </Tabs>
 
 - Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?"
-- Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../../installation/web-and-post-installation.md).
+- Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
 
 > Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
@@ -1059,7 +1059,7 @@ la rétention des données peut être gérée par :
 
 Activez la gestion de la rétention des données en sélectionnant **Oui**, puis définissez les options de la configuration (exemple ci-dessous).
 
-![image](../../assets/reporting/installation/bi_retention.png)
+![image](../assets/reporting/installation/bi_retention.png)
 
 Pour activer la purge automatique des anciennes données, modifiez le fichier cron
 **/etc/cron.d/centreon-bi-purge** sur le serveur de reporting, puis décommentez la ligne suivante :
@@ -1155,7 +1155,7 @@ systemctl restart cron
 > Assurez-vous que le batch **centreonBIETL** ne démarre qu'une fois que le batch **eventReportBuilder** est terminé sur
 > le serveur de supervision (consultez le fichier cron **/etc/cron.d/centreon** sur le serveur de supervision).
 
-L'installation de Centreon MBI est maintenant terminée, consultez [le tutoriel](../../getting-started/analyze-resources-availability.md).
+L'installation de Centreon MBI est maintenant terminée, consultez [le tutoriel](../getting-started/analyze-resources-availability.md).
 
 ## Supervisez votre serveur MBI avec Centreon
 

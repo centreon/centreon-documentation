@@ -11,8 +11,8 @@ performance).
 
 A list of available widgets appears below.
 
-> To update ACLs, click "Update ACL Resources" in the "Report
-> Parameters" menu under the Centreon MBI general options.
+> To update ACLs, click **Update Resources ACL** in the **Report
+> Parameters** tab under the Centreon MBI general options.
 
 ## Availability & events
 

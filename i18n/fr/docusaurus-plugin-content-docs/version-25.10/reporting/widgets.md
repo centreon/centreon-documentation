@@ -3,17 +3,15 @@ id: widgets
 title: Widgets MBI
 ---
 
-Les widgets de Centreon MBI s"utilisent dans les [vues personnalisées](../../getting-started/create-custom-view.md) de Centreon. Il vous est de ce fait possible de créer des
+Les widgets de Centreon MBI s"utilisent dans les [vues personnalisées](../getting-started/create-custom-view.md) de Centreon. Il vous est de ce fait possible de créer des
 vues combinant des données temps réel ET des données agrégées
 (disponibilité, application, performance etc..)
 
-![image](../../assets/reporting/guide/dashboard.png)
+![image](../assets/reporting/guide/dashboard.png)
 
 Ci-dessous la liste des widgets de reporting disponibles :
 
-> Dans le cas d'une mise à jour des ACLs, cliquez sur "Update ACL
-> Resources" dans les options générales de Centreon MBI, onglet "Report
-> Parameters"
+> Dans le cas d'une mise à jour des ACLs, cliquez sur **Update Resources ACL** dans les options générales de Centreon MBI, onglet **Paramètre des rapports**
 
 
 ## Disponibilité et événements
@@ -25,7 +23,7 @@ Ci-dessous la liste des widgets de reporting disponibles :
 Ce widget affiche la disponibilité des hôtes appartenant à un groupe
 d'hôtes en les répartissant par catégorie, par mois.
 
-![image](../../assets/reporting/guide/mbi-hg-availability-by-hc-graph-month.png)
+![image](../assets/reporting/guide/mbi-hg-availability-by-hc-graph-month.png)
 
 #### Paramètres
 
@@ -49,7 +47,7 @@ d'hôtes en les répartissant par catégorie, par mois.
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-hg-availability-by-hc-graph-month_param.png)
+![image](../assets/reporting/guide/mbi-hg-availability-by-hc-graph-month_param.png)
 
 ### Hostgroup availability by host by day
 
@@ -58,7 +56,7 @@ d'hôtes en les répartissant par catégorie, par mois.
 Ce widget affiche la disponibililté des hôtes appartenant à un groupe
 d'hôtes , par jour.
 
-![image](../../assets/reporting/guide/mbi-hg-availability-by-host-graph-day.png)
+![image](../assets/reporting/guide/mbi-hg-availability-by-host-graph-day.png)
 
 #### Paramètres
 
@@ -84,7 +82,7 @@ d'hôtes , par jour.
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-hg-availability-by-host-graph-day_param.png)
+![image](../assets/reporting/guide/mbi-hg-availability-by-host-graph-day_param.png)
 
 ### Hostgroups availability by hostgroups by month
 
@@ -93,7 +91,7 @@ d'hôtes , par jour.
 Ce widget affiche la disponibililté des hôtes appartenant à un groupe
 d'hôtes , par mois.
 
-![image](../../assets/reporting/guide/mbi-hgs-availability-by-hg-graph-month.png)
+![image](../assets/reporting/guide/mbi-hgs-availability-by-hg-graph-month.png)
 
 #### Paramètres
 
@@ -117,7 +115,7 @@ d'hôtes , par mois.
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-hgs-availability-by-hg-graph-month_param.png)
+![image](../assets/reporting/guide/mbi-hgs-availability-by-hg-graph-month_param.png)
 
 ### MTBF and MTRS par hôte
 
@@ -139,7 +137,7 @@ changement de statut.
     Seuls les évènements acquittés sont pris en compte dans le calcul de
     la moyenne.
 
-![image](../../assets/reporting/guide/mbi-hgs-hc-by-host-mtbf-mtrs.png)
+![image](../assets/reporting/guide/mbi-hgs-hc-by-host-mtbf-mtrs.png)
 
 #### Paramètres
 
@@ -163,7 +161,7 @@ changement de statut.
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-hgs-hc-by-host-mtbf-mtrs_param.png)
+![image](../assets/reporting/guide/mbi-hgs-hc-by-host-mtbf-mtrs_param.png)
 
 
 ### MTBF & MTRS par service
@@ -186,7 +184,7 @@ changement de statut.
     Seuls les évènements acquittés sont pris en compte dans le calcul de
     la moyenne.
 
-![image](../../assets/reporting/guide/mbi-hgs-hc-by-service-mtbf-mtrs.png)
+![image](../assets/reporting/guide/mbi-hgs-hc-by-service-mtbf-mtrs.png)
 
 #### Parameters
 
@@ -213,7 +211,7 @@ changement de statut.
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-hgs-hc-by-service-mtbf-mtrs_param.png)
+![image](../assets/reporting/guide/mbi-hgs-hc-by-service-mtbf-mtrs_param.png)
 
 
 ## Capacité et performance
@@ -228,7 +226,7 @@ changement de statut.
 Ce widget affiche sur un graphique de 24h, la journée type d'une
 métrique pour un service donné.
 
-![image](../../assets/reporting/guide/mbi-typical-performance-day.png)
+![image](../assets/reporting/guide/mbi-typical-performance-day.png)
 
 #### Parameters
 
@@ -243,7 +241,7 @@ métrique pour un service donné.
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-typical-performance-day_param.png)
+![image](../assets/reporting/guide/mbi-typical-performance-day_param.png)
 
 
 ### Storage list near saturation
@@ -256,7 +254,7 @@ l'évolution par rapport à la veille. Le calcul se fait en prenant la
 valeur de l'espace de stockage à J-X et à J-1. Seul les espaces dont
 l'espace utilisé augmente sont visibles.
 
-![image](../../assets/reporting/guide/mbi-storage-list-near-saturation.png)
+![image](../assets/reporting/guide/mbi-storage-list-near-saturation.png)
 
 #### Paramètres
 
@@ -276,7 +274,7 @@ l'espace utilisé augmente sont visibles.
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-storage-list-near-saturation_param.png)
+![image](../assets/reporting/guide/mbi-storage-list-near-saturation_param.png)
 
 
 ### Metric capacity planning
@@ -291,7 +289,7 @@ qui est prise comme seuil de saturation, s'il n'y a pas de valeur
 maximum, alors c'est le seuil critique qui est pris comme seuil de
 saturation. Si la courbe décroit, 0 est pris comme seuil de saturation.
 
-![image](../../assets/reporting/guide/mbi-metric-capacity-planning.png)
+![image](../assets/reporting/guide/mbi-metric-capacity-planning.png)
 
 #### Paramètres
 
@@ -313,7 +311,7 @@ saturation. Si la courbe décroit, 0 est pris comme seuil de saturation.
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-metric-capacity-planning_param.png)
+![image](../assets/reporting/guide/mbi-metric-capacity-planning_param.png)
 
 
 ### Hostgroups performance metric - TOP X
@@ -324,7 +322,7 @@ Ce widget affiche un Top X des données de performance par métrique (
 valeur temps réel, moyenne, minimum, maximum, seuils ) , pour des
 groupes & catégories en entrée.
 
-![image](../../assets/reporting/guide/mbi-hgs-performances-Top-X.png)
+![image](../assets/reporting/guide/mbi-hgs-performances-Top-X.png)
 
 #### Paramètres
 
@@ -363,7 +361,7 @@ groupes & catégories en entrée.
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-hgs-performances-Top-X_param.png)
+![image](../assets/reporting/guide/mbi-hgs-performances-Top-X_param.png)
 
 
 ### Hostgroups, categories performance analysis by day
@@ -374,7 +372,7 @@ Ce widget affiche les données de performance ( moyenne, minimum ou
 maximum ) par jour sur une période données, pour des groupes &
 catégories.
 
-![image](../../assets/reporting/guide/mbi-hgs-hcs-scs-metric-performance-day.png)
+![image](../assets/reporting/guide/mbi-hgs-hcs-scs-metric-performance-day.png)
 
 #### Paramètres
 
@@ -414,7 +412,7 @@ catégories.
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-hgs-hcs-scs-metric-performance-day_param.png)
+![image](../assets/reporting/guide/mbi-hgs-hcs-scs-metric-performance-day_param.png)
 
 
 ## Activités Métier
@@ -431,7 +429,7 @@ la BA. Si vous sélectionnez une période de reporting pour laquelle il
 n'y a pas encore de données, comme par exemple "Current Month" en
 étant le premier du mois, c'est le niveau en direct qui s'affiche.
 
-![image](../../assets/reporting/guide/mbi-ba-availability-gauge.png)
+![image](../assets/reporting/guide/mbi-ba-availability-gauge.png)
 
 #### Parameters
 
@@ -443,7 +441,7 @@ n'y a pas encore de données, comme par exemple "Current Month" en
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-ba-availability-gauge_param.png)
+![image](../assets/reporting/guide/mbi-ba-availability-gauge_param.png)
 
 ### Business Application Availability,Performance and Alerts by day
 
@@ -454,7 +452,7 @@ n'y a pas encore de données, comme par exemple "Current Month" en
 Ce widget affiche la disponibilité, la performance et le nombre
 d'alertes d'une BA, par jour.
 
-![image](../../assets/reporting/guide/mbi-ba-availability-graph-day.png)
+![image](../assets/reporting/guide/mbi-ba-availability-graph-day.png)
 
 #### Parameters
 
@@ -471,7 +469,7 @@ d'alertes d'une BA, par jour.
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-ba-availability-graph-day_param.png)
+![image](../assets/reporting/guide/mbi-ba-availability-graph-day_param.png)
 
 ### Business Application Availability,Performance and Alerts by month
 
@@ -483,7 +481,7 @@ Ce widget affiche la disponibilité, la performance et le nombre
 d'alertes d'une BA, par mois, sur les 12 derniers mois (si données
 disponibles).
 
-![image](../../assets/reporting/guide/mbi-ba-availability-graph-month.png)
+![image](../assets/reporting/guide/mbi-ba-availability-graph-month.png)
 
 #### Parameters
 
@@ -500,7 +498,7 @@ disponibles).
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-ba-availability-graph-month_param.png)
+![image](../assets/reporting/guide/mbi-ba-availability-graph-month_param.png)
 
 ### Business Application MTBF & MTRS
 
@@ -520,7 +518,7 @@ la période, nombre d'évènements, dernier changement de statut.
 -   Le MTRS est la durée moyenne des pannes; les hôtes avec une bonne
     maintenabilité auront un petit MTRS.
 
-![image](../../assets/reporting/guide/mbi-ba-mtbf-mtrs.png)
+![image](../assets/reporting/guide/mbi-ba-mtbf-mtrs.png)
 
 #### Parameters
 
@@ -544,7 +542,7 @@ la période, nombre d'évènements, dernier changement de statut.
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-ba-availability-gauge_param.png)
+![image](../assets/reporting/guide/mbi-ba-availability-gauge_param.png)
 
 
 ### Business View Availability,Performance and Alerts by month
@@ -557,7 +555,7 @@ Ce widget affiche la disponibilité, la performance et le nombre
 d'alertes d'une Business View (regroupement logique de BA), par mois,
 sur les 12 derniers mois (si données disponibles).
 
-![image](../../assets/reporting/guide/mbi-bv-availability-graph-month.png)
+![image](../assets/reporting/guide/mbi-bv-availability-graph-month.png)
 
 #### Parameters
 
@@ -574,4 +572,4 @@ sur les 12 derniers mois (si données disponibles).
 
 **Exemple**
 
-![image](../../assets/reporting/guide/mbi-bv-availability-graph-month_param.png)
+![image](../assets/reporting/guide/mbi-bv-availability-graph-month_param.png)
