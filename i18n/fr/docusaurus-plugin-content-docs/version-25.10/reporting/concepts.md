@@ -66,7 +66,7 @@ Utilisateur de service créé automatiquement lors de l'installation de MBI. Cet
 
 ## Disponibilité
 
-Le temps passé par un hôte dans un [statut](https://docs.centreon.com/fr/docs/alerts-notifications/concepts/#host-status) "disponible" au cours de la période sélectionnée. Seuls les [états HARD](https://docs.centreon.com/fr/docs/alerts-notifications/concepts/#status-types) sont pris en compte dans le calcul de la disponibilité.
+Le temps passé par un hôte dans un [statut](https://docs.centreon.com/fr/docs/alerts-notifications/concepts/#statut-des-hôtes) "disponible" au cours de la période sélectionnée. Seuls les [états HARD](https://docs.centreon.com/fr/docs/alerts-notifications/concepts/#types-de-statuts) sont pris en compte dans le calcul de la disponibilité.
 
 * Pour les hôtes : lors du calcul de la disponibilité, seule la durée pendant laquelle l'hôte a été dans un état **Disponible** ou **Indisponible** est prise en compte, et non la durée pendant laquelle il a été dans un état **INJOIGNABLE** ou en maintenance.
 * Pour les services : lors du calcul de la disponibilité, seule la durée pendant laquelle le service a été dans un état **OK** ou **Alerte** est prise en compte, et non la durée pendant laquelle il a été dans un état **INCONNU** ou en maintenance.

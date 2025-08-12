@@ -37,9 +37,9 @@ Les rapports peuvent afficher des données sur :
 - Les vues métier
 - Les activités métier
 
-Bien que les données [doivent être organisées en groupes et catégories](preparing-data.md#making-your-resources-available-to-mbi), certains rapports vous permettent de voir les détails des statuts et des métriques des hôtes et des services.
+Bien que les données [doivent être organisées en groupes et catégories](preparing-data.md#mettre-vos-ressources-à-la-disposition-de-MBI), certains rapports vous permettent de voir les détails des statuts et des métriques des hôtes et des services.
 
-MBI crée également des rapports sur la disponibilité en convertissant les contrôles en [évènements](concepts.md#évènements). Notez que MBI ne prend en compte que les [statuts HARD](https://docs.centreon.com/docs/alerts-notifications/concepts/#status-types) lors du calcul de la disponibilité.
+MBI crée également des rapports sur la disponibilité en convertissant les contrôles en [évènements](concepts.md#évènements). Notez que MBI ne prend en compte que les [statuts HARD](https://docs.centreon.com/fr/docs/alerts-notifications/concepts/#types-de-statuts) lors du calcul de la disponibilité.
 
 Notez que les rapports ne contiennent que les données jusqu'à la veille. Les données de chaque jour sont [agrégées par l'ETL le lendemain](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated).
 
