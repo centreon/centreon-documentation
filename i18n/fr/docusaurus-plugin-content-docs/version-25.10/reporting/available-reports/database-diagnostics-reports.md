@@ -21,7 +21,7 @@ catégories de services et plages horaire en fonction des couleurs.
 > Ce rapport ne garanti pas la qualité et la cohérence des données mais
 > uniquement la présence de ces dernières.
 
-![image](../assets/reporting/guide/available-reports/Content-diagnostic_png.png)
+![image](../../assets/reporting/guide/available-reports/Content-diagnostic_png.png)
 
 #### Paramètres
 
@@ -45,7 +45,7 @@ disponibilité de chaque hôtes, le temps d'indisponibilité en seconde
 ainsi que le temps injoignable, le tout pour chaque plage horaire et
 combinaison groupe `<>` catégories d'hôtes.
 
-![image](../assets/reporting/guide/available-reports/content-diagnostic-availability.png)
+![image](../../assets/reporting/guide/available-reports/content-diagnostic-availability.png)
 
 #### Paramètres
 
@@ -68,7 +68,7 @@ le temps passé dans l'état warning, le tout pour chaque plage horaire
 et combinaison groupe `<>` catégories d'hôtes `<>` catégories de
 services.
 
-![image](../assets/reporting/guide/available-reports/content-diagnostic-service-availability.png)
+![image](../../assets/reporting/guide/available-reports/content-diagnostic-service-availability.png)
 
 ### Paramètres
 
@@ -90,7 +90,7 @@ moyenne des métriques et la valeur maximum atteignable ( bande passante
 maximum, stockage maximum etc..), pour chaque plage horaire, pour chaque
 combinaison groupes d'hôtes `<>` catégories d'hôtes`<>` catégories de services.
 
-![image](../assets/reporting/guide/available-reports/content-diagnostic-performance.png)
+![image](../../assets/reporting/guide/available-reports/content-diagnostic-performance.png)
 
 #### Paramètres
 
@@ -119,7 +119,7 @@ Si un warning est affiché en face d'une ligne, cela signifie que :
 - La valeur maximum n'est pas renseigné
 - Les seuils Warning et Critique ne sont pas définis
 
-![image](../assets/reporting/guide/available-reports/Metric-integrity-check.png)
+![image](../../assets/reporting/guide/available-reports/Metric-integrity-check.png)
 
 #### Paramètres
 

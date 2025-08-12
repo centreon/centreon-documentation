@@ -18,18 +18,18 @@ La première page affiche un focus sur les notions suivantes:
 
 - Disponibilité
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page1-1.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page1-1.png)
 
 - De temps d'indisponibilité
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page1-2.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page1-2.png)
 
 Les icônes météo changent en fonction des SLA définis au niveau de
 chaque activité métier en minute.
 
 - De fiabilité et maintenabilité
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page1-3.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page1-3.png)
 
 Les pages suivantes affichent pour chaque activité métier présente dans
 la vue métier les statistiques sur:
@@ -37,7 +37,7 @@ la vue métier les statistiques sur:
 - La disponibilité, le temps d'indisponibilité, le temps passé en downtime,
   l'indice de performance du service ainsi que le nombre d'evenement déclenchés.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-1.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-1.png)
 
 Les icônes météo changent en fonction des SLA en pourcentage et en
 minutes définis dans la configuration pour l'activité métier.
@@ -45,7 +45,7 @@ minutes définis dans la configuration pour l'activité métier.
 - L'évolution de la disponibilité, de la performance et du nombre
   d'évenements déclenchés
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-2.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-2.png)
 
 - Un calendrier de disponibilité par jour où seuls les jours où la
   disponibilité est inférieure à 100% sont affichés.
@@ -54,12 +54,12 @@ minutes définis dans la configuration pour l'activité métier.
 - En cas de non présence de données sur une journée, la case sera blanche et
   sans valeur.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-3.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-3.png)
 
 - En option, la liste d'évenements déclenchés, avec pour chaque évenement les
   KPIs mises en cause.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-4.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-4.png)
 
 #### Paramètres
 
@@ -83,7 +83,7 @@ soit bien définie dans la configuration des activités métier en tant que
 plage horaire par défaut ou supplémentaire. Dans le cas contraire, les
 activités métier n'apparaîtront pas dans le rapport*
 
-> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
 
 #### Pré-requis
 
@@ -104,25 +104,25 @@ Pour une activité métier, le rapport affiche les statistiques sur:
 - La disponibilité, le temps d'indisponibilité, le temps passé en downtime,
   l'indice de performance du service ainsi que le nombre d'evenement déclenchés.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-1.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-1.png)
 
 Les icônes météo changent en fonction des SLA en pourcentage et en
 minutes définis dans la configuration pour l'activité métier.
 
 - L'évolution de la disponibilité et du nombre d'évenements déclenchés
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-2.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-2.png)
 
 - Un calendrier de disponibilité par jour où seuls les jours où la disponibilité
   est inférieure aux SLA en pourcentage définis dans la configuration de la BA
   sont affichés.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-3.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-3.png)
 
 - En option, la liste d'évenements déclenchés, avec pour chaque évenement les
   KPIs mises en cause.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-4.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-1_page2-4.png)
 
 #### Paramètres
 
@@ -146,7 +146,7 @@ soit bien définie dans les paramètres de l'application métier dans
 Configuration > Business Activiy > XXXXX | onglet "Information
 étendues" en plage horaire par défaut ou supplémentaire*
 
-> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
 
 #### Pré-requis
 
@@ -176,7 +176,7 @@ L'évolution est calculée par rapport à la période précedente:
 >   l'évolution sera calculée sur le nombre de jour qui précede le
 >   nombre de jour de la période de reporing.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-availabilities-list.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-availabilities-list.png)
 
 #### Paramètres
 
@@ -200,7 +200,7 @@ soit bien définie dans la configuration des activités métier en tant que
 plage horaire par défaut ou supplémentaire. Dans le cas contraire, elle
 n'apparaîtront pas dans le rapport*
 
-> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
 
 #### Pré-requis
 
@@ -219,7 +219,7 @@ déclenchés.
   cause. La période temporelle prise en compte est celle définie par défaut dans
   la configuration de la BA.
 
-![image](../assets/reporting/guide/available-reports/ba-event-list.png)
+![image](../../assets/reporting/guide/available-reports/ba-event-list.png)
 
 #### Paramètres
 
@@ -240,7 +240,7 @@ soit bien définie dans les paramètres de l'application métier dans
 Configuration > Business Activiy > XXXXX | onglet "Information
 étendues" en plage horaire par défaut ou supplémentaire*
 
-> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
 
 #### Pré-requis
 
@@ -267,7 +267,7 @@ paramètre choisi au moment de la génération, le rapport affiche la
 disponibilité et le nombre de pannes des applications métier sur une
 période dans le passé.
 
-![image](../assets/reporting/guide/available-reports/BV-BA-Current-Health-VS-Past.png)
+![image](../../assets/reporting/guide/available-reports/BV-BA-Current-Health-VS-Past.png)
 
 #### Paramètres
 
@@ -289,7 +289,7 @@ Configuration > Business Activiy > XXXXX | onglet "Information
 étendues" en plage horaire par défaut ou supplémentaire. Dans le cas
 contraire seule les données temps réelles seront affichées.*
 
-> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
 
 #### Pré-requis
 
@@ -325,7 +325,7 @@ l'indisponibilité supérieure à 0 secondes. La plage horaire considérée
 est la plage horaire de reporting par défaut définie au niveau de chaque
 activité métier.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-calendar-first-page.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-calendar-first-page.png)
 
 Le troisième calendrier affiche la disponibilité par jour de chaque
 activité métier. La couleur est affichée en fonction des tranches de
@@ -333,7 +333,7 @@ temps indisponibles définies en paramètres du rapport, en minute. Si la
 disponibilité est inférieur à 100%, la disponibilité de la journée est
 affichées.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-calendar-detailed.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-calendar-detailed.png)
 
 #### Paramètres
 
@@ -359,9 +359,9 @@ soit bien définie dans la configuration des activités métier en tant que
 plage horaire par défaut ou supplémentaire. Dans le cas contraire, elle
 n'apparaîtront pas dans le rapport*
 
-> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
 
-![image](../assets/reporting/guide/available-reports/bv-ba-calendar-legende.png)
+![image](../../assets/reporting/guide/available-reports/bv-ba-calendar-legende.png)
 
 #### Pré-requis
 

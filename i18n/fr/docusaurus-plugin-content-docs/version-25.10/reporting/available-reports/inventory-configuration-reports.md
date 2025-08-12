@@ -12,20 +12,20 @@ dans la base de données de reporting, leur template parent, leur
 appartenance aux groupes et aux catégories, ainsi que leur date de
 création en filtrant sur les groupes et les catégories d'hôtes souhaités.
 
-![image](../assets/reporting/guide/available-reports/host_information.png)
+![image](../../assets/reporting/guide/available-reports/host_information.png)
 
 Afficher depuis la configuration Centreon les lien entre modèles d'hôtes :
 
-![image](../assets/reporting/guide/available-reports/link_between_host_templates.png)
+![image](../../assets/reporting/guide/available-reports/link_between_host_templates.png)
 
 Les modèles de services rattachés aux modèles d'hôtes :
 
-![image](../assets/reporting/guide/available-reports/relation_between_service_and_host_templates.png)
+![image](../../assets/reporting/guide/available-reports/relation_between_service_and_host_templates.png)
 
 Ainsi que des informations globales sur les modèles d'hôtes, leurs
 propriétés de vérifications et de notifications.
 
-![image](../assets/reporting/guide/available-reports/host_templates_info.png)
+![image](../../assets/reporting/guide/available-reports/host_templates_info.png)
 
 #### Paramètres
 
@@ -47,20 +47,20 @@ avec les hôtes, appartenance aux groupes et aux catégories, ainsi que
 leur date de création en filtrant sur les groupes d'hôtes, catégories
 d'hôtes et categories de services souhaitées.
 
-![image](../assets/reporting/guide/available-reports/service_information.png)
+![image](../../assets/reporting/guide/available-reports/service_information.png)
 
 Afficher depuis la configuration Centreon les liens entre modèles de services:
 
-![image](../assets/reporting/guide/available-reports/link_between_templates.png)
+![image](../../assets/reporting/guide/available-reports/link_between_templates.png)
 
 Les modèles d'hôtes rattachés aux modèles de services :
 
-![image](../assets/reporting/guide/available-reports/relation_netween_host_and_service.png)
+![image](../../assets/reporting/guide/available-reports/relation_netween_host_and_service.png)
 
 Ainsi que des informations globales sur les modèles de services, leurs
 propriétés de vérifications et de notifications :
 
-![image](../assets/reporting/guide/available-reports/templates_info.png)
+![image](../../assets/reporting/guide/available-reports/templates_info.png)
 
 #### Paramètres
 
@@ -86,7 +86,7 @@ La prémière partie indique le nom du poller et son adresse IP, la
 version et l'état de l'ordonnanceur installé dessus ainsi que la date
 du dernier redémarrage.
 
-![image](../assets/reporting/guide/available-reports/Poller-Performances_1.png)
+![image](../../assets/reporting/guide/available-reports/Poller-Performances_1.png)
 
 Ensuite, les hôtes et les services supervisés par le poller en question,
 ainsi que leurs états sont affichés.
@@ -94,12 +94,12 @@ ainsi que leurs états sont affichés.
 Les latences et temps d'executions moyens et maximums sont représentés,
 ainsi que les hôtes et services dépassant les seuils tolérés.
 
-![image](../assets/reporting/guide/available-reports/Poller-Performances_2.png)
+![image](../../assets/reporting/guide/available-reports/Poller-Performances_2.png)
 
 Enfin, un résumé sur la configuration actuelle de l'ordonnanceur et des
 astuces d'optimisation en cas de problème de performances
 
-![image](../assets/reporting/guide/available-reports/Poller-Performances_3.png)
+![image](../../assets/reporting/guide/available-reports/Poller-Performances_3.png)
 
 #### Paramètres
 
@@ -140,7 +140,7 @@ dans les 2 tableau.
 Les modifications faites sur la classification des hôtes seront prises
 en compte le lendemain du changement.
 
-![image](../assets/reporting/guide/available-reports/Hosts-not-classified.png)
+![image](../../assets/reporting/guide/available-reports/Hosts-not-classified.png)
 
 #### Paramètres
 
@@ -158,7 +158,7 @@ informations sont représentées sous forme de tableau.
 Les modifications faites sur la catégorisation des services seront
 prises en compte le lendemain du changement.
 
-![image](../assets/reporting/guide/available-reports/Services-not-classified.png)
+![image](../../assets/reporting/guide/available-reports/Services-not-classified.png)
 
 #### Paramètres
 

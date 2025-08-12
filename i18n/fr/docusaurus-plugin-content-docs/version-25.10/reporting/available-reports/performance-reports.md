@@ -8,7 +8,7 @@ title: Rapports de performance
 Ce rapport affiche les graphiques RRD des services d'un hôte pour les
 catégories de services sélectionnées.
 
-![image](../assets/reporting/guide/available-reports/Host-Graphs-V2_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Graphs-V2_png.png)
 
 #### Paramètres
 
@@ -29,7 +29,7 @@ Les paramètres attendus par le rapport sont :
 Configurez le champ ci-dessous à la page `Reporting > Business Intelligence >
 General Options > Scheduler Options` :
 
-![image](../assets/reporting/guide/available-reports/graph_url.png)
+![image](../../assets/reporting/guide/available-reports/graph_url.png)
 
 Ce rapport depend de l'API de génération de graphique RRD de Centreon
 qui est appelé en utilisant le champ ci-dessus. De ce fait, il doit être
@@ -85,7 +85,7 @@ http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImag
 Ce rapport affiche les graphiques RRD des services d'un groupe d'hôtes
 pour les catégories de services sélectionnées.
 
-![image](../assets/reporting/guide/available-reports/Host-Graphs-V2_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Graphs-V2_png.png)
 
 #### Paramètres
 
@@ -107,7 +107,7 @@ Les paramètres attendus par le rapport sont :
 Configurez le champ ci-dessous à la page *Reporting > Business
 Intelligence > General Options > Scheduler Options* :
 
-![image](../assets/reporting/guide/available-reports/graph_url.png)
+![image](../../assets/reporting/guide/available-reports/graph_url.png)
 
 Ce rapport depend de l'API de génération de graphique RRD de Centreon
 qui est appelé en utilisant le champ ci-dessus. De ce fait, il doit être
@@ -171,7 +171,7 @@ valeurs prises sur la période ainsi que des valeurs avant la période de
 reporting (paramètre Historical period in days...) et projetées sur le
 futur, sur un nombre de jour défini en paramètre.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Capacity-Planning-Linear-Regression.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Capacity-Planning-Linear-Regression.png)
 
 #### Paramètres
 
@@ -215,11 +215,11 @@ connaître la répartition par charge des équipements.
 
 #### Page de résumé
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Rationalization-Of-Resources-1_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Rationalization-Of-Resources-1_1.png)
 
 #### Pour chaque groupe d'hôtes
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Rationalization-Of-Resources-1_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Rationalization-Of-Resources-1_2.png)
 
 #### Parameters
 
@@ -263,7 +263,7 @@ correspondant au paramétrage.
 - Si la valeur maximum n'est pas retournée par le plugin, les colonnes moyenne,
   minimum et maximum sont affichées dans l'unité de la métrique.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Service-Metric-Performance-List.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Metric-Performance-List.png)
 
 #### Paramètres
 
@@ -293,7 +293,7 @@ d'hôtes.
   colonnes moyenne, minimum et maximum sont affichées dans l'unité de
   la métrique.
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Categories-Performance-List.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Categories-Performance-List.png)
 
 #### Paramètres
 

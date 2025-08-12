@@ -21,15 +21,15 @@ affichés par catégories d'hôtes et de services.
 
 #### Première page
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Storage-Capacity-1_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Storage-Capacity-1_1.png)
 
 #### Deuxième page
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Storage-Capacity-1_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Storage-Capacity-1_2.png)
 
 #### Pour chaque groupe d'hôtes
 
-![image](../assets/reporting/guide/available-reports/Hostgroups-Storage-Capacity-1_3.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Storage-Capacity-1_3.png)
 
 > Les statistiques affichées dans les tableaux et les graphques par mois
 > correspondent aux valeurs mesurées le dernier jour des mois. Les
@@ -106,19 +106,19 @@ avant saturation.
 
 #### Première page
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_1.png)
 
 #### Deuxième page
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_2.png)
 
 #### Troisième page
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_3.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_3.png)
 
 #### Quatrième page
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_4.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-2_4.png)
 
 #### Paramètres
 
@@ -174,7 +174,7 @@ l'espace alloué, utilisé, leurs évolutions relative ainsi que le nombre
 de jours avant saturation (estimation basée sur les données de la
 période)
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-List.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Storage-Capacity-List.png)
 
 #### Paramètres
 

@@ -25,7 +25,7 @@ l'utilisation de la bande passante par intervalle.
 - Utilisation élevée
 - Utilisation très élevée
 
-![image](../assets/reporting/guide/available-reports/HG-Traffic-By-Interface-And-Bandwith-Ranges_1.png)
+![image](../../assets/reporting/guide/available-reports/HG-Traffic-By-Interface-And-Bandwith-Ranges_1.png)
 
 #### Pages suivantes
 
@@ -38,9 +38,9 @@ par :
 - Les jours d'une semaine
 - Les jours d'un mois
 
-![image](../assets/reporting/guide/available-reports/HG-Traffic-By-Interface-And-Bandwith-Ranges_2.png)
+![image](../../assets/reporting/guide/available-reports/HG-Traffic-By-Interface-And-Bandwith-Ranges_2.png)
 
-![image](../assets/reporting/guide/available-reports/HG-Traffic-By-Interface-And-Bandwith-Ranges_3.png)
+![image](../../assets/reporting/guide/available-reports/HG-Traffic-By-Interface-And-Bandwith-Ranges_3.png)
 
 #### Paramètres
 
@@ -100,7 +100,7 @@ l'utilisation de la bande passante par intervalle.
 
 Ces intervalles sont paramétrables.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Traffic-average-By-Interface_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Traffic-average-By-Interface_1.png)
 
 #### Pages suivantes
 
@@ -124,7 +124,7 @@ répartition de la bande passante par :
   - Le maximum atteint du trafic entrant et sortant par jour de mois
     sur la période de reporting sélectionnée
 
-![image](../assets/reporting/guide/available-reports/Hostgroup-Traffic-average-By-Interface_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Traffic-average-By-Interface_2.png)
 
 #### Paramètres
 
@@ -180,13 +180,13 @@ Sur la première page, il y a 3 informations :
 - Les 10 interfaces ayant leur moyenne d'utilisation de la bande
   passante sortante la plus élevée
 
-![image](../assets/reporting/guide/available-reports/Hostgroup_Monthly_Network_Centile_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup_Monthly_Network_Centile_1.png)
 
 Sur la ou les pages suivantes, on retrouve un listing de toutes les
 interfaces, triées par noms d'hôtes et de services sur lesquels on
 retrouve toutes les statistiques d'utilisation de la bande passante.
 
-![image](../assets/reporting/guide/available-reports/Hostgroup_Monthly_Network_Centile_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup_Monthly_Network_Centile_2.png)
 
 #### Paramètres
 
