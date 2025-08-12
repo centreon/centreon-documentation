@@ -29,7 +29,7 @@ To be able to [give users access to generated reports in the Centreon interface 
 
 ## Metrics
 
-All metrics for each service are taken into account. For each metric, 5 statistics are calculated: average, minimum, maximum, first, last.
+All [metrics](../monitoring/metrics.md) for each service are taken into account. For each metric, 5 statistics are calculated: average, minimum, maximum, first, last.
 
 Make sure your services only have the necessary metrics, as this may have an impact on performance. You may also want to make sure MBI only takes into account a limited number of host groups, host categories and service categories.
 
