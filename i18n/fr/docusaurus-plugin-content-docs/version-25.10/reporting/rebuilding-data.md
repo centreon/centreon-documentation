@@ -5,7 +5,7 @@ title: Reconstruire les données MBI
 
 ## Qu'est-ce que la reconstruction des données ?
 
-Reconstruire les données veut dire [exécuter l'ETL pour calculer les dimensions et les aggrégations](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées). Reports can only be generated when the ETL has run and all the data is prepared.
+Reconstruire les données veut dire [exécuter l'ETL pour calculer les dimensions et les aggrégations](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées). Les rapports ne peuvent être générés que lorsque l'ETL a fini de tourner et toutes les données sont prêtes.
 
 ## When is rebuilding data necessary?
 
