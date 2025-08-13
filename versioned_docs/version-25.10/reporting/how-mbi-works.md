@@ -26,7 +26,7 @@ On the MBI server, a cronjob launches the ETL every day at 4.30 AM. This makes G
 1. **/usr/share/centreon-bi/etl/importData.pl**: [Events](https://docs.centreon.com/docs/reporting/concepts/#event) and metrics as well as the configuration (hosts, host categories, ACLs...) are copied from the central database to the MBI database for the last day (from midnight to midnight).
    * The script will only import the host groups, host categories and service categories you have defined in the **Reporting > Monitoring Business Intelligence > General options** page, on the **ETL options** tab, in the **Reporting perimeter selection** section.
    * In all cases, all metrics will be imported.
-   * All hosts or services that do not belong to at least one host group, one host category or one service category are excluded.
+   * All hosts or services that do not belong to at least one host group and one host category or one service category are excluded.
 
 2. **/usr/share/centreon-bi/etl/dimensionsBuilder.pl**: the ETL prepares a list of all [dimensions](https://docs.centreon.com/docs/reporting/concepts/#dimension) present in the imported data, for each host, service and metric.
 
