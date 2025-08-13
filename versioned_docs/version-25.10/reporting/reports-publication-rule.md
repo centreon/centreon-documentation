@@ -37,15 +37,15 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 |------------------------------------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Name                                     | CIFS rule name                | A name to identify the rule. Choose something meaningful.                                                                                             |
 | Publication protocol                     | CIFS                          | In ths case, CIFS.                                                                                                                                    |
-| [Global](#global-rules-and-custom-rules) | No                            | Defines whether the rule will be applied to all jobs. If set to No, the rule will be a custom rule applied only to the selected jobs.                 |
+| [Global](#global-rules-and-custom-rules) | No                            | Defines whether the rule will be applied to all jobs. If set to **No**, the rule will be a custom rule applied only to the selected jobs.                 |
 | Description                              |                               | The description of the rule appears only in the list of publication rules.                                                                            |
-| Publish log file                         | No                            | Whether to include the publishing step in the cbis.DATE.log log files.                                                                                |
-| Host                                     |                               | The server host address for the publication.                                                                                                          |
+| Publish log file                         | Yes                           | Whether to include the publishing step in the **cbis.DATE.log** log files.                                                                                |
+| Host                                     |                               | The address of the server where you want to publish the reports.  The **centreonBI** user must be able to access it over the network.                                                                                                         |
 | Domain                                   |                               | The domain for authentication purposes.                                                                                                               |
 | User                                     |                               | The username for authentication.                                                                                                                      |
 | Password                                 |                               | The password for authentication.                                                                                                                      |
 | Password confirm                         |                               | Confirmation of the password for authentication.                                                                                                      |
-| Root directory                           | \\server\share                | The path to the parent directory where the reports will be copied. The directory must already exist and the centreonBI user must be able to access it over the network. |
+| Root directory                           | \\server\share                | The path to the parent directory where the reports will be copied. The directory must already exist and the **centreonBI** user must be able to access it over the network. |
 | Subdirectory                             | @DAY@                         | Subdirectory path, can include dynamic variables like @DAY@. Use if you want to organize your reports.                                                |
 
 
@@ -60,18 +60,17 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 |------------------------------------------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Name                                     | FTP rule name                 | A name to identify the rule. Choose something meaningful.                                                                                              |
 | Publication protocol                     | FTP                           | In this case, FTP.                                                                                                                                     |
-| [Global](#global-rules-and-custom-rules) | No                            | Defines whether the rule will be applied to all jobs. If set to No, the rule will be a custom rule applied only to the selected jobs.                  |
+| [Global](#global-rules-and-custom-rules) | No                            | Defines whether the rule will be applied to all jobs. If set to **No**, the rule will be a custom rule applied only to the selected jobs.                  |
 | Description                              |                               | The description of the rule appears only in the list of publication rules.                                                                             |
-| Publish log file                         | No                            | Whether to include the publishing step in the cbis.DATE.log log files.                                                                                 |
-| Host                                     | ftp://server/                 | The address of the server where you want to publish the reports.  The centreonBI user must be able to access it over the network.                      |
+| Publish log file                         | Yes                           | Whether to include the publishing step in the **cbis.DATE.log** log files.                                                                                 |
+| Host                                     | ftp://server/                 | The address of the server where you want to publish the reports.  The **centreonBI** user must be able to access it over the network.                      |
 | Port                                     | 21                            | The port number for the connection.                                                                                                                    |
 | User                                     |                               | The username for authentication.                                                                                                                       |
 | Password                                 |                               | The password for authentication.                                                                                                                       |
 | Password confirm                         |                               | Confirmation of the password for authentication.                                                                                                       |
 | Encryption                               | None, SSL or TLS              | The encryption method for the connection.                                                                                                              |
-| Root directory                           |                               | The path to the parent directory where the reports will be copied. The directory must already exist and the centreonBI user must be able to access it. |
+| Root directory                           |                               | The path to the parent directory where the reports will be copied. The directory must already exist and the **centreonBI** user must be able to access it. |
 | Subdirectory                             | @DAY@                         | Subdirectory path, can include dynamic variables like @DAY@. Use if you want to organize your reports.                                                 |
-
 
 </TabItem>
 <TabItem value="Local" label="Local">
@@ -80,10 +79,10 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 |------------------------------------------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Name                                     | Local rule name               | A name to identify the rule. Choose something meaningful.                                                                                              |
 | Publication protocol                     | Local                         | In this case, Local.                                                                                                                                   |
-| [Global](#global-rules-and-custom-rules) | No                            | Defines whether the rule will be applied to all jobs. If set to No, the rule will be a custom rule applied only to the selected jobs.                  |
+| [Global](#global-rules-and-custom-rules) | No                            | Defines whether the rule will be applied to all jobs. If set to **No**, the rule will be a custom rule applied only to the selected jobs.                  |
 | Description                              |                               | The description of the rule appears only in the list of publication rules.                                                                             |
-| Publish log file                         | Yes                           | Whether to include the publishing step in the cbis.DATE.log log files.                                                                                 |
-| Root directory                           | /var/www/reports              | The path to the parent directory where the reports will be copied. The directory must already exist and the centreonBI user must be able to access it. |
+| Publish log file                         | Yes                           | Whether to include the publishing step in the **cbis.DATE.log** log files.                                                                                 |
+| Root directory                           | /var/www/reports              | The path to the parent directory where the reports will be copied. The directory must already exist and the **centreonBI** user must be able to access it. |
 | Subdirectory                             | @DAY@                         | Subdirectory path, can include dynamic variables like @DAY@. Use if you want to organize your reports.                                                 |
 
 
@@ -93,8 +92,8 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 | Field                  | Value                                                            | Description                                                                                                                                           |
 |------------------------|------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Name                   | SFTP rule name                                                   | A name to identify the rule. Choose something meaningful.                                                                                             |
-| Publication protocol   | SFTP                                                             | In this case, SFTP (Secure File Transfer Protocol).                                                                                                   |
-| Global                 | No                                                               | Defines whether the rule will be applied to all jobs. If set to No, the rule will be a custom rule applied only to the selected jobs.                 |
+| Publication protocol   | SFTP                                                             | In this case, **SFTP** (Secure File Transfer Protocol).                                                                                                   |
+| Global                 | No                                                               | Defines whether the rule will be applied to all jobs. If set to **No**, the rule will be a custom rule applied only to the selected jobs.                 |
 | Description            |                                                                  | The description of the rule appears only in the list of publication rules.                                                                            |
 | Host                   |                                                                  | The IP address or hostname of the SFTP server to which you want to copy the reports.                                                                  |
 | Port                   | 22                                                               | The network port used to connect to the SFTP server (default is 22).                                                                                  |
@@ -103,7 +102,7 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 | Path to the SSH key    | `/home/centreonBI/.ssh/id_rsa`                                   | The full path to the SSH private key used for authentication.                                                                                         |
 | Passphrase for SSH key | Leave empty                                                      | The passphrase for the SSH key, if one is set. Leave empty if none.                                                                                   |
 | Confirm passphrase     | Leave empty                                                      | Repeat the SSH key passphrase for confirmation, if used.                                                                                              |
-| Root directory         | `/var/lib/centreon/centreon-bi-server/archives`                  | The path to the parent directory on the SFTP server where the reports will be copied. The directory must already exist and the centreonBI user must be able to access it. |
+| Root directory         | `/var/lib/centreon/centreon-bi-server/archives`                  | The path to the parent directory on the SFTP server where the reports will be copied. The directory must already exist and the **centreonBI** user must be able to access it. |
 | Subdirectory           | `@JOBNAME@`                                                      | Subdirectory path, can include dynamic variables like `@JOBNAME@`. Use if you want to organize your reports.                                          |
 
 
@@ -120,10 +119,10 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 |------------------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | Name                                     | SMTP rule name     | A name to identify the rule. Choose something meaningful.                                                                             |
 | Publication protocol                     | SMTP               | In this case, SMTP.                                                                                                                   |
-| [Global](#global-rules-and-custom-rules) | Yes / No           | Defines whether the rule will be applied to all jobs. If set to No, the rule will be a custom rule applied only to the selected jobs. |
+| [Global](#global-rules-and-custom-rules) | Yes / No           | Defines whether the rule will be applied to all jobs. If set to **No**, the rule will be a custom rule applied only to the selected jobs. |
 | Description                              |                    | The description of the rule appears only in the list of publication rules.                                                            |
-| Publish log file                         | Yes                | Whether to include the publishing step in the cbis.DATE.log log files.                                                                |
-| E-mail from                              | my_user@my_server  | Sender address used in the "From" field of the email.                                                                                 |
+| Publish log file                         | Yes                | Whether to include the publishing step in the **cbis.DATE.log log** files.                                                                |
+| E-mail from                              | my_user@my_server  | Sender address used in the **From** field of the email.                                                                                 |
 | SMTP server                              | localhost          | SMTP host. Use `localhost` if Postfix runs on the same server.                                                                        |
 | SMTP port                                | 25                 | SMTP port. Default is `25` for non-secure connections.                                                                                |
 | Use SSL                                  | No                 | Whether to use SSL encryption. Disabled for local Postfix setup.                                                                      |
@@ -182,7 +181,7 @@ ssh-keygen
 ssh-copy-id -i ~/.ssh/id_rsa.pub centreonBI@\{MONITORING_IP_ADDRESS\}
 ```
 
-4. Test the SSH connection from the rpeorting server:
+4. Test the SSH connection from the reporting server:
 
 ```shell
 ssh centreonBI@\{MONITORING_IP_ADDRESS\}
@@ -205,7 +204,7 @@ If for some reason the Default rule stops working and you're no longer getting r
 | Authentication type     | User/Key                                                          |
 | User                    | centreonBI                                                        |
 | Path to the SSH key     | `/home/centreonBI/.ssh/id_rsa`                                    |
-| Passphrase for SSH key  | *leave empty*                                                     |
-| Confirm passphrase      | *same as above*                                                   |
+| Passphrase for SSH key  | leave empty                                                       |
+| Confirm passphrase      | same as above                                                     |
 | Root directory          | `/var/lib/centreon/centreon-bi-server/archives`                   |
 | Subdirectory            | `@JOBNAME@`                                                       |
