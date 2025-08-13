@@ -87,7 +87,7 @@ If necessary, use the following command to start **CBIS**:
 systemctl start cbis && systemctl enable cbis
 ```
 
-## Locating missing data or partitions using the --partitions and db-content commands
+## Locating missing data or partitions using the --partitions and --db-content commands
 
 The **/usr/share/centreon-bi/etl/centreonbiMonitoring.pl** script has the options **--db-content** and **--partitions** which allow you to potentially identify issues with data.
 
@@ -108,6 +108,8 @@ If everything is OK, you should have the following message: **ETL execution OK, 
 [mod_bam_reporting_ba_availabilities: 2025-07-27 00:00:00] [hoststateevents: 2025-07-28 00:00:00] [servicestateevents: 2025-07-28 00:00:00] [mod_bi_hoststateevents: 2025-07-28 00:00:00] [Table mod_bi_servicestateevents: EMPTY] [mod_bi_time: 2025-07-28 00:00:00] [mod_bi_hostavailability: 2025-07-27 00:00:00] [Table mod_bi_serviceavailability: EMPTY] [Table mod_bi_hgmonthavailability: EMPTY] [Table mod_bi_hgservicemonthavailability: EMPTY] [data_bin: 2025-07-27 23:59:55] [mod_bi_metricdailyvalue: 2025-07-27 00:00:00] [Table mod_bi_metricmonthcapacity: EMPTY]
 ```
 
+In this case, you must [rebuild some of your data](rebuilding-data.md#partial-rebuild-keep-your-data-history). For instance, in the example above, you will need to rebuild **data_bin** for the 28th of July.
+
 ### --partitions
 
 You can also check that partitions are up to date (to have a more detailed description of what is missing) using the following command:
@@ -124,11 +126,11 @@ The command should return **All partitions are up-to-date**. If a problem has be
 
 In the example above, 42 missing partitions have been found for the **mod_bi_hostavailability** table (and the last partition was created on 28th July).
 
-In this case, you must [rebuild some of your data](rebuilding-data.md#partial-rebuild-keep-your-data-history). For instance, in the first example above (using the **--db-content** option), you will need to rebuild **data_bin** for the 28th of July.
+In this case, you must [rebuild some of your data](rebuilding-data.md#partial-rebuild-keep-your-data-history).
 
 ### Understanding the commands' output
 
-If the **--partitions** and **db-content** commands indicate that there is a problem with one of your tables, you may have to do a [partial rebuild of your data](rebuilding-data.md#partial-rebuild-keep-your-data-history). Make sure you use the correct options in all cases when rebuilding (including the **--no-purge** option which stops you from deleting important data).
+If the **--partitions** and **--db-content** commands indicate that there is a problem with one of your tables, you may have to do a [partial rebuild of your data](rebuilding-data.md#partial-rebuild-keep-your-data-history). Make sure you use the correct options in all cases when rebuilding (including the **--no-purge** option which stops you from deleting important data).
 
 | Tables                                                   | Meaning                                                                      | What to do                                 |
 |------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------|
