@@ -7,9 +7,9 @@ title: Reconstruire les données MBI
 
 Reconstruire les données veut dire [exécuter l'ETL pour calculer les dimensions et les aggrégations](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées). Les rapports ne peuvent être générés que lorsque l'ETL a fini de tourner et toutes les données sont prêtes.
 
-## When is rebuilding data necessary?
+## Quand faut-il reconstruire les données?
 
-Rebuilding data is necessary in the following cases:
+Reconstruire les données est nécessaire dans les cas suivants :
 
 - Some changes have been applied to the configuration (for instance if the members of a host group have changed and you already have data for these hosts, or if you create a host group including hosts that already have data). You have two options:
     - [**Complete rebuild**](#complete-rebuild-overwrite-all-existing-data): you want to recalculate all of your data with the new configuration applied to it. The typical use case for this is wen you are setting up MBI: you might need to adjust the configuration several times to get it right. After modifying resources on your central server (e.g., host groups or service categories), you'll want to update the data in your datawarehouse accordingly.
@@ -133,7 +133,7 @@ nohup /usr/share/centreon-bi//bin/centreonBIETL -rICDEP >> /var/log/centreon-bi/
 
 Once rebuild is complete, [perform any necessary post-rebuild operations](#after-running-the-rebuild-scripts).
 
-## Partial rebuild: keep your data history
+## Reconstruction partielle : conserver l'historique de vos données
 
 ### Aggregation granularity
 
