@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Avant d'aller plus loin, assurez-vous que MBI est à jour (faites une [mise à jour](https://docs.centreon.com/fr/docs/reporting/update/) ou une [montée de version](https://docs.centreon.com/fr/docs/reporting/upgrade/) si nécessaire).
 
-Pendant [sa phase de calcul quotidienne](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées), l'ETL peut rencontrer divers problèmes :
+Pendant [sa phase de calcul quotidienne](how-mbi-works.md#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées), l'ETL peut rencontrer divers problèmes :
 
 - erreurs de base de données (table MySQL endommagée, disque plein)
 - erreurs de connexion à la base de données (délai d'attente MySQL expiré, problèmes DNS)
@@ -134,10 +134,10 @@ Si les commandes **--partitions** et **--db-content** indiquent qu'il y a un pro
 
 | Tables                                                   | Signification                                                                      | Actions à réaliser                                 |
 |------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------|
-| `hoststateevents`, `servicestateevents`,<br/>`mod_bam_reporting*`, `data_bin` | Problème avec les données brutes importées depuis Centreon.                            | Identifier et réparer le problème avec les données brutes. (Peut-être aurez-vous besoin de calculer des évènements avec [**eventReportBuilder** sur le serveur central](how-mbi-works.md#phase-1--les-données-sont-préparées-par-le-serveur-central)). Après avoir résolu le problème, exécutez le script d'import pour importer les données manquantes [en utilisant les options appropriées](rebuilding-data.md#options-pour-une-reconstructions-partielle) (`/usr/share/centreon-bi/etl/importData.pl`). |
-| `mod_bi_servicemetrics`,`mod_bi_hosts`, `mod_bi_services`,  `mod_bi_hostgroups`                                             | Problème avec les **données des dimensions**.                 |  Après avoir résolu le problème, exécutez le script de dimensions pour rétablir la cohérence des dimensions, [en utilisant les options appropriées](rebuilding-data.md#options-pour-une-reconstructions-partielle) (`/usr/share/centreon-bi/etl/importData.pl`).  (`/usr/share/centreon-bi/etl/dimensionsBuilder.pl`)   |
-| `mod_bi_*availability`                                             | Problème avec les **données de disponibilité agrégées**, pas avec les données brutes            | Après avoir résolu le problème, exécutez le script d'agrégation de disponibilité [en utilisant les options appropriées](rebuilding-data.md#options-pour-une-reconstructions-partielle) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`). |
-| `mod_bi_metric*`                                                   | Problème avec les **données des métriques agrégées** (par exemple, performance), pas avec les données brutes. | Après avoir résolu le problème, exécutez le script d'agrégation des métriques. [en utilisant les options appropriées](rebuilding-data.md#options-pour-une-reconstructions-partielle) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`).  |
+| `hoststateevents`, `servicestateevents`,<br/>`mod_bam_reporting*`, `data_bin` | Problème avec les données brutes importées depuis Centreon.                            | Identifier et réparer le problème avec les données brutes. (Peut-être aurez-vous besoin de calculer des évènements avec [**eventReportBuilder** sur le serveur central](how-mbi-works.md#phase-1--les-données-sont-préparées-par-le-serveur-central)). Après avoir résolu le problème, exécutez le script d'import pour importer les données manquantes [en utilisant les options appropriées](rebuilding-data.md#options-pour-une-reconstruction-partielle) (`/usr/share/centreon-bi/etl/importData.pl`). |
+| `mod_bi_servicemetrics`,`mod_bi_hosts`, `mod_bi_services`,  `mod_bi_hostgroups`                                             | Problème avec les **données des dimensions**.                 |  Après avoir résolu le problème, exécutez le script de dimensions pour rétablir la cohérence des dimensions, [en utilisant les options appropriées](rebuilding-data.md#options-pour-une-reconstruction-partielle) (`/usr/share/centreon-bi/etl/importData.pl`).  (`/usr/share/centreon-bi/etl/dimensionsBuilder.pl`)   |
+| `mod_bi_*availability`                                             | Problème avec les **données de disponibilité agrégées**, pas avec les données brutes            | Après avoir résolu le problème, exécutez le script d'agrégation de disponibilité [en utilisant les options appropriées](rebuilding-data.md#options-pour-une-reconstruction-partielle) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`). |
+| `mod_bi_metric*`                                                   | Problème avec les **données des métriques agrégées** (par exemple, performance), pas avec les données brutes. | Après avoir résolu le problème, exécutez le script d'agrégation des métriques. [en utilisant les options appropriées](rebuilding-data.md#options-pour-une-reconstruction-partielle) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`).  |
 
 Si vous rencontrez des problèmes, vérifiez que MBI est bien configuré selon notre [procédure de configuration post-installation](https://docs.centreon.com/fr/docs/reporting/installation/#étape-4--Configurez-l-etl-dans-linterface-de-centreon).
 
@@ -170,7 +170,7 @@ Lorsqu'un rapport est vide, analysez-le de la manière suivante :
 
 ![image](../assets/reporting/empty-report-chart.png)
 
-* La première étape est de vérifier que les données sont bien disponibles dans la base de données avec les commandes [**--partitions** et **--db-content**](#identifier-des-données-ou-partitions-manquantes-avec-les-commandes---partitions-et-db-content).
+* La première étape est de vérifier que les données sont bien disponibles dans la base de données avec les commandes [**--partitions** et **--db-content**](#identifier-des-données-ou-partitions-manquantes-avec-les-commandes---partitions-et---db-content).
 
 * Puis vérifiez que les deux premières phases du traitement des données se sont terminées dans les temps : lisez notre page [**Comment fonctionne MBI**](how-mbi-works.md).
 

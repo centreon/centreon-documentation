@@ -5,7 +5,7 @@ title: Reconstruire les données MBI
 
 ## Qu'est-ce que la reconstruction des données ?
 
-Reconstruire les données veut dire [exécuter l'ETL pour calculer les dimensions et les agrégations](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées). Les rapports ne peuvent être générés que lorsque l'ETL a fini de tourner et toutes les données sont prêtes.
+Reconstruire les données veut dire [exécuter l'ETL pour calculer les dimensions et les agrégations](how-mbi-works.md#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées). Les rapports ne peuvent être générés que lorsque l'ETL a fini de tourner et toutes les données sont prêtes.
 
 ## Quand faut-il reconstruire les données?
 
@@ -23,12 +23,12 @@ Reconstruire les données est nécessaire dans les cas suivants :
 L'ETL s'exécute dans trois contextes différents
 
 * Lors de la [construction initiale des données](installation.md#étape-5--construire-la-base-de-données-mbi) après avoir installé MBI.
-* [Tous les jours (à 4h30 du matin par défaut)](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées), lorsque les donées du jour précédent sont compilées.
+* [Tous les jours (à 4h30 du matin par défaut)](how-mbi-works.md#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées), lorsque les donées du jour précédent sont compilées.
 * Lorsque vous lancez une [reconstruction manuelle](#quand-faut-il-reconstruire-les-données) : c'est le cas d'usage décrit dans cette page.
 
 ### Comment fonctionne l'ETL ?
 
-* Lire [**Comment fonctionne MBI**, phase 2](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées).
+* Lire [**Comment fonctionne MBI**, phase 2](how-mbi-works.md#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées).
 * Lire [**Référence des commandes de l'ETL**](#référence-des-commandes-de-letl).
 
 ### Avant de commencer avec l'ETL
@@ -139,7 +139,7 @@ Une fois la reconstruction complétée, [occupez-vous de toute opération post-r
 
 MBI permet de reconstruire les données à différents niveaux de granularité : horaire, quotidien ou mensuel. La granularité dépend de la période spécifiée lors du lancement du processus de reconstruction. Par exemple, si une reconstruction est effectuée pour la période du 1er juillet au 1er août, MBI ne reconstruira que les données horaires et quotidiennes pour cette période. Cependant, les données mensuelles sont calculées d'une manière spécifique : le calcul pour le mois M a lieu le premier jour du mois M+1. Par conséquent, pour reconstruire toutes les données du mois de juillet, y compris les agrégats mensuels, vous devez inclure le 1er août dans la période en spécifiant une date de fin au 2 août car les données du jour spécifié comme date de fin ne sont pas incluses.
 
-### Options pour une reconstructions partielle
+### Options pour une reconstruction partielle
 
 Les options **-s** et **-e** définissent la période de temps pour le traitement des données.
 
