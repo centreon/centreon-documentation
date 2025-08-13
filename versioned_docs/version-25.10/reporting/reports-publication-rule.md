@@ -11,42 +11,43 @@ If you want to share a copy of your report (e.g. by email or on another server),
 
 ## Publication modes
 
-| Publication mode | Description |
-| --- | --- |
-| CIFS | Reports are copied to a remote file share using the CIFS/SMB protocol |
-| FTP | Reports are copied to a remote server using the FTP protocol |
-| Local | Reports are copied to a local directory (on the MBI server) |
-| SFTP | Reports are copied to a remote server using the SFTP protocol |
-| SMTP | Reports are sent in an email |
+| Publication mode |  Description                                                          |
+| ---              | ---                                                                   |
+| CIFS             | Reports are copied to a remote file share using the CIFS/SMB protocol |
+| FTP              | Reports are copied to a remote server using the FTP protocol          |
+| Local            | Reports are copied to a local directory (on the MBI server)           |
+| SFTP             | Reports are copied to a remote server using the SFTP protocol         |
+| SMTP             | Reports are sent in an email                                          |
 
 ## Global rules and custom rules
 
-* Rules marked as **Global** in their configuration are applied automatically every time any job is executed. Bear in mind that they apply to **all** jobs. 
+* Rules marked as Global in their configuration are applied automatically every time any job is executed. Bear in mind that they apply to all jobs. 
 * Global rules do not appear amongst the options on the **Publication** tab of jobs, as they are applied every time anyway.
-* [The **Default** global publication rule](#how-the-default-publication-rule-works) is a SFTP rule which copies the reports from MBI to the central server. This rule can be edited but not deleted.
+* [The Default global publication rule](#how-the-default-publication-rule-works) is a SFTP rule which copies the reports from MBI to the central server. This rule can be edited but not deleted.
 * Reports to which you [apply custom rules](#using-a-publication-rule) (i.e., user-created rules) will be published every time they are generated, based on the job's schedule.
 
 ## Creating a publication rule
 
-To create a publication rule, go to **Reporting > Monitoring Business Intelligence > Publication rules** and select the **Publication protocol** you want. Once you have selected the protocol, other fields appear.
+To create a publication rule, go to **Reporting > Monitoring Business Intelligence > Publication rules** and select the Publication protocol you want. Once you have selected the protocol, other fields appear.
 
 <Tabs groupId="publicationRule" queryString>
 <TabItem value="CIFS" label="CIFS">
 
-| **Field**                  | **Possible value**                            | **Description**                                                                 |
-|----------------------------|--------------------------------------|---------------------------------------------------------------------------------|
-| Name                       | CIFS rule name      | A name to identify the rule. Choose something meaningful.                      |
-| Publication protocol       | CIFS                                 | In ths case, **CIFS**.  |
-| [Global](#global-rules-and-custom-rules)                     | No                                  | Defines whether the rule will be applied to all jobs. If set to **No**, the rule will be a custom rule applied only to the selected jobs.                 |
-| Description (optional)              |                          | The description of the rule appears only in the list of publication rules.                             |
-| Publish log file           | No                                   | Whether to include the publishing step in the **cbis.DATE.log** log files.                             |
-| Host  **(mandatory)**                     |                         | The server host address for the publication.                                   |
-| Domain **(mandatory)**                    |                         | The domain for authentication purposes.                                        |
-| User **(mandatory)**                   |                        | The username for authentication.                                               |
-| Password **(mandatory)**                   |                        | The password for authentication.                                               |
-| Password confirm **(mandatory)**           |                        | Confirmation of the password for authentication.                               |
-| Root directory **(mandatory)**             |  **\\server\share**                        | The path to the parent directory where the reports will be copied. The directory must already exist and the **centreonBI** user must be able to access it over the network.                                    |
-| Subdirectory **(optional)**              | @DAY@                    | Subdirectory path, can include dynamic variables like @DAY@. Use if you want to organize your reports.                   |
+| Field                                    | Possible value                | Description                                                                                                                                           |
+|------------------------------------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name                                     | CIFS rule name                | A name to identify the rule. Choose something meaningful.                                                                                             |
+| Publication protocol                     | CIFS                          | In ths case, CIFS.                                                                                                                                    |
+| [Global](#global-rules-and-custom-rules) | No                            | Defines whether the rule will be applied to all jobs. If set to No, the rule will be a custom rule applied only to the selected jobs.                 |
+| Description                              |                               | The description of the rule appears only in the list of publication rules.                                                                            |
+| Publish log file                         | No                            | Whether to include the publishing step in the cbis.DATE.log log files.                                                                                |
+| Host                                     |                               | The server host address for the publication.                                                                                                          |
+| Domain                                   |                               | The domain for authentication purposes.                                                                                                               |
+| User                                     |                               | The username for authentication.                                                                                                                      |
+| Password                                 |                               | The password for authentication.                                                                                                                      |
+| Password confirm                         |                               | Confirmation of the password for authentication.                                                                                                      |
+| Root directory                           | \\server\share                | The path to the parent directory where the reports will be copied. The directory must already exist and the centreonBI user must be able to access it over the network. |
+| Subdirectory                             | @DAY@                         | Subdirectory path, can include dynamic variables like @DAY@. Use if you want to organize your reports.                                                |
+
 
 </TabItem>
 
@@ -55,53 +56,56 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 
 <TabItem value="FTP" label="FTP">
 
-| **Field**                  | **Possible value**                           | **Description**                                                                 |
-|----------------------------|--------------------------------------|---------------------------------------------------------------------------------|
-| Name **(mandatory)**                      | FTP rule name                 | A name to identify the rule. Choose something meaningful.                      |
-| Publication protocol       | FTP                                 | In this case, **FTP**.  |
-| [Global](#global-rules-and-custom-rules)                     | No                                  | Defines whether the rule will be applied to all jobs. If set to **No**, the rule will be a custom rule applied only to the selected jobs.                 |
-| Description (optional)              |                          | The description of the rule appears only in the list of publication rules.                             |
-| Publish log file           | No                                   | Whether to include the publishing step in the **cbis.DATE.log** log files.                             |
-| Host **(mandatory)**                         |  ftp://server/    | The address of the server where you want to publish the reports.  The **centreonBI** user must be able to access it over the network.                                   |
-| Port **(mandatory)**                         | 21                         | The port number for the connection.                                            |
-| User **(mandatory)**                         |                         | The username for authentication.                                               |
-| Password **(mandatory)**                     |                         | The password for authentication.                                               |
-| Password confirm **(mandatory)**             |                      | Confirmation of the password for authentication.                               |
-| Encryption **(optional)**               | None, SSL or TLS                      | The encryption method for the connection.                                      |
-| Root directory **(mandatory)**             |                       | The path to the parent directory where the reports will be copied. The directory must already exist and the **centreonBI** user must be able to access it.                        |
-| Subdirectory **(optional)**              | @DAY@                    | Subdirectory path, can include dynamic variables like @DAY@. Use if you want to organize your reports.  |
+| Field                                    | Possible value                | Description                                                                                                                                            |
+|------------------------------------------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name                                     | FTP rule name                 | A name to identify the rule. Choose something meaningful.                                                                                              |
+| Publication protocol                     | FTP                           | In this case, FTP.                                                                                                                                     |
+| [Global](#global-rules-and-custom-rules) | No                            | Defines whether the rule will be applied to all jobs. If set to No, the rule will be a custom rule applied only to the selected jobs.                  |
+| Description                              |                               | The description of the rule appears only in the list of publication rules.                                                                             |
+| Publish log file                         | No                            | Whether to include the publishing step in the cbis.DATE.log log files.                                                                                 |
+| Host                                     | ftp://server/                 | The address of the server where you want to publish the reports.  The centreonBI user must be able to access it over the network.                      |
+| Port                                     | 21                            | The port number for the connection.                                                                                                                    |
+| User                                     |                               | The username for authentication.                                                                                                                       |
+| Password                                 |                               | The password for authentication.                                                                                                                       |
+| Password confirm                         |                               | Confirmation of the password for authentication.                                                                                                       |
+| Encryption                               | None, SSL or TLS              | The encryption method for the connection.                                                                                                              |
+| Root directory                           |                               | The path to the parent directory where the reports will be copied. The directory must already exist and the centreonBI user must be able to access it. |
+| Subdirectory                             | @DAY@                         | Subdirectory path, can include dynamic variables like @DAY@. Use if you want to organize your reports.                                                 |
+
 
 </TabItem>
 <TabItem value="Local" label="Local">
 
-| **Field**                  | **Possible value**                          | **Description**                                                                 |
-|----------------------------|--------------------------------------|---------------------------------------------------------------------------------|
-| Name **(mandatory)**                       | Local rule name              | A name to identify the rule. Choose something meaningful.                      |
-| Publication protocol       | Local                                | In this case, **Local**. |
-| [Global](#global-rules-and-custom-rules)                     | No                                  | Defines whether the rule will be applied to all jobs. If set to No, the rule will be a custom rule applied only to the selected jobs.                 |
-| Description (optional)         |                         | The description of the rule appears only in the list of publication rules.                                              |
-| Publish log file           | Yes                                  | Whether to include the publishing step in the **cbis.DATE.log** log files.                                |
-| Root directory **(mandatory)**          | **/var/www/reports**                      | The path to the parent directory where the reports will be copied. The directory must already exist and the **centreonBI** user must be able to access it.                                     |
-| Subdirectory **(optional)**              | @DAY@                    | Subdirectory path, can include dynamic variables like @DAY@. Use if you want to organize your reports.  |
+| Field                                    | Possible value                | Description                                                                                                                                            |
+|------------------------------------------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name                                     | Local rule name               | A name to identify the rule. Choose something meaningful.                                                                                              |
+| Publication protocol                     | Local                         | In this case, Local.                                                                                                                                   |
+| [Global](#global-rules-and-custom-rules) | No                            | Defines whether the rule will be applied to all jobs. If set to No, the rule will be a custom rule applied only to the selected jobs.                  |
+| Description                              |                               | The description of the rule appears only in the list of publication rules.                                                                             |
+| Publish log file                         | Yes                           | Whether to include the publishing step in the cbis.DATE.log log files.                                                                                 |
+| Root directory                           | /var/www/reports              | The path to the parent directory where the reports will be copied. The directory must already exist and the centreonBI user must be able to access it. |
+| Subdirectory                             | @DAY@                         | Subdirectory path, can include dynamic variables like @DAY@. Use if you want to organize your reports.                                                 |
+
 
 </TabItem>
 <TabItem value="SFTP" label="SFTP">
 
-| **Field**                   | **Value**                                                        | **Description** |
-|-----------------------------|-------------------------------------------------------------------|-----------------|
-| **Name** (mandatory)        | SFTP rule name                                                           | A name to identify the rule. Choose something meaningful. |
-| **Publication protocol**    | SFTP                                                              | In this case, **SFTP** (Secure File Transfer Protocol). |
-| **Global**                  | No                                                              | Defines whether the rule will be applied to all jobs. If set to **No**, the rule will be a custom rule applied only to the selected jobs. |
-| **Description** (optional)  |                                          | The description of the rule appears only in the list of publication rules. |
-| **Host** (mandatory)        |                                    | The IP address or hostname of the SFTP server to which you want to copy the reports. |
-| **Port**                    | 22                                                                | The network port used to connect to the SFTP server (default is 22). |
-| **Authentication type**     | User/Key                                                          | The method used for authentication. In this case, a combination of username and SSH key. |
-| **User** (mandatory)        | centreonBI                                                        | The username used to connect to the SFTP server. |
-| **Path to the SSH key**     | `/home/centreonBI/.ssh/id_rsa`                                    | The full path to the SSH private key used for authentication. |
-| **Passphrase for SSH key**  | Leave empty                                                  | The passphrase for the SSH key, if one is set. Leave empty if none. |
-| **Confirm passphrase**      | Leave empty                                                 | Repeat the SSH key passphrase for confirmation, if used. |
-| **Root directory** (mandatory) | `/var/lib/centreon/centreon-bi-server/archives`                   | The path to the parent directory on the SFTP server where the reports will be copied. The directory must already exist and the **centreonBI** user must be able to access it. |
-| **Subdirectory** (optional) | `@JOBNAME@`                                                       | Subdirectory path, can include dynamic variables like `@JOBNAME@`. Use if you want to organize your reports. |
+| Field                  | Value                                                            | Description                                                                                                                                           |
+|------------------------|------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name                   | SFTP rule name                                                   | A name to identify the rule. Choose something meaningful.                                                                                             |
+| Publication protocol   | SFTP                                                             | In this case, SFTP (Secure File Transfer Protocol).                                                                                                   |
+| Global                 | No                                                               | Defines whether the rule will be applied to all jobs. If set to No, the rule will be a custom rule applied only to the selected jobs.                 |
+| Description            |                                                                  | The description of the rule appears only in the list of publication rules.                                                                            |
+| Host                   |                                                                  | The IP address or hostname of the SFTP server to which you want to copy the reports.                                                                  |
+| Port                   | 22                                                               | The network port used to connect to the SFTP server (default is 22).                                                                                  |
+| Authentication type    | User/Key                                                         | The method used for authentication. In this case, a combination of username and SSH key.                                                              |
+| User                   | centreonBI                                                       | The username used to connect to the SFTP server.                                                                                                      |
+| Path to the SSH key    | `/home/centreonBI/.ssh/id_rsa`                                   | The full path to the SSH private key used for authentication.                                                                                         |
+| Passphrase for SSH key | Leave empty                                                      | The passphrase for the SSH key, if one is set. Leave empty if none.                                                                                   |
+| Confirm passphrase     | Leave empty                                                      | Repeat the SSH key passphrase for confirmation, if used.                                                                                              |
+| Root directory         | `/var/lib/centreon/centreon-bi-server/archives`                  | The path to the parent directory on the SFTP server where the reports will be copied. The directory must already exist and the centreonBI user must be able to access it. |
+| Subdirectory           | `@JOBNAME@`                                                      | Subdirectory path, can include dynamic variables like `@JOBNAME@`. Use if you want to organize your reports.                                          |
+
 
 </TabItem>
 <TabItem value="SMTP" label="SMTP">
@@ -110,28 +114,28 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 > 
 > By default, on MBI, Postfix is used as a mail relay without authentication. This means that:
 > - The SMTP configuration inside Centreon MBI does not require credentials or SSL.
-> - Authentication and mail relay rules (e.g., destination domains, allowed senders) are managed directly within the Postfix configuration (**/etc/postfix/main.cf**, etc.).
+> - Authentication and mail relay rules (e.g., destination domains, allowed senders) are managed directly within the Postfix configuration (/etc/postfix/main.cf, etc.).
 
-| **Field**                  | **Possible value**                          | **Description**                                                                 |
-|---------------------------|--------------------------------------|---------------------------------------------------------------------------------|
-| Name **(mandatory)**                     | SMTP rule name                       | A name to identify the rule. Choose something meaningful.                       |
-| Publication protocol      | SMTP                                 | In this case, **SMTP**.     |
-| [Global](#global-rules-and-custom-rules)                    | Yes / No                             | Defines whether the rule will be applied to all jobs. If set to **No**, the rule will be a custom rule applied only to the selected jobs.                  |
-| Description (optional)              |                          | The description of the rule appears only in the list of publication rules.                             |
-| Publish log file          | Yes                                  | Whether to include the publishing step in the **cbis.DATE.log** log files.                                   |
-| E-mail from  **(mandatory)**              | my_user@my_server            | Sender address used in the "From" field of the email.                          |
-| SMTP server  **(mandatory)**             | localhost                            | SMTP host. Use `localhost` if Postfix runs on the same server.                 |
-| SMTP port **(mandatory)**                | 25                                   | SMTP port. Default is `25` for non-secure connections.                         |
-| Use SSL                   | No                                   | Whether to use SSL encryption. Disabled for local Postfix setup.              |
-| Use credential            | No                                   | Use SMTP authentication. Set to `No` for local delivery without credentials.   |
-| E-mail default title      | MBI Report                            | Default subject/title used for outgoing emails. If you leave this blank, the email will have no subject.            |
-| Default E-mail body (optional)                 |                         | Default content in the body of the email.  If you leave this blank, the email will be empty.                                       |
-| Default E-mail footer (optional)              |                         | Default signature/footer at the bottom of the email.  If you leave this blank, the email will have no signature.                           |
-| Maximum report size  **(mandatory)**                | 4 Mo                                 | Total maximum allowed size of all email attachments (in megabytes).                  |
-| Centreon main server web protocol   | http                                 | Protocol used to access the Centreon interface (HTTP or [HTTPS](https://docs.centreon.com/docs/administration/secure-platform/)).                       |
-| Centreon web URL extension          | /centreon                            | Web path extension (it will be `/centreon` if you haven't customized it).                                       |
-| Centreon main server web address    | central_ip                       | IP or FQDN + port of the Centreon web interface.                                   |
-| Contact Groups **(mandatory)**                      | cg-reports-mbi                           | The [contact group(s)](https://docs.centreon.com/docs/monitoring/basic-objects/contacts-groups/) that will receive the report. Bear in mind that if you send a copy of the report to these users, they will be able to see all of the data included in it - whether they have[ access rights on these resources](https://docs.centreon.com/docs/administration/access-control-lists.md#access-filters-on-resources) or not.         |
+| Field                                    | Possible value     | Description                                                                                                                           |
+|------------------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| Name                                     | SMTP rule name     | A name to identify the rule. Choose something meaningful.                                                                             |
+| Publication protocol                     | SMTP               | In this case, SMTP.                                                                                                                   |
+| [Global](#global-rules-and-custom-rules) | Yes / No           | Defines whether the rule will be applied to all jobs. If set to No, the rule will be a custom rule applied only to the selected jobs. |
+| Description                              |                    | The description of the rule appears only in the list of publication rules.                                                            |
+| Publish log file                         | Yes                | Whether to include the publishing step in the cbis.DATE.log log files.                                                                |
+| E-mail from                              | my_user@my_server  | Sender address used in the "From" field of the email.                                                                                 |
+| SMTP server                              | localhost          | SMTP host. Use `localhost` if Postfix runs on the same server.                                                                        |
+| SMTP port                                | 25                 | SMTP port. Default is `25` for non-secure connections.                                                                                |
+| Use SSL                                  | No                 | Whether to use SSL encryption. Disabled for local Postfix setup.                                                                      |
+| Use credential                           | No                 | Use SMTP authentication. Set to `No` for local delivery without credentials.                                                          |
+| E-mail default title                     | MBI Report         | Default subject/title used for outgoing emails. If you leave this blank, the email will have no subject.                              |
+| Default E-mail body                      |                    | Default content in the body of the email.  If you leave this blank, the email will be empty.                                          |
+| Default E-mail footer                    |                    | Default signature/footer at the bottom of the email.  If you leave this blank, the email will have no signature.                      |
+| Maximum report size                      | 4 Mo               | Total maximum allowed size of all email attachments (in megabytes).                                                                   |
+| Centreon main server web protocol        | http               | Protocol used to access the Centreon interface (HTTP or [HTTPS](https://docs.centreon.com/docs/administration/secure-platform/)).     |
+| Centreon web URL extension               | /centreon          | Web path extension (it will be `/centreon` if you haven't customized it).                                                             |
+| Centreon main server web address         | central_ip         | IP or FQDN + port of the Centreon web interface.                                                                                      |
+| Contact Groups                           | cg-reports-mbi     | The [contact group(s)](https://docs.centreon.com/docs/monitoring/basic-objects/contacts-groups/) that will receive the report. Bear in mind that if you send a copy of the report to these users, they will be able to see all of the data included in it - whether they have[ access rights on these resources](https://docs.centreon.com/docs/administration/access-control-lists.md#access-filters-on-resources) or not.         |
 
 </TabItem>
 </Tabs>
@@ -151,14 +155,14 @@ The default SFTP rule is the one that transfers the generated reports to your ce
 
 ### Prerequisites: key exchange
 
-1. On the central server, a system user called **centreonBI** has been created. Define a password for this user for future SSH communications between the two servers:
+1. On the central server, a system user called centreonBI has been created. Define a password for this user for future SSH communications between the two servers:
 
 ```shell
 passwd centreonBI
 ```
 
-2. On the MBI server, generate SSH keys for the system user called **centreonBI**\"** in order to avoid
-using the password when CBIS copies the generated reports onto the central server.:
+2. On the MBI server, generate SSH keys for the service user called centreonBI\" in order to avoid
+using the password when CBIS copies the generated reports onto the central server:
 
 ```shell
 su - centreonBI
@@ -172,13 +176,13 @@ ssh-keygen
 
 > The passphrase must be empty.
 
-3. Transfer the key to the central server. The **centreonBI** user must be configured with a password on the monitoring server:
+3. Transfer the key to the central server. The centreonBI user must be configured with a password on the monitoring server:
 
 ```shell
 ssh-copy-id -i ~/.ssh/id_rsa.pub centreonBI@\{MONITORING_IP_ADDRESS\}
 ```
 
-4. Test the SSH connection from the reporting server:
+4. Test the SSH connection from the rpeorting server:
 
 ```shell
 ssh centreonBI@\{MONITORING_IP_ADDRESS\}
@@ -188,20 +192,20 @@ You should be able to connect without entering any password.
 
 ### Configuration for the Default publication rule
 
-If for some reason the Default rule stops working and you're no longer getting reports in your central server, check that it is configured as follows. (Click the **Test** button to validate the configuration.)
+If for some reason the Default rule stops working and you're no longer getting reports in your central server, check that it is configured as follows (click the Test button to validate the configuration):
 
-| **Field**                   | **Value**                                                        |
-|-----------------------------|-------------------------------------------------------------------|
-| **Name**                    | Default                                                           |
-| **Publication protocol**    | SFTP                                                              |
-| **Global**                  | Yes                                                               |
-| **Description**             | Default publication rule                                          |
-| **Host**                    | **Central server IP address**                                     |
-| **Port**                    | 22                                                                |
-| **Authentication type**     | User/Key                                                          |
-| **User**                    | centreonBI                                                        |
-| **Path to the SSH key**     | `/home/centreonBI/.ssh/id_rsa`                                    |
-| **Passphrase for SSH key**  | *(leave empty)*                                                   |
-| **Confirm passphrase**      | *(same as above)*                                                 |
-| **Root directory**          | `/var/lib/centreon/centreon-bi-server/archives`                   |
-| **Subdirectory**            | `@JOBNAME@`                                                       |
+| Field                   | Value                                                             |
+|-------------------------|-------------------------------------------------------------------|
+| Name                    | Default                                                           |
+| Publication protocol    | SFTP                                                              |
+| Global                  | Yes                                                               |
+| Description             | Default publication rule                                          |
+| Host                    | Central server IP address                                         |
+| Port                    | 22                                                                |
+| Authentication type     | User/Key                                                          |
+| User                    | centreonBI                                                        |
+| Path to the SSH key     | `/home/centreonBI/.ssh/id_rsa`                                    |
+| Passphrase for SSH key  | *leave empty*                                                     |
+| Confirm passphrase      | *same as above*                                                   |
+| Root directory          | `/var/lib/centreon/centreon-bi-server/archives`                   |
+| Subdirectory            | `@JOBNAME@`                                                       |
