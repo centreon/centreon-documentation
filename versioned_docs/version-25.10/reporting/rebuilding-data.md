@@ -205,7 +205,7 @@ Once rebuild is complete, [perform any necessary post-rebuild operations](#after
 ## Repairing gaps in your data
 
 1. First, read the [**Before starting with the ETL**](#before-starting-with-the-etl) section.
-2. [Locate gaps in your data](troubleshooting.md#locating-missing-data-or-partitions-using-the---partitions-and-db-content-commands).
+2. [Locate gaps in your data](troubleshooting.md#locating-missing-data-or-partitions-using-the---partitions-and---db-content-commands).
 3. [Run a partial rebuild of your data, keeping your data history](#partial-rebuild-keep-your-data-history).
 4. Once rebuild is complete, [perform any necessary post-rebuild operations](#after-running-the-rebuild-scripts).
 
