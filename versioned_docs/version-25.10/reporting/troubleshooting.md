@@ -146,7 +146,7 @@ Use SSH to connect to your MBI reporting server and switch user to root to check
 * **/var/log/centreon-bi/cbis.out**
 * **/var/log/centreon-bi/cbis.date-of-the-day.log**
 
-If you find a relevant issue in one of these tow files, fix the problem (e.g. error when connecting to the database) and manually restart the **CBIS** service:
+If you find a relevant issue in one of these two files, fix the problem (e.g. error when connecting to the database) and manually restart the **CBIS** service:
 
 ```shell
 systemctl restart cbis
@@ -182,7 +182,7 @@ When a report is empty, you should analyse it this way:
 timedatectl
 ```
 
-If the timezones are different, edit the following php file: **/etc/opt/rh/rh-php73/php.d/php-timezone.ini**. For example, add **date.timezone = Europe/Paris** on both servers. You then need to restart **php-fpm**:
+If the timezones are different, edit [the corresponding PHP file](installation.md#software-requirements). For example, add **date.timezone = Europe/Paris** on both servers. You then need to restart **php-fpm**:
 
 ```shell
 systemctl restart php-fpm
