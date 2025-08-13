@@ -14,7 +14,7 @@ Rebuilding data is necessary in the following cases:
 - Some changes have been applied to the configuration (for instance if the members of a host group have changed and you already have data for these hosts, or if you create a host group including hosts that already have data). You have two options:
     - [**Complete rebuild**](#complete-rebuild-overwrite-all-existing-data): you want to recalculate all of your data with the new configuration applied to it. The typical use case for this is wen you are setting up MBI: you might need to adjust the configuration several times to get it right. After modifying resources on your central server (e.g., host groups or service categories), you'll want to update the data in your datawarehouse accordingly.
     - [**Partial rebuild**](#partial-rebuild-keep-your-data-history): you want to keep your data history (for various reasons such as compliance, audits, referencing current reports, or testing a new configuration without altering historical data). For instance, if a host group no longer exists, you still may want to keep a record that it existed at some point.
-- You need to [repair gaps in your data](#repairing-gaps-in-your-data): launch a partial rebuild to repair gaps in the data. Gaps in your data may occur if one or more daily executions of the ETL failed to complete, for instance because of database errors or network failures.
+- You need to [repair gaps in your data](#repairing-gaps-in-your-data): launch a partial rebuild to do so. Gaps in your data may occur if one or more daily executions of the ETL failed to complete, for instance because of database errors or network failures.
 
 ## About the MBI ETL
 
@@ -141,7 +141,7 @@ MBI allows data to be rebuilt at different levels of granularity: hourly, daily,
 
 ### Options for a partial rebuild
 
-The **-s** and **-e** options define the time range for data processing.
+The **-s** and **-e** options define the time range for the data reconstruction.
 
 - **-s** sets the start date (**YYYY-MM-DD**).
 - **-e** sets the end date (**YYYY-MM-DD**). Note that the day specified as the end date will not be included in the data: 
@@ -337,8 +337,8 @@ This section focuses specifically on the `-r` (rebuild) option and its usage.
 
 | Option | Description |
 |--------|-------------|
-| `-s`   | Start date in format `YYYY-MM-DD`. Defaults to data retention period from Centreon MBI configuration. |
-| `-e`   | End date in format `YYYY-MM-DD`. Defaults to data retention period from Centreon MBI configuration. |
+| `-s`   | Start date in format `YYYY-MM-DD`. If nothing is specified, the data retention period from Centreon MBI configuration is used. |
+| `-e`   | End date in format `YYYY-MM-DD`. If nothing is specified, the data retention period from Centreon MBI configuration is used. |
 | `-p`   | Do not empty statistic tables; delete only entries for the processed period. Not applicable to raw data tables. |
 
 > **Note**: If no start or end date is provided, the script calculates them automatically using the retention parameters from the interface under **General Option > Data retention Parameter**.
