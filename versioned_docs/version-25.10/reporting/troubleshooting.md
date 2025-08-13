@@ -136,8 +136,8 @@ If the **--partitions** and **--db-content** commands indicate that there is a p
 |------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------|
 | `hoststateevents`, `servicestateevents`,<br/>`mod_bam_reporting*`, `data_bin` | Problem with raw data imported from Centreon.                            | Investigate and fix the issue with raw data. (Maybe you need to compute events with [**eventReportBuilder** on the central server](how-mbi-works.md#phase-1-data-is-prepared-by-the-central-server)). After resolving the issue, run the import script to import missing data, [using the correct options](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`). |
 | `mod_bi_servicemetrics`,`mod_bi_hosts`, `mod_bi_services`,  `mod_bi_hostgroups`                                             | Issue with **dimensions data**.                 | After resolving the issue, run the dimension script to restore consistency in dimensions, [using the correct options](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`).  (`/usr/share/centreon-bi/etl/dimensionsBuilder.pl`)   |
-| `mod_bi_*availability` tables                                             | Issue with **aggregated availability data**, not raw data.            | After resolving the issue, run the availability aggregation script [using the correct options](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`). |
-| `mod_bi_metric*` tables                                                   | Issue with **aggregated metrics data** (e.g., performance), not raw data. | After resolving the issue, run the metrics aggregation script [using the correct options](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`).  |
+| `mod_bi_*availability`                                             | Issue with **aggregated availability data**, not raw data.            | After resolving the issue, run the availability aggregation script [using the correct options](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`). |
+| `mod_bi_metric*`                                                   | Issue with **aggregated metrics data** (e.g., performance), not raw data. | After resolving the issue, run the metrics aggregation script [using the correct options](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`).  |
 
 If any issues occur, double check your MBI is configured according to our [post-installation configuration procedure](https://docs.centreon.com/docs/reporting/installation.md#step-4-configure-the-etl).
 
@@ -190,7 +190,7 @@ If the timezones are different, edit [the corresponding PHP file](installation.m
 systemctl restart php-fpm
 ```
 
-* Check that the CBIS process starts with the same time zones as both servers. Check in the CBIS logs if the time displayed in front of the logs is consistent with the time of the server. First, restart CBIS :
+* Check that the CBIS process starts with the same time zones as both servers. Check in the CBIS logs if the time displayed in front of the logs is consistent with the time of the server. First, restart CBIS:
 
 ```shell
 systemctl restart cbis

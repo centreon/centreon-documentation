@@ -5,35 +5,35 @@ title: Reconstruire les données MBI
 
 ## Qu'est-ce que la reconstruction des données ?
 
-Reconstruire les données veut dire [exécuter l'ETL pour calculer les dimensions et les aggrégations](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées). Les rapports ne peuvent être générés que lorsque l'ETL a fini de tourner et toutes les données sont prêtes.
+Reconstruire les données veut dire [exécuter l'ETL pour calculer les dimensions et les agrégations](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées). Les rapports ne peuvent être générés que lorsque l'ETL a fini de tourner et toutes les données sont prêtes.
 
-## When is rebuilding data necessary?
+## Quand faut-il reconstruire les données?
 
-Rebuilding data is necessary in the following cases:
+Reconstruire les données est nécessaire dans les cas suivants :
 
-- Some changes have been applied to the configuration (for instance if the members of a host group have changed and you already have data for these hosts, or if you create a host group including hosts that already have data). You have two options:
-    - [**Complete rebuild**](#complete-rebuild-overwrite-all-existing-data): you want to recalculate all of your data with the new configuration applied to it. The typical use case for this is wen you are setting up MBI: you might need to adjust the configuration several times to get it right. After modifying resources on your central server (e.g., host groups or service categories), you'll want to update the data in your datawarehouse accordingly.
-    - [**Partial rebuild**](#partial-rebuild-keep-your-data-history): you want to keep your data history (for various reasons such as compliance, audits, referencing current reports, or testing a new configuration without altering historical data). For instance, if a host group no longer exists, you still may want to keep a record that it existed at some point.
-- You need to [repair gaps in your data](#repairing-gaps-in-your-data): launch a partial rebuild to repair gaps in the data. Gaps in your data may occur if one or more daily executions of the ETL failed to complete, for instance because of database errors or network failures.
+- Certaines modifications ont été apportées à la configuration (par exemple, si les membres d'un groupe d'hôtes ont changé et que vous disposez déjà de données pour ces hôtes, ou si vous créez un groupe d'hôtes comprenant des hôtes qui disposent déjà de données). Vous avez deux options :
+    - [**Reconstruction complète**](#reconstruction-complète--écraser-toutes-les-données-existantes) : vous souhaitez recalculer toutes vos données avec la nouvelle configuration qui leur est appliquée. Le cas d'utilisation typique pour cela est lorsque vous configurez MBI : vous devrez peut-être ajuster la configuration plusieurs fois pour obtenir le résultat souhaité. Après avoir modifié les ressources sur votre serveur central (par exemple, les groupes d'hôtes ou les catégories de services), vous devrez mettre à jour les données dans votre entrepôt de données en conséquence.
+    - [**Reconstruction partielle**](#reconstruction-partielle--conserver-lhistorique-de-vos-données) : vous souhaitez conserver l'historique de vos données (pour diverses raisons telles que la conformité, les audits, la référence à des rapports actuels ou le test d'une nouvelle configuration sans modifier les données historiques). Par exemple, si un groupe d'hôtes n'existe plus, vous pouvez tout de même souhaiter conserver une trace de son existence à un moment donné.
+- Vous devez [réparer les lacunes dans vos données](#réparer-les-lacunes-dans-vos-données) : lancez une reconstruction partielle pour réparer les lacunes dans les données. Des lacunes dans vos données peuvent se produire si une ou plusieurs exécutions quotidiennes de l'ETL n'ont pas abouti, par exemple en raison d'erreurs de base de données ou de pannes de réseau.
 
-## About the MBI ETL
+## À propos de l'ETL MBI
 
-### When is the ETL executed?
+### Quand s'exécute l'ETL?
 
-The ETL can run in 3 different contexts:
+L'ETL s'exécute dans trois contextes différents
 
-* When the [initial build of the data](installation.md#step-5-build-the-mbi-database) is run after you install MBI.
-* [Every day (at 4.30 by default)](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated), when the data for the previous day is compiled.
-* When you do a [manual rebuild](#when-is-rebuilding-data-necessary): this is the case this page addresses.
+* Lors de la [construction initiale des données](installation.md#étape-5--construire-la-base-de-données-mbi) après avoir installé MBI.
+* [Tous les jours (à 4h30 du matin par défaut)](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées), lorsque les donées du jour précédent sont compilées.
+* Lorsque vous lancez une [reconstruction manuelle](#quand-faut-il-reconstruire-les-données) : c'est le cas d'usage décrit dans cette page.
 
-### How does the ETL work?
+### Comment fonctionne l'ETL ?
 
-* See [**How MBI works**, phase 2](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated).
-* See [**ETL command reference**](#etl-command-reference).
+* Lire [**Comment fonctionne MBI**, phase 2](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées).
+* Lire [**Référence des commandes de l'ETL**](#commandes-de-letl).
 
-### Before starting with the ETL
+### Avant de commencer avec l'ETL
 
-* Before starting with MBI, make sure you have [prepared your data as described here](preparing-data.md). Then, make sure the **gorgoned** process is running properly, and restart it if necessary.
+* Avant de commencer avec MBI, assurez-vous d'avoir [préparé vos données comme décrit ici](preparing-data.md). Ensuite, vérifiez que le processus **gorgoned** fonctionne correctement, redémarrez-le si nécessaire.
 
    ```shell
    systemctl status gorgoned
@@ -43,310 +43,312 @@ The ETL can run in 3 different contexts:
    systemctl restart gorgoned 
    ```
 
-* Before starting any rebuild operation, try to estimate the time needed for the rebuild ([look at the logs](troubleshooting.md#where-can-i-find-the-logs) to see how long execution takes). Depending on the volume of data on the central server, the rebuild process may take a long time. If you have a lot of data, to prevent duplicates or interruptions during the reconstruction, temporarily comment out the following line in the **/etc/cron.d/centreon-bi-engine** cron file to disable the daily execution of the ETL:
+* Avant de lancer une opération de reconstruction, essayez d'estimer le temps nécessaire à la reconstruction ([consultez les logs](troubleshooting.md#où-sont-stockés-les-logs-) pour voir combien de temps prend l'exécution). Selon le volume de données sur le serveur central, le processus de reconstruction peut prendre beaucoup de temps. Si vous disposez d'un volume important de données, afin d'éviter les doublons ou les interruptions pendant la reconstruction, transformez temporairement en commentaire la ligne suivante dans le fichier cron **/etc/cron.d/centreon-bi-engine** afin de désactiver l'exécution quotidienne de l'ETL :
 
    ```shell
    #30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
    ```
 
-   Then restart crond:
+   Puis relancez crond :
 
    ```shell
    systemctl restart crond
    ```
 
-   > Don't forget to [uncomment the line in the cron file and to restart **crond**](#after-running-the-rebuild-scripts) after the rebuild is fully completed.
+   > N'oubliez pas de  [décommenter la ligne dans le fichier cron et de relancer **crond**](#après-avoir-exécuté-des-scripts-de-reconstruction)  une fois la reconstruction terminée.
 
-* To stop the data retention manager from running at the same as the rebuild and causing problems, comment the line in **/etc/cron.d/centreon-bi-purge**.
+* Pour éviter que le manager de rétention des données ne tourne en même temps que la reconstruction et ne cause des problèmes, transformez temporairement en commentaire la ligne suivante dans **/etc/cron.d/centreon-bi-purge**.
 
    ```shell
    #30 7 * * 1-5 root /usr/share/centreon-bi//etl/dataRetentionManager.pl >> /var/log/centreon-bi//dataRetentionManager.log 2>&1
    ```
 
-   Then restart crond:
+   Puis relancez crond :
 
    ```shell
    systemctl restart crond
    ```
 
-   > Don't forget to [uncomment the line in the cron file and to restart **crond**](#after-running-the-rebuild-scripts) after the rebuild is fully completed.
+   > N'oubliez pas de  [décommenter la ligne dans le fichier cron et de relancer **crond**](#après-avoir-exécuté-des-scripts-de-reconstruction)  une fois la reconstruction terminée.
 
-## Complete rebuild: overwrite all existing data
+## Reconstruction complète : écraser toutes les données existantes
 
-### You have a lot of data
+### Vous avez beaucoup de données
 
-First, read the [**Before starting with the ETL**](#before-starting-with-the-etl) section.
+Dans un premier temps, lisez la section [**Avant de commencer avec l'ETL**](#avant-de-commencer-avec-letl).
 
-In this use case, we assume you already have the raw data, so this procedure does not include the importing of metrics raw data: this is why all 4 scripts of the ETL are launched separately. Make sure all data imported from Centreon is up to date on your reporting server by running the following command:
+Dans ce cas d'usage, nous partons du principe que vous disposez déjà des données brutes. Cette procédure n'inclut donc pas l'importation des données brutes des métriques : c'est pourquoi les 4 scripts de l'ETL sont lancés séparément. Assurez-vous que toutes les données importées depuis Centreon sont à jour sur votre serveur de reporting en exécutant la commande suivante :
 
 ```shell
 /usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
 ```
 
-Make sure that the output contains **ETL OK - Database is up to date** OR that the following tables are not listed:
+Assurez-vous que le résultat contient le message suivant **ETL OK - Database is up to date** OU que les tables suivantes ne sont pas listées:
 - data_bin
 - hoststatevents
 - servicestateevents
 
-If there are problems in the output, read [**Locating missing data or partitions**](troubleshooting.md#locating-missing-data-or-partitions-using-the---partitions-and-db-content-commands).
+S'il y a un problème avec le résultat, lisez [**Identifier les données ou partitions manquantes**](troubleshooting.md#identifier-des-données-ou-partitions-manquantes-avec-les-commandes---partitions-et-db-content).
 
-Once you are satisfied that your data is OK, run the following commands to update and rebuild your reporting data:
+Une fois que vous avez confirmé que vos données sont OK, exécutez les commandes suivantes pour mettre à jour et reconstruire vos données de reporting :
 
-1. Import the latest Centreon configuration:
+1. Importer la configuration Centreon la plus récente :
 
    ```shell
    /usr/share/centreon-bi/etl/importData.pl -r --centreon-only
    ```
 
-2. Calculate the reporting dimensions:
+2. Calculer les dimensions du reporting :
 
    ```shell
    /usr/share/centreon-bi/etl/dimensionsBuilder.pl -r
    ```
 
-3. Aggregate events and availability:
+3. Agréger les évènements et les disponibilités :
 
    ```shell
    nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllEvents.log &
    ```
 
-4. Aggregate performance data (storage, traffic, etc.):
+4. Agréger les données de performance (stockage, trafic, etc.):
 
    ```shell
    nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllPerf.log &
    ```
 
-5. Once rebuild is complete, [perform any necessary post-rebuild operations](#after-running-the-rebuild-scripts).
+5. Une fois la reconstruction complétée, [occupez-vous de toute opération post-reconstruction nécessaire](#après-avoir-exécuté-des-scripts-de-reconstruction).
 
-### You don't have a lot of data
+### Vous n'avez pas beaucoup de données
 
-First, read the [**Before starting with the ETL**](#before-starting-with-the-etl) section.
+Dans un premier temps, lisez la section [**Avant de commencer avec l'ETL**](#avant-de-commencer-avec-letl).
 
-If you don't have a lot of data, execution times are not an issue, so you can use the **centreonBI** "wrapper" script with the following options:
+Si vous n'avez pas beaucoup de données, les temps d'exécution ne seront pas un problème et vous pouvez utilisez le script d'encapsulation **centreonBI** avec les options suivantes :
 
 ```shell
 nohup /usr/share/centreon-bi//bin/centreonBIETL -rICDEP >> /var/log/centreon-bi//centreonBIETL.log 2>&1 &
 ```
 
-- The **-rICDEP** option means that you will extract data from the Centreon configuration database importing only the configuration for hosts, hostgroups, services, service categories, etc...
-- This procedure deletes all previously calculated data and links between objects and recalculates data based on the retention period in the latest Centreon configuration.
+- L'option **-rICDEP** signifie que vous allez extraire les données de la base de données de configuration Centreon en important uniquement la configuration des hôtes, groupes d'hôtes, services, catégories de services, etc.
+- Cette procédure supprime toutes les données précédemment calculées et les liens entre les objets, puis recalcule les données en fonction de la période de rétention définie dans la dernière configuration Centreon.
 
-Once rebuild is complete, [perform any necessary post-rebuild operations](#after-running-the-rebuild-scripts).
+Une fois la reconstruction complétée, [occupez-vous de toute opération post-reconstruction nécessaire](#après-avoir-exécuté-des-scripts-de-reconstruction).
 
-## Partial rebuild: keep your data history
+## Reconstruction partielle : conserver l'historique de vos données
 
-### Aggregation granularity
+### Granularité de l'agregation
 
-MBI allows data to be rebuilt at different levels of granularity: hourly, daily, or monthly. The granularity depends on the period specified when the rebuild process is launched. For example, if a rebuild is performed for the period from July 1 to August 1, MBI will only rebuild the hourly and daily data for that period. However, monthly data is calculated in a specific way: the calculation for month M takes place on the first day of month M+1. Therefore, to rebuild all data for the month of July, including monthly aggregates, you must include August 1 in the period by specifying an end date of August 2.
+MBI permet de reconstruire les données à différents niveaux de granularité : horaire, quotidien ou mensuel. La granularité dépend de la période spécifiée lors du lancement du processus de reconstruction. Par exemple, si une reconstruction est effectuée pour la période du 1er juillet au 1er août, MBI ne reconstruira que les données horaires et quotidiennes pour cette période. Cependant, les données mensuelles sont calculées d'une manière spécifique : le calcul pour le mois M a lieu le premier jour du mois M+1. Par conséquent, pour reconstruire toutes les données du mois de juillet, y compris les agrégats mensuels, vous devez inclure le 1er août dans la période en spécifiant une date de fin au 2 août car les données du jour spécifié comme date de fin ne sont pas incluses.
 
-### Options for a partial rebuild
+### Options pour une reconstructions partielle
 
-The **-s** and **-e** options define the time range for data processing.
+Les options **-s** et **-e** définissent la période de temps pour le traitement des données.
 
-- **-s** sets the start date (**YYYY-MM-DD**).
-- **-e** sets the end date (**YYYY-MM-DD**). Note that the day specified as the end date will not be included in the data: 
-   - To include data through to a specific day (e.g. August 7), set **-e** to the **next day** (**2025-08-08**).
-   - To include a full month (e.g., July), set the start date (**-s**) to the **1st day of the month** (**2025-07-01**) and the end date (**-e**) to the **2nd day of the next month** (**2025-08-02**, see [**Aggregation granularity**](#aggregation-granularity)).
+- **-s** définit la date de début (**AAAA-MM-JJ**).
+- **-e** définit la date de fin (**AAAA-MM-JJ**). Notez que le jour spécifié comme date de fin ne sera pas inclus dans les données : 
+   - Pour inclure les données jusqu'à un jour spécifique (par exemple, le 7 août), définissez **-e** sur le **jour suivant** (**2025-08-08**).
+   - Pour inclure un mois complet (par exemple, juillet), définissez la date de début (**-s**) sur le **1er jour du mois** (**2025-07-01**) et la date de fin (**-e**) sur le **2e jour du mois suivant** (**2025-08-02**, voir [**Granularité d'agrégation**](#granularité-de-lagregation)).
 
-The **-d** option for **dimensionBuilder.pl** performs an incremental update, adding or modifying only the changed configuration elements. It is ideal for testing or updating specific periods without affecting historical data.
+L'option **-d** de **dimensionBuilder.pl** effectue une mise à jour incrémentielle, en ajoutant ou en modifiant uniquement les éléments de configuration modifiés. Elle est idéale pour tester ou mettre à jour des périodes spécifiques sans affecter les données historiques.
 
-The **--no-purge** option is extremely important: it preserves existing statistical data outside the specified date range. Only data within the selected period will be deleted and recalculated. If you forget to specify it, the data outside the date range will be deleted.
+L'option **--no-purge** est extrêmement importante : elle préserve les données statistiques existantes en dehors de la plage de dates spécifiée. Seules les données comprises dans la période sélectionnée seront supprimées et recalculées. Si vous oubliez de la spécifier, les données en dehors de la plage de dates seront supprimées.
 
-### Commands for a partial rebuild
+### Commandes pour une reconstruction partielle
 
-First, read the [**Before starting with the ETL**](#before-starting-with-the-etl) section.
+Dans un premier temps, lisez la section [**Avant de commencer avec l'ETL**](#avant-de-commencer-avec-letl).
 
-If you want to keep previously aggregated statistics and apply the new configuration only to a specific period, use the following commands (note that you MUST use the **--no-purge** option, otherwise all your other data will be deleted):
+Si vous souhaitez conserver les statistiques précédemment agrégées et appliquer la nouvelle configuration uniquement à une période spécifique, utilisez les commandes suivantes (notez que vous DEVEZ utiliser l'option **--no-purge**, sinon toutes vos autres données seront supprimées) :
 
-1. Import the Centreon configuration between the dates you specify:
+1. Importer la configuration Centreon entre les dates que vous spécifiez :
 
    ```shell
    /usr/share/centreon-bi/etl/importData.pl -r --centreon-only -s $date_start$ -e $date_end$ --no-purge
    ```
 
-2. Calculate the reporting dimensions:
+2. Calculer les dimensions du reporting :
 
    ```shell
    /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d
    ```
 
-3. Aggregate events and availability between the dates you specify:
+3. Agréger les évènements et la disponibilité:
 
    ```shell
    nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r  -s $date_start$ -e $date_end$ --no-purge > /var/log/centreon-bi/rebuildAllEvents.log &
    ```
 
-4. Aggregate performance data (storage, traffic, etc.) between the dates you specify:
+4. Agréger les données de performance (stockage, trafic, etc.) entre les dates spécifiées :
 
    ```shell
    nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r -s $date_start$ -e $date_end$ --no-purge > /var/log/centreon-bi/rebuildAllPerf.log &
    ```
 
-5. Once rebuild is complete, [perform any necessary post-rebuild operations](#after-running-the-rebuild-scripts).
+5. Une fois la reconstruction complétée, [occupez-vous de toute opération post-reconstruction nécessaire](#après-avoir-exécuté-des-scripts-de-reconstruction).
 
-### Rebuilding only events/availability or only metrics
+### Reconstruire uniquement des évènements/disponibilités ou uniquement des métriques
 
-The procedure described above is the standard, recommended procedure. However, if you have large amounts of data and you know for sure that you only need to rebuild events/availability or only metrics, perform the following steps in the table below:
+La procédure décrite ci-dessus est la procédure standard recommandée. Cependant, si vous disposez d'une grande quantité de données et que vous êtes certain de ne devoir reconstruire que les événements/la disponibilité ou uniquement les métriques, suivez les étapes indiquées dans le tableau ci-dessous :
 
-* Only events/availability: steps 1, 3 and 4.
-* Only metrics: steps 2, 3, 5 and 6.
+* Événements/disponibilité uniquement : étapes 1, 3 et 4.
+* Métriques uniquement : étapes 2, 3, 5 et 6.
 
-Once rebuild is complete, [perform any necessary post-rebuild operations](#after-running-the-rebuild-scripts).
+Once rebuild is complete, [perform any necessary post-rebuild operations](#après-avoir-exécuté-des-scripts-de-reconstruction).
 
-| Steps | Description | Command | Execution Time |
-|------|-------------|---------|----------------|
-| **1. Import event and availability data (excluding performance data)** | Import event data but not performance data (`data_bin`) between specific dates. (Specifically, use this command if there is a problem with the contents of the `mod_bam_reporting`, `hoststateevents` or `servicestateevents` tables). | `nohup /usr/share/centreon-bi/etl/importData.pl -r -s $date_start$ -e $date_end$ --ignore-databin --no-purge > /var/log/centreon-bi/rebuild_importDataEvents.log &` | **Fast** (minutes) |
-| **2. Import metrics (`data_bin`)** | Import only `data_bin` data between specific dates. | `nohup /usr/share/centreon-bi/etl/importData.pl -r --no-purge --databin-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_importDataBin.log &` | A few minutes to several hours |
-| **3. Update reporting dimensions** | Update the reporting dimensions. Use `-d` to preserve the history of configuration changes. | `nohup /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d > /var/log/centreon-bi/rebuild_dimensions.log &` | **Fast** (seconds to minutes), depending on the number of groups, categories and metrics imported |
-| **4. Rebuild events tables** | Rebuild events based on the retention period defined in **Reporting > Monitoring Business Intelligence > General options** **Data retention options** tab. | `nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --events-only --no-purge > /var/log/centreon-bi/rebuild_events.log &` | **A few minutes to several hours** (rarely more than 24h)  |
-| **5. Rebuild availability tables** | Rebuild availability stats between the dates you specify (check `mod_bi_hostavailability` and `mod_bi_serviceavailability` dates using the MBI connector). | `nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --no-purge --availability-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_availability.log &` | **A few minutes to several hours** |
-| **6. Rebuild performance statistics** | Rebuild performance stats between the dates you specify (check the dates in the `mod_bi_metrichourlyvalue` and `mod_bi_metricdailyvalue` tables using the MBI connector). | `nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --no-purge -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_perfData.log &` | **Few minutes to several hours**. Longer if rebuilding more days than hourly retention allows. |
+| Étapes | Description | Commande | Temps d'exécution |
+|--------|-------------|----------|--------------------|
+| **1. Importer les données d'événements et de disponibilités (hors données de performances)** | Importe les données d'événements mais pas les données de performance (`data_bin`) entre deux dates spécifiques. (Utiliser cette commande en cas de problème avec le contenu des tables `mod_bam_reporting`, `hoststateevents` ou `servicestateevents`). | `nohup /usr/share/centreon-bi/etl/importData.pl -r -s $date_start$ -e $date_end$ --ignore-databin --no-purge > /var/log/centreon-bi/rebuild_importDataEvents.log &` | **Rapide** (quelques minutes) |
+| **2. Importer les métriques (`data_bin`)** | Importe uniquement les données `data_bin` entre deux dates spécifiques. | `nohup /usr/share/centreon-bi/etl/importData.pl -r --no-purge --databin-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_importDataBin.log &` | De quelques minutes à plusieurs heures |
+| **3. Mettre à jour les dimensions de reporting** | Met à jour les dimensions de reporting. Utilisez `-d` pour conserver l’historique des changements de configuration. | `nohup /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d > /var/log/centreon-bi/rebuild_dimensions.log &` | **Rapide** (de quelques secondes à quelques minutes), selon le nombre de groupes, catégories et métriques importés |
+| **4. Reconstruire les tables d'événements** | Reconstruit les événements en fonction de la période de rétention définie dans **Reporting > Monitoring Business Intelligence > General options**, onglet **Options de rétention des données**. | `nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --events-only --no-purge > /var/log/centreon-bi/rebuild_events.log &` | **De quelques minutes à plusieurs heures** (rarement plus de 24h) |
+| **5. Reconstruire les tables de disponibilité** | Reconstruit les statistiques de disponibilité entre les dates spécifiées (vérifiez les dates dans les tables `mod_bi_hostavailability` et `mod_bi_serviceavailability` via le connecteur MBI). | `nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --no-purge --availability-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_availability.log &` | **De quelques minutes à plusieurs heures** |
+| **6. Reconstruire les statistiques de performance** | Reconstruit les statistiques de performance entre les dates spécifiées (vérifiez les dates dans les tables `mod_bi_metrichourlyvalue` et `mod_bi_metricdailyvalue` via le connecteur MBI). | `nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --no-purge -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_perfData.log &` | **De quelques minutes à plusieurs heures**. Plus long si la reconstruction concerne plus de jours que ce que permet la rétention horaire. |
 
-## Repairing gaps in your data
 
-1. First, read the [**Before starting with the ETL**](#before-starting-with-the-etl) section.
-2. [Locate gaps in your data](troubleshooting.md#locating-missing-data-or-partitions-using-the---partitions-and-db-content-commands).
-3. [Run a partial rebuild of your data, keeping your data history](#partial-rebuild-keep-your-data-history).
-4. Once rebuild is complete, [perform any necessary post-rebuild operations](#after-running-the-rebuild-scripts).
+## Réparer les lacunes dans vos données
 
-## After running the rebuild scripts
+1. Dans un premier temps, lisez la section [**avant de commencer avec l'ETL**](#avant-de-commencer-avec-letl).
+2. [Identifiez des lacunes dans vos données](troubleshooting.md#identifier-des-données-ou-partitions-manquantes-avec-les-commandes---partitions-et-db-content).
+3. [Lancez une reconstruction partielle de vos données, conservant l'historique de vos données](#reconstruction-partielle--conserver-lhistorique-de-vos-données).
+4. Une fois la reconstruction complétée, [occupez-vous de toute opération post-reconstruction nécessaire](#après-avoir-exécuté-des-scripts-de-reconstruction).
 
-### Case 1: The rebuild takes less than a day
+## Après avoir exécuté des scripts de reconstruction
 
-1. Uncomment lines in **/etc/cron.d/centreon-bi-engine** and **/etc/cron.d/centreon-bi-purge**.  
-2. Restart crond:
+### Cas 1 : La reconstruction a pris moins d'un jour
 
-   ```shell
-   systemctl restart crond
-   ```
-
-When all operations are finished, your [MBI monitoring connector](./installation.md#monitor-your-mbi-server-with-centreon) shows **ETL execution OK, database is up-to-date**.
-
-### Case 2: The rebuild finishes the next day
-
-1. Uncomment lines in **/etc/cron.d/centreon-bi-engine** and **/etc/cron.d/centreon-bi-purge**.  
-2. Restart crond:
+1. Décommentez les lignes dans **/etc/cron.d/centreon-bi-engine** et **/etc/cron.d/centreon-bi-purge**.  
+2. Redémarrez crond:
 
    ```shell
    systemctl restart crond
    ```
 
-3. Run the daily script manually, as it has not been run for the current day:
+Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreonn) indique **ETL execution OK, database is up-to-date**.
+
+### Cas 2 : la reconstruction se termine le lendemain
+
+1. Décommentez les lignes dans **/etc/cron.d/centreon-bi-engine** et **/etc/cron.d/centreon-bi-purge**.
+2. Redémarrez crond :
+
+   ```shell
+   systemctl restart crond
+   ```
+
+3. Exécutez manuellement le script quotidien, il n'aura pas été exécuté pour la journée en cours :
 
    ```shell
    /usr/share/centreon-bi/bin/centreonBIETL -d
    ```
 
-When all operations are finished, your [MBI monitoring connector](./installation.md#monitor-your-mbi-server-with-centreon) shows **ETL execution OK, database is up-to-date**.
+Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreonn) indique **ETL execution OK, database is up-to-date**.
 
-### Case 3: The rebuild takes multiple days
+### Cas 3 : la reconstruction prend plusieurs jours
 
-1. Uncomment lines in **/etc/cron.d/centreon-bi-engine** and **/etc/cron.d/centreon-bi-purge**.  
-2. Restart crond:
+1. Décommentez les lignes dans **/etc/cron.d/centreon-bi-engine** et **/etc/cron.d/centreon-bi-purge**.
+2. Redémarrez crond :
 
-   ```shell
+```shell
    systemctl restart crond
    ```
 
-3. Perform a [partial rebuild](#partial-rebuild-keep-your-data-history), specifying the correct start and end dates for the time the rebuild was being executed. Example: to rebuild data from January 1 to January 4 inclusive, use **date_start=2025-01-01** and **date_end=2025-01-05**.  
+3. Effectuez une [reconstruction partielle](#reconstruction-partielle--conserver-lhistorique-de-vos-données), en spécifiant les dates de début et de fin correctes pour la période pendant laquelle la reconstruction a été effectuée. Exemple : pour reconstruire les données du 1er janvier au 4 janvier inclus, utilisez **date_start=2025-01-01** et **date_end=2025-01-05**.
 
-When all operations are finished, your [MBI monitoring connector](./installation.md#monitor-your-mbi-server-with-centreon) shows **ETL execution OK, database is up-to-date**.
+Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreonn) indique **ETL execution OK, database is up-to-date**.
 
-## How to rebuild missing BAM statistics
+## Comment reconstruire les statistiques BAM manquantes
 
-BAM statistics are not compiled by the ETL, but by the central server. If BAM statistics are not up to date, follow this procedure:
+Les statistiques BAM ne sont pas compilées par l'ETL, mais par le serveur central. Si les statistiques BAM ne sont pas à jour, suivez cette procédure :
 
-1. On the central server, execute the following command to rebuild BAM statistics:
+1. Sur le serveur central, exécutez la commande suivante pour reconstruire les statistiques BAM :
 
-   ```shell
+```shell
    /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
    ```
 
-2. Then, re-import the updated data on the reporting server:
+2. Ensuite, réimportez les données mises à jour sur le serveur MBI :
 
-   ```shell
+```shell
    /usr/share/centreon-bi/etl/importData.pl -r --bam-only
    ```
 
-## How to rebuild centile statistics
+## Comment reconstruire les statistiques centiles
 
-To use the **"Monthly Network Percentile"** report, you must activate centile calculation and storage. Go to:  **Reporting > Business Intelligence > General Options > ETL Tab**  , then configure the **"Centile parameters"** subsection as described below to define the appropriate centile/time period combination(s).
+Pour utiliser le rapport **"Monthly Network Percentile"**, vous devez activer le calcul et le stockage des centiles. Accédez à :  **Reporting > Business Intelligence > General Options**, onglet **Options de l'ETL**, puis configurez la sous-section **"Paramètres pour le calcul des centiles"** comme décrit ci-dessous pour définir la ou les combinaisons centiles/périodes appropriées.
 
-### Required configuration
+### Configuration nécessaire
 
-| Parameter                                      | Value                                                       |
+| Paramètre                                      | Valeur                                                       |
 |-----------------------------------------------|-------------------------------------------------------------|
-| **Calculate centile aggregation**              | Monthly (minimum)                                           |
-| **Select service categories to aggregate on**  | Select at least one traffic service category                |
-| **Set first day of the week**                 | Monday (default)                                            |
-| **Create centile-time period combination(s)**  | Create at least one, e.g., `99.0000 - 24x7`                 |
+| **Calculate centile aggregation**              | Mensuellement (minimum)                                           |
+| **Sélectionner les catégories de services sur lesquelles aggréger les données**  | Selectionez au moins une catéforie de service de trafic category                |
+| **Premier jour de la semaine**                 | Lundi (par défaut)                                            |
+| **Créer les combinaisons centile-plage horaire qui couvrent vos besoins**  | Créez-en au moins une `99.0000 - 24x7`                 |
 
-Only service categories selected in the **"Reporting perimeter selection"** will appear in the list of service categories available for centile statistics.
+Seules les catégories de services sélectionnées dans la section **"Sélection du périmètre du reporting"** apparaîtront dans la liste des catégories de services disponibles pour les statistiques centiles.
 
-You can create as many **centile–time period combinations** as needed. However, note that increasing the number of combinations may **increase calculation time**. It is recommended to start with a **small number** of combinations to evaluate performance impact.
+Vous pouvez créer autant de **combinaisons centile-plage-horaire** que nécessaire. Cependant, notez que l'augmentation du nombre de combinaisons peut **augmenter le temps de calcul**. Il est recommandé de commencer avec un **petit nombre** de combinaisons afin d'évaluer l'impact sur les performances.
 
-### Import configuration data on the reporting server
+### Importer les données de configuration sur le serveur de reporting
 
 ```shell
 /usr/share/centreon-bi/bin/centreonBIETL -rIC
 ``` 
 
-### Update centile configuration in the datawarehouse
+### Mettre à jour la configuration des centiles dans l'entrepôt de données
 
 ```shell
 /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d
 ``` 
 
-### Calculate centile statistics only
+### Calculer uniquement les statistiques centiles
 ```shell
 /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --centile-only
 ```
 
-## ETL command reference
+## Référence des commandes de l'ETL
 
-Centreon MBI uses a Perl-based script to orchestrate its ETL (Extract, Transform, Load) operations. The main script responsible for triggering these processes is:
+Centreon MBI utilise un script basé sur Perl pour orchestrer son ETL (Extract, Transform, Load). Le script principal chargé de déclencher ces processus est :
 
 ```shell
 /usr/share/centreon-bi/bin/centreonBIETL (-c|-d|-r) 
 ```
 
-This script supports several execution options to perform tasks such as creating [dimensions](https://docs.centreon.com/docs/reporting/concepts/#dimension), copying and aggregating the previous day's data, or rebuilding the whole MBI database.
+Ce script prend en charge plusieurs options d'exécution pour effectuer des tâches telles que la création de [dimensions](https://docs.centreon.com/fr/docs/reporting/concepts/#dimension), la copie et l'agrégation des données de la veille ou la reconstruction de l'ensemble de la base de données MBI.
 
-This section focuses specifically on the `-r` (rebuild) option and its usage.
+Cette section se concentre spécifiquement sur l'option `-r` (reconstruction) et son utilisation.
 
-### Execution options
-
-| Option | Description |
-|--------|-------------|
-| `-c`   | Create the reporting dimensions. |
-| `-d`   | Calculate statistics on yesterday's data (happens daily). |
-| `-r`   | Calculate statistics on a specific period (rebuild mode). |
-
-### Arguments for option `-r`
+### Options d'exécution
 
 | Option | Description |
 |--------|-------------|
-| `-I`   | Extract data from the monitoring server. |
-| `-D`   | Calculate dimensions. |
-| `-E`   | Calculate event and availability statistics. |
-| `-P`   | Calculate perfdata statistics. |
+| `-c`   | Créer les dimensions du reporting. |
+| `-d`   | Calculer les statistiques selon les données du jour précédent (s'exécute au quotidien) |
+| `-r`   | Calculer les statistiques d'une période spécifiquae (mode de reconstruction). |
 
-> **Note**: If none of the following is specified (only the "-r" option), these arguments are selected by default: `-IDEP`.
-
-### Extra options for `-rIDEP`
+### Arguments pour l'option `-r`
 
 | Option | Description |
 |--------|-------------|
-| `-s`   | Start date in format `YYYY-MM-DD`. Defaults to data retention period from Centreon MBI configuration. |
-| `-e`   | End date in format `YYYY-MM-DD`. Defaults to data retention period from Centreon MBI configuration. |
-| `-p`   | Do not empty statistic tables; delete only entries for the processed period. Not applicable to raw data tables. |
+| `-I`   | Extraire des données du serveur central. |
+| `-D`   | Calculer des dimensions. |
+| `-E`   | Calculer des statistiques d'évènements et disponibilité. |
+| `-P`   | Calculer des statistiques de données de performance. |
 
-> **Note**: If no start or end date is provided, the script calculates them automatically using the retention parameters from the interface under **General Option > Data retention Parameter**.
+> **Note**: Si aucun des éléments suivants n'est spécifié (uniquement l'option « -r »), ces arguments sont sélectionnés par défaut : `-IDEP`.
 
-### Extra arguments for option `-I`
+### Autres options for `-rIDEP`
 
 | Option | Description |
 |--------|-------------|
-| `-C`   | Extract Centreon configuration database only.  |
-| `-i`   | Ignore perfdata extraction from monitoring server. |
-| `-o`   | Extract only perfdata from monitoring server. |
+| `-s`   | Date de début au format `AAAA-MM-JJ`. Par défaut, utilise la période de rétention définie dans la configuration de Centreon MBI. |
+| `-e`   | Date de fin au format `AAAA-MM-JJ`. Par défaut, utilise la période de rétention définie dans la configuration de Centreon MBI. |
+| `-p`   | Ne vide pas les tables de statistiques ; supprime uniquement les entrées correspondant à la période traitée. Non applicable aux tables de données brutes. |
+
+> **Remarque** : Si aucune date de début ou de fin n’est fournie, le script les calcule automatiquement à l’aide des paramètres de rétention définis dans l’interface sous **Option générale > Paramètres de rétention des données**.
+
+
+### Arguments supplémentaires pour l’option `-I`
+
+| Option | Description |
+|--------|-------------|
+| `-C`   | Extraire uniquement la base de données de configuration de Centreon. |
+| `-i`   | Ignorer l’extraction des données de performance depuis le serveur de central. |
+| `-o`   | Extraire uniquement les données de performance depuis le serveur de central. |

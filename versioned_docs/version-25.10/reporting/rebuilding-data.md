@@ -5,7 +5,7 @@ title: Rebuilding MBI data
 
 ## What does rebuilding data mean?
 
-Rebuilding data means [executing the ETL, to calculate dimensions and aggregations](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated). Reports can only be generated when the ETL has run and all the data is prepared.
+Rebuilding data means [executing the ETL to calculate dimensions and aggregations](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated). Reports can only be generated when the ETL has run and all the data is prepared.
 
 ## When is rebuilding data necessary?
 
@@ -23,7 +23,7 @@ Rebuilding data is necessary in the following cases:
 The ETL can run in 3 different contexts:
 
 * When the [initial build of the data](installation.md#step-5-build-the-mbi-database) is run after you install MBI.
-* [Every day (at 4.30 by default)](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated), when the data for the previous day is compiled.
+* [Every day (at 4:30 by default)](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated), when the data for the previous day is compiled.
 * When you do a [manual rebuild](#when-is-rebuilding-data-necessary): this is the case this page addresses.
 
 ### How does the ETL work?
@@ -90,7 +90,7 @@ Make sure that the output contains **ETL OK - Database is up to date** OR that t
 
 If there are problems in the output, read [**Locating missing data or partitions**](troubleshooting.md#locating-missing-data-or-partitions-using-the---partitions-and-db-content-commands).
 
-Once you are satisfied that your data is OK, run the following commands to update and rebuild your reporting data:
+Once you have confirmed that your data is OK, run the following commands to update and rebuild your reporting data:
 
 1. Import the latest Centreon configuration:
 
@@ -137,7 +137,7 @@ Once rebuild is complete, [perform any necessary post-rebuild operations](#after
 
 ### Aggregation granularity
 
-MBI allows data to be rebuilt at different levels of granularity: hourly, daily, or monthly. The granularity depends on the period specified when the rebuild process is launched. For example, if a rebuild is performed for the period from July 1 to August 1, MBI will only rebuild the hourly and daily data for that period. However, monthly data is calculated in a specific way: the calculation for month M takes place on the first day of month M+1. Therefore, to rebuild all data for the month of July, including monthly aggregates, you must include August 1 in the period by specifying an end date of August 2.
+MBI allows data to be rebuilt at different levels of granularity: hourly, daily, or monthly. The granularity depends on the period specified when the rebuild process is launched. For example, if a rebuild is performed for the period from July 1 to August 1, MBI will only rebuild the hourly and daily data for that period. However, monthly data is calculated in a specific way: the calculation for month M takes place on the first day of month M+1. Therefore, to rebuild all data for the month of July, including monthly aggregates, you must include August 1 in the period by specifying an end date of August 2 because the data of the end date is not included.
 
 ### Options for a partial rebuild
 
@@ -270,7 +270,7 @@ BAM statistics are not compiled by the ETL, but by the central server. If BAM st
 
 ## How to rebuild centile statistics
 
-To use the **"Monthly Network Percentile"** report, you must activate centile calculation and storage. Go to:  **Reporting > Business Intelligence > General Options > ETL Tab**  , then configure the **"Centile parameters"** subsection as described below to define the appropriate centile/time period combination(s).
+To use the **"Monthly Network Percentile"** report, you must activate centile calculation and storage. Go to:  **Reporting > Business Intelligence > General Options**, **ETL options** tab then configure the **"Centile parameters"** subsection as described below to define the appropriate centile/time period combination(s).
 
 ### Required configuration
 
