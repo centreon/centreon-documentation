@@ -5,7 +5,7 @@ title: Reconstruire les données MBI
 
 ## En quoi consiste la reconstruction des données ?
 
-Reconstruire les données veut dire [exécuter l'ETL pour calculer les dimensions et les agrégations](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées). Les rapports ne peuvent être générés que lorsque l'ETL a fini de tourner et que toutes les données sont prêtes.
+Reconstruire les données veut dire [exécuter l'ETL pour calculer les dimensions et les agrégations](how-mbi-works.md#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées). Les rapports ne peuvent être générés que lorsque l'ETL a fini de tourner et que toutes les données sont prêtes.
 
 ## Quand faut-il reconstruire les données?
 
@@ -14,7 +14,7 @@ Reconstruire les données est nécessaire dans les cas suivants :
 - Certaines modifications ont été apportées à la configuration (par exemple, si les membres d'un groupe d'hôtes ont changé et que vous disposez déjà de données pour ces hôtes, ou si vous créez un groupe d'hôtes comprenant des hôtes qui disposent déjà de données). Vous avez deux options :
     - [**Reconstruction complète**](#reconstruction-complète--écraser-toutes-les-données-existantes) : vous souhaitez recalculer toutes vos données avec la nouvelle configuration qui leur est appliquée. Le cas d'utilisation typique pour cela est lorsque vous configurez MBI : vous devrez peut-être ajuster la configuration plusieurs fois pour obtenir le résultat souhaité. Après avoir modifié les ressources sur votre serveur central (par exemple, les groupes d'hôtes ou les catégories de services), vous devrez mettre à jour les données dans votre base MBI en conséquence.
     - [**Reconstruction partielle**](#reconstruction-partielle--conserver-lhistorique-de-vos-données) : vous souhaitez conserver l'historique de vos données (pour diverses raisons telles que la conformité, les audits, la référence à des rapports actuels ou le test d'une nouvelle configuration sans modifier les données historiques). Par exemple, si un groupe d'hôtes n'existe plus, vous pouvez tout de même souhaiter conserver une trace qu'il a existé à un moment donné.
-- Vous devez [réparer les trous dans vos données](#réparer-les-lacunes-dans-vos-données) : lancez une reconstruction partielle pour le faire. Des trous dans vos données peuvent apparaître si une ou plusieurs exécutions quotidiennes de l'ETL n'ont pas abouti, par exemple en raison d'erreurs de base de données ou de pannes de réseau.
+- Vous devez [réparer les trous dans vos données](#réparer-les-trous-dans-vos-données) : lancez une reconstruction partielle pour le faire. Des trous dans vos données peuvent apparaître si une ou plusieurs exécutions quotidiennes de l'ETL n'ont pas abouti, par exemple en raison d'erreurs de base de données ou de pannes de réseau.
 
 ## À propos de l'ETL MBI
 
@@ -23,12 +23,12 @@ Reconstruire les données est nécessaire dans les cas suivants :
 L'ETL s'exécute dans trois contextes différents :
 
 * Lors de la [construction initiale des données](installation.md#étape-5--construire-la-base-de-données-mbi) après avoir installé MBI.
-* [Tous les jours (à 4h30 du matin par défaut)](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées), lorsque les donées du jour précédent sont compilées.
+* [Tous les jours (à 4h30 du matin par défaut)](how-mbi-works.md#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées), lorsque les donées du jour précédent sont compilées.
 * Lorsque vous lancez une [reconstruction manuelle](#quand-faut-il-reconstruire-les-données) : c'est le cas d'usage décrit dans cette page.
 
 ### Comment fonctionne l'ETL ?
 
-* Lire [**Comment fonctionne MBI**, phase 2](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées).
+* Lire [**Comment fonctionne MBI**, phase 2](how-mbi-works.md#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées).
 * Lire [**Référence des commandes de l'ETL**](#référence-des-commandes-de-letl).
 
 ### Avant de commencer avec l'ETL
@@ -206,7 +206,7 @@ Une fois la reconstruction terminée, [faites toute opération post-reconstructi
 ## Réparer les trous dans vos données
 
 1. Dans un premier temps, lisez la section [**avant de commencer avec l'ETL**](#avant-de-commencer-avec-letl).
-2. [Identifiez des trous dans vos données](troubleshooting.md#identifier-des-données-ou-partitions-manquantes-avec-les-commandes---partitions-et-db-content).
+2. [Identifiez des trous dans vos données](troubleshooting.md#identifier-des-données-ou-partitions-manquantes-avec-les-commandes---partitions-et---db-content).
 3. [Lancez une reconstruction partielle de vos données, en conservant l'historique de vos données](#reconstruction-partielle--conserver-lhistorique-de-vos-données).
 4. Une fois la reconstruction terminée, [faites toute opération post-reconstruction nécessaire](#après-avoir-exécuté-des-scripts-de-reconstruction).
 
