@@ -38,6 +38,17 @@ Release date: `August 11, 2025`
 
 Release date: `August 6, 2025`
 
+> With this release, which officially marks the end of the Centreon Monitoring Agent Beta phase, the security of Agent/Poller communication has been reinforced.
+> The creation of a new agent configuration via the interface or API now requires a valid authentication token.
+> To avoid disrupting configurations already in place (and therefore without tokens) at the time of the update, TLS connections without tokens are still tolerated.
+> This will no longer be the case in 25.10: any secure connection without a valid token will be refused by the poller and agent.
+> Before migrating to 25.10, you will therefore need to:
+> * Generate a token
+> * Apply it to the agent configuration on the Poller
+> * Apply it to the agent configuration on the Host
+> * Export the configuration and restart Engine, as well as the Agent on the Host
+> To do this, follow the dedicated step-by-step instructions: https://thewatch.centreon.com/product-how-to-21/how-to-configure-a-token-for-centreon-monitoring-agent-4880
+
 <details open>
   <summary>Enhancements</summary>
 
@@ -491,6 +502,17 @@ Release date: `August 6, 2025`
 ### 24.10.9
 
 Release date: `August 6, 2025`
+
+> With this release, which officially marks the end of the Centreon Monitoring Agent Beta phase, the security of Agent/Poller communication has been reinforced.
+> The creation of a new agent configuration via the interface or API now requires a valid authentication token.
+> To avoid disrupting configurations already in place (and therefore without tokens) at the time of the update, TLS connections without tokens are still tolerated.
+> This will no longer be the case in 25.10: any secure connection without a valid token will be refused by the poller and agent.
+> Before migrating to 25.10, you will therefore need to:
+> * Generate a token
+> * Apply it to the agent configuration on the Poller
+> * Apply it to the agent configuration on the Host
+> * Export the configuration and restart Engine, as well as the Agent on the Host
+> To do this, follow the dedicated step-by-step instructions: https://thewatch.centreon.com/product-how-to-21/how-to-configure-a-token-for-centreon-monitoring-agent-4880
 
 <details>
   <summary>Enhancements</summary>
