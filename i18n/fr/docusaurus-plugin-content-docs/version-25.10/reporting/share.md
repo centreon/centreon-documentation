@@ -1,24 +1,24 @@
 ---
 id: share
-title: Giving access to jobs and reports in Centreon
+title: Permettre l'accès aux rapports et tâches dans Centreon
 ---
 
-* Administrators can see and edit all jobs (created by all users on the platform), and can see all generated reports.
-* By default, non-admin users can see no jobs and no generated reports. If you want to make it possible for a user to download a report from the Centreon interface and/or to edit jobs, you need first to [link a job group to an MBI ACL rule](#preparing-acls), then [link the job group to the job you want to share](#using-a-job-group-in-a-job-definition).
+* Les administrateurs peuvent voir et modifier toutes les tâches (créés par tous les utilisateurs de la plateforme) et peuvent voir tous les rapports générés.
+* Par défaut, les utilisateurs non administrateurs ne peuvent voir aucune tâche ni aucun rapport généré. Si vous souhaitez permettre à un utilisateur de télécharger un rapport depuis l'interface Centreon et/ou de modifier des tâches, vous devez d'abord [associer un groupe de tâches à une règle ACL MBI](#préparer-les-acls), puis [associer le groupe de tâches à la tâche que vous souhaitez partager](#using-a-job-group-in-a-job-definition).
 
-A much simpler option is to [send the generated report to this user by email or copy the report to a server they can access](https://docs.centreon.com/docs/reporting/reports_publication_rule/), using a publication rule.
+Une option beaucoup plus simple consiste à envoyer le rapport généré à cet utilisateur par e-mail ou à copier le rapport sur un serveur auquel il a accès, à l'aide d'une [règle de publication](https://docs.centreon.com/fr/docs/reporting/reports-publication-rule/).
 
-Please note that the data included in the report depends on the ACLs **of the person creating the job**. It is the responsibility of the person creating the job to make sure that the resources included in the report are authorized for the users with which they want to share the report.
+Veuillez noter que les données incluses dans le rapport dépendent des ACL **de la personne qui crée la tâche**. Il incombe à la personne qui crée le travail de s'assurer que les ressources incluses dans le rapport sont autorisées pour les utilisateurs avec lesquels elle souhaite partager le rapport.
 
-## Preparing ACLs
+## Préparer les ACLs
 
-1. Make sure your users belong to an [access group](../administration/access-control-lists.md#créer-un-groupe-daccès). Check which menus your users can access: at this step, for instance, you can choose to give them access to the list of generated reports but not to the list of jobs so they cannot edit jobs.
-2. Go to **Reporting > Monitoring Business Intelligence > Job groups** and create a new job group.
-3. Go to **Administration > ACL > Centreon MBI > ACL rules** and create a new ACL rule for MBI.
-   * On the **General information** tab, add the access groups you want.  
-   * On the **Report designs** tab, select the report designs that these users will be able to use. (impact sur utilisation et pas consultation?)
-   * on the **Jobs** tab, select the job groups you want to give access to (you may have to save the rule and edit it again before the list of jobs/job groups is refreshed).
+1. Assurez-vous que vos utilisateurs appartiennent à un [groupe d'accès](../administration/access-control-lists.md#créer-un-groupe-daccès). Vérifiez [les menus auxquels vos utilisateurs ont accès](../administration/access-control-lists.md#filtres-daccès-aux-menus) : à cette étape, vous pouvez par exemple choisir de leur donner accès à la liste des rapports générés, mais pas à la liste des tâches, afin qu'ils ne puissent pas modifier les tâches.
+2. Allez dans **Reporting > Monitoring Business Intelligence > Job groups** et créez un nouveau groupe de tâches.
+3. Allez dans **Administration > ACL > Règles ACL** et créez une nouvelle règle ACL pour MBI.
+   * Dans l'onglet **General information**, ajoutez les groupes d'accès souhaités.  
+   * Dans l'onglet **Report designs**, sélectionnez les modèles de rapports que ces utilisateurs pourront utiliser.
+   * Dans l'onglet **Jobs**, sélectionnez les groupes de tâches auxquels vous souhaitez donner accès (vous devrez peut-être enregistrer la règle et la modifier à nouveau avant que la liste des tâches/groupes de tâches ne soit mise à jour).
 
 ## Using a job group in a job definition
 
-When [creating a job](https://docs.centreon.com/fr/docs/reporting/generate-reports.md) (on the **Reporting > Monitoring Business Intelligence > Jobs** page), in the **Job Configuration** section of the **Configuration** tab, link a job group to your job so as to apply the ACLs you have defined.
+Lorsque vous [créez une tâche](https://docs.centreon.com/fr/docs/reporting/generate-reports.md) (sur la page **Reporting > Monitoring Business Intelligence > Jobs**) vous pouvez lier un groupe de tâches à votre tâche pour  pour appliquer les ACLs que vous avez défini. Cela se fait dans la section **Configuration de la tâche planifiée** de l'onglet **Configuration**.

@@ -6,25 +6,25 @@ title: Publishing your reports
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-By default, a report is only available for download from the **Reporting > Monitoring Business Intelligence > Report view** page.
-If you want to share a copy of your report (e.g. by email or on another server), use a publication rule. Publication rules allow a report to be sent out to specific users every time the corresponding job finishes running. This applies to all types of output (PDF, CSV...).
+Par défaut, un rapport ne peut être téléchargé que depuis la page **Reporting > Monitoring Business Intelligence > Report view**.
+Si vous souhaitez partager un copie de votre rapport (par email ou sur un autre serveur par exemple), vous devez utiliser une règle de pulication. Les règles de publication permettent d'envoyer un rapport à des utilisateurs spécifiques chaque fois que la tâche correspondante est exécutée. Cela s'applique à tous les formats de sortie (PDF, CSV...).
 
-## Publication modes
+## Modes de publication
 
-| Publication mode | Description |
+| Mode de publication | Description |
 | --- | --- |
-| CIFS | Reports are copied to a remote file share using the CIFS/SMB protocol |
-| FTP | Reports are copied to a remote server using the FTP protocol |
-| Local | Reports are copied to a local directory (on the MBI server) |
-| SFTP | Reports are copied to a remote server using the SFTP protocol |
-| SMTP | Reports are sent in an email |
+| CIFS | Les rapports sont copiés vers un partage de fichiers distant en utilisant le protocole CIFS/SMB |
+| FTP | Les rapports sont copiés vers un serveur distant en utilisant le protocole FTP |
+| Local | Les rapports sont copiés dans un répertoire local (sur le serveur MBI) |
+| SFTP | Les rapports sont copiés vers un serveur distant en utilisant le protocole SFTP |
+| SMTP | Les rapports sont envoyés par email |
 
-## Global rules and custom rules
+## Règles globales et règles personnalisées
 
-* Rules marked as **Global** in their configuration are applied automatically every time any job is executed. Bear in mind that they apply to **all** jobs. 
-* Global rules do not appear on the **Publication** tab of jobs, as they are applied every time anyway.
-* [The **Default** global publication rule](#how-the-default-publication-rule-works) is a SFTP rule which copies the reports from MBI to the central server. This rule can be edited but not deleted.
-* Reports to which you [apply custom rules](#using-a-publication-rule) (i.e., user-created rules) will be published every time they are generated, based on the job's schedule.
+* Les règles marquées comme **Globales** dans leur configuration sont appliquées automatiquement chaque fois qu'une tâche est exécutée. Cela s'applique à **toutes** les tâches.
+* Les règles globales n'apparaissent pas parmi les options dans l'onglet **Publication** des tâches car, de toutes façons, elles sont toujours appliquées.
+* La [règle de publication globale **Default**](#comment-fonctionne-la-règle-de-publication-par-défaut) est une règle SFTP qui copie les rapports sur le serveur central depuis MBI. Cette règle peut être modifiée mais pas supprimée.
+* Les rapports auxquels vous [appliquez des règles personnalisées](#utiliser-une-règle-de-publication) (c'est-à-dire les règles créées par des utilisateurs) seront publiés chaque fois qu'ils générés, en accord avec l'ordonnancement de la tâche.
 
 ## Creating a publication rule
 
@@ -145,7 +145,7 @@ To make sure a copy of your report is published every time the job is executed, 
 
 Please note that the data included in the report depends on the [rights on resources](https://docs.centreon.com/docs/administration/access-control-lists/#access-filters-on-resources) of the user who creates the job. It is the responsibility of the user creating the job to make sure that the resources included in the report are authorized for the users with which they want to share the report.
 
-## How the Default publication rule works
+## Comment fonctionne la règle de publication par défaut
 
 The default SFTP rule is the one that transfers the generated reports to your central server.
 

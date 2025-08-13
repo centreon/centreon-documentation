@@ -22,7 +22,7 @@ If you want to share a copy of your report (e.g. by email or on another server),
 ## Global rules and custom rules
 
 * Rules marked as **Global** in their configuration are applied automatically every time any job is executed. Bear in mind that they apply to **all** jobs. 
-* Global rules do not appear on the **Publication** tab of jobs, as they are applied every time anyway.
+* Global rules do not appear amongst the options on the **Publication** tab of jobs, as they are applied every time anyway.
 * [The **Default** global publication rule](#how-the-default-publication-rule-works) is a SFTP rule which copies the reports from MBI to the central server. This rule can be edited but not deleted.
 * Reports to which you [apply custom rules](#using-a-publication-rule) (i.e., user-created rules) will be published every time they are generated, based on the job's schedule.
 
