@@ -89,7 +89,7 @@ Assurez-vous que le résultat contient le message suivant : **ETL OK - Database 
 - hoststatevents
 - servicestateevents
 
-S'il y a un problème avec le résultat, lisez [**Identifier les données ou partitions manquantes**](troubleshooting.md#identifier-des-données-ou-partitions-manquantes-avec-les-commandes---partitions-et-db-content).
+S'il y a un problème avec le résultat, lisez [**Identifier les données ou partitions manquantes**](troubleshooting.md#identifier-des-données-ou-partitions-manquantes-avec-les-commandes---partitions-et---db-content).
 
 Une fois que vous avez confirmé que vos données sont bonnes, exécutez les commandes suivantes pour mettre à jour et reconstruire vos données de reporting :
 
@@ -221,7 +221,7 @@ Une fois la reconstruction terminée, [faites toute opération post-reconstructi
    systemctl restart crond
    ```
 
-Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreonn) indique **ETL execution OK, database is up-to-date**.
+Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreon) indique **ETL execution OK, database is up-to-date**.
 
 ### Cas 2 : la reconstruction se termine le lendemain
 
@@ -238,7 +238,7 @@ Une fois toutes les opérations terminées vérifiez que votre [connecteur de su
    /usr/share/centreon-bi/bin/centreonBIETL -d
    ```
 
-Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreonn) indique **ETL execution OK, database is up-to-date**.
+Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreon) indique **ETL execution OK, database is up-to-date**.
 
 ### Cas 3 : la reconstruction prend plusieurs jours
 
@@ -251,7 +251,7 @@ Une fois toutes les opérations terminées vérifiez que votre [connecteur de su
 
 3. Effectuez une [reconstruction partielle](#reconstruction-partielle--conserver-lhistorique-de-vos-données), en spécifiant les dates de début et de fin correctes pour la période pendant laquelle la reconstruction a été effectuée. Exemple : pour reconstruire les données du 1er janvier au 4 janvier inclus, utilisez **date_start=2025-01-01** et **date_end=2025-01-05**.
 
-Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreonn) indique **ETL execution OK, database is up-to-date**.
+Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreon) indique **ETL execution OK, database is up-to-date**.
 
 ## Comment reconstruire les statistiques BAM manquantes
 

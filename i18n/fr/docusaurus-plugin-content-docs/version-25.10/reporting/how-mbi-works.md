@@ -6,7 +6,7 @@ title: Comment fonctionne MBI ?
 Chaque jour, MBI suit 3 phases principales indépendantes :
 
 * [Le serveur central prépare les données brutes](#phase-1--les-données-sont-préparées-par-le-serveur-central).
-* [L'ETL copie les données du jour précédent sur le serveur MBI et les agrège](#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées). Les données sont alors prêtes à être utilisées dans les rapports.
+* [L'ETL copie les données du jour précédent sur le serveur MBI et les agrège](#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées). Les données sont alors prêtes à être utilisées dans les rapports.
 * Aux heures prévues, [CBIS recueille les données pertinentes pour un rapport et le génère](#phase-3--cbis-génère-les-rapports).
 
 Étant donné que chaque phase est indépendante des autres, une configuration incorrecte dans l'une des trois phases peut entraîner l'échec de la génération du rapport.
@@ -19,7 +19,7 @@ Chaque jour, MBI suit 3 phases principales indépendantes :
 
 > La conversion des résultats des contrôles en évènements doit être totalement terminée **avant** [le lancement de l'ETL](#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées), sinon les rapports seront vides. En cas de doute, vérifiez ce journal pour voir si la conversion est terminée : **/var/log/centreon/eventReportBuilder.log**.
 
-## Phase 2: Lancement de l'ETL (les données sont copiées sur MBI puis agrégées)
+## Phase 2 : Lancement de l'ETL (les données sont copiées sur MBI puis agrégées)
 
 Sur le serveur MBI, un cronjob lance l'ETL tous les jours à 4h30 du matin. Cela permet à Gorgone d'exécuter 4 scripts en tenant compte des options définies dans la page **Reporting > Monitoring Business Intelligence > General options** :
 

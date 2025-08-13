@@ -8,7 +8,7 @@ Vous pouvez ici prévisualiser les modèles de rapport et obtenir des informatio
 | Catégorie de rapport | Type de données |
 | --- | --- |
 | Rapports de supervision des activités métier | Données [BAM](https://docs.centreon.com/fr/docs/service-mapping/introduction). |
-| Rapports de disponibilité et d'évènements | Données de [disponibilité](https://docs.centreon.com/fr/docs/reporting/concepts/#availability) et d'[évènements](https://docs.centreon.com/fr/docs/reporting/concepts/#évènement). |
+| Rapports de disponibilité et d'évènements | Données de [disponibilité](https://docs.centreon.com/fr/docs/reporting/concepts/#disponibilité) et d'[évènements](https://docs.centreon.com/fr/docs/reporting/concepts/#évènement). |
 | Rapports de performances | Toutes les métriques. |
 | Rapports de stockage | Métriques **Disk**. |
 | Rapports de réseau | Métriques **Traffic**. |

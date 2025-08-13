@@ -170,7 +170,7 @@ When a report is empty, you should analyse it this way:
 
 ![image](../assets/reporting/empty-report-chart.png)
 
-* The first step is to make sure the data is actually available in the database using the [**--partitions** and **--db-content** commands](#locating-missing-data-or-partitions-using-the---partitions-and-db-content-commands).
+* The first step is to make sure the data is actually available in the database using the [**--partitions** and **--db-content** commands](#locating-missing-data-or-partitions-using-the---partitions-and---db-content-commands).
 
 * Then check if the first 2 steps of data processing have finished in due time : read [**How MBI works**](how-mbi-works.md).
 

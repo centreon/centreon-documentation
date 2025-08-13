@@ -23,7 +23,7 @@ Si vous souhaitez partager un copie de votre rapport (par email ou sur un autre 
 
 * Les règles marquées comme globales dans leur configuration sont appliquées automatiquement chaque fois qu'une tâche est exécutée. Les règles globales s'appliquent à toutes les tâches.
 * Les règles globales n'apparaissent pas parmi les options dans l'onglet **Publication** des tâches car, de toute façon, elles sont toujours appliquées.
-* La [règle de publication globale **Default**](#comment-fonctionne-la-règle-de-publication-par-défaut) est une règle SFTP qui copie les rapports sur le serveur central depuis MBI. Cette règle peut être modifiée mais pas supprimée.
+* La [règle de publication globale **Default**](#fonctionnement-de-la-règle-de-publication-default) est une règle SFTP qui copie les rapports sur le serveur central depuis MBI. Cette règle peut être modifiée mais pas supprimée.
 * Les rapports auxquels vous [appliquez des règles personnalisées](#utiliser-une-règle-de-publication) (c'est-à-dire les règles créées par des utilisateurs) seront publiés chaque fois qu'ils sont générés, selon l'ordonnancement de la tâche.
 
 ## Créer une règle de publication
@@ -139,7 +139,7 @@ Pour créer une règle de publication, allez à la page **Reporting > Monitoring
 </TabItem>
 </Tabs>
 
-## Utiliser d'une règle de publication
+## Utiliser une règle de publication
 
 Pour vous assurer qu'une copie de votre rapport est publiée à chaque fois que la tâche est exécutée, vous pouvez soit :
 
