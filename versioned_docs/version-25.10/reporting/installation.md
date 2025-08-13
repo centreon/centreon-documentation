@@ -67,7 +67,6 @@ reporting server, for performance and isolation reasons.
 
 ### Central Centreon server
 
-
 #### Software requirements
 
 See the [software requirements](https://docs.centreon.com/docs/installation/prerequisites/#characteristics-of-the-servers).

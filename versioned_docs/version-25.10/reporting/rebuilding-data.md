@@ -55,12 +55,12 @@ The ETL can run in 3 different contexts:
    systemctl restart crond
    ```
 
-   > Don't forget to uncomment the line in the cron file and to restart **crond** after the rebuild is fully completed.
+   > Don't forget to [uncomment the line in the cron file and to restart **crond**](#after-running-the-rebuild-scripts) after the rebuild is fully completed.
 
 * To stop the data retention manager from running at the same as the rebuild and causing problems, comment the line in **/etc/cron.d/centreon-bi-purge**.
 
    ```shell
-   30 7 * * 1-5 root /usr/share/centreon-bi//etl/dataRetentionManager.pl >> /var/log/centreon-bi//dataRetentionManager.log 2>&1
+   #30 7 * * 1-5 root /usr/share/centreon-bi//etl/dataRetentionManager.pl >> /var/log/centreon-bi//dataRetentionManager.log 2>&1
    ```
 
    Then restart crond:
@@ -69,7 +69,7 @@ The ETL can run in 3 different contexts:
    systemctl restart crond
    ```
 
-   > Don't forget to uncomment the line in the cron file and to restart **crond** after the rebuild is fully completed.
+   > Don't forget to [uncomment the line in the cron file and to restart **crond**](#after-running-the-rebuild-scripts) after the rebuild is fully completed.
 
 ## Complete rebuild: overwrite all existing data
 
@@ -196,7 +196,7 @@ Once rebuild is complete, [perform any necessary post-rebuild operations](#after
 | Steps | Description | Command | Execution Time |
 |------|-------------|---------|----------------|
 | **1. Import event and availability data (excluding performance data)** | Import event data but not performance data (`data_bin`) between specific dates. (Specifically, use this command if there is a problem with the contents of the `mod_bam_reporting`, `hoststateevents` or `servicestateevents` tables). | `nohup /usr/share/centreon-bi/etl/importData.pl -r -s $date_start$ -e $date_end$ --ignore-databin --no-purge > /var/log/centreon-bi/rebuild_importDataEvents.log &` | **Fast** (minutes) |
-| **2. Import metrics (`data_bin`)** | Import only `data_bin` data between specific dates. | `nohup /usr/share/centreon-bi/etl/importData.pl -r --no-purge --databin-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_importDataBin.log &` | **Fast** (minutes), depending on the number of days imported |
+| **2. Import metrics (`data_bin`)** | Import only `data_bin` data between specific dates. | `nohup /usr/share/centreon-bi/etl/importData.pl -r --no-purge --databin-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_importDataBin.log &` | A few minutes to several hours |
 | **3. Update reporting dimensions** | Update the reporting dimensions. Use `-d` to preserve the history of configuration changes. | `nohup /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d > /var/log/centreon-bi/rebuild_dimensions.log &` | **Fast** (seconds to minutes), depending on the number of groups, categories and metrics imported |
 | **4. Rebuild events tables** | Rebuild events based on the retention period defined in **Reporting > Monitoring Business Intelligence > General options** **Data retention options** tab. | `nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --events-only --no-purge > /var/log/centreon-bi/rebuild_events.log &` | **A few minutes to several hours** (rarely more than 24h)  |
 | **5. Rebuild availability tables** | Rebuild availability stats between the dates you specify (check `mod_bi_hostavailability` and `mod_bi_serviceavailability` dates using the MBI connector). | `nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --no-purge --availability-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_availability.log &` | **A few minutes to several hours** |

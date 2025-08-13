@@ -26,7 +26,7 @@ Sur le serveur MBI, un cronjob lance l'ETL tous les jours à 4h30 du matin. Cela
 1. **/usr/share/centreon-bi/etl/importData.pl**: [Les évènements](https://docs.centreon.com/fr/docs/reporting/concepts/#évènement) et les métriques ainsi que la configuration (hôtes, catégories d'hôtes, ACL...) sont copiées depuis la base de données centrale vers la base de données MBI pour le jour précédent (de minuit à minuit).
    * Le script n'importera que les groupes d'hôtes, les catégories d'hôtes et les catégories de services que vous avez définis dans la page **Reporting > Monitoring Business Intelligence > General options**, sous l'onglet **Options de l'ETL**, dans la section **Sélection du périmètre du reporting**.
    * Dans tous les cas, toutes les métriques seront importées.
-   * Tous les hôtes ou services qui n'appartiennent pas à au moins un groupe d'hôtes, une catégorie d'hôtes ou une catégorie de services sont exclus.
+   * Tous les hôtes ou services qui n'appartiennent pas à au moins un groupe d'hôtes et une catégorie d'hôtes, ou une catégorie de services sont exclus.
 
 2. **/usr/share/centreon-bi/etl/dimensionsBuilder.pl** : l'ETL prépare une liste de toutes les [dimensions](https://docs.centreon.com/fr/docs/reporting/concepts/#dimension) présentes dans les données importées, pour chaque hôte, service et métrique.
 
