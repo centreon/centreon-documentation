@@ -88,7 +88,7 @@ Make sure that the output contains **ETL OK - Database is up to date** OR that t
 - hoststatevents
 - servicestateevents
 
-If there are problems in the output, read [**Locating missing data or partitions**](troubleshooting.md#locating-missing-data-or-partitions-using-the---partitions-and---db-content-commands).
+If there are problems in the output, read [**Locating missing data or partitions**](https://docs.centreon.com/docs/reporting/troubleshooting/#locating-missing-data-or-partitions-using-the---partitions-and---db-content-commands).
 
 Once you have confirmed that your data is OK, run the following commands to update and rebuild your reporting data:
 
