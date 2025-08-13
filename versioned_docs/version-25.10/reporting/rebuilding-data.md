@@ -5,7 +5,7 @@ title: Rebuilding MBI data
 
 ## What does rebuilding data mean?
 
-Rebuilding data means [executing the ETL, to calculate dimensions and aggregations](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated). Reports can only be generated when the ETL has run and all the data is prepared.
+Rebuilding data means [executing the ETL to calculate dimensions and aggregations](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated). Reports can only be generated when the ETL has run and all the data is prepared.
 
 ## When is rebuilding data necessary?
 
