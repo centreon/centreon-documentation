@@ -29,7 +29,7 @@ L'ETL s'exécute dans trois contextes différents
 ### Comment fonctionne l'ETL ?
 
 * Lire [**Comment fonctionne MBI**, phase 2](how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées).
-* Lire [**Référence des commandes de l'ETL**](#commandes-de-letl).
+* Lire [**Référence des commandes de l'ETL**](#référence-des-commandes-de-letl).
 
 ### Avant de commencer avec l'ETL
 
@@ -88,7 +88,7 @@ Assurez-vous que le résultat contient le message suivant **ETL OK - Database is
 - hoststatevents
 - servicestateevents
 
-S'il y a un problème avec le résultat, lisez [**Identifier les données ou partitions manquantes**](troubleshooting.md#identifier-des-données-ou-partitions-manquantes-avec-les-commandes---partitions-et-db-content).
+S'il y a un problème avec le résultat, lisez [**Identifier les données ou partitions manquantes**](troubleshooting.md#identifier-des-données-ou-partitions-manquantes-avec-les-commandes---partitions-et---db-content).
 
 Une fois que vous avez confirmé que vos données sont OK, exécutez les commandes suivantes pour mettre à jour et reconstruire vos données de reporting :
 
@@ -206,7 +206,7 @@ Once rebuild is complete, [perform any necessary post-rebuild operations](#aprè
 ## Réparer les lacunes dans vos données
 
 1. Dans un premier temps, lisez la section [**avant de commencer avec l'ETL**](#avant-de-commencer-avec-letl).
-2. [Identifiez des lacunes dans vos données](troubleshooting.md#identifier-des-données-ou-partitions-manquantes-avec-les-commandes---partitions-et-db-content).
+2. [Identifiez des lacunes dans vos données](troubleshooting.md#identifier-des-données-ou-partitions-manquantes-avec-les-commandes---partitions-et---db-content).
 3. [Lancez une reconstruction partielle de vos données, conservant l'historique de vos données](#reconstruction-partielle--conserver-lhistorique-de-vos-données).
 4. Une fois la reconstruction complétée, [occupez-vous de toute opération post-reconstruction nécessaire](#après-avoir-exécuté-des-scripts-de-reconstruction).
 
@@ -221,7 +221,7 @@ Once rebuild is complete, [perform any necessary post-rebuild operations](#aprè
    systemctl restart crond
    ```
 
-Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreonn) indique **ETL execution OK, database is up-to-date**.
+Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreon) indique **ETL execution OK, database is up-to-date**.
 
 ### Cas 2 : la reconstruction se termine le lendemain
 
@@ -238,7 +238,7 @@ Une fois toutes les opérations terminées vérifiez que votre [connecteur de su
    /usr/share/centreon-bi/bin/centreonBIETL -d
    ```
 
-Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreonn) indique **ETL execution OK, database is up-to-date**.
+Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreon) indique **ETL execution OK, database is up-to-date**.
 
 ### Cas 3 : la reconstruction prend plusieurs jours
 
@@ -251,7 +251,7 @@ Une fois toutes les opérations terminées vérifiez que votre [connecteur de su
 
 3. Effectuez une [reconstruction partielle](#reconstruction-partielle--conserver-lhistorique-de-vos-données), en spécifiant les dates de début et de fin correctes pour la période pendant laquelle la reconstruction a été effectuée. Exemple : pour reconstruire les données du 1er janvier au 4 janvier inclus, utilisez **date_start=2025-01-01** et **date_end=2025-01-05**.
 
-Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreonn) indique **ETL execution OK, database is up-to-date**.
+Une fois toutes les opérations terminées vérifiez que votre [connecteur de supervision MBI](./installation.md#supervisez-votre-serveur-mbi-avec-centreon) indique **ETL execution OK, database is up-to-date**.
 
 ## Comment reconstruire les statistiques BAM manquantes
 

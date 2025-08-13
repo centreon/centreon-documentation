@@ -23,7 +23,7 @@ Créez toutes les périodes personnalisées dont vous avez besoin avant de comme
 
 ## Définir le pérmiètre de données pour MBI
 
-Seules les [données compilées par l'ETL](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated) peuvent être utilisées dans les rapports.
+Seules les [données compilées par l'ETL](how-mbi-works.md#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées) peuvent être utilisées dans les rapports.
 Pour des raisons de performance, il est recommandé de limiter le périmètre de données pour MBI à ce que vous souhaitez voir dans les rapports, car de grandes quantités de données prennent plus de temps à traiter et occupent de l'espace de stockage.
 
 Idéalement, cela a été fait dans le cadre du processus d'installation : voir [Définir les données qui seront utilisées par MBI](https://docs.centreon.com/docs/reporting/installation/#defining-which-data-will-be-used-by-mbi). Si vous ne l'avez pas encore fait, allez dans **Rapports > Monitoring Business Intelligence > General options**, onglet **Options ETL**.
