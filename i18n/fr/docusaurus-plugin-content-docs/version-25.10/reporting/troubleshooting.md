@@ -5,20 +5,27 @@ title: Troubleshooting MBI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Il est fortement recommandé d'installer le [connecteur Centreon MBI](../../../docusaurus-plugin-content-docs-pp/current/integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi.md), il permet de superviser le statut de votre serveur MBI.
 
-> It is strongly advised that you install the [Centreon MBI connector](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-mbi) which allows you to monitor the status of your MBI server.
+Avant d'aller plus loin, assurez-vous que MBI est à jour (faites une [mise à jour](https://docs.centreon.com/fr/docs/reporting/update/) ou une [montée de version](https://docs.centreon.com/fr/docs/reporting/upgrade/) si nécessaire).
 
-Before going further, make sure that the extension is up to date ([update](https://docs.centreon.com/docs/reporting/update/) or [upgrade](https://docs.centreon.com/docs/reporting/upgrade/) it if needed).
+Pendant ses [calculs quotidiens](./how-mbi-works.md#phase-2-lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées), l'ETL peut rencontrer divers problèmes :
 
-## Running a diagnostic
+- erreurs de base de données (table MySQL endommagée, disque plein)
+- erreurs de connexion à la base de données (délai d'attente MySQL expiré, problèmes DNS)
+- erreurs informatiques (un serveur est en panne).
 
-Use the following command to verify MBI is properly configured
+Si vous [supervisez votre serveur MBI avec votre Centreon](installation.md#supervisez-votre-serveur-mbi-avec-centreon), certaines de ces erreurs seront signalées par le connecteur.
+
+## Établir un diagnostic
+
+Utilisez la commande suivante pour confirmer que MBI est configuré correctement :
 
 ```shell
-/usr/share/centreon-bi/tools/diagnostic.sh | less
+/usr/share/centreon-bi/tools/diagnostic.sh
 ```
 
-expected result:
+Résultat attendu :
 
 ```shell
 #################### Check connection to databases ####################
@@ -55,13 +62,13 @@ expected result:
     [OK]      Purge option is enabled
 ```
 
-Use this command to verify the CBIS service status
+Utilisez cette commande pour vérifier l'état du service **CBIS** :
 
 ```shell
 systemctl status cbis
 ```
 
-expected result:
+Résultat attendu :
 
 ```shell
 ● cbis.service - Centreon MBI Scheduler
@@ -74,143 +81,135 @@ expected result:
            └─584 /usr/bin/java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/javax.crypto=ALL-UNNAM>
 ```
 
-If necessary, use the following command to start CBIS:
+Si nécessaire, exécutez la commande suivante pour démarrer **CBIS** :
 
-```
+```shell
 systemctl start cbis && systemctl enable cbis
 ```
 
-Check that partitions ar eup to date and the status of MBI
+## Identifier des données ou partitions manquantes avec les commandes --partitions et db-content
 
-```
-/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --partitions
-```
+Le script **/usr/share/centreon-bi/etl/centreonbiMonitoring.pl** dispose des options **--db-content** et **--partitions** qui vous peuvent potentiellement identifier des problèmes liés aux données.
 
-Check the state of the MBI data
+* **--db-content** indique la date des dernières données de chaque table présentant un problème
+* **--partitions** indique le nombre de partitions manquantes entre la première partition de la table et le moment présent, ainsi que depuis quand elles sont manquantes. Notez que cette option ne fonctionne pas s'il manque plusieurs périodes non consécutives.
 
-```
+### --db-content
+
+Vérifiez la date des dernières données trouvées dans la base de données MBI. :
+
+```shell
 /usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
 ```
 
-Force the MBI and ETL processes
+Si tout est en ordre, vous devriez avoir le message suivant : **ETL execution OK, database is up-to-date**. Cependant, si des problèmes ont été identifiés, vous aurez quelque chose remmeblant à ça :
 
-```
-/usr/share/centreon-bi/bin/centreonBIETL -r
-```
-
-If any issues popped out, double check your MBI is configured according to our [post-installation configuration procedure](https://docs.centreon.com/docs/reporting/installation.md#step-4-configure-the-etl).
-
-## Locate missing data or partitions using the --partitions and db-content commands.
-
-The script ```/usr/share/centreon-bi/etl/centreonbiMonitoring.pl``` has the options --db-content and --partitions which allow you to potentially identify issues with data.
-
-* --ddb-content will indicate the date of the last data of each table
-* --partitions will indicate the number of missing partitions between the first partition of the table and now and since when they have been missing. Note that this doesn't work if there are many non-consecutive periods missing.
-
-## CBIS does not start
-
-Use SSH to connect to your MBI reporting server and switch user to root to check the following logs:
-
-* /var/log/centreon-bi/cbis.out
-* /var/log/centreon-bi/cbis.date.log
-
-If the issue is indeed located here, you can manually restart the CBIS service:
-
-```
-/etc/centreon-bi/startCBIS.sh
+```shell
+[mod_bam_reporting_ba_availabilities: 2025-07-27 00:00:00] [hoststateevents: 2025-07-28 00:00:00] [servicestateevents: 2025-07-28 00:00:00] [mod_bi_hoststateevents: 2025-07-28 00:00:00] [Table mod_bi_servicestateevents: EMPTY] [mod_bi_time: 2025-07-28 00:00:00] [mod_bi_hostavailability: 2025-07-27 00:00:00] [Table mod_bi_serviceavailability: EMPTY] [Table mod_bi_hgmonthavailability: EMPTY] [Table mod_bi_hgservicemonthavailability: EMPTY] [data_bin: 2025-07-27 23:59:55] [mod_bi_metricdailyvalue: 2025-07-27 00:00:00] [Table mod_bi_metricmonthcapacity: EMPTY]
 ```
 
-## Where can I find the logs?
+### --partitions
 
-Use SSH to connect to your MBI server and switch to root.
+Vous pouvez également vérifier que les partitions sont à jour (afin d'avoir un vue plus détaillée de ce qu'il manque) avec la commande suivante :
 
-Navigate to the MBI logs located in the file ```var/log/centreon-bi```.
-
-CBIS creates a new log for each day located /var/log/centreon-bi/cbis.date-of-the-day.log the date is in the format YYYY-MM-DD.
-
-## The report I generated is empty
-
-When a report is empty, you should analyse it this way:
-
-![image](../assets/reporting/empty-report-chart.png)
-
-For starters, make sure the data is actually available in the database using the [--partitions and db-content commands](#locate-missing-data-or-partitions-using-the---partitions-and-db-content-commands)
-
-A cronjob is launched at approximately 4:30 AM that will compile and calculate all the data of the day before. CBIS then goes into the compiled data at the scheduled time to pick out the data relevant to the report it needs to generate. 
-
-If reports are being generated without data in them, it's possible CBIS is sending its SQL requests before the cronjob is finished and so the data CBIS requests does not exist yet, check this log to see if conversion is finished: **/var/log/centreon/eventReportBuilder.log**. 
-
-Try pushing back the cyclic report generation hour in the **Scheduler options** tab of **Reporting > Monitoring business Intelligence > General options** so that CBIS does not request data before the cronjob has finished.
-
-If you are getting an error, follow our [rebuild procedure](rebuilding-data.md)
-
-## None of the reports generated are dowloadable
-
-Confirm that a publication rule using the SFTP protocol is applied. The defaul publication rule uses SFTP and is applied to all jobs but it is possible its protocol was changed.
-
-Verify the central server and MBI server are time-synced, the timezone and date must be exactly the same between each server for reports to be downloadable.
-
-```
-timedatectl
+```shell
+/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --partitions
 ```
 
-If the timezones are different, reconfigure the php file ```/etc/opt/rh/rh-php73/php.d/php-timezone.ini```
+La commande devrait renvoyer **All partitions are up-to-date**. Cependant, si des problèmes ont été identifiés, vous aurez quelque chose remmeblant à ça :
 
-then add the corresponding timezone line, for example: ```date.timezone = Europe/Paris```
-
-After a modification, you need to restart php-fpm:
-
-```
-systemctl restart php-fpm
+```shell
+[mod_bi_hostavailability, last partition:2025-07-28 00:00:00 missing 42 part.][mod_bi_serviceavailability, last partition:2025-07-28 00:00:00 missing 42 part.][mod_bi_metrichourlyvalue, last partition:2025-06-05 00:00:00 missing 67 part.][mod_bi_metricdailyvalue, last partition:2025-07-28 00:00:00 missing 42 part.][data_bin, last partition:2025-07-28 00:00:00 missing 14 part.]
 ```
 
-<Tabs groupId="sync">
-<TabItem value="Time Zones" label="If you use time zones in Centreon">
+Dans l'exemple ci-dessus, 42 partitions manquantes ont été identifiées pour la table **mod_bi_hostavailability** (et la dernière partition a été créé le 28 juillet).
 
-Is the scheduler set on the same TimeZone as the reporting server?
+Dans ce cas, vous devrez [reconstruire une partie de vos données](rebuilding-data.md#partial-rebuild-keep-your-data-history). Dans le cas de l'exemple ci-dessus (en utilisant l'option **--db-content**), vous aurez besoin de reconstruire **data_bin** pour le 28 juillet.
 
-Check in the CBIS logs if the time displayed in front of the logs is coherent with the time of the server. To know it , you can restart CBIS :
+### Comprendre les résultats des commandes
 
-```
-/etc/init.d/cbis restart
-```
+Si les commandes **--partitions** et **db-content** indiquent qu'il y a un problème avec l'une de vos tables, vous devrez peut-être effectuer une [reconstruction partielle de vos données](rebuilding-data.md#partial-rebuild-keep-your-data-history). Veillez à utiliser les options appropriées dans tous les cas lors de la reconstruction (y compris l'option **--no-purge** qui vous évite de supprimer des données importantes).
 
-Then check the time and the time zone by executing the command "date" then compare the date with the one in the logs.
+| Tables                                                   | Signification                                                                      | Actions à réaliser                                 |
+|------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------|
+| `hoststateevents`, `servicestateevents`,<br/>`mod_bam_reporting*`, `data_bin` | Problème avec les données brutes importées depuis Centreon.                            | Identifier et réparer le problème avec les données brutes. (Peut-être que vous avez besoin de calculer des événements avec [**eventReportBuilder** sur le serveur central](how-mbi-works.md#phase-1--les-données-sont-préparées-par-le-serveur-central)). Après avoir résolu le problème, exécutez le script d'importation pour importer les données manquantes [en utilisant les options appropriées](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`). |
+| `mod_bi_servicemetrics`,`mod_bi_hosts`, `mod_bi_services`,  `mod_bi_hostgroups`                                             | Problème avec les **données des dimensions**.                 |  Après avoir résolu le problème, exécutez le script de dimension pour rétablir la cohérence des dimensions, [en utilisant les options appropriées](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`).  (`/usr/share/centreon-bi/etl/dimensionsBuilder.pl`)   |
+| `mod_bi_*availability` tables                                             | Problème avec les **données de disponibilité aggrégées**, pas avec les données brutes            | Après avoir résolu le problème, exécutez le script d'agrégation de disponibilité. [en utilisant les options appropriées](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`). |
+| `mod_bi_metric*` tables                                                   | Problème avec les **données des metriques agrégées** (e.g., performance), pas avec les données brutes. | Après avoir résolu le problème, exécutez le script d'agrégation des métriques. [en utilisant les options appropriées](rebuilding-data.md#options-for-a-partial-rebuild) (`/usr/share/centreon-bi/etl/importData.pl`) (`/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`).  |
 
-```
-tailf /var/log/centreon-bi/cbis.YYYY-MM-DD.log
-```
+Si vous rencontrez des problèmes, vérifiez que MBI est bien configuré selon notre [procédure de configuration post-installation](https://docs.centreon.com/fr/docs/reporting/installation/#étape-4--Configurez-l-etl-dans-linterface-de-centreon).
 
-The date date & time must be coherent with the one which appears in the logs.
+## CBIS ne démarre pas
 
-Finally, check that the content of /etc/sysconfig/clock is consistent with the date command. If not, modify the clock file and restart CBIS : 
+Utilisez SSH pour vous connecter à votre serveur de reporting MBI et changez à l'utilisateur root pour vérifier les logs suivants :
 
-```
-/etc/init.d/cbis restart .
-```
-</TabItem>
-<TabItem value="no time zone" label="If you do NOT use time zones in Centreon">
+* **/var/log/centreon-bi/cbis.out**
+* **/var/log/centreon-bi/cbis.date-of-the-day.log**
 
-This configuration is not advised and works only if ALL the Centreon users are in the TimeZone set in the file /etc/php.ini (with variable date.timezone)
+Si vous trouvez un problème pertinent dans l'un de ces deux fichiers, corrigez le problème (par exemple, une erreur lors de la connexion à la base de données) et redémarrez manuellement le service **CBIS** :
 
-Be sure the logs of CBIS are set to the same TimeZone than the file ```/etc/php.ini.``` To know the time of CBIS:
-
-```
+```shell
 systemctl restart cbis
 ```
 
-Then check the time & the TimeZone with the commande "date" and compare it with the one present in the logs.
+<!--/etc/centreon-bi/startCBIS.sh-->
 
+## Où sont stockés les logs ?
+
+Utilisez SSH pour vous connecter à votre serveur MBI et changez à l'utilisateur root.
+
+Naviguez jusqu'au logs MBI situés dans **var/log/centreon-bi**.
+
+CBIS créé un nouveau fichier log pour chaque jour, situés dans **/var/log/centreon-bi** et nommé **bis.date-du-jour.log**. La date est au format suivant : **AAAA-MM-JJ**.
+
+## Le rapport que j'ai généré est vide
+
+Lorsqu'un rapport est vide, analysez-le de la manière suivante :
+
+![image](../assets/reporting/empty-report-chart.png)
+
+* La première étape est de vérifier que les données sont bien disponibles dans la base de données avec les commandes [**--partitions** and **--db-content**](#identifier-des-données-ou-partitions-manquantes-avec-les-commandes---partitions-et-db-content).
+
+* Puis vérifiez que les deux premières phases du traitement des données ont été complétées dans les temps : lisez notre page [**Comment fonctionne MBI**](how-mbi-works.md).
+
+## Je ne peux pas télécharger les rapports générés
+
+* Confirmez que la [règle de publication **Default**](reports-publication-rule.md#fonctionnement-de-la-règle-de-publication-default) qui utilise le protocole SFTP est appliquée et [configurée correctement](reports-publication-rule.md#configuration-de-la-règle-de-publication-default) (la règle de publication **Default** sert à transférer les rapports généré depuis le serveur MBI au serveur central).
+
+* 
+* Vérifiez que le serveur central et le serveur MBI sont synchronisés : le fuseau horaire et la date doivent être exactement les mêmes sur les deux serveurs pour que les rapports puissent être téléchargés.
+
+```shell
+timedatectl
 ```
-tailf /var/log/centreon-bi/cbis.YYYY-MM-DD.log
+
+Si les fuseaux horaires sont différents, [modifiez le fichier PHP correspondant](installation.md#prérequis-logiciels). Par example, ajoutez **date.timezone = Europe/Paris** sur les deux serveurs. Vous devez ensuite redémarrer **php-fpm**:
+
+```shell
+systemctl restart php-fpm
 ```
 
-If the date is coherent with the TimeZone set in php.ini (date.tiemzone) on the Centreon server (not the date of the server), you have a different problem.
+* Vérifiez que la processus CBIS démarre avec les mêmes fuseaux horaires que les deux serveurs. Vérifiez dans les logs CBIS si l'heure affichée devant les logs correspond à l'heure du serveur. Tout d'abord, redémarrez CBIS :
 
-</TabItem>
-</Tabs>
+```shell
+systemctl restart cbis
+```
 
-## I cannot see the report design/the hosts I need
+Vérifiez ensuite l'heure et le fuseau horaire en exécutant la commande **date**, puis comparez la date avec celle indiquée dans les logs.
 
-MBI follows the rules of ACLs. If you can not see certain report designs or certain resources, it is possible you have not been authorized to do so in the ACLs. 
-These can be configured by an administrator inside **Administration > ACL > ACL Rules**. Here, administrators can choose which report designs, jobs and job groups each user is allowed to access.
+```shell
+tail -f /var/log/centreon-bi/cbis.YYYY-MM-DD.log
+```
+
+La date et l'heure doivent correspondre avec celles qui apparaissent dnas les logs.
+
+<!--Enfin, vérifiez que le contenu du fichier /etc/sysconfig/clock correspond à la commande date. Si ce n'est pas le cas, modifiez le fichier clock et redémarrez CBIS :
+
+```shell
+systemctl restart cbis
+```-->
+
+## Je ne vois pas les modèles de rapports/les hôtes dont j'ai besoin
+
+Si vous ne pouvez pas voir certains [modèles de rapport](concepts.md#modèles-de-rapports-report-designs) ou certaines ressources, il est possible que votre administrateur ne vous ait pas accordé les autorisations nécessaires.
+[Les droits des utilisateurs sur MBI peuvent être configurés](share.md) par un administrateur à partir de la page **Administration > ACL > ACL rules**. Les administrateurs peuvent y choisir les modèles de rapport, les tâches et les groupes de tâches auxquels chaque utilisateur est autorisé à accéder.

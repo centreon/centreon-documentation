@@ -194,7 +194,7 @@ ssh centreonBI@\{MONITORING_IP_ADDRESS\}
 
 Vous devriez pouvoir vous connecter sans devoir taper un mot de passe
 
-### Configuration for the Default publication rule
+### Configuration de la règle de publication Default
 
 Si pour une raison quelconque la règle Default cesse de fonctionner et les nouveaux rapports n'apparaissent pas sur votre serveur central, vérifiez qu'elle est configurée de la manière suivante (cliquez le bouton **Test** pour valider la configuration) : 
 
