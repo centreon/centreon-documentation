@@ -57,6 +57,20 @@ The ETL can run in 3 different contexts:
 
    > Don't forget to uncomment the line in the cron file and to restart **crond** after the rebuild is fully completed.
 
+* To stop the data retention manager from running at the same as the rebuild and causing problems, comment the line in **/etc/cron.d/centreon-bi-purge**.
+
+   ```shell
+   30 7 * * 1-5 root /usr/share/centreon-bi//etl/dataRetentionManager.pl >> /var/log/centreon-bi//dataRetentionManager.log 2>&1
+   ```
+
+   Then restart crond:
+
+   ```shell
+   systemctl restart crond
+   ```
+
+   > Don't forget to uncomment the line in the cron file and to restart **crond** after the rebuild is fully completed.
+
 ## Complete rebuild: overwrite all existing data
 
 ### You have a lot of data
@@ -80,27 +94,27 @@ Once you are satisfied that your data is OK, run the following commands to updat
 
 1. Import the latest Centreon configuration:
 
-```shell
-/usr/share/centreon-bi/etl/importData.pl -r --centreon-only
-```
+   ```shell
+   /usr/share/centreon-bi/etl/importData.pl -r --centreon-only
+   ```
 
 2. Calculate the reporting dimensions:
 
-```shell
-/usr/share/centreon-bi/etl/dimensionsBuilder.pl -r
-```
+   ```shell
+   /usr/share/centreon-bi/etl/dimensionsBuilder.pl -r
+   ```
 
 3. Aggregate events and availability:
 
-```shell
-nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllEvents.log &
-```
+   ```shell
+   nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllEvents.log &
+   ```
 
 4. Aggregate performance data (storage, traffic, etc.):
 
-```shell
-nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllPerf.log &
-```
+   ```shell
+   nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllPerf.log &
+   ```
 
 5. Once rebuild is complete, [perform any necessary post-rebuild operations](#after-running-the-rebuild-scripts).
 
@@ -146,29 +160,47 @@ If you want to keep previously aggregated statistics and apply the new configura
 
 1. Import the Centreon configuration between the dates you specify:
 
-```shell
-/usr/share/centreon-bi/etl/importData.pl -r --centreon-only -s $date_start$ -e $date_end$ --no-purge
-```
+   ```shell
+   /usr/share/centreon-bi/etl/importData.pl -r --centreon-only -s $date_start$ -e $date_end$ --no-purge
+   ```
 
 2. Calculate the reporting dimensions:
 
-```shell
-/usr/share/centreon-bi/etl/dimensionsBuilder.pl -d
-```
+   ```shell
+   /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d
+   ```
 
 3. Aggregate events and availability between the dates you specify:
 
-```shell
-nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r  -s $date_start$ -e $date_end$ --no-purge > /var/log/centreon-bi/rebuildAllEvents.log &
-```
+   ```shell
+   nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r  -s $date_start$ -e $date_end$ --no-purge > /var/log/centreon-bi/rebuildAllEvents.log &
+   ```
 
 4. Aggregate performance data (storage, traffic, etc.) between the dates you specify:
 
-```shell
-nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r -s $date_start$ -e $date_end$ --no-purge > /var/log/centreon-bi/rebuildAllPerf.log &
-```
+   ```shell
+   nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r -s $date_start$ -e $date_end$ --no-purge > /var/log/centreon-bi/rebuildAllPerf.log &
+   ```
 
 5. Once rebuild is complete, [perform any necessary post-rebuild operations](#after-running-the-rebuild-scripts).
+
+### Rebuilding only events/availability or only metrics
+
+The procedure described above is the standard, recommended procedure. However, if you have large amounts of data and you know for sure that you only need to rebuild events/availability or only metrics, perform the following steps in the table below:
+
+* Only events/availability: steps 1, 3 and 4.
+* Only metrics: steps 2, 3, 5 and 6.
+
+Once rebuild is complete, [perform any necessary post-rebuild operations](#after-running-the-rebuild-scripts).
+
+| Steps | Description | Command | Execution Time |
+|------|-------------|---------|----------------|
+| **1. Import event and availability data (excluding performance data)** | Import event data but not performance data (`data_bin`) between specific dates. (Specifically, use this command if there is a problem with the contents of the `mod_bam_reporting`, `hoststateevents` or `servicestateevents` tables). | `nohup /usr/share/centreon-bi/etl/importData.pl -r -s $date_start$ -e $date_end$ --ignore-databin --no-purge > /var/log/centreon-bi/rebuild_importDataEvents.log &` | **Fast** (minutes) |
+| **2. Import metrics (`data_bin`)** | Import only `data_bin` data between specific dates. | `nohup /usr/share/centreon-bi/etl/importData.pl -r --no-purge --databin-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_importDataBin.log &` | **Fast** (minutes), depending on the number of days imported |
+| **3. Update reporting dimensions** | Update the reporting dimensions. Use `-d` to preserve the history of configuration changes. | `nohup /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d > /var/log/centreon-bi/rebuild_dimensions.log &` | **Fast** (seconds to minutes), depending on the number of groups, categories and metrics imported |
+| **4. Rebuild events tables** | Rebuild events based on the retention period defined in **Reporting > Monitoring Business Intelligence > General options** **Data retention options** tab. | `nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --events-only --no-purge > /var/log/centreon-bi/rebuild_events.log &` | **A few minutes to several hours** (rarely more than 24h)  |
+| **5. Rebuild availability tables** | Rebuild availability stats between the dates you specify (check `mod_bi_hostavailability` and `mod_bi_serviceavailability` dates using the MBI connector). | `nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --no-purge --availability-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_availability.log &` | **A few minutes to several hours** |
+| **6. Rebuild performance statistics** | Rebuild performance stats between the dates you specify (check the dates in the `mod_bi_metrichourlyvalue` and `mod_bi_metricdailyvalue` tables using the MBI connector). | `nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --no-purge -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_perfData.log &` | **Few minutes to several hours**. Longer if rebuilding more days than hourly retention allows. |
 
 ## Repairing gaps in your data
 
@@ -176,23 +208,6 @@ nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r -s $date_start$
 2. [Locate gaps in your data](troubleshooting.md#locating-missing-data-or-partitions-using-the---partitions-and-db-content-commands).
 3. [Run a partial rebuild of your data, keeping your data history](#partial-rebuild-keep-your-data-history).
 4. Once rebuild is complete, [perform any necessary post-rebuild operations](#after-running-the-rebuild-scripts).
-
-## Troubleshooting MBI
-
-### How to rebuild missing statistics
-
-This is the **official, approved, and most efficient method** to rebuild missing data in Centreon MBI. It follows the standard ETL structure and ensures consistent and complete synchronization of reporting data.
-
-You will manually run the following core ETL scripts:
-
-| Step | Description | Command | Execution Time |
-|------|-------------|---------|----------------|
-| **1. Import event and availability data (excluding performance data)** | Import data without performance data (`data_bin`) from a specific date. (visible next to `mod_bam_reporting`, `hoststateevents`,`servicestateevents` tables via plugin). | `nohup /usr/share/centreon-bi/etl/importData.pl -r -s $date_start$ -e $date_end$ --ignore-databin > /var/log/centreon-bi/rebuild_importDataEvents.log &` | **Fast** (minutes) |
-| **2. Import performance data (`data_bin`)** | Import only `data_bin` data starting from the last available date in the database (visible next to `data_bin` table via plugin). | `nohup /usr/share/centreon-bi/etl/importData.pl -r --no-purge --databin-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_importDataBin.log &` | **Fast** (minutes), depending on number of days imported |
-| **3. Update reporting dimensions** | Updates configuration dimensions. Using `-d` preserves history of configuration changes. Avoid `-r` to prevent needing to rebuild all stats. | `nohup /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d > /var/log/centreon-bi/rebuild_dimensions.log &` | **Fast** (seconds to minutes), depending on number of groups, categories and metrics imported |
-| **4. Rebuild events tables** | Rebuild events based on the retention period defined in *Centreon MBI > Generation Option > Data Retention Parameters*. | `nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --events-only > /var/log/centreon-bi/rebuild_events.log &` | **Few minutes to several hours**. (rarely more than 24h).  |
-| **5. Rebuild availability tables** | Rebuild availability stats starting from the last known data (check `mod_bi_hostavailability` and `mod_bi_serviceavailability` dates via plugin). | `nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --no-purge --availability-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_availability.log &` | **Few minutes to hours**, depending on rebuild duration |
-| **6. Rebuild performance statistics** | Rebuild performance stats based on earliest date in `mod_bi_metrichourlyvalue` and `mod_bi_metricdailyvalue` tables (as shown by plugin). | `nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --no-purge -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_perfData.log &` | **Few minutes to several hours**. Longer if rebuilding more days than hourly retention allows. |
 
 ## After running the rebuild scripts
 
@@ -218,9 +233,9 @@ When all operations are finished, your [MBI monitoring connector](./installation
 
 3. Run the daily script manually, as it has not been run for the current day:
 
-  ```shell
-  /usr/share/centreon-bi/bin/centreonBIETL -d
-  ```
+   ```shell
+   /usr/share/centreon-bi/bin/centreonBIETL -d
+   ```
 
 When all operations are finished, your [MBI monitoring connector](./installation.md#monitor-your-mbi-server-with-centreon) shows **ETL execution OK, database is up-to-date**.
 
@@ -232,22 +247,10 @@ When all operations are finished, your [MBI monitoring connector](./installation
    ```shell
    systemctl restart crond
    ```
+
 3. Perform a [partial rebuild](#partial-rebuild-keep-your-data-history), specifying the correct start and end dates for the time the rebuild was being executed. Example: to rebuild data from January 1 to January 4 inclusive, use **date_start=2025-01-01** and **date_end=2025-01-05**.  
 
 When all operations are finished, your [MBI monitoring connector](./installation.md#monitor-your-mbi-server-with-centreon) shows **ETL execution OK, database is up-to-date**.
-
-### Root gaps issues
-
-The following table summarizes common issues related to Centreon BI database tables, their meaning, and the recommended scripts to run for resolving each type of problem. If only the last step of the process failed (e.g., performance aggregation), you can fix the issue and rerun the corresponding script (such as `perfdataStatisticsBuilder.pl`). However, in most cases, it is recommended to follow the full procedures described earlier to ensure data consistency.
-
-
-
-| Visible Tables                                                   | Meaning                                                                      | Moving Forward                                 |
-|------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------|
-| `hoststateevents`, `servicestateevents`,<br/>`mod_bam_reporting*`, `data_bin` | Problem with **raw data** imported from Centreon.                            | Investigate and fix the issue with **raw data**. (Maybe you need to compute event from eventReportBuilder on Central). After resolving the issue, run the import script to import missing datas (`/usr/share/centreon-bi/etl/importData.pl`). |
-| `mod_bi_servicemetrics`,`mod_bi_hosts`, `mod_bi_services`,  `mod_bi_hostgroups` tables                                             | Issue with **dimensions data**.                 | After resolving the issue, run the dimension script to restore consistency in dimensions.  (`/usr/share/centreon-bi/etl/dimensionsBuilder.pl`)   |
-| `mod_bi_*availability` tables                                             | Issue with **aggregated availability data**, not raw data.            | After resolving the issue, run the availability aggregation script (`/usr/share/centreon-bi/etl/eventStatisticsBuilder.pl`). |
-| `mod_bi_metric*` tables                                                   | Issue with **aggregated metrics data** (e.g., performance), not raw data. | After resolving the issue, run the metrics aggregation script (`/usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl`).  |
 
 ## How to rebuild missing BAM statistics
 
@@ -255,15 +258,15 @@ BAM statistics are not compiled by the ETL, but by the central server. If BAM st
 
 1. On the central server, execute the following command to rebuild BAM statistics:
 
-```shell
-/usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
-```
+   ```shell
+   /usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
+   ```
 
 2. Then, re-import the updated data on the reporting server:
 
-```shell
-/usr/share/centreon-bi/etl/importData.pl -r --bam-only
-```
+   ```shell
+   /usr/share/centreon-bi/etl/importData.pl -r --bam-only
+   ```
 
 ## How to rebuild centile statistics
 
