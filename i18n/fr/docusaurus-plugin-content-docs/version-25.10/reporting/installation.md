@@ -13,6 +13,7 @@ Cette page présente l'architecture logicielle de l'extension **Centreon MBI** e
 2. [Installez l'interface Centreon MBI dans l'application Centreon](#étape-2--installez-linterface-centreon-mbi-dans-lapplication-centreon).
 3. [Installez le serveur de reporting (Centreon MBI Reporting Server)](#étape-3--installez-le-serveur-de-reporting).
 4. [Configurez l'ETL dans l'interface de Centreon](#étape-4--configurez-letl-dans-linterface-de-centreon).
+5. [Construisez la base de données MBI](#étape-5--construire-la-base-de-données-mbi).
 
 Une fois l'installation effectuée, vous pouvez [superviser votre serveur MBI avec Centreon](#supervisez-votre-serveur-mbi-avec-centreon).
 
@@ -356,7 +357,7 @@ MBI, menu **Rapports > Monitoring Business Intelligence > Paramètres globaux** 
 
 \* *Le test de connexion ne fonctionnera pas encore à ce moment de l'installation*
 
-### Accès à la base de données Centrale
+### Accès à la base de données centrale
 
 Téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer à configurer les options générales.
 
@@ -1103,12 +1104,42 @@ systemctl restart cron
 
 Veuillez passer à la section suivante pour continuer l'installation.
 
-### ETL : Execution
+## Étape 5 : Construire la base de données MBI
 
-> Avant de continuer, assurez-vous que vous avez installé le fichier de configuration MariaDB comme indiqué ci-dessus dans les prérequis.
-> Configurez et activez la rétention des données afin que seules les données requises soient importées et calculées.
+### Prérequis
 
-#### Reconstruction des statistiques à partir des données historiques
+* Avant de continuer, assurez-vous que vous avez installé le fichier de configuration MariaDB comme indiqué ci-dessus dans les prérequis.
+* Configurez et activez la rétention des données afin que seules les données requises soient importées et calculées.
+* Assurez-vous que [les données soient prêtes sur le serveur central](how-mbi-works.md#phase-1--les-données-sont-préparées-par-le-serveur-central). 
+* Assurez-vous que le processus **gorgoned** finctionne correctement : `systemctl status gorgoned`. Si besoin, redémarrez-le: `systemctl restart gorgoned`.
+* Attention, si vous créez la base de données MBI pour la première fois, vous devez importer toutes les données en une seule fois. Si vous disposez d'une grande quantité de données et/ou si vous démarrez le processus tard dans la journée, il est important de savoir que la phase de création de la base de données peut prendre un temps considérable, pouvant même se prolonger jusqu'au lendemain. Dans ce cas, vous devez désactiver [temporairement](#reenable-daily-script-execution) l'exécution quotidienne de l'ETL, jusqu'à ce que le provisionnement initial soit terminé, afin d'éviter les doublons ou d'autres problèmes.
+
+   1. Éditez le fichier cron **/etc/cron.d/centreon-bi-engine** et commentez la ligne suivante :
+
+      ```shell
+      #30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
+      ```
+
+   2. Redémarrez **crond**.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
+
+```shell
+systemctl restart crond
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+systemctl restart cron
+```
+
+</TabItem>
+</Tabs>
+
+### Construction des statistiques à partir des données historiques
 
 Exécutez la commande suivante sur le serveur de reporting. Celle-ci va :
 
@@ -1121,7 +1152,32 @@ Exécutez la commande suivante sur le serveur de reporting. Celle-ci va :
 /usr/share/centreon-bi/bin/centreonBIETL -r
 ```
 
-#### Activer l'exécution quotidienne du script
+Vous pouvez l'exécuter en arrière-plan et rediriger la sortie du script vers un journal :
+
+```shell
+nohup /usr/share/centreon-bi//bin/centreonBIETL -r >> /var/log/centreon-bi/centreonBIETL.log 2>&1 &
+```
+
+Regardez le fichier de log **/var/log/centreon-bi/centreonBIETL.log** : vous devriez voir des lignes avec les 4 parties suivantes :
+
+```shell
+2025-08-01 13:34:16 - INFO - [SCHEDULER] >>>>>>> start
+2025-08-01 13:34:16 - INFO - [SCHEDULER][IMPORT] >>>>>>> start
+...
+2025-08-01 13:35:18 - INFO- [SCHEDULER][IMPORT] <<<<<<< end
+2025-08-01 13:35:18 - INFO - [SCHEDULER][DIMENSIONS] >>>>>>> start
+...
+2025-08-01 13:35:52 - INFO - [SCHEDULER][DIMENSIONS] <<<<<<< end
+2025-08-01 13:35:52 - INFO - [SCHEDULER][EVENT] >>>>>>> start
+...
+2025-08-01 13:38:37 - INFO - [SCHEDULER][EVENT] <<<<<<< end
+2025-08-01 13:38:37 - INFO - [SCHEDULER][PERFDATA] >>>>>>> start
+...
+2025-08-01 13:48:17 - INFO - [SCHEDULER][PERFDATA] <<<<<<< end
+2025-08-01 13:58:17 - INFO - [SCHEDULER] <<<<<<< end
+```
+
+### Réactiver l'exécution quotidienne du script
 
 Une fois le processus de reconstruction des données terminé, vous pouvez activer le calcul des
 statistiques.
@@ -1155,7 +1211,7 @@ systemctl restart cron
 > Assurez-vous que le batch **centreonBIETL** ne démarre qu'une fois que le batch **eventReportBuilder** est terminé sur
 > le serveur de supervision (consultez le fichier cron **/etc/cron.d/centreon** sur le serveur de supervision).
 
-L'installation de Centreon MBI est maintenant terminée, consultez [le tutoriel](../getting-started/analyze-resources-availability.md).
+L'installation de Centreon MBI est maintenant terminée. Vous pouvez créer des [tâches](concepts.md#tâches) afin de générer des rapports. Consultez [le tutoriel](../getting-started/analyze-resources-availability.md).
 
 ## Supervisez votre serveur MBI avec Centreon
 

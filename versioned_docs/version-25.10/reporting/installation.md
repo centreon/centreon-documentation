@@ -1148,7 +1148,7 @@ Run the following command on the reporting server. This will:
 /usr/share/centreon-bi/bin/centreonBIETL -r
 ```
 
-You may want to run it in the background and redirect the script's return to a log:
+You may want to run it in the background and redirect the script's output to a log:
 
 ```shell
 nohup /usr/share/centreon-bi//bin/centreonBIETL -r >> /var/log/centreon-bi/centreonBIETL.log 2>&1 &
