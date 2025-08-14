@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 > Utilisateurs de Centreon Cloud: l'agent CMA est encore en phase bêta pour la version Cloud. 
-
+ 
 > Pour obtenir de l'aide ou échanger sur les évolutions de l'agent Centreon, visitez [notre groupe dédié sur The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
 
 ## Introduction
@@ -216,7 +216,7 @@ Pas d'action nécessaire.
 
 ### Configurez les paramètres de chiffrement
 
-Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
+Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
 
 ### Ajoutez les commandes CMA à vos listes blanches personnalisées
 
@@ -526,7 +526,7 @@ Les données renseignées via l'installer ou le mode silencieux sont écrites en
 
 #### Configurez les paramètres de chiffrement
 
-Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
+Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
 
 
 #### Configurez les logs
