@@ -150,7 +150,7 @@ You can filter the list of resources according to a number of predefined criteri
 
 #### Free text search
 
-If you type text into the search bar, the search may performed on the following fields:
+If you type text into the search bar, the search may be performed on the following fields:
 
 - Name of the host
 - Alias of the host
@@ -166,7 +166,7 @@ The behavior depends on what you have configured in the **Administration > Param
 
 #### CQL criteria
 
-you can do a much more specific search using the [Centreon Query Language](#cql-criteria). This language allows you to search only 
+You can do a much more specific search using the [Centreon Query Language](#cql-criteria). This language allows you to search only 
 in one or several fields.
 
 - **alias**: search for hosts according to their alias
