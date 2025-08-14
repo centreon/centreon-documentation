@@ -314,5 +314,9 @@
   "sidebar.docs.category.Available reports": {
     "message": "Rapports disponibles",
     "description": "The label for category Available reports in sidebar docs"
-  }
+  },
+  "sidebar.docs.category.MBI administration": {
+    "message": "Administration de MBI",
+    "description": "The label for category MBI administration in sidebar docs"
+  }  
 }
