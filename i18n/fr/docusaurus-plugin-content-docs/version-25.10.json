@@ -312,7 +312,7 @@
     "description": "The label for category Types of notifications in sidebar docs"
   },
   "sidebar.docs.category.Available reports": {
-    "message": "Repports disponibles",
+    "message": "Rapports disponibles",
     "description": "The label for category Available reports in sidebar docs"
   }
 }
