@@ -56,7 +56,7 @@ state changes/transitions occur. State changes occur when an archived
 state is different from the archived state that immediately precedes it
 chronologically. Since we keep the results of the last 21 service checks
 in the array, there is a possibility of having at most 20 state changes.
-In this example there are 7 state changes, indicated by blue arrows in
+In this example there are 712 state changes, indicated by blue arrows in
 the image above.
 
 The flap detection logic uses the state changes to determine an overall
@@ -78,28 +78,21 @@ service.
 ![image](../assets/alerts/statetransitions2.png)
 
 Using the images above, let’s do a calculation of percent state change
-for the service. You will notice that there is a total of 7 state
-changes (at t\_3, t\_4, t\_5, t\_9, t\_12, t\_16 and t\_19). Without any
+for the service. You will notice that there is a total of 12 state
+changes. Without any
 weighting of the state changes over time, this would give us a total
-state change of 35%:
+state change of 60%:
 
-(7 observed state changes / possible 20 state changes) \* 100 = 35%
+(12 observed state changes / possible 20 state changes) \* 100 = 60%
 
 Since the flap detection logic will give newer state changes a higher
 rate than older state changes, the actual calculated percent state
-change will be slightly less than 35% in this example. Let's say that
-the weighted percent of state change turned out to be 31%…
+change will be slightly less than 60% in this example. Let's say that
+the weighted percent of state change turned out to be 53%.
 
-The calculated percent state change for the service (31%) will then be
+The calculated percent state change for the service (53%) will then be
 compared against flapping thresholds to see what should happen:
 
--   If the service was not previously flapping and 31% is equal to or
-    greater than the high flap threshold, Centreon Engine considers the
-    service to have just started flapping.
--   If the service was previously flapping and 31% is less than the low
-    flap threshold, Centreon Engine considers the service to have just
-    stopped flapping.
-
-If neither of those two conditions are met, the flap detection logic
-won’t do anything else with the service, since it is either not
-currently flapping or it is still flapping.
+-   If the service was not previously flapping, Centreon Engine considers the
+    service to have just started flapping, as its percent state change is above the high flapping threshold.
+-   If the service was previously flapping, Centreon Engine considers the service is still flapping (as its percent state change is not lower than the low flap threshold).

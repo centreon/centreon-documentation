@@ -55,7 +55,7 @@ statuts. Les changements de statut se produisent lorsqu'un état archivé
 est différent de l'état archivé qui le précède immédiatement
 chronologiquement. Étant donné que nous conservons les résultats des 21
 dernières vérifications du service, il est possible d'avoir au plus 20
-changements de statuts. Dans cet exemple, il y a 7 changements de
+changements de statuts. Dans cet exemple, il y a 12 changements de
 statuts, indiqués par des flèches bleues dans l'image ci-dessus.
 
 La logique de détection des bagotages utilise les changements de
@@ -80,30 +80,23 @@ pour un service particulier.
 ![image](../assets/alerts/statetransitions2.png)
 
 À l'aide des images ci-dessus, calculons le pourcentage de changement de
-statut pour le service. Vous remarquerez qu'il y a un total de 7
-changements de statuts (à t\_3, t\_4, t\_5, t\_9, t\_12, t\_16 et
-t\_19). Sans aucune pondération des changements au fil du temps, cela
-nous donnerait un changement d'état total de 35%:
+statut pour le service. Vous remarquerez qu'il y a un total de 12
+changements de statuts. Sans aucune pondération des changements au fil du temps, cela
+nous donnerait un changement d'état total de 60%:
 
-(7 changements observés / 20 possible changements) \* 100 = 35 %
+(12 changements observés / 20 possible changements) \* 100 = 60 %
 
 Étant donné que la logique de détection des bagotages donnera aux
 changements d'état plus récents un taux plus élevé que les changements
 plus anciens, le pourcentage réel de changement calculé sera légèrement
-inférieur à 35% dans cet exemple. Disons que le pourcentage pondéré du
-changement d'état s'est avéré être de 31%.
+inférieur à 60% dans cet exemple. Disons que le pourcentage pondéré du
+changement d'état s'est avéré être de 53%.
 
-Le pourcentage de changement de statut calculé pour le service (31%)
-sera ensuite comparé aux seuils de bagotages pour voir ce qui devrait
+Le pourcentage de changement de statut calculé pour le service (53%)
+sera ensuite comparé aux seuils de bagotage pour voir ce qui devrait
 se produire:
 
--   Si le service était en état régulier auparavant, et que 31% est égal
-    ou supérieur au seuil de bagotage haut, le moteur Centeron
-    considère que le service vient de commencer à bagoter.
--   Si le service était en état de bagotage précédemment et que 31%
-    est inférieur au seuil de bagotage bas, le moteur Centreon
-    considère que le service redevient dans un état régulier.
-
-Si aucune de ces deux conditions n'est remplie, la logique de détection
-des bagotages ne fera rien d'autre avec le service, car soit le service
-est en état de bagotage, soit en état régulier.
+-   Si le service était en état régulier auparavant, le moteur Centreon
+    considère que le service vient de commencer à bagoter (car 53 est supérieur au seuil haut de bagotage).
+-   Si le service était en état de bagotage précédemment, le moteur Centreon
+    considère que le service reste en état de bagotage, car il n'est pas inférieur au seuil bas de bagotage.
