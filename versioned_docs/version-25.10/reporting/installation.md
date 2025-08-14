@@ -69,7 +69,7 @@ reporting server, for performance and isolation reasons.
 
 #### Software requirements
 
-See the [software requirements](https://docs.centreon.com/docs/installation/prerequisites/#characteristics-of-the-servers).
+See the [software requirements](https://docs-next-int.centreon.com/docs/installation/prerequisites/#characteristics-of-the-servers).
 
 You should install the MariaDB/MySQL database at the same time. We highly recommend
 installing the database on the same server, due to performance and isolation
@@ -259,10 +259,10 @@ vgdisplay vg_data | grep -i free*
 
 #### Firmware and software layer
 
-- OS: see [compatibility info here](https://docs.centreon.com/docs/installation/compatibility/#operating-systems)
-- SGBD: see [compatibility info here](https://docs.centreon.com/docs/installation/compatibility/#dbms)
-- Firewalld: Disabled ([look here](https://docs.centreon.com/docs/installation/installation-of-a-central-server/using-packages/#configure-or-disable-the-firewall))
-- SELinux: Disabled ([look here](https://docs.centreon.com/docs/installation/installation-of-a-central-server/using-packages/#disable-selinux))
+- OS: see [compatibility info here](https://docs-next-int.centreon.com/docs/installation/compatibility/#operating-systems)
+- SGBD: see [compatibility info here](https://docs-next-int.centreon.com/docs/installation/compatibility/#dbms)
+- Firewalld: Disabled ([look here](https://docs-next-int.centreon.com/docs/installation/installation-of-a-central-server/using-packages/#configure-or-disable-the-firewall))
+- SELinux: Disabled ([look here](https://docs-next-int.centreon.com/docs/installation/installation-of-a-central-server/using-packages/#disable-selinux))
 
 > Make sure that the reporting server and the central server have the same time zone; otherwise report publications will fail (the link to download them will be missing).
 > The same time zone must be displayed with the `timedatectl` command.
@@ -430,9 +430,9 @@ systemctl restart mariadb
 
 ### Give rights to the cbis user
 
-When you install Centreon MBI, a [user](https://docs.centreon.com/docs/monitoring/basic-objects/contacts/) named **cbis** is automatically created.
+When you install Centreon MBI, a [user](https://docs-next-int.centreon.com/docs/monitoring/basic-objects/contacts/) named **cbis** is automatically created.
 It allows the report generation engine to extract data from Centreon (using the APIs) in order to insert them in the report.
-This user must [have access to all resources monitored by Centreon](https://docs.centreon.com/docs/administration/access-control-lists/) in order to extract the performance graphs for the following reports:
+This user must [have access to all resources monitored by Centreon](https://docs-next-int.centreon.com/docs/administration/access-control-lists/) in order to extract the performance graphs for the following reports:
 
 - Host-Graph-v2
 - Hostgroup-Graph-v2.
@@ -927,7 +927,7 @@ mysql_secure_installation
 </Tabs>
 
 - Answer **yes** to all questions except "Disallow root login remotely?"
-- It is mandatory to define a password for the **root** user of the database. You will need this password during the [web-installation](https://docs.centreon.com/docs/installation/web-and-post-installation/).
+- It is mandatory to define a password for the **root** user of the database. You will need this password during the [web-installation](https://docs-next-int.centreon.com/docs/installation/web-and-post-installation/).
 
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 
@@ -1025,13 +1025,13 @@ Use the options on the **Reporting > Monitoring Business Intelligence > General 
 | Host categories                                                                         | Select only host categories on which you want to create reports.                                                                                                                                                                     |
 | Service categories                                                                     | Select only service categories on which you want to create reports.                                                                                                                                                                  |
 | **Availability statistic calculation**                                                 |                                                                                                                                                                                                                                       |
-| Live services for availability statistics calculation                                  | Your [availability reports](available-reports/availability-events-reports.md) will only include data from these [time periods](https://docs.centreon.com/docs/monitoring/basic-objects/timeperiods/).                                                                                                                                                                                                         |
+| Live services for availability statistics calculation                                  | Your [availability reports](available-reports/availability-events-reports.md) will only include data from these [time periods](https://docs-next-int.centreon.com/docs/monitoring/basic-objects/timeperiods/).                                                                                                                                                                                                         |
 | **Performance and capacity statistic calculation**                                     |                                                                                                                                                                                                                                       |
 | Granularity required for performance data statistics                                   | Select the level of granularity required to run the desired performance reports (1).                                                                                                                                                  |
 | Live services for performance data statistics calculation                              | Select the required time periods.                                                                                                                                                                                                     |
 | **Capacity statistic aggregated by month** (reports in the [storage](available-reports/storage-reports.md) category). Data is only aggregated by month.                                            |                                                                                                                                                                                                                                       |
 | Live services for capacity statistics calculation                                      | Select **24x7**, as this is the only relevant time period to calculate disk space.                                                                                                                                                                                                        |
-| Service categories related to capacity data monitoring	                                | Select the [service categories](https://docs.centreon.com/docs/monitoring/categories) that have been associated with capacity-type services.                                                                                                                                                  |
+| Service categories related to capacity data monitoring	                                | Select the [service categories](https://docs-next-int.centreon.com/docs/monitoring/categories) that have been associated with capacity-type services.                                                                                                                                                  |
 | Exclude metrics from service categories that do not return capacity USAGE information  | Concerns the metrics linked to services which return capacity data. Select the metrics that do not return capacity usage information. but a maximum or total value. (e.g., the metric “size”).                                        |
 
 **(1)** Reports requiring data granularity by the hour are listed below. If you do not wish to use these reports, disable the calculation of hourly statistics:
@@ -1201,7 +1201,7 @@ systemctl restart cron
 </TabItem>
 </Tabs>
 
-The installation of Centreon MBI is now complete. You can start creating [jobs](concepts.md#jobs) in order to generate reports. See [the tutorial](https://docs.centreon.com/docs/getting-started/analyze-resources-availability/).
+The installation of Centreon MBI is now complete. You can start creating [jobs](concepts.md#jobs) in order to generate reports. See [the tutorial](https://docs-next-int.centreon.com/docs/getting-started/analyze-resources-availability/).
 
 ## Monitor your MBI server with Centreon
 

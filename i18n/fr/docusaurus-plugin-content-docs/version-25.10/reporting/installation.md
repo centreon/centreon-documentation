@@ -258,10 +258,10 @@ vgdisplay vg_data | grep -i free*
 
 #### Couche interlogiciel et logiciel
 
-- OS : voir la compatibilité [ici](https://docs.centreon.com/fr/docs/installation/compatibility#système-dexploitation)
-- SGBD : voir la compatibilité [ici](https://docs.centreon.com/fr/docs/installation/compatibility/#sgbd)
-- Firewalld : Désactivé ([voir ici](https://docs.centreon.com/fr/docs/installation/installation-of-a-central-server/using-packages/#configurer-ou-désactiver-le-pare-feu))
-- SELinux : Désactivé ([voir ici](https://docs.centreon.com/fr/docs/installation/installation-of-a-central-server/using-packages/#désactiver-selinux))
+- OS : voir la compatibilité [ici](https://docs-next-int.centreon.com/fr/docs/installation/compatibility#système-dexploitation)
+- SGBD : voir la compatibilité [ici](https://docs-next-int.centreon.com/fr/docs/installation/compatibility/#sgbd)
+- Firewalld : Désactivé ([voir ici](https://docs-next-int.centreon.com/fr/docs/installation/installation-of-a-central-server/using-packages/#configurer-ou-désactiver-le-pare-feu))
+- SELinux : Désactivé ([voir ici](https://docs-next-int.centreon.com/fr/docs/installation/installation-of-a-central-server/using-packages/#désactiver-selinux))
 
 > Assurez-vous que le fuseau horaire du serveur de reporting est le même que celui du serveur central, sinon les publications de rapports échoueront (lien vers le téléchargement manquant).
 > Le même fuseau horaire doit être affiché avec la commande `timedatectl`.
