@@ -1,5 +1,6 @@
 ---
-title: Migrate from NSClient++ to CMA
+id: cma-migratenscp
+title: Migrer vers CMA depuis NSClient++
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

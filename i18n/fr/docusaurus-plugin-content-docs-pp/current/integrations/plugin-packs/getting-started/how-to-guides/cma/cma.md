@@ -1,10 +1,12 @@
 ---
+id: cma
 title: Centreon Monitoring Agent
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 > Utilisateurs de Centreon Cloud: l'agent CMA est encore en phase bêta pour la version Cloud. 
+
 > Pour obtenir de l'aide ou échanger sur les évolutions de l'agent Centreon, visitez [notre groupe dédié sur The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
 
 ## Introduction
@@ -74,12 +76,19 @@ La connexion entre le collecteur et l'agent doit être sécurisée en production
 * TLS insecure: the certification authority and Common Name are not verified (self-signed certificates can be used).-->
 
 Cela passe par : 
-- [une connexion TLS par certificats](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma-certificates/)
+- [une connexion TLS par certificats](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-certificates/)
 - [l'utilisation d'un jeton d'authentification](#créez-le-jeton-dauthentification)
 
 #### Schéma de fonctionnement
 
-TODO
+<Tabs groupId="sync">
+<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/initiated-by-agent.png)
+</TabItem>
+<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/initiated-by-poller.png)
+</TabItem>
+</Tabs>
 
 
 ## Étape 1: Configurez Centreon
@@ -166,7 +175,7 @@ Créez les services associés au modèle d'hôte.
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 4. Dans la section **Paramètres**, sélectionnez le ou les collecteurs qui recevront des données en provenance de l'agent. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
-5. Dans la section **Récepteur OTLP**, renseignez les chemins des fichiers de certificat. Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
+5. Dans la section **Récepteur OTLP**, renseignez les chemins des fichiers de certificat. Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
 > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
 6. [Déployez la configuration en redémarrant le moteur de collecte](/docs/monitoring/monitoring-servers/deploying-a-configuration).
 
@@ -174,7 +183,7 @@ Créez les services associés au modèle d'hôte.
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
 4. Dans la section **Paramètres**, sélectionnez le collecteur qui se connectera aux agents. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
 5. Dans la section **Hôtes supervisés**, sélectionnez l'hôte créé précédemment, son IP remonte et un port par défaut est renseigné. Modifier ces informations si nécessaire.
-6. Renseignez les chemins des fichiers de certificat. Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
+6. Renseignez les chemins des fichiers de certificat. Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
 7. Renseignez le jeton d'authentification créé précédemment. Il est aussi possible de créer un jeton depuis cet écran.
 8. Ajoutez l'hôte.
 9. Répétez l'opération pour chaque Hôte devant être lié à ce collecteur. Pour configurer de fortes volumétries, il est recommandé de passer par les API dédiées.
@@ -709,89 +718,5 @@ Sur les hôtes que vous voulez superviser, les plugins sont déjà installés pa
 
 ## Tests de bon fonctionnement 
 
-Voir page dédiée.
+Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-troubleshoting/).
 
-### Vérifications sur l'hôte
-
-<Tabs groupId="sync">
-<TabItem value="Linux" label="Linux">
-
-#### Vérifiez que le service est lancé
-```bash
-systemctl status centagent
-```
-
-Si le service n'est pas démarré, démarrez-le.
-
-```bash
-systemctl restart centagent
-```
-
-#### Vérifiez que le fichier de log agent ne contient pas d'erreur
-
-Selon le chemin configuré pour votre fichier de log : 
-```bash
-grep error /var/log/centreon-monitoring-agent/centagent.log
-```
-Aucune ligne ne doit être retournée.
-
-</TabItem>
-<TabItem value="Windows" label="Windows">
-
-#### Vérifiez que le service est lancé
-```bash
-services.msc
-```
-Recherchez "Centreon Monitoring Agent" dans la liste des services.
-Si le service n'est pas démarré, démarrez-le.
-
-#### Vérifiez que les logs ne contient pas d'erreur
-
-Selon la configuration faite, utilisez l'observateur d'événements ou consultez le fichier spécifié.
-
-
-#### Vérifiez que la connexion se fait vers le collecteur
-```bash
-tnc chsysilsuper -p 4317
-```
-La valeur **true** doit être retournée.
-
-</TabItem>
-</Tabs>
-
-### Vérifications sur le collecteur
-
-#### Vérifiez que le serveur est en écoute et que les packets arrivent
-
-<Tabs groupId="sync">
-<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
-   Exécutez la commande suivante : 
-   ```bash
-   netstat -na | grep 4317
-   ```
-   Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
-   Le port 4317 doit être ouvert en entrée sur le collecteur.
-   
-   Exécutez la commande suivante : 
-   ```bash
-   tcpdump -i any port 4317
-   ```
-   Elle doit retourner des résultats, indiquant que des packets arrivent de l'agent.
-   
-</TabItem>
-<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
-   Le port 4317 doit être ouvert en entrée sur l'Agent.
-</TabItem>
-</Tabs>
-
-
-#### Vérifiez que le fichier de log engine ne contient pas d'erreur
-```bash
-grep error /var/log/centreon-engine/centengine.log
-```
-Aucune ligne ne doit être retournée.
-
-
-### Vérifications dans Centreon
-
-L'hôte et les services configurés doivent remonter un statut et des métriques.

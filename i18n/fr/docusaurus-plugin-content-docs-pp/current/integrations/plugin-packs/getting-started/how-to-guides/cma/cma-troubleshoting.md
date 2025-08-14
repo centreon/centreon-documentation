@@ -1,12 +1,10 @@
 ---
-title: CMA troubleshoting
+id: cma-troubleshoting
+title: Dépanner l'agent CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Tests de bon fonctionnement 
-
-Voir page dédiée.
 
 ### Vérifications sur l'hôte
 

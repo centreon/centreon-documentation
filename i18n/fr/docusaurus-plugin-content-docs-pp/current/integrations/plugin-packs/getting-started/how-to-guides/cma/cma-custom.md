@@ -1,13 +1,22 @@
 ---
-title: Custom scripts execution
+id: cma-custom
+title: Exécuter des scripts personnalisés
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-TODO : contextualiser -> pourquoi ? pour que CMA exécute ces scripts
-Centreon Monitoring Agent est capable d'exécuter des scripts personnalisés.
-Les langages supportés sont : PS / Perl / Python / Bash
-Pour se faire, déposez le script sur l'hôte, et créez/adaptez la commande de la manière suivante : 
+**Centreon Monitoring Agent** est capable d'exécuter des scripts personnalisés.
+Cela peut être utile dans le cas où les besoins de supervision sont spécifiques, et non couverts par les contrôles natifs et plugins Centreon.
+Les langages supportés sont : PS / Perl / Python / Bash.
+
+## Actions sur l'hôte
+
+Déposez le script sur l'hôte, dans le répertoire de votre choix.
+
+
+## Actions dans Centreon
+
+* Créez/adaptez la commande exécutant le script, selon le langage 
 
 **PowerShell (Windows) :**
 
@@ -45,3 +54,7 @@ Chemin de l'interpréteur à adapter selon le cas et la version.
 ```bash
 /<path>/<to>/custom_script.sh
 ```
+
+* Associez le service (et le modèle de service le cas échéant) à la commande
+
+* Déployez la configuration

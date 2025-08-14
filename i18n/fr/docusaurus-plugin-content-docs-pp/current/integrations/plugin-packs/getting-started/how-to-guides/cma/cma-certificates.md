@@ -1,6 +1,6 @@
 ---
 id: cma-certificates
-title: Centreon Monitoring Agent certificates configuration
+title: Configuration des certificats
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -30,7 +30,7 @@ chmod 644 /etc/pki/agent*
 ```
 
 Les fichiers de certificat déposés sur l'hôte peuvent être déposés dans un répertoire libre. 
-Ils doivent avoir les permissions suivantes : TODO
+
 Ces fichiers peuvent également être directement enregistrés dans le magasin de certificats.
 Dans ce cas, il n'est pas nécessaire de les renseigner dans la configuration faite sur l'hôte (colonne "Configuration de l'hôte" du tableau précédent).
 
