@@ -237,7 +237,7 @@ Configure how the poller and the agent will communicate:
 
 <PollerAgentConfiguration type="CMA" />
 
-5. For Centreon OnPrem, from version 24.10.9, if the **TLS** encryption mode is selected, you can use an optional token to make your poller/agent connection even more secure:
+5. From Centreon OnPrem 24.10.9, if the **TLS** encryption mode is selected, use a token to make your poller/agent connection even more secure for all newly-created configurations:
    * On the **Administration > Authentication tokens** page, create a CMA-type token.
    * Select this token in the corresponding section of the agent configuration page.
    * Add your token to the **/etc/centreon-monitoring-agent/centagent.json** file on your host.
