@@ -310,5 +310,9 @@
   "sidebar.docs.category.Types of notifications": {
     "message": "Types de notifications",
     "description": "The label for category Types of notifications in sidebar docs"
+  },
+  "sidebar.docs.category.Available reports": {
+    "message": "Repports disponibles",
+    "description": "The label for category Available reports in sidebar docs"
   }
 }
