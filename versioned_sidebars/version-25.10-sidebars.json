@@ -899,7 +899,7 @@
         },
         {
           "type": "category",
-          "label": "MBI Administration",
+          "label": "MBI administration",
           "link": {
             "type": "generated-index"
           },
