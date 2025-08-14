@@ -38,8 +38,8 @@ In Centreon Cloud, the flapping thresholds are as follows:
 
 | Threshold | Hosts | Services |
 | --- | --- | --- |
-| Low Flap Threshold | | |
-| High Flap Threshold | | |
+| Low Flap Threshold | 25 | 25 |
+| High Flap Threshold | 50 | 50 |
 
 ## Example
 
