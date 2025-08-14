@@ -1,6 +1,6 @@
 ---
 id: available-reports
-title: Les rapports disponibles
+title: Rapports disponibles
 ---
 
 Vous pouvez ici prévisualiser les modèles de rapport et obtenir des informations sur leurs paramètres et leurs prérequis. Les modèles de rapport sont regroupés par le type de données qu'ils contiennent.
