@@ -5,7 +5,7 @@ title: Redis Database
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Redis Database** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
@@ -134,6 +134,8 @@ Afin de contrôler votre base de données Redis, le collecteur doit pouvoir exé
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
@@ -223,7 +225,7 @@ yum install centreon-plugin-Applications-Databases-Redis
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **App-DB-Redis-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro             | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -446,6 +448,23 @@ Le plugin apporte les modes suivants :
 | memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/redis/mode/memory.pm)]           | App-DB-Redis-Memory-custom      |
 | persistence [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/redis/mode/persistence.pm)] | App-DB-Redis-Persistence-custom |
 | replication [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/redis/mode/replication.pm)] | App-DB-Redis-Replication-custom |
+
+### Custom modes disponibles
+
+Ce connecteur offre plusieurs méthodes pour se connecter à la ressource (CLI, bibliothèque, etc.), appelées **custom modes**.
+Tous les custom modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-custommode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_database_redis.pl \
+	--plugin=database::redis::plugin \
+	--list-custommode
+```
+
+Le plugin apporte les custom modes suivants :
+
+* cli
+* perlmod
 
 ### Options disponibles
 

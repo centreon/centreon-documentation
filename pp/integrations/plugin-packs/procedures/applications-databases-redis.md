@@ -133,6 +133,9 @@ To control your Redis database, the poller must be able to execute the _INFO_ co
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
 **Configuration > Connectors > Monitoring Connectors** menu.
@@ -224,7 +227,7 @@ yum install centreon-plugin-Applications-Databases-Redis
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **App-DB-Redis-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
-4. Fill in the macros you want. Some macros are mandatory.
+4. Fill in the macros you want. Some macros are mandatory, in particular the macro for defining the [custom mode](#available-custom-modes), i.e. the connection method to the resource.
 
 | Macro             | Description                                                                                                                | Default value     | Mandatory   |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -445,6 +448,23 @@ The plugin brings the following modes:
 | memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/redis/mode/memory.pm)]           | App-DB-Redis-Memory-custom      |
 | persistence [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/redis/mode/persistence.pm)] | App-DB-Redis-Persistence-custom |
 | replication [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/redis/mode/replication.pm)] | App-DB-Redis-Replication-custom |
+
+### Available custom modes
+
+This connector offers several ways to connect to the resource (CLI, library, etc.), called **custom modes**.
+All available custom modes can be displayed by adding the `--list-custommode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_database_redis.pl \
+	--plugin=database::redis::plugin \
+	--list-custommode
+```
+
+The plugin brings the following custom modes:
+
+* cli
+* perlmod
 
 ### Available options
 
@@ -675,6 +695,7 @@ All available options for a given mode can be displayed by adding the
 ```bash
 /usr/lib/centreon/plugins/centreon_database_redis.pl \
 	--plugin=database::redis::plugin \
+	--mode=cpu             \
 	--custommode='perlmod' \
 	--help
 ```

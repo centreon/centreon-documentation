@@ -5,7 +5,7 @@ title: Redis Sentinel
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Redis Sentinel** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
@@ -92,6 +92,8 @@ Voici la liste des commandes utilisées:
 ## Installer le connecteur de supervision
 
 ### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
@@ -187,7 +189,7 @@ yum install centreon-plugin-Applications-Redis-Sentinel
 | Macro                | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:---------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SENTINELUSERNAME     | Sentinel username (redis-cli \>= 6.x mandatory)                                                      |                   |             |
-| SENTINELPASSWORD     | Sentinel password                                                                                    |                   | X           |
+| SENTINELPASSWORD     | Sentinel password                                                                                    |                   |             |
 | SENTINELPORT         | Sentinel port (default: 26379)                                                                       | 26379             |             |
 | SENTINELCACERT       | CA Certificate file to verify with (redis-cli \>= 6.x mandatory)                                     |                   |             |
 | SENTINELCERT         | Client certificate to authenticate with (redis-cli \>= 6.x mandatory)                                |                   |             |
