@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Microsoft Active Directory Centreon Monitoring Agent** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -79,7 +79,7 @@ Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
 ### Prérequis système sur le collecteur
 
 > Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
-minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la version `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent devra se configurer en se connectant à Centreon Engine.
+> minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la version `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent devra se configurer en se connectant à Centreon Engine.
 
 ### Configuration de Centreon Engine
 
@@ -100,7 +100,7 @@ La procédure d'installation et de configuration de Centreon Monitoring Agent po
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -137,7 +137,7 @@ yum install centreon-pack-infrastructure-active-directory-centreon-monitoring-ag
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Microsoft Active Directory Centreon Monitoring Agent**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
