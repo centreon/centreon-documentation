@@ -4,6 +4,7 @@ title: Centreon Monitoring Agent
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import PollerAgentConfiguration from '../_poller-agent-configuration.mdx';
 
 > Utilisateurs de Centreon Cloud: l'agent CMA est encore en phase bêta pour la version Cloud. 
  
