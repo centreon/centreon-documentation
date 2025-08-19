@@ -150,19 +150,25 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
 
 ### Barre de recherche
 
-Si vous entrez du texte dans la barre de recherche, par défaut la recherche se fait sur tous les champs suivants :
+#### Recherche texte libre
+
+Si vous entrez du texte dans la barre de recherche, la recherche peut se faire sur tous les champs suivants :
 
 - Nom de l'hôte
 - Alias de l'hôte
 - Adresse ou FQDN de l'hôte
 - Nom du service
+- Informations
+
+Le comportement exact dépend de ce que vous avez configuré à la page **Administration > Paramètres > Centreon web**, dans le champ **Comportement de la recherche texte libre** :
+* **Recherche restreinte** : la recherche texte libre sera effectuée uniquement dans les champs suivants : nom d'hôte, alias et adresse, et description du service (c'est-à-dire son nom). À utiliser si vous disposez d'une grande quantité de données.
+* **Recherche étendue** : la recherche texte libre sera également effectuée dans le champ **Informations**. Cette option n'est appropriée que si vous disposez d'une petite quantité de données, car elle affecte les performances.
 
 Par exemple, si vous entrez "rta", toutes les ressources contenant un "rta" dans l'un des champs ci-dessus seront affichées (par exemple, un métaservice nommé **Ping-RTA-Average**).
 
-Cependant, vous pouvez faire une recherche beaucoup plus fine en utilisant le [Centreon Query Language](#critères-cql). Celui-ci vous permet de rechercher uniquement dans un ou plusieurs champs.
-
 #### Critères CQL
 
+Vous pouvez faire une recherche beaucoup plus fine en utilisant le [Centreon Query Language](#critères-cql). Celui-ci vous permet de rechercher uniquement dans un ou plusieurs champs.
 - **alias** : rechercher des hôtes selon leur alias
 - **fqdn** : rechercher des hôtes selon leur adresse IP ou FQDN
 - **host_group** : rechercher les hôtes rattachés à un groupe d'hôtes
