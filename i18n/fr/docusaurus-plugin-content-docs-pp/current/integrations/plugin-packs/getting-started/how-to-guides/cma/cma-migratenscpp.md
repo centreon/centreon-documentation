@@ -21,7 +21,7 @@ Centreon Monitoring Agent offre plusieurs avantages par rapport à NSClient++ et
 
 ## Déploiement et configuration de l'agent
 
-Déployez et configurez l'agent de supervision Centreon à l'aide de la [documentation](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma).
+Déployez et configurez l'agent de supervision Centreon à l'aide de la [documentation](cma.md).
 
 ## Configuration de la supervision
  
@@ -66,4 +66,4 @@ Par exemple : OS-Windows-NSClient05-NRPE-Cpu ou OS-Windows-NSClient05-Restapi-Cp
 
 Ces scripts restent compatibles avec l'agent de surveillance Centreon. 
 Vous devrez adapter les commandes (ou les dupliquer pour qu'elles fonctionnent en mode double exécution).
-Un [guide dédié](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-custom) est disponible.
+Un [guide dédié](cma-custom.md) est disponible.
