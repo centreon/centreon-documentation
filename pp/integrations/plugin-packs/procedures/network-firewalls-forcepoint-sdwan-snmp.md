@@ -252,6 +252,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 ### SNMP Configuration
 
 The SNMP service must be configured and activated on the host. Please refer to the [official documentation](https://help.forcepoint.com/flexedge/sd-wan/en-us/7.1.0/onlinehelp/GUID-5C72CBC0-C16C-4509-81D4-318E511558C3.html).
+Your resource may require a list of addresses authorized to query it to be set up.
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 

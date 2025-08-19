@@ -5,7 +5,7 @@ title: Forcepoint Sdwan
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Forcepoint Sdwan SNMP** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
@@ -73,7 +73,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                  | Description                                                                                       |
 |:---------------------------------|:--------------------------------------------------------------------------------------------------|
-| Net-Forcepoint-SNMP-Disk-Name    | Discover the disk partitions and monitor space occupation                                         |
+| Net-Forcepoint-SNMP-Disk-Name    | Découvre les partitions du disque et supervise l'espace occupé                                    |
 | Net-Forcepoint-SNMP-Traffic-Name | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
@@ -253,8 +253,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 ### Configuration SNMP
 
 L'agent SNMP doit être activé et configuré sur l'équipement.
-
 Référez vous à la [documentation officielle](https://help.forcepoint.com/flexedge/sd-wan/en-us/7.1.0/onlinehelp/GUID-5C72CBC0-C16C-4509-81D4-318E511558C3.html).
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée.
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
