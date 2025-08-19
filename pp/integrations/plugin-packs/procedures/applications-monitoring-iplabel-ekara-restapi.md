@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **IP-Label Ekara Rest API** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -85,9 +85,12 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -123,7 +126,7 @@ yum install centreon-pack-applications-monitoring-iplabel-ekara-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **IP-Label Ekara Rest API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -205,32 +208,32 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
 
 | Macro                    | Description                                                                                                                                                                                                                                  | Default value               | Mandatory   |
 |:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
-| TIMEFRAME                | Set timeframe period in seconds. (default: 900) Example: --timeframe='3600' will check the last hour                                                                                                                                         | 900                         |             |
+| TIMEFRAME                | Set timeframe period in seconds.  Example: --timeframe='3600' will check the last hour                                                                                                                                                       | 900                         |             |
 | WARNINGINCIDENTDURATION  | Threshold in seconds                                                                                                                                                                                                                         |                             |             |
 | CRITICALINCIDENTDURATION | Threshold in seconds                                                                                                                                                                                                                         |                             |             |
-| CRITICALINCIDENTSEVERITY | Critical threshold for incident severity (default: '%\{severity\} =~ "Critical"'). Syntax: --critical-incident-severity='%\{severity\} =~ "xxx"'                                                                                             | %\{severity\} =~ "Critical" |             |
-| WARNINGINCIDENTSEVERITY  | Warning threshold for incident severity (default: none). Syntax: --warning-incident-severity='%\{severity\} =~ "xxx"'                                                                                                                        |                             |             |
-| CRITICALINCIDENTSTATUS   | Critical threshold for incident status (default: '%\{status\} =~ "Open"'). Syntax: --critical-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                               | %\{status\} =~ "Open"       |             |
-| WARNINGINCIDENTSTATUS    | Warning threshold for incident status (default: none). Syntax: --warning-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                                                    |                             |             |
+| CRITICALINCIDENTSEVERITY | Critical threshold for incident severity. Syntax: --critical-incident-severity='%\{severity\} =~ "xxx"'                                                                                                                                      | %\{severity\} =~ "Critical" |             |
+| WARNINGINCIDENTSEVERITY  | Warning threshold for incident severity. Syntax: --warning-incident-severity='%\{severity\} =~ "xxx"'                                                                                                                                        | none                        |             |
+| CRITICALINCIDENTSTATUS   | Critical threshold for incident status. Syntax: --critical-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                                                                  | %\{status\} =~ "Open"       |             |
+| WARNINGINCIDENTSTATUS    | Warning threshold for incident status. Syntax: --warning-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                                                                    | none                        |             |
 | WARNINGINCIDENTSTOTAL    | Threshold                                                                                                                                                                                                                                    |                             |             |
 | CRITICALINCIDENTSTOTAL   | Threshold                                                                                                                                                                                                                                    |                             |             |
-| CRITICALTRIGGERSTATUS    | Critical threshold for trigger status (default: '%\{severity\} =~ "Failure"'). Syntax: --critical-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded' | %\{severity\} =~ "Failure"  |             |
-| WARNINGTRIGGERSTATUS     | Warning threshold for trigger status (default: none). Syntax: --warning-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded'                           |                             |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                           | --ignore-closed --verbose   |             |
+| CRITICALTRIGGERSTATUS    | Critical threshold for trigger status. Syntax: --critical-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded'                                         | %\{severity\} =~ "Failure"  |             |
+| WARNINGTRIGGERSTATUS     | Warning threshold for trigger status. Syntax: --warning-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded'                                           | none                        |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                       | --ignore-closed --verbose   |             |
 
 </TabItem>
 <TabItem value="Scenario-Status" label="Scenario-Status">
 
 | Macro                     | Description                                                                                                                                                                                                                                       | Default value                                           | Mandatory   |
 |:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| TIMEFRAME                 | Set timeframe period in seconds. (default: 7500) Example: C\<--timeframe='3600'\> will check the last hour. Note: If the API/Poller is overloaded, it is preferable to refine this value according to the highest check frequency in the scenario | 7500                                                    |             |
-| UNKNOWNSCENARIOSTATUS     | Unknown threshold for scenario status (default: C\<%\{status\} !~ /(Unknown\|No execution)/\>). Syntax: C\<--unknown-scenario-status='%\{status\} =~ "xxx"'\>                                                                                     | %\{status\} !~ /(Unknown\|No execution)/                |             |
+| TIMEFRAME                 | Set timeframe period in seconds. Example: '--timeframe='3600' will check the last hour. Note: If the API/Poller is overloaded, it is preferable to refine this value according to the highest check frequency in the scenario                     | 7500                                                    |             |
+| UNKNOWNSCENARIOSTATUS     | Unknown threshold for scenario status. Syntax: --unknown-scenario-status='%\{status\} =~ "xxx"'                                                                                                                                                   | %\{status\} !~ /(Unknown\|No execution)/                |             |
 | FILTERSTATUS              | Filter by numeric status (can be multiple). 0 =\> 'Unknown', 1 =\> 'Success', 2 =\> 'Failure', 3 =\> 'Aborted', 4 =\> 'No execution', 5 =\> 'No execution', 6 =\> 'Stopped', 7 =\> 'Excluded', 8 =\> 'Degraded'  Example: --filter-status='1,2'   |                                                         |             |
 | FILTERTYPE                | Filter by scenario type. Can be: 'WEB', 'HTTPR', 'BROWSER PAGE LOAD'                                                                                                                                                                              |                                                         |             |
 | WARNINGAVAILABILITY       | Thresholds in percentage                                                                                                                                                                                                                          |                                                         |             |
 | CRITICALAVAILABILITY      | Thresholds in percentage                                                                                                                                                                                                                          |                                                         |             |
-| WARNINGSCENARIOSTATUS     | Warning threshold for scenario status (default: C\<%\{status\} !~ /(Aborted\|Stopped\|Excluded\|Degraded)/\>). Syntax: C\<--warning-scenario-status='%\{status\} =~ "xxx"'\>                                                                      | %\{status\} =~ /(Aborted\|Stopped\|Excluded\|Degraded)/ |             |
-| CRITICALSCENARIOSTATUS    | Critical threshold for scenario status (default: '%\{status\} =~ "Failure"'). Syntax: --critical-scenario-status='%\{status\} =~ "xxx"'                                                                                                           | %\{status\} =~ "Failure"                                |             |
+| WARNINGSCENARIOSTATUS     | Warning threshold for scenario status. Syntax: --warning-scenario-status='%\{status\} =~ "xxx"'                                                                                                                                                   | %\{status\} =~ /(Aborted\|Stopped\|Excluded\|Degraded)/ |             |
+| CRITICALSCENARIOSTATUS    | Critical threshold for scenario status. Syntax: --critical-scenario-status='%\{status\} =~ "xxx"'                                                                                                                                                 | %\{status\} =~ "Failure"                                |             |
 | WARNINGTIMEINTERACTION    | Thresholds in ms for BPL scenarios                                                                                                                                                                                                                |                                                         |             |
 | CRITICALTIMEINTERACTION   | Thresholds in ms for BPL scenarios                                                                                                                                                                                                                |                                                         |             |
 | WARNINGTIMESTEP           | Thresholds in ms for WEB scenarios                                                                                                                                                                                                                |                                                         |             |
@@ -422,10 +425,10 @@ All available options for each service template are listed below:
 
 | Option                         | Description                                                                                                                                                                                                                                            |
 |:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --timeframe                    |   Set timeframe period in seconds. (default: 7500) Example: C\<--timeframe='3600'\> will check the last hour. Note: If the API/Poller is overloaded, it is preferable to refine this value according to the highest check frequency in the scenario.   |
+| --timeframe                    |   Set timeframe period in seconds. (default: 7500) Example: --timeframe='3600' will check the last hour. Note: If the API/Poller is overloaded, it is preferable to refine this value according to the highest check frequency in the scenario.        |
 | --filter-type                  |   Filter by scenario type. Can be: 'WEB', 'HTTPR', 'BROWSER PAGE LOAD'                                                                                                                                                                                 |
-| --unknown-scenario-status      |  Unknown threshold for scenario status (default: C\<%\{status\} !~ /(Unknown\|No execution)/\>). Syntax: C\<--unknown-scenario-status='%\{status\} =~ "xxx"'\>                                                                                         |
-| --warning-scenario-status      |   Warning threshold for scenario status (default: C\<%\{status\} !~ /(Aborted\|Stopped\|Excluded\|Degraded)/\>). Syntax: C\<--warning-scenario-status='%\{status\} =~ "xxx"'\>                                                                         |
+| --unknown-scenario-status      |   Unknown threshold for scenario status (default: %\{status\} !~ /(Unknown\|No execution)/). Syntax: --unknown-scenario-status='%\{status\} =~ "xxx"'                                                                                                  |
+| --warning-scenario-status      |   Warning threshold for scenario status (default: %\{status\} !~ /(Aborted\|Stopped\|Excluded\|Degraded)/). Syntax: --warning-scenario-status='%\{status\} =~ "xxx"'                                                                                   |
 | --critical-scenario-status     |   Critical threshold for scenario status (default: '%\{status\} =~ "Failure"'). Syntax: --critical-scenario-status='%\{status\} =~ "xxx"'                                                                                                              |
 | --warning-availability         |   Thresholds in percentage.                                                                                                                                                                                                                            |
 | --critical-availability        |   Thresholds in percentage.                                                                                                                                                                                                                            |
