@@ -27,12 +27,12 @@ import TabItem from '@theme/TabItem';
 - [**Redis Database**](../procedures/applications-databases-redis.md) - Added `cert` and `key` options for authentication (available for redis-cli >= 6.x), based on community contribution [PR 5555](https://github.com/centreon/centreon-plugins/pull/5555).
 - [**Redis Sentinel**](../procedures/applications-redis-sentinel.md) - Added `cert` and `key` options for authentication (available for redis-cli >= 6.x), from community contribution [PR 5555](https://github.com/centreon/centreon-plugins/pull/5555).
 - [**Veeam Centreon Monitoring Agent**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Converted into stable and added default timeout service macro set to 120s.
-- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - 
+- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added native checks for **Process**, **Counter**, **Taskched** and **Files**. Added default timeout service macro set to 120s.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - 
+- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Converted into stable with the new CMA version leading to breaking-changes for earlier versions.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
