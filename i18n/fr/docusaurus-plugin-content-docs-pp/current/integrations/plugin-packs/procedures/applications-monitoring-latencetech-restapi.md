@@ -97,27 +97,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Radio" label="Radio">
 
-| Nom                                        | Unité |
-|:-------------------------------------------|:------|
-| *kpis*#tcp.response.time.milliseconds      | ms    |
-| *kpis*#udp.response.time.milliseconds      | ms    |
-| *kpis*#http.response.time.milliseconds     | ms    |
-| *kpis*#https.response.time.milliseconds    | ms    |
-| *kpis*#icmp.response.time.milliseconds     | ms    |
-| *kpis*#twamp.response.time.milliseconds    | ms    |
-| *kpis*#download.bandwidth.bps              | bps   |
-| *kpis*#upload.bandwidth.bps                | bps   |
-| *kpis*#jitter.time.milliseconds            | ms    |
-| *kpis*#application.latency.milliseconds    | ms    |
-| *kpis*#network.latency.milliseconds        | ms    |
-| *kpis*#expected.latency.milliseconds       | ms    |
-| *kpis*#network.stability.percentage        | %     |
-| *kpis*#expected.stability.percentage       | %     |
-| *kpis*#volatility.percentage               | %     |
-| qoe-rate                                   | N/A   |
-| *kpis*#packetloss.rate.percentage          | %     |
-| *kpis*#expected.packetloss.rate.percentage | %     |
-| connectivity-health                        | N/A   |
+| Nom                                   | Unité |
+|:--------------------------------------|:------|
+| signal.noise.ratio.db                 | dbm   |
+| received.signalstrength.indicator.dbm | dbm   |
+| reference.signalreceive.power.dbm     | dbm   |
+| reference.signalreceive.quality.dbm   | db    |
 
 </TabItem>
 <TabItem value="Throughput" label="Throughput">
@@ -127,9 +112,11 @@ Coming soon
 </TabItem>
 <TabItem value="Twamp" label="Twamp">
 
-| Nom                                 | Unité |
-|:------------------------------------|:------|
-| latency.projected.time.milliseconds | ms    |
+| Nom                                     | Unité |
+|:----------------------------------------|:------|
+| twamp.forwarddelta.time.milliseconds    | ms    |
+| twamp.reversedelta.time.milliseconds    | ms    |
+| twamp.processingdelta.time.milliseconds | ms    |
 
 </TabItem>
 </Tabs>
@@ -328,14 +315,14 @@ yum install centreon-plugin-Applications-Monitoring-Latencetech-Restapi
 
 | Macro           | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGRSRPDBM  |                                                                                                    |                   |             |
-| CRITICALRSRPDBM |                                                                                                    |                   |             |
-| WARNINGRSRQDB   |                                                                                                    |                   |             |
-| CRITICALRSRQDB  |                                                                                                    |                   |             |
-| WARNINGRSSIDBM  |                                                                                                    |                   |             |
-| CRITICALRSSIDBM |                                                                                                    |                   |             |
-| WARNINGSNRDBM   |                                                                                                    |                   |             |
-| CRITICALSNRDBM  |                                                                                                    |                   |             |
+| WARNINGRSRPDBM  | Warning thresholds for reference signal receive power in dbm                                       |                   |             |
+| CRITICALRSRPDBM | Critical thresholds for reference signal receive power in dbm                                      |                   |             |
+| WARNINGRSRQDB   | Warning thresholds for reference signal receive quality in db                                      |                   |             |
+| CRITICALRSRQDB  | Critical thresholds for reference signal receive quality in db                                     |                   |             |
+| WARNINGRSSIDBM  | Warning thresholds for received signal strength indicator in dbm                                   |                   |             |
+| CRITICALRSSIDBM | Critical thresholds for received signal strength indicator in dbm                                  |                   |             |
+| WARNINGSNRDBM   | Warning thresholds for signal noise ratio in dbm                                                   |                   |             |
+| CRITICALSNRDBM  | Critical thresholds for signal noise ratio in dbm                                                  |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -358,12 +345,12 @@ yum install centreon-plugin-Applications-Monitoring-Latencetech-Restapi
 
 | Macro                   | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGTWAMPFORWARD     |                                                                                                    |                   |             |
-| CRITICALTWAMPFORWARD    |                                                                                                    |                   |             |
-| WARNINGTWAMPPROCESSING  |                                                                                                    |                   |             |
-| CRITICALTWAMPPROCESSING |                                                                                                    |                   |             |
-| WARNINGTWAMPREVERSE     |                                                                                                    |                   |             |
-| CRITICALTWAMPREVERSE    |                                                                                                    |                   |             |
+| WARNINGTWAMPFORWARD     | Warning thresholds for TWAMP forward delta time (in milliseconds)                                  |                   |             |
+| CRITICALTWAMPFORWARD    | Critical thresholds for TWAMP forward delta time (in milliseconds)                                 |                   |             |
+| WARNINGTWAMPPROCESSING  | Warning thresholds for TWAMP processing delta time (in milliseconds)                               |                   |             |
+| CRITICALTWAMPPROCESSING | Critical thresholds for TWAMP processing delta time (in milliseconds)                              |                   |             |
+| WARNINGTWAMPREVERSE     | Warning thresholds for TWAMP reverse delta time (in milliseconds)                                  |                   |             |
+| CRITICALTWAMPREVERSE    | Critical thresholds for TWAMP reverse delta time (in milliseconds)                                 |                   |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -382,7 +369,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 ```bash
 /usr/lib/centreon/plugins/centreon_latencetech_restapi.pl \
 	--plugin=apps::monitoring::latencetech::restapi::plugin \
-	--mode=connectivity \
+	--mode=twamp \
 	--hostname='10.0.0.1' \
 	--port='12099' \
 	--proto='https' \
@@ -390,20 +377,18 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--api-key='' \
 	--customer-id='' \
 	--agent-id=''  \
-	--warning-snr-dbm='' \
-	--critical-snr-dbm='' \
-	--warning-rssi-dbm='' \
-	--critical-rssi-dbm='' \
-	--warning-rsrp-dbm='' \
-	--critical-rsrp-dbm='' \
-	--warning-rsrq-db='' \
-	--critical-rsrq-db='' 
+	--warning-twamp-forward='' \
+	--critical-twamp-forward='' \
+	--warning-twamp-reverse='' \
+	--critical-twamp-reverse='' \
+	--warning-twamp-processing='' \
+	--critical-twamp-processing='' 
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All KPIs are OK | 'kpis1#tcp.response.time.milliseconds'=47241ms;;;0; 'kpis2#tcp.response.time.milliseconds'=20008ms;;;0; 'kpis1#udp.response.time.milliseconds'=16262ms;;;0; 'kpis2#udp.response.time.milliseconds'=72220ms;;;0; 'kpis1#http.response.time.milliseconds'=88210ms;;;0; 'kpis2#http.response.time.milliseconds'=6470ms;;;0; 'kpis1#https.response.time.milliseconds'=78047ms;;;0; 'kpis2#https.response.time.milliseconds'=5800ms;;;0; 'kpis1#icmp.response.time.milliseconds'=80229ms;;;0; 'kpis2#icmp.response.time.milliseconds'=43857ms;;;0; 'kpis1#twamp.response.time.milliseconds'=54777ms;;;0; 'kpis2#twamp.response.time.milliseconds'=51265ms;;;0; 'kpis1#download.bandwidth.bps'=73916bps;;;0; 'kpis2#download.bandwidth.bps'=80063bps;;;0; 'kpis1#upload.bandwidth.bps'=60152bps;;;0; 'kpis2#upload.bandwidth.bps'=160bps;;;0; 'kpis1#jitter.time.milliseconds'=4617ms;;;0; 'kpis2#jitter.time.milliseconds'=28168ms;;;0; 'kpis1#application.latency.milliseconds'=87772ms;;;0; 'kpis2#application.latency.milliseconds'=42434ms;;;0; 'kpis1#network.latency.milliseconds'=13704ms;;;0; 'kpis2#network.latency.milliseconds'=32074ms;;;0; 'kpis1#expected.latency.milliseconds'=4786ms;;;0; 'kpis2#expected.latency.milliseconds'=84028ms;;;0; 'kpis1#network.stability.percentage'=3152%;;;0;100 'kpis2#network.stability.percentage'=3995%;;;0;100 'kpis1#expected.stability.percentage'=57455%;;;0;100 'kpis2#expected.stability.percentage'=76822%;;;0;100 'kpis1#volatility.percentage'=58275%;;;0;100 'kpis2#volatility.percentage'=97335%;;;0;100 'kpis1#packetloss.rate.percentage'=48912%;;;0;100 'kpis2#packetloss.rate.percentage'=15957%;;;0;100 'kpis1#expected.packetloss.rate.percentage'=42927%;;;0;100 'kpis2#expected.packetloss.rate.percentage'=24358%;;;0;100 
+OK: TWAMP Forward Delta: 27962ms TWAMP Reverse Delta: 41477ms TWAMP Processing Delta: 67450ms | 'twamp.forwarddelta.time.milliseconds'=27962ms;;;0; 'twamp.reversedelta.time.milliseconds'=41477ms;;;0; 'twamp.processingdelta.time.milliseconds'=67450ms;;;0; 
 ```
 
 ### Diagnostic des erreurs communes
@@ -429,15 +414,15 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                          | Modèle de service associé                                                                                   |
-|:----------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------|
-| connectivity [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/latencetech/restapi/mode/connectivity.pm)] | App-Monitoring-Latencetech-Connectivity-Restapi-custom<br />App-Monitoring-Latencetech-Radio-Restapi-custom |
-| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/latencetech/restapi/mode/discovery.pm)]       | Utilisé pour la découverte d'hôtes                                                                          |
-| forecast [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/latencetech/restapi/mode/forecast.pm)]         | App-Monitoring-Latencetech-Forecast-Restapi-custom<br />App-Monitoring-Latencetech-Twamp-Restapi-custom     |
-| latency [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/latencetech/restapi/mode/latency.pm)]           | App-Monitoring-Latencetech-Latency-Restapi-custom                                                           |
-| radio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/latencetech/restapi/mode/radio.pm)]               | Pas utilisé dans ce connecteur de supervision                                                               |
-| throughput [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/latencetech/restapi/mode/throughput.pm)]     | App-Monitoring-Latencetech-Throughput-Restapi-custom                                                        |
-| twamp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/latencetech/restapi/mode/twamp.pm)]               | Pas utilisé dans ce connecteur de supervision                                                               |
+| Mode                                                                                                                                          | Modèle de service associé                              |
+|:----------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|
+| connectivity [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/latencetech/restapi/mode/connectivity.pm)] | App-Monitoring-Latencetech-Connectivity-Restapi-custom |
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/latencetech/restapi/mode/discovery.pm)]       | Utilisé pour la découverte d'hôtes                     |
+| forecast [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/latencetech/restapi/mode/forecast.pm)]         | App-Monitoring-Latencetech-Forecast-Restapi-custom     |
+| latency [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/latencetech/restapi/mode/latency.pm)]           | App-Monitoring-Latencetech-Latency-Restapi-custom      |
+| radio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/latencetech/restapi/mode/radio.pm)]               | App-Monitoring-Latencetech-Radio-Restapi-custom        |
+| throughput [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/latencetech/restapi/mode/throughput.pm)]     | App-Monitoring-Latencetech-Throughput-Restapi-custom   |
+| twamp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/latencetech/restapi/mode/twamp.pm)]               | App-Monitoring-Latencetech-Twamp-Restapi-custom        |
 
 ### Options disponibles
 
@@ -574,47 +559,17 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Radio" label="Radio">
 
-| Option                               | Description                                                                                                                          |
-|:-------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------|
-| --agent-id                           | Set the ID of the agent (mandatory option).                                                                                          |
-| --warning-tcp-response-time          | Warning thresholds for TCP response time in milliseconds.                                                                            |
-| --critical-tcp-response-time         | Critical thresholds for TCP response time in milliseconds.                                                                           |
-| --warning-udp-response-time          | Warning thresholds for UDP response time in milliseconds.                                                                            |
-| --critical-udp-response-time         | Critical thresholds for UDP response time in milliseconds.                                                                           |
-| --warning-http-response-time         | Warning thresholds for HTTP response time in milliseconds.                                                                           |
-| --critical-http-response-time        | Critical thresholds for HTTP response time in milliseconds.                                                                          |
-| --warning-https-response-time        | Warning thresholds for HTTPS response time in milliseconds.                                                                          |
-| --critical-https-response-time       | Critical thresholds for HTTPS response time in milliseconds.                                                                         |
-| --warning-icmp-response-time         | Warning thresholds for ICMP response time in milliseconds.                                                                           |
-| --critical-icmp-response-time        | Critical thresholds for ICMP response time in milliseconds.                                                                          |
-| --warning-twamp-response-time        | Warning thresholds for TWAMP response time in milliseconds.                                                                          |
-| --critical-twamp-response-time       | Critical thresholds for TWAMP response time in milliseconds.                                                                         |
-| --warning-download-bandwidth         | Warning thresholds for download bandwidth in bps.                                                                                    |
-| --critical-download-bandwidth        | Critical thresholds for download bandwidth in bps.                                                                                   |
-| --warning-upload-bandwidth           | Warning thresholds for upload bandwidth in bps.                                                                                      |
-| --critical-upload-bandwidth          | Critical thresholds for upload bandwidth in bps.                                                                                     |
-| --warning-jitter-time                | Warning thresholds for jitter time in milliseconds.                                                                                  |
-| --critical-jitter-time               | Critical thresholds for jitter time in milliseconds.                                                                                 |
-| --warning-application-latency        | Warning thresholds for application latency in milliseconds.                                                                          |
-| --critical-application-latency       | Critical thresholds for application latency in milliseconds.                                                                         |
-| --warning-network-latency            | Warning thresholds for network latency in milliseconds.                                                                              |
-| --critical-network-latency           | Critical thresholds for network latency in milliseconds.                                                                             |
-| --warning-expected-latency           | Warning thresholds for expected latency in milliseconds.                                                                             |
-| --critical-expected-latency          | Critical thresholds for expected latency in milliseconds.                                                                            |
-| --warning-network-stability-prct     | Warning thresholds for network stability percentage.                                                                                 |
-| --critical-network-stability-prct    | Critical thresholds for network stability percentage.                                                                                |
-| --warning-expected-stability-prct    | Warning thresholds for expected stability percentage.                                                                                |
-| --critical-expected-stability-prct   | Critical thresholds for expected stability percentage.                                                                               |
-| --warning-volatility-prct            | Warning thresholds for volatility percentage.                                                                                        |
-| --critical-volatility-prct           | Critical thresholds for volatility percentage.                                                                                       |
-| --warning-qoe-rate                   | Warning thresholds for Quality of Experience rate.                                                                                   |
-| --critical-qoe-rate                  | Critical thresholds for Quality of Experience rate.                                                                                  |
-| --warning-packet-loss-prct           | Warning thresholds for packet loss percentage.                                                                                       |
-| --critical-packet-loss-prct          | Critical thresholds for packet loss percentage.                                                                                      |
-| --warning-expected-packet-loss-prct  | Warning thresholds for expected packet loss percentage.                                                                              |
-| --critical-expected-packet-loss-prct | Critical thresholds for expected packet loss percentage.                                                                             |
-| --warning-connectivity-health        | Define the conditions to match for the connectivity status to be WARNING. (default: '%\{connectivityHealth\} =~ "Warning"').         |
-| --critical-connectivity-health       | Define the conditions to match for the connectivity status to be CRITICAL. (default: '%\{connectivityHealth\} =~ "Need Attention"'). |
+| Option              | Description                                                        |
+|:--------------------|:-------------------------------------------------------------------|
+| --agent-id          | Set the ID of the agent (mandatory option).                        |
+| --warning-snr-dbm   | Warning thresholds for signal noise ratio in dbm.                  |
+| --critical-snr-dbm  | Critical thresholds for signal noise ratio in dbm.                 |
+| --warning-rssi-dbm  | Warning thresholds for received signal strength indicator in dbm.  |
+| --critical-rssi-dbm | Critical thresholds for received signal strength indicator in dbm. |
+| --warning-rsrp-dbm  | Warning thresholds for reference signal receive power in dbm.      |
+| --critical-rsrp-dbm | Critical thresholds for reference signal receive power in dbm.     |
+| --warning-rsrq-db   | Warning thresholds for reference signal receive quality in db.     |
+| --critical-rsrq-db  | Critical thresholds for reference signal receive quality in db.    |
 
 </TabItem>
 <TabItem value="Throughput" label="Throughput">
@@ -634,11 +589,15 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Twamp" label="Twamp">
 
-| Option                       | Description                                 |
-|:-----------------------------|:--------------------------------------------|
-| --agent-id                   | Set the ID of the agent (mandatory option). |
-| --warning-projected-latency  | Warning thresholds for projected latency.   |
-| --critical-projected-latency | Critical thresholds for projected latency.  |
+| Option                      | Description                                                            |
+|:----------------------------|:-----------------------------------------------------------------------|
+| --agent-id                  | Set the ID of the agent (mandatory option).                            |
+| --warning-twamp-forward     | Warning thresholds for TWAMP forward delta time (in milliseconds).     |
+| --critical-twamp-forward    | Critical thresholds for TWAMP forward delta time (in milliseconds).    |
+| --warning-twamp-reverse     | Warning thresholds for TWAMP reverse delta time (in milliseconds).     |
+| --critical-twamp-reverse    | Critical thresholds for TWAMP reverse delta time (in milliseconds).    |
+| --warning-twamp-processing  | Warning thresholds for TWAMP processing delta time (in milliseconds).  |
+| --critical-twamp-processing | Critical thresholds for TWAMP processing delta time (in milliseconds). |
 
 </TabItem>
 </Tabs>
@@ -649,6 +608,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib/centreon/plugins/centreon_latencetech_restapi.pl \
 	--plugin=apps::monitoring::latencetech::restapi::plugin \
-	--mode=connectivity \
+	--mode=twamp \
 	--help
 ```
