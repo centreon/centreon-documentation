@@ -46,7 +46,7 @@ Store the certificates in the **/etc/pki** directory of the poller. Store them w
 <Tabs groupId="sync">
 <TabItem value="Agent connects to poller, TLS secure" label="Agent connects to poller, TLS secure">
 
-![image](../../../../assets/integrations/plugin-packs/how-to-guides/cma/TLS_SEC_initiated-by-agent.png)
+![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/TLS_SEC_initiated-by-agent.png)
 
 The poller will be configured the following way, using the **Agent configuration** page, in the **OTLP receiver** section:
 
