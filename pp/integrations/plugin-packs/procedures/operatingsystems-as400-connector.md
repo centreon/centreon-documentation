@@ -38,7 +38,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                        | Service Description              | Discovery  |
 |:--------------|:----------------------------------------|:---------------------------------|:----------:|
 | Command       | OS-AS400-Command-Connector-custom       | Execute command and check result |            |
-| Disks         | OS-AS400-Disks-Connector-custom         | Check disks usage                | X          |
+| Disks         | OS-AS400-Disks-Connector-custom         | Check disk usage                 | X          |
 | Job-Queues    | OS-AS400-Job-Queues-Connector-custom    | Check job queues                 |            |
 | Message-Queue | OS-AS400-Message-Queue-Connector-custom | Check message queue              |            |
 | SubSystem     | OS-AS400-SubSystem-Connector-custom     | Check subsystems                 | X          |
@@ -203,6 +203,9 @@ update-alternatives --config java
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
 **Configuration > Connectors > Monitoring Connectors** menu.
@@ -319,7 +322,7 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 |:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
 | COMMANDNAME    | Specify the command to execute (required)                                                                                                                       |                          | X           |
 | UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                                        |                          |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /failed/i'). You can use the following variables: %\{status\}, %\{name\} | %\{status\} =~ /failed/i |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                                       | %\{status\} =~ /failed/i |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                        |                          |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                              |                          |             |
 
@@ -328,10 +331,10 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 
 | Macro             | Description                                                                                                                                                                                                                      | Default value                                                                             | Mandatory   |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:-----------:|
-| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}, %\{name\}                                                                  | %\{status\} =~ /unknown/i                                                                 |             |
+| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                                                                                                         | %\{status\} =~ /unknown/i                                                                 |             |
 | DISKNAME          | Filter disks by name (can be a regexp)                                                                                                                                                                                           |                                                                                           |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /noReady\|busy\|hwFailureOk\|hwFailurePerf\|Protected\|rebuilding/i'). You can use the following variables: %\{status\}, %\{name\}         | %\{status\} =~ /noReady\|busy\|hwFailureOk\|hwFailurePerf\|Protected\|rebuilding/i        |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^(noAccess\|otherDiskSubFailed\|failed\|notOperational\|noUnitControl)$/i'). You can use the following variables: %\{status\}, %\{name\} | %\{status\} =~ /^(noAccess\|otherDiskSubFailed\|failed\|notOperational\|noUnitControl)$/i |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                                                                                         | %\{status\} =~ /noReady\|busy\|hwFailureOk\|hwFailurePerf\|Protected\|rebuilding/i        |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                                                                                                        | %\{status\} =~ /^(noAccess\|otherDiskSubFailed\|failed\|notOperational\|noUnitControl)$/i |             |
 | WARNINGUSAGEPRCT  | Threshold in percentage                                                                                                                                                                                                          |                                                                                           |             |
 | CRITICALUSAGEPRCT | Threshold in percentage                                                                                                                                                                                                          |                                                                                           |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                               | --verbose                                                                                 |             |
@@ -351,7 +354,7 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 | CRITICALJOBSSCHEDULED | Threshold                                                                                                                                                                   |                        |             |
 | WARNINGJOBSTOTAL      | Threshold                                                                                                                                                                   |                        |             |
 | CRITICALJOBSTOTAL     | Threshold                                                                                                                                                                   |                        |             |
-| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /HELD/i'). You can use the following variables: %\{status\}, %\{name\}, %\{library\} | %\{status\} =~ /HELD/i |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}, %\{library\}                                     | %\{status\} =~ /HELD/i |             |
 | WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{library\}                                      |                        |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                          | --verbose              |             |
 
@@ -415,7 +418,7 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 | CRITICALRESTRICTED | Threshold                                                                                                                                                                                          |                                                 |             |
 | WARNINGSTARTING    | Threshold                                                                                                                                                                                          |                                                 |             |
 | CRITICALSTARTING   | Threshold                                                                                                                                                                                          |                                                 |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /ending\|restricted\|starting/i'). You can use the following variables: %\{status\}, %\{name\}, %\{library\} | %\{status\} =~  /ending\|restricted\|starting/i |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{library\} | %\{status\} =~  /ending\|restricted\|starting/i                                                             |             |
 | CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}, %\{library\}                                                            |                                                 |             |
 | WARNINGTOTAL       | Threshold                                                                                                                                                                                          |                                                 |             |
 | CRITICALTOTAL      | Threshold                                                                                                                                                                                          |                                                 |             |
@@ -452,8 +455,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--connector-port='8091' \
 	--connector-proto='http' \
 	--as400-hostname=10.0.0.1 \
-	--as400-username='' \
-	--as400-password=''  \
+	--as400-username='XXXX' \
+	--as400-password='XXXX'  \
 	--filter-counters='' \
 	--warning-processing-units-usage='' \
 	--warning-storage-pool-space-usage='' \
