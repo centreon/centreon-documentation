@@ -87,8 +87,7 @@ Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
 
 ### Prérequis système sur l'hôte à superviser
 
-L'installateur de Centreon Monitoring Agent pour Windows peut se télécharger à partir des [pages de release du projet
-centreon-collect](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true).
+La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur [cette page dédiée](https://docs.centreon.com/fr/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/#%C3%A9tape-2--pr%C3%A9parez-lh%C3%B4te).
 
 #### Installation de Centreon Monitoring Agent
 
