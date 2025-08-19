@@ -190,7 +190,7 @@ yum install centreon-plugin-Applications-Redis-Sentinel
 |:---------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SENTINELUSERNAME     | Sentinel username (redis-cli \>= 6.x mandatory)                                                      |                   |             |
 | SENTINELPASSWORD     | Sentinel password                                                                                    |                   |             |
-| SENTINELPORT         | Sentinel port (default: 26379)                                                                       | 26379             |             |
+| SENTINELPORT         | Sentinel port                                                                       | 26379             |             |
 | SENTINELCACERT       | CA Certificate file to verify with (redis-cli \>= 6.x mandatory)                                     |                   |             |
 | SENTINELCERT         | Client certificate to authenticate with (redis-cli \>= 6.x mandatory)                                |                   |             |
 | SENTINELKEY          | Private key file to authenticate with (redis-cli \>= 6.x mandatory)                                  |                   |             |
