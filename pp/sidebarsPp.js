@@ -1758,6 +1758,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-firewalls-forcepoint-sdwan-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-fortinet-fortiadc-snmp'
         },
         {
