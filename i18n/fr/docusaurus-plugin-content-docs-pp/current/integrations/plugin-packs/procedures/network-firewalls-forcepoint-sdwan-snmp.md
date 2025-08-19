@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-forcepoint-sdwan-snmp
-title: Forcepoint Sdwan
+title: Forcepoint Sdwan SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
