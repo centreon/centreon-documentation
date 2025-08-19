@@ -1,5 +1,5 @@
 ---
-id: cma-migratenscp
+id: cma-migratenscpp
 title: Migrer vers CMA depuis NSClient++
 ---
 import Tabs from '@theme/Tabs';

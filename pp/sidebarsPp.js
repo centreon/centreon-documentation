@@ -42,7 +42,7 @@ module.exports = {
 				},
 				{
 					type: 'doc',
-					id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-migratenscp'
+					id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-migratenscpp'
 				},
 				{
 					type: 'doc',
