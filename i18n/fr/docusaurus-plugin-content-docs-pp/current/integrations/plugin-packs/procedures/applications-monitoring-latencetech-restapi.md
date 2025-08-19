@@ -123,9 +123,10 @@ Coming soon
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Le connecteur de supervision requiert que le **LatenceTech RestAPI** soit installé sur votre instance d'analyseur. Vous pouvez vous référer à [la documentation officielle de LatenceTech](https://docs.latence.ca/14-analyzer-api/) pour la procédure d'installation.
+Pour utiliser le connecteur, vous devez disposer de votre **clé API** et **ID client**.
+La clé API est utilisée pour authentifier les requêtes envoyées à l'API Rest de LatenceTech.
+Vous pouvez obtenir votre ID client en interrogeant l'API avec le point de terminaison /api/v1/networks (cette requête ne nécessite pas de paramètres).
 
 ## Installer le connecteur de supervision
 
@@ -370,13 +371,13 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 /usr/lib/centreon/plugins/centreon_latencetech_restapi.pl \
 	--plugin=apps::monitoring::latencetech::restapi::plugin \
 	--mode=twamp \
-	--hostname='10.0.0.1' \
+	--hostname='127.0.0.1' \
 	--port='12099' \
 	--proto='https' \
 	--api-path='/api/v1' \
-	--api-key='' \
-	--customer-id='' \
-	--agent-id=''  \
+	--api-key='apikey' \
+	--customer-id='1' \
+	--agent-id='2'  \
 	--warning-twamp-forward='' \
 	--critical-twamp-forward='' \
 	--warning-twamp-reverse='' \
@@ -388,7 +389,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: TWAMP Forward Delta: 27962ms TWAMP Reverse Delta: 41477ms TWAMP Processing Delta: 67450ms | 'twamp.forwarddelta.time.milliseconds'=27962ms;;;0; 'twamp.reversedelta.time.milliseconds'=41477ms;;;0; 'twamp.processingdelta.time.milliseconds'=67450ms;;;0; 
+OK: Agent '2' TWAMP Forward Delta: 12.92ms, TWAMP Reverse Delta: -4.19ms, TWAMP Processing Delta: 0.11ms | '2#twamp.forwarddelta.time.milliseconds'=12.92ms;;;0; '2#twamp.reversedelta.time.milliseconds'=-4.19ms;;;0; '2#twamp.processingdelta.time.milliseconds'=0.11ms;;;0;
 ```
 
 ### Diagnostic des erreurs communes

@@ -122,9 +122,10 @@ Coming soon
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+The connector requires the **LatenceTech RestAPI** to be installed on your analyzer instance. You can refer to [the LatenceTech official documentation](https://docs.latence.ca/14-analyzer-api/) for the installation procedure.
+To use the connector, you need to have your **API key** and **Customer ID**.
+The API key is used to authenticate the requests sent to the LatenceTech RestAPI.
+You can get your customer ID by requesting the API with the /api/v1/networks endpoint (this request do not need any parameters).
 
 ## Installing the monitoring connector
 
@@ -369,13 +370,13 @@ is able to monitor a resource using a command like this one (replace the sample 
 /usr/lib/centreon/plugins/centreon_latencetech_restapi.pl \
 	--plugin=apps::monitoring::latencetech::restapi::plugin \
 	--mode=twamp \
-	--hostname='10.0.0.1' \
+	--hostname='127.0.0.1' \
 	--port='12099' \
 	--proto='https' \
 	--api-path='/api/v1' \
-	--api-key='' \
-	--customer-id='' \
-	--agent-id=''  \
+	--api-key='apikey' \
+	--customer-id='1' \
+	--agent-id='2'  \
 	--warning-twamp-forward='' \
 	--critical-twamp-forward='' \
 	--warning-twamp-reverse='' \
@@ -387,7 +388,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: TWAMP Forward Delta: 27962ms TWAMP Reverse Delta: 41477ms TWAMP Processing Delta: 67450ms | 'twamp.forwarddelta.time.milliseconds'=27962ms;;;0; 'twamp.reversedelta.time.milliseconds'=41477ms;;;0; 'twamp.processingdelta.time.milliseconds'=67450ms;;;0; 
+OK: Agent '2' TWAMP Forward Delta: 12.92ms, TWAMP Reverse Delta: -4.19ms, TWAMP Processing Delta: 0.11ms | '2#twamp.forwarddelta.time.milliseconds'=12.92ms;;;0; '2#twamp.reversedelta.time.milliseconds'=-4.19ms;;;0; '2#twamp.processingdelta.time.milliseconds'=0.11ms;;;0;
 ```
 
 ### Troubleshooting
