@@ -129,7 +129,7 @@ centreon-collect](https://github.com/centreon/centreon-collect/releases?q=centre
 #### Installation de Centreon Monitoring Agent
 
 La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée dans 
-[la documentation dédiée à ce sujet](../getting-started/how-to-guides/cma/cma.md#étape-2--préparez-lhôte).
+[la documentation dédiée à ce sujet](../getting-started/how-to-guides/cma/cma.md#étape-3--préparez-lhôte).
 
 ## Installer le connecteur de supervision
 
@@ -182,7 +182,7 @@ du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est ac
 que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
 étape n'est pas requise.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks#installer-le-plugin).
 
 Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
