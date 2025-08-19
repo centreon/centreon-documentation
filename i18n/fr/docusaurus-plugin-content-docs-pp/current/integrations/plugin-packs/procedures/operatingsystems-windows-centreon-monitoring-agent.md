@@ -9,7 +9,7 @@ Le connecteur **Windows Centreon Monitoring Agent** permet de fournir des modèl
 
 > Pour le moment, ce connecteur de supervision est en version **BETA**. L'agent est encore dans sa phase beta pour les utilisateurs de Centreon Cloud.
 
-Lisez [cette page](../getting-started/how-to-guides/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
+Lisez [cette page](../getting-started/how-to-guides/cma/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
 
 ## Contenu du pack
 
@@ -219,12 +219,12 @@ minimum la version <!--`24.09.0` pour les utilisateurs de Centreon Cloud, et la 
 
 ### Configuration de la communication collecteur/agent
 
-[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma.md#configurez-la-communication-collecteuragent).
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma.md#configurez-la-communication-collecteuragent).
 
 ### Prérequis système pour l'hôte à superviser
 
 La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur
-[cette page dédiée](../getting-started/how-to-guides/cma.md#étape-2--préparez-lhôte)
+[cette page dédiée](../getting-started/how-to-guides/cma/cma.md#étape-2--préparez-lhôte)
 
 ## Installer le connecteur de supervision
 

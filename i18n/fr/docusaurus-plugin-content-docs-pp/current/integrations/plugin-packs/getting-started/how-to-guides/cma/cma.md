@@ -4,9 +4,10 @@ title: Centreon Monitoring Agent
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
-> Utilisateurs de Centreon Cloud: l'agent CMA est encore en phase bêta pour la version Cloud. Pour obtenir de l'aide, visitez [notre groupe dédié sur The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
+> Utilisateurs de Centreon Cloud: l'agent CMA est encore en phase bêta pour la version Cloud. 
+ 
+> Pour obtenir de l'aide ou échanger sur les évolutions de l'agent Centreon, visitez [notre groupe dédié sur The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
 
 ## Introduction
 
@@ -27,127 +28,6 @@ Utilisez l'agent CMA :
 * lorsque les politiques de sécurité n'autorisent que les flux sortants (aucun contrôle ne peut être effectué par les collecteurs, le SNMP n'est pas autorisé).
 * sur les sites qui n'ont pas de collecteur local.
 * lorsque vous avez besoin d'exécuter un script localement sur la machine supervisée pour des raisons de sécurité (droits et/ou protocoles) ou de performance.
-
-### Comment interagissent le collecteur et l'hôte?
-
-Suivant le cas, soit l'agent soit le collecteur initie la connexion.
-
-* Dans le cas d'une connexion initiée par l'agent, il suffit de configurer le collecteur pour qu'il écoute sur un port spécifique. Un poller peut recevoir des données de n agents/hôtes.
-* Si l'agent n'est pas autorisé à se connecter au collecteur pour des raisons de sécurité (par exemple, lorsque le collecteur se trouve dans une DMZ), vous pouvez utiliser une connexion initiée par le collecteur. Vous devez déclarer dans Centreon chaque hôte qui sera supervisé par cet agent dans le menu **Configuration poller/agent**. Le collecteur recevra des données de n hôtes via l'agent.
-
-<!--You can use both types of communication at the same time (for different hosts).-->
-
-Selon le sens dans lequel la connexion est établie, le collecteur ou l'hôte peuvent être client ou serveur. La connexion entre le collecteur et l'agent doit être sécurisée en production.<!-- 2 options are possible:-->
-
-<!--* TLS: the certificate is signed by a certification authority and the Common Name (CN) is verified.
-* TLS insecure: the certification authority and Common Name are not verified (self-signed certificates can be used).-->
-
-Stockez les certificats dans le répertoire **/etc/pki** du collecteur. Stockez-les où vous le souhaitez sur l'hôte. Les schémas ci-dessous décrivent les fichiers de certificats à utiliser dans chaque cas.
-
-<Tabs groupId="sync">
-<TabItem value="L'agent se connecte au collecteur, TLS sécurisé" label="L'agent se connecte au collecteur, TLS sécurisé">
-
-![image](../../../../assets/integrations/plugin-packs/how-to-guides/cma/TLS_SEC_initiated-by-agent.png)
-
-Le collecteur sera configuré de la manière suivante, en utilisant la page **Configuration d'agent**, dans la section **Récepteur OTLP** :
-
-* Certificat public (.crt)
-* Clé privée (.key)
-* CA : rarement nécessaire dans ce cas, sauf pour gérer un "double handshake". Le protocole TLS avec certificats valide l'identité du serveur pour le client, mais le "double handshake" va plus loin : il ajoute la validation de l'identité du client par le serveur. Cela est utile pour renforcer la sécurité, mais rarement nécessaire sur internet.
-
-L'agent sera configuré de la manière suivante sur l'hôte [(pour Windows à l'aide de l'installeur ou de la CLI, et pour Linux à l'aide du fichier **centagent.json**)](#étape-2--préparez-lhôte).
-
-Le nom DNS que l'agent utilisera pour se connecter au collecteur (champ "Poller endpoint") doit être identique au Common Name du certificat.
-Si cela n'est pas possible, vous pouvez ajouter une correspondance IP **collector_host_name** dans le fichier **C:\Windows\System32\drivers\etc\hosts** (Windows) ou **/etc/hosts** (Linux).
-
-* Encryption = yes
-* Fichier de certificat de l'autorité de certification de confiance (peut être chargé dans le magasin de certificats et non référencé dans la configuration de l'agent)
-* Nom commun du certificat (rarement nécessaire)
-
-</TabItem>
-<TabItem value="Le collecteur se connecte à l'agent, TLS sécurisé" label="Le collecteur se connecte à l'agent, TLS sécurisé">
-
-![image](../../../../assets/integrations/plugin-packs/how-to-guides/cma/TLS_SEC_initiated-by-poller.png)
-
-Le collecteur sera configuré de la manière suivante, en utilisant la page **Poller/agent configuration**.
-
-* Dans la section **Récepteur OTLP**, le certificat n'est pas techniquement nécessaire, mais est obligatoire dans l'interface.
-
-* Dans la section **Configuration de l'hôte** :
-
-   CA et CA Common Name (CN) sont facultatifs.
-
-   * CA : Dans le cas d'un certificat public, la chaîne de certification standard du système d'exploitation est suffisante, renseigner ce paramètre n'est pas nécessaire.
-   Dans le cas d'un certificat auto-signé, l'autorité de certification peut être ajoutée au système d'exploitation dans ses chaînes de certification, ce qui rend ce paramètre inutile. Si vous n'ajoutez pas l'autorité de certification au système d'exploitation, remplissez le champ CA.
-
-   * CN : Le collecteur utilise un nom de domaine ou une adresse IP pour se connecter à l'agent. Si le certificat utilisé sur l'agent correspond à ce domaine/IP, laissez le champ vide. Dans le cas contraire, remplissez le champ.
-
-   Veuillez noter que le champ CN du certificat doit correspondre au nom qui sera utilisé par le collecteur pour se connecter à l'hôte. Par exemple, si vous avez saisi **myhostname** dans le CN, le collecteur doit pouvoir se connecter à l'hôte **myhostname** sans utiliser l'adresse IP (une solution si **myhostname** n'est pas dans le DNS : ajouter la correspondance IP/myhostname dans le fichier **/etc/hosts**).
-
-L'agent sera configuré de la manière suivante sur l'hôte [(pour Windows à l'aide de l'installeur ou de la CLI, et pour Linux à l'aide du fichier **centagent.json**)](#étape-2--préparez-lhôte).
-
-* Encryption = yes
-* Fichier de certificat public (.crt)
-* Fichier de clé privée (.key)
-
-</TabItem>
-</Tabs>
-
-#### Mode test : communication non chiffrée
-
-Dans Centreon OnPrem 24.10, vous pouvez laisser la connexion non chiffrée **à des fins de test uniquement**. Dans ce mode, vous n'avez besoin d'aucun certificat ou jeton.
-
-> Notez que cette connexion ne durera qu'une heure. N'utilisez pas ce paramètre en production !
-
-Pour configurer ce mode, sélectionnez **No TLS** dans la liste **Niveau de chiffrement** de la fenêtre [**Configuration collecteur/agent**](#configurez-la-communication-collecteuragent).
-
-L'agent sera configuré de la manière suivante sur l'hôte :
-- [pour Windows, en utilisant l'option correspondante dans le programme d'installation ou la CLI](#étape-2--préparez-lhôte)
-- pour Linux, en utilisant le fichier **centagent.json** :
-
-<Tabs groupId="sync">
-<TabItem value="Non chiffré, l'agent se connecte au collecteur" label="Non chiffré, l'agent se connecte au collecteur">
-
-
-```json
-{
-  "log_level":"info",
-  "endpoint":"<IP POLLER>:4317",
-  "encryption" : "false",
-  "host":"host_1",
-  "log_type":"file",
-  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" 
-}
-```
-
-</TabItem>
-<TabItem value="Non chiffré, le collecteur se connecte à l'agent" label="Non chiffré, le collecteur se connecte à l'agent">
-
-```json
-{
-  "log_level":"info",
-  "endpoint":"0.0.0.0:4317",
-  "encryption" : "false",
-  "host":"host_1",
-  "log_type":"file",
-  "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
-  "reversed_grpc_streaming":true
-}
-```
-
-</TabItem>
-</Tabs>
-
-### Générer un certificat autosigné
-
-Pour générer un certificat autosigné valide un an, exécutez la commande suivante sur votre collecteur (remplacez **poller_hostname** par la valeur correcte) :
-
-```shell
-openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout {key} -out {cert} -subj '/CN={poller_hostname}'
-```
-- \{key\} = chemin du fichier clé privée
-- \{cert\} = chemin du fichier clé publique ou certificat
-- \{poller_hostname\} = nom DNS du collecteur
 
 ### OS supportés
 
@@ -174,241 +54,220 @@ L'agent peut être installé sur et superviser les OS suivants :
 </TabItem>
 </Tabs>
 
-### Limitations
+### Comment interagissent le collecteur et l'hôte?
 
-L'Agent de supervision Centreon est en phase Beta. Les limitations suivantes s'appliquent :
+#### Sens de connexion
 
-* Le périmètre de supervision supporté est limité, de nouveaux contrôles (natifs) seront apportés dans la version définitive.
+Suivant le cas, soit l'agent soit le collecteur initie la connexion.
+Une fois celle-ci établie, les échanges sont bidirectionnels.
+
+* Dans le cas d'une **connexion initiée par l'agent**, le collecteur écoute sur un port spécifique, et peut recevoir des données de n agents/hôtes. Il s'agit du mode par défaut, qui permet une configuration dynamique des agents (on peut ajouter ou retirer des agents sans changer la configuration côté Collecteur)
+* Vous pouvez également opter pour une **connexion initiée par le collecteur**. Ceci est pertinent dans le cas où, par exemple, l'agent n'est pas autorisé à se connecter au collecteur pour des raisons de sécurité (par exemple, lorsque l'hôte se trouve dans une DMZ). Vous devez déclarer chaque agent auquel le Collecteur devra se connecter, dans le menu **Collecteur > Configuration d'agent**.
+
+Les deux sens de connection peuvent être combinés au sein d'un même collecteur, en fonction de la typologie de votre parc supervisé.
+
+<!--You can use both types of communication at the same time (for different hosts).-->
+
+#### Sécurisation de la connexion
+
+La connexion entre le collecteur et l'agent doit être sécurisée en production.
+<!-- 2 options are possible:-->
+<!--* TLS: the certificate is signed by a certification authority and the Common Name (CN) is verified.
+* TLS insecure: the certification authority and Common Name are not verified (self-signed certificates can be used).-->
+
+Cela passe par : 
+- [une connexion TLS par certificats](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-certificates/)
+- [l'utilisation d'un jeton d'authentification](#créez-le-jeton-dauthentification)
+
+#### Schéma de fonctionnement
+
+<Tabs groupId="sync">
+<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/initiated-by-agent.png)
+</TabItem>
+<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/initiated-by-poller.png)
+</TabItem>
+</Tabs>
+
 
 ## Étape 1: Configurez Centreon
 
-### Installez le connecteur de supervision nécessaire
+Cette étape s'effectue sur l'interface ou via [l'API Centreon Web](https://docs-api.centreon.com/api/centreon-web/24.10/).
+
+### Installez le connecteur de supervision nécessaire (version onPrem)
 
 Sur votre serveur central, vous devez installer le connecteur de supervision qui fournira les modèles et les commandes qui vous permettront de configurer les hôtes et les services supervisés dans Centreon.
+Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
 1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks#installer-un-connecteur-de-supervision) le connecteur de supervision [**Linux Centreon Monitoring Agent**](../../procedures/operatingsystems-linux-centreon-monitoring-agent.md).
+2. [Installez](/docs/monitoring/pluginpacks#installer-un-connecteur-de-supervision) le connecteur de supervision [**Linux Centreon Monitoring Agent**](../../../procedures/operatingsystems-linux-centreon-monitoring-agent.md).
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
 1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks#installer-un-connecteur-de-supervision) le connecteur de supervision [**Windows Centreon Monitoring Agent**](../../procedures/operatingsystems-windows-centreon-monitoring-agent.md).
+2. [Installez](/docs/monitoring/pluginpacks#installer-un-connecteur-de-supervision) le connecteur de supervision [**Windows Centreon Monitoring Agent**](../../../procedures/operatingsystems-windows-centreon-monitoring-agent.md).
 
 </TabItem>
 </Tabs>
 
-### Créez le connecteur Centreon Monitoring Agent
-
-<Tabs groupId="sync">
-<TabItem value="Version OnPrem 24.10.6 ou plus récente" label="Version OnPrem 24.10.6 ou plus récente">
+### Mettez à jour le connecteur Centreon Monitoring Agent (version onPrem)
 
 1. Allez à la page **Configuration > Commandes > Connecteurs**.
 
 2. Mettez à jour le connecteur **Centreon Monitoring Agent** de la façon suivante : dans le champ **Utilisé par la commande**, entrez **Centreon-Monitoring-Agent** puis cliquez sur  **Select all**.
 
+### Créez le jeton d'authentification
+
+1. Allez à la page **Administration > Jetons d'authentification**.
+
+2. Créez un jeton de type **Centreon Monitoring Agent**
+
+Vous pouvez sélectionner une durée d'expiration. Par défaut, les jetons n'expirent pas.
+Conservez le jeton généré pour la configuration de l'agent.
+Au besoin, vous pouvez le copier dans le presse-papier à tout moment, depuis la liste des jetons.
+Il est possible de n'utiliser qu'un jeton pour tous vos collecteurs et agents, ou d'en gérer plusieurs, pour un contrôle plus fin.
+
+
+#### Comportement des jetons d'authentification CMA
+
+**Expiration** 
+<Tabs groupId="sync">
+<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+Lorsque le jeton expire, la connexion est tuée au prochain export de configuration ou envoi de données de performance. La mention “Token expired” apparait dans les logs Agent et Collecteur.
 </TabItem>
-<TabItem value="Version OnPrem antérieure à la 24.10.6" label="Version OnPrem antérieure à la 24.10.6">
+<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+Lorsque le jeton expire, la connexion est tuée. La mention “Token expired” apparait dans les logs Agent et Collecteur.
+</TabItem>
+</Tabs>
 
-Si vous êtes sur une version antérieure à la 24.10.6, vous devez créer le connecteur Centreon Monitoring Agent sur votre serveur central :
+**Révocation**
+Lorsque vous révoquez un jeton, déployez la configuration pour que cela soit pris en compte. 
 
-1. Allez à la page **Configuration > Commandes > Connecteurs**.
-2. Créez un nouveau connecteur avec les données suivantes :
+### Créez l'hôte et les services
 
-| Paramètre                 | Valeur                                                                                                                                                                                        |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nom du connecteur         | Centreon Monitoring Agent                                                                                                                                                          |
-| Description du connecteur | Centreon Monitoring Agent                                                                                                                                                      |
-| Ligne de commande         | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
-| Utilisé par la commande   | Entrez `Centreon-Monitoring-Agent` et cliquez sur **Sélectionner tout**                                                                                                                       |
-| Statut du connecteur      | Activé                                                                                                                                                                                        |
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-lui le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **on**.
+Créez les services associés au modèle d'hôte.
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-lui le modèle d'hôte **OS-Windows-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **on**.
+Créez les services associés au modèle d'hôte.
 
 </TabItem>
 </Tabs>
 
 ### Configurez la communication collecteur/agent
 
+<!--<PollerAgentConfiguration type="CMA" />-->
+1. Allez à la page **Configuration > Collecteurs > Configurations d'agent**, puis cliquez sur **Ajouter une configuration collecteur/agent**.
+2. Dans la fenêtre qui s'ouvre, sélectionnez le Type d'agent "Centreon Monitoring Agent". Des champs supplémentaires apparaissent.
+3. Sélectionnez le sens de connexion (par défaut : l'agent se connecte au collecteur).
+
 <Tabs groupId="sync">
-<TabItem value="Centreon Cloud ou OnPrem à partir de 24.10.03" label="Centreon Cloud ou OnPrem à partir de 24.10.03">
-
-Configurez la communication entre collecteur collecteur et agent :
-
-<PollerAgentConfiguration type="CMA" />
-
-5. À partir de Centreon OnPrem 24.10.9, si le mode de chiffrement **TLS** est sélectionné, utilisez un jeton pour sécuriser davantage votre connexion collecteur/agent pour toutes les configurations nouvellement créées :
-   * À la page **Administration > Jetons d'authentification**, créez un jeton de type CMA.
-   * Sélectionnez ce jeton dans la section correspondante de la page de configuration de l'agent.
-   * Ajoutez votre jeton au fichier **/etc/centreon-monitoring-agent/centagent.json** sur votre hôte.
-
-5. Si l'agent n'est pas autorisé à se connecter au collecteur pour des raisons de sécurité (par exemple lorsque le collecteur est situé dans une DMZ), activez l'option **Connection initiée par le collecteur**. Puis, dans la section **Configuration des hôtes**, définissez tous les hôtes sur lesquels l'agent sera installé.
-
+<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+4. Dans la section **Paramètres**, sélectionnez le ou les collecteurs qui recevront des données en provenance de l'agent. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
+5. Dans la section **Récepteur OTLP**, renseignez les chemins des fichiers de certificat. Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité.
 > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
-
-6. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
-7. Redémarrez le moteur de collecte.
-
-   ```bash
-   systemctl restart centengine
-   ```
-
-L'Agent de supervision Centreon est maintenant capable de communiquer avec Centreon. Vous pouvez mettre vos hôtes en supervision.
+6. [Déployez la configuration en redémarrant le moteur de collecte](/docs/monitoring/monitoring-servers/deploying-a-configuration).
 
 </TabItem>
-<TabItem value="Versions antérieures à 24.10.03" label="Versions antérieures à 24.10.03">
+<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+4. Dans la section **Paramètres**, sélectionnez le collecteur qui se connectera aux agents. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
+5. Dans la section **Hôtes supervisés**, sélectionnez l'hôte créé précédemment, son IP remonte et un port par défaut est renseigné. Modifier ces informations si nécessaire.
+6. Renseignez les chemins des fichiers de certificat. Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
+7. Renseignez le jeton d'authentification créé précédemment. Il est aussi possible de créer un jeton depuis cet écran.
+8. Ajoutez l'hôte.
+9. Répétez l'opération pour chaque Hôte devant être lié à ce collecteur. Pour configurer de fortes volumétries, il est recommandé de passer par les API dédiées.
+10. [Déployez la configuration en redémarrant le moteur de collecte](/docs/monitoring/monitoring-servers/deploying-a-configuration).
+</TabItem>
+</Tabs>
 
-1. Sur le collecteur qui recevra les données de l'agent, installez le paquet **centreon-engine-opentelemetry**.
-   
-2. Sur le collecteur qui recevra les données de l'agent, créez le fichier suivant :
+Cette configuration est déployée sur le collecteur dans le fichier /etc/centreon-engine/otl_server.json. Ce fichier ne doit pas être édité à la main car il est écrasé par le déploiement de la configuration.
 
-   ```shell
-   touch /etc/centreon-engine/otl_server.json
-   ```
+## Étape 2 : Préparez le collecteur
 
-3. Remplacez le contenu du fichier par le contenu ci-dessous. Cela permettra au collecteur de recevoir les données en provenance de l'agent.
+Cette étape s'effectue sur le collecteur.
 
-   > Le collecteur permet de fonctionner dans les deux modes simultanément (certains agents se connectent au collecteur alors que le collecteur se connecte à d'autres agents).
+### Configurez le firewall
 
 <Tabs groupId="sync">
-<TabItem value="Pas de chiffrement, l'agent se connecte au collecteur" label="Pas de chiffrement, l'agent se connecte au collecteur">
-
-```json
-{
-   "otel_server":{
-      "host":"0.0.0.0",
-      "port":4317
-   },
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":10
-   }
-}
-```
+<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 ```bash
-chown centreon-engine: /etc/centreon-engine/otl_server.json
+firewall-cmd --zone=public --add-port=4317/tcp --permanent
 ```
-
-</TabItem>
-<TabItem value="Chiffrement, l'agent se connecte au collecteur" label="Chiffrement, l'agent se connecte au collecteur">
-
-```json
-{
-   "otel_server":{
-      "host":"0.0.0.0",
-      "port":4317,
-      "encryption":true,
-      "public_cert":"<CERTIFICATE PATH>",
-      "private_key":"<KEY PATH>",
-      "ca_certificate":"<CA PATH>"
-   },
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":10
-   }
-}
-```
-
-</TabItem>
-<TabItem value="Pas de chiffrement, le collecteur se connecte à l'agent" label="Pas de chiffrement, le collecteur se connecte à l'agent">
-
-Cette configuration est à utiliser lorsque l'agent ne peut pas se connecter au collecteur, pour des raisons de sécurité (ex : agent situé dans une DMZ).
-Dans ce mode, le collecteur se connecte à l'agent.
-
-```json
-{
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":15,
-      "reverse_connections":[
-         {
-            "host":"<HOST ADDRESS>",
-            "port":<PORT>
-         }
-      ]
-   }
-}
-```
-
 ```bash
-chown centreon-engine: /etc/centreon-engine/otl_server.json
+firewall-cmd --reload 
 ```
-
-* Entrez l'adresse IP de l'hôte sur lequel est installé l'agent dans les champs **host** et **port**. Cette adresse doit être accessible depuis le collecteur.
-* Le champ **check_interval** correspond à la fréquence des contrôles effectués par l'Agent de supervision Centreon.
-
 </TabItem>
-<TabItem value="Chiffrement, le collecteur se connecte à l'agent" label="Chiffrement, le collecteur se connecte à l'agent">
-
-Cette configuration est à utiliser lorsque l'agent ne peut pas se connecter au collecteur, pour des raisons de sécurité (ex : agent situé dans une DMZ).
-Dans ce mode, le collecteur se connecte à l'agent.
-
-```json
-{
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":15,
-      "reverse_connections":[
-         {
-            "host":"localhost",
-            "port":4317,
-            "encryption":true,
-            "ca_certificate":"<CERTIFICATE PATH>",
-            "ca_name":"<CA NAME>"
-         }
-      ]
-   }
-}
-```
-
-* Entrez l'adresse IP de l'hôte sur lequel est installé l'agent dans les champs **host** et **port**. Cette adresse doit être accessible depuis le collecteur.
-* Le champ **check_interval** correspond à la fréquence des contrôles effectués par l'Agent de supervision Centreon.
-
+<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+Pas d'action nécessaire.
 </TabItem>
 </Tabs>
 
-### Ajoutez un nouveau module Broker
+### Configurez les paramètres de chiffrement
 
-1. Allez à la page **Configuration > Collecteurs > Configuration du moteur de collecte**, puis cliquez sur le collecteur qui supervisera les ressources.
-2. Dans l'onglet **Données**, dans la section **Commande de lancement du module**, dans le paramètre **Multiple Broker Module**, cliquez sur **Ajouter une nouvelle entrée**.
-3. Ajoutez l'entrée suivante :
+Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
 
-   ```bash
-   /usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
-   ```
+### Ajoutez les commandes CMA à vos listes blanches personnalisées
 
-4. Exportez la configuration.
-5. Redémarrez le moteur de collecte.
-
-   ```bash
-   systemctl restart centengine
-   ```
-
-L'Agent de supervision Centreon est maintenant capable de communiquer avec Centreon. Vous pouvez mettre vos hôtes en supervision.
-
-</TabItem>
-</Tabs>
-
-### Ajouter les commandes CMA à la liste blanche du collecteur
-
-Si vous utilisez des listes blanches sur le collecteur ([les collecteurs Cloud ont des listes blanches par défaut](/cloud/monitoring/basic-objects/commands#liste-blanche-de-commandes)), celles-ci doivent autoriser les commandes CMA. Dans votre fichier personnalisé de liste blanche (par exemple, **/etc/centreon-engine-whitelist/my-whitelist.yml**), incluez les lignes suiantes : 
+Si vous utilisez des listes blanches sur votre collecteur ([les collecteurs Cloud ont des listes blanches par défaut](/cloud/monitoring/basic-objects/commands#liste-blanche-de-commandes)), celles-ci doivent autoriser les commandes CMA. 
+Sur le collecteur, dans votre fichier personnalisé de liste blanche (par exemple, **/etc/centreon-engine-whitelist/my-whitelist.yml**), incluez les lignes suivantes dans le bloc "cma-whitelist" : 
 
 ```text
 whitelist:
   regex:
-    - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
-    - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
-    - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
-    - ^\{\s*"check":".*\}$
-    - \/usr\/bin\/echo\s+Host\s+alive
-    - cmd\.exe\s+\/C\s+echo\s+.*
+    - \/usr\/lib(64)?\/nagios\/plugins\/.*
+    - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
+    
+cma-whitelist:
+  default:
+    regex:
+      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+      - ^\{\s*"check":".*\}$
+      - \/usr\/bin\/echo\s+Host\s+alive
+      - cmd\.exe\s+\/C\s+echo\s+.*
 ```
+
+Vous pouvez au besoin spécifier des liste blanches par hôte, la syntaxe sera : 
+
+
+```text
+whitelist:
+  regex:
+    - \/usr\/lib(64)?\/nagios\/plugins\/.*
+    - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
+    
+cma-whitelist:
+  default:
+    regex:
+      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+      - ^\{\s*"check":".*\}$
+      - \/usr\/bin\/echo\s+Host\s+alive
+      - cmd\.exe\s+\/C\s+echo\s+.*
+  hosts:
+    - hostname:Host_1
+    regex:
+      - ...
+      
+    - hostname:Host_2
+    regex:
+      - ...
+```
+
 
 Assurez-vous que les droits d'accès corrects sont définis sur tous les fichiers de liste blanche :
 
@@ -419,9 +278,19 @@ chown root:centreon-engine /etc/centreon-engine-whitelist
 chmod 750 /etc/centreon-engine-whitelist
 ```
 
-## Étape 2 : Préparez l'hôte
 
-### Téléchargez et installez l'agent sur l'hôte
+Le comportement est le suivant : 
+* Si le bloc whitelist est renseigné et le bloc cma-whitelist est absent → Le moteur de collecte appliquera la liste blanche et CMA n'appliquera pas de liste blanche (toute commande autorisée)
+* Si les blocs whitelist et cma-whitelist sont renseignés → Le moteur de collecte appliquera le bloc whitelist et CMA appliquera cma-whitelist 
+* Si le bloc whitelist est absent et le bloc cma-whitelist est renseigné → Le moteur de collecte n'appliquera pas de liste blanche (toute commande autorisée) and CMA appliquera cma-whitelist  
+* Si aucun bloc n'est renseigné → Aucune liste blanche n'est appliquée
+
+## Étape 3 : Préparez l'hôte
+
+Cette étape s'effectue sur l'hôte supervisé.
+
+
+### Téléchargez et installez l'agent
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
@@ -501,25 +370,25 @@ apt install centreon-monitoring-agent
 
 #### Configurez **centreon-monitoring-agent**
 
-1. Remplacez le contenu du fichier **/etc/centreon-monitoring-agent/centagent.json** par le contenu suivant (2 cas) :
+1. Remplacez le contenu du fichier **/etc/centreon-monitoring-agent/centagent.json** par le contenu suivant :
 
 <Tabs groupId="sync">
-<TabItem value="Chiffré, l'agent se connecte au collecteur" label="Chiffré, l'agent se connecte au collecteur">
+<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 ```json
 {
   "log_level":"info",
-  "endpoint":"<IP POLLER>:4317",
+  "endpoint":"<IP/DNS COLLECTEUR>:4317",
   "host":"host_1",
   "log_type":"file",
   "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
   "encryption":true,
-  "ca_certificate":"/tmp/ca_1234.crt"
+  "ca_certificate":"/tmp/ca_1234.crt",
+  "token":"<JETON>"
 }
 ```
-
 </TabItem>
-<TabItem value="Chiffré, le collecteur se connecte à l'agent" label="Chiffré, le collecteur se connecte à l'agent">
+<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
 
 ```json
 {
@@ -532,16 +401,21 @@ apt install centreon-monitoring-agent
   "encryption":true,
   "private_key":"/tmp/server_1234.key",
   "public_cert":"/tmp/server_1234.crt",
-  "ca_certificate":"/tmp/ca_1234.crt"
+  "ca_certificate":"/tmp/ca_1234.crt",
+  "token":"<JETON>"
 }
 ```
 
 </TabItem>
 </Tabs>
+> Important : dans le champ **host**, entrez le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon. Si absent, l'agent utilisera le hostname de la machine. Ce nom sera la clé de correspondance permettant de remonter les données sur l'hôte Centreon.
 
-Dans le champ **host**, entrez le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon. Si absent, l'agent utilisera le hostname de la machine.
+#### Configurez les paramètres de chiffrement
 
-#### Configurer les logs
+Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
+
+
+#### Configurez les logs
 
 Deux types de log sont disponibles :
 
@@ -559,15 +433,13 @@ Les niveaux de logs possibles sont:
 * debug: quelques informations sur les connections en plus
 * trace: le niveau de trace le plus verbeux, permet de voir les messages échangés avec le collecteur
 
-#### Redémarrer l'agent
-
-Redémarrez le CMA :
+#### Redémarrez l'agent
 
    ```shell
    systemctl restart centagent
    ```
 
-Vous pouvez vérifier l'état de l'agent avec la commande suivante :
+Vous pouvez vérifier que l'agent a bien redémarré, avec la commande suivante :
 ```shell
 systemctl status centagent
 ```
@@ -587,27 +459,20 @@ Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
   
    Les résultats seront affichés dans la fenêtre de l'installer.
 
-2. Configurez l'endpoint et le type de connexion :
+2. Configurez le Host name, l'endpoint/listening interface et le sens de connexion :
    * Dans le champ **Host name in Centreon**, entrez le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon.
-   * Dans le cas le plus courant (l'agent se connecte au collecteur), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le collecteur, sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317.
-   * Si vous activez l'option **Poller-initiated connection** (le collecteur se connecte à l'agent), vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du collecteur.
+  > Important : Ce nom sera la clé de correspondance permettant de remonter les données sur l'hôte Centreon. Il doit être strictement identique au nom d'hôte Centreon (sensible à la casse).
 
-3. Configurez les options de log. Deux types de log sont disponibles :
-   * **file** : les logs sont écrits dans un fichier
-   * **eventlog** : les logs sont envoyés vers les [journaux d'évènements](/docs/alerts-notifications/event-log).
-   Si vous choisissez de logger dans un fichier, vous pouvez configurer la rotation de logs en renseignant **Max File Size** et **Max number of files**.
+<Tabs groupId="sync">
+<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+   * Dans le champ **Poller endpoint**, saisissez l'adresse IP ou le nom DNS du collecteur, suivi du port d'écoute CMA (4317 par défaut), sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317.
+</TabItem>
+<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+   * Le champ **Listening interface** pourra rester à sa valeur par défaut (0.0.0.0:4317), et correspond à l'interface sur laquelle l'agent va accepter les connections venant du collecteur.
+   La valeur par défaut (0.0.0.0) correspond à "toutes les interfaces", et peut être restreinte pour des raisons de sécurité.
+</TabItem>
+</Tabs>
 
-   Les niveaux de logs possibles sont:
-
-     * off: aucun log
-     * critical: erreurs critiques
-     * error: toutes les erreurs
-     * info: quelques informations supplémentaires
-     * debug: quelques informations sur les connections en plus
-     * trace: le niveau de trace le plus verbeux, permet de voir les messages échangés avec le collecteur
-
-4. Configurez les paramètres de chiffrement.
-Le chiffrement est activé par défaut. Dans le cas où l'option **Poller-initiated connection** est activée, le certificat et le fichier contenant la clé privée sont obligatoires.
 
 </TabItem>
 <TabItem value="Mode silencieux" label="Mode silencieux (console)">
@@ -629,7 +494,7 @@ Les différents arguments sont:
 | --install_cma              | Si ce flag est présent, l'agent sera installé                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --install_plugins          | Si ce flag est présent, la dernière version des plugins sera téléchargée et installée                                                                                                                                                                                                                                                                                                                                                                                                               |
 | --install_embedded_plugins | Utilisez ce flag pour installer les plugins fournis par l'installer (cas d'un hôte n'ayant pas accès à internet)                                                                                                                                                                                                                                                                                                                                                                                    |
-| --hostname                 | Le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --hostname                 | Le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon. Ce nom sera la clé de correspondance permettant de remonter les données sur l'hôte Centreon.                                                                                                                                                                                       |
 | --endpoint                 | Dans le cas le plus courant (l'agent se connecte au collecteur), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le collecteur, sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317. Si vous activez l'option **--reverse** (le collecteur se connecte à l'agent), vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du collecteur. |
 | --reverse                  | Si ce flag est présent, l'agent accepte les connections venant du collecteur                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --log_type                 | event_log ou file. Si vous choisissez file, le paramètre log_file est obligatoire                                                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -642,23 +507,42 @@ Les différents arguments sont:
 | --public_cert              | Chemin du fichier contenant la clé publique. Obligatoire si le chiffrement et le mode reverse sont activés.                                                                                                                                                                                                                                                                                                                                                                                         |
 | --ca                       | Chemin du fichier contenant le certificat de confiance.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --ca_name                  | TLS certificate common name (CN).                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --reverse                  | Si ce flag est activé, l'agent accepte les connexions venant du collecteur (agent en DMZ par example).                                                                                                                                                                                                                                                                                                                                                                                              |
+| --reverse                  | Si ce flag est activé, l'agent accepte les connexions venant du collecteur.                                                                                                                                                                                                                                                                                                                                                                                              |
+| --token                    | Jeton d'authentification.
 
 Si vous utilisez l'option **--install_plugins** et que le téléchargement échoue, l'installer va installer les plugins fournis par l'installer.
 
-#### Niveaux de log
-
-Les niveaux de logs possibles sont:
-
-* off: aucun log
-* critical: erreurs critiques
-* error: toutes les erreurs
-* info: quelques informations supplémentaires
-* debug: quelques informations sur les connections en plus
-* trace: le niveau de trace le plus verbeux, permet de voir les messages échangés avec le collecteur
 
 </TabItem>
 </Tabs>
+
+#### Données de configuration
+
+Les données renseignées via l'installer ou le mode silencieux sont écrites en base de registre : 
+
+```
+\HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent
+```
+
+#### Configurez les paramètres de chiffrement
+
+Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-certificates/) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
+
+
+#### Configurez les logs
+
+Deux types de log sont disponibles :
+   * **eventlog** : les logs sont envoyés vers les journaux d'évènements Windows.
+   * **file** : les logs sont écrits dans un fichier
+   Si vous choisissez **file**, vous pouvez configurer le chemin du fichier dans **Log file**, et la rotation de logs en renseignant **Max File Size** et **Max number of files**.
+
+   Les niveaux de logs possibles sont:
+     * off: aucun log
+     * critical: erreurs critiques
+     * error: toutes les erreurs
+     * info: ajout d'informations supplémentaires
+     * debug: ajout d'informations sur les connexions
+     * trace: permet de voir les messages échangés avec le collecteur
 
 </TabItem>
 </Tabs>
@@ -830,20 +714,9 @@ Sur les hôtes que vous voulez superviser, les plugins sont déjà installés pa
 </TabItem>
 </Tabs>
 
-## Étape 3 : Mettez l'hôte en supervision
 
-### Créez l'hôte en utilisant le bon modèle
 
-<Tabs groupId="sync">
-<TabItem value="Linux" label="Linux">
+## Tests de bon fonctionnement 
 
-Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-lui le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **on**.
-
-</TabItem>
-<TabItem value="Windows" label="Windows">
-
-Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-lui le modèle d'hôte **OS-Windows-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **on**.
-
-</TabItem>
-</Tabs>
+Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-troubleshoting/).
 

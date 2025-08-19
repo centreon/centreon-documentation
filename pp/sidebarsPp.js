@@ -19,11 +19,38 @@ module.exports = {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/plugin-customization'
             },
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/getting-started/how-to-guides/cma'
+			
+			
+			{
+			  type: 'category',
+              label: 'Centreon Monitoring Agent',
+              link: {
+                type: 'generated-index'
+              },
+              items: [
+                {
+					type: 'doc',
+					id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma'
+				},
+				{
+					type: 'doc',
+					id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-certificates'
+				}, 
+				{
+					type: 'doc',
+					id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-custom'
+				},
+				{
+					type: 'doc',
+					id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-migratenscp'
+				},
+				{
+					type: 'doc',
+					id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-troubleshoting'
+				}
+			  ]
             },
-            {
+			{
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/azure-credential-configuration'
             },
