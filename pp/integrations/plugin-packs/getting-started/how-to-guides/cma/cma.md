@@ -66,7 +66,7 @@ If this is not possible, you can add an IP **collector_host_name** mapping in th
 </TabItem>
 <TabItem value="Poller connects to agent, TLS secure" label="Poller connects to agent, TLS secure">
 
-![image](../../../../assets/integrations/plugin-packs/how-to-guides/cma/TLS_SEC_initiated-by-poller.png)
+![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/TLS_SEC_initiated-by-poller.png)
 
 The poller will be configured the following way, using the **Poller/agent configuration** page.
 
