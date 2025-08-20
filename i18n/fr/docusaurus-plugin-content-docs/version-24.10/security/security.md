@@ -1,6 +1,6 @@
 ---
 id: sécurité
-title: Centreon et la sécurité
+title: Centreon et la sécurité 
 ---
 
 Les organisations du monde entier font appel à Centreon pour assurer une surveillance de leur informatique adaptée à leur activité,
