@@ -35,7 +35,7 @@ import TabItem from '@theme/TabItem';
 - [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Converted into stable with the new CMA version leading to breaking changes for earlier versions.
 
 </TabItem>
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**AIX SNMP**](../procedures/operatingsystems-aix-snmp.md) - Fixed an issue causing a parsing error.
 - [**AWS Billing**](../procedures/cloud-aws-billing.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
