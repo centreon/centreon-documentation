@@ -1,11 +1,9 @@
 ---
 id: cma-certificates
-title: Configuration des certificats
+title: Configurer les certificats
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-# Gestion des certificats
 
 ## TLS Full
 
@@ -15,7 +13,6 @@ La connexion TLS Full (1.3) est négociée par le client (collecteur ou agent se
 Selon le sens de connexion, l'agent/le collecteur vérifie que l'IP/DNS utilisée pour atteindre le serveur correspond strictement aux informations du certificat.
 Si ce n'est pas le cas, la connexion est refusée.
 La vérification est faite sur le bloc alt_names du certificat, qui peut contenir plusieurs DNS, IP ou CN.
-
 
 ### Fichiers de certificat
 
@@ -34,7 +31,6 @@ Les fichiers de certificat déposés sur l'hôte peuvent être déposés dans un
 Ces fichiers peuvent également être directement enregistrés dans le magasin de certificats.
 Dans ce cas, il n'est pas nécessaire de les renseigner dans la configuration faite sur l'hôte (colonne "Configuration de l'hôte" du tableau précédent).
 
-
 ### Synthèse des configurations possibles
 
 <Tabs groupId="sync">
@@ -51,9 +47,9 @@ Si ce n'est pas le cas, la connexion est refusée.
 | Certificat public (service managé, par ex Collecteur central Centreon Cloud)        | Aucun                        | Aucun                 | **Récepteur OTLP - Certificat public :** vide<br/>**Récepteur OTLP - Clé privée :** vide<br/>**Récepteur OTLP - CA :** vide | **Poller endpoint :** IP/DNS du Load balancer portant le certificat public<br/>**Private Key file/private_key :** vide<br/>**Certificate file/public_cert :** vide<br/>**Trusted CA's certificate file/ca_certificate :** vide<br/>**Certificate Common Name/ca_name :** vide							|
 | Certificat public (fichiers de clés)        | Fichiers de certificat public et clé privée                         | Aucun                 | **Récepteur OTLP - Certificat public :** chemin du certificat public (ex : '/etc'/pki'/certificate.crt)<br/>**Récepteur OTLP - Clé privée :** chemin de la clé privée (ex : '/etc'/pki'/certificate.key)<br/>**Récepteur OTLP - CA :** vide | **Poller endpoint :** IP/DNS du Collecteur **Private Key file/private_key :** vide<br/>**Certificate file/public_cert :** vide<br/>**Trusted CA's certificate file/ca_certificate :** vide<br/>**Certificate Common Name/ca_name :** vide							|
 
-
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+
 Le collecteur vérifie, lors de la connexion à l'agent, que l'IP/DNS renseignée pour l'hôte (dans la configuration d'agent) correspond strictement aux informations du certificat (SAN ou CN).
 Si ce n'est pas le cas, la connexion vers cet hôte est refusée.
 
@@ -62,12 +58,10 @@ Si ce n'est pas le cas, la connexion vers cet hôte est refusée.
 | Certificat signé par CA           	 | Fichier de CA                   | Fichiers de certificat public et clé privée                         | **Configurations d'hôte - CA :** chemin du CA<br/>**Configurations d'hôte - Nom commun CA (CN) :** vide	 | **Private Key file/private_key :** chemin de la clé privée<br/>**Certificate file/public_cert :** chemin du certificat public<br/>**Trusted CA's certificate file/ca_certificate :** vide<br/>**Certificate Common Name/ca_name :** vide	|
 | Certificat autosigné           	 | Fichier de certificat public                       | Fichiers de certificat public et clé privée                         | **Configurations d'hôte - CA :** chemin du certificat public<br/>**Configurations d'hôte - Nom commun CA (CN) :** vide	 | **Private Key file/private_key :** chemin de la clé privée<br/>**Certificate file/public_cert :** chemin du certificat public<br/>**Trusted CA's certificate file/ca_certificate :** vide<br/>**Certificate Common Name/ca_name :** vide	|
 | Certificat wildcard      | Fichier wildcard                       | Fichiers wildcard et clé privée   | **Configurations d'hôte - CA :** chemin du certificat wildcard<br/>**Configurations d'hôte - Nom commun CA (CN) :** vide									       | **Private Key file/private_key :** chemin de la clé privée<br/>**Certificate file/public_cert :** chemin du certificat wildcard<br/>**Trusted CA's certificate file/ca_certificate :** vide<br/>**Certificate Common Name/ca_name :** vide							|
+
 </TabItem>
 </Tabs>
 
-
-
- 
 ### Comment générer un certificat autosigné (facultatif)
 
 Si vous ne possédez pas de certificat, il est possible de générer un certificat autosigné.
@@ -79,6 +73,7 @@ openssl req -new -subj '/CN={server_hostname}' \
                  -days 365 -nodes -x509 \
                  -newkey rsa:2048 -keyout {key} -out {cert}
 ```
+
 - \{key\} = chemin du fichier clé privée
 - \{cert\} = chemin du fichier de certificat public
 - \{server_hostname\} = nom DNS du serveur et/ou utiliser \{alt_poller_DNS\} et/ou utiliser \{alt_poller_IP\}
@@ -87,9 +82,12 @@ La ligne -subj '/CN=\{server_hostname\}' \ est facultative si des SAN sont défi
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+
 \{server_hostname\} doit correspondre au DNS/IP utilisé dans "Poller endpoint" (Installer) / "endpoint" (json), dans la configuration d'Agent, sur l'hôte.
+
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+
 \{server_hostname\} doit correspondre au DNS/IP utilisé dans le champ "Configurations d'hôte - Hôte" de la configuration d'Agent, dans l'interface.
 
 </TabItem>
