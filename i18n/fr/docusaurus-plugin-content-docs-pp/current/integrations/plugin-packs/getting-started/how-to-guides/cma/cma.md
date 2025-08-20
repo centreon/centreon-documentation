@@ -15,7 +15,7 @@ L'agent de supervision Centreon (Centreon Monitoring Agent, CMA) est un logiciel
 
 L'agent peut exécuter des contrôles natifs ou utiliser des plugins Centreon pour exécuter des contrôles non natifs. Les contrôles natifs sont exécutés directement par l'agent (contrairement aux contrôles non natifs, qui nécessitent l'installation de plugins locaux sur l'hôte). Les contrôles natifs sont plus performants et ont une meilleure empreinte (réduction de l'utilisation du processeur et de la mémoire).
 
-Les contrôles natifs et non natifs sont définis dans le connecteur **Linux Centreon Monitoring Agent** ou dans le connecteur **Windows Centreon Monitoring Agent**. Les connecteurs fournissent les modèles et l'agent récupère la configuration de ces contrôles à intervalles réguliers après l'établissement de la connexion.
+Les contrôles natifs et non natifs sont définis dans les connecteurs **Linux Centreon Monitoring Agent** et **Windows Centreon Monitoring Agent**. Les connecteurs fournissent des modèles qui contiennent des commandes prêtes à l'emploi, et l'agent récupère la configuration de ces contrôles à intervalles réguliers après l'établissement de la connexion.
 
 L'agent effectue les contrôles (pour les contrôles non natifs, en utilisant les plugins locaux) et envoie les données au collecteur. La partie du moteur du collecteur qui reçoit les données de l'agent est appelée récepteur OTLP (OTLP signifie OpenTelemetry protocol).
 
@@ -29,7 +29,7 @@ Utilisez l'agent CMA :
 * sur les sites qui n'ont pas de collecteur local.
 * lorsque vous avez besoin d'exécuter un script localement sur la machine supervisée pour des raisons de sécurité (droits et/ou protocoles) ou de performance.
 
-### OS supportés
+### OS supervisables par CMA
 
 L'agent peut être installé sur et superviser les OS suivants :
 
@@ -53,6 +53,11 @@ L'agent peut être installé sur et superviser les OS suivants :
 
 </TabItem>
 </Tabs>
+
+### Applications supervisables par CMA
+
+* Inclus dans les connecteurs Centreon : [**Veeam**](../../../procedures/applications-veeam-centreon-monitoring-agent.md)
+* Vous pouvez également [développer vos propres plugins](cma-custom.md).
 
 ### Comment interagissent le collecteur et l'hôte?
 

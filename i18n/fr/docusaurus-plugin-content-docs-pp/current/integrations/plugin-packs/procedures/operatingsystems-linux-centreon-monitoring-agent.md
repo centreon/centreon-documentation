@@ -327,7 +327,7 @@ minimum la version <!--`24.09.0` pour les utilisateurs de Centreon Cloud, et la 
 ### Prérequis système pour l'hôte à superviser
 
 La procédure d'installation et de configuration de Centreon Monitoring Agent pour Linux est détaillée
-[dans la page dédiée](../getting-started/how-to-guides/cma/cma.md#étape-3--préparez-lhôte). (Cela comprend l'installation de l'agent et l'installation des plugins qui permettront d'exécuter les contrôles non natifs).
+[dans la page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte). (Cela comprend l'installation de l'agent et l'installation des plugins qui permettront d'exécuter les contrôles non natifs).
 
 ## Installer le connecteur de supervision
 

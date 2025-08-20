@@ -1,5 +1,5 @@
 ---
-id: cma-troubleshoting
+id: cma-troubleshooting
 title: Dépanner l'agent CMA
 ---
 import Tabs from '@theme/Tabs';
@@ -90,3 +90,12 @@ Aucune ligne ne doit être retournée.
 ### Vérifications dans Centreon
 
 L'hôte et les services configurés doivent remonter un statut et des métriques.
+
+## Emplacement des logs collecteur et agent
+
+* Logs du collecteur : `/var/log/centreon-engine/centengine.log`
+
+* Logs de l'agent : 
+   * Linux : par défaut, `/var/log/centreon-monitoring-agent/centagent.log` (cet emplacement de log est configurable dans **/etc/centreon-monitoring-agent/centagent.json**)
+   * Windows : l'emplacement est celui que vous avez défini lors de l'installation de l'agent (par défaut, dans l'observateur d'évènements Windows).
+

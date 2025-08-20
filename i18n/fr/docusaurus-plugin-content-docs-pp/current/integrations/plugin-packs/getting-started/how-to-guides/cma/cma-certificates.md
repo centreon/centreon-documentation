@@ -5,38 +5,40 @@ title: Configurer les certificats
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## TLS Full
+## TLS
 
 ### Principe de fonctionnement
 
-La connexion TLS Full (1.3) est négociée par le client (collecteur ou agent selon le sens), et nécessite des certificats.
+La connexion TLS (1.3) est négociée par le client (collecteur ou agent selon le sens), et nécessite des certificats.
 Selon le sens de connexion, l'agent/le collecteur vérifie que l'IP/DNS utilisée pour atteindre le serveur correspond strictement aux informations du certificat.
 Si ce n'est pas le cas, la connexion est refusée.
-La vérification est faite sur le bloc alt_names du certificat, qui peut contenir plusieurs DNS, IP ou CN.
+La vérification est faite sur le bloc **alt_names** du certificat, qui peut contenir plusieurs DNS, IP ou CN.
 
 ### Fichiers de certificat
 
-Les formats supportés sont : 
-- .crt/.cer : fichier de certificat public, CA ou wildcard
-- .key : fichier de clé privée
+Les formats supportés sont :
 
-Les fichiers de certificat déposés sur le collecteur doivent être déposés dans /etc/pki/, à la racine ou dans un sous-repértoire.
-Ils doivent avoir les permissions suivantes : 
+- fichier de certificat public, CA ou wildcard : .crt/.cer
+- fichier de clé privée : .key
+
+Les fichiers de certificat déposés sur le collecteur doivent être déposés dans **/etc/pki/**, à la racine ou dans un sous-repértoire.
+Ils doivent avoir les permissions suivantes :
+
 ```
 chmod 644 /etc/pki/agent*
 ```
 
-Les fichiers de certificat déposés sur l'hôte peuvent être déposés dans un répertoire libre. 
+Les fichiers de certificat déposés sur l'hôte peuvent être déposés dans le répertoire de votre choix.
 
 Ces fichiers peuvent également être directement enregistrés dans le magasin de certificats.
-Dans ce cas, il n'est pas nécessaire de les renseigner dans la configuration faite sur l'hôte (colonne "Configuration de l'hôte" du tableau précédent).
+Dans ce cas, il n'est pas nécessaire de les renseigner dans la configuration faite sur l'hôte (colonne "Configuration de l'hôte" du tableau ci-dessous).
 
 ### Synthèse des configurations possibles
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
-L'agent vérifie, lors de la connexion au collecteur, que l'IP/DNS renseignée dans "Poller endpoint" correspond strictement aux informations du certificat (SAN ou CN).
+L'agent vérifie, lors de la connexion au collecteur, que l'IP/DNS renseignée dans le paramètre **Poller endpoint** de la configuration de l'agent correspond strictement aux informations du certificat (SAN ou CN).
 Si ce n'est pas le cas, la connexion est refusée.
 
 | Cas d'usage      															  | Fichier(s) sur le collecteur | Fichier(s) sur l'hôte (si non chargés dans le magasin de certificats) | Configuration du Collecteur (interface) | Configuration de l'hôte    |
@@ -83,12 +85,12 @@ La ligne -subj '/CN=\{server_hostname\}' \ est facultative si des SAN sont défi
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
-\{server_hostname\} doit correspondre au DNS/IP utilisé dans "Poller endpoint" (Installer) / "endpoint" (json), dans la configuration d'Agent, sur l'hôte.
+**\{server_hostname\}** doit correspondre au DNS/IP utilisé dans "Poller endpoint" (Installer) / "endpoint" (json), dans la configuration d'Agent, sur l'hôte.
 
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
 
-\{server_hostname\} doit correspondre au DNS/IP utilisé dans le champ "Configurations d'hôte - Hôte" de la configuration d'Agent, dans l'interface.
+**\{server_hostname\}** doit correspondre au DNS/IP utilisé dans le champ "Configurations d'hôte - Hôte" de la configuration d'Agent, dans l'interface.
 
 </TabItem>
 </Tabs>
@@ -102,7 +104,7 @@ Vous pouvez configurer une connexion non chiffrée **à des fins de test uniquem
 Pour configurer ce mode, sélectionnez **No TLS** dans la liste **Niveau de chiffrement** de la fenêtre [**Configuration collecteur/agent**](cma.md#configurez-la-communication-collecteuragent).
 
 L'agent sera configuré de la manière suivante sur l'hôte :
-- [pour Windows, en utilisant l'option correspondante dans le programme d'installation ou la CLI](cma.md#étape-3--préparez-lhôte)
+- [pour Windows, en utilisant l'option correspondante dans le programme d'installation ou la CLI](cma-setup.md#étape-3--préparez-lhôte)
 - pour Linux, en utilisant le fichier **centagent.json** :
 
 <Tabs groupId="sync">

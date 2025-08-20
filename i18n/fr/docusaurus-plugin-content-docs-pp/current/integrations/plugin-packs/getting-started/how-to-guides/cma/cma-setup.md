@@ -11,11 +11,11 @@ import PollerAgentConfiguration from '../_poller-agent-configuration.mdx';
 
 ## Étape 1: Configurez Centreon
 
-Cette étape s'effectue via l'interface du serveur central ou via [l'API Centreon Web](https://docs-api.centreon.com/api/centreon-web/24.10/).
+Cette étape s'effectue via l'interface du serveur central. (Il est également possible de réaliser ces étapes via [l'API Centreon Web](https://docs-api.centreon.com/api/centreon-web/24.10/).)
 
 ### Installez le connecteur de supervision nécessaire (version onPrem)
 
-Sur votre serveur central, vous devez installer le connecteur de supervision qui fournira les modèles et les commandes qui vous permettront de configurer les hôtes et les services supervisés dans Centreon.
+Sur votre serveur central, installez le connecteur de supervision qui fournira les modèles et les commandes qui vous permettront de configurer les hôtes et les services supervisés dans Centreon.
 Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
 <Tabs groupId="sync">
@@ -33,13 +33,15 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 </TabItem>
 </Tabs>
 
+3. Si vous souhaitez superviser une [application supportée par CMA](cma.md#applications-supervisées), installez le connecteur correspondant sur votre serveur central.
+
 ### Mettez à jour le connecteur Centreon Monitoring Agent (version onPrem)
 
 1. Allez à la page **Configuration > Commandes > Connecteurs**.
 
 2. Mettez à jour le connecteur **Centreon Monitoring Agent** de la façon suivante : dans le champ **Utilisé par la commande**, entrez **Centreon-Monitoring-Agent** puis cliquez sur  **Select all**.
 
-### Créez le jeton d'authentification
+### Créez un jeton d'authentification
 
 1. Allez à la page **Administration > Jetons d'authentification**.
 
@@ -49,19 +51,19 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
    * Conservez le jeton généré pour la configuration de l'agent. Au besoin, vous pouvez le copier dans le presse-papiers à tout moment, depuis la liste des jetons.
    * Il est possible de n'utiliser qu'un jeton pour tous vos collecteurs et agents, ou d'en gérer plusieurs, pour un contrôle plus fin.
 
-
 #### Comportement des jetons d'authentification CMA
 
 **Expiration** 
+
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
-* Lorsque le jeton expire, la connexion est tuée au prochain export de configuration ou envoi de données de performance. La mention **Token expired** apparaît dans les logs agent et collecteur.
+* Lorsque le jeton expire, la connexion est tuée au prochain export de configuration ou envoi de données de performance. La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
 
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
 
-* Lorsque le jeton expire, la connexion est tuée. La mention **Token expired** apparaît dans les logs agent et collecteur.
+* Lorsque le jeton expire, la connexion est tuée. La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
 
 </TabItem>
 </Tabs>
@@ -88,19 +90,22 @@ Créez les services associés au modèle d'hôte.
 ### Configurez la communication collecteur/agent
 
 <!--<PollerAgentConfiguration type="CMA" />-->
-1. Allez à la page **Configuration > Collecteurs > Configurations d'agent**, puis cliquez sur **Ajouter une configuration collecteur/agent**.
+1. Allez à la page **Configuration > Collecteurs > Configurations d'agent**, puis cliquez sur **Ajouter**.
 2. Dans la fenêtre qui s'ouvre, sélectionnez le type d'agent **Centreon Monitoring Agent**. Des champs supplémentaires apparaissent.
 3. Sélectionnez le sens de connexion (par défaut : l'agent se connecte au collecteur).
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+
 4. Dans la section **Paramètres**, sélectionnez le ou les collecteurs qui recevront des données en provenance de l'agent. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
-5. Dans la section **Récepteur OTLP**, renseignez les chemins des fichiers de certificat. Voir [section dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité.
-> Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
-6. [Déployez la configuration en redémarrant le moteur de collecte](/docs/monitoring/monitoring-servers/deploying-a-configuration).
+5. Dans la section **Récepteur OTLP**, renseignez les chemins des fichiers de certificat. Voir [page dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité.
+   > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
+6. Cliquez sur **Sauvegarder**.
+7. [Déployez la configuration en redémarrant le moteur de collecte](/docs/monitoring/monitoring-servers/deploying-a-configuration).
 
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+
 4. Dans la section **Paramètres**, sélectionnez le collecteur qui se connectera aux agents. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
 5. Dans la section **Hôtes supervisés**, sélectionnez l'hôte créé précédemment. Son adresse IP s'affiche, et un port par défaut est renseigné. Modifiez ces informations si nécessaire.
 6. Renseignez les chemins des fichiers de certificat. Voir [page dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité.
@@ -108,6 +113,7 @@ Créez les services associés au modèle d'hôte.
 8. Ajoutez l'hôte.
 9. Répétez l'opération pour chaque hôte devant être lié à ce collecteur. Pour configurer de fortes volumétries, il est recommandé de passer par les API dédiées.
 10. [Déployez la configuration en redémarrant le moteur de collecte](/docs/monitoring/monitoring-servers/deploying-a-configuration).
+
 </TabItem>
 </Tabs>
 
@@ -211,7 +217,6 @@ Le comportement est le suivant :
 ## Étape 3 : Préparez l'hôte
 
 Cette étape s'effectue sur l'hôte supervisé.
-
 
 ### Téléchargez et installez l'agent
 
@@ -378,7 +383,7 @@ Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
 <TabItem value="Mode interactif" label="Mode interactif">
 
 1. Lancez l'installer (durant la configuration, vous pourrez cliquer sur les (i) pour avoir de l'aide).
-   Si vous installez les plugins Centreon, l'installer tentera de télécharger et d'installer la dernière version des plugins Centreon. Si l'installer ne peut pas les télécharger (pas d'accès web, problème réseau), une popup vous demandera confirmation pour installer les plugins Centreon embarqués dans l'installer.
+   Si vous installez les plugins Centreon, l'installer tentera de télécharger et d'installer la dernière version des plugins Centreon. Si l'installer ne peut pas les télécharger (pas d'accès web, problème réseau), une popup vous demandera confirmation pour installer les plugins Centreon embarqués dans l'installer. Si vous souhaitez utiliser uniquement des contrôles natifs, il est inutile d'installer les plugins.
   
    Les résultats seront affichés dans la fenêtre de l'installer.
 
@@ -470,14 +475,11 @@ Deux types de log sont disponibles :
 </TabItem>
 </Tabs>
 
-### Déployer les plugins Centreon agent sur l'hôte
+### Déployer les plugins Centreon agent sur l'hôte (Linux)
 
-Si vous souhaitez exécuter des contrôles non natifs, vous devez installer les plugins Centreon agent, qui exécuteront les contrôles sur l'hôte.
+Si vous utilisez des connecteurs Centreon et des contrôles non natifs sous Linux :
 
-<Tabs groupId="sync">
-<TabItem value="Linux" label="Linux">
-
-##### Activez les dépôts Centreon et installez les plugins
+1. Activez les dépôts Centreon et installez les plugins :
 
 Ce dépôt permettra d'installer les plugins Centreon ainsi que **les dépendances qui ne peuvent pas être satisfaites par les dépôts standard des distributions**.
 
@@ -539,7 +541,7 @@ module_hotfixes=1
 EOF
 ```
 
-Installez le plugin :
+2. Installez le plugin :
 
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
@@ -629,17 +631,7 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 
 </TabItem>
 </Tabs>
-</TabItem>
-<TabItem value="Windows" label="Windows">
 
-Sur les hôtes que vous voulez superviser, les plugins sont déjà installés par l'installer du Centreon Monitoring Agent.
+## Étape 4 : Tester le fonctionnement de l'agent
 
-</TabItem>
-</Tabs>
-
-
-
-## Tests de bon fonctionnement 
-
-Voir [section dédiée](/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-troubleshoting/).
-
+Voir [section dédiée](cma-troubleshooting.md).

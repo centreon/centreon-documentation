@@ -1,60 +1,64 @@
 ---
 id: cma-custom
-title: Exécuter des scripts personnalisés
+title: Utiliser des plugins personnalisés
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-**Centreon Monitoring Agent** est capable d'exécuter des scripts personnalisés.
-Cela peut être utile dans le cas où les besoins de supervision sont spécifiques, et non couverts par les contrôles natifs et plugins Centreon.
-Les langages supportés sont : PS / Perl / Python / Bash.
+**Centreon Monitoring Agent** est capable d'exécuter des plugins personnalisés. Utilisez cette fonctionnalité si vos besoins de supervision sont spécifiques et non couverts par les contrôles natifs et plugins Centreon. Les langages supportés sont : PowerShell, Perl, Python, Bash.
+
+Pour commencer, créez votre plugin : vous pouvez par exemple utiliser [notre guide développeur](https://docs.centreon.com/pp/integrations/plugin-packs/dev-resources/introduction.md).
 
 ## Actions sur l'hôte
 
-Déposez le script sur l'hôte, dans le répertoire de votre choix.
-
+Copiez le plugin sur l'hôte, dans le répertoire de votre choix.
 
 ## Actions dans Centreon
 
-* Créez/adaptez la commande exécutant le script, selon le langage 
+1. Sur votre serveur central, créez une commande exécutant le plugin (ou, si vous utilisiez NSClient++, adaptez la commande existante), selon le langage. Voici un exemple pour chaque langage supporté :
 
-**PowerShell (Windows) :**
+   * PowerShell (Windows)
+     ```bash
+     "C:\\Program Files\\PowerShell\\7\\pwsh.exe" -File Z:\\tmp\\custom_script.ps1
+     ```
 
-```bash
-"C:\\Program Files\\PowerShell\\7\\pwsh.exe" -File Z:\\tmp\\custom_script.ps1
-```
-Chemin de l'interpréteur à adapter selon le cas et la version.
+     Adaptez le chemin de l'interpréteur selon le cas et la version.
 
-**Perl (Windows) :**
-```bash
-C:/Strawberry/perl/bin/perl.exe Z:/tmp/custom_script.pl
-```
+   * Perl (Windows)
+     ```bash
+     C:/Strawberry/perl/bin/perl.exe Z:/tmp/custom_script.pl
+     ```
 
-**Perl (Linux) :**
-```bash
-/<path>/<to>/custom_script.pl
-```
+   * Perl (Linux)
+     ```bash
+     /<path>/<to>/custom_script.pl
+     ```
 
-**Python (Windows) :**
-```bash
-"C:\\Program Files\\Python313\\python.exe" "Z:\\tmp\\custom_script.py"
-```
-Chemin de l'interpréteur à adapter selon le cas et la version.
+    * Python (Windows)
+      ```bash
+      "C:\\Program Files\\Python313\\python.exe" "Z:\\tmp\\custom_script.py"
+      ```
 
-**Python (Linux) :**
-```bash
-/<path>/<to>/custom_script.py
-```
-**Bash (Windows, .bat) :**
-```bash
-"Z:\\tmp\\custom_script.bat"
-```
+      Adaptez le chemin de l'interpréteur selon le cas et la version.
 
-**Bash (Linux, .sh) :**
-```bash
-/<path>/<to>/custom_script.sh
-```
+     * Python (Linux)
 
-* Associez le service (et le modèle de service le cas échéant) à la commande
+       ```bash
+       /<path>/<to>/custom_script.py
+       ```
 
-* Déployez la configuration
+     * Bash (Windows, .bat)
+
+       ```bash
+       "Z:\\tmp\\custom_script.bat"
+       ```
+
+    * Bash (Linux, .sh)
+
+      ```bash
+      /<path>/<to>/custom_script.sh
+      ```
+
+2. Si ce n'est pas déjà fait, [creéz l'hôte](/docs/monitoring/basic-objects/hosts) correspondant à la ressource à superviser.
+3. Pour chaque modèle de service désiré, sélectionnez la commande que vous venez de créez.
+4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
