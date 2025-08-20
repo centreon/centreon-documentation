@@ -8,7 +8,7 @@ for always-on operations and performance excellence. Centreon is committed to th
 data they rely on and is continuously improving policies, processes, and products to meet the highest
 standards. Read more information throughout this page.
 
-## Product security by design
+## Product security by design 
 
 ### Secure development
 
