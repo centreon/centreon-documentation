@@ -80,6 +80,24 @@ La valeur **true** doit être retournée.
 </Tabs>
 
 
+#### Activez les logs Opentelemetry
+
+Editez le fichier de configuration du moteur de supervision :
+
+```bash
+/etc/centreon-engine/centengine.cfg
+```
+
+Ajoutez la ligne suivante :
+
+```bash
+log_level_otl=trace
+```
+
+Le différents niveaux de logs sont : trace / debug / info / warning / error / critical / disabled
+
+Redémarrez le moteur de supervision.
+
 #### Vérifiez que le fichier de log engine ne contient pas d'erreur
 ```bash
 grep error /var/log/centreon-engine/centengine.log
