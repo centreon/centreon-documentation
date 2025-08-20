@@ -106,7 +106,12 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Throughput" label="Throughput">
 
-Coming soon
+| Name                                           | Unit  |
+|:------------------------------------|:-------|
+| lifbe.download.bandwidth.bps    | bps    |
+| lifbe.upload.bandwidth.bps         | bps    |
+| itter.download.time.milliseconds | ms     |
+| ljitter.upload.time.milliseconds    | ms     |
 
 </TabItem>
 <TabItem value="Twamp" label="Twamp">

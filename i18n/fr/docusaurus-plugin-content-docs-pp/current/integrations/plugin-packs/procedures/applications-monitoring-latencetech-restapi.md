@@ -107,7 +107,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Throughput" label="Throughput">
 
-Coming soon
+| Nom                                            | Unité |
+|:------------------------------------|:-------|
+| lifbe.download.bandwidth.bps    | bps    |
+| lifbe.upload.bandwidth.bps         | bps    |
+| itter.download.time.milliseconds | ms     |
+| ljitter.upload.time.milliseconds    | ms     |
 
 </TabItem>
 <TabItem value="Twamp" label="Twamp">
