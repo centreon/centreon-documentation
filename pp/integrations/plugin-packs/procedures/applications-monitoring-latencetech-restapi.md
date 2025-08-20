@@ -106,12 +106,12 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Throughput" label="Throughput">
 
-| Name                                           | Unit  |
-|:------------------------------------|:-------|
-| lifbe.download.bandwidth.bps    | bps    |
-| lifbe.upload.bandwidth.bps         | bps    |
-| itter.download.time.milliseconds | ms     |
-| ljitter.upload.time.milliseconds    | ms     |
+| Name                             | Unit |
+|:---------------------------------|:-----|
+| lifbe.download.bandwidth.bps     | bps  |
+| lifbe.upload.bandwidth.bps       | bps  |
+| itter.download.time.milliseconds | ms   |
+| ljitter.upload.time.milliseconds | ms   |
 
 </TabItem>
 <TabItem value="Twamp" label="Twamp">
@@ -231,14 +231,14 @@ yum install centreon-plugin-Applications-Monitoring-Latencetech-Restapi
 3. Apply the **App-Monitoring-Latencetech-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                  | Description                                                                                          | Default value | Mandatory |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| LATENCETECHAPIPROTOCOL | Specify https if needed (default: 'https')                                                           | https         |           |
-| LATENCETECHAPIPORT     | Port used (default: 12099)                                                                           | 12099         |           |
-| AGENTID                | Set the ID of the agent (mandatory option)                                                           |               |           |
-| LATENCETECHAPIKEY      | Set API key (mandatory)                                                                              |               | X         |
-| LATENCETECHAPIPATH     | Set API path (default: '/api/v1')                                                                    | /api/v1       |           |
-| LATENCETECHCUSTOMERID  | Set cutomer/network ID (mandatory)                                                                   |               | X         |
+| Macro                  | Description                                                                                                                              | Default value | Mandatory |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| LATENCETECHAPIPROTOCOL | Specify https if needed                                                                                                                  | https         |           |
+| LATENCETECHAPIPORT     | Port used                                                                                                                                | 12099         |           |
+| AGENTID                | Set the ID of the agent                                                                                                                  |               |     X     |
+| LATENCETECHAPIKEY      | Set API key                                                                                                                              |               |     X     |
+| LATENCETECHAPIPATH     | Set API path                                                                                                                             | /api/v1       |           |
+| LATENCETECHCUSTOMERID  | Set cutomer/network ID                                                                                                                   |               |     X     |
 | EXTRAOPTIONS           | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -251,113 +251,113 @@ yum install centreon-plugin-Applications-Monitoring-Latencetech-Restapi
 <Tabs groupId="sync">
 <TabItem value="Connectivity" label="Connectivity">
 
-| Macro                          | Description                                                                                                                         | Default value                               | Mandatory |
-|:-------------------------------|:------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:---------:|
-| WARNINGAPPLICATIONLATENCY      | Warning thresholds for application latency in milliseconds                                                                          |                                             |           |
-| CRITICALAPPLICATIONLATENCY     | Critical thresholds for application latency in milliseconds                                                                         |                                             |           |
-| WARNINGCONNECTIVITYHEALTH      | Define the conditions to match for the connectivity status to be WARNING. (default: '%\{connectivityHealth\} =~ "Warning"')         | %\{connectivityHealth\} =~ "Warning"        |           |
-| CRITICALCONNECTIVITYHEALTH     | Define the conditions to match for the connectivity status to be CRITICAL. (default: '%\{connectivityHealth\} =~ "Need Attention"') | %\{connectivityHealth\} =~ "Need Attention" |           |
-| WARNINGDOWNLOADBANDWIDTH       | Warning thresholds for download bandwidth in bps                                                                                    |                                             |           |
-| CRITICALDOWNLOADBANDWIDTH      | Critical thresholds for download bandwidth in bps                                                                                   |                                             |           |
-| WARNINGEXPECTEDLATENCY         | Warning thresholds for expected latency in milliseconds                                                                             |                                             |           |
-| CRITICALEXPECTEDLATENCY        | Critical thresholds for expected latency in milliseconds                                                                            |                                             |           |
-| WARNINGEXPECTEDPACKETLOSSPRCT  | Warning thresholds for expected packet loss percentage                                                                              |                                             |           |
-| CRITICALEXPECTEDPACKETLOSSPRCT | Critical thresholds for expected packet loss percentage                                                                             |                                             |           |
-| WARNINGEXPECTEDSTABILITYPRCT   | Warning thresholds for expected stability percentage                                                                                |                                             |           |
-| CRITICALEXPECTEDSTABILITYPRCT  | Critical thresholds for expected stability percentage                                                                               |                                             |           |
-| WARNINGHTTPRESPONSETIME        | Warning thresholds for HTTP response time in milliseconds                                                                           |                                             |           |
-| CRITICALHTTPRESPONSETIME       | Critical thresholds for HTTP response time in milliseconds                                                                          |                                             |           |
-| WARNINGHTTPSRESPONSETIME       | Warning thresholds for HTTPS response time in milliseconds                                                                          |                                             |           |
-| CRITICALHTTPSRESPONSETIME      | Critical thresholds for HTTPS response time in milliseconds                                                                         |                                             |           |
-| WARNINGICMPRESPONSETIME        | Warning thresholds for ICMP response time in milliseconds                                                                           |                                             |           |
-| CRITICALICMPRESPONSETIME       | Critical thresholds for ICMP response time in milliseconds                                                                          |                                             |           |
-| WARNINGJITTERTIME              | Warning thresholds for jitter time in milliseconds                                                                                  |                                             |           |
-| CRITICALJITTERTIME             | Critical thresholds for jitter time in milliseconds                                                                                 |                                             |           |
-| WARNINGNETWORKLATENCY          | Warning thresholds for network latency in milliseconds                                                                              |                                             |           |
-| CRITICALNETWORKLATENCY         | Critical thresholds for network latency in milliseconds                                                                             |                                             |           |
-| WARNINGNETWORKSTABILITYPRCT    | Warning thresholds for network stability percentage                                                                                 |                                             |           |
-| CRITICALNETWORKSTABILITYPRCT   | Critical thresholds for network stability percentage                                                                                |                                             |           |
-| WARNINGPACKETLOSSPRCT          | Warning thresholds for packet loss percentage                                                                                       |                                             |           |
-| CRITICALPACKETLOSSPRCT         | Critical thresholds for packet loss percentage                                                                                      |                                             |           |
-| WARNINGQOERATE                 | Warning thresholds for Quality of Experience rate                                                                                   |                                             |           |
-| CRITICALQOERATE                | Critical thresholds for Quality of Experience rate                                                                                  |                                             |           |
-| WARNINGTCPRESPONSETIME         | Warning thresholds for TCP response time in milliseconds                                                                            |                                             |           |
-| CRITICALTCPRESPONSETIME        | Critical thresholds for TCP response time in milliseconds                                                                           |                                             |           |
-| WARNINGTWAMPRESPONSETIME       | Warning thresholds for TWAMP response time in milliseconds                                                                          |                                             |           |
-| CRITICALTWAMPRESPONSETIME      | Critical thresholds for TWAMP response time in milliseconds                                                                         |                                             |           |
-| WARNINGUDPRESPONSETIME         | Warning thresholds for UDP response time in milliseconds                                                                            |                                             |           |
-| CRITICALUDPRESPONSETIME        | Critical thresholds for UDP response time in milliseconds                                                                           |                                             |           |
-| WARNINGUPLOADBANDWIDTH         | Warning thresholds for upload bandwidth in bps                                                                                      |                                             |           |
-| CRITICALUPLOADBANDWIDTH        | Critical thresholds for upload bandwidth in bps                                                                                     |                                             |           |
-| WARNINGVOLATILITYPRCT          | Warning thresholds for volatility percentage                                                                                        |                                             |           |
-| CRITICALVOLATILITYPRCT         | Critical thresholds for volatility percentage                                                                                       |                                             |           |
-| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                  |                                             |           |
+| Macro                          | Description                                                                                                                            | Default value                               | Mandatory |
+|:-------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:---------:|
+| WARNINGAPPLICATIONLATENCY      | Warning thresholds for application latency in milliseconds                                                                             |                                             |           |
+| CRITICALAPPLICATIONLATENCY     | Critical thresholds for application latency in milliseconds                                                                            |                                             |           |
+| WARNINGCONNECTIVITYHEALTH      | Define the conditions to match for the connectivity status to be WARNING                                                               | %\{connectivityHealth\} =~ "Warning"        |           |
+| CRITICALCONNECTIVITYHEALTH     | Define the conditions to match for the connectivity status to be CRITICAL                                                              | %\{connectivityHealth\} =~ "Need Attention" |           |
+| WARNINGDOWNLOADBANDWIDTH       | Warning thresholds for download bandwidth in bps                                                                                       |                                             |           |
+| CRITICALDOWNLOADBANDWIDTH      | Critical thresholds for download bandwidth in bps                                                                                      |                                             |           |
+| WARNINGEXPECTEDLATENCY         | Warning thresholds for expected latency in milliseconds                                                                                |                                             |           |
+| CRITICALEXPECTEDLATENCY        | Critical thresholds for expected latency in milliseconds                                                                               |                                             |           |
+| WARNINGEXPECTEDPACKETLOSSPRCT  | Warning thresholds for expected packet loss percentage                                                                                 |                                             |           |
+| CRITICALEXPECTEDPACKETLOSSPRCT | Critical thresholds for expected packet loss percentage                                                                                |                                             |           |
+| WARNINGEXPECTEDSTABILITYPRCT   | Warning thresholds for expected stability percentage                                                                                   |                                             |           |
+| CRITICALEXPECTEDSTABILITYPRCT  | Critical thresholds for expected stability percentage                                                                                  |                                             |           |
+| WARNINGHTTPRESPONSETIME        | Warning thresholds for HTTP response time in milliseconds                                                                              |                                             |           |
+| CRITICALHTTPRESPONSETIME       | Critical thresholds for HTTP response time in milliseconds                                                                             |                                             |           |
+| WARNINGHTTPSRESPONSETIME       | Warning thresholds for HTTPS response time in milliseconds                                                                             |                                             |           |
+| CRITICALHTTPSRESPONSETIME      | Critical thresholds for HTTPS response time in milliseconds                                                                            |                                             |           |
+| WARNINGICMPRESPONSETIME        | Warning thresholds for ICMP response time in milliseconds                                                                              |                                             |           |
+| CRITICALICMPRESPONSETIME       | Critical thresholds for ICMP response time in milliseconds                                                                             |                                             |           |
+| WARNINGJITTERTIME              | Warning thresholds for jitter time in milliseconds                                                                                     |                                             |           |
+| CRITICALJITTERTIME             | Critical thresholds for jitter time in milliseconds                                                                                    |                                             |           |
+| WARNINGNETWORKLATENCY          | Warning thresholds for network latency in milliseconds                                                                                 |                                             |           |
+| CRITICALNETWORKLATENCY         | Critical thresholds for network latency in milliseconds                                                                                |                                             |           |
+| WARNINGNETWORKSTABILITYPRCT    | Warning thresholds for network stability percentage                                                                                    |                                             |           |
+| CRITICALNETWORKSTABILITYPRCT   | Critical thresholds for network stability percentage                                                                                   |                                             |           |
+| WARNINGPACKETLOSSPRCT          | Warning thresholds for packet loss percentage                                                                                          |                                             |           |
+| CRITICALPACKETLOSSPRCT         | Critical thresholds for packet loss percentage                                                                                         |                                             |           |
+| WARNINGQOERATE                 | Warning thresholds for Quality of Experience rate                                                                                      |                                             |           |
+| CRITICALQOERATE                | Critical thresholds for Quality of Experience rate                                                                                     |                                             |           |
+| WARNINGTCPRESPONSETIME         | Warning thresholds for TCP response time in milliseconds                                                                               |                                             |           |
+| CRITICALTCPRESPONSETIME        | Critical thresholds for TCP response time in milliseconds                                                                              |                                             |           |
+| WARNINGTWAMPRESPONSETIME       | Warning thresholds for TWAMP response time in milliseconds                                                                             |                                             |           |
+| CRITICALTWAMPRESPONSETIME      | Critical thresholds for TWAMP response time in milliseconds                                                                            |                                             |           |
+| WARNINGUDPRESPONSETIME         | Warning thresholds for UDP response time in milliseconds                                                                               |                                             |           |
+| CRITICALUDPRESPONSETIME        | Critical thresholds for UDP response time in milliseconds                                                                              |                                             |           |
+| WARNINGUPLOADBANDWIDTH         | Warning thresholds for upload bandwidth in bps                                                                                         |                                             |           |
+| CRITICALUPLOADBANDWIDTH        | Critical thresholds for upload bandwidth in bps                                                                                        |                                             |           |
+| WARNINGVOLATILITYPRCT          | Warning thresholds for volatility percentage                                                                                           |                                             |           |
+| CRITICALVOLATILITYPRCT         | Critical thresholds for volatility percentage                                                                                          |                                             |           |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                             |           |
 
 </TabItem>
 <TabItem value="Forecast" label="Forecast">
 
-| Macro                    | Description                                                                                        | Default value | Mandatory |
-|:-------------------------|:---------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGPROJECTEDLATENCY  | Warning thresholds for projected latency                                                           |               |           |
-| CRITICALPROJECTEDLATENCY | Critical thresholds for projected latency                                                          |               |           |
+| Macro                    | Description                                                                                                                            | Default value | Mandatory |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGPROJECTEDLATENCY  | Warning thresholds for projected latency                                                                                               |               |           |
+| CRITICALPROJECTEDLATENCY | Critical thresholds for projected latency                                                                                              |               |           |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Latency" label="Latency">
 
-| Macro                  | Description                                                                                                    | Default value | Mandatory |
-|:-----------------------|:---------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| TIMERANGE              | Choose a timerange of values on wich datas shoud be aggregated (in seconds). (default: '300')                  | 300           |           |
-| FILTERPROTO            | Filter protocol if needed (can be a regexp) Accepted values are `tcp`, `udp`, `http`, `https`, `icmp`, `twamp` |               |           |
-| WARNINGLATENCYAVERAGE  | Warning thresholds for average latency                                                                         |               |           |
-| CRITICALLATENCYAVERAGE | Critical thresholds for average latency                                                                        |               |           |
-| WARNINGLATENCYMAXIMUM  | Warning thresholds for maximum latency                                                                         |               |           |
-| CRITICALLATENCYMAXIMUM | Critical thresholds for maximum latency                                                                        |               |           |
-| WARNINGLATENCYMINIMUM  | Warning thresholds for minimum latency                                                                         |               |           |
-| CRITICALLATENCYMINIMUM | Critical thresholds for minimum latency                                                                        |               |           |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).             |               |           |
+| Macro                  | Description                                                                                                                            | Default value | Mandatory |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| TIMERANGE              | Choose a timerange of values on wich datas shoud be aggregated (in seconds)                                                            | 300           |           |
+| FILTERPROTO            | Filter protocol if needed (can be a regexp) Accepted values are `tcp`, `udp`, `http`, `https`, `icmp`, `twamp`                         |               |           |
+| WARNINGLATENCYAVERAGE  | Warning thresholds for average latency                                                                                                 |               |           |
+| CRITICALLATENCYAVERAGE | Critical thresholds for average latency                                                                                                |               |           |
+| WARNINGLATENCYMAXIMUM  | Warning thresholds for maximum latency                                                                                                 |               |           |
+| CRITICALLATENCYMAXIMUM | Critical thresholds for maximum latency                                                                                                |               |           |
+| WARNINGLATENCYMINIMUM  | Warning thresholds for minimum latency                                                                                                 |               |           |
+| CRITICALLATENCYMINIMUM | Critical thresholds for minimum latency                                                                                                |               |           |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Radio" label="Radio">
 
-| Macro           | Description                                                                                        | Default value | Mandatory |
-|:----------------|:---------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGRSRPDBM  | Warning thresholds for reference signal receive power in dbm                                       |               |           |
-| CRITICALRSRPDBM | Critical thresholds for reference signal receive power in dbm                                      |               |           |
-| WARNINGRSRQDB   | Warning thresholds for reference signal receive quality in db                                      |               |           |
-| CRITICALRSRQDB  | Critical thresholds for reference signal receive quality in db                                     |               |           |
-| WARNINGRSSIDBM  | Warning thresholds for received signal strength indicator in dbm                                   |               |           |
-| CRITICALRSSIDBM | Critical thresholds for received signal strength indicator in dbm                                  |               |           |
-| WARNINGSNRDBM   | Warning thresholds for signal noise ratio in dbm                                                   |               |           |
-| CRITICALSNRDBM  | Critical thresholds for signal noise ratio in dbm                                                  |               |           |
+| Macro           | Description                                                                                                                            | Default value | Mandatory |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGRSRPDBM  | Warning thresholds for reference signal receive power in dbm                                                                           |               |           |
+| CRITICALRSRPDBM | Critical thresholds for reference signal receive power in dbm                                                                          |               |           |
+| WARNINGRSRQDB   | Warning thresholds for reference signal receive quality in db                                                                          |               |           |
+| CRITICALRSRQDB  | Critical thresholds for reference signal receive quality in db                                                                         |               |           |
+| WARNINGRSSIDBM  | Warning thresholds for received signal strength indicator in dbm                                                                       |               |           |
+| CRITICALRSSIDBM | Critical thresholds for received signal strength indicator in dbm                                                                      |               |           |
+| WARNINGSNRDBM   | Warning thresholds for signal noise ratio in dbm                                                                                       |               |           |
+| CRITICALSNRDBM  | Critical thresholds for signal noise ratio in dbm                                                                                      |               |           |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Throughput" label="Throughput">
 
-| Macro                  | Description                                                                                         | Default value | Mandatory |
-|:-----------------------|:----------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGJITTERDOWNLOAD  | Warning thresholds for jitter download time (in milliseconds)                                       |               |           |
-| CRITICALJITTERDOWNLOAD | Critical thresholds for jitter download time (in milliseconds)                                      |               |           |
-| WARNINGJITTERUPLOAD    | Warning thresholds for jitter upload time (in milliseconds)                                         |               |           |
-| CRITICALJITTERUPLOAD   | Critical thresholds for jitter upload time (in milliseconds)                                        |               |           |
-| WARNINGLIFBEDOWNLOAD   | Warning thresholds for LIFBE (Low Intrusive Fast Bandwidth Estimation) download bandwidth (in bps)  |               |           |
-| CRITICALLIFBEDOWNLOAD  | Critical thresholds for LIFBE (Low Intrusive Fast Bandwidth Estimation) download bandwidth (in bps) |               |           |
-| WARNINGLIFBEUPLOAD     | Warning thresholds for LIFBE (Low Intrusive Fast Bandwidth Estimation) upload bandwidth (in bps)    |               |           |
-| CRITICALLIFBEUPLOAD    | Critical thresholds for LIFBE (Low Intrusive Fast Bandwidth Estimation) upload bandwidth (in bps)   |               |           |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).  |               |           |
+| Macro                  | Description                                                                                                                            | Default value | Mandatory |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGJITTERDOWNLOAD  | Warning thresholds for jitter download time (in milliseconds)                                                                          |               |           |
+| CRITICALJITTERDOWNLOAD | Critical thresholds for jitter download time (in milliseconds)                                                                         |               |           |
+| WARNINGJITTERUPLOAD    | Warning thresholds for jitter upload time (in milliseconds)                                                                            |               |           |
+| CRITICALJITTERUPLOAD   | Critical thresholds for jitter upload time (in milliseconds)                                                                           |               |           |
+| WARNINGLIFBEDOWNLOAD   | Warning thresholds for LIFBE (Low Intrusive Fast Bandwidth Estimation) download bandwidth (in bps)                                     |               |           |
+| CRITICALLIFBEDOWNLOAD  | Critical thresholds for LIFBE (Low Intrusive Fast Bandwidth Estimation) download bandwidth (in bps)                                    |               |           |
+| WARNINGLIFBEUPLOAD     | Warning thresholds for LIFBE (Low Intrusive Fast Bandwidth Estimation) upload bandwidth (in bps)                                       |               |           |
+| CRITICALLIFBEUPLOAD    | Critical thresholds for LIFBE (Low Intrusive Fast Bandwidth Estimation) upload bandwidth (in bps)                                      |               |           |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Twamp" label="Twamp">
 
-| Macro                   | Description                                                                                        | Default value | Mandatory |
-|:------------------------|:---------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGTWAMPFORWARD     | Warning thresholds for TWAMP forward delta time (in milliseconds)                                  |               |           |
-| CRITICALTWAMPFORWARD    | Critical thresholds for TWAMP forward delta time (in milliseconds)                                 |               |           |
-| WARNINGTWAMPPROCESSING  | Warning thresholds for TWAMP processing delta time (in milliseconds)                               |               |           |
-| CRITICALTWAMPPROCESSING | Critical thresholds for TWAMP processing delta time (in milliseconds)                              |               |           |
-| WARNINGTWAMPREVERSE     | Warning thresholds for TWAMP reverse delta time (in milliseconds)                                  |               |           |
-| CRITICALTWAMPREVERSE    | Critical thresholds for TWAMP reverse delta time (in milliseconds)                                 |               |           |
+| Macro                   | Description                                                                                                                            | Default value | Mandatory |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGTWAMPFORWARD     | Warning thresholds for TWAMP forward delta time (in milliseconds)                                                                      |               |           |
+| CRITICALTWAMPFORWARD    | Critical thresholds for TWAMP forward delta time (in milliseconds)                                                                     |               |           |
+| WARNINGTWAMPPROCESSING  | Warning thresholds for TWAMP processing delta time (in milliseconds)                                                                   |               |           |
+| CRITICALTWAMPPROCESSING | Critical thresholds for TWAMP processing delta time (in milliseconds)                                                                  |               |           |
+| WARNINGTWAMPREVERSE     | Warning thresholds for TWAMP reverse delta time (in milliseconds)                                                                      |               |           |
+| CRITICALTWAMPREVERSE    | Critical thresholds for TWAMP reverse delta time (in milliseconds)                                                                     |               |           |
 | EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
