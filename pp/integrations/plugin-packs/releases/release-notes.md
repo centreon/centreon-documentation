@@ -13,8 +13,8 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Forcepoint Sdwan SNMP**](../procedures/network-firewalls-forcepoint-sdwan-snmp.md) - Initial release of Forcepoint Sdwan SNMP, based on community contribution [PR 5512](https://github.com/centreon/centreon-plugins/pull/5512) and a [The Watch idea](https://thewatch.centreon.com/ideas/update-stonesoft-forcepoint-plugin-4169).
-- [**Active Directory Centreon Monitoring Agent**](../procedures/infrastructure-active-directory-centreon-monitoring-agent.md) - Initial release Active Directory Centreon Monitoring Agent.
+- [**Forcepoint SNMP**](../procedures/network-firewalls-forcepoint-sdwan-snmp.md) - Initial release of Forcepoint SNMP, based on community contribution [PR 5512](https://github.com/centreon/centreon-plugins/pull/5512) and a [The Watch idea](https://thewatch.centreon.com/ideas/update-stonesoft-forcepoint-plugin-4169).
+- [**Active Directory Centreon Monitoring Agent**](../procedures/infrastructure-active-directory-centreon-monitoring-agent.md) - Initial release of Active Directory Centreon Monitoring Agent.
 - [**LatenceTech RestAPI**](../procedures/applications-monitoring-latencetech-restapi.md) - Initial release of LatenceTech RestAPI.
 
 
@@ -22,41 +22,41 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Added options to ignore acknowledged messages, from community contribution [PR 5487](https://github.com/centreon/centreon-plugins/pull/5487).
-- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Added a new authentication way with `api-key` option.
-- [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - Added OS and IPs info retrieval to **host discovery**.
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Added a new authentication method using the **api-key** option.
+- [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - Added OS and IP info retrieval to **host discovery**.
 - [**Redis Database**](../procedures/applications-databases-redis.md) - Added `cert` and `key` options for authentication (available for redis-cli >= 6.x), based on community contribution [PR 5555](https://github.com/centreon/centreon-plugins/pull/5555).
 - [**Redis Sentinel**](../procedures/applications-redis-sentinel.md) - Added `cert` and `key` options for authentication (available for redis-cli >= 6.x), from community contribution [PR 5555](https://github.com/centreon/centreon-plugins/pull/5555).
-- [**Veeam Centreon Monitoring Agent**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Converted into stable and added default timeout service macro set to 120s.
-- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added native checks for **Process**, **Counter**, **Taskched** and **Files**. Added default timeout service macro set to 120s.
+- [**Veeam Centreon Monitoring Agent**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Converted into stable and added default timeout service macro, set to 120s.
+- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added native checks for **Process**, **Counter**, **Taskched** and **Files**. Added default timeout service macro, set to 120s.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Converted into stable with the new CMA version leading to breaking-changes for earlier versions.
+- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Converted into stable with the new CMA version leading to breaking changes for earlier versions.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**AIX SNMP**](../procedures/operatingsystems-aix-snmp.md) - Fixed an issue leading to parsing error.
-- [**AWS Billing**](../procedures/cloud-aws-billing.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**AWS ELB**](../procedures/cloud-aws-elb.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**AWS VPN**](../procedures/cloud-aws-vpn.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**Amazon API Gateway**](../procedures/cloud-aws-apigateway.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**Amazon Backup Vault**](../procedures/cloud-aws-backup.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**Amazon CloudFront**](../procedures/cloud-aws-cloudfront.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**Amazon Direct Connect**](../procedures/cloud-aws-directconnect.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**Amazon EBS**](../procedures/cloud-aws-ebs.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**Amazon EFS**](../procedures/cloud-aws-efs.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**Amazon ElastiCache**](../procedures/cloud-aws-elasticache.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**Amazon Kinesis**](../procedures/cloud-aws-kinesis.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**Amazon S3**](../procedures/cloud-aws-s3.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**Amazon SNS**](../procedures/cloud-aws-sns.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
-- [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - Fixed AWS discovery failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**AIX SNMP**](../procedures/operatingsystems-aix-snmp.md) - Fixed an issue causing a parsing error.
+- [**AWS Billing**](../procedures/cloud-aws-billing.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**AWS ELB**](../procedures/cloud-aws-elb.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**AWS VPN**](../procedures/cloud-aws-vpn.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon API Gateway**](../procedures/cloud-aws-apigateway.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon Backup Vault**](../procedures/cloud-aws-backup.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon CloudFront**](../procedures/cloud-aws-cloudfront.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon Direct Connect**](../procedures/cloud-aws-directconnect.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon EBS**](../procedures/cloud-aws-ebs.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon EFS**](../procedures/cloud-aws-efs.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon ElastiCache**](../procedures/cloud-aws-elasticache.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon Kinesis**](../procedures/cloud-aws-kinesis.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon S3**](../procedures/cloud-aws-s3.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon SNS**](../procedures/cloud-aws-sns.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
 - [**Azure API Management**](../procedures/cloud-azure-management-apimanagement.md) - Fixed host discovery issue.
 - [**Azure App Configuration**](../procedures/cloud-azure-devtools-appconfiguration.md) - Fixed host discovery issue.
 - [**Azure Application Gateway**](../procedures/cloud-azure-network-appgateway.md) - Fixed host discovery issue.
@@ -87,10 +87,10 @@ import TabItem from '@theme/TabItem';
 - [**Azure Traffic Manager**](../procedures/cloud-azure-network-trafficmanager.md) - Fixed host discovery issue.
 - [**Azure Virtual Machine Scale Sets**](../procedures/cloud-azure-compute-vmscalesets.md) - Fixed host discovery issue.
 - [**Azure Virtual Machine**](../procedures/cloud-azure-compute-virtualmachine.md) - Fixed host discovery issue.
-- [**Eclipse Mosquitto MQTT**](../procedures/applications-eclipse-mosquitto-mqtt.md) - Fixed syntax error and an issue with encoding when topics name contains accents.
-- [**HP Ilo Rest API**](../procedures/hardware-servers-hp-ilo-restapi.md) - Fixed an issue with some firmwares versions to exclude enclosure.
+- [**Eclipse Mosquitto MQTT**](../procedures/applications-eclipse-mosquitto-mqtt.md) - Fixed a syntax error and an issue with encoding occurring when topic names contained accents.
+- [**HP Ilo Rest API**](../procedures/hardware-servers-hp-ilo-restapi.md) - Fixed an issue with some firmware versions to exclude enclosure.
 - [**Huawei HMM**](../procedures/hardware-servers-huawei-hmm-snmp.md) - Fixed `no-component` option.
-- [**Hyper-V NSCP REST API**](../procedures/virtualization-hyperv-nscp-restapi.md) - Fixed and issue with **scvmm-discovery** stats.
+- [**Hyper-V NSCP REST API**](../procedures/virtualization-hyperv-nscp-restapi.md) - Fixed an issue with **scvmm-discovery** stats.
 - [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - Fixed an issue leading to `Cannot find 'ComputeResource' object` message.
 - [**VMware VM**](../procedures/virtualization-vmware2-vm.md) - Fixed an issue leading to `Cannot find 'ComputeResource' object` message.
 - [**VMware vCenter**](../procedures/virtualization-vmware2-vcenter-generic.md) - Fixed an issue leading to `Cannot find 'ComputeResource' object` message.
