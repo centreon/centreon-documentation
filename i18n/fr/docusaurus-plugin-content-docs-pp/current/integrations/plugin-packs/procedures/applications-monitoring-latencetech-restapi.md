@@ -128,10 +128,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Le connecteur de supervision requiert que le **LatenceTech RestAPI** soit installé sur votre instance d'analyseur. Vous pouvez vous référer à [la documentation officielle de LatenceTech](https://docs.latence.ca/14-analyzer-api/) pour la procédure d'installation.
-Pour utiliser le connecteur, vous devez disposer de votre **clé API** et **ID client**.
+Le connecteur de supervision requiert que l'API Rest **LatenceTech** soit installée sur votre instance d'analyseur. Vous pouvez vous référer à [la documentation officielle de LatenceTech](https://docs.latence.ca/14-analyzer-api/) pour la procédure d'installation.
+Pour utiliser le connecteur, vous devez disposer de votre **clé API** et de votre **ID client**.
 La clé API est utilisée pour authentifier les requêtes envoyées à l'API Rest de LatenceTech.
-Vous pouvez obtenir votre ID client en interrogeant l'API avec le point de terminaison /api/v1/networks (cette requête ne nécessite pas de paramètres).
+Vous pouvez obtenir votre ID client en interrogeant l'API avec le point de terminaison **/api/v1/networks** (cette requête ne nécessite pas de paramètres).
 
 ## Installer le connecteur de supervision
 
@@ -399,7 +399,7 @@ OK: Agent '2' TWAMP Forward Delta: 12.92ms, TWAMP Reverse Delta: -4.19ms, TWAMP 
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles

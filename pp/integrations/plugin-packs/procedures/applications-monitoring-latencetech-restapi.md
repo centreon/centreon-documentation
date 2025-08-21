@@ -130,7 +130,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 The connector requires the **LatenceTech RestAPI** to be installed on your analyzer instance. You can refer to [the LatenceTech official documentation](https://docs.latence.ca/14-analyzer-api/) for the installation procedure.
 To use the connector, you need to have your **API key** and **Customer ID**.
 The API key is used to authenticate the requests sent to the LatenceTech RestAPI.
-You can get your customer ID by requesting the API with the /api/v1/networks endpoint (this request do not need any parameters).
+You can get your customer ID by requesting the API with the **/api/v1/networks** endpoint (this request does not need any parameters).
 
 ## Installing the monitoring connector
 
