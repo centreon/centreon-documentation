@@ -55,7 +55,7 @@ The poller will be configured the following way, using the **Agent configuration
 * Private key (.key)
 * CA: rarely necessary in this case, except to manage a double handshake. The TLS protocol with certificates validates the identity of the server for the client, but the "double handshake" goes further: it adds the validation of the client's identity by the server. This is useful for enhanced security but rarely necessary on the internet.
 
-The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
+The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](cma-setup.md#step-2-prepare-the-host).
 
 The DNS name that the agent will use to connect to the poller must be identical to the Common Name of the certificate.
 If this is not possible, you can add an IP **collector_host_name** mapping in the **C:\Windows\System32\drivers\etc\hosts** file (Windows) or **/etc/hosts** (Linux).
@@ -84,7 +84,7 @@ The poller will be configured the following way, using the **Poller/agent config
 
    Please note that the CN field in the certificate must match the name that will be used by the poller to connect to the host. For example, if you have entered **myhostname** in the CN, the poller must be able to connect to the host **myhostname** without using the IP address (a solution if **myhostname** is not in the DNS: add the IP myhostname mapping in the **/etc/hosts** file).
 
-The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](#step-2-prepare-the-host).
+The agent will be configured the following way on the host [(for Windows using the installer or the CLI, and for Linux using the **centagent.json** file)](cma-setup.md#step-2-prepare-the-host).
 
 * Encryption = yes
 * Public certificate file (.crt)
@@ -99,10 +99,10 @@ In Centreon OnPrem 24.10, you can leave the connection unencrypted **for test pu
 
 > Note that this connection will only last for one hour. Do not use this setting in production!
 
-To configure this mode, select **No TLS** from the **Encryption level** list in the [**Agent configuration**](#configure-polleragent-communication) window.
+To configure this mode, select **No TLS** from the **Encryption level** list in the [**Agent configuration**](cma-setup.md#configure-polleragent-communication) window.
 
 The agent will be configured the following way on the host:
-- [for Windows, using the corresponding option in the installer or the CLI](#step-2-prepare-the-host)
+- [for Windows, using the corresponding option in the installer or the CLI](cma-setup.md#step-2-prepare-the-host)
 - for Linux, using the **centagent.json** file:
 
 <Tabs groupId="sync">
