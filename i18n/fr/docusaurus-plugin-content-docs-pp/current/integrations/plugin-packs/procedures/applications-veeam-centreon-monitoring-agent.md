@@ -119,7 +119,7 @@ minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la vers
 
 ### Configuration de Centreon Engine
 
-[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma.md#configurez-la-communication-collecteuragent).
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
 
 ### Prérequis système sur l'hôte à superviser
 

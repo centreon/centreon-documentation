@@ -101,7 +101,7 @@ Vous pouvez configurer une connexion non chiffrée **à des fins de test uniquem
 
 > Notez que cette connexion ne durera qu'une heure. N'utilisez pas ce paramètre en production !
 
-Pour configurer ce mode, sélectionnez **No TLS** dans la liste **Niveau de chiffrement** de la fenêtre [**Configuration collecteur/agent**](cma.md#configurez-la-communication-collecteuragent).
+Pour configurer ce mode, sélectionnez **No TLS** dans la liste **Niveau de chiffrement** de la fenêtre [**Configuration collecteur/agent**](cma-setup.md#configurez-la-communication-collecteuragent).
 
 L'agent sera configuré de la manière suivante sur l'hôte :
 - [pour Windows, en utilisant l'option correspondante dans le programme d'installation ou la CLI](cma-setup.md#étape-3--préparez-lhôte)

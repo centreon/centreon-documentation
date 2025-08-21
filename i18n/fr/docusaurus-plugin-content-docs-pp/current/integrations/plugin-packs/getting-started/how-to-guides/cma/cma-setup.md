@@ -33,7 +33,7 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 </TabItem>
 </Tabs>
 
-3. Si vous souhaitez superviser une [application supportée par CMA](cma.md#applications-supervisées), installez le connecteur correspondant sur votre serveur central.
+3. Si vous souhaitez superviser une [application supportée par CMA](cma.md#applications-supervisables-par-cma), installez le connecteur correspondant sur votre serveur central.
 
 ### Mettez à jour le connecteur Centreon Monitoring Agent (version onPrem)
 
