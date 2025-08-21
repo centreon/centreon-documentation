@@ -1,6 +1,6 @@
 ---
 id: cma-custom
-title: Utiliser des plugins personnalisés
+title: Utiliser des plugins personnalisés avec CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
