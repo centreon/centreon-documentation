@@ -5,11 +5,10 @@ title: Migrer vers CMA depuis NSClient++
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-
 Si vous utilisez déjà NSClient++ ou NRPE avec Centreon, ce guide vous aidera à passer progressivement à Centreon Monitoring Agent.
 
-Centreon Monitoring Agent offre plusieurs avantages par rapport à NSClient++ et NRPE : 
+Centreon Monitoring Agent offre plusieurs avantages par rapport à NSClient++ et NRPE :
+
 * Meilleures performances dans l'exécution des contrôles, c'est-à-dire impact réduit sur l'hôte.
 * Sécurité renforcée, implémentée par défaut (chiffrement TLS, jeton d'authentification).
 * Configuration facile grâce à une interface dédiée, notamment pour la sécurité des connexions.
@@ -17,7 +16,6 @@ Centreon Monitoring Agent offre plusieurs avantages par rapport à NSClient++ et
 * Mode d'installation en ligne de commande pour un déploiement massif sous Windows.
 * Méthode de supervision basée uniquement sur des contrôles passifs.
 * Prise en charge complète par Centreon et feuille de route dédiée.
- 
 
 ## Déploiement et configuration de l'agent
 
@@ -50,5 +48,5 @@ Voici la correspondance avec les modèles d'hôtes NSClient++/NRPE :
 | Type de commande | Description |
 | ----------- | ----------- |
 | Commandes de plugins Centreon | Il s'agit des mêmes plugins que ceux pour NSClient++/NRPE ; seule la commande change. Les macros portant le même nom sont conservées, vous pouvez donc remplacer le modèle de service existant par celui lié à l'agent CMA.<br/><br/>Par exemple : **OS-Linux-Memory-NRPE4** → **OS-Linux-Memory-NRPE4-custom** |
-| Commandes de vérification natives (NSClient++) | L'agent CMA fournit des contrôles natifs dont la structure (commande JSON) diffère de celle de NSClient++ et du reste de l'écosystème Centreon.<br/><br/>Il sera nécessaire de créer un nouveau service ou de modifier le modèle de service existant en adaptant les macros.<br/><br/>Par exemple : **OS-Windows-NSClient05-NRPE-Cpu** ou **OS-Windows-NSClient05-Restapi-Cpu** → **OS-Windows-Centreon-Monitoring-Agent-CPU** |
-| Commandes de vérification personnalisables | Ces scripts restent compatibles avec l'agent CMA. Vous devrez adapter les commandes (ou les dupliquer pour qu'elles fonctionnent en mode double exécution). Un [guide dédié](cma-custom.md) est disponible. |
+| Commandes de contrôle natives (NSClient++) | L'agent CMA fournit des contrôles natifs dont la structure (commande JSON) diffère de celle de NSClient++ et du reste de l'écosystème Centreon.<br/><br/>Il sera nécessaire de créer un nouveau service ou de modifier le modèle de service existant en adaptant les macros.<br/><br/>Par exemple : **OS-Windows-NSClient05-NRPE-Cpu** ou **OS-Windows-NSClient05-Restapi-Cpu** → **OS-Windows-Centreon-Monitoring-Agent-CPU** |
+| Commandes de contrôle personnalisables | Ces scripts restent compatibles avec l'agent CMA. Vous devrez adapter les commandes (ou les dupliquer pour qu'elles fonctionnent en mode double exécution). Un [guide dédié](cma-custom.md) est disponible. |
