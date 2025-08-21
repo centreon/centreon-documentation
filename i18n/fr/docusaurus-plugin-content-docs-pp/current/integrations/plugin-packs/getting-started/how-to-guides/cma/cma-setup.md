@@ -56,17 +56,19 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
-* Lorsque le jeton expire ou est désactivé, la connexion est tuée au prochain export de configuration ou envoi de données de performance (car le connecteur détecte l'expiration). La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
+* Le moteur de collecte vérifie la présence et la validité du jeton, et coupe la connexion en cas d'absence du jeton (car désactivé ou révoqué) ou d'expiration de celui-ci. La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
 
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
 
-* Lorsque le jeton expire ou est désactivé, l'agent le détecte et tue la connexion. La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
+* L'agent vérifie la validité du jeton, et coupe la connexion en cas d'absence du jeton (car désactivé ou révoqué) ou d'expiration de celui-ci. La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
 
 </TabItem>
 </Tabs>
 
-* Lorsque vous révoquez un jeton, [déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration) pour que la révocation soit prise en compte.
+* Lorsque vous désactivez ou révoquez un jeton, [déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration) pour que cette action soit prise en compte.
+
+* L'expiration est prise en compte immédiatement, sans nécessiter d'action utilisateur.
 
 ### Créez l'hôte et les services
 
