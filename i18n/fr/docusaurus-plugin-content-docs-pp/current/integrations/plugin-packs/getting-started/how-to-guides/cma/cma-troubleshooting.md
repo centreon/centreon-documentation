@@ -47,7 +47,7 @@ Aucune ligne ne doit être retournée.
 
 2. Recherchez **Centreon Monitoring Agent** dans la liste des services : si le service n'est pas démarré, démarrez-le.
 
-### Vérifiez que les logs ne contient pas d'erreur
+### Vérifiez que les logs ne contiennent pas d'erreur
 
 Selon la configuration faite, utilisez l'observateur d'événements ou consultez le fichier spécifié.
 
