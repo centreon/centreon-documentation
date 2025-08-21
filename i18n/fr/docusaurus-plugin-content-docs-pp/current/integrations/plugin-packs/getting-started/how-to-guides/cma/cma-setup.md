@@ -51,19 +51,17 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
    * Conservez le jeton généré pour la configuration de l'agent. Au besoin, vous pouvez le copier dans le presse-papiers à tout moment, depuis la liste des jetons.
    * Il est possible de n'utiliser qu'un jeton pour tous vos collecteurs et agents, ou d'en gérer plusieurs, pour un contrôle plus fin.
 
-#### Comportement des jetons d'authentification CMA
-
-**Expiration** 
+#### Comportement des jetons d'authentification CMA : désactivation/expiration/révocation
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
-* Lorsque le jeton expire, la connexion est tuée au prochain export de configuration ou envoi de données de performance. La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
+* Lorsque le jeton expire ou est désactivé, la connexion est tuée au prochain export de configuration ou envoi de données de performance (car le connecteur détecte l'expiration). La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
 
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
 
-* Lorsque le jeton expire, la connexion est tuée. La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
+* Lorsque le jeton expire ou est désactivé, l'agent le détecte et tue la connexion. La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
 
 </TabItem>
 </Tabs>
@@ -209,10 +207,10 @@ chmod 750 /etc/centreon-engine-whitelist
 
 Le comportement est le suivant :
 
-* Si le bloc **whitelist** est renseigné et le bloc **cma-whitelist** est absent, le moteur de collecte appliquera la liste blanche et CMA n'appliquera pas de liste blanche (toute commande autorisée).
-* Si les blocs **whitelist** et **cma-whitelist** sont renseignés, le moteur de collecte appliquera le bloc **whitelist** et CMA appliquera le bloc **cma-whitelist**.
-* Si le bloc **whitelist** est absent et le bloc **cma-whitelist** est renseigné, le moteur de collecte n'appliquera pas de liste blanche (toute commande autorisée) et CMA appliquera **cma-whitelist**.  
-* Si aucun bloc n'est renseigné, aucune liste blanche n'est appliquée.
+* Si le bloc **whitelist** est renseigné et le bloc **cma-whitelist** est absent, le moteur de collecte appliquera sa liste blanche (il n'autorisera que les commandes spécifiées) et CMA n'appliquera pas de liste blanche (toutes les commandes seront autorisées).
+* Si les blocs **whitelist** et **cma-whitelist** sont renseignés, le moteur de collecte appliquera le bloc **whitelist** et CMA appliquera le bloc **cma-whitelist** (ils n'autoriseront que les commandes spécifiées).
+* Si le bloc **whitelist** est absent et le bloc **cma-whitelist** est renseigné, le moteur de collecte n'appliquera pas de liste blanche (toutes les commandes seront autorisées) et CMA appliquera le bloc **cma-whitelist** (il n'autorisera que les commandes spécifiées).  
+* Si aucun bloc n'est renseigné, aucune liste blanche ne sera appliquée : toutes les commandes seront autorisées.
 
 ## Étape 3 : Préparez l'hôte
 
