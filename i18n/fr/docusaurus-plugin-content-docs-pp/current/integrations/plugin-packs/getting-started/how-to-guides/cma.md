@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
-> L'agent CMA est encore en phase bêta. Pour obtenir de l'aide, visitez [notre groupe dédié sur The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
+> Utilisateurs de Centreon Cloud: l'agent CMA est encore en phase bêta pour la version Cloud. Pour obtenir de l'aide, visitez [notre groupe dédié sur The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
 
 ## Introduction
 
@@ -238,6 +238,11 @@ Configurez la communication entre collecteur collecteur et agent :
 
 <PollerAgentConfiguration type="CMA" />
 
+5. À partir de Centreon OnPrem 24.10.9, si le mode de chiffrement **TLS** est sélectionné, utilisez un jeton pour sécuriser davantage votre connexion collecteur/agent pour toutes les configurations nouvellement créées :
+   * À la page **Administration > Jetons d'authentification**, créez un jeton de type CMA.
+   * Sélectionnez ce jeton dans la section correspondante de la page de configuration de l'agent.
+   * Ajoutez votre jeton au fichier **/etc/centreon-monitoring-agent/centagent.json** sur votre hôte.
+
 5. Si l'agent n'est pas autorisé à se connecter au collecteur pour des raisons de sécurité (par exemple lorsque le collecteur est situé dans une DMZ), activez l'option **Connection initiée par le collecteur**. Puis, dans la section **Configuration des hôtes**, définissez tous les hôtes sur lesquels l'agent sera installé.
 
 > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
@@ -397,11 +402,21 @@ Si vous utilisez des listes blanches sur le collecteur ([les collecteurs Cloud o
 ```text
 whitelist:
   regex:
-    - /usr/lib(?:64){0,1}/nagios/plugins/.*
+    - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+    - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
     - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
     - ^\{\s*"check":".*\}$
     - \/usr\/bin\/echo\s+Host\s+alive
-    - cmd\.exe\s+\/C\s+echo\s+Centreon\s+Agent
+    - cmd\.exe\s+\/C\s+echo\s+.*
+```
+
+Assurez-vous que les droits d'accès corrects sont définis sur tous les fichiers de liste blanche :
+
+```
+chown root:centreon-engine /etc/centreon-engine-whitelist/my-whitelist.yml
+chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
+chown root:centreon-engine /etc/centreon-engine-whitelist
+chmod 750 /etc/centreon-engine-whitelist
 ```
 
 ## Étape 2 : Préparez l'hôte
