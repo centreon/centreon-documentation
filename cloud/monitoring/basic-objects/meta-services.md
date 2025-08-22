@@ -30,7 +30,7 @@ The types of data source available are as follows:
 
 * The **GAUGE** type records an instantaneous value (temperature, humidity, processor, etc.)
 * The **COUNTER** type records an incremental value in relation to the previous result
-* The **DRIFT** type stores the derivative of the line from the last to the current value of the data. This can be useful
+* The **DERIVE** type stores the derivative of the line from the last to the current value of the data. This can be useful
   for capacities, for example to measure the rate of people entering or leaving a room.
 * The **ABSOLUTE** type is for counters which reset on reading. It is used for fast counters that have a tendency to overrun.
 
@@ -46,7 +46,7 @@ Go to **Configuration \> Services \> Meta Services** and click **Add**:
 
 ### General information
 
-* The **Meta Service Name** field corresponds to the name of the meta-service displayed in the interface. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
+* The **Name** field corresponds to the name of the meta-service displayed in the interface. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
 * The **Output format string (printf-style)** field corresponds to the output message (‘output’) visible in Centreon.
   The “%d” value corresponds to the value calculated by the meta-service
 * The **Warning level** and **Critical level** correspond to the “WARNING” and “CRITICAL” thresholds of the meta-service
@@ -63,7 +63,7 @@ Metric dropdown list.
 
 > More information on *[PRINTF formatting](http://en.wikipedia.org/wiki/Printf_format_string)*.
 
-### Meta Service status
+### Meta Service state
 
 * The **Check Period** field defines the time period during which the scheduler checks the status of the meta-service.
 * The **Max Check Attempts** field defines the number of checks to be made before confirming the status of the meta-service:
@@ -72,15 +72,6 @@ Metric dropdown list.
   the meta-service is OK.
 * The **Retry Check Interval** field is expressed in minutes. It defines the checking interval of the Not-OK status of
   the meta-service.
-
-### Notification 
-
-* The **Notification Enabled** field is used to enable the notifications.
-* The **Linked Contacts Groups** list is used to define the groups of contacts that will be alerted.
-* The **Notification Interval** field is expressed in minutes and can be used to define the time interval between the
-  sending of two notifications.
-* The **Notification Period** field can be used define the notification period.
-* The **Notification Type** field defines the types of notification sent.
 
 ### Additional information
 
