@@ -14,7 +14,7 @@ L'authentification se paramètre à la page **Administration > Authentification 
 Activez l'authentification SAML :
 
 - **Activer l'authentification SAMLv2** : active/désactive l'authentification SAML.
-- **Mode d'authentification**: indique si l'authentification doit se faire uniquement par SAML ou en utilisant
+- **Mode d'authentification** : indique si l'authentification doit se faire uniquement par SAML ou en utilisant
   également l'authentification locale (**Mixte**). En mode mixte, des utilisateurs créés manuellement dans Centreon
   (et non identifiés par SAML) pourront également se connecter.
 
@@ -25,15 +25,20 @@ Activez l'authentification SAML :
 
 Renseignez les informations du fournisseur d'identité :
 
-- **URL de connexion distante**: définit l'URL de connexion du fournisseur d'identité pour identifier les utilisateurs
+- **URL de connexion distante** : définit l'URL de connexion du fournisseur d'identité pour identifier les utilisateurs
   (obligatoire).
-- **URL de l'émetteur (Entity ID)**: définit l'URL représentant le nom unique d'une entité SAML (obligatoire).
-- **Copier/coller le certificat x509**: ajoutez ici le certificat x509 du fournisseur d'identité (obligatoire).
-- **Attribut de l'identifiant utilisateur (login) pour l'utilisateur Centreon**: définit quelle variable renvoyée par
+- **URL de l'émetteur (Entity ID)** : définit l'URL représentant le nom unique d'une entité SAML (obligatoire).
+- **Copier/coller le certificat x509** : ajoutez ici le certificat x509 du fournisseur d'identité (obligatoire).
+- **Attribut de l'identifiant utilisateur (login) pour l'utilisateur Centreon** : définit quelle variable renvoyée par
   le fournisseur d'identité doit être utilisée pour authentifier les utilisateurs. Par exemple, **email**. (obligatoire).
+- **Contexte d'authentification requis** : définit le niveau d'authentification attendu du fournisseur d'identité.
+  * **Minimum** : le contexte d'authentification doit être au moins aussi fort que la classe de contexte ou la déclaration spécifiée.
+  * **Exact** : le contexte d'authentification doit correspondre exactement à la classe de contexte ou à la déclaration spécifiée dans la requête. Il s'agit d'une condition stricte.
+  * **Renforcé** : tout contexte d'authentification qui est plus fort que la classe de contexte ou la déclaration spécifiée est acceptable.
+  * **Maximum** : le contexte d'authentification ne doit pas être plus fort que la classe de contexte ou la déclaration spécifiée. Cette option est moins couramment utilisée et est destinée aux cas où il est nécessaire de limiter le niveau de la sécurité.
 - Se déconnecter de:
-  * **Interface Centreon uniquement**: les utilisateurs seront uniquement déconnectés de Centreon.
-  * **Fournisseur d'identité et interface Centreon**:  les utilisateurs seront déconnectés à la fois de Centreon et du fournisseur
+  * **Interface Centreon uniquement** : les utilisateurs seront uniquement déconnectés de Centreon.
+  * **Fournisseur d'identité et interface Centreon** :  les utilisateurs seront déconnectés à la fois de Centreon et du fournisseur
     d'identité.
     > Si vous sélectionnez **Fournisseur d'identité et interface Centreon**, vous devez définir une **URL de déconnexion**.
 
@@ -43,7 +48,7 @@ Vous pouvez définir des conditions selon lesquelles les utilisateurs seront aut
 fonction des données reçues par un endpoint particulier:
   - Activer **Activer les conditions sur le fournisseur d'identité**.
   - Définir quel attribut sera utilisé pour valider les conditions.
-  - **Définir les valeurs des conditions autorisées**: définir quelles seront les valeurs autorisées renvoyées. Si vous
+  - **Définir les valeurs des conditions autorisées** : définir quelles seront les valeurs autorisées renvoyées. Si vous
     entrez plusieurs valeurs, toutes devront être remplies pour que la condition soit validée. Tous les utilisateurs qui
     tentent de se connecter avec une autre valeur ne pourront pas se connecter.
 
@@ -84,7 +89,7 @@ automatiquement accorder des [droits](../administration/access-control-lists.md)
   
 - Définissez quel attribut et quel point d'entrée seront utilisés pour récupérer des valeurs afin d'appliquer des relations
   avec des groupes d'accès.
-- **Appliquer uniquement le premier rôle**: si plusieurs rôles sont trouvés pour un utilisateur spécifique dans les informations du fournisseur
+- **Appliquer uniquement le premier rôle** : si plusieurs rôles sont trouvés pour un utilisateur spécifique dans les informations du fournisseur
   d'identité, alors seul le premier rôle sera appliqué. Si l'option est désactivée, tous les rôles seront appliqués.
 - Faites correspondre un attribut extrait du fournisseur d'identité avec le groupe d'accès auquel vous souhaitez que l'utilisateur
   appartienne.

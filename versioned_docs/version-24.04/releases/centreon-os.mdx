@@ -24,6 +24,53 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 24.04.17
+
+Release date: `August 21, 2025`
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] The current password is now required when modifying a user's password.
+
+</details>
+
+### 24.04.16
+
+Release date: `August 6, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Resource Status] Optimized legend rendering in graphs.
+- [Authentication] Improved SAML configuration by adding a "Requested Authentication Context" parameter.
+- [Resource Status] It is now possible to avoid performance issues when using free text search, by using a new option named "Free text search behavior" in the Administration > Parameters > Centreon UI menu.
+
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Metaservices] Fixed several issues occuring when using MySQL 8.
+- [API] Fixed a 500 error affecting the service template listing endpoint.
+- [Administration] Fixed an issue on user groups and templates that occurred when importing non-admin users from LDAP.
+- [Language] Fixed an issue preventing modern pages from being translated when choosing "detection by browser" as a language.
+- [Resource Status] The correct pictogram is now used when displaying a parent resource in downtime.
+- [Configuration] Fixed an issue where the Mass Change action on Linked Service Templates caused a 500 internal server error.
+- [Compatibility] Fixed an issue preventing Business Activities from being displayed on remote servers.
+- [Configuration] Fixed an issue where adding/editing a service failed when a command was configured on a template that was not the direct parent of the service.
+- [Upgrade] Fixed migration script for version 23.10.8.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Fixed vulnerabilities on several pages.
+
+</details>
+
 ### 24.04.15
 
 Release date: `June 20, 2025`
@@ -548,6 +595,47 @@ Many features have been added in this version.
 
 ## Centreon Collect
 
+### 24.04.14
+
+Release date: `August 6, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Core] Fixed compatibility of engine with older versions of Linux kernel.
+
+</details>
+
+### 24.04.13
+
+Release date: `July 30, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Collect] Fixed a regression where an engine command could not launch several checks at the same time.
+
+</details>
+
+### 24.04.12
+
+Release date: `July 28, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Broker] Added a new function in the lua cache to access host group aliases.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Engine] Fixed an issue with long checks that prevented Engine from stopping.
+- [Resource status] Fixed an issue where filters on the following elements did not work: host groups, host categories, service groups, service categories.
+
+</details>
+
 ### 24.04.11
 
 Release date: `April 10, 2025`
@@ -737,6 +825,29 @@ Release date: `April 30, 2024`
 
 ## Centreon Gorgone
 
+### 24.04.10
+
+Release date: `August 11, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Gorgone] Added option to disable bash interpolation in discovery commands.
+
+</details>
+
+### 24.04.9
+
+Release date: `July 28, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed an issue on Alma 9 where plugins were not installed because yum did not exist anymore.
+- [Gorgone][MBI]Fixed an issue preventing installation from being completed when database tables already existed.
+
+</details>
+
 ### 24.04.8
 
 Release date: `May 21, 2025`
@@ -845,6 +956,17 @@ Release date: `April 30, 2024`
 
 ## Centreon High Availability
 
+### 24.04.1
+
+Release date: `August 6, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [HA] Fixed an issue on cron for outdated token removal.
+
+</details>
+
 ### 24.04.0
 
 Release date: `April 30, 2024`
@@ -857,6 +979,17 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon DSM
+
+### 24.04.6
+
+Release date: `August 6, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- No changes for this module in this version.
+
+</details>
 
 ### 24.04.5
 
