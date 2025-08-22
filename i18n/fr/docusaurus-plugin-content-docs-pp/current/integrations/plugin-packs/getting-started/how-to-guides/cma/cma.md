@@ -56,7 +56,7 @@ L'agent peut être installé sur et superviser les OS suivants :
 
 ### Applications supervisables par CMA
 
-* Inclus dans les connecteurs Centreon : [**Veeam**](../../../procedures/applications-veeam-centreon-monitoring-agent.md)
+* Inclus dans les connecteurs Centreon : [**Veeam**](../../../procedures/applications-veeam-centreon-monitoring-agent.md), [Active Directory](../../../procedures/infrastructure-active-directory-centreon-monitoring-agent)
 * Vous pouvez également [développer vos propres plugins](cma-custom.md).
 
 ### Comment interagissent le collecteur et l'hôte?
