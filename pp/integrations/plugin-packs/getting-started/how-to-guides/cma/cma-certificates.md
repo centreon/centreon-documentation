@@ -8,43 +8,42 @@ import TabItem from '@theme/TabItem';
 
 ## TLS
 
-### Principe de fonctionnement
+### How it works
 
-La connexion TLS (1.3) est négociée par le client (collecteur ou agent selon le sens), et nécessite des certificats.
-Selon le sens de connexion, l'agent/le collecteur vérifie que l'IP/DNS utilisée pour atteindre le serveur correspond strictement aux informations du certificat.
-Si ce n'est pas le cas, la connexion est refusée.
-La vérification est faite sur le bloc **alt_names** du certificat, qui peut contenir plusieurs DNS, IP ou CN.
+The TLS (1.3) connection is negotiated by the client (poller or agent, depending on the direction) and requires certificates.
+Depending on the connection direction, the agent/the poller checks that the IP/DNS used to reach the server strictly matches the information in the certificate. If this is not the case, the connection is not allowed.
+The verification is performed on the **alt_names** block of the certificate, which may contain several DNS, IP, or CN entries.
 
-### Fichiers de certificat
+### Certificate files
 
-Les formats supportés sont :
+Supported formats are :
 
-- fichier de certificat public, CA ou wildcard : .crt/.cer
-- fichier de clé privée : .key
+- public certificate file, CA or wildcard: .crt/.cer
+- private key file: .key
 
-Les fichiers de certificat déposés sur le collecteur doivent être déposés dans **/etc/pki/**, à la racine ou dans un sous-repértoire.
-Ils doivent avoir les permissions suivantes :
+Certificate files stored on the poller must be stored in **/etc/pki/**, either at the root or in a subdirectory.
+They must have the following permissions:
 
-```
+```shell
 chmod 644 /etc/pki/agent*
 ```
 
-Les fichiers de certificat déposés sur l'hôte peuvent être déposés dans le répertoire de votre choix.
+Certificate files stored on the host can be stored in the directory of your choice.
 
-Ces fichiers peuvent également être directement enregistrés dans le magasin de certificats.
-Dans ce cas, il n'est pas nécessaire de les renseigner dans la configuration faite sur l'hôte (colonne "Configuration de l'hôte" du tableau ci-dessous).
+These files can also be saved directly in the certificate store.
+In this case, it is not necessary to enter them in the configuration made on the host (**Host configuration** column in the table below).
 
-### Synthèse des configurations possibles
+### Summary of possible configurations
 
 <Tabs groupId="sync">
-<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
-L'agent vérifie, lors de la connexion au collecteur, que l'IP/DNS renseignée dans le paramètre **Poller endpoint** de la configuration de l'agent correspond strictement aux informations du certificat (SAN ou CN).
-Si ce n'est pas le cas, la connexion est refusée.
+When connecting to the poller, the agent verifies that the IP/DNS entered in the **Poller endpoint** parameter of the agent configuration strictly matches the information in the certificate (SAN or CN).
+If this is not the case, the connection is not allowed.
 
-| Cas d'usage      															  | Fichier(s) sur le collecteur | Fichier(s) sur l'hôte (si non chargés dans le magasin de certificats) | Configuration du Collecteur (interface) | Configuration de l'hôte    |
+| Use case      															  | File(s) on the poller | File(s) on the host (if not loaded in the certificate store) | Configuration of the poller (interface) | Configuration of the host   |
 | -----------      															  | -----------                  | -----------           |-----------							   | -----------				|
-| Certificat signé par CA           	 | Fichiers de certificat public et clé privée                         | Fichier de CA                       |	**Récepteur OTLP - Certificat public :** chemin du certificat public (ex : '/etc'/pki'/certificate.crt)<br/>**Récepteur OTLP - Clé privée :** chemin de la clé privée (ex : '/etc'/pki'/certificate.key)<br/>**Récepteur OTLP - CA :** vide | **Poller endpoint :** IP/DNS du Collecteur Private<br/>**Key file/private_key :** vide<br/>**Certificate file :** vide<br/>**Trusted CA's certificate file/ca_certificate :** chemin du CA<br/>**Certificate Common Name/ca_name :** vide	|
+| Certificate signed by a CA           	 | Public certificate and private key files                        | CA file                       |	**OTLP receiver - Public certificate:** path to the public certificate (example: '/etc'/pki'/certificate.crt)<br/>**OTLP receiver - Private key:** path to the private key (example: '/etc'/pki'/certificate.key)<br/>**OTLP receiver - CA:** empty | **Poller endpoint :** IP/DNS du Collecteur Private<br/>**Key file/private_key :** vide<br/>**Certificate file :** vide<br/>**Trusted CA's certificate file/ca_certificate :** chemin du CA<br/>**Certificate Common Name/ca_name :** vide	|
 | Certificat autosigné         	 | Fichiers de certificat public et clé privée                         | Fichier de certificat public                       |	**Récepteur OTLP - Certificat public :** chemin du certificat public (ex : '/etc'/pki'/certificate.crt)<br/>**Récepteur OTLP - Clé privée :** chemin de la clé privée (ex : '/etc'/pki'/certificate.key)<br/>**Récepteur OTLP - CA :** vide, sauf besoin d'un double handshake | **Poller endpoint :** IP/DNS du Collecteur **Private Key file/private_key :** vide<br/>Certificate file/public_cert : vide<br/>**Trusted CA's certificate file/ca_certificate :** chemin du certificat public<br/>**Certificate Common Name/ca_name :** vide	|
 | Certificat wildcard      | Fichiers wildcard et clé privée                         | Fichier wildcard              | **Récepteur OTLP - Certificat public :** Fichier de certificat wildcard<br/>**Récepteur OTLP - Clé privée :** chemin de la clé privée<br/>**Récepteur OTLP - CA :** vide	 | **Private Key file/private_key :** vide<br/>**Certificate file/public_cert :** vide<br/>**Trusted CA's certificate file/ca_certificate :** chemin du certificat wildcard<br/>**Certificate Common Name/ca_name :** vide							|
 | Certificat public (service managé, par ex Collecteur central Centreon Cloud)        | Aucun                        | Aucun                 | **Récepteur OTLP - Certificat public :** vide<br/>**Récepteur OTLP - Clé privée :** vide<br/>**Récepteur OTLP - CA :** vide | **Poller endpoint :** IP/DNS du Load balancer portant le certificat public<br/>**Private Key file/private_key :** vide<br/>**Certificate file/public_cert :** vide<br/>**Trusted CA's certificate file/ca_certificate :** vide<br/>**Certificate Common Name/ca_name :** vide							|
@@ -102,10 +101,10 @@ Vous pouvez configurer une connexion non chiffrée **à des fins de test uniquem
 
 > Notez que cette connexion ne durera qu'une heure. N'utilisez pas ce paramètre en production !
 
-Pour configurer ce mode, sélectionnez **No TLS** dans la liste **Niveau de chiffrement** de la fenêtre [**Configuration collecteur/agent**](cma-setup.md#configurez-la-communication-collecteuragent).
+Pour configurer ce mode, sélectionnez **No TLS** dans la liste **Niveau de chiffrement** de la fenêtre [**Configuration collecteur/agent**](cma-setup.md#configure-polleragent-communication).
 
 L'agent sera configuré de la manière suivante sur l'hôte :
-- [pour Windows, en utilisant l'option correspondante dans le programme d'installation ou la CLI](cma-setup.md#étape-3--préparez-lhôte)
+- [pour Windows, en utilisant l'option correspondante dans le programme d'installation ou la CLI](cma-setup.md#step-2-prepare-the-host)
 - pour Linux, en utilisant le fichier **centagent.json** :
 
 <Tabs groupId="sync">
