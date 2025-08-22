@@ -17,6 +17,13 @@ As such, we have implemented the following features and enhancements:
 - Native Files and Task scheduler check for Windows & Linux.
 - Central poller configuration: You can now use Central poller to collect data from your agents. (TBC)
 
+> The agent configuration TLS connection now requires a valid authentication token.
+> To avoid disrupting configurations already in place at the time of the update, a default Token has been generated and applied to existing configuration and Host .
+> * This token must be copied (from Administration > Authentication tokens list) and applied on the agent configuration, on the Host.
+> An issue has also been fixed, regarding Host mapping in "Poller-initiated connection" mode, and may need a check if you are using same IP addresses for multiple Hosts
+> * In "Agent configuration", please ensure each Host is correctly mapped in the “Select host” field, which must display the Host name
+> * Export the configuration and restart Engine, as well as the Agent on the Host
+
 **Meta-services**
 
 It is now possible to use Centreon Meta-services. 
