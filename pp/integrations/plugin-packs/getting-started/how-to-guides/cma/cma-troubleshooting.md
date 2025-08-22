@@ -122,7 +122,7 @@ Execute the following command:
 grep error /var/log/centreon-engine/centengine.log
 ```
 
-No lines should be returned.
+No CMA related lines should be returned.
 
 ## Checks in Centreon
 
