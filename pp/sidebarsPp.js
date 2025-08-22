@@ -357,6 +357,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-latencetech-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-loggly-restapi'
         },
         {
@@ -370,6 +374,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-antivirus-mcafee-webgateway-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/infrastructure-active-directory-centreon-monitoring-agent'
         },
         {
           type: 'doc',
@@ -1311,6 +1319,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-avigilon-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-cisco-ces-restapi'
         },
         {
@@ -1789,6 +1801,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-firewalls-forcepoint-sdwan-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-fortinet-fortiadc-snmp'
         },
         {
@@ -1797,11 +1813,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-firewalls-fortinet-fortigate-snmp'
+          id: 'integrations/plugin-packs/procedures/network-fortinet-fortigate-restapi'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-fortinet-fortigate-restapi'
+          id: 'integrations/plugin-packs/procedures/network-firewalls-fortinet-fortigate-snmp'
         },
         {
           type: 'doc',
@@ -2999,7 +3015,6 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-virtualization-vmware8-vcenter-restapi'
         }
-
       ]
     }
   ]

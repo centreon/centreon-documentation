@@ -624,7 +624,7 @@ make pure_install
 - Installation du paquet et d'outils nécessaires
 
 ```bash
-dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
 ```
 
 - Installation du SDK
@@ -643,7 +643,7 @@ make pure_install
 - Installation du paquet et d'outils nécessaires
 
 ```bash
-dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
 ```
 
 - Installation du SDK
