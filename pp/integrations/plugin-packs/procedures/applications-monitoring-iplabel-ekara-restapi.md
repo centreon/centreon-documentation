@@ -181,20 +181,20 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
 3. Apply the **App-Monitoring-Iplabel-Ekara-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                | Description                                                                                          | Default value          | Mandatory   |
-|:---------------------|:-----------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| EKARAAPIHOSTNAME     | Set hostname (default: 'api.ip-label.net')                                                           | api.ekara.ip-label.net | X           |
-| EKARAAPIUSERNAME     | Set username                                                                                         |                        | X           |
-| EKARAAPIPASSWORD     | Set password                                                                                         |                        | X           |
-| EKARAAPIPROTO        | Specify https if needed (default: 'https')                                                           | https                  |             |
-| EKARAAPIPORT         | Port used (default: 443)                                                                             | 443                    |             |
-| EKARAAPIKEY          | Set API key authentication                                                                           |                        |             |
-| FILTERID             | Filter by monitor ID (can be a regexp)                                                               |                        |             |
-| FILTERNAME           | Filter by monitor name (can be a regexp)                                                             |                        |             |
-| FILTERSITEID         | Filter scenario to check by site id                                                                  |                        |             |
-| FILTERWORKSPACEID    | Filter scenario to check by workspace id                                                             |                        |             |
-| PROXYURL             | Proxy URL. Example: http://my.proxy:3128                                                             |                        |             |
-| EKARAAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                        |             |
+| Macro                | Description                                                                                                                              | Default value          | Mandatory |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:---------:|
+| EKARAAPIHOSTNAME     | Set hostname                                                                                                                             | api.ekara.ip-label.net |     X     |
+| EKARAAPIUSERNAME     | Set username (alternative authentication if API key not set)                                                                             |                        |           |
+| EKARAAPIPASSWORD     | Set password (alternative authentication if API key not set)                                                                             |                        |           |
+| EKARAAPIPROTO        | Specify https if needed                                                                                                                  | https                  |           |
+| EKARAAPIPORT         | Port used                                                                                                                                | 443                    |           |
+| EKARAAPIKEY          | Set API key authentication                                                                                                               |                        |     X     |
+| FILTERID             | Filter by monitor ID (can be a regexp)                                                                                                   |                        |           |
+| FILTERNAME           | Filter by monitor name (can be a regexp)                                                                                                 |                        |           |
+| FILTERSITEID         | Filter scenario to check by site id                                                                                                      |                        |           |
+| FILTERWORKSPACEID    | Filter scenario to check by workspace id                                                                                                 |                        |           |
+| PROXYURL             | Proxy URL. Example: http://my.proxy:3128                                                                                                 |                        |           |
+| EKARAAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                        |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -260,7 +260,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=apps::monitoring::iplabel::ekara::restapi::plugin \
 	--mode=scenarios \
 	--hostname='api.ekara.ip-label.net' \
-	--api-key='' \
+	--api-key='XXXX' \
 	--api-username='' \
 	--api-password='' \
 	--port='443' \
