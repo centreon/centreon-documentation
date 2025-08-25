@@ -21,7 +21,7 @@ L'agent effectue les contrôles (pour les contrôles non natifs, en utilisant le
 
 Les plugins Centreon comme les plugins personnalisés basés sur Nagios sont compatibles avec l'agent.
 
-### Quand utiliser un agent ?
+## Quand utiliser un agent ?
 
 Utilisez l'agent CMA :
 
@@ -29,7 +29,7 @@ Utilisez l'agent CMA :
 * sur les sites qui n'ont pas de collecteur local.
 * lorsque vous avez besoin d'exécuter un script localement sur la machine supervisée pour des raisons de sécurité (droits et/ou protocoles) ou de performance.
 
-### OS supervisables par CMA
+## OS supervisables par CMA
 
 L'agent peut être installé sur et superviser les OS suivants :
 
@@ -54,14 +54,14 @@ L'agent peut être installé sur et superviser les OS suivants :
 </TabItem>
 </Tabs>
 
-### Applications supervisables par CMA
+## Applications supervisables par CMA
 
 * Inclus dans les connecteurs Centreon : [**Veeam**](../../../procedures/applications-veeam-centreon-monitoring-agent.md), [Active Directory](../../../procedures/infrastructure-active-directory-centreon-monitoring-agent)
 * Vous pouvez également [développer vos propres plugins](cma-custom.md).
 
-### Comment interagissent le collecteur et l'hôte?
+## Comment interagissent le collecteur et l'hôte?
 
-#### Sens de connexion
+### Sens de connexion
 
 Suivant le cas, soit l'agent soit le collecteur initie la connexion.
 Une fois celle-ci établie, les échanges sont bidirectionnels.
@@ -73,7 +73,7 @@ Les deux sens de connexion peuvent être combinés au sein d'un même collecteur
 
 <!--You can use both types of communication at the same time (for different hosts).-->
 
-#### Sécurisation de la connexion
+### Sécurisation de la connexion
 
 La connexion entre le collecteur et l'agent doit être sécurisée en production. Vous devez utiliser :
 
@@ -84,7 +84,7 @@ La connexion entre le collecteur et l'agent doit être sécurisée en production
 <!--* TLS: the certificate is signed by a certification authority and the Common Name (CN) is verified.
 * TLS insecure: the certification authority and Common Name are not verified (self-signed certificates can be used).-->
 
-#### Schéma de fonctionnement
+### Schéma de fonctionnement
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
