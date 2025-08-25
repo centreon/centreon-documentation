@@ -64,10 +64,9 @@ If this is not the case, the connection to this host is not allowed.
 </TabItem>
 </Tabs>
 
-### Comment générer un certificat autosigné (facultatif)
+### How to generate a self-signed certificate (optional)
 
-Si vous ne possédez pas de certificat, il est possible de générer un certificat autosigné.
-Pour générer un certificat autosigné valide un an, exécutez la commande suivante sur votre collecteur ou votre hôte :
+If you do not have a certificate, you can generate a self-signed one. To generate a self-signed certificate that is valid for one year, run the following command on your poller or host:
 
 ```shell
 openssl req -new -subj '/CN={server_hostname}' \
@@ -76,39 +75,39 @@ openssl req -new -subj '/CN={server_hostname}' \
                  -newkey rsa:2048 -keyout {key} -out {cert}
 ```
 
-- \{key\} = chemin du fichier clé privée
-- \{cert\} = chemin du fichier de certificat public
-- \{server_hostname\} = nom DNS du serveur et/ou utiliser \{alt_poller_DNS\} et/ou utiliser \{alt_poller_IP\}
-Dans le mode de chiffrement TLS Full, le DNS/IP du serveur utilisé par le client doit obligatoirement correspondre à une entrée CN ou SAN (altName) du certificat (\{server_hostname\}).
-La ligne -subj '/CN=\{server_hostname\}' \ est facultative si des SAN sont définis.
+- \{key\} = path to the private key file
+- \{cert\} = path to the public certificate file
+- \{server_hostname\} = DNS name of the server and/or use \{alt_poller_DNS\} and/or use \{alt_poller_IP\}
+In TLS encryption mode, the DNS/IP of the server used by the client must correspond to a CN or SAN (altName) entry in the certificate (\{server_hostname\}).
+The line -subj '/CN=\{server_hostname\}' \ is optional if SANs are defined.
 
 <Tabs groupId="sync">
-<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
-**\{server_hostname\}** doit correspondre au DNS/IP utilisé dans "Poller endpoint" (Installer) / "endpoint" (json), dans la configuration d'Agent, sur l'hôte.
+**\{server_hostname\}** must match the DNS/IP used in **Poller endpoint** (Installer) / **endpoint* (json), in the agent configuration, on the host.
 
 </TabItem>
-<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
-**\{server_hostname\}** doit correspondre au DNS/IP utilisé dans le champ "Configurations d'hôte - Hôte" de la configuration d'Agent, dans l'interface.
+**\{server_hostname\}** must match the DNS/IP used in the **Host Configurations > Host** field of the agent configuration in the interface.
 
 </TabItem>
 </Tabs>
 
-## Mode test : communication non chiffrée
+## Testing mode: unencrypted communication
 
-Vous pouvez configurer une connexion non chiffrée **à des fins de test uniquement**. Dans ce mode, vous n'avez besoin d'aucun certificat ou jeton.
+You can leave the connection unencrypted **for test purposes only**. In this mode, you do not need any certificates or tokens.
 
-> Notez que cette connexion ne durera qu'une heure. N'utilisez pas ce paramètre en production !
+> Note that this connection will only last for one hour. Do not use this setting in production!
 
-Pour configurer ce mode, sélectionnez **No TLS** dans la liste **Niveau de chiffrement** de la fenêtre [**Configuration collecteur/agent**](cma-setup.md#configure-polleragent-communication).
+To configure this mode, select **No TLS** from the **Encryption level** list in the [**Agent configuration** window](cma-setup.md#configure-polleragent-communication).
 
-L'agent sera configuré de la manière suivante sur l'hôte :
-- [pour Windows, en utilisant l'option correspondante dans le programme d'installation ou la CLI](cma-setup.md#step-2-prepare-the-host)
-- pour Linux, en utilisant le fichier **centagent.json** :
+The agent will be configured the following way on the host:
+- [for Windows, using the corresponding option in the installer or the CLI](cma-setup.md#step-2-prepare-the-host)
+- for Linux, using the **centagent.json** file:
 
 <Tabs groupId="sync">
-<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 
 ```json
@@ -123,7 +122,7 @@ L'agent sera configuré de la manière suivante sur l'hôte :
 ```
 
 </TabItem>
-<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
 ```json
 {
