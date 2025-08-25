@@ -649,3 +649,5 @@ On the central server, [create hosts](/docs/monitoring/basic-objects/hosts) and 
 
 </TabItem>
 </Tabs>
+
+## Creating an authentication token
