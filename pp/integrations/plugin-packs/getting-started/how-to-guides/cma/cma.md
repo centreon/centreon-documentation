@@ -80,12 +80,12 @@ The connection between the poller and the agent must be secure in production. Yo
 <Tabs groupId="sync">
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
 
-![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/TLS_SEC_initiated-by-agent.png)
+![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/initiated-by-agent.png)
 
 </TabItem>
 <TabItem value="Poller connects to agent" label="Poller connects to agent">
 
-![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/TLS_SEC_initiated-by-poller.png)
+![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/initiated-by-poller.png)
 
 </TabItem>
 </Tabs>
