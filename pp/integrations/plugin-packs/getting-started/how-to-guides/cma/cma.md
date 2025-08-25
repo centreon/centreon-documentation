@@ -64,7 +64,7 @@ The CMA can be installed on and monitor the following OSs:
 Depending on the case, either the agent or the poller initiates the connection.
 
 * In the case of an **agent-initiated connection**, you simply configure the poller to listen on a specific port. A poller can receive data from n agents/hosts.
-* If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), you can use a **poller-initiated connection**. You need to declare in Centreon each host that will be monitored by this agent in the **Poller/agent configuration** menu. The poller will receive data from n hosts via the agent.
+* If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), you can use a **poller-initiated connection**. You need to declare in Centreon each host that will be monitored by this agent in the ****Configuration > Poller > Agent configurations** menu. The poller will receive data from n hosts via the agent.
 
 The two connection directions can be combined within the same poller, depending on the type of your monitored fleet.
 
