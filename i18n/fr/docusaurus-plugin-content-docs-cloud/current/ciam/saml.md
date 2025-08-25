@@ -3,20 +3,24 @@ id: cloud-saml
 title: Configurer une connexion SAML
 ---
 
-Vous pouvez lier votre organisation dans le [CIAM](ciam.md) à un fournisseur d'identité, de sorte que vos utilisateurs n'aient pas besoin de se connecter chaque fois qu'ils veulent utiliser Centreon Cloud.
+Une connexion SAML (Security Assertion Markup Language) vous permet de mettre en place une authentification unique (SSO) fluide et sécurisée pour votre organisation.
+
+Ainsi, vous pouvez lier votre organisation dans le [CIAM](ciam.md) à un fournisseur d'identité, de sorte que vos utilisateurs n'aient pas besoin de se connecter chaque fois qu'ils veulent utiliser Centreon Cloud.
 
 ## Prérequis
 
-Dans votre fournisseur d'identité, vous devez :
+Dans votre fournisseur d'identité :
 
-1. Créer une application.
-2. Créer 3 rôles d'application, qui seront chacun reliés au [rôle correspondant dans le CIAM : **Viewer**, **Editor** et **Administrator**](../users/users.md#rôles-des-utilisateurs).
-3. Assigner vos utilisateurs à l'application, puis assigner un rôle à chacun.
+1. Créez une application.
+2. Créez 3 rôles d'application (facultatif), qui seront reliés à un [rôle dans le CIAM : **User**, **Editor** et **Administrator**](../users/users.md#rôles-des-utilisateurs).
+3. Assignez vos utilisateurs à l'application, puis assignez un rôle à chacun.
 
 ## Étape 1 : Accéder à la page de configuration
 
+> Vous devez avoir le rôle **Administrator** dans le CIAM pour pouvoir configurer SAML pour une organisation.
+
 1. Connectez-vous au CIAM.
-2. Sélectionnez votre organization dans la liste en haut à gauche de la page.
+2. SI vous appartenez à plusieurs organisations, sélectionnez l'organization désirée dans la liste en haut à gauche de la page.
 3. Allez à la page **Organization > Authentication**.
 
 ## Étape 2 : Configurer la connexion à votre fournisseur d'identité
@@ -36,13 +40,13 @@ Avant d'activer l'authentification SAML, vous devez remplir tous les paramètres
 
    * **Sign in URL**: définir l'URL de connexion du fournisseur d'identité pour identifier les utilisateurs.
    * **Certificate**: copiez-collez le certificat x509 du fournisseur d'identité.
-   * **User ID (email) attribute for Centreon user**: définit quelle variable renvoyée par le fournisseur d'identité doit être utilisée pour authentifier les utilisateurs. Par exemple, **email**.
+   * **User ID (email) attribute for Centreon user**: définit quelle variable renvoyée par le fournisseur d'identité doit être utilisée pour authentifier les utilisateurs. Il doit être précédé de l'URL de l'espace de noms, que vous trouverez dans la configuration de l'application de votre fournisseur d'identité. Par exemple, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email**. (Obligatoire.)
    * **Sign out URL**: lorsque les utilisateurs se déconnectent de Centreon, ils seront redirigés vers cette URL. Cela signifie que vous pouvez également les déconnecter du fournisseur d'identité.
 
 4. **Role mapping**:
 
    * **Role attribute path**: Récupérez cette valeur dans les métadonnées de votre application. Exemple : `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role`.
-   * Créez 3 mappings, un pour chaque [rôle dans le CIAM (**Viewer**, **Editor** et **Administrator**)](../users/users.md#user-roles), qui correspondront à chaque rôle d'application créé dans votre fournisseur d'identité. Dans le champ **Valeur de l'attribut**, entrez la valeur exacte que vous avez définie pour chaque rôle dans votre fournisseur d'identité (la valeur, pas le nom d'affichage). Les utilisateurs qui se connectent à Centreon se verront automatiquement attribuer des droits sur les menus et les actions, car un rôle leur sera attribué selon les règles que vous avez définies.
+   * Créez 3 mappings. Il existe [3 rôles dans le CIAM (**User**, **Editor** et **Administrator**)](../users/users.md#user-roles) qui peuvent être mappés aux rôles que vous avez créés dans votre fournisseur d'identité (un rôle  CIAM peut être mappé à un, plusieurs ou aucun rôles de votre IDP). Dans le champ **Valeur de l'attribut**, entrez la valeur exacte que vous avez définie pour chaque rôle dans votre fournisseur d'identité (la valeur, pas le nom d'affichage). Les utilisateurs qui se connectent à Centreon se verront automatiquement attribuer des droits sur les menus et les actions, car un rôle leur sera attribué selon les règles que vous avez définies.
 
 5. **Group mapping**:
 

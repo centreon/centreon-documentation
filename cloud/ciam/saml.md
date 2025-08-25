@@ -3,25 +3,29 @@ id: cloud-saml
 title: Configuring a connection with SAML
 ---
 
-You can link your organization in the [CIAM](ciam.md) to an identity provider, so that your users do not need to log in every time they want to use Centreon Cloud.
+SAML (Security Assertion Markup Language) lets you set up seamless and secure single sign-on (SSO) for your organization.
+
+This means you can link your organization in the [CIAM](ciam.md) to an identity provider, so that your users do not need to log in every time they want to use Centreon Cloud.
 
 ## Prerequisites
 
-In your identity provider, you must:
+In your identity provider:
 
 1. Create an application.
-2. Create 3 application roles, which will be mapped respectively to [the corresponding CIAM role: **Viewer**, **Editor** and **Administrator**](../users/users.md#user-roles).
-3. Assign users to the application and assign them each a role.
+2. Create application roles (optional), which will be mapped to [CIAM roles: **User**, **Editor** and **Administrator**](../users/users.md#user-roles).
+3. You must then assign users to the application and assign them each a role.
 
 ## Step 1: Access the configuration page
 
+> You must have the **Administrator** role in the CIAM to be able to configure SAML for an organization.
+
 1. Log in to the CIAM.
-2. Select your organization from the list at the top left of the page.
+2. If you belong to several organizations, select the one you want from the list at the top left of the page.
 3. Go to **Organization > Authentication**.
 
 ## Step 2: Configure the connection to your identity provider
 
-Before you activate SAML authentication, you need to fill in all necessary parameters, then [test your connection. Activating SAML](#step-3-test-the-connection-and-activate-saml) will only be possible if your configuration is valid.
+Before you activate SAML authentication, you need to fill in all necessary parameters, then [test your connection](#step-3-test-the-connection-and-activate-saml). Activating SAML will only be possible if your configuration is valid.
 
 1. Fill in the **Domain name** for your company: only users whose email match this domain name will be able to connect using the identity provider.
 
@@ -36,13 +40,13 @@ Before you activate SAML authentication, you need to fill in all necessary param
 
    * **Sign in URL**: define the identity provider's login URL to identify users (mandatory).
    * **Certificate**: copy and paste the x509 certificate of the identity provider (mandatory).
-   * **User ID (email) attribute for Centreon user**: define which of the variables returned by the identity provider must be used to authenticate users. For example, **email**. (Mandatory.)
+   * **User ID (email) attribute for Centreon user**: define which of the variables returned by the identity provider must be used to authenticate users. It should be prefixed by the namespace URL, which you can find in your identity provider's application configuration. For example, **<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email>**. (Mandatory.)
    * **Sign out URL**: when users log out from Centreon, they will be redirected to this URL. This means you can make them log out from the identity provider too.
 
 4. **Role mapping**:
 
    * **Role attribute path**: Retrieve this value from your application's metadata. Example: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role`.
-   * Create 3 mappings, one for [each role in the CIAM (**Viewer**, **Editor** and **Administrator**)](../users/users.md#user-roles), that will match each application role you have created in your identity provider. In the **Attribute value** field, enter the exact value that you have defined for each role in your identity provider (the value, not the display name). Users who log in to Centreon will be automatically granted rights on menus and actions, as they will be given a role according to the rules you have defined.
+   * Create the mappings you want. There are [3 roles in the CIAM (**User**, **Editor** and **Administrator**)](../users/users.md#user-roles) which can be mapped to roles you have created in your identity provider (a CIAM role can be mapped to one, several, or none of your IdP roles). In the **Attribute value** field, enter the exact value that you have defined for each role in your identity provider (the value, not the display name). Users who log in to Centreon will be automatically granted rights on menus and actions, as they will be given a role according to the rules you have defined.
 
 5. **Group mapping**:
 
@@ -50,6 +54,8 @@ Before you activate SAML authentication, you need to fill in all necessary param
    * Using the lists below, match the correct attribute values with the [CIAM user groups](../users/user_groups.md) you want. This will determine [which rights users will have on resources](../administration/resource_access.md).
 
 ## Step 3: Test the connection and activate SAML
+
+Afin d'éviter toute erreur de configuration, il est obligatoire de tester la connexion avant de pouvoir l'activer. Vous serez redirigé vers votre IdP : entrez des identifiants valides pour effectuer le test. Pendant le test, le mapping des rôles est également vérifié, mais s'il échoue, la connexion pourra tout de même être activée.
 
 1. In the **Activation** section, click **Test**. A window opens, with the results of the test.
 2. Once the test has succeeded, activate the **Enable Saml v2 Connection** option. Your users can now log in via their identity provider.
