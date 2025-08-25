@@ -164,6 +164,7 @@ cma-whitelist:
   default:
     regex:
       - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/.*
       - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
       - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
       - ^\{\s*"check":".*\}$
