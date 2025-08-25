@@ -61,7 +61,7 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
 
-* L'agent vérifie la validité du jeton, et coupe la connexion en cas d'absence du jeton (car désactivé ou révoqué) ou d'expiration de celui-ci. La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
+* L'agent vérifie la présence et la validité du jeton, et coupe la connexion en cas d'absence du jeton (car désactivé ou révoqué) ou d'expiration de celui-ci. La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
 
 </TabItem>
 </Tabs>
@@ -76,12 +76,14 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 <TabItem value="Linux" label="Linux">
 
 Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-lui le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **On**.
+
 Créez les services associés au modèle d'hôte.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
 Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-lui le modèle d'hôte **OS-Windows-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **On**.
+
 Créez les services associés au modèle d'hôte.
 
 </TabItem>
@@ -606,7 +608,7 @@ module_hotfixes=1
 EOF
 ```
 
-Installez le plugin :
+2. Installez le plugin :
 
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
@@ -623,7 +625,7 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
 apt-get update
 ```
 
-Installez le plugin :
+2. Installez le plugin :
 
 ```bash
 apt -y install centreon-plugin-operatingsystems-linux-local
@@ -632,6 +634,6 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 </TabItem>
 </Tabs>
 
-## Étape 4 : Tester le fonctionnement de l'agent
+## Step 4: Test if the agent works
 
-Voir [section dédiée](cma-troubleshooting.md).
+See [dedicated section](cma-troubleshooting.md).

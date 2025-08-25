@@ -10,9 +10,11 @@ import PollerAgentConfiguration from '../_poller-agent-configuration.mdx';
 
 ## Step 1: Configure Centreon
 
-### Install the Monitoring Connector you need
+This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/24.10/).)
 
-On your central server, you need to install the monitoring connector that will provide the templates and commands that will allow you to configure the monitored hosts and services in Centreon.
+### Install the Monitoring Connector you need (OnPrem version)
+
+On your central server, install the monitoring connector which will provide the templates and commands you need to configure the hosts and services monitored in Centreon. In the case of a Cloud platform, these connectors are already installed.
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
@@ -29,204 +31,190 @@ On your central server, you need to install the monitoring connector that will p
 </TabItem>
 </Tabs>
 
-### Create the CMA connector
+3. If you want to monitor a [CMA-supported application](cma.md#applications-you-can-monitor-with-cma), install the corresponding connector on your central server.
 
-<Tabs groupId="sync">
-<TabItem value="OnPrem version 24.10.6 or newer" label="OnPrem version 24.10.6 or newer">
+### Update the Centreon Monitoring Agent connector (onPrem version)
 
 1. Go to **Configuration > Commands > Connectors**.
 
 2. Update the Centreon Monitoring Agent connector in the following way: in the **Used by command** field, type **Centreon-Monitoring-Agent** and then click **Select all**.
 
+### Create an authentication token
+
+1. Go to **Administration > Authentication tokens**.
+
+2. Create a token with the **Centreon Monitoring Agent** type.
+
+   * You can select an expiration time. By default, tokens do not expire.
+   * Keep the token generated for the agent configuration. If necessary, you can copy it to the clipboard at any time from the list of tokens.
+   * You can use just one token for all your collectors and agents, or manage several for more precise control.
+
+#### CMA authentication token behavior: deactivation/expiration/revocation
+
+<Tabs groupId="sync">
+<TabItem value="Agent connects to poller" label="Agent connects to poller">
+
+* The monitoring engine checks the presence and validity of the token, and disconnects if the token is missing (because it has been disabled or revoked) or has expired. The message **Token expired** appears in the [poller and agent logs](cma-troubleshooting.md#location-of-poller-and-agent-logs).
+
 </TabItem>
-<TabItem value="OnPrem version older than 24.10.6" label="OnPrem version older than 24.10.6">
+<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
 
-If your Centreon is in a version older than 24.10.6, you need to create the CMA connector on your central server:
+* The agent checks the presence and validity of the token and disconnects if the token is missing (because it has been disabled or revoked) or has expired. The message **Token expired** appears in the [poller and agent logs](cma-troubleshooting.md#location-of-poller-and-agent-logs).
 
-1. Go to **Configuration > Commands > Connectors**.
-2. Create a new connector with the following values:
+</TabItem>
+</Tabs>
 
-| Parameter             | Value                                                                                                                                                                                         |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connector Name        | Centreon Monitoring Agent                                                                                                                                           |
-| Connector Description | Centreon Monitoring Agent                                                                                                                                                     |
-| Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
-| Used by command       | Type `Centreon-Monitoring-Agent` and click **Select all**                                                                                                                                     |
-| Connector Status      | Enabled                                                                                                                                                                                       |
+* When you disable or revoke a token, [deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration) for this action to take effect.
+
+* Expiration takes effect immediately, without requiring any user action.
+
+### Create the host and services
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+On the central server, [create the host](/docs/monitoring/basic-objects/hosts) and apply the **OS-Linux-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
+
+Create the services associated with the host template.
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+On the central server, [create the host](/docs/monitoring/basic-objects/hosts) and apply the **OS-Windows-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
+
+Create the services associated with the host template.
 
 </TabItem>
 </Tabs>
 
 ### Configure poller/agent communication
 
-<Tabs groupId="sync">
-<TabItem value="Centreon Cloud or OnPrem 24.10.03 and newer" label="Centreon Cloud or OnPrem 24.10.03 and newer">
-
-Configure how the poller and the agent will communicate:
-
-<PollerAgentConfiguration type="CMA" />
-
-5. From Centreon OnPrem 24.10.9, if the **TLS** encryption mode is selected, use a token to make your poller/agent connection even more secure for all newly-created configurations:
-   * On the **Administration > Authentication tokens** page, create a CMA-type token.
-   * Select this token in the corresponding section of the agent configuration page.
-   * Add your token to the **/etc/centreon-monitoring-agent/centagent.json** file on your host.
-
-6. If the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ), enable **Connection initiated by poller**. Then, in **Host configurations**, define all the hosts on which the agent will be installed.
-> If you configure several pollers at once, make sure all certificate files have the same name.
-
-7. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
-8. Restart the monitoring engine:
-
-   ```bash
-   systemctl restart centengine
-   ```
-
-The CMA can now communicate with Centreon. You can set up the monitoring of your hosts.
-
-</TabItem>
-<TabItem value="Versions older than 24.10.03" label="Versions older than 24.10.03">
-
-1. On the poller that will receive the data from the agent, install the **centreon-engine-opentelemetry** package.
-   
-2. On the poller that will receive the data from the agent, create the following file:
-
-   ```shell
-   touch /etc/centreon-engine/otl_server.json
-   ```
-
-3. Replace the contents of the file with the contents below. This will allow the poller to receive the data that the agent will send.
-  
-  > The poller can work in both modes simultaneously (some agents connect to the poller, while the poller connects to some other agents).
+1. Go to the **Configuration > Pollers > Agent configurations** page, then click **Add**.
+2. In the window that opens, select the **Centreon Monitoring Agent** agent type. Additional fields will appear.
+3. Select the connection direction (default: the agent connects to the poller).
 
 <Tabs groupId="sync">
+<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
-<TabItem value="Encryption, agent connects to poller" label="Encryption, agent connects to poller">
-
-```json
-{
-   "otel_server":{
-      "host":"0.0.0.0",
-      "port":4317,
-      "encryption":true,
-      "public_cert":"<CERTIFICATE PATH>",
-      "private_key":"<KEY PATH>",
-      "ca_certificate":"<CA PATH>"
-   },
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":10
-   }
-}
-```
+4. In the **Settings** section, select the poller(s) that will receive data from the agent.
+5. In the **OTLP Receiver** section, enter the paths to the certificate files. See [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
+   > If you are configuring multiple pollers at the same time, make sure that all certificate files have the same name.
+6. Click **Save**.
+7. [Deploy the configuration by restarting the collection engine](/docs/monitoring/monitoring-servers/deploying-a-configuration).
 
 </TabItem>
-<TabItem value="No encryption, poller connects to agent" label="No encryption, poller connects to agent">
+<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
-Use this configuration when the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ).
-In this mode, the poller connects to the CMA.
+4. In the **Settings** section, select the poller that will connect to the agents.
+5. In the **Monitored Hosts** section, select the host you created earlier. Its IP address will be displayed, and a default port will be entered. Change this information if necessary.
+6. Enter the paths to the certificate files. See the [dedicated page](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you want.
+7. Select the authentication token you created earlier. You can also create a token from this screen.
+8. Add the host.
+9. Repeat the operation for each host to be linked to this poller. To configure many hosts, we recommend using the dedicated APIs.
+10. [Deploy the configuration by restarting the collection engine](/docs/monitoring/monitoring-servers/deploying-a-configuration).
 
-```json
-{
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":15,
-      "reverse_connections":[
-         {
-            "host":"<HOST ADDRESS>",
-            "port":<PORT>
-         }
-      ]
-   }
-}
-```
+</TabItem>
+</Tabs>
+
+This configuration is deployed on the poller in the **/etc/centreon-engine/otl_server.json** file. Please note that this file should not be edited manually as it is overwritten each time the configuration is deployed.
+
+## Step 2: Prepare the poller
+
+This step is performed on the poller.
+
+### Configure the firewall
+
+<Tabs groupId="sync">
+<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
+
+Run the following commands:
 
 ```bash
-chown centreon-engine: /etc/centreon-engine/otl_server.json
+firewall-cmd --zone=public --add-port=4317/tcp --permanent
 ```
-
-* Enter the IP address of the CMA host in the **host** and **port** fields. This IP address must be reachable by the poller.
-* The **check_interval** field is the period between two checks for the same service.
+```bash
+firewall-cmd --reload 
+```
 
 </TabItem>
-<TabItem value="Encryption, poller connects to agent" label="Encryption, poller connects to agent">
+<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
-Use this configuration when the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ).
-In this mode, the poller connects to the CMA.
-
-```json
-{
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":15,
-      "reverse_connections":[
-         {
-            "host":"localhost",
-            "port":4317,
-            "encryption":true,
-            "ca_certificate":"/tmp/ca_1234.crt",
-            "ca_name":"<CA NAME>"
-         }
-      ]
-   }
-}
-```
-
-* Enter the IP address of the CMA host in the **host** and **port** fields. This IP address must be reachable by the poller.
-* The **check_interval** field is the period between two checks for the same service.
+No action is required.
 
 </TabItem>
 </Tabs>
 
-#### Add a new Broker module
+### Configure encryption settings
 
-1. Go to **Configuration > Pollers > Engine configuration**, then click on the poller you want to monitor your resources.
-2. On the **Data** tab, in the **Broker module** section, in the **Multiple Broker Module** parameter, click on **Add a new entry**.
-3. Add the following entry :
+See the [dedicated section](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you need.
 
-   ```bash
-   /usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
-   ```
+### Add CMA commands to your custom whitelists
 
-4. Deploy the configuration.
-5. Restart the monitoring engine:
-
-   ```bash
-   systemctl restart centengine
-   ```
-
-The CMA can now communicate with Centreon. You can set up the monitoring of your hosts.
-
-</TabItem>
-</Tabs>
-
-### Whitelist CMA commands
-
-If you are using whitelists on the poller ([Cloud pollers have whitelists set by default](/cloud/monitoring/basic-objects/commands#command-whitelist)), these must allow CMA commands. In your custom whitelist file (e.g., **/etc/centreon-engine-whitelist/my-whitelist.yml**), include the following lines: 
+If you are using whitelists on the poller ([Cloud pollers have whitelists set by default](/cloud/monitoring/basic-objects/commands#command-whitelist)), these must allow CMA commands. On the poller, in your custom whitelist file (e.g., **/etc/centreon-engine-whitelist/my-whitelist.yml**), include the following lines in the **cma-whitelist** block:
 
 ```text
 whitelist:
   regex:
-    - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
-    - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
-    - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
-    - ^\{\s*"check":".*\}$
-    - \/usr\/bin\/echo\s+Host\s+alive
-    - cmd\.exe\s+\/C\s+echo\s+.*
+    - \/usr\/lib(64)?\/nagios\/plugins\/.*
+    - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
+    
+cma-whitelist:
+  default:
+    regex:
+      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+      - ^\{\s*"check":".*\}$
+      - \/usr\/bin\/echo\s+Host\s+alive
+      - cmd\.exe\s+\/C\s+echo\s+.*
+```
+
+If necessary, you can specify whitelists by host. The syntax will be:
+
+```text
+whitelist:
+  regex:
+    - \/usr\/lib(64)?\/nagios\/plugins\/.*
+    - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
+    
+cma-whitelist:
+  default:
+    regex:
+      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+      - ^\{\s*"check":".*\}$
+      - \/usr\/bin\/echo\s+Host\s+alive
+      - cmd\.exe\s+\/C\s+echo\s+.*
+  hosts:
+    - hostname:Host_1
+    regex:
+      - ...
+      
+    - hostname:Host_2
+    regex:
+      - ...
 ```
 
 Make sure the correct access rigts are defined on all whitelist files:
 
-   ```yaml
-   chown root:centreon-engine /etc/centreon-engine-whitelist/my-whitelist.yml
-   chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
-   chown root:centreon-engine /etc/centreon-engine-whitelist
-   chmod 750 /etc/centreon-engine-whitelist
-   ```
+```shell
+chown root:centreon-engine /etc/centreon-engine-whitelist/my-whitelist.yml
+chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
+chown root:centreon-engine /etc/centreon-engine-whitelist
+chmod 750 /etc/centreon-engine-whitelist
+```
 
-## Step 2: Prepare the host
+The behavior is as follows:
+
+* If the **whitelist** block is filled in and the **cma-whitelist** block is absent, the monitoring engine will apply its whitelist (it will only allow the specified commands) and CMA will not apply a whitelist (all commands will be allowed).
+* If both the **whitelist** and **cma-whitelist** blocks are filled in, the monitoring engine will apply the **whitelist** block and CMA will apply the **cma-whitelist** block (they will only allow the specified commands).
+* If the **whitelist** block is absent and the **cma-whitelist** block is filled in, the monitoring engine will not apply a whitelist (all commands will be allowed) and CMA will apply the **cma-whitelist** block (it will only allow specified commands).  
+* If no block is filled in, no whitelist will be applied: all commands will be allowed.
+
+## Step 3: Prepare the host
+
+This step is performed on the monitored host.
 
 ### Download and install the agent
 
@@ -346,7 +334,7 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 </TabItem>
 </Tabs>
 
-In the **host** field, enter the name of the host to be monitored as you have entered it in the Centreon interface. If absent, the agent will use the machine's hostname.
+> Important: in the **Host** field, enter the name of the host to be monitored as you entered it in the Centreon interface. If absent, the agent will use the machine's hostname. This name will be the matching key used to send data back to the Centreon host.
 
 #### Configure the logs
 
@@ -465,14 +453,11 @@ Allowed log levels are:
 </TabItem>
 </Tabs>
 
-### Deploy the Centreon agent plugins
+### Deploy the Centreon agent plugins on the host (Linux)
 
-If you want to run non-native checks, you need to install the Centreon plugins, that will execute the checks on the host.
+If you are using Centreon connectors and non-native controls on Linux:
 
-<Tabs groupId="sync">
-<TabItem value="Linux" label="Linux">
-
-##### Enable our plugins repository and install the plugins
+1. Enable our plugins repository and install the plugins:
 
 This repository will provide you our packaged plugins as well as **the dependencies that are not available in the
 standard distribution repositories**.
@@ -535,7 +520,7 @@ module_hotfixes=1
 EOF
 ```
 
-Install the plugin:
+2. Install the plugin:
 
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
@@ -600,7 +585,7 @@ module_hotfixes=1
 EOF
 ```
 
-Install the plugin:
+2. Install the plugin:
 
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
@@ -617,7 +602,7 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
 apt-get update
 ```
 
-Install the plugin:
+2. Install the plugin:
 
 ```bash
 apt -y install centreon-plugin-operatingsystems-linux-local
@@ -625,15 +610,8 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 
 </TabItem>
 </Tabs>
-</TabItem>
-<TabItem value="Windows" label="Windows">
 
-On the hosts you want to monitor, the plugins are already installed by the Centreon Monitoring Agent installer.
-
-</TabItem>
-</Tabs>
-
-## Step 3: Monitoring a host with the CMA
+## Step 4: Monitoring a host with the CMA
 
 ### Create hosts using templates
 
@@ -649,5 +627,3 @@ On the central server, [create hosts](/docs/monitoring/basic-objects/hosts) and 
 
 </TabItem>
 </Tabs>
-
-## Creating an authentication token
