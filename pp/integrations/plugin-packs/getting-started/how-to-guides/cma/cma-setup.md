@@ -611,19 +611,6 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 </TabItem>
 </Tabs>
 
-## Step 4: Monitoring a host with the CMA
+## Step 4: Test if the agent works
 
-### Create hosts using templates
-
-<Tabs groupId="sync">
-<TabItem value="Linux" label="Linux">
-
-On the central server, [create hosts](/docs/monitoring/basic-objects/hosts) and apply to them the **OS-Linux-Centreon-Monitoring-Agent-custom** template. The template includes the **Enable passive checks** option set to **on**.
-
-</TabItem>
-<TabItem value="Windows" label="Windows">
-
-On the central server, [create hosts](/docs/monitoring/basic-objects/hosts) and apply to them the **OS-Windows-Centreon-Monitoring-Agent-custom** template. The template includes the **Enable passive checks** option set to **on**.
-
-</TabItem>
-</Tabs>
+See [dedicated section](cma-troubleshooting.md).

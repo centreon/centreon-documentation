@@ -634,6 +634,6 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 </TabItem>
 </Tabs>
 
-## Step 4: Test if the agent works
+## Étape 4 : Tester le fonctionnement de l'agent
 
-See [dedicated section](cma-troubleshooting.md).
+Voir [section dédiée](cma-troubleshooting.md).
