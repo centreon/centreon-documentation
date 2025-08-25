@@ -487,8 +487,9 @@ Ce dépôt permettra d'installer les plugins Centreon ainsi que **les dépendanc
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf -y install dnf-plugins-core oracle-epel-release-el8
-dnf config-manager --set-enabled ol8_codeready_builder
+
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled powertools
 
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
 [centreon-plugins-stable]
