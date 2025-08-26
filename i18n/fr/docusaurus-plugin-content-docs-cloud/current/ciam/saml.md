@@ -50,7 +50,7 @@ Avant d'activer l'authentification SAML, vous devez remplir tous les paramètres
    * **Role attribute path**: Récupérez cette valeur dans les métadonnées de votre application. Exemple : `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role`.
    * Créez les mappings désirés. Il existe [3 rôles dans le CIAM (**User**, **Editor** et **Administrator**)](../users/users.md#user-roles) qui peuvent être mappés aux rôles que vous avez créés dans votre fournisseur d'identité (un rôle CIAM peut être mappé à un, plusieurs ou aucun rôle de votre IDP). Dans le champ **Valeur de l'attribut**, entrez la valeur exacte que vous avez définie pour chaque rôle dans votre fournisseur d'identité (la valeur, pas le nom d'affichage). Les utilisateurs qui se connectent à Centreon se verront automatiquement attribuer des droits sur les menus et les actions, car un rôle leur sera attribué selon les règles que vous avez définies.
 
-   > Il est possible de ne pas définir de mapping de rôle. Cette option est réservée à des fins de test et ne doit pas être utilisée en production. Dans ce cas, les utilisateurs devront être invités manuellement dans le CIAM avant de pouvoir utiliser le SSO.
+   > Il est possible de ne pas définir de mapping de rôles. Cette option est réservée à des fins de test. Dans ce cas, les utilisateurs devront être invités manuellement dans le CIAM avant de pouvoir rejoindre votre organisation à l'aide du SSO.
 
 5. **Group mapping**:
 
