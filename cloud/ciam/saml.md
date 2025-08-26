@@ -12,8 +12,10 @@ This means you can link your organization in the [CIAM](ciam.md) to an identity 
 In your identity provider:
 
 1. Create an application.
-2. Create application roles (optional), which will be mapped to [CIAM roles: **User**, **Editor** and **Administrator**](../users/users.md#user-roles).
+2. Create application roles, which will be mapped to [CIAM roles: **User**, **Editor** and **Administrator**](../users/users.md#user-roles).
 3. You must then assign users to the application and assign them each a role.
+
+If you already have users in the CIAM, the user's role in the IdP will overwrite their current role in the CIAM, except for **Administrators** in the CIAM, whose role does not change. This is not to lose access to your organization by mistake.
 
 ## Step 1: Access the configuration page
 
@@ -47,6 +49,8 @@ Before you activate SAML authentication, you need to fill in all necessary param
 
    * **Role attribute path**: Retrieve this value from your application's metadata. Example: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role`.
    * Create the mappings you want. There are [3 roles in the CIAM (**User**, **Editor** and **Administrator**)](../users/users.md#user-roles) which can be mapped to roles you have created in your identity provider (a CIAM role can be mapped to one, several, or none of your IdP roles). In the **Attribute value** field, enter the exact value that you have defined for each role in your identity provider (the value, not the display name). Users who log in to Centreon will be automatically granted rights on menus and actions, as they will be given a role according to the rules you have defined.
+
+   > It is possible not to define a role mapping. This is for test purposes only and should not be used in production. In this case, users will need to be invited manually in the CIAM before they can use SSO.
 
 5. **Group mapping**:
 

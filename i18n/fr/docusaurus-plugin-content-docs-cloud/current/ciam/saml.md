@@ -12,8 +12,10 @@ Ainsi, vous pouvez lier votre organisation dans le [CIAM](ciam.md) à un fournis
 Dans votre fournisseur d'identité :
 
 1. Créez une application.
-2. Créez 3 rôles d'application (facultatif), qui seront reliés à un [rôle dans le CIAM : **User**, **Editor** et **Administrator**](../users/users.md#rôles-des-utilisateurs).
+2. Créez des rôles d'application, qui seront reliés à un [rôle dans le CIAM : **User**, **Editor** et **Administrator**](../users/users.md#rôles-des-utilisateurs).
 3. Assignez vos utilisateurs à l'application, puis assignez un rôle à chacun.
+
+Si vous avez déjà des utilisateurs dans le CIAM, le rôle de l'utilisateur dans l'IdP remplacera son rôle actuel dans le CIAM, à l'exception du rôle **Administrator** dans le CIAM, qui ne change pas. Cela permet d'éviter de perdre par erreur l'accès à votre organisation.
 
 ## Étape 1 : Accéder à la page de configuration
 
@@ -46,7 +48,9 @@ Avant d'activer l'authentification SAML, vous devez remplir tous les paramètres
 4. **Role mapping**:
 
    * **Role attribute path**: Récupérez cette valeur dans les métadonnées de votre application. Exemple : `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role`.
-   * Créez 3 mappings. Il existe [3 rôles dans le CIAM (**User**, **Editor** et **Administrator**)](../users/users.md#user-roles) qui peuvent être mappés aux rôles que vous avez créés dans votre fournisseur d'identité (un rôle  CIAM peut être mappé à un, plusieurs ou aucun rôles de votre IDP). Dans le champ **Valeur de l'attribut**, entrez la valeur exacte que vous avez définie pour chaque rôle dans votre fournisseur d'identité (la valeur, pas le nom d'affichage). Les utilisateurs qui se connectent à Centreon se verront automatiquement attribuer des droits sur les menus et les actions, car un rôle leur sera attribué selon les règles que vous avez définies.
+   * Créez les mappings désirés. Il existe [3 rôles dans le CIAM (**User**, **Editor** et **Administrator**)](../users/users.md#user-roles) qui peuvent être mappés aux rôles que vous avez créés dans votre fournisseur d'identité (un rôle CIAM peut être mappé à un, plusieurs ou aucun rôle de votre IDP). Dans le champ **Valeur de l'attribut**, entrez la valeur exacte que vous avez définie pour chaque rôle dans votre fournisseur d'identité (la valeur, pas le nom d'affichage). Les utilisateurs qui se connectent à Centreon se verront automatiquement attribuer des droits sur les menus et les actions, car un rôle leur sera attribué selon les règles que vous avez définies.
+
+   > Il est possible de ne pas définir de mapping de rôle. Cette option est réservée à des fins de test et ne doit pas être utilisée en production. Dans ce cas, les utilisateurs devront être invités manuellement dans le CIAM avant de pouvoir utiliser le SSO.
 
 5. **Group mapping**:
 
