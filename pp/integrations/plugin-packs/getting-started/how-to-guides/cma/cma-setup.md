@@ -14,7 +14,8 @@ This step is performed via the central server's interface. (It is also possible 
 
 ### Install the Monitoring Connector you need (OnPrem version)
 
-On your central server, install the monitoring connector which will provide the templates and commands you need to configure the hosts and services monitored in Centreon. In the case of a Cloud platform, these connectors are already installed.
+On your central server, install the monitoring connector which will provide the templates and commands you need to configure the hosts and services monitored in Centreon. 
+In the case of a Cloud platform, these connectors are already installed.
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
@@ -162,6 +163,7 @@ cma-whitelist:
   default:
     regex:
       - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/.*
       - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
       - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
       - ^\{\s*"check":".*\}$
@@ -181,6 +183,7 @@ cma-whitelist:
   default:
     regex:
       - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/.*
       - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
       - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
       - ^\{\s*"check":".*\}$
@@ -296,7 +299,7 @@ apt install centreon-monitoring-agent
 
 #### Configure **centreon-monitoring-agent**
 
-Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** file with the following parameters (2 cases):
+Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** file with the following parameters :
 
 <Tabs groupId="sync">
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
@@ -304,12 +307,13 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 ```json
 {
   "log_level":"info",
-  "endpoint":"<IP POLLER>:4317",
+  "endpoint":"<POLLER IP/DNS>:4317",
   "host":"host_1",
   "log_type":"file",
   "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
   "encryption":true,
-  "ca_certificate":"/tmp/ca_1234.crt"
+  "ca_certificate":"/tmp/ca_1234.crt",
+  "token":"<TOKEN>"
 }
 ```
 
@@ -327,7 +331,8 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
   "encryption":true,
   "private_key":"/tmp/server_1234.key",
   "public_cert":"/tmp/server_1234.crt",
-  "ca_certificate":"/tmp/ca_1234.crt"
+  "ca_certificate":"/tmp/ca_1234.crt",
+  "token":"<TOKEN>"
 }
 ```
 
@@ -335,6 +340,10 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 </Tabs>
 
 > Important: in the **Host** field, enter the name of the host to be monitored as you entered it in the Centreon interface. If absent, the agent will use the machine's hostname. This name will be the matching key used to send data back to the Centreon host.
+
+#### Configure encryption parameters
+
+See [dedicated section](cma-certificates.md) to identify which files are required, depending on your configuration and direction. 
 
 #### Configure the logs
 
@@ -356,8 +365,6 @@ Allowed log levels are:
 
 #### Restart the agent
 
-Restart the CMA:
-
 ```shell
 systemctl restart centagent
 ```
@@ -373,6 +380,8 @@ systemctl status centagent
 
 [Download the CMA installer](https://download.centreon.com) (**Custom Platform** tab then **Monitoring Agent** tab), on every server you want to monitor.
 
+CMA installer can be executed in 2 modes:
+
 <Tabs groupId="sync">
 <TabItem value="Interactive mode" label="Interactive mode">
 
@@ -381,28 +390,22 @@ systemctl status centagent
   
    Results are displayed in the installer's window.
 
-2. Configure the endpoint and the connection:
+2. Configure the endpoint and the connection direction:
    * **Host name in Centreon**. This must be the name of the host as you have defined it in the Centreon interface.
+     > Warning : This name will be the unique key for data mapping to the right Centreon host. It must be strictly identical to the Centreon host name (case sensitive)?
    * In most cases (the agent connects to the poller), you have to enter the poller's endpoint. The correct format is  \<poller IP or DNS name\>:port (OpenTelemetry listening port on the poller, usually 4317), for example 192.168.45.32:4317.
    * In case of a poller-initiated connection (the poller connects to the agent), you have to choose a host interface (0.0.0.0 for all interfaces) and the listening port on which poller will connect, usually 4317.
 
-3. [Configure logging options](#log-levels). You can configure two kinds of log output:
-   * file: the CMA logs into a file
-   * eventlog: the CMA logs in the [event logs page](/docs/alerts-notifications/event-log).
-
-   If you choose to log into a file, log rotation can be customized using the **Max File Size** and **Max number of files** options.   Allowed log levels are:
-
-     * off: no logs
-     * critical: critical errors
-     * error: all errors
-     * info: additional information
-     * debug: more information about connections
-     * trace: the most verbose trace level showing messages sent and received to the poller.
-
-4. Configure encryption. Encryption is activated by default. In case of a **Poller-initiated connection**, the private key file and certificate file are mandatory.
+<Tabs groupId="sync">
+<TabItem value="Agent connects to poller" label="Agent connects to poller">
+   * In **Poller endpoint**, put poller IP/DNS, followed by listening port, usually 4317. for example 192.168.45.32:4317.
+</TabItem>
+<TabItem value="Poller connects to agent" label="Poller connects to agent">
+   * **Listening interface** can keep the default value (0.0.0.0:4317) and will be the interface through which the agent accepts incoming connections from the poller. (0.0.0.0) means 'all interfaces' and can be restricted for security reasons.
+</TabItem>
+</Tabs>
 
 </TabItem>
-
 <TabItem value="Silent mode" label="Silent mode (console)">
 
 In this mode, there is no interface. As this installer is not a console program, it returns immediately despite not having finished. You have to wait for a message telling you that all is finished.
@@ -413,6 +416,8 @@ To run it in silent mode, you need to set /S as the first argument. You can disp
 ```shell
 centreon-monitoring-agent.exe /S --help
 ```
+
+Available parameters are :
 
 | flag                       | description                                                                                                                                                                                                                                                               |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -432,23 +437,41 @@ centreon-monitoring-agent.exe /S --help
 | --public_cert              | Public certificate file path. Mandatory if encryption and poller-initiated connection are active.                                                                                                                                                                         |
 | --ca                       | Trusted CA's certificate file path.                                                                                                                                                                                                                                       |
 | --ca_name                  | Expected TLS certificate common name (CN).                                                                                                                                                                                                                                |
-| --reverse                  | Add this flag to make the agent accept connections from poller (agent in DMZ for example).                                                                                                                                                                                |
 
+| --token                    | Authentication token.
 If you use the **--install_plugins** option but the download of the plugins fails, the installer will install the plugins embedded in the installer.
 
-#### Log levels
-
-Allowed log levels are:
-
-* off: no logs
-* critical: critical errors
-* error: all errors
-* info: additional information
-* debug: more information about connections
-* trace: the most verbose trace level showing messages sent and received to the poller.
 
 </TabItem>
 </Tabs>
+
+#### Configuration data
+
+Data set by installer or silent mode are stored in registry : 
+
+```
+\HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent
+```
+
+#### Configure encryption parameters
+
+See [dedicated section](cma-certificates.md) to identify which files are required, depending on your configuration and direction. 
+
+#### Configure the logs
+
+You can configure two kinds of log output:
+  * **eventlog**: the CMA logs in the Windows Event Viewer .
+  * **file**: the CMA logs into a file
+
+  If you choose to log into a file, log rotation can be customized using the **log_max_file_size** and **log_max_files** options.
+
+  Allowed log levels are:
+  * off: no logs
+  * critical: critical errors
+  * error: all errors
+  * info: additional information
+  * debug: more information about connections
+  * trace: the most verbose trace level showing messages sent and received to the poller.
 
 </TabItem>
 </Tabs>
@@ -466,8 +489,9 @@ standard distribution repositories**.
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf -y install dnf-plugins-core oracle-epel-release-el8
-dnf config-manager --set-enabled ol8_codeready_builder
+
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled powertools
 
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
 [centreon-plugins-stable]
