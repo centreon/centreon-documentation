@@ -380,7 +380,7 @@ systemctl status centagent
 
 [Download the CMA installer](https://download.centreon.com) (**Custom Platform** tab then **Monitoring Agent** tab), on every server you want to monitor.
 
-CMA installer can be executed in 2 modes:
+The CMA installer can be executed in 2 modes:
 
 <Tabs groupId="sync">
 <TabItem value="Interactive mode" label="Interactive mode">
@@ -392,16 +392,20 @@ CMA installer can be executed in 2 modes:
 
 2. Configure the endpoint and the connection direction:
    * **Host name in Centreon**. This must be the name of the host as you have defined it in the Centreon interface.
-     > Warning : This name will be the unique key for data mapping to the right Centreon host. It must be strictly identical to the Centreon host name (case sensitive)?
-   * In most cases (the agent connects to the poller), you have to enter the poller's endpoint. The correct format is  \<poller IP or DNS name\>:port (OpenTelemetry listening port on the poller, usually 4317), for example 192.168.45.32:4317.
+     > Warning : This name will be the unique key for mapping data to the right Centreon host. It must be strictly identical to the Centreon host name (case sensitive).
+   * In most cases (the agent connects to the poller), you have to enter the poller's endpoint. The correct format is \<poller IP or DNS name\>:port (OpenTelemetry listening port on the poller, usually 4317), for example 192.168.45.32:4317.
    * In case of a poller-initiated connection (the poller connects to the agent), you have to choose a host interface (0.0.0.0 for all interfaces) and the listening port on which poller will connect, usually 4317.
 
 <Tabs groupId="sync">
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
-   * In **Poller endpoint**, put poller IP/DNS, followed by listening port, usually 4317. for example 192.168.45.32:4317.
+
+   * In **Poller endpoint**, enter the poller's IP/DNS, followed by listening port, usually 4317. For example, 192.168.45.32:4317.
+
 </TabItem>
 <TabItem value="Poller connects to agent" label="Poller connects to agent">
-   * **Listening interface** can keep the default value (0.0.0.0:4317) and will be the interface through which the agent accepts incoming connections from the poller. (0.0.0.0) means 'all interfaces' and can be restricted for security reasons.
+
+   * **Listening interface** can keep the default value (0.0.0.0:4317) and will be the interface through which the agent accepts incoming connections from the poller. (0.0.0.0) means 'all interfaces'. You can restrict this value for security reasons.
+
 </TabItem>
 </Tabs>
 
@@ -447,7 +451,7 @@ If you use the **--install_plugins** option but the download of the plugins fail
 
 #### Configuration data
 
-Data set by installer or silent mode are stored in registry : 
+Data defined through the installer or silent mode is stored in the registry:
 
 ```
 \HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent

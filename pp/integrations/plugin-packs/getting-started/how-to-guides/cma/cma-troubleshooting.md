@@ -51,7 +51,7 @@ No lines should be returned.
 
 Depending on the configuration, use the event viewer or look at the specified file.
 
-### Check that the connection with the poller is working
+### Check that the connection to the poller is working
 
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
