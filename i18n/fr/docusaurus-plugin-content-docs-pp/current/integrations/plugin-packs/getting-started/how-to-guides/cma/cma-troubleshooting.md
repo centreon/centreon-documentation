@@ -135,4 +135,3 @@ L'hôte et les services configurés doivent remonter un statut et des métriques
 * Logs de l'agent : 
    * Linux : par défaut, `/var/log/centreon-monitoring-agent/centagent.log` (cet emplacement de log est configurable dans **/etc/centreon-monitoring-agent/centagent.json**)
    * Windows : l'emplacement est celui que vous avez défini lors de l'installation de l'agent (par défaut, dans l'observateur d'évènements Windows).
-

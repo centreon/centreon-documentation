@@ -24,7 +24,7 @@ import TabItem from '@theme/TabItem';
    systemctl restart centagent
    ```
 
-### Check that the agent log file does not contain any errors.
+### Check that the agent log file does not contain any errors
 
 Depending on the path configured for your log file, check for any errors:
 
