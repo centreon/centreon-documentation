@@ -59,7 +59,7 @@ Before you activate SAML authentication, you need to fill in all necessary param
 
 ## Step 3: Test the connection and activate SAML
 
-Afin d'éviter toute erreur de configuration, il est obligatoire de tester la connexion avant de pouvoir l'activer. Vous serez redirigé vers votre IdP : entrez des identifiants valides pour effectuer le test. Pendant le test, le mapping des rôles est également vérifié, mais s'il échoue, la connexion pourra tout de même être activée.
+To avoid any configuration errors, you must test the connection before you can activate it. You will be redirected to your IdP: enter valid credentials to perform the test. During the test, role mapping is also verified, but if it fails, the connection can still be activated.
 
 1. In the **Activation** section, click **Test**. A window opens, with the results of the test.
 2. Once the test has succeeded, activate the **Enable Saml v2 Connection** option. Your users can now log in via their identity provider.

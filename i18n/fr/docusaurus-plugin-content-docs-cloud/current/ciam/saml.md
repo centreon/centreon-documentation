@@ -59,5 +59,7 @@ Avant d'activer l'authentification SAML, vous devez remplir tous les paramètres
 
 ## Étape 3 : Tester la connexion et activer SAML
 
+Afin d'éviter toute erreur de configuration, il est obligatoire de tester la connexion avant de pouvoir l'activer. Vous serez redirigé vers votre IdP : entrez des identifiants valides pour effectuer le test. Pendant le test, le mapping des rôles est également vérifié, mais s'il échoue, la connexion pourra tout de même être activée.
+
 1. Dans la section **Activation**, cliquez sur **Test**. Une fenêtre s'ouvre, avec les résultats du test.
 2. Une fois le test réussi, activez l'option **Enable Saml v2 Connection**. Vos utilisateurs peuvent maintenant se connecter via leur fournisseur d'identité.
