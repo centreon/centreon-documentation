@@ -339,7 +339,7 @@ chown centreon-engine: /etc/centreon-engine/conf-*
 > The `-days 365` option limits the certificate validity to one year. You may choose a longer or shorter duration according to your security/maintainance preferences.
 
 2. On your central server, go to **Configuration > Monitoring Connector Manager**.
-3. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the **Linux Telegraf Agent** monitoring connector.
+3. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the **Linux Telegraf Agent** monitoring connector.
 
 ### Configure Engine
 

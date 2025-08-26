@@ -1,19 +1,17 @@
 ---
 id: widgets
-title: Les widgets
+title: Widgets MBI
 ---
 
 Les widgets de Centreon MBI s"utilisent dans les [vues personnalisées](../getting-started/create-custom-view.md) de Centreon. Il vous est de ce fait possible de créer des
-dashboard combinant des données temps réel ET des données agrégées
+vues combinant des données temps réel ET des données agrégées
 (disponibilité, application, performance etc..)
 
 ![image](../assets/reporting/guide/dashboard.png)
 
 Ci-dessous la liste des widgets de reporting disponibles :
 
-> Dans le cas d'une mise à jour des ACLs, cliquez sur "Update ACL
-> Resources" dans les options générales de Centreon MBI, onglet "Report
-> Parameters"
+> Dans le cas d'une mise à jour des ACLs, cliquez sur **Update Resources ACL** dans les options générales de Centreon MBI, onglet **Paramètre des rapports**
 
 
 ## Disponibilité et événements

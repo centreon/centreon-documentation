@@ -15,11 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles d'équipement supportés
 
-* EKI utilisant le système d'opération QTS.
-
-### Modèles d'équipement non supportés
-
-* **Uniquement pour le service volume** : LAGMT utilisant le système d'opération QuTS hero (L'information "volume" n'est pas présente dans le fichier MIB du QuTS hero).
+* EKI utilisant le système d'opération QTS et QuTS hero.
 
 ### Modèles
 
@@ -163,7 +159,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 

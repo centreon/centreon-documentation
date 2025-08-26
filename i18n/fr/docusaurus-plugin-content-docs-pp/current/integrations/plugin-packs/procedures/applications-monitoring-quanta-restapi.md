@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 ## Contenu du pack
 
+> Ce connecteur fait l'objet d'une refonte qui sera publiée très prochainement pour exploiter pleinement le potentiel de Quanta suite aux [événements récents](https://www.centreon.com/fr/news/centreon-accelere-sur-lobservabilite-avec-lacquisition-de-quanta-io/).
+
 ### Modèles
 
 Le connecteur de supervision **Quanta Rest API** apporte un modèle d'hôte :
