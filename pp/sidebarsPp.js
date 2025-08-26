@@ -19,9 +19,40 @@ module.exports = {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/plugin-customization'
             },
+
+
             {
-              type: 'doc',
-              id: 'integrations/plugin-packs/getting-started/how-to-guides/cma'
+              type: 'category',
+              label: 'Centreon Monitoring Agent',
+              link: {
+                type: 'generated-index'
+              },
+              items: [
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma'
+                },
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-setup'
+                },
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-certificates'
+                },
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-custom'
+                },
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-migratenscpp'
+                },
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-troubleshooting'
+                }
+              ]
             },
             {
               type: 'doc',
@@ -1265,6 +1296,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-video-appeartv-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-avigilon-snmp'
         },
         {
           type: 'doc',
