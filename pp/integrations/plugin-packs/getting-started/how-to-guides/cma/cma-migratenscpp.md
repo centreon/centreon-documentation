@@ -25,9 +25,9 @@ Deploy and configure the Centreon monitoring agent using the [documentation](cma
 
 ### Install the dedicated Windows and/or Linux Monitoring connectors (as required)
 
-Here is the correspondence with NSClient/NRPE Connectors:
+Here is the correspondence with NSClient++/NRPE Connectors:
 
-| Connecteur NSClient++/NRPE | Connecteur Centreon Monitoring Agent |
+| NSClient++/NRPE Connector | Centreon Monitoring Agent Connector |
 | ----------- | ----------- |
 | Windows NSClient API | Windows Centreon Monitoring Agent |
 | Windows NSClient 0.5 NRPE | Windows Centreon Monitoring Agent |
@@ -37,7 +37,7 @@ Here is the correspondence with NSClient/NRPE Connectors:
 
 Here is the correspondence with NSClient++/NRPE host templates:
 
-| Modèle d'hôte NSClient++/NRPE | Modèle d'hôte Centreon Monitoring Agent |
+| NSClient++/NRPE Host template | Centreon Monitoring Agent Host template |
 | ----------- | ----------- |
 | OS-Windows-NSClient-05-Restapi-custom | Windows Centreon Monitoring Agent |
 | OS-Windows-NSClient-05-NRPE-custom | Windows Centreon Monitoring Agent |
@@ -45,7 +45,7 @@ Here is the correspondence with NSClient++/NRPE host templates:
 
 ### Adapt/replace existing services
 
-| Type of command | Description |
+| Command type | Description |
 | ----------- | ----------- |
 | Centreon plugin commands | These are the same plugins as those for NSClient/NRPE; only the command changes. Macros with the same name are kept, so you can replace the existing service template with the one linked to the Centreon Monitoring Agent.<br/><br/>For example: **OS-Linux-Memory-NRPE4** → **OS-Linux-Memory-NRPE4-custom** |
 | Native check commands (NSClient++) | The Centreon Monitoring Agent provides native checks that differ in structure (JSON command) from those of NSClient++ and the rest of the Centreon ecosystem.<br/><br/>It will be necessary to create a new service or modify the existing service template by adapting the macros.<br/><br/>For example: **OS-Windows-NSClient05-NRPE-Cpu** ou **OS-Windows-NSClient05-Restapi-Cpu** → **OS-Windows-Centreon-Monitoring-Agent-CPU** |
