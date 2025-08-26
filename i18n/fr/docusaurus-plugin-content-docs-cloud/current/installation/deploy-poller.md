@@ -55,7 +55,6 @@ Si vous ne pouvez pas vous connecter au dépôt public Centreon, vous pouvez dé
 ### Liste des paquets installés par la commande de déploiement
 
 <Tabs groupId="sync">
-
 <TabItem value="Alma / RHEL / Oracle Linux" label="Alma / RHEL / Oracle Linux">
 
 ```shell
@@ -68,3 +67,6 @@ centreon-poller perl-Mojolicious jq
 ```shell
 centreon-poller libmojolicious-perl jq
 ```
+
+</TabItem>
+</Tabs>
