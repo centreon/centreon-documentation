@@ -103,7 +103,7 @@ You can leave the connection unencrypted **for test purposes only**. In this mod
 To configure this mode, select **No TLS** from the **Encryption level** list in the [**Agent configuration** window](cma-setup.md#configure-polleragent-communication).
 
 The agent will be configured the following way on the host:
-- [for Windows, using the corresponding option in the installer or the CLI](cma-setup.md#step-2-prepare-the-host)
+- [for Windows, using the corresponding option in the installer or the CLI](cma-setup.md#step-3-prepare-the-host)
 - for Linux, using the **centagent.json** file:
 
 <Tabs groupId="sync">
