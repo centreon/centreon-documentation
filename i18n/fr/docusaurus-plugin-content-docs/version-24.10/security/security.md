@@ -1,5 +1,5 @@
 ---
-id: sécurité
+id: security
 title: Centreon et la sécurité 
 ---
 
