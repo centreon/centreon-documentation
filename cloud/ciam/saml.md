@@ -42,7 +42,7 @@ Before you activate SAML authentication, you need to fill in all necessary param
 
    * **Sign in URL**: define the identity provider's login URL to identify users (mandatory).
    * **Certificate**: copy and paste the x509 certificate of the identity provider (mandatory).
-   * **User ID (email) attribute for Centreon user**: define which of the variables returned by the identity provider must be used to authenticate users. It should be prefixed by the namespace URL, which you can find in your identity provider's application configuration. For example, **<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email>**. (Mandatory.)
+   * **User ID (email) attribute for Centreon user**: define which of the variables returned by the identity provider must be used to authenticate users. It should be prefixed by the namespace URL, which you can find in your identity provider's application configuration. For example, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email**. (Mandatory.)
    * **Sign out URL**: when users log out from Centreon, they will be redirected to this URL. This means you can make them log out from the identity provider too.
 
 4. **Role mapping**:
