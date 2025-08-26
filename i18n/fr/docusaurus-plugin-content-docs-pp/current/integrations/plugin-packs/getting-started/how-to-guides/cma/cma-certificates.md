@@ -24,7 +24,7 @@ Les formats supportés sont :
 Les fichiers de certificat déposés sur le collecteur doivent être déposés dans **/etc/pki/**, à la racine ou dans un sous-repértoire.
 Ils doivent avoir les permissions suivantes :
 
-```
+```shell
 chmod 644 /etc/pki/agent*
 ```
 

@@ -53,13 +53,37 @@ Selon la configuration faite, utilisez l'observateur d'événements ou consultez
 
 ### Vérifiez que la connexion se fait vers le collecteur
 
-Exécutez la commande suivante :
+<Tabs groupId="sync">
+<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
+1. Exécutez la commande suivante :
 ```bash
-tnc chsysilsuper -p 4317
+tnc <IP ou DNS collecteur> -p 4317
 ```
 
 La valeur **true** doit être retournée.
+
+</TabItem>
+
+<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+
+1. Le port 4317 doit être ouvert en entrée sur l'hôte.
+
+2. Exécutez la commande suivante :
+
+   ```bash
+   netstat -na | grep 4317
+   ```
+
+   Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
+
+3. Exécutez la commande suivante :
+
+   ```bash
+   tcpdump -i any port 4317
+   ```
+
+   Elle doit retourner des résultats, indiquant que des paquets arrivent du collecteur.
 
 </TabItem>
 </Tabs>
@@ -70,6 +94,7 @@ La valeur **true** doit être retournée.
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+1. Le port 4317 doit être ouvert en entrée sur le collecteur.
 
 1. Exécutez la commande suivante :
 
@@ -78,7 +103,6 @@ La valeur **true** doit être retournée.
    ```
 
    Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
-   Le port 4317 doit être ouvert en entrée sur le collecteur.
    
 2. Exécutez la commande suivante :
 
@@ -91,8 +115,14 @@ La valeur **true** doit être retournée.
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
 
-Le port 4317 doit être ouvert en entrée sur l'agent.
+1. Le port 4317 doit être ouvert en entrée sur l'agent.
 
+2. Exécutez la commande suivante :
+```bash
+tnc <IP ou DNS Hôte> -p 4317
+```
+
+La valeur **true** doit être retournée.
 </TabItem>
 </Tabs>
 

@@ -51,15 +51,40 @@ No lines should be returned.
 
 Depending on the configuration, use the event viewer or look at the specified file.
 
-### Check that the connection to the poller is working
+### Check that the connection with the poller is working
 
-Execute the following command:
+<Tabs groupId="sync">
+<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
+
+1. Execute the following command:
 
 ```bash
-tnc chsysilsuper -p 4317
+tnc <poller IP or DNS> -p 4317
 ```
 
 The value **true** must be returned.
+
+</TabItem>
+
+<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
+
+1. Port number 4317 must be open (inbound) on the host.
+
+2. Execute the following command:
+
+   ```bash
+   netstat -na | grep 4317
+   ```
+
+   This command must return results, showing that the server is listening (ESTABLISHED).
+
+3. Execute the following command:
+
+   ```bash
+   tcpdump -i any port 4317
+   ```
+
+   This command must return results, showing that packets are arriving from the poller.
 
 </TabItem>
 </Tabs>
@@ -71,27 +96,36 @@ The value **true** must be returned.
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
-1. Execute the following command:
+1. Port number 4317 must be open (inbound) on the poller.
+
+2. Execute the following command:
 
    ```bash
    netstat -na | grep 4317
    ```
 
    This command must return results, showing that the server is listening (ESTABLISHED).
-   Port number 4317 must be open (inbound) on the poller.
 
-2. Execute the following command:
+3. Execute the following command:
 
    ```bash
    tcpdump -i any port 4317
    ```
 
-   This command must return results, showing that packets are arrivng from the agent.
+   This command must return results, showing that packets are arriving from the agent.
 
 </TabItem>
 <TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
-Port number 4317 must be open (inbound) on the poller.
+1. Port number 4317 must be open (inbound) on the agent.
+
+2. Execute the following command:
+
+```bash
+tnc <Host IP or DNS> -p 4317
+```
+
+The value **true** must be returned.
 
 </TabItem>
 </Tabs>

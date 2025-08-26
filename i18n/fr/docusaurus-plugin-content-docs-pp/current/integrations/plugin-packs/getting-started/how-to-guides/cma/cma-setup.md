@@ -91,7 +91,6 @@ Créez les services associés au modèle d'hôte.
 
 ### Configurez la communication collecteur/agent
 
-<!--<PollerAgentConfiguration type="CMA" />-->
 1. Allez à la page **Configuration > Collecteurs > Configurations d'agent**, puis cliquez sur **Ajouter**.
 2. Dans la fenêtre qui s'ouvre, sélectionnez le type d'agent **Centreon Monitoring Agent**. Des champs supplémentaires apparaissent.
 3. Sélectionnez le sens de connexion (par défaut : l'agent se connecte au collecteur).
@@ -166,6 +165,7 @@ cma-whitelist:
   default:
     regex:
       - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/.*
       - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
       - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
       - ^\{\s*"check":".*\}$
@@ -185,6 +185,7 @@ cma-whitelist:
   default:
     regex:
       - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/.*
       - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
       - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
       - ^\{\s*"check":".*\}$
@@ -317,6 +318,7 @@ apt install centreon-monitoring-agent
   "token":"<JETON>"
 }
 ```
+
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
 
@@ -338,12 +340,12 @@ apt install centreon-monitoring-agent
 
 </TabItem>
 </Tabs>
+
 > Important : dans le champ **host**, entrez le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon. Si absent, l'agent utilisera le hostname de la machine. Ce nom sera la clé de correspondance permettant de remonter les données sur l'hôte Centreon.
 
 #### Configurez les paramètres de chiffrement
 
 Voir [section dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
-
 
 #### Configurez les logs
 
@@ -370,6 +372,7 @@ Les niveaux de logs possibles sont:
    ```
 
 Vous pouvez vérifier que l'agent a bien redémarré, avec la commande suivante :
+
 ```shell
 systemctl status centagent
 ```
@@ -402,7 +405,6 @@ Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
    La valeur par défaut (0.0.0.0) correspond à "toutes les interfaces", et peut être restreinte pour des raisons de sécurité.
 </TabItem>
 </Tabs>
-
 
 </TabItem>
 <TabItem value="Mode silencieux" label="Mode silencieux (console)">
@@ -437,7 +439,6 @@ Les différents arguments sont:
 | --public_cert              | Chemin du fichier contenant la clé publique. Obligatoire si le chiffrement et le mode reverse sont activés.                                                                                                                                                                                                                                                                                                                                                                                         |
 | --ca                       | Chemin du fichier contenant le certificat de confiance.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --ca_name                  | TLS certificate common name (CN).                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --reverse                  | Si ce flag est activé, l'agent accepte les connexions venant du collecteur.                                                                                                                                                                                                                                                                                                                                                                                              |
 | --token                    | Jeton d'authentification.
 
 Si vous utilisez l'option **--install_plugins** et que le téléchargement échoue, l'installer va installer les plugins fournis par l'installer.
@@ -489,8 +490,9 @@ Ce dépôt permettra d'installer les plugins Centreon ainsi que **les dépendanc
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf -y install dnf-plugins-core oracle-epel-release-el8
-dnf config-manager --set-enabled ol8_codeready_builder
+
+dnf -y install dnf-plugins-core epel-release
+dnf config-manager --set-enabled powertools
 
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
 [centreon-plugins-stable]
