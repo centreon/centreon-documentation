@@ -7,7 +7,9 @@ import TabItem from '@theme/TabItem';
 
 The **Windows Centreon Monitoring Agent** connector supplies templates and commands to be used with the Centreon Monitoring Agent (this is an observability agent implementing the OpenTelemetry protocol).
 
-Read [this page](../getting-started/how-to-guides/cma.md) for more information about the Centreon Monitoring Agent itself.
+> For the moment, this monitoring connector is in **BETA** version. The agent is in its beta phase for Centreon Cloud users.
+
+Read [this page](../getting-started/how-to-guides/cma/cma.md) for more information about the Centreon Monitoring Agent itself.
 
 ## Pack assets
 
@@ -268,12 +270,12 @@ Only one TCP flow must be open from the host to the poller.
 
 ### Configure poller/agent communication
 
-[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma.md#configure-polleragent-communication).
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma-setup.md#configure-polleragent-communication).
 
 ### System prerequisites for the monitored host
 
 The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in
-[this dedicated page](../getting-started/how-to-guides/cma.md#step-2-prepare-the-host).
+[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host).
 
 ## Installing the monitoring connector
 
