@@ -87,6 +87,8 @@ La valeur **true** doit être retournée.
 
 </TabItem>
 </Tabs>
+</TabItem>
+</Tabs>
 
 ## Vérifications sur le collecteur
 
