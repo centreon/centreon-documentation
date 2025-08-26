@@ -275,7 +275,7 @@ Only one TCP flow must be open from the host to the poller.
 ### System prerequisites for the monitored host
 
 The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in
-[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-2-prepare-the-host).
+[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host).
 
 ## Installing the monitoring connector
 
