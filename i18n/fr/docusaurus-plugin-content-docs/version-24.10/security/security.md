@@ -61,7 +61,7 @@ le processus SDLC.
 ● Analyse des vulnérabilités de l'infrastructure : assez similaire au DAST, mais lié à l'
 infrastructure : serveurs, VM, conteneurs...
  Programme de prime aux bugs et programme de divulgation publique des vulnérabilités
-● Tests d'intrusion
+* Tests d'intrusion
 
 À la réception d'un rapport sur une vulnérabilité, Centreon tentera de reproduire la vulnérabilité signalée
 et élaborera un plan d'action avec un calendrier en fonction de la gravité calculée.
