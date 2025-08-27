@@ -91,7 +91,6 @@ are strictly forbidden.
 ● Do not use automated scanners or tools that generate large amount of network traffic.
 ● Do not leak, manipulate, or destroy any user data or files in any of our applications/servers.
 ● Do not copy any files from our applications/servers and disclose them.
-● No vulnerability disclosure, full, partial or otherwise, is allowed.
 
 As an opensource project, Centreon allows vulnerability disclosure from the community. The
 vulnerability disclosure program is implemented and must be followed for the disclosure to be taken
