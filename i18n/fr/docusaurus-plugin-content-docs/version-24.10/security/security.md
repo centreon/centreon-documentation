@@ -91,7 +91,6 @@ sont strictement interdites.
 ● N'utilisez pas de scanners automatisés ou d'outils générant un trafic réseau important.
 ● Ne divulguez, ne manipulez et ne détruisez aucune donnée ou fichier utilisateur dans nos applications/serveurs.
 ● Ne copiez aucun fichier de nos applications/serveurs et ne les divulguez pas.
-● Aucune divulgation de vulnérabilité, totale, partielle ou autre, n'est autorisée.
 
 En tant que projet open source, Centreon autorise la divulgation des vulnérabilités par la communauté. Le
 programme de divulgation des vulnérabilités est mis en œuvre et doit être suivi pour que la divulgation soit prise
