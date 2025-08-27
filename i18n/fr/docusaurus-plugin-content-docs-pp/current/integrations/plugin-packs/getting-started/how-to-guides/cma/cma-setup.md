@@ -314,7 +314,7 @@ apt install centreon-monitoring-agent
   "host":"host_1",
   "log_type":"file",
   "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
-  "encryption":true,
+  "encryption":full,
   "ca_certificate":"/tmp/ca_1234.crt",
   "token":"<JETON>"
 }
@@ -331,7 +331,7 @@ apt install centreon-monitoring-agent
   "log_type":"file",
   "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
   "reversed_grpc_streaming":true,
-  "encryption":true,
+  "encryption":full,
   "private_key":"/tmp/server_1234.key",
   "public_cert":"/tmp/server_1234.crt",
   "ca_certificate":"/tmp/ca_1234.crt",
@@ -435,7 +435,7 @@ Les différents arguments sont:
 | --log_file                 | Chemin du fichier de log                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --log_max_file_size        | Taille maximale du fichier de log avant rotation, en Mo.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --log_max_files            | Nombre maximal de fichiers de log. Pour que la rotation des logs soit activée, ces deux paramètres sont nécessaires.                                                                                                                                                                                                                                                                                                                                                                                |
-| --encryption               | Mode de chiffrement. Valeurs possibles : \{no;full;insecure\}.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --encryption               | Mode de chiffrement. Valeurs possibles : \{full;insecure;no\}.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --private_key              | Chemin du fichier contenant la clé privée. Obligatoire si le chiffrement et le mode reverse sont activés.                                                                                                                                                                                                                                                                                                                                                                                           |
 | --public_cert              | Chemin du fichier contenant la clé publique. Obligatoire si le chiffrement et le mode reverse sont activés.                                                                                                                                                                                                                                                                                                                                                                                         |
 | --ca                       | Chemin du fichier contenant le certificat de confiance.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
