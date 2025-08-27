@@ -2,24 +2,40 @@
 id: stream-connectors
 title: Stream connectors
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Les stream connectors ont pour but de transmettre en temps réel le flux des données issu de la supervision par la plateforme Centreon vers un outil tiers. Ce flux peut porter sur les évènements comme sur les métriques.
 
 ## Notes de release
 
-## 2024
+## 2025
 
-### September
+### Février
 
 <Tabs groupId="sync">
 <TabItem value="Fix" label="Fix">
 
-- [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - fixed return code when payload is empty.
+- [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Fixed downtimes.
+- [**ServiceNow Incident**](event-management/sc-service-now-em-events.md) - Fixed oauth refresh token parameters.
+- [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Fixed subinstances.
 
 </TabItem>
 </Tabs>
 
-### August
+## 2024
+
+### Septembre
+
+<Tabs groupId="sync">
+<TabItem value="Fix" label="Fix">
+
+- [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - Fixed return code when payload is empty.
+
+</TabItem>
+</Tabs>
+
+### Août
 
 <Tabs groupId="sync">
 <TabItem value="Fix" label="Fix">
@@ -38,7 +54,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### May
+### Mai
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -51,7 +67,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### April
+### Avril
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -62,7 +78,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### February
+### Février
 
 <Tabs groupId="sync">
 <TabItem value="New Stream connector" label="New Stream connector">
@@ -86,7 +102,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 
 ## 2023
 
-### November
+### Novembre
 
 <Tabs groupId="sync">
 <TabItem value="Breaking-change" label="Breaking-change">
@@ -101,7 +117,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### October
+### Octobre
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -111,7 +127,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### September
+### Septembre
 
 <Tabs groupId="sync">
 <TabItem value="New Stream connector" label="New Stream connector">
@@ -121,7 +137,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### July
+### Juillet
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -138,7 +154,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 </TabItem>
 </Tabs>
 
-### February
+### Février
 
 <Tabs groupId="sync">
 <TabItem value="Fix" label="Fix">

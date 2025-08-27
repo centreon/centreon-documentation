@@ -83,10 +83,11 @@ Two types of check action are available:
 - The **Check** action: a regular check that you perform only during the configured check period.
 - The **Forced check** action: a check that you can perform at any time (in or out of the configured check period).
 
-Check your resources and refresh their status in two ways:
+Check your resources and refresh their status in three ways:
 
 - By directly clicking the button on the line when the mouse is over it (**Forced check** only).
 - By selecting one or multiple lines and clicking the **Check** or **Forced check** button above the table.
+- By clicking the **Check** or **Forced check** button in the detail panel of the resource.
 
 ### Submit a status
 
@@ -147,19 +148,26 @@ You can filter the list of resources according to a number of predefined criteri
 
 ### Search bar
 
-If you type text into the search bar, by default the search is performed on the following fields:
+#### Free text search
+
+If you type text into the search bar, the search may be performed on the following fields:
 
 - Name of the host
 - Alias of the host
 - Address or FQDN of the host
 - Name of the service
+- Information
 
 For instance, if you type "rta", all resources containing "rta" in one of the above fields will be displayed (e.g., a metaservice called **Ping-RTA-Average**).
 
-However, you can do a much more specific search using the [Centreon Query Language](#cql-criteria). This language allows you to search only 
-in one or several fields.
+The behavior depends on what you have configured in the **Administration > Parameters > Centreon UI** page, in the **Free text search behavior** field:
+* **Limited search**: Free text search will be performed only on the following fields: host name, alias and address, and service description (i.e., its name). Use if you have a large amount of data.
+* **Full search**: Free text search will also be performed on the "information" field. This is appropriate only if you have a small amount of data, as it affects performance.
 
 #### CQL criteria
+
+You can do a much more specific search using the [Centreon Query Language](#cql-criteria). This language allows you to search only 
+in one or several fields.
 
 - **alias**: search for hosts according to their alias
 - **fqdn**: search for hosts according to their IP address or FQDN
@@ -211,17 +219,14 @@ You may create some "complex" filters that set you in a specific
 context, using multiple criteria and even complex regular expressions.
 In that case, you may want to save this filter and re-use it later.
 
-Use the **gear icon** next to **Filter** to:
+Use the **Filter options** icon next to the search bar to:
 
 - Save your current search as a new filter
-- Save the current filter so that it is updated using the criteria currently
+- update the current filter using the criteria currently
     applied
-- Edit filters so that you can rename, re-order or delete them
 
-As soon as a filter is saved, it can be reused in the Filter dropdown list,
-categorized under **My Filter**.
-
-By clicking the **Edit filters** menu, you can manage your existing filters (rename, re-order and delete):
+Once a filter is saved, it can be reused from the Filter dropdown list,
+categorized under **My Filters** and you'll be able to use the **Manage filters** icon to manage your existing filters (rename, re-order and delete them).
 
 ## Detail panel
 
@@ -234,7 +239,7 @@ Depending on the type of resource, the detail panel displays different informati
 
 The host panel contains the following elements:
 
-- **Details** tab: Detailed information about the host's current status. You can drag and drop tiles to rearrange them.
+- **Details** tab: Detailed information about the host's current status. You can drag and drop tiles to rearrange them. There are also buttons to [**acknowledge an alert**](acknowledge.md), [**set downtime**](downtimes.md) and [**refresh the status**](#refresh-a-status) of the resource below the panel tabs.
 - **Services** tab: A listing of its attached services and their current status (as well as their graphs if the corresponding mode is selected)
 - **Timeline** tab: The timeline of events that occurred for this host
 - **Graph** tab: Graphs for the services for this host
@@ -296,7 +301,7 @@ Graphs display metric evolution over a given period. This can be defined in the 
 
 - A selection of preconfigured periods is available in the graph header: Last Day, Last 7 Days, Last 31 Days
 - Datetime pickers are available for Start and End points in time. Whenever the displayed period changes, this element is updated accordingly
-- Using the side [<] and [>] buttons that appear upon hovering the graph's border, you can translate in time by half your current timespan (backward and forward in time, respectively)
+- Using the side [\<] and [>] buttons that appear upon hovering the graph's border, you can translate in time by half your current timespan (backward and forward in time, respectively)
 - Selecting a period of time within the graph will zoom in on this period
 
 ![image](../assets/alerts/resources-status/resources-status-graph-time-selection.gif)
@@ -323,7 +328,7 @@ The graph opens on the **Monitoring > Performances > Graphs** page, allowing you
 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
-You can also export the data for the graph as a CSV file. This will include all metrics.
+You can also export the data for the graph as a CSV file (this will include all metrics), or as a PNG file in various sizes.
 
 ### Notification tab
 

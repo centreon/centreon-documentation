@@ -102,7 +102,7 @@ UDP/161 SNMP port.
 yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 ```
 
-2. On the centreon Web interface, install the *Kaspersky* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+2. On the centreon Web interface, install the *Kaspersky* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -119,7 +119,7 @@ yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
 yum install centreon-pack-applications-antivirus-kaspersky-snmp
 ```
 
-3. On the Centreon Web interface, install the *Kaspersky* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+3. On the Centreon Web interface, install the *Kaspersky* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 </Tabs>
@@ -148,7 +148,7 @@ user:
 /usr/lib/centreon/plugins//centreon_kaspersky_snmp.pl \
   --plugin=apps::antivirus::kaspersky::snmp::plugin --mode=protection \
   --hostname=10.0.0.1 --snmp-version='2c' --snmp-community='kaseprsky_ro' \
-  --warning-status='%{status} =~ /Warning/i' --critical-status='%{status} =~ /Critical/i'
+  --warning-status='%\{status\} =~ /Warning/i' --critical-status='%\{status\} =~ /Critical/i'
   --warning-no-antivirus='0' --critical-no-antivirus='' --warning-no-real-time='0' --critical-no-real-time='' \
   --warning-not-acceptable-level='0' --critical-not-acceptable-level='' \
   --warning-not-cured-objects='0' --critical-not-cured-objects='' \

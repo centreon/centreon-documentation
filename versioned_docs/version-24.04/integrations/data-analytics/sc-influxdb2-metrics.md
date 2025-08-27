@@ -15,7 +15,7 @@ a remote server within your customer's infrastructure).
 - By default, the InfluxDB 2 Metrics stream connector sends **metrics** from [**host_status**](../../developer/developer-broker-mapping.md#host-status) 
 and [**service_status**](../../developer/developer-broker-mapping.md#service-status) Broker events. These metrics are contained in the **perf_data** 
 field of the events. The event format is shown **[here](#event-format)**.
-- These events are sent each time a host or a service is checked. Various parameters let you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-influxdb2).
+- These events are sent each time a host or a service is checked. Various parameters let you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-influxdb-2).
 
 ## Installation
 
@@ -86,7 +86,7 @@ Click on the **+Add a new entry** link located below the **Filter category** tab
 | string | logfile    | The file in which logs are written         | /var/log/centreon-broker/influxdb2-metrics.log |
 | number | log_level  | Logging level from 1 (errors) to 3 (debug) | 1                                              |
 
-7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to InfluxDB 2](#filtering-or-adapting-the-data-you-want-to-send-to-influxdb2).
+7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to InfluxDB 2](#filtering-or-adapting-the-data-you-want-to-send-to-influxdb-2).
 
 8. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
@@ -173,9 +173,9 @@ If you want to test that events are sent to InfluxDB 2 correctly:
 2. Run the following command:
 
    ```shell
-    curl -X POST -H 'content-type: text/plain; charset=utf-8' -H 'accept: application/json' -H 'Authorization: Token <bucket_api_key>' 'http://<http_server_url>/api/v2/write?bucket=<bucket_id>&org=<org_name>&precision=s' -d
+    curl -X POST -H 'content-type: text/plain; charset=utf-8' -H 'accept: application/json' -H 'Authorization: Token <bucket_api_key>' 'http:/<http_server_url>/api/v2/write?bucket<bucket_id>&org=<org_name>&precision=s' -d
    ```
 
-   > Replace all the *`<xxxx>`* inside the above command with the correct value. For instance, *<bucket_id>* may become something like *65f5f748e28c92f0*.
+   > Replace all the *`<xxxx>`* inside the above command with the correct value. For instance, \<bucket_id\>* may become something like *65f5f748e28c92f0*.
 
 3. Check that the event has been received by InfluxDB 2.

@@ -39,6 +39,7 @@ Quelques exemples :
 
 * 24 heures sur 24 et 7 jours sur 7 : pour chaque jour de la semaine, entrez 00:00-24:00.
 * De 08h00 à 12h00 et de 14h00 à 18h45 les jours de semaine : 08:00-12:00,14:00-18:45 (à entrer au niveau des jours de semaine uniquement).
+* Pour ne pas superviser pendant une journée entière, laissez le champ correspondant vide.
 
 ![image](../../assets/configuration/05timeperiod.png)
 

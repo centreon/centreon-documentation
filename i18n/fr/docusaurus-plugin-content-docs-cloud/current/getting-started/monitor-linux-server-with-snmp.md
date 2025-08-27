@@ -52,9 +52,9 @@ systemctl enable snmpd
 
 > Le serveur cible doit être accessible depuis le collecteur Centreon sur le port SNMP UDP/161.
 
-### Sur le serveur central
+### Dans l'interface utilisateur
 
-Dans l'interface web, allez à la page **Configuration > Gestionnaire de connecteurs de supervision** et installez le connecteur de supervision **Linux SNMP** :
+Dans l'interface web, allez à la page **Configuration > Connecteurs > Connecteurs de supervision** et installez le connecteur de supervision **Linux SNMP** :
 
 ![image](../assets/getting-started/quick_start_linux_0.gif)
 

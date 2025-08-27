@@ -15,7 +15,7 @@ Before applying this procedure, you should have a good knowledge of Linux OS, of
 
 ### Network Flows
 
-In addition to the necessary flows described in the [official documentation](../architectures.md#Tables_of_network_flows),
+In addition to the necessary flows described in the [official documentation](../technical.md#tables-of-network-flows),
 you will need to open the following flows:
 
 | From                      | Destination               | Protocol | Port     | Application                                                                                |
@@ -1208,10 +1208,10 @@ pcs resource create "ms_mysql" \
     socket="/var/lib/mysql/mysql.sock" \
     binary="/usr/bin/mysqld_safe" \
     node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
-    replication_user="centreon-repl" \
-    replication_passwd='centreon-repl' \
-    test_user="centreon-repl" \
-    test_passwd='centreon-repl' \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd='@MARIADB_REPL_PASSWD@' \
     test_table='centreon.host'
 ```
 
@@ -1244,8 +1244,8 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -1256,8 +1256,8 @@ pcs resource promotable ms_mysql \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -1268,8 +1268,8 @@ pcs resource promotable ms_mysql \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"

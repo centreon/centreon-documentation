@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect } from '@docusaurus/router';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -77,8 +77,8 @@ const cards = [
 ]
 
 const versionInfo = {
-  version: '24.04',
-  link: 'https://www.centreon.com/new-centreon-release-cadence-and-version-lifecycle/',
+  version: '24.10',
+  link: 'https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-10/',
   target: '_blank'
 }
 
@@ -100,32 +100,13 @@ function BannerBlock() {
     <div className={clsx(styles.bannerContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <div className={clsx(styles.bannerWrapper)}>
-          {/* <span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span> */}
-          <p>New product lifecycle coming soon!</p>
+          {<span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span>}
+          <p>New software version available</p>
           <Button href={versionInfo.link} target={versionInfo.target} label="Learn more" dark="true"/>
         </div>
       </div>
     </div>
   );
-}
-
-function SearchForm() {
-  function handleClick(e) {
-    e.preventDefault()
-    document.querySelector('.DocSearch').click()
-  }
-  return (
-    <form className={clsx(styles.searchForm)} onClick={handleClick}>
-      <div className={clsx(styles.searchForm_input)}>
-        <img src={basePathImg + "search.svg"}/>
-        <input type="search" placeholder="Search documentation" ></input>
-      </div>
-      <button className={clsx(styles.button, styles.buttonBig)}>
-        Search
-        <img src={basePathImg + "arrow.svg"}/>
-      </button>
-    </form>
-  )
 }
 
 function HeadingCard(props) {
@@ -167,7 +148,6 @@ function HeadingBlock() {
     <div className={clsx(styles.headingContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <h1>Welcome to Centreon documentation!</h1>
-        <SearchForm/>
         <HeadingCards cards={cards}/>
       </div>
     </div>

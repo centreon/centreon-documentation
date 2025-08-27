@@ -5,7 +5,9 @@ title: Montée de version de Centreon HA depuis Centreon 22.10
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 22.10 vers la version 24.04.
+Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 22.10 vers la version 24.10.
+
+> Si vous utilisiez Debian 11, vous ne pouvez pas directement monter à la version 24.10. Vous devez [migrer votre platforme vers Debian 12](migrate/migrate-from-debian-to-debian.md) d'abord, puis réinstaller la HA. Contactez Centreon Professional services pour cela.
 
 ## Prérequis
 
@@ -27,7 +29,7 @@ Avant toute chose, il est préférable de s’assurer de l’état et de la cons
 ### Mettre à jour la clé de signature RPM
 
 Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021.
-Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../../security/key-rotation.md#existing-installation), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
 ## Processus de mise à jour
 
@@ -60,16 +62,6 @@ sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-Sur le **nœud central passif**, déplacez le répertoire **install** pour éviter d'obtenir l'écran "upgrade" dans l'interface en cas de nouvel échange de rôles et rechargez le cache Apache.
-
-```bash
-mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y-%m-%d`
-sudo -u www-data /usr/share/centreon/bin/console cache:clear
-```
-
-</TabItem>
 </Tabs>
 
 ### Suppression des crons
@@ -92,16 +84,9 @@ systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```bash
-systemctl restart cron
-```
-
-</TabItem>
 </Tabs>
 
-Le cron **centreon-ha-mysql** étant supprimé, vérifiez que vous avez bien la ligne suivante dans la section **server** du fichier **/etc/my.cnf.d/server.cnf**  (ou dans le **/etc/mysql/mariadb.conf.d/50-server.cnf** sur Debian), il est normalement déjà en place depuis 22.04 et la réplication GTID :
+Le cron **centreon-ha-mysql** étant supprimé, vérifiez que vous avez bien la ligne suivante dans la section **server** du fichier **/etc/my.cnf.d/server.cnf**, il est normalement déjà en place depuis 22.04 et la réplication GTID :
 
 ```shell
 expire_logs_days=7
@@ -221,53 +206,6 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-Extraire d'abord tous les identifiants de contraintes:
-
-```bash
-pcs constraint show --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
-```
-
-Vous devriez obtenir un résultat similaire:
-
-```text
-order-centreon-ms_mysql-clone-mandatory
-colocation-ms_mysql-clone-centreon-INFINITY
-colocation-centreon-ms_mysql-clone-INFINITY
-```
-
-et supprimer **toutes** les contraintes, **adapter les ids avec les vôtres**
-
-```bash
-pcs constraint delete order-centreon-ms_mysql-clone-mandatory
-pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
-pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
-```
-
-Vérifier que toutes les contraintes sont bien supprimées:
-
-```bash
-pcs constraint
-```
-
-Vous devriez obtenir un résultat comme celui-ci:
-
-```text
-Location Constraints:
-Ordering Constraints:
-Colocation Constraints:
-Ticket Constraints:
-```
-
-Si c'est le cas, recréez uniquement les contraintes nécessaires.
-
-```bash
-pcs constraint colocation add master "ms_mysql-clone" with "centreon"
-pcs constraint colocation add master "centreon" with "ms_mysql-clone"
-```
-
-</TabItem>
 </Tabs>
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
@@ -330,77 +268,12 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-Extraire d'abord tous les identifiants de contraintes:
-
-```bash
-pcs constraint show --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
-```
-
-Vous devriez obtenir un résultat similaire en fonction de vos noms d'hôtes :
-
-```text
-location-cbd_rrd-clone-deb11-bdd1--INFINITY
-location-cbd_rrd-clone-deb11-bdd2--INFINITY
-location-centreon-deb11-bdd1--INFINITY
-location-centreon-deb11-bdd2--INFINITY
-location-ms_mysql-clone-deb11-central1--INFINITY
-location-ms_mysql-clone-deb11-central2--INFINITY
-location-php-clone-deb11-bdd1--INFINITY
-location-php-clone-deb11-bdd2--INFINITY
-colocation-vip_mysql-ms_mysql-clone-INFINITY-1
-colocation-ms_mysql-clone-vip_mysql-INFINITY
-```
-
-et supprimer **toutes** les contraintes, **adapter les ids avec les vôtres**
-
-```bash
-pcs constraint delete location-cbd_rrd-clone-deb11-bdd1--INFINITY
-pcs constraint delete location-cbd_rrd-clone-deb11-bdd2--INFINITY
-pcs constraint delete location-centreon-deb11-bdd1--INFINITY
-...
-```
-
-Vérifier que toutes les contraintes sont bien supprimées:
-
-```bash
-pcs constraint
-```
-
-Vous devriez obtenir un résultat comme celui-ci:
-
-```text
-Location Constraints:
-Ordering Constraints:
-Colocation Constraints:
-Ticket Constraints:
-```
-
-Si c'est le cas, recréez uniquement les contraintes nécessaires
-
-```bash
-pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
-pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
-```
-
-</TabItem>
 </Tabs>
 
 Recréez ensuite la contrainte qui empêche les processus Centreon de s'exécuter sur les nœuds de la base de données et vice-et-versa.:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
-
-```bash
-pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
-pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY

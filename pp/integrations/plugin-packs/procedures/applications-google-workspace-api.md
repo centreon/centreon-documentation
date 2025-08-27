@@ -63,7 +63,7 @@ using the TCP/443 HTTPS port. The plugin allows you to use a proxy if needed.
 yum install centreon-plugin-Applications-Google-Workspace-Api
 ```
 
-2. On the Centreon Web interface, install the *Google Workspace* Centreon Pack on the **Configuration > Monitoring Connector Manager** page
+2. On the Centreon Web interface, install the *Google Workspace* Centreon Pack on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -80,7 +80,7 @@ yum install centreon-plugin-Applications-Google-Workspace-Api
 yum install centreon-pack-applications-google-workspace-api
 ```
 
-3. On the Centreon Web interface, install the *Google Workspace* Centreon Pack on the **Configuration > Monitoring Connector Manager** page
+3. On the Centreon Web interface, install the *Google Workspace* Centreon Pack on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 </Tabs>
@@ -121,8 +121,8 @@ by running the following command (Some of the parameters such as ```proxyurl``` 
     --port='443' \
     --proxyurl='http://myproxy.mycompany.org:8080' \
     --filter-name='mail|drive|meet' \
-    --warning-status='%{status} eq "disruption"' \
-    --critical-status='%{status} eq "outage"' \
+    --warning-status='%\{status\} eq "disruption"' \
+    --critical-status='%\{status\} eq "outage"' \
     --verbose
 ```
 

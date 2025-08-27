@@ -78,7 +78,7 @@ You may need to configure your Logstash equipment so that it can receive data fr
 | string | logfile   | the file in which logs are written                                                             | /var/log/centreon-broker/logstash-events.log |
 | number | log_level | logging level from 1 (errors) to 3 (debug)                                                     | 1                                            |
 
-7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Logstash](#filtering-or-adapting-the-data-you-want-to-send-to-Logstash).
+7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Logstash](#filtering-or-adapting-the-data-you-want-to-send-to-logstash).
 
 8. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
@@ -175,9 +175,9 @@ If you want to test that events are sent to Logstash correctly:
 2. Run the following command:
 
 ```shell
-curl -X PUT -H "accept: application/json" curl -X PUT 'http://<logstash_address>:<logstash_port>' -d '{"event_timestamp": 1653434348,"hostname": "my-host","output": "[DOWN] server is down","state": "DOWN","title": "DOWN: my-host"}'
+curl -X PUT -H "accept: application/json" curl -X PUT 'http://<logstash_address><logstash_port>' -d '{"event_timestamp": 1653434348,"hostname": "my-host","output": "[DOWN] server is down","state": "DOWN","title": "DOWN: my-host"}'
 ```
 
-> Replace all the *`<xxxx>`* inside the above command with their appropriate value. *<logstash_port>* may become *8080*.
+> Replace all the *`<xxxx>`* inside the above command with their appropriate value. \<logstash_port\>* may become *8080*.
 
 3. Check that the data has been received by Logstash.

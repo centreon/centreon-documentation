@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 Le stream connector Elastic Events vous permet d'envoyer des données depuis Centreon vers Elasticsearch. Il envoie des données grâce aux APIs Elasticsearch.
 
-Utilisez le stream connector Elastic Events si vous souhaitez transmettre toutes les données pour les évènements concernés (y compris les changements d'état). Si vous ne souhaitez transmettre que des métriques, utilisez le stream connector [Elastic Metrics](./sc-elasticsearch-metrics.md).
+Utilisez le stream connector Elastic Events si vous souhaitez transmettre toutes les données pour les évènements concernés (y compris les changements d'état). Si vous ne souhaitez transmettre que des métriques, utilisez le stream connector [Elastic Metrics](sc-elasticsearch-metrics.md).
 
 Un index template adapté est créé automatiquement par le stream connector afin que vos données soient indexées correctement dans Elasticsearch. (L'index template est la description du format des données qui seront envoyées.)
 
@@ -32,7 +32,7 @@ dnf install centreon-stream-connector-elasticsearch
 
 </TabItem>
 
-<TabItem value="Debian 11" label="Debian_11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install centreon-stream-connector-elasticsearch
@@ -54,7 +54,7 @@ Sur votre serveur Elasticsearch, vous aurez besoin de :
     -d '{"mappings":{"properties":{"host":{"type":"keyword"},"service":{"type":"keyword"}, "output":{"type":"text"},"status":{"type":"keyword"},"state":{"type":"keyword"}, "type":{"type":"keyword"},"timestamp":{"type":"date","format":"epoch_second"}}}}'
     ```
 
-   > Si vous utilisez un **[format d'évènement personnalisé](#event-format)**, vous devrez modifier cette commande en conséquence.
+   > Si vous utilisez un **[format d'évènement personnalisé](#format-des-évènements)**, vous devrez modifier cette commande en conséquence.
 
 - Un utilisateur/mot de passe ayant les privilèges nécessaires pour effectuer des requêtes POST afin d'insérer des données dans l'index.
 
@@ -99,7 +99,6 @@ Sur votre serveur Elasticsearch, vous aurez besoin de :
 
    Elasticsearch reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector).
 
-### Filtering or adapting the data you want to send to Elasticsearch
 
 ### Filtrer ou adapter les données que vous voulez envoyer à Elasticsearch
 

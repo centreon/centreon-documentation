@@ -58,7 +58,7 @@ apt install centreon-plugin-applications-databases-mysql
 ### On the central server
 
 The database will be monitored using the [**MySQL/MariaDB** Monitoring Connector](/pp/integrations/plugin-packs/procedures/applications-databases-mysql).
-Go to **Configuration > Monitoring Connector Manager** and install the **MySQL/MariaDB** Monitoring Connector:
+Go to **Configuration > Connectors > Monitoring Connectors** and install the **MySQL/MariaDB** Monitoring Connector:
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 
@@ -97,7 +97,7 @@ Go to **Configuration > Monitoring Connector Manager** and install the **MySQL/M
 
   ![image](../assets/getting-started/quick_start_mysql_3.png)
 
-7. [Deploy the supervision](first-supervision.md#deploying-a-configuration).
+7. [Deploy the configuration](first-supervision.md#deploying-a-configuration).
 
 8. Go to **Monitoring > Status Details > Services** and select **All**
 for the **Service Status** filter. At first, the resources appear with the status **Pending**,

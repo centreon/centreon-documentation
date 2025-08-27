@@ -38,7 +38,7 @@ time of a SSH server login.
 
 To use this pack, the SSH service must be properly configured on your server and
 the mandatory Host Macros must be properly configured. More info in the 
-"Configuration" section [here](#Host).
+"Configuration" section [here](#host).
 
 ## Setup
 
@@ -51,7 +51,7 @@ the mandatory Host Macros must be properly configured. More info in the
 yum install centreon-plugin-Applications-Protocol-Ssh
 ```
 
-2. On the Centreon Web interface, install the *Protocol SSH* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+2. On the Centreon Web interface, install the *Protocol SSH* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -68,7 +68,7 @@ yum install centreon-plugin-Applications-Protocol-Ssh
 yum install centreon-pack-applications-protocol-ssh
 ```
 
-3. On the Centreon Web interface, install the *Protocol SSH* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+3. On the Centreon Web interface, install the *Protocol SSH* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 </Tabs>
@@ -102,7 +102,7 @@ command:
     --ssh-username=''  \
     --ssh-password=''  \
     --warning-status=''  \
-    --critical-status='%{message} !~ /authentification succeeded/i'  \
+    --critical-status='%\{message\} !~ /authentification succeeded/i'  \
     --warning-time='2'  \
     --critical-time='3'  \
     --use-new-perfdata 

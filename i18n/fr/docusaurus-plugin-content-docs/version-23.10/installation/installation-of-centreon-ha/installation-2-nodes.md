@@ -15,7 +15,7 @@ Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connai
 
 ### Flux réseaux
 
-En plus des flux réseaux nécessaires décrits dans le chapitre [prérequis](../architectures.md#Tableaux_des_flux_réseau)
+En plus des flux réseaux nécessaires décrits dans le chapitre [prérequis](../technical.md#tableaux-des-flux-réseau)
 Il sera nécessaire d'ouvrir les flux supplémentaires suivants :
 
 | Source                      | Destination                 | Protocole | Port     | Commentaires                                                                                                 |
@@ -1209,10 +1209,10 @@ pcs resource create "ms_mysql" \
     socket="/var/lib/mysql/mysql.sock" \
     binary="/usr/bin/mysqld_safe" \
     node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
-    replication_user="centreon-repl" \
-    replication_passwd='centreon-repl' \
-    test_user="centreon-repl" \
-    test_passwd='centreon-repl' \
+    replication_user="@MARIADB_REPL_USER@" \
+    replication_passwd='@MARIADB_REPL_PASSWD@' \
+    test_user="@MARIADB_REPL_USER@" \
+    test_passwd='@MARIADB_REPL_PASSWD@' \
     test_table='centreon.host'
 ```
 
@@ -1245,8 +1245,8 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -1257,8 +1257,8 @@ pcs resource promotable ms_mysql \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -1269,8 +1269,8 @@ pcs resource promotable ms_mysql \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"

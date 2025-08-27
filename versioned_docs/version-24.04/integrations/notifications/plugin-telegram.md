@@ -1,6 +1,6 @@
 ---
 id: plugin-telegram
-title: Notify with Telegram bot
+title: Telegram notifications
 ---
 
 ## Introduction
@@ -26,7 +26,6 @@ First, install Git, then execute the following commands:
 mkdir /usr/lib/centreon/git-plugins
 cd /usr/lib/centreon/git-plugins
 git clone https://github.com/centreon/centreon-plugins.git
-chown -R centreon-engine. /usr/lib/centreon/git-plugins
 ```
 
 ### Telegram configuration
@@ -64,9 +63,9 @@ On the telegram webapp page, click on the group previously created to obtain a c
 
 ![chatid](../../assets/integrations/notifications/telegram/chatid-telegram.png)
 
-for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456** then, your chat-id is **123456**.
+for example, if the url is as follows: **https://web.telegram.org/#/im?p=g123456** then, your chat-id is **123456**.
 
-> Note that while 123456 is your chat-id, you'll need to use **-123456** in your configuration  otherwise it won't work
+> Note that while 123456 is your chat-id, you'll need to use **-123456** in your configuration otherwise it won't work
 
 ### Command creation in Centreon
 
@@ -140,8 +139,8 @@ Below are some of the available options:
 | ----------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | \--centreon-token | an autologin token from centreon                       |                                                                                                                                                                                           |
 | \--centreon-url   | the centreon url                                       |                                                                                                                                                                                           |
-| \--graph-url      | graph url. You can use the above options as macro here | **%{centreon\_url}**/include/views/graphs/generateGraphs/generateImage.php?username=myuser&token=**%{centreon\_token}**&hostname=**%{host\_name}**&service=**%{service\_description}** |
-| \--link-url       | a link url                                             | **%{centreon\_url}**/main.php?p=20201&o=svc&host\_search=**%{host\_name}**&svc\_search=**%{service\_description}**                                                                     |
+| \--graph-url      | graph url. You can use the above options as macro here | **%\{centreon_url\}**/include/views/graphs/generateGraphs/generateImage.php?username=myuser&token=**%\{centreon_token\}**&hostname=**%\{host_name\}**&service=**%\{service_description\}** |
+| \--link-url       | a link url                                             | **%\{centreon_url\}**/main.php?p=20201&o=svc&host\_search=**%\{host_name\}**&svc\_search=**%\{service_description\}**                                                                     |
 | \--proxyurl       | the url to your proxy if needed                        |                                                                                                                                                                                           |
 
 All options can be displayed with the following command:

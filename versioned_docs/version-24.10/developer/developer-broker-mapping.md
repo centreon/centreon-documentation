@@ -896,12 +896,11 @@ The content of this message is serialized as follows:
 
 | Property        | Type             | Description                                                       |
 | --------------- | ---------------- | ----------------------------------------------------------------- |
+| group\_id       | unsigned integer | Group ID.                                                         |
+| host\_id        | unsigned integer | Host ID.                                                          |
 | enabled         | boolean          | True if the membership is enabled, false if it is not (deletion). |
 | group           | string           | Group name.                                                       |
 | instance\_id    | unsigned integer | Instance ID.                                                      |
-| host\_id        | unsigned integer | Host ID.                                                          |
-| source\_id      | unsigned integer | The id of the source instance of this event.                         |
-| destination\_id | unsigned integer | The id of the destination instance of this event.                 |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -2142,6 +2141,81 @@ message Severity {
 </TabItem>
 </Tabs>
 
+### Adaptive service status
+
+This is a real time event. It contains a small part of a service status. It was
+introduced with BBDO v3.
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+No BBDO v2 version of this event exists.
+
+</TabItem>
+
+<TabItem value="BBDO v3" label="BBDO v3">
+
+#### NEB::PbAdaptiveServiceStatus
+
+| Category | element | ID    |
+| -------- | ------- | ----- |
+| 1        | 55      | 65591 |
+
+This event comes with BBDO 3. It contains a small part of a service status.
+
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
+
+```text
+message AdaptiveServiceStatus {
+  uint64 host_id = 1;
+  uint64 service_id = 2;
+  ServiceType type = 3;
+  uint64 internal_id = 4;
+  optional int32 scheduled_downtime_depth = 5;
+  optional AckType acknowledgement_type = 6;
+  optional int32 notification_number = 7;
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Adaptive host status
+
+This is a real time event. It contains a small part of a host status. It was
+introduced with BBDO v3.
+
+<Tabs groupId="sync">
+<TabItem value="BBDO v2" label="BBDO v2">
+
+No BBDO v2 version of this event exists.
+
+</TabItem>
+
+<TabItem value="BBDO v3" label="BBDO v3">
+
+#### NEB::PbAdaptiveHostStatus
+
+| Category | element | ID    |
+| -------- | ------- | ----- |
+| 1        | 56      | 65592 |
+
+This event comes with BBDO 3. It contains a small part of a host status.
+
+Here is the definition of this [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) event:
+
+```text
+message AdaptiveHostStatus {
+  uint64 host_id = 1;
+  optional int32 scheduled_downtime_depth = 2;
+  optional AckType acknowledgement_type = 3;
+  optional int32 notification_number = 4;
+}
+```
+
+</TabItem>
+</Tabs>
+
 ## Storage
 
 ### Metric
@@ -2345,7 +2419,7 @@ message Status {
 
 This event is emitted by Centreon Broker when a new service configuration is
 received. It associates an index ID (the one created for a service - see
-[Index mapping](#indexmapping)) to a metric ID.
+[Index mapping](#index-mapping)) to a metric ID.
 
 <Tabs groupId="sync">
 <TabItem value="BBDO v2" label="BBDO v2">

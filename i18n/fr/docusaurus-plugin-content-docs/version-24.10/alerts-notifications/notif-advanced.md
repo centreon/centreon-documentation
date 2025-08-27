@@ -11,7 +11,7 @@ attachée à chaque contact à notifier. Centreon propose des commandes par
 défaut que vous pouvez modifier.
 
 Accédez au chapitre de [configuration des
-commandes](../monitoring/basic-objects/commands.md#definition) pour
+commandes](../monitoring/basic-objects/commands.md#définition) pour
 modifier / ajouter de nouvelles commandes de notification.
 
 > Vous pouvez également trouver dans les [plugins
@@ -19,12 +19,6 @@ modifier / ajouter de nouvelles commandes de notification.
 > pour envoyer des e-mails HTML préformés, etc. Vous devez installer le
 > plugin sur tous les collecteurs, et ajouter une commande pour utiliser
 > ce plugin et changer la commande de vos contacts.
-
-## Chatops
-
-Un projet communautaire [Centreon-Chatops](https://github.com/centreon/centreon-chatops)
-a été développé pour permettre la communication entre un chat d'équipe
-comme Mattermost ou Slack et Centreon via des commandes slash
 
 ## Stream connector
 

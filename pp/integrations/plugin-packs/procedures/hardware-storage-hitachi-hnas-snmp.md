@@ -70,47 +70,47 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric Name                                       | Unit  |
 |:--------------------------------------------------|:------|
-| battery status                                    |       |
-| fan status                                        |       |
+| battery status                                    | N/A   |
+| fan status                                        | N/A   |
 | *node_name~fan_id*#hardware.fan.speed.rpm         | rpm   |
-| power supply status                               |       |
-| system drive status                               |       |
-| temperature status                                |       |
+| power supply status                               | N/A   |
+| system drive status                               | N/A   |
+| temperature status                                | N/A   |
 | *node_name~probe_id*#hardware.temperature.celsius | C     |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Metric Name                                               | Unit  |
-|:----------------------------------------------------------|:------|
-| status                                                    |       |
-| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
-| *interface_name*#interface.packets.in.error.percentage    | %     |
-| *interface_name*#interface.packets.in.discard.percentage  | %     |
-| *interface_name*#interface.packets.out.error.percentage   | %     |
-| *interface_name*#interface.packets.out.discard.percentage | %     |
+| Metric Name                                               | Unit |
+|:----------------------------------------------------------|:-----|
+| status                                                    | N/A  |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s  |
+| *interface_name*#interface.packets.in.error.percentage    | %    |
+| *interface_name*#interface.packets.in.discard.percentage  | %    |
+| *interface_name*#interface.packets.out.error.percentage   | %    |
+| *interface_name*#interface.packets.out.discard.percentage | %    |
 
 </TabItem>
 <TabItem value="Virtual-Volumes-Quotas" label="Virtual-Volumes-Quotas">
 
 | Metric Name                                                                 | Unit  |
 |:----------------------------------------------------------------------------|:------|
-| virtual_volumes.quotas.detected.count                                       |       |
+| virtual_volumes.quotas.detected.count                                       | count |
 | *volume_name~filesystem_label~target*#virtual_volume.quota.usage.bytes      | B     |
 | *volume_name~filesystem_label~target*#virtual_volume.quota.free.bytes       | B     |
 | *volume_name~filesystem_label~target*#virtual_volume.quota.usage.percentage | %     |
-| *volume_name~filesystem_label~target*#virtual_volume.quota.files.count      |       |
-| *volume_name~filesystem_label~target*#virtual_volume.quota.files.free.count |       |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.files.count      | count |
+| *volume_name~filesystem_label~target*#virtual_volume.quota.files.free.count | count |
 | *volume_name~filesystem_label~target*#virtual_volume.quota.files.percentage | %     |
 
 </TabItem>
 <TabItem value="Volume-Usage-Global" label="Volume-Usage-Global">
 
-| Metric Name                            | Unit  |
-|:---------------------------------------|:------|
-| volume status                          |       |
-| *volume_name*#volume.space.usage.bytes | B     |
+| Metric Name                            | Unit |
+|:---------------------------------------|:-----|
+| volume status                          | N/A  |
+| *volume_name*#volume.space.usage.bytes | B    |
 
 </TabItem>
 </Tabs>
@@ -119,8 +119,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your ressource.
-Please refer to the official documentation from Hitachi.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -131,9 +133,12 @@ SNMP port.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -169,7 +174,7 @@ yum install centreon-pack-hardware-storage-hitachi-hnas-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Hitachi NAS** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -242,10 +247,10 @@ yum install centreon-plugin-Hardware-Storage-Hitachi-Hnas-Snmp
 
 | Macro          | Description                                                                                                                      | Default value          | Mandatory   |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:------------|
-| UNKNOWNSTATUS  | Set unknown threshold for status (Default: '%{state} =~ /unknown/'). You can use the following variables: %{state}, %{display}   | %{state} =~ /unknown/  |             |
+| UNKNOWNSTATUS  | Set unknown threshold for status (Default: '%\{state\} =~ /unknown/'). You can use the following variables: %\{state\}, %\{display\}   | %\{state\} =~ /unknown/  |             |
 | FILTERNAME     | Filter node name (can be a regexp)                                                                                               |                        |             |
-| CRITICALSTATUS | Set critical threshold for status (Default: '%{state} =~ /offline/i'). You can use the following variables: %{state}, %{display} | %{state} =~ /offline/i |             |
-| WARNINGSTATUS  | Set warning threshold for status (Default: -). You can use the following variables: %{state}, %{display}                         |                        |             |
+| CRITICALSTATUS | Set critical threshold for status (Default: '%\{state\} =~ /offline/i'). You can use the following variables: %\{state\}, %\{display\} | %\{state\} =~ /offline/i |             |
+| WARNINGSTATUS  | Set warning threshold for status (Default: -). You can use the following variables: %\{state\}, %\{display\}                         |                        |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                              | --verbose              |             |
 
 </TabItem>
@@ -276,8 +281,8 @@ yum install centreon-plugin-Hardware-Storage-Hitachi-Hnas-Snmp
 | CRITICALOUTERROR   | Thresholds                                                                                                                                                                               |                                                      |             |
 | WARNINGOUTTRAFFIC  | Thresholds                                                                                                                                                                               |                                                      |             |
 | CRITICALOUTTRAFFIC | Thresholds                                                                                                                                                                               |                                                      |             |
-| CRITICALSTATUS     | Set critical threshold for status (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} !~ /up|dormant/ |             |
-| WARNINGSTATUS      | Set warning threshold for status. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                            |                                                      |             |
+| CRITICALSTATUS     | Set critical threshold for status (Default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up|dormant/ |             |
+| WARNINGSTATUS      | Set warning threshold for status. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                            |                                                      |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                      | --verbose                                            |             |
 
 </TabItem>
@@ -310,8 +315,8 @@ yum install centreon-plugin-Hardware-Storage-Hitachi-Hnas-Snmp
 | Macro          | Description                                                                                                                             | Default value                 | Mandatory   |
 |:---------------|:----------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:------------|
 | FILTERNAME     | Filter volume name (can be a regexp)                                                                                                    |                               |             |
-| CRITICALSTATUS | Set critical threshold for status (Default: -). You can use the following variables: %{status}, %{display}                              | %{status} =~ /needsChecking/i |             |
-| WARNINGSTATUS  | Set warning threshold for status (Default: '%{status} =~ /needsChecking/i'). You can use the following variables: %{status}, %{display} |                               |             |
+| CRITICALSTATUS | Set critical threshold for status (Default: -). You can use the following variables: %\{status\}, %\{display\}                              | %\{status\} =~ /needsChecking/i |             |
+| WARNINGSTATUS  | Set warning threshold for status (Default: '%\{status\} =~ /needsChecking/i'). You can use the following variables: %\{status\}, %\{display\} |                               |             |
 | WARNINGUSAGE   | Thresholds                                                                                                                              |                               |             |
 | CRITICALUSAGE  | Thresholds                                                                                                                              |                               |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                     | --verbose                     |             |
@@ -511,7 +516,7 @@ All generic options are listed here:
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Output |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Output |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                         | Output |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                           | Output |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                           | Output |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                            | Output |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Change storage free perfdata in used:     --change-perfdata=free,used,invert()      Change storage free perfdata in used:     --change-perfdata=used,free,invert()      Scale traffic values automaticaly:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()   | Output |
 | --extend-perfdata-group                    | Extend perfdata from multiple perfdatas (methods in target are: min, max, average, sum) Syntax: --extend-perfdata-group=searchlabel,newlabel,target\[,\[newuom\],\[m in\],\[max\]\]  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'                                               | Output |
@@ -566,9 +571,9 @@ All  modes specific options are listed here:
 | Option            | Description                                                                                                                         | Type |
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------|:-----|
 | --filter-name     | Filter node name (can be a regexp).                                                                                                 | Mode |
-| --unknown-status  | Set unknown threshold for status (Default: '%{state} =~ /unknown/'). You can use the following variables: %{state}, %{display}      | Mode |
-| --warning-status  | Set warning threshold for status (Default: -). You can use the following variables: %{state}, %{display}                            | Mode |
-| --critical-status | Set critical threshold for status (Default: '%{state} =~ /offline/i'). You can use the following variables: %{state}, %{display}    | Mode |
+| --unknown-status  | Set unknown threshold for status (Default: '%\{state\} =~ /unknown/'). You can use the following variables: %\{state\}, %\{display\}      | Mode |
+| --warning-status  | Set warning threshold for status (Default: -). You can use the following variables: %\{state\}, %\{display\}                            | Mode |
+| --critical-status | Set critical threshold for status (Default: '%\{state\} =~ /offline/i'). You can use the following variables: %\{state\}, %\{display\}    | Mode |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
@@ -607,9 +612,9 @@ All  modes specific options are listed here:
 | --add-cast               | Check interface cast.                                                                                                                                                                                                                                                                      | Mode      |
 | --add-speed              | Check interface speed.                                                                                                                                                                                                                                                                     | Mode      |
 | --add-volume             | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      | Mode      |
-| --check-metrics          | If the expression is true, metrics are checked (Default: '%{opstatus} eq "up"').                                                                                                                                                                                                           | Mode      |
-| --warning-status         | Set warning threshold for status. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                                                                              | Mode      |
-| --critical-status        | Set critical threshold for status (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                   | Mode      |
+| --check-metrics          | If the expression is true, metrics are checked (Default: '%\{opstatus\} eq "up"').                                                                                                                                                                                                           | Mode      |
+| --warning-status         | Set warning threshold for status. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                                                              | Mode      |
+| --critical-status        | Set critical threshold for status (Default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                   | Mode      |
 | --warning-* --critical-* | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   | Mode      |
 | --units-traffic          | Units of thresholds for the traffic (Default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      | Mode      |
 | --units-errors           | Units of thresholds for errors/discards (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'counter').                                                                                                                                                                     | Mode      |
@@ -648,8 +653,8 @@ All  modes specific options are listed here:
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:-----|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^status$'                                                    | Mode |
 | --filter-name            | Filter volume name (can be a regexp).                                                                                                     | Mode |
-| --warning-status         | Set warning threshold for status (Default: '%{status} =~ /needsChecking/i'). You can use the following variables: %{status}, %{display}   | Mode |
-| --critical-status        | Set critical threshold for status (Default: -). You can use the following variables: %{status}, %{display}                                | Mode |
+| --warning-status         | Set warning threshold for status (Default: '%\{status\} =~ /needsChecking/i'). You can use the following variables: %\{status\}, %\{display\}   | Mode |
+| --critical-status        | Set critical threshold for status (Default: -). You can use the following variables: %\{status\}, %\{display\}                                | Mode |
 | --warning-* --critical-* | Thresholds. Can be: 'usage'.                                                                                                              | Mode |
 | --units                  | Units of thresholds (Default: '%') ('%', 'B').                                                                                            | Mode |
 | --free                   | Thresholds are on free space left.                                                                                                        | Mode |

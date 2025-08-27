@@ -108,7 +108,7 @@ To have a fully functional Anomaly Detection service, you need to complete four 
 
 1. [Create an Anomaly Detection service](#step-1-create-an-anomaly-detection-service). This will activate the sending of the collected data to the Centreon SaaS platform, in order to start modeling regular behavior.
 2. Assess the relevance of the computed predictions.
-3. Once the model seems right, [activate status changes for the service](#activate-the-generation-of-alerts).
+3. Once the model seems right, [activate status changes for the service](#step-3-activate-status-changes).
 4. When all changes in status seem relevant, [activate the notification process](#activate-the-notification-process).
 
 ### Step 1: Create an Anomaly Detection service
@@ -137,7 +137,7 @@ You can create an Anomaly Detection service manually, or [use the creation wizar
 
    - The first predictions will appear in up to 36 hours. The service will then be in OK status, until status changes are enabled (Step 3).
 
-   > If the data to which you apply the anomaly detection has been supervised for a
+   > If the data to which you apply the anomaly detection has been monitored for a
    > certain time, you can [transfer the data
    > history](#forward-history-of-data) to obtain a reliable model more quickly.
 

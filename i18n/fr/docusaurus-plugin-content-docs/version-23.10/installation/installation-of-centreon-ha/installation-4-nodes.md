@@ -16,7 +16,7 @@ et des outils de clustering Pacemaker-Corosync pour bien comprendre ce qui va ê
 
 ### Flux réseaux
 
-En plus des flux réseaux nécessaires décrits dans le chapitre [prérequis](../architectures.md#tableaux-des-flux-réseau), il sera nécessaire d'ouvrir les flux supplémentaires suivants :
+En plus des flux réseaux nécessaires décrits dans le chapitre [prérequis](../technical.md#tableaux-des-flux-réseau), il sera nécessaire d'ouvrir les flux supplémentaires suivants :
 
 | Source                            | Destination                       | Protocole | Port     | Commentaires                                                                                                 |
 | :-------------------------------- | :-------------------------------- | :-------- | :------- | :----------------------------------------------------------------------------------------------------------- |
@@ -1368,8 +1368,8 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -1380,8 +1380,8 @@ pcs resource promotable ms_mysql \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -1392,8 +1392,8 @@ pcs resource promotable ms_mysql \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"

@@ -79,6 +79,12 @@ L'autologin n'est actuellement pas géré pour les pages suivantes :
 
 Il n'existe actuellement pas de contournement.
 
+## Centreon Tableaux de bord
+
+### Le widget MAP n'est pas encore supporté dans les listes de diffusion publiques
+
+Il n'y a pas de solution de contournement, mais la fonctionnalité sera disponible dans une prochaine version.
+
 ## Centreon MBI
 
 ### Vous obtenez des erreurs lors de l'import journalier et calcul des statistiques

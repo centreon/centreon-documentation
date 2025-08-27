@@ -15,7 +15,7 @@ DBMS.
 One partition per day is created for the following tables:
 
 - **data\_bin**: performance data
-- **logs**: event logs from the supervision engine collection.
+- **logs**: event logs from the monitoring engine collection.
 - **log\_archive\_host**: availability data concerning hosts.
 - **log\_archive\_service**: availability data concerning services.
 
@@ -64,8 +64,7 @@ systemctl restart mariadb
 
 ## Configuration
 
-The data retention time is programmed in the `Administration > Parameters >
-Options` menu:
+The data retention time is programmed in the **Administration > Parameters > Options** menu:
 
 ![image](../assets/administration/partitioning-configuration.png)
 

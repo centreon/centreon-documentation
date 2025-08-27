@@ -13,10 +13,10 @@ Pour créer un hôte manuellement :
 
 ### Informations générales
 
-* Le champ **Nom** définit le nom d’hôte qui sera utilisé par le moteur de supervision. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
+* Le champ **Nom** définit le nom d’hôte qui sera utilisé par le moteur de supervision. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces. L'utilisation d'un nom contenant `/` peut également avoir un impact technique sur les requêtes SQL, l'interface web ou d'autres problèmes de compatibilité avec des outils tiers. Nous recommandons de n'utiliser que `_-.` pour les noms d'hôtes.
 * Le champ **Alias** indique l’alias de l’hôte.
 * Le champ **Adresse** définit l'adresse IP ou le nom DNS de l’hôte. Le bouton **Résoudre** permet de résoudre le nom de
-  domaine en interrogeant le serveur DNS configuré sur le serveur central.
+  domaine en interrogeant le serveur DNS configuré sur la plateforme SaaS.
 * Le champ **Modèles** permet d’associer un ou plusieurs modèles d’hôtes à cet objet.
 
    En cas de conflits de paramètres présents sur plusieurs modèles, le modèle d’hôte au-dessus écrase les propriétés
@@ -57,7 +57,7 @@ identiques définies dans modèles d’hôtes en dessous.
 
 ### Classification
 
-* Le champ **Groupes d'hôtes** définit les groupes d’hôtes auxquels l’hôte appartient.
+* Le champ **Groupes d'hôtes** définit les groupes d’hôtes auxquels l’hôte appartient. Vous devez associer au moins un groupe d'hôtes (champ obligatoire pour des raisons de gestion des ACLs).
 * Le champ **Catégories d'hôte** définit les catégories auxquelles l’hôte appartient.
 * Le champ **Criticité d'hôte** indique le niveau de criticité de l’hôte.
 
