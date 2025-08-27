@@ -45,7 +45,7 @@ tests de pénétration manuels sont effectués chaque année afin d'identifier d
 
 ## Publication des vulnérabilités
 
-Pour marquer son engagement en faveur de la sécurité et de la gestion des vulnérabilités, Centreon est une [CNA](https://www.cve.org/Media/News/item/news/2025/02/11/Centreon-Added-as-CNA) (CVE Numbering Authority). Centreon est désormais autorisé à attribuer des identifiants CVE aux vulnérabilités affectant ses produits, y compris les composants logiciels open source. Cette désignation garantit un processus plus efficace et plus transparent pour identifier, gérer et divulguer les vulnérabilités de sécurité. 
+Pour marquer son engagement en faveur de la sécurité et de la gestion des vulnérabilités, Centreon est devenue une [CNA](https://www.cve.org/Media/News/item/news/2025/02/11/Centreon-Added-as-CNA) (CVE Numbering Authority). Centreon est désormais autorisé à attribuer des identifiants CVE aux vulnérabilités affectant ses produits, y compris les composants logiciels open source. Cette désignation garantit un processus plus efficace et plus transparent pour identifier, gérer et divulguer les vulnérabilités de sécurité. 
 Ce rôle permet à Centreon de traiter rapidement les problèmes de sécurité potentiels, en tenant informés les utilisateurs et les professionnels de l'informatique tout en renforçant la sécurité globale de ses solutions.
 
 Centreon publie également des bulletins de sécurité pour communiquer sur les correctifs de sécurité : 

@@ -45,7 +45,7 @@ practice recommendations for safe implementation.
 
 ## Vulnerability publication
 
-To mark its commitment to security and vulnerability management, Centreon is a [CNA](https://www.cve.org/Media/News/item/news/2025/02/11/Centreon-Added-as-CNA) (CVE Numbering Authority). Centreon is now authorized to assign CVE identifiers to vulnerabilities affecting its products, including open-source software components. This designation ensures a more efficient and transparent process for identifying, managing, and disclosing security vulnerabilities. 
+To mark its commitment to security and vulnerability management, Centreon has become a [CNA](https://www.cve.org/Media/News/item/news/2025/02/11/Centreon-Added-as-CNA) (CVE Numbering Authority). Centreon is now authorized to assign CVE identifiers to vulnerabilities affecting its products, including open-source software components. This designation ensures a more efficient and transparent process for identifying, managing, and disclosing security vulnerabilities. 
 This role enables Centreon to swiftly address potential security issues, keeping users and IT professionals informed while enhancing the overall security posture of its solutions.
 
 Centreon also publish security bulletin to communicate about security fixes : 
