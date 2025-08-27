@@ -60,7 +60,7 @@ analyse 100 % du code source, mais aussi les dépendances. Elle permet de détec
 le processus SDLC.
 ● Analyse des vulnérabilités de l'infrastructure : assez similaire au DAST, mais lié à l'
 infrastructure : serveurs, VM, conteneurs...
-● Programme de prime aux bogues et programme de divulgation publique des vulnérabilités
+ Programme de prime aux bugs et programme de divulgation publique des vulnérabilités
 ● Tests d'intrusion
 
 À la réception d'un rapport sur une vulnérabilité, Centreon tentera de reproduire la vulnérabilité signalée
