@@ -200,9 +200,6 @@ jobs:
           restore-keys: |
             docusaurus-build-${{ matrix.environment }}-staging
 
-      - run: ls -l ./node_modules/.cache || true
-        shell: bash
-
       - name: Build documentation
         run: pnpm build
         env:
