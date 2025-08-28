@@ -315,7 +315,8 @@ apt install centreon-monitoring-agent
   "log_type":"file",
   "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
   "encryption":<full/insecure>,
-  "ca_certificate":"/tmp/ca_1234.crt",
+  "ca":"/tmp/ca_1234.crt",
+  "ca_common_name":"",
   "token":"<JETON>"
 }
 ```
@@ -334,7 +335,7 @@ apt install centreon-monitoring-agent
   "encryption":<full/insecure>,
   "private_key":"/tmp/server_1234.key",
   "public_cert":"/tmp/server_1234.crt",
-  "ca_certificate":"/tmp/ca_1234.crt",
+  "ca":"/tmp/ca_1234.crt"
   "token":"<JETON>"
 }
 ```
