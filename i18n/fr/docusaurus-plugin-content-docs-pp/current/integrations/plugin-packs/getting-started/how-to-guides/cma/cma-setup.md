@@ -349,6 +349,9 @@ apt install centreon-monitoring-agent
 
 Voir [section dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
 
+> Lors de la migration depuis une version antérieure de CMA, les données configurées sont conservées. Ainsi, tout chiffrement activé sera considéré comme "encryption":insecure.
+Vous pouvez modifier cette valeur au besoin, et redémarrer l'agent.
+
 #### Configurez les logs
 
 Deux types de log sont disponibles :
@@ -448,6 +451,8 @@ Si vous utilisez l'option **--install_plugins** et que le téléchargement écho
 </TabItem>
 </Tabs>
 
+
+
 #### Données de configuration
 
 Les données renseignées via l'installer ou le mode silencieux sont écrites en base de registre : 
@@ -460,6 +465,8 @@ Les données renseignées via l'installer ou le mode silencieux sont écrites en
 
 Voir [section dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
 
+> Lors de la migration depuis une version antérieure de CMA, les données configurées sont conservées. Ainsi, tout chiffrement activé sera considéré comme "encryption":insecure.
+Vous pouvez modifier cette valeur au besoin, et redémarrer l'agent.
 
 #### Configurez les logs
 
