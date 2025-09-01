@@ -58,10 +58,10 @@ in the Centreon environment:
 * SAST (Static application security testing) : This is a built-in CI/CD functionality that
 scans 100% of the codebase but also dependencies. It discovers vulnerabilities early in
 the SDLC process.
-* Infrastructure Vulnerability scanning : Quite the same as DAST but related to
-infrastructure: Servers, VM, containers...
-● Bug Bounty Program & Public vulnerability disclosure program
-● Penetration testing
+* Infrastructure vulnerability scanning : quite the same as DAST but related to
+infrastructure: servers, VM, containers...
+* Bug Bounty Program & Public vulnerability disclosure program
+* Penetration testing
 
 Upon receipt of a report for a vulnerability, Centreon will attempt to replicate the reported
 vulnerability and build an action plan with timelines depending on the computed severity.
