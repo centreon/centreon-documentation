@@ -6,7 +6,7 @@ title: Centreon and Security
 Organizations around the world turn to Centreon to provide business-aware monitoring of their IT
 for always-on operations and performance excellence. Centreon is committed to the security of the
 data they rely on and is continuously improving policies, processes, and products to meet the highest
-standards. Read more information throughout this page.
+standards.
 
 ## Product security by design
 
