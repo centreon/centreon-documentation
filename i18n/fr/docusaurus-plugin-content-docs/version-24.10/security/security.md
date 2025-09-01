@@ -41,6 +41,7 @@ sécurité, et détermine si la contribution est acceptée ou rejetée.
 En plus des contrôles de sécurité effectués dans le cadre de l'intégration continue, tels que les tests de version, des
 tests de pénétration manuels sont effectués chaque année afin d'identifier de manière indépendante les vulnérabilités et d'ajuster les recommandations de bonnes pratiques pour une mise en œuvre sécurisée.
 
+
 ## Publication des vulnérabilités
 
 ## Publication des vulnérabilités
