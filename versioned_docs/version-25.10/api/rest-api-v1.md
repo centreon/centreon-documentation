@@ -1854,12 +1854,12 @@ To delete more than one hostgroup, use the character '|'. Example:
     - setparam
     - gethosts
 
-### Resource CFG (pollers related macros)
+### Resource CFG (global macros)
 
 `RESOURCECFG` objects allow to define macro values that apply to a set of pollers.  
 A `RESOURCECFG` object defines a macro for one or multiple pollers.  
 The same macro can be defined in multiple `RESOURCECFG` objects with complementary lists of pollers.  
-More information here: [Resource macros](../monitoring/basic-objects/macros.md#resource-macros)
+More information here: [Global macros](../monitoring/basic-objects/macros.md#global-macros)
 
 #### List RESOURCECFG objects
 
