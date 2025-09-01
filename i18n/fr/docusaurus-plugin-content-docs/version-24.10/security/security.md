@@ -76,7 +76,7 @@ les problèmes qui présentent le plus de risques pour Centreon et les mesures c
 La classification doit suivre le CVSS v3 :
 
 | Score CVSS           | Plan de remédiation                                                                                                                                                                                      |
-|----------------------|-------------------------------------------- ---------------------------------------------------------------------------------------------------- -------------------------------------------------------|
+|----------------------|----------------------------------|
 | 9,0 - 10 (Critique)  | Il s'agit d'un blocage qui doit être pris en compte immédiatement par l'équipe. Un hotfix est nécessaire. |
 | 7,0 - 8,9 (Élevé)     | Correction ou solution de contournement dans les 30 jours                                                                         |
 | 4,0 - 6,9 (Moyen)   | Prochaine version prévue : 6 mois (généralement dans les 6 mois)                                                                                                  |
