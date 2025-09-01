@@ -3,10 +3,9 @@ id: security
 title: Centreon et la sécurité 
 ---
 
-Les organisations du monde entier font appel à Centreon pour assurer une surveillance de leur informatique adaptée à leur activité,
+Les organisations du monde entier font appel à Centreon pour assurer une supervision de leur informatique adaptée à leur activité,
 afin de garantir une disponibilité permanente et l'excellence des performances. Centreon s'engage à assurer la sécurité des
 données sur lesquelles elles s'appuient et améliore en permanence ses politiques, ses processus et ses produits afin de répondre aux normes les plus strictes.
-Pour plus d'informations, consultez cette page.
 
 ## Sécurité des produits dès la conception
 
@@ -14,7 +13,7 @@ Pour plus d'informations, consultez cette page.
 
 La sécurité dès la conception est une préoccupation majeure tout au long du processus de développement de Centreon, qui garantit que
 les produits et services sont conçus dès le départ pour répondre aux besoins en matière de sécurité des données, notamment en termes de contrôle d'accès,
- de surveillance et de cryptage.
+ de surveillance et de chiffrement.
 
 Un pipeline d'intégration continue est utilisé pour automatiser le processus, de la demande d'extraction à la
 livraison de l'image/du paquet. Les modifications du code sont d'abord examinées à l'aide d'analyses de qualité du code, puis elles doivent être
@@ -41,6 +40,7 @@ sécurité, et détermine si la contribution est acceptée ou rejetée.
 
 En plus des contrôles de sécurité effectués dans le cadre de l'intégration continue, tels que les tests de version, des
 tests de pénétration manuels sont effectués chaque année afin d'identifier de manière indépendante les vulnérabilités et d'ajuster les recommandations de bonnes pratiques pour une mise en œuvre sécurisée.
+
 ## Publication des vulnérabilités
 
 ## Publication des vulnérabilités
@@ -55,10 +55,10 @@ Abonnez-vous au [fil de discussion des bulletins de sécurité](https://thewatch
 
 La gestion des vulnérabilités consiste à les détecter et à les classer. Pour les détecter, certains outils existent
 dans l'environnement Centreon :
-● SAST (Static application security testing) : il s'agit d'une fonctionnalité CI/CD intégrée qui
+* SAST (Static application security testing) : il s'agit d'une fonctionnalité CI/CD intégrée qui
 analyse 100 % du code source, mais aussi les dépendances. Elle permet de détecter les vulnérabilités plus tôt dans
 le processus SDLC.
-● Analyse des vulnérabilités de l'infrastructure : assez similaire au DAST, mais lié à l'
+* Analyse des vulnérabilités de l'infrastructure : assez similaire au DAST, mais liée à l'
 infrastructure : serveurs, VM, conteneurs...
  Programme de prime aux bugs et programme de divulgation publique des vulnérabilités
 * Tests d'intrusion
@@ -72,25 +72,25 @@ la vulnérabilité.
 ### Notation des vulnérabilités
 
 Les vulnérabilités découvertes sont analysées et évaluées afin d'exclure les faux positifs, d'identifier
-les problèmes qui présentent le plus de risques pour Centreon et les mesures correctives qui ont le moins d'impact sur l'environnement de Centreon
-.
+les problèmes qui présentent le plus de risques pour Centreon et les mesures correctives qui ont le moins d'impact sur l'environnement de Centreon.
 La classification doit suivre le CVSS v3 :
 
 | Score CVSS           | Plan de remédiation                                                                                                                                                                                      |
 |----------------------|-------------------------------------------- ---------------------------------------------------------------------------------------------------- -------------------------------------------------------|
-| 9,0 - 10 (Critique)  | Il s'agit d'un blocage qui doit être pris en compte immédiatement par le
+| 9,0 - 10 (Critique)  | Il s'agit d'un blocage qui doit être pris en compte immédiatement par l'équipe. Un hotfix est nécessaire. |
 | 7,0 - 8,9 (Élevé)     | Correction ou solution de contournement dans les 30 jours                                                                         |
-| 4,0 - 6,9 (Moyen)   | Prochaine version prévue : 6 mois (généralement  dans les 6 mois)                                                                                                  |
+| 4,0 - 6,9 (Moyen)   | Prochaine version prévue : 6 mois (généralement dans les 6 mois)                                                                                                  |
 | 0,1 – 3,9 (Faible)      | 12 mois                                                                    |
 
 ### Programme de divulgation des vulnérabilités
-Centreon suit la politique de divulgation responsable : 
-● Les attaques par déni de service (DoS) sur les applications, serveurs, réseaux ou infrastructures de Centreon
+
+Centreon suit une politique de divulgation responsable : 
+* Les attaques par déni de service (DoS) sur les applications, serveurs, réseaux ou infrastructures de Centreon
 sont strictement interdites.
-● Évitez les tests susceptibles d'entraîner une dégradation ou une interruption de nos services.
-● N'utilisez pas de scanners automatisés ou d'outils générant un trafic réseau important.
-● Ne divulguez, ne manipulez et ne détruisez aucune donnée ou fichier utilisateur dans nos applications/serveurs.
-● Ne copiez aucun fichier de nos applications/serveurs et ne les divulguez pas.
+* Évitez les tests susceptibles d'entraîner une dégradation ou une interruption de nos services.
+* N'utilisez pas de scanners automatisés ou d'outils générant un trafic réseau important.
+* Ne divulguez, ne manipulez et ne détruisez aucune donnée ou fichier utilisateur dans nos applications/serveurs.
+* Ne copiez aucun fichier de nos applications/serveurs et ne les divulguez pas.
 
 En tant que projet open source, Centreon autorise la divulgation des vulnérabilités par la communauté. Le
 programme de divulgation des vulnérabilités est mis en œuvre et doit être suivi pour que la divulgation soit prise
@@ -112,7 +112,7 @@ La politique publique de divulgation des vulnérabilités de Centreon est dispon
 
 ### Configuration sécurisée
 
-La documentation Centreon comprend les meilleures pratiques pour sécuriser les [composants de surveillance](../administration/secure-platform.md) ainsi que la
+La documentation Centreon comprend les meilleures pratiques pour sécuriser les [composants de supervision](../administration/secure-platform.md) ainsi que la
 [plateforme MAP](../graph-views/secure-your-map-platform.md). Centreon recommande aux administrateurs de lire attentivement ces pages lorsqu'ils
 planifient une installation et de partager ces directives avec leurs équipes de sécurité internes.
 
