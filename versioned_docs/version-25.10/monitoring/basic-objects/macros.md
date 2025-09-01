@@ -59,23 +59,23 @@ $_SERVICEWARNING$, $_SERVICECRITICAL$.
 The **Community SNMP & Version** fields in a host form automatically generate the following customized macros:
 $_HOSTSNMPCOMMUNITY$ and $_HOSTSNMPVERSION$.
 
-## Resource macros
+## Global macros
 
-Macros of resources are global macros that are used by the monitoring engine. These macros can be invoked by any type
+Global macros are used by the monitoring engine. These macros can be invoked by any type
 of command. They come in the form: $USERn$ where ‘n’ lies between 1 and 256.
 
 In general, these macros are used to refer to paths containing monitoring probes. By default the $USER1$
 macro is created, and its value is the following: /usr/lib/nagios/plugins.
 
-To add a resource macro:
+To add a global macro:
 
-* Go into the **Configuration \> Pollers \> Resources** menu
+* Go into the **Configuration \> Pollers \> Global macros** menu
 * Click **Add**
 
-![image](../../assets/configuration/01macrosressources.png)
+![image](../../assets/configuration/01globalmacros.png)
 
-* The **Resource Name** field defines the name of the resource macro, e.g.: $USER3$
-* The **MACRO Expression** field defines the value of the macro.
+* The **Name** field defines the name of the macro, e.g.: $USER3$
+* The **Expression** field defines the value of the macro.
 * The **Linked Instances** list allows us to define which monitoring poller will be able to access this macro.
 * The **Status** and **Comment** fields are used to enable / disable the macro and to comment on it.
 
