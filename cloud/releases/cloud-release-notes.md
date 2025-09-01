@@ -3,43 +3,42 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
-## August Xth, 2025
+## September Xth, 2025
 
 ### Centreon IT Edition
 
 **Centreon Monitoring Agent**
 
-The Centreon Monitoring Agent is now Generally available and fully supported by our teams.
+The Centreon Monitoring Agent is now generally available and fully supported by our teams.
 As such, we have implemented the following features and enhancements:
 
 - Authenticated communication thanks to token management.
 - Dedicated whitelist for CMA commands. Only whitelisted commands can be executed by the CMA agent.
-- Native Files and Task scheduler check for Windows & Linux.
-- Central poller configuration: You can now use Central poller to collect data from your agents. (TBC)
-- The agent configuration TLS connection now requires a valid authentication token.
-- To avoid disrupting configurations already in place at the time of the update, a default Token has been generated and applied to existing configuration and Host .
-  * This token must be copied (from Administration > Authentication tokens list) and applied on the agent configuration, on the Host.
-- An issue has also been fixed, regarding Host mapping in "Poller-initiated connection" mode, and may need a check if you are using same IP addresses for multiple Hosts
-  * In "Agent configuration", please ensure each Host is correctly mapped in the “Select host” field, which must display the Host name
-  * Export the configuration and restart Engine, as well as the Agent on the Host
+- Native **Files** and **Task scheduler** check for Windows & Linux.
+- Central poller configuration: you can now use the central poller to collect data from your agents. (TBC)
+- The agent configuration now requires a valid authentication token for TLS connection.
+- To avoid disrupting configurations already in place at the time of the update, a default token has been generated and applied to existing configurations and hosts.
+  * This token must be copied (from the **Administration > Authentication tokens** page) and applied to the agent configuration, on the host.
+- An issue has also been fixed regarding host mapping in **Poller-initiated connection** mode, and may need a check if you are using the same IP addresses for multiple hosts:
+  * In **Agent configuration**, please ensure each host is correctly mapped in the **Select host** field, which must display the host's name
+  * Deploy the configuration and restart Engine, as well as the agent on the host.
 
-**Meta-services**
+**Metaservices**
 
-It is now possible to use Centreon Meta-services. 
-A meta-service is a virtual service providing the aggregation of metrics from different services via a mathematical operation. 
-Meta-services are managed in the same way as a service, i.e. they have thresholds, a notification process, generate a performance graph, etc.
+It is now possible to use Centreon metaservices. 
+A metaservice is a virtual service providing the aggregation of metrics from different services via a mathematical operation. 
+Metaservices are managed in the same way as a service, i.e. they have thresholds, a notification process, they generate a performance graph, etc.
 
 
 **Miscellaneous**
 
-Centreon uses service accounts for technical purpose. 
-Those are now correctly hidden in all user interface and only real users are listed.
+Centreon uses service accounts for technical purposes. Those are now correctly hidden in all user interfaces, and only real users are listed.
 
-Flapping state and disable service check when host is down are now activated.
+Flapping detection is now enabled, as well as the possibility to disable service checks when a host is down.
 
-Two new options have been added to the script which handle poller installation and update:
-- option --reset allows you to reinstall the poller from scratch.
-- option --private-repo allows you to specify repository from where Centreon package are fetched in case you can't use default ones.
+Two new options have been added to the script which handles poller installation and update:
+- the **--reset** option allows you to reinstall the poller from scratch.
+- the **--private-repo** option allows you to specify a repository from where Centreon packages are fetched in case you cannot use the default ones.
 
 
 ## July 29th, 2025
