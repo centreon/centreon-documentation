@@ -5,12 +5,6 @@ title: Azure App Service Plan
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Un plan App Service définit un ensemble de ressources de calcul nécessaires à l’exécution d’une application web. Ces ressources
-de calcul sont analogues à la batterie de serveurs dans l’hébergement web classique. Une ou plusieurs applications peuvent être
-configurées pour s’exécuter sur les mêmes ressources informatiques (ou dans le même plan App Service).
-
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure App Service Plan**
