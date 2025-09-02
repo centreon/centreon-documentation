@@ -50,7 +50,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin d'utiliser ce Pack de supervision, il est nécessaire d'attribuer les bons privilèges à votre application/client. Ces privilèges
+Afin d'utiliser ce connecteur de supervision, il est nécessaire d'attribuer les bons privilèges à votre application/client. Ces privilèges
 sont listés [ici](https://docs.microsoft.com/en-us/graph/api/organization-get?view=graph-rest-beta&tabs=http#permissions).
 
 La procédure pour définir une application est disponible [ici](../procedures/cloud-microsoft-office365-management.md#prérequis).
@@ -208,7 +208,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--tenant='xxxxxxxxxxx' \
 	--client-id='xxxxxxxxxxx' \
 	--client-secret='xxxxxxxxxxx'  \
-	--warning-usage='xxxxxxxxxxx' \
+	--warning-usage='' \
 	--critical-usage='' \
 	--units='%' \
 	--verbose
