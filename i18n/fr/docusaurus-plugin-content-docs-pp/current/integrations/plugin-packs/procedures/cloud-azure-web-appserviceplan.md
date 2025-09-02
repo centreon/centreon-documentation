@@ -158,7 +158,7 @@ dnf install centreon-pack-cloud-azure-web-appserviceplan
 ```bash
 apt install centreon-pack-cloud-azure-web-appserviceplan
 ```
-
+  
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 

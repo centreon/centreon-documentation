@@ -196,7 +196,7 @@ dnf install centreon-plugin-Cloud-Azure-Web-AppServicePlan-Api
 ```bash
 dnf install centreon-plugin-Cloud-Azure-Web-AppServicePlan-Api
 ```
-
+  
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
