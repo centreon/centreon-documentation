@@ -203,7 +203,7 @@ yum install centreon-plugin-Applications-Weblogic-Jmx
 |:--------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | JOLOKIAUSERNAME     | Credentials to use for the HTTP request                                                              |                   |             |
 | JOLOKIAPASSWORD     | Credentials to use for the HTTP request                                                              |                   |             |
-| JOLOKIAURL          | Url where the jolokia agent is deployed (required). Example: http://localhost:8080/jolokia           |                   |             |
+| JOLOKIAURL          | URL where the Jolokia agent is deployed (required). Example: http://localhost:8080/jolokia           |                   |             |
 | JOLOKIAEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
