@@ -217,7 +217,7 @@ yum install centreon-plugin-Applications-Drbd-Ssh
 | CRITICALRESOURCESTOTAL              | Threshold                                                                                          |                                                                                                                                             |             |
 | CRITICALROLE                        | Threshold                                                                                          | %\{role\} =~ /unconfigured/i                                                                                                                |             |
 | WARNINGROLE                         | Threshold                                                                                          |                                                                                                                                             |             |
-| EXTRAOPTIONS                        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                                                                                                                                   |             |
+| EXTRAOPTIONS                        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). | --verbose                                                                                                                                   |             |
 
 </TabItem>
 </Tabs>
