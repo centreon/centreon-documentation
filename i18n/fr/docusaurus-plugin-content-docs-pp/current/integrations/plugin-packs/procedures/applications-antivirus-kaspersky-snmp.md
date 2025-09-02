@@ -5,17 +5,6 @@ title: Kaspersky
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Kaspersky est une société privée qui fournit des solutions de cybersécurité et
-antivirus. Elle a été fondée en 1997 par Eugene Kaspersky, Natalya Kaspersky et
-Alexey De-Monderik.
-
-Le connecteur de supervision Centreon Kaspersky permet de récupérer, par l'intermédiaire du
-protocole SNMP, le statut du Serveur d'Administration et des applications
-administrées.
-
-
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Kaspersky**
