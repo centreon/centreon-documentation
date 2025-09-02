@@ -177,7 +177,7 @@ yum install centreon-plugin-Applications-Awa-Jmx
 |:----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | AWAUSERNAME     | Credentials to use for the HTTP request                                                              |                   |             |
 | AWAPASSWORD     | Credentials to use for the HTTP request                                                              |                   |             |
-| AWAURL          | Url where the jolokia agent is deployed (required). Example: http://localhost:8080/jolokia           |                   |             |
+| AWAURL          | URL where the Jolokia agent is deployed (required). Example: http://localhost:8080/jolokia           |                   |             |
 | AWAEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -234,8 +234,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--mode=queue \
 	--custommode=jolokia \
 	--url='' \
-	--username='xxxxx' \
-	--password='xxxxx'  \
+	--username='' \
+	--password=''  \
 	--filter-name='' \
 	--warning-status='' \
 	--critical-status=''
