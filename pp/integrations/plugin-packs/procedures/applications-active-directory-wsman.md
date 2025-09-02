@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                        | Service Description                                                                   |
 |:--------------|:----------------------------------------|:--------------------------------------------------------------------------------------|
-| Dcdiag        | App-ActiveDirectory-Dcdiag-WSMAN-custom | This check makes to diagnose the domain controller. It executes the command "dcdiag"  |
+| Dcdiag        | App-ActiveDirectory-Dcdiag-WSMAN-custom | This check diagnoses the domain controller. It executes the "dcdiag" command.  |
 
 > The services listed above are created automatically when the **App-ActiveDirectory-WSMAN-custom** host template is used.
 
