@@ -63,7 +63,7 @@ Le connecteur apporte les modèles de service suivants
 | File-Capacity                  | Cloud-Azure-Storage-StorageAccount-File-Capacity-Api-custom                  | Contrôle le volume de type File utilisé sur le stockage                            |            |
 | File-Count                     | Cloud-Azure-Storage-StorageAccount-File-Count-Api-custom                     | Contrôle le nombre de fichiers sur le stockage                                     |            |
 | File-Share-Count               | Cloud-Azure-Storage-StorageAccount-File-Share-Count-Api-custom               | Contrôle le nombre de partages sur le stockage                                      |            |
-| File-Share-Quota               | Cloud-Azure-Storage-StorageAccount-File-Share-Quota-Api-custom               | Contrôle le nombre de partage sur le stockage                                      | X          |
+| File-Share-Quota               | Cloud-Azure-Storage-StorageAccount-File-Share-Quota-Api-custom               | Contrôle le nombre de partages sur le stockage                                      | X          |
 | File-Transactions-Availability | Cloud-Azure-Storage-StorageAccount-File-Transactions-Availability-Api-custom | Contrôle le taux de disponibilité du stockage                                      |            |
 | File-Transactions-Count        | Cloud-Azure-Storage-StorageAccount-File-Transactions-Count-Api-custom        | Contrôle le nombre de transactions sur le stockage                                 |            |
 | File-Transactions-Latency      | Cloud-Azure-Storage-StorageAccount-File-Transactions-Latency-Api-custom      | Contrôle la latence et le temps de traitement des requêtes réussies sur le stockage |            |
@@ -94,8 +94,8 @@ Le connecteur apporte les modèles de service suivants
 | Alias                           | Modèle de service                                                             | Description                                                                        |
 |:--------------------------------|:------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
 | Table-Capacity                  | Cloud-Azure-Storage-StorageAccount-Table-Capacity-Api-custom                  | Contrôle le volume de type Table utilisé sur le stockage                           |
-| Table-Count                     | Cloud-Azure-Storage-StorageAccount-Table-Count-Api-custom                     | Contrôle le nombre de table sur le stockage                                        |
-| Table-Entity-Count              | Cloud-Azure-Storage-StorageAccount-Table-Entity-Count-Api-custom              | Contrôle le nombre d'entrée dans les tables sur le stockage                        |
+| Table-Count                     | Cloud-Azure-Storage-StorageAccount-Table-Count-Api-custom                     | Contrôle le nombre de tables sur le stockage                                        |
+| Table-Entity-Count              | Cloud-Azure-Storage-StorageAccount-Table-Entity-Count-Api-custom              | Contrôle le nombre d'entrées dans les tables sur le stockage                        |
 | Table-Transactions-Availability | Cloud-Azure-Storage-StorageAccount-Table-Transactions-Availability-Api-custom | Contrôle le taux de disponibilité du stockage                                      |
 | Table-Transactions-Count        | Cloud-Azure-Storage-StorageAccount-Table-Transactions-Count-Api-custom        | Contrôle le nombre de transactions sur le stockage                                 |
 | Table-Transactions-Latency      | Cloud-Azure-Storage-StorageAccount-Table-Transactions-Latency-Api-custom      | Contrôle la latence et le temps de traitement des requêtes réussies sur le stockage |
@@ -494,7 +494,7 @@ yum install centreon-plugin-Cloud-Azure-Storage-StorageAccount-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Remplissez le champ **Adresse IP/DNS** avec l'adresse **127.0.0.1**.
 3. Appliquez le modèle d'hôte **Cloud-Azure-Storage-StorageAccount-Account-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires. Par exemple, pour ce connecteur, **AZURECUSTOMMODE** (valeurs possibles : **api** ou **azcli**). En effet, il existe plusieurs modes de communication avec l'équipement supervisé : soit l'outil en ligne de commande azcli, soit une interrogation directe de l'api.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires. Par exemple, pour ce connecteur, **AZURECUSTOMMODE** (valeurs possibles : **api** ou **azcli**). En effet, il existe plusieurs modes de communication avec l'équipement supervisé : soit l'outil en ligne de commande azcli, soit une interrogation directe de l'API.
 
 | Macro              | Description                                                                                                                                                              | Valeur par défaut              | Obligatoire |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|

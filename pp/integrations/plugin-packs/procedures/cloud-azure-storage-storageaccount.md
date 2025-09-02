@@ -62,7 +62,7 @@ The connector brings the following service templates (sorted by the host templat
 | File-Capacity                  | Cloud-Azure-Storage-StorageAccount-File-Capacity-Api-custom                  | Check File type storage usage                                       |            |
 | File-Count                     | Cloud-Azure-Storage-StorageAccount-File-Count-Api-custom                     | Check file count on the storage                                     |            |
 | File-Share-Count               | Cloud-Azure-Storage-StorageAccount-File-Share-Count-Api-custom               | Check share count on the storage                                    |            |
-| File-Share-Quota               | Cloud-Azure-Storage-StorageAccount-File-Share-Quota-Api-custom               | Check share count on the storage                                    | X          |
+| File-Share-Quota               | Cloud-Azure-Storage-StorageAccount-File-Share-Quota-Api-custom               | Check storage account fileshare capacity usage                                    | X          |
 | File-Transactions-Availability | Cloud-Azure-Storage-StorageAccount-File-Transactions-Availability-Api-custom | Check storage file availability                                     |            |
 | File-Transactions-Count        | Cloud-Azure-Storage-StorageAccount-File-Transactions-Count-Api-custom        | Check storage file transactions number                              |            |
 | File-Transactions-Latency      | Cloud-Azure-Storage-StorageAccount-File-Transactions-Latency-Api-custom      | Check storage file successfull requests latency and processing time |            |
