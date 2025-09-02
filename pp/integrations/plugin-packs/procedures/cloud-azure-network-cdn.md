@@ -5,11 +5,6 @@ title: Azure CDN
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Azure Content Delivery Network is a solution designed for developers for
-delivering high-bandwidth content to customers.
-
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Azure CDN** connector through the
