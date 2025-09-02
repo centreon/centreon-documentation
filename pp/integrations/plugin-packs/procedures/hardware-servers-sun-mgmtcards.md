@@ -2,68 +2,569 @@
 id: hardware-servers-sun-mgmtcards
 title: Sun MgmtCard
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Sun MgmtCard** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
+
+## Pack assets
+
+### Templates
+
+The Monitoring Connector **Sun MgmtCard** brings 9 host templates:
+
+* **HW-Server-Sun-Alom-TELNET-custom**
+* **HW-Server-Sun-Alom4v-SSH-custom**
+* **HW-Server-Sun-Ilom-IPMITOOL-custom**
+* **HW-Server-Sun-Ilom-SSH-custom**
+* **HW-Server-Sun-Mseries-SSH-custom**
+* **HW-Server-Sun-Sf2xx-TELNET-custom**
+* **HW-Server-Sun-Sfxxxx-TELNET-custom**
+* **HW-Server-Sun-V4xx-TELNET-custom**
+* **HW-Server-Sun-V8xx-TELNET-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
+
+<Tabs groupId="sync">
+<TabItem value="HW-Server-Sun-Alom-TELNET-custom" label="HW-Server-Sun-Alom-TELNET-custom">
+
+| Service Alias | Service Template                                | Service Description                                                  |
+|:--------------|:------------------------------------------------|:---------------------------------------------------------------------|
+| Hardware      | HW-Sun-MgmtCard-Showenvironment-TELNET-custom   | Check Sun vXXX (v240, v440, v245,...) Hardware (through ALOM)        |
+
+> The services listed above are created automatically when the **HW-Server-Sun-Alom-TELNET-custom** host template is used.
+
+</TabItem>
+<TabItem value="HW-Server-Sun-Alom4v-SSH-custom" label="HW-Server-Sun-Alom4v-SSH-custom">
+
+| Service Alias | Service Template                                | Service Description                                                  |
+|:--------------|:------------------------------------------------|:---------------------------------------------------------------------|
+| Hardware      | HW-Sun-MgmtCard-Showfaults-SSH-custom           | Check Sun 'T1xxx', 'T2xxx' ans 'T5xxx' Hardware through ALOM4v       |
+
+> The services listed above are created automatically when the **HW-Server-Sun-Alom4v-SSH-custom** host template is used.
+
+</TabItem>
+<TabItem value="HW-Server-Sun-Ilom-IPMITOOL-custom" label="HW-Server-Sun-Ilom-IPMITOOL-custom">
+
+This host template is not linked to any service template.
+
+</TabItem>
+<TabItem value="HW-Server-Sun-Ilom-SSH-custom" label="HW-Server-Sun-Ilom-SSH-custom">
+
+| Service Alias | Service Template                                | Service Description                                                  |
+|:--------------|:------------------------------------------------|:---------------------------------------------------------------------|
+| Hardware      | HW-Sun-MgmtCard-Show-Faulty-SSH-custom          | Check Sun 'T3-x', 'T4-x' and 'T5xxx' Hardware through ILOM           |
+
+> The services listed above are created automatically when the **HW-Server-Sun-Ilom-SSH-custom** host template is used.
+
+</TabItem>
+<TabItem value="HW-Server-Sun-Mseries-SSH-custom" label="HW-Server-Sun-Mseries-SSH-custom">
+
+| Service Alias | Service Template                                | Service Description                                                  |
+|:--------------|:------------------------------------------------|:---------------------------------------------------------------------|
+| Hardware      | HW-Sun-MgmtCard-Showstatus-SSH-custom           | Check Sun 'Mxxx' Hardware through XSCF                               |
+
+> The services listed above are created automatically when the **HW-Server-Sun-Mseries-SSH-custom** host template is used.
+
+</TabItem>
+<TabItem value="HW-Server-Sun-Sf2xx-TELNET-custom" label="HW-Server-Sun-Sf2xx-TELNET-custom">
+
+This host template is not linked to any service template.
+
+</TabItem>
+<TabItem value="HW-Server-Sun-Sfxxxx-TELNET-custom" label="HW-Server-Sun-Sfxxxx-TELNET-custom">
+
+| Service Alias | Service Template                                | Service Description                                                  |
+|:--------------|:------------------------------------------------|:---------------------------------------------------------------------|
+| Hardware      | HW-Sun-MgmtCard-Showboards-TELNET-custom        | Check Sun SFxxxx (sf6900, sf6800, sf3800,...) Hardware through ScApp |
+
+> The services listed above are created automatically when the **HW-Server-Sun-Sfxxxx-TELNET-custom** host template is used.
+
+</TabItem>
+<TabItem value="HW-Server-Sun-V4xx-TELNET-custom" label="HW-Server-Sun-V4xx-TELNET-custom">
+
+| Service Alias | Service Template                                | Service Description                                                  |
+|:--------------|:------------------------------------------------|:---------------------------------------------------------------------|
+
+> The services listed above are created automatically when the **HW-Server-Sun-V4xx-TELNET-custom** host template is used.
+
+</TabItem>
+<TabItem value="HW-Server-Sun-V8xx-TELNET-custom" label="HW-Server-Sun-V8xx-TELNET-custom">
+
+| Service Alias | Service Template                                | Service Description                                                  |
+|:--------------|:------------------------------------------------|:---------------------------------------------------------------------|
+| Hardware      | HW-Sun-MgmtCard-Environment-V8xx-TELNET-custom  | Check Sun v890 and v880 Hardware through RSC card                    |
+
+> The services listed above are created automatically when the **HW-Server-Sun-V8xx-TELNET-custom** host template is used.
+
+</TabItem>
+</Tabs>
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
+
+<Tabs groupId="sync">
+<TabItem value="Environment-Sf2xx" label="Environment-Sf2xx">
+
+| Name    | Unit |
+|:-------|:------|
+| status | N/A   |
+
+</TabItem>
+<TabItem value="Environment-V4xx" label="Environments-V4xx">
+
+| Name    | Unit |
+|:-------|:------|
+| status | N/A   |
+
+</TabItem>
+<TabItem value="Environment-V8xx" label="Environment-V8xx">
+
+| Name    | Unit |
+|:-------|:------|
+| status | N/A   |
+
+</TabItem>
+<TabItem value="Show-Boards" label="Show-Boards">
+
+| Name    | Unit |
+|:-------|:------|
+| status | N/A   |
+
+</TabItem>
+<TabItem value="Show-Environment" label="Show-Environment">
+
+| Name    | Unit |
+|:-------|:------|
+| disk.status | N/A   |
+| fan.status | N/A   |
+| psu.status | N/A   |
+| sensor.status | N/A   |
+| si.status | N/A   |
+| fan.status | N/A   |
+| voltage.status | N/A   |
+
+</TabItem>
+<TabItem value="Show-Faults" label="Show-Faults">
+
+| Name    | Unit |
+|:-------|:------|
+| status | N/A   |
+
+</TabItem>
+<TabItem value="Show-Faulty" label="Show-Faulty">
+
+| Name    | Unit |
+|:-------|:------|
+| status | N/A   |
+
+</TabItem>
+<TabItem value="Show-Status" label="Show-Status">
+
+| Name    | Unit |
+|:-------|:------|
+| status | N/A   |
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
-This chapter describes the prerequisites installation needed by plugins to run.
+You need to install the necessary dependencies based on the chosen communication mode (Telnet, SSH, or IPMI) and configure the access credentials.
 
-### Centreon Plugin
+## Installing the monitoring connector
 
-Install this plugin on each needed poller:
+### Pack
 
-``` shell
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-hardware-servers-sun-mgmtcards
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-pack-hardware-servers-sun-mgmtcards
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-hardware-servers-sun-mgmtcards
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-hardware-servers-sun-mgmtcards
+```
+
+</TabItem>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **Sun MgmtCard** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Hardware-Servers-Sun-Mgmtcards
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Hardware-Servers-Sun-Mgmtcards
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-hardware-servers-sun-mgmtcards
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
 yum install centreon-plugin-Hardware-Servers-Sun-Mgmtcards
 ```
 
-The plugin has 3 kind of modes, it depends of the sun management card to monitor
-:
+</TabItem>
+</Tabs>
 
-  - Telnet:
-      - Dependency: Perl Module Net::Telnet (yum install perl-Net-Telnet.noarch)
-      - Host macros: 'TELNETUSERNAME', 'TELNETPASSWORD'
-  - SSH:
-      - Dependency: 'plink' command (no ssh key exchange needed)
-      - Host macros: 'SSHUSERNAME', 'SSHPASSWORD'
-  - IPMI:
-      - Dependency: 'ipmitool' command (yum install ipmitool)
-      - Host macros: 'IPMIUSERNAME', 'IPMIPASSWORD'
+## Using the monitoring connector
 
-### Sun Server Hardware List
+### Using a host template provided by the connector
 
-| Host Template               | Method | Hardware                                   | Mgmt Card |
-| --------------------------- | ------ | ------------------------------------------ | --------- |
-| HW-Server-Sun-Alom4v-SSH    | SSH    | T1xxx, T2xxx                               | ALOM4v    |
-| HW-Server-Sun-Ilom-SSH      | SSH    | T3-x, T4-x, T5xxx                          | ILOM      |
-| HW-Server-Sun-Alom-TELNET   | Telnet | v240, v245, v440,...                       | ALOM      |
-| HW-Server-Sun-Sf2xx-TELNET  | Telnet | sf280                                      | RSC       |
-| HW-Server-Sun-Sfxxxx-TELNET | Telnet | sfXXXX (sf6900, ScpApp sf6800, sf3800,...) | RSC       |
-| HW-Server-Sun-V4xx-TELNET   | Telnet | v4xx (v490, v480)                          | RSC       |
-| HW-Server-Sun-V8xx-TELNET   | Telnet | v8xx (v890, v880)                          | RSC       |
-| HW-Server-Sun-Ilom-IPMITOOL | Ipmi   | x4100,x4600,...                            | ILOM      |
+<Tabs groupId="sync">
+<TabItem value="HW-Server-Sun-Alom-TELNET-custom" label="HW-Server-Sun-Alom-TELNET-custom">
 
-### My Sun Hardware is not the list
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **HW-Server-Sun-Alom-TELNET-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-Following hardware can be also monitored:
+| Macro              | Description                                                                                          | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TELNETUSERNAME     | ssh username                                                                                         |                   |             |
+| SSHUSERNAME        | ssh username                                                                                         |                   |             |
+| TELNETPASSWORD     | ssh password                                                                                         |                   |             |
+| SSHPASSWORD        | ssh password                                                                                         |                   |             |
+| TELNETPORT         | telnet port (default: 23)                                                                            | 23                |             |
+| TELNETEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
-| Hardware                               | Host template Service                                    |
-| -------------------------------------- | -------------------------------------------------------- |
-| Mseries                                | HW-Server-Sun-Mseries-SNMP Linked with the host template |
-| sf12k, sf15k, sf20k, sf25k             | HW-Server-Sun-Sfxxk-PSSH Linked with the host template   |
-| v120, v1280 and others OS-Solaris-NRPE | OS-Solaris-Prtdiag-Status-NRPE-Custom                    |
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-## Centreon Configuration
+</TabItem>
+<TabItem value="HW-Server-Sun-Alom4v-SSH-custom" label="HW-Server-Sun-Alom4v-SSH-custom">
 
-### Create a host using the appropriate template
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **HW-Server-Sun-Alom4v-SSH-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+| Macro              | Description                                                                                          | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SSHUSERNAME        | ssh username                                                                                         |                   |             |
+| TELNETUSERNAME     | ssh username                                                                                         |                   |             |
+| SSHPASSWORD        | ssh password                                                                                         |                   |             |
+| TELNETPASSWORD     | ssh password                                                                                         |                   |             |
+| TELNETPORT         | telnet port (default: 23)                                                                            |                   |             |
+| TELNETEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
-| Field                                | Value                                |
-| :----------------------------------- | :----------------------------------- |
-| Host name                            | *Name of the host*                   |
-| Alias                                | *Host description*                   |
-| IP                                   | *Host IP Address*                    |
-| Monitored from                       | *Monitoring Poller to use*           |
-| Host Multiple Templates              | Template provided by the Monitoring Connector |
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-Click on the *Save* button.
+</TabItem>
+<TabItem value="HW-Server-Sun-Ilom-IPMITOOL-custom" label="HW-Server-Sun-Ilom-IPMITOOL-custom">
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **HW-Server-Sun-Ilom-IPMITOOL-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro        | Description | Default value     | Mandatory   |
+|:-------------|:------------|:------------------|:-----------:|
+| IPMIUSERNAME | IPMI username            |                   |             |
+| IPMIPASSWORD | IPMI password            |                   |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+</TabItem>
+<TabItem value="HW-Server-Sun-Ilom-SSH-custom" label="HW-Server-Sun-Ilom-SSH-custom">
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **HW-Server-Sun-Ilom-SSH-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro              | Description                                                                                          | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SSHUSERNAME        | ssh username                                                                                         |                   |             |
+| TELNETUSERNAME     | ssh username                                                                                         |                   |             |
+| SSHPASSWORD        | ssh password                                                                                         |                   |             |
+| TELNETPASSWORD     | ssh password                                                                                         |                   |             |
+| TELNETPORT         | telnet port (default: 23)                                                                            |                   |             |
+| TELNETEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+</TabItem>
+<TabItem value="HW-Server-Sun-Mseries-SSH-custom" label="HW-Server-Sun-Mseries-SSH-custom">
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **HW-Server-Sun-Mseries-SSH-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro              | Description                                                                                          | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SSHUSERNAME        | ssh username                                                                                         |                   |             |
+| TELNETUSERNAME     | ssh username                                                                                         |                   |             |
+| SSHPASSWORD        | ssh password                                                                                         |                   |             |
+| TELNETPASSWORD     | ssh password                                                                                         |                   |             |
+| TELNETPORT         | telnet port (default: 23)                                                                            |                   |             |
+| TELNETEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+</TabItem>
+<TabItem value="HW-Server-Sun-Sf2xx-TELNET-custom" label="HW-Server-Sun-Sf2xx-TELNET-custom">
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **HW-Server-Sun-Sf2xx-TELNET-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro              | Description                                                                                          | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TELNETUSERNAME     | ssh username                                                                                         |                   |             |
+| SSHUSERNAME        | ssh username                                                                                         |                   |             |
+| TELNETPASSWORD     | ssh password                                                                                         |                   |             |
+| SSHPASSWORD        | ssh password                                                                                         |                   |             |
+| TELNETPORT         | telnet port (default: 23)                                                                            | 23                |             |
+| TELNETEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+</TabItem>
+<TabItem value="HW-Server-Sun-Sfxxxx-TELNET-custom" label="HW-Server-Sun-Sfxxxx-TELNET-custom">
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **HW-Server-Sun-Sfxxxx-TELNET-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro              | Description                                                                                          | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TELNETUSERNAME     | ssh username                                                                                         |                   |             |
+| SSHUSERNAME        | ssh username                                                                                         |                   |             |
+| TELNETPASSWORD     | ssh password                                                                                         |                   |             |
+| SSHPASSWORD        | ssh password                                                                                         |                   |             |
+| TELNETPORT         | telnet port (default: 23)                                                                            | 23                |             |
+| TELNETEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+</TabItem>
+<TabItem value="HW-Server-Sun-V4xx-TELNET-custom" label="HW-Server-Sun-V4xx-TELNET-custom">
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **HW-Server-Sun-V4xx-TELNET-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro              | Description                                                                                          | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TELNETUSERNAME     | ssh username                                                                                         |                   |             |
+| SSHUSERNAME        | ssh username                                                                                         |                   |             |
+| TELNETPASSWORD     | ssh password                                                                                         |                   |             |
+| SSHPASSWORD        | ssh password                                                                                         |                   |             |
+| TELNETPORT         | telnet port (default: 23)                                                                            | 23                |             |
+| TELNETEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+</TabItem>
+<TabItem value="HW-Server-Sun-V8xx-TELNET-custom" label="HW-Server-Sun-V8xx-TELNET-custom">
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **HW-Server-Sun-V8xx-TELNET-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro              | Description                                                                                          | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TELNETUSERNAME     | ssh username                                                                                         |                   |             |
+| SSHUSERNAME        | ssh username                                                                                         |                   |             |
+| TELNETPASSWORD     | ssh password                                                                                         |                   |             |
+| SSHPASSWORD        | ssh password                                                                                         |                   |             |
+| TELNETPORT         | telnet port (default: 23)                                                                            | 23                |             |
+| TELNETEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+</TabItem>
+</Tabs>
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Hardware" label="Hardware">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor a resource using a command like this one (replace the sample values by yours):
+
+```bash
+/usr/lib/centreon/plugins/centreon_sun_mgmtcards.pl \
+	--plugin=hardware::server::sun::mgmt_cards::plugin \
+	--mode=showstatus \
+	--hostname=10.0.0.1 \
+	--username='' \
+	--password=''  \
+	--verbose
+```
+
+The expected command output is shown below:
+
+```bash
+OK: Component 'CPU#1' status is 'Normal'
+```
+
+### Troubleshooting
+
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_sun_mgmtcards.pl \
+	--plugin=hardware::server::sun::mgmt_cards::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                                                              | Linked service template                         |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|
+| environment-sf2xx [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/server/sun/mgmt_cards/mode/environmentsf2xx.pm)] | HW-Sun-MgmtCard-Environment-Sf2xx-TELNET-custom |
+| environment-v4xx [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/server/sun/mgmt_cards/mode/environmentv4xx.pm)]   | HW-Sun-MgmtCard-Environment-V4xx-TELNET-custom  |
+| environment-v8xx [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/server/sun/mgmt_cards/mode/environmentv8xx.pm)]   | HW-Sun-MgmtCard-Environment-V8xx-TELNET-custom  |
+| show-faulty [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/server/sun/mgmt_cards/mode/showfaulty.pm)]             | HW-Sun-MgmtCard-Show-Faulty-SSH-custom          |
+| showboards [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/server/sun/mgmt_cards/mode/showboards.pm)]              | HW-Sun-MgmtCard-Showboards-TELNET-custom        |
+| showenvironment [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/server/sun/mgmt_cards/mode/showenvironment.pm)]    | HW-Sun-MgmtCard-Showenvironment-TELNET-custom   |
+| showfaults [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/server/sun/mgmt_cards/mode/showfaults.pm)]              | HW-Sun-MgmtCard-Showfaults-SSH-custom           |
+| showstatus [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/server/sun/mgmt_cards/mode/showstatus.pm)]              | HW-Sun-MgmtCard-Showstatus-SSH-custom           |
+
+### Available options
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Hardware" label="Hardware">
+
+| Option                 | Description                                                                                                                                                                                                                                     |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component            |   Which component to check (default: '.*'). Can be: 'temperature', 'si', 'disk', 'fan', 'voltage', 'psu', 'sensors'.                                                                                                                            |
+| --filter               |   Exclude the items given as a comma-separated list (example: --filter=fan). You can also exclude items from specific instances: --filter=fan,F1.RS                                                                                             |
+| --absent-problem       |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.                          |
+| --no-component         |   Define the expected status if no components are found (default: critical).                                                                                                                                                                    |
+| --threshold-overload   |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: status,regexp). Example: --threshold-overload='UNKNOWN,Normal'                                                      |
+| --warning              |   Define the warning threshold for temperatures (syntax: type,instance,threshold) Example: --warning='temperature,.*,30'                                                                                                                        |
+| --critical             |   Define the critical threshold for temperatures (syntax: type,instance,threshold) Example: --critical='temperature,.*,40'                                                                                                                      |
+| --warning-count-*      |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                  |
+| --critical-count-*     |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                 |
+| --hostname             |   Hostname to query.                                                                                                                                                                                                                            |
+| --port                 |   telnet port (default: 23).                                                                                                                                                                                                                    |
+| --username             |   ssh username.                                                                                                                                                                                                                                 |
+| --password             |   ssh password.                                                                                                                                                                                                                                 |
+| --timeout              |   Timeout in seconds for the command (default: 30).                                                                                                                                                                                             |
+| --command-plink        |   Plink command (default: plink). Use to set a path.                                                                                                                                                                                            |
+| --ssh                  |   Use ssh (with plink) instead of telnet.                                                                                                                                                                                                       |
+| --memcached            |   Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             |   Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                          |
+| --memexpiration        |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd |   If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --memory               |   Returns new errors (retention file is used by the following option).                                                                                                                                                                          |
+| --exclude              |   Filter components (multiple) (can be a regexp). Example: --exclude='MEM#2B' --exclude='MBU\_A\>MEM#0B'.                                                                                                                                       |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_sun_mgmtcards.pl \
+	--plugin=hardware::server::sun::mgmt_cards::plugin \
+	--mode=showstatus \
+	--help
+```

@@ -28,8 +28,6 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 ## Configuration
 
 
-* Les changements massifs incrémentaux ne sont pas possibles pour les hôtes et les services. 
-
 * Les utilisateurs ne peuvent pas encore configurer des Stream Connectors eux-mêmes.
    **Contournement**: Centreon peut configurer des Stream Connectors pour vous. Contactez votre CSM.
   

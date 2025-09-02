@@ -113,7 +113,7 @@ apt install centreon-pack-applications-ibm-tsamp-ssh
 ```bash
 yum install centreon-pack-applications-ibm-tsamp-ssh
 ```
-
+  
 </TabItem>
 </Tabs>
 
