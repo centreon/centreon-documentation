@@ -239,7 +239,7 @@ yum install centreon-plugin-Applications-Bind9-Web
 | CRITICALQTYPESOA        | Threshold                                                                                                   |                   |             |
 | WARNINGQTYPETXT         | Threshold                                                                                                   |                   |             |
 | CRITICALQTYPETXT        | Threshold                                                                                                   |                   |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Bind9-Zone-Usage" label="Bind9-Zone-Usage">
