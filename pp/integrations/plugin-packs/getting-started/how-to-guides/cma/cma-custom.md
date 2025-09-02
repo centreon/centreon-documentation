@@ -59,6 +59,8 @@ Copy the plugin on the host, to the directory of your choice.
       /<path>/<to>/custom_script.sh
       ```
 
-2. If you haven't already done so, [create a host](/docs/monitoring/basic-objects/hosts) for the resource to be monitored.
-3. For each service model you want, select the command you just created.
-4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
+2. Associate this command to "Centreon Monitoring Agent" Connector (Connectors field).
+
+3. If you haven't already done so, [create a host](/docs/monitoring/basic-objects/hosts) for the resource to be monitored.
+4. For each service model you want, select the command you just created.
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
