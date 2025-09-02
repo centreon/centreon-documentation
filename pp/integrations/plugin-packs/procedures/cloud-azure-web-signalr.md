@@ -5,12 +5,6 @@ title: Azure SignalR
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Azure SignalR Service simplifies the process of adding real-time web functionality to applications over HTTP.
-This real-time functionality allows the service to push content updates to connected clients, such as a single page web or mobile
-application. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates.
-
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Azure SignalR** connector through the
