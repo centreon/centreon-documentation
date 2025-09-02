@@ -5,14 +5,6 @@ title: Kaspersky
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Kasperky is a cybersecurity and anti-virus provider founded in 1997 by Eugene
-Kaspersky, Natalya Kaspersky and Alexey De-Monderik.
-
-The Centreon Monitoring Connector *Kaspersky* aims to collect the condition of the
-Administration Server and managed products with the SNMP protocol.
-
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Kaspersky** connector through the
