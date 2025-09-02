@@ -5,12 +5,6 @@ title: Azure CDN
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Azure Content Delivery Network est une solution conçue pour les développeurs
-pour rapidement distribuer du contenu tel que des images et vidéos ou autres
-documents
-
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure CDN**
