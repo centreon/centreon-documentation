@@ -234,7 +234,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 | CENTREONDATABASEUSER     | User name used to connect to the database                                                                                                | centreon          |     X     |
 | CENTREONDATABASEPASSWORD | Password for the defined user name                                                                                                       | PASSWORD          |     X     |
 | CENTREONDATABASE         | Centreon database name                                                                                                                   | centreon          |           |
-| CENTREONSTORAGEDATABASE  | Centreon storage database name (default: 'centreon\_storage')                                                                            | centreon\_storage |           |
+| CENTREONSTORAGEDATABASE  | Centreon storage database name                                                                           | centreon\_storage |           |
 | EXTRAOPTIONS             | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
