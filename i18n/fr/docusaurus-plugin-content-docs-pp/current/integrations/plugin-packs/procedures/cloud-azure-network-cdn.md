@@ -160,7 +160,7 @@ dnf install centreon-plugin-Cloud-Azure-Network-CDN-Api
 ```bash
 dnf install centreon-plugin-Cloud-Azure-Network-CDN-Api
 ```
-
+  
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 

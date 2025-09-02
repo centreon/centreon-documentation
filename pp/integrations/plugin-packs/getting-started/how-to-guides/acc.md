@@ -1,17 +1,17 @@
 ---
 id: additional-connector-configuration
-title: Additional connector configurations
+title: Additional configurations
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-For some connectors, the credentials to access the monitored resource must be configured on the pollers that are going to do the monitoring. The **Additional connector configurations** menu allows you do to this through the Centreon interface rather than having to connect to your pollers manually. At the moment, only some VMWare connectors can be configured like this.
+For some connectors, the credentials to access the monitored resource must be configured on the pollers that are going to do the monitoring. The **Additional configurations** menu allows you do to this through the Centreon interface rather than having to connect to your pollers manually. At the moment, only some VMWare connectors can be configured like this.
 
 You can configure a connection to several vCenters in the same configuration, but you will have to create one host per vCenter. For each host, the macros will define which resource will be monitored.
 
-## Creating an additional connector configuration
+## Creating an additional configuration for a connector
 
-1. Go to **Configuration > Additional connector configurations**, then click **Add**.
+1. Go to **Configuration > Connectors > Additional configurations**, then click **Add**.
 2. In the window that appears, fill in the following fields:
    * **Name** and **Description** (the description will appear in the list of configurations).
    * **Type**: at the moment, only **VMWare 6/7** is available.
