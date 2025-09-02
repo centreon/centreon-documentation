@@ -1,43 +1,74 @@
 ---
 id: notif-flapping
-title: Flapping
+title: Bagotement (flapping)
 ---
 
 ## Introduction
 
-Centreon Engine prend en charge la détection des hôtes et des services
-bagotants. Le bagotement se produit lorsqu'un service ou un hôte change
-d'état trop fréquemment, ce qui entraîne de nombreuses notifications de
-problèmes et de récupération. Le bagotement peut indiquer des problèmes
-de configuration (c'est-à-dire des seuils trop bas), des services
-gênants ou de vrais problèmes de réseau.
+Centreon Engine peut détecter les hôtes et les services bagotants ("flapping"). Le bagotement se produit lorsqu'un service ou un hôte change de statut trop souvent. Activer la détection du bagotement empêche Centreon d'envoyer de nombreuses notifications d'alerte et de récupération : vous pouvez configurer une ressource pour qu'une seule notification de bagotement soit envoyée (une en début et une en fin de bagotement). Le bagotement peut indiquer des problèmes de configuration (c'est-à-dire des seuils trop bas), des services gênants ou de vrais problèmes de réseau.
 
 ## Fonctionnement de la détection de bagotement
 
-Chaque fois que Centreon Engine vérifie l'état d'un hôte ou d'un
-service, il vérifie s'il l'état de bagotement en :
+Chaque fois que le moteur Centreon contrôle l'état d'un hôte ou d'un service, il
+vérifie s'il a commencer ou arrêté de bagoter. Pour ce faire, il :
 
--   Enregistrant les résultats des 21 dernières vérifications de l'hôte
-    ou du service
--   Analysant les résultats de l'historique de la vérification et
-    déterminant où se produisent les changements / transitions de
-    statuts
--   Utilisant les transitions de statuts pour déterminer un pourcentage
-    de changement pour l'hôte ou le service
--   Comparant la valeur de changement de statuts en pourcentage aux
-    seuils déterminés
+* Stocke les résultats des 21 dernièrs contrôles sur l'hôte ou le service.
+* Détermine le pourcentage de changement d'état qui se sont produits pour l'hôte ou le service au cours de ces 21 contrôles.
+* Compare le pourcentage de changement d'état aux seuils de bagotement bas et haut.
 
-Un hôte ou un service est déterminé en état bagotant (flapping) lorsque
-son pourcentage de changement de statuts dépasse pour la première fois
-le seuil haut.
+Un hôte ou un service est considéré comme ayant commencé à bagoter lorsque son
+pourcentage de changement d'état **dépasse pour la première fois le seuil de bagotement haut**. Lorsqu'un hôte ou un service est en état de bagotement :
 
-Un hôte ou un service redevient en état régulier lorsque son pourcentage
-de changement de statuts passe en dessous du seuil bas.
+* À la page **Statut des ressources**, il est affiché sur fond vert.
+* À la page **Statut des ressources**, l'icône suivante est affichée dans son panneau **Détails** et dans la colonne **État** :
+    ![image](../assets/alerts/flapping_icon.png)
+* Si les notifications de bagotement sont activées, une notification est envoyée lorsque la ressource commence à bagoter, et une autre est envoyée lorsqu'elle cesse de bagoter. Les notifications d'alerte et de récupération sont temporairement désactivées.
+
+Dans la page **Statut des ressources**, vous pouvez filtrer la vue pour n'afficher que les ressources bagotantes.
+
+Un hôte ou un service est considéré comme ayant cessé de bagoter lorsque son pourcentage de changmenet de statut passe en dessous du seuil bas de bagotement.
+
+## Configuration
+
+### Activer la détection de bagotement sur un collecteur
+
+Allez à la page **Configuration > Collecteurs > Configuration du moteur de collecte** et sélectionnez un ordonnanceur (Centreon Engine).
+Dans l'onglet **Options de contrôle**, mettez l'option **Détection de bagotage des statuts** à **Oui**.
+
+Vous pouvez modifier les seuils ou conserver les seuils préconfigurés.
+
+Les paramètres s'appliqueront à toutes les ressources supervisées par ce collecteur, à condition que leur option **Détection de bagotage des statuts** ne soit pas à **Non**, et que les seuils n'aient pas été surchargés au niveau de l'hôte ou du service.
+
+### Détection de bagotement pour les hôtes
+
+Si vous activez la détection du bagotement pour un ordonnanceur (Centreon Engine),
+le processus sera appliqué à tous les hôtes supervisés par celui-ci (à condition que leur option **Détection de bagotage des statuts** ne soit pas réglée sur **Non**).
+
+Vous pouvez désactiver/activer la détection de bagotement pour un hôte spécifique via son menu de configuration.
+
+Allez dans **Configuration > Hôtes > Hôtes** et sélectionnez l'hôte désiré. Si vous souhaitez désactiver la détection du bagotment pour cet hôte, dans l'onglet **Traitement des données**, mettez **Détection de bagotage des statuts** à **Non**.
+
+Si vous mettez **Détection de bagotage des statuts** à **Oui**, vous pouvez également adapter les seuils de bagotement pour cet hôte spécifique. La valeur **Défaut** signifie que la valeur définie sur le collecteur sera utilisée.
+
+> Utilisez les [modèles d'hôtes](../monitoring/basic-objects/hosts-templates.md) pour faciliter la configuration.
+
+### Détection de bagotement pour les services
+
+Si vous activez la détection du bagotement pour un ordonnanceur (Centreon Engine),
+le processus sera appliqué à tous les services supervisés par celui-ci (à condition que leur option **Détection de bagotage des statuts** ne soit pas réglée sur **Non**).
+
+Vous pouvez désactiver/activer la détection de bagotement pour un service spécifique via son menu de configuration.
+
+Allez dans **Configuration > Services > Services par hôte** et sélectionnez le service désiré. Si vous souhaitez désactiver la détection du bagotement pour ce service, dans l'onglet **Traitement des données**, mettez **Détection de bagotage des statuts** à **Non**.
+
+Si vous mettez **Détection de bagotage des statuts** à **Oui**, vous pouvez également adapter les seuils de bagotement pour ce service spécifique. La valeur **Défaut** signifie que la valeur définie sur le collecteur sera utilisée.
+
+> Utilisez les [modèles de service] (../monitoring/basic-objects/services-templates.md) pour faciliter la configuration.
 
 ## Exemple
 
 Décrivons plus en détail le fonctionnement de la détection de
-bagotements avec les services...
+bagotement avec les services.
 
 L'image ci-dessous montre un historique chronologique pour un service
 des états des 21 derniers contrôles. Les états OK sont affichés en vert,
@@ -102,54 +133,5 @@ se produire:
     considère que le service redevient dans un état régulier.
 
 Si aucune de ces deux conditions n'est remplie, la logique de détection
-des bagotement ne fera rien d'autre avec le service, car soit le service
-est en état de bagotement, soit en étt régulier.
-
-## Configuration
-
-### Activation de la détection des bagotements
-
-Rendez-vous dans le menu
-`Configuration > Pollers > Engine configuration` et sélectionner un
-moteur (Centreon Engine). Dans l'onglet **Check Options** ativer la
-détection de bagotements :
-
-![image](../assets/alerts/flap_engine_conf.png)
-
-Vous pouvez modifier les seuils ou conserver ceux préconfigurés.
-
-### Détection de bagotement pour les hôtes
-
-Si vous activez la détection de bagotement pour un moteur (Centreon
-Engine), le processus sera appliqué à toutes les ressources supervisées
-par ce dernier.
-
-Vous pouvez désactiver / activer la détection de bagotement pour un hôte
-via le menu de configuration.
-
-Rendez-vous dans le menu **Configuration > Hosts > Hosts**, sélectionnez
-un hôte et accédez à l'onglet **Data Processing** :
-
-![image](../assets/alerts/flap_host_conf.png)
-
-Vous pouvez également adapter les seuils de bagotements pour cette ressource.
-
-> Utilisez des modèles pour faciliter la configuration.
-
-### Détection de bagotement pour les services
-
-Si vous activez la détection de bagotement pour un moteur (Centreon
-Engine), le processus sera appliqué à toutes les ressources supervisées
-par ce dernier.
-
-Vous pouvez désactiver / activer la détection de bagotement pour un
-service via le menu de configuration.
-
-Rendez-vous dans le menu **Configuration > Services > Services by Host**,
-sélectionnez un service et accédez à l'onglet **Data Processing** :
-
-![image](../assets/alerts/flap_host_conf.png)
-
-Vous pouvez également adapter les seuils de bagotements pour cette ressource.
-
-> Utilisez des modèles pour faciliter la configuration.
+des bagotements ne fera rien d'autre avec le service, car soit le service
+est en état de bagotement, soit en état régulier.

@@ -858,12 +858,11 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété       | Type             | Description                                                                 | Version |
 | --------------- | ---------------- | --------------------------------------------------------------------------- | ------- |
+| group\_id       | unsigned integer | ID du groupe.
+| host\_id        | entier non signé | ID de l’hôte.                                                               |
 | enabled         | booléen          | True si l'hôte est membre du groupe, False s'il ne l’est pas (suppression). |
 | group           | chaîne           | Nom du groupe.                                                              |
 | instance\_id    | entier non signé | ID de l’instance.                                                           |
-| host\_id        | entier non signé | ID de l’hôte.                                                               |
-| source\_id      | entier non signé | L’ID de l’instance source de cet évènement.                                 |
-| destination\_id | entier non signé | L’ID de l’instance de destination de cet évènement.                         |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">

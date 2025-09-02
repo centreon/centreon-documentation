@@ -24,11 +24,14 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Virt-VMware8-ESX-Restapi-custom" label="Virt-VMware8-ESX-Restapi-custom">
 
-| Service Alias | Service Template                       | Service Description                                                                     |
-|:--------------|:---------------------------------------|:----------------------------------------------------------------------------------------|
-| Cpu           | Virt-VMWare8-ESX-Cpu-Restapi-custom    | Monitor an ESX physical server's CPU stats                                              |
-| Memory        | Virt-VMWare8-ESX-Memory-Restapi-custom | Monitor the amount of memory consumed by the virtual machines on an ESX physical server |
-| Power         | Virt-VMWare8-ESX-Power-Restapi-custom  | Monitor an ESX physical server's electric power consumption                             |
+| Service Alias      | Service Template                                   | Service Description                                                                     |
+|:-------------------|:---------------------------------------------------|:----------------------------------------------------------------------------------------|
+| Cpu                | Virt-VMWare8-ESX-Cpu-Restapi-custom                | Monitor an ESX physical server's CPU stats                                              |
+| Disk-IO            | Virt-VMWare8-ESX-Disk-IO-Restapi-custom            | Monitor an ESX physical server's aggregated disk I/O stats                               |
+| Memory             | Virt-VMWare8-ESX-Memory-Restapi-custom             | Monitor the amount of memory consumed by the virtual machines on an ESX physical server |
+| Network-Throughput | Virt-VMWare8-ESX-Network-Throughput-Restapi-custom | Monitor the aggregated network throughput of an ESX physical server                      |
+| Power              | Virt-VMWare8-ESX-Power-Restapi-custom              | Monitor an ESX physical server's electric power consumption                             |
+| Swap               | Virt-VMWare8-ESX-Swap-Restapi-custom               | Monitor swap usage statistics of an ESX physical server                                 |
 
 > The services listed above are created automatically when the **Virt-VMware8-ESX-Restapi-custom** host template is used.
 
@@ -61,7 +64,13 @@ Here is the list of services for this connector, detailing all metrics and statu
 | cpu.capacity.demand.hertz          | Hz    |
 | cpu.corecount.usage.count          | count |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+</TabItem>
+<TabItem value="Disk-IO" label="Disk-IO">
+
+| Name                                    | Unit  |
+|:----------------------------------------|:------|
+| disk.throughput.usage.bytespersecond    | Bps   |
+| disk.throughput.contention.milliseconds | ms    |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -71,16 +80,31 @@ Here is the list of services for this connector, detailing all metrics and statu
 | vms.memory.usage.percentage | %     |
 | vms.memory.usage.bytes      | B     |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+</TabItem>
+<TabItem value="Network-Throughput" label="Network-Throughput">
+
+| Name                                    | Unit  |
+|:----------------------------------------|:------|
+| network.throughput.usage.bytespersecond | Bps   |
+| network.throughput.usage.percent        | %     |
+| network.throughput.contention.count     | count |
 
 </TabItem>
 <TabItem value="Power" label="Power">
 
-| Name              | Unit  |
-|:------------------|:------|
-| power-usage-watts | N/A   |
+| Name                       | Unit  |
+|:---------------------------|:------|
+| power.capacity.usage.watts | W     |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Name                           | Unit  |
+|:-------------------------------|:------|
+| swap.usage.bytes               | B     |
+| swap.usage.percent             | %     |
+| swap.read-rate.bytespersecond  | Bps   |
+| swap.write-rate.bytespersecond | Bps   |
 
 </TabItem>
 </Tabs>
@@ -93,9 +117,13 @@ of version 8 or above and having the following privileges:
 - Query Stats Data
 
 NB: This connector has only been tested with a 'Basic' authentication (like `user@vsphere.local`).
+
 ## Installing the monitoring connector
 
 ### Pack
+
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
@@ -163,7 +191,6 @@ If necessary, add the vCenter server's certificate to the poller's OS's list of 
 openssl s_client -connect myvcenter.mydomain.tld:443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /etc/pki/ca-trust/source/anchors/my_vcenter.crt
 update-ca-trust
 ```
-
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -191,7 +218,6 @@ If necessary, add the vCenter server's certificate to the poller's OS's list of 
 openssl s_client -connect myvcenter.mydomain.tld:443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /usr/local/share/ca-certificates/my_vcenter.crt
 update-ca-certificates
 ```
-
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -238,41 +264,80 @@ update-ca-trust
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro                        | Description                                                                                                                            | Default value | Mandatory |
-|:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGCONTENTIONPERCENTAGE  | Threshold in %                                                                                                                         |               |           |
-| CRITICALCONTENTIONPERCENTAGE | Threshold in %                                                                                                                         |               |           |
-| WARNINGCORECOUNTUSAGE        | Threshold in number of cores                                                                                                           |               |           |
-| CRITICALCORECOUNTUSAGE       | Threshold in number of cores                                                                                                           |               |           |
-| WARNINGDEMANDFREQUENCY       | Threshold in Hz                                                                                                                        |               |           |
-| CRITICALDEMANDFREQUENCY      | Threshold in Hz                                                                                                                        |               |           |
-| WARNINGDEMANDPERCENTAGE      | Threshold in %                                                                                                                         |               |           |
-| CRITICALDEMANDPERCENTAGE     | Threshold in %                                                                                                                         |               |           |
-| WARNINGUSAGEFREQUENCY        | Threshold in Hz                                                                                                                        |               |           |
-| CRITICALUSAGEFREQUENCY       | Threshold in Hz                                                                                                                        |               |           |
-| WARNINGUSAGEPERCENTAGE       | Threshold in %                                                                                                                         |               |           |
-| CRITICALUSAGEPERCENTAGE      | Threshold in %                                                                                                                         |               |           |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
+| Macro                       | Description                                                                                        | Default value     | Mandatory   |
+|:----------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCONTENTIONPRCT       | Threshold in percentage                                                                            |                   |             |
+| CRITICALCONTENTIONPRCT      | Threshold in percentage                                                                            |                   |             |
+| WARNINGCORECOUNTUSAGECOUNT  | Threshold in number of cores                                                                       |                   |             |
+| CRITICALCORECOUNTUSAGECOUNT | Threshold in number of cores                                                                       |                   |             |
+| WARNINGDEMANDFREQUENCY      | Threshold in Hertz                                                                                 |                   |             |
+| CRITICALDEMANDFREQUENCY     | Threshold in Hertz                                                                                 |                   |             |
+| WARNINGDEMANDPRCT           | Threshold in percentage                                                                            |                   |             |
+| CRITICALDEMANDPRCT          | Threshold in percentage                                                                            |                   |             |
+| WARNINGUSAGEFREQUENCY       | Threshold in Hertz                                                                                 |                   |             |
+| CRITICALUSAGEFREQUENCY      | Threshold in Hertz                                                                                 |                   |             |
+| WARNINGUSAGEPRCT            | Threshold in percentage                                                                            |                   |             |
+| CRITICALUSAGEPRCT           | Threshold in percentage                                                                            |                   |             |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Disk-IO" label="Disk-IO">
+
+| Macro                | Description                                                                                        | Default value     | Mandatory   |
+|:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCONTENTIONMS  | Threshold in milliseconds                                                                          |                   |             |
+| CRITICALCONTENTIONMS | Threshold in milliseconds                                                                          |                   |             |
+| WARNINGUSAGEBPS      | Threshold in bytes per second                                                                      |                   |             |
+| CRITICALUSAGEBPS     | Threshold in bytes per second                                                                      |                   |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro                      | Description                                                                                                                            | Default value | Mandatory |
-|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGVMSUSAGEBYTES       | Thresholds in bytes                                                                                                                    |               |           |
-| CRITICALVMSUSAGEBYTES      | Thresholds in bytes                                                                                                                    |               |           |
-| WARNINGVMSUSAGEPERCENTAGE  | Thresholds in percentage                                                                                                               |               |           |
-| CRITICALVMSUSAGEPERCENTAGE | Thresholds in percentage                                                                                                               |               |           |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
+| Macro              | Description                                                                                        | Default value     | Mandatory   |
+|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGEBYTES  | Threshold in bytes                                                                                 |                   |             |
+| CRITICALUSAGEBYTES | Threshold in bytes                                                                                 |                   |             |
+| WARNINGUSAGEPRCT   | Threshold in percentage                                                                            |                   |             |
+| CRITICALUSAGEPRCT  | Threshold in percentage                                                                            |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Network-Throughput" label="Network-Throughput">
+
+| Macro                   | Description                                                                                        | Default value     | Mandatory   |
+|:------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCONTENTIONCOUNT  | Threshold in number of dropped packets                                                             |                   |             |
+| CRITICALCONTENTIONCOUNT | Threshold in number of dropped packets                                                             |                   |             |
+| WARNINGUSAGEBPS         | Threshold in bytes per second                                                                      |                   |             |
+| CRITICALUSAGEBPS        | Threshold in bytes per second                                                                      |                   |             |
+| WARNINGUSAGEPRCT        | Threshold in percentage                                                                            |                   |             |
+| CRITICALUSAGEPRCT       | Threshold in percentage                                                                            |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Power" label="Power">
 
-| Macro                   | Description                                                                                                                            | Default value | Mandatory |
-|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGPOWERUSAGEWATTS  | Threshold in Watts                                                                                                                     |               |           |
-| CRITICALPOWERUSAGEWATTS | Threshold in Watts                                                                                                                     |               |           |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
+| Macro              | Description                                                                                        | Default value     | Mandatory   |
+|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGEWATTS  | Threshold in Watts                                                                                 |                   |             |
+| CRITICALUSAGEWATTS | Threshold in Watts                                                                                 |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Macro                | Description                                                                                        | Default value     | Mandatory   |
+|:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGREADRATEBPS   | Threshold in bytes per second                                                                      |                   |             |
+| CRITICALREADRATEBPS  | Threshold in bytes per second                                                                      |                   |             |
+| WARNINGUSAGEBYTES    | Threshold in bytes                                                                                 |                   |             |
+| CRITICALUSAGEBYTES   | Threshold in bytes                                                                                 |                   |             |
+| WARNINGUSAGEPRCT     | Threshold in percentage                                                                            |                   |             |
+| CRITICALUSAGEPRCT    | Threshold in percentage                                                                            |                   |             |
+| WARNINGWRITERATEBPS  | Threshold in bytes per second                                                                      |                   |             |
+| CRITICALWRITERATEBPS | Threshold in bytes per second                                                                      |                   |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 </Tabs>
@@ -295,14 +360,15 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--esx-id='host-18' \
 	--username='USERNAME' \
 	--password='PASSWORD'  \
-	--warning-power-usage-watts='' \
-	--critical-power-usage-watts='' 
+	--warning-usage-watts='' \
+	--critical-usage-watts='' 
 ```
 
 The expected command output is shown below:
 
 ```bash
 OK: Power usage is 219 Watts | 'power.capacity.usage.watts'=219W;;;;
+
 ```
 
 ### Troubleshooting
@@ -328,13 +394,16 @@ the command:
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                            | Linked service template                |
-|:--------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/esx/mode/cpu.pm)]                | Virt-VMWare8-ESX-Cpu-Restapi-custom    |
-| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/esx/mode/discovery.pm)]    | Used for host discovery                |
-| host-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/esx/mode/hoststatus.pm)] | Not used in this Monitoring Connector  |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/esx/mode/memory.pm)]          | Virt-VMWare8-ESX-Memory-Restapi-custom |
-| power [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/esx/mode/power.pm)]            | Virt-VMWare8-ESX-Power-Restapi-custom  |
+| Mode                                                                                                                            | Linked service template                            |
+|:--------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/esx/mode/cpu.pm)]                | Virt-VMWare8-ESX-Cpu-Restapi-custom                |
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/esx/mode/discovery.pm)]    | Used for host discovery                            |
+| disk-io [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/esx/mode/diskio.pm)]         | Virt-VMWare8-ESX-Disk-IO-Restapi-custom            |
+| host-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/esx/mode/hoststatus.pm)] | Not used in this Monitoring Connector              |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/esx/mode/memory.pm)]          | Virt-VMWare8-ESX-Memory-Restapi-custom             |
+| network [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/esx/mode/network.pm)]        | Virt-VMWare8-ESX-Network-Throughput-Restapi-custom |
+| power [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/esx/mode/power.pm)]            | Virt-VMWare8-ESX-Power-Restapi-custom              |
+| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/esx/mode/swap.pm)]              | Virt-VMWare8-ESX-Swap-Restapi-custom               |
 
 ### Available options
 
@@ -415,44 +484,80 @@ All available options for each service template are listed below:
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Option                           | Description                                                                                                                                                                          |
-|:---------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters                | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                            |
-| --add-demand                     | Add counter related to CPU demand:  `cpu.capacity.demand.HOST`: The amount of CPU resources a virtual machine would use if there were no CPU contention or CPU limit.                |
-| --add-contention                 | Add counter related to CPU demand:  `cpu.capacity.contention.HOST`: Percent of time the virtual machine is unable to run because it is contending for access to the physical CPU(s). |
-| --add-corecount                  | Add counter related to CPU core count:  `cpu.corecount.usage.HOST`: The number of virtual processors running on the host.                                                            |
-| --warning-usage-percentage       | Threshold in %.                                                                                                                                                                      |
-| --critical-usage-percentage      | Threshold in %.                                                                                                                                                                      |
-| --warning-usage-frequency        | Threshold in Hz.                                                                                                                                                                     |
-| --critical-usage-frequency       | Threshold in Hz.                                                                                                                                                                     |
-| --warning-contention-percentage  | Threshold in %.                                                                                                                                                                      |
-| --critical-contention-percentage | Threshold in %.                                                                                                                                                                      |
-| --warning-contention-frequency   | Threshold in Hz.                                                                                                                                                                     |
-| --critical-contention-frequency  | Threshold in Hz.                                                                                                                                                                     |
-| --warning-demand-percentage      | Threshold in %.                                                                                                                                                                      |
-| --critical-demand-percentage     | Threshold in %.                                                                                                                                                                      |
-| --warning-demand-frequency       | Threshold in Hz.                                                                                                                                                                     |
-| --critical-demand-frequency      | Threshold in Hz.                                                                                                                                                                     |
-| --warning-corecount-usage        | Threshold in number of cores.                                                                                                                                                        |
-| --critical-corecount-usage       | Threshold in number of cores.                                                                                                                                                        |
+| Option                           | Description                                                                                                                                                                              |
+|:---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                              |
+| --add-demand                     |   Add counter related to CPU demand:  `cpu.capacity.demand.HOST`: The amount of CPU resources a virtual machine would use if there were no CPU contention or CPU limit.                  |
+| --add-contention                 |   Add counter related to CPU demand:  `cpu.capacity.contention.HOST`: Percent of time the virtual machine is unable to run because it is contending for access to the physical CPU(s).   |
+| --add-corecount                  |   Add counter related to CPU core count:  `cpu.corecount.usage.HOST`: The number of virtual processors running on the host.                                                              |
+| --warning-contention-prct        |   Threshold in percentage.                                                                                                                                                               |
+| --critical-contention-prct       |   Threshold in percentage.                                                                                                                                                               |
+| --warning-corecount-usage-count  |   Threshold.                                                                                                                                                                             |
+| --critical-corecount-usage-count |   Threshold.                                                                                                                                                                             |
+| --warning-demand-frequency       |   Threshold in Hertz.                                                                                                                                                                    |
+| --critical-demand-frequency      |   Threshold in Hertz.                                                                                                                                                                    |
+| --warning-demand-prct            |   Threshold in percentage.                                                                                                                                                               |
+| --critical-demand-prct           |   Threshold in percentage.                                                                                                                                                               |
+| --warning-usage-frequency        |   Threshold in Hertz.                                                                                                                                                                    |
+| --critical-usage-frequency       |   Threshold in Hertz.                                                                                                                                                                    |
+| --warning-usage-prct             |   Threshold in percentage.                                                                                                                                                               |
+| --critical-usage-prct            |   Threshold in percentage.                                                                                                                                                               |
+
+</TabItem>
+<TabItem value="Disk-IO" label="Disk-IO">
+
+| Option                   | Description                          |
+|:-------------------------|:-------------------------------------|
+| --warning-contention-ms  |   Threshold in milliseconds.         |
+| --critical-contention-ms |   Threshold in milliseconds.         |
+| --warning-usage-bps      |   Threshold in bytes per second.     |
+| --critical-usage-bps     |   Threshold in bytes per second.     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Option                          | Description               |
-|:--------------------------------|:--------------------------|
-| --warning-vms-usage-percentage  | Thresholds in percentage. |
-| --critical-vms-usage-percentage | Thresholds in percentage. |
-| --warning-vms-usage-bytes       | Thresholds in bytes.      |
-| --critical-vms-usage-bytes      | Thresholds in bytes.      |
+| Option                 | Description                   |
+|:-----------------------|:------------------------------|
+| --warning-usage-bytes  |   Threshold in bytes.         |
+| --critical-usage-bytes |   Threshold in bytes.         |
+| --warning-usage-prct   |   Threshold in percentage.    |
+| --critical-usage-prct  |   Threshold in percentage.    |
+
+</TabItem>
+<TabItem value="Network-Throughput" label="Network-Throughput">
+
+| Option                      | Description                                                                                                                               |
+|:----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------|
+| --add-contention            |   Add counters related to network throughput contention. This option is implicitly enabled if thresholds related to contention are set.   |
+| --warning-contention-count  |   Threshold.                                                                                                                              |
+| --critical-contention-count |   Threshold.                                                                                                                              |
+| --warning-usage-bps         |   Threshold in bytes per second.                                                                                                          |
+| --critical-usage-bps        |   Threshold in bytes per second.                                                                                                          |
+| --warning-usage-prct        |   Threshold in percentage.                                                                                                                |
+| --critical-usage-prct       |   Threshold in percentage.                                                                                                                |
 
 </TabItem>
 <TabItem value="Power" label="Power">
 
-| Option                       | Description         |
-|:-----------------------------|:--------------------|
-| --warning-power-usage-watts  | Threshold in Watts. |
-| --critical-power-usage-watts | Threshold in Watts. |
+| Option                 | Description              |
+|:-----------------------|:-------------------------|
+| --warning-usage-watts  |   Threshold in Watts.    |
+| --critical-usage-watts |   Threshold in Watts.    |
+
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Option                    | Description                                                                                                                      |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
+| --add-rates               |   Add counters related to swap read and write rates. This option is implicitly enabled if thresholds related to rates are set.   |
+| --warning-read-rate-bps   |   Threshold in bytes per second.                                                                                                 |
+| --critical-read-rate-bps  |   Threshold in bytes per second.                                                                                                 |
+| --warning-usage-bytes     |   Threshold in B.                                                                                                                |
+| --critical-usage-bytes    |   Threshold in B.                                                                                                                |
+| --warning-usage-prct      |   Threshold in percentage.                                                                                                       |
+| --critical-usage-prct     |   Threshold in percentage.                                                                                                       |
+| --warning-write-rate-bps  |   Threshold in bytes per second.                                                                                                 |
+| --critical-write-rate-bps |   Threshold in bytes per second.                                                                                                 |
 
 </TabItem>
 </Tabs>

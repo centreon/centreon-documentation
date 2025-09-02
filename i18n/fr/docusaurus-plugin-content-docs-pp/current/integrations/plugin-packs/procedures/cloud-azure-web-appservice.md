@@ -248,7 +248,7 @@ dnf install centreon-plugin-Cloud-Azure-Web-AppService-Api
 ```bash
 apt install centreon-plugin-cloud-azure-web-appservice-api
 ```
-
+  
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
