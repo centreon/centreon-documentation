@@ -52,7 +52,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle            | Description |
 |:---------------------------|:------------|
-| App-Ceph-Restapi-Pool-Name | Découvre les pools et supervise l'utilisation            |
+| App-Ceph-Restapi-Pool-Name | Découvre les pools et en supervise l'utilisation            |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -101,7 +101,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Pour la supervision Ceph, un utilisateur avec les droits en lecture est nécessaire. Référez vous à la documentation officielle: https://docs.ceph.com/en/latest/mgr/ceph_api/
+Pour la supervision Ceph, un utilisateur avec les droits en lecture est nécessaire. Référez-vous à la documentation officielle: https://docs.ceph.com/en/latest/mgr/ceph_api/.
 
 ## Installer le connecteur de supervision
 
@@ -281,8 +281,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname='10.0.0.1' \
 	--port='8443' \
 	--proto='https' \
-	--api-username='' \
-	--api-password=''  \
+	--api-username='XXXX' \
+	--api-password='XXXX'  \
 	--filter-name='' \
 	--warning-pool-space-usage='' \
 	--critical-pool-space-usage='' \

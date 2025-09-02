@@ -100,7 +100,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To monitor your Ceph, a user with read privileges is required. Please refer to their official documentation: https://docs.ceph.com/en/latest/mgr/ceph_api/
+To monitor your Ceph, a user with read privileges is required. Please refer to their official documentation: https://docs.ceph.com/en/latest/mgr/ceph_api/.
 
 ## Installing the monitoring connector
 
@@ -280,8 +280,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname='10.0.0.1' \
 	--port='8443' \
 	--proto='https' \
-	--api-username='' \
-	--api-password=''  \
+	--api-username='XXXX' \
+	--api-password='XXXX'  \
 	--filter-name='' \
 	--warning-pool-space-usage='' \
 	--critical-pool-space-usage='' \
