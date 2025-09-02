@@ -143,7 +143,7 @@ dnf install centreon-plugin-Cloud-Microsoft-Office365-AzureAD-Api
 ```bash
 apt install centreon-plugin-cloud-microsoft-office365-azuread-api
 ```
-
+  
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
