@@ -63,7 +63,7 @@ Le connecteur apporte les modèles de service suivants
 | File-Capacity                  | Cloud-Azure-Storage-StorageAccount-File-Capacity-Api-custom                  | Contrôle le volume de type File utilisé sur le stockage                            |            |
 | File-Count                     | Cloud-Azure-Storage-StorageAccount-File-Count-Api-custom                     | Contrôle le nombre de fichiers sur le stockage                                     |            |
 | File-Share-Count               | Cloud-Azure-Storage-StorageAccount-File-Share-Count-Api-custom               | Contrôle le nombre de partages sur le stockage                                      |            |
-| File-Share-Quota               | Cloud-Azure-Storage-StorageAccount-File-Share-Quota-Api-custom               | Contrôle le nombre de partages sur le stockage                                      | X          |
+| File-Share-Quota               | Cloud-Azure-Storage-StorageAccount-File-Share-Quota-Api-custom               | Contrôle la capacité de stockage fileshare utilisée d'un compte | X          |
 | File-Transactions-Availability | Cloud-Azure-Storage-StorageAccount-File-Transactions-Availability-Api-custom | Contrôle le taux de disponibilité du stockage                                      |            |
 | File-Transactions-Count        | Cloud-Azure-Storage-StorageAccount-File-Transactions-Count-Api-custom        | Contrôle le nombre de transactions sur le stockage                                 |            |
 | File-Transactions-Latency      | Cloud-Azure-Storage-StorageAccount-File-Transactions-Latency-Api-custom      | Contrôle la latence et le temps de traitement des requêtes réussies sur le stockage |            |
