@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias          | Modèle de service                                        | Description                                                               |
 |:---------------|:---------------------------------------------------------|:--------------------------------------------------------------------------|
-| Backend-Health | Cloud-Azure-Network-AppGateway-Backend-Health-Api-custom | Contrôle la disponibilité des hôtes backends Azure Application Gateway v1 |
+| Backend-Health | Cloud-Azure-Network-AppGateway-Backend-Health-Api-custom | Contrôle la disponibilité des backends des hôtes Azure Application Gateway v1 |
 | Connections    | Cloud-Azure-Network-AppGateway-Connections-Api-custom    | Contrôle les connexions aux ressources Azure Application Gateway          |
 | Health         | Cloud-Azure-Network-AppGateway-Health-Api-custom         | Contrôle la santé des ressources Azure Application Gateway                |
 | Requests       | Cloud-Azure-Network-AppGateway-Requests-Api-custom       | Contrôle les requêtes des ressources Azure Application Gateway            |
