@@ -19,9 +19,40 @@ module.exports = {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/plugin-customization'
             },
+
+
             {
-              type: 'doc',
-              id: 'integrations/plugin-packs/getting-started/how-to-guides/cma'
+              type: 'category',
+              label: 'Centreon Monitoring Agent',
+              link: {
+                type: 'generated-index'
+              },
+              items: [
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma'
+                },
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-setup'
+                },
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-certificates'
+                },
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-custom'
+                },
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-migratenscpp'
+                },
+                {
+                  type: 'doc',
+                  id: 'integrations/plugin-packs/getting-started/how-to-guides/cma/cma-troubleshooting'
+                }
+              ]
             },
             {
               type: 'doc',
@@ -210,6 +241,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-exense-step-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-github-restapi'
         },
         {
@@ -322,6 +357,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-latencetech-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-loggly-restapi'
         },
         {
@@ -335,6 +374,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-antivirus-mcafee-webgateway-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/infrastructure-active-directory-centreon-monitoring-agent'
         },
         {
           type: 'doc',
@@ -1254,7 +1297,7 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-video-appeartv-snmp'
         },
-       {
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-camera-avigilon-snmp'
         },
@@ -1273,6 +1316,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-barco-cs-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-avigilon-snmp'
         },
         {
           type: 'doc',
@@ -1754,6 +1801,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-firewalls-forcepoint-sdwan-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-fortinet-fortiadc-snmp'
         },
         {
@@ -1762,11 +1813,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-firewalls-fortinet-fortigate-snmp'
+          id: 'integrations/plugin-packs/procedures/network-fortinet-fortigate-restapi'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-fortinet-fortigate-restapi'
+          id: 'integrations/plugin-packs/procedures/network-firewalls-fortinet-fortigate-snmp'
         },
         {
           type: 'doc',
@@ -1851,6 +1902,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-routers-juniper-mseries-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-routers-juniper-mseries-netconf'
         },
         {
           type: 'doc',
@@ -1960,7 +2015,7 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-oracle-infiniband-snmp'
         },
-	{
+        {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-oracle-otd-snmp'
         },
@@ -2145,6 +2200,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/base-generic'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-f5os-snmp'
         },
         {
           type: 'doc',
@@ -2496,6 +2555,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-emc-symmetrix-nsclient-05-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-emc-unisphere-restapi'
         },
         {
@@ -2569,6 +2632,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce-ssh'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hpe-alletra-restapi'
         },
         {
           type: 'doc',
@@ -2943,6 +3010,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/application-virtualization-vmware8-esx-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vmware8-vcenter-restapi'
         }
       ]
     }

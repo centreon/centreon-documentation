@@ -64,7 +64,7 @@ Il est possible de spécifier un proxy à utiliser le cas échéant.
 yum install centreon-plugin-Applications-Google-Workspace-Api
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -81,7 +81,7 @@ yum install centreon-plugin-Applications-Google-Workspace-Api
 yum install centreon-pack-applications-google-workspace-api
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le Pack *Google Workspace* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
