@@ -54,7 +54,7 @@ systemctl enable snmpd
 
 ### In the user interface
 
-In the user interface, go to **Configuration > Monitoring Connector Manager** and install the **Linux SNMP** Monitoring Connector:
+In the user interface, go to **Configuration > Connectors > Monitoring Connectors** and install the **Linux SNMP** Monitoring Connector:
 
 ![image](../assets/getting-started/quick_start_linux_0.gif)
 

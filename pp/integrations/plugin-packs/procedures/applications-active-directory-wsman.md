@@ -130,7 +130,7 @@ dnf install centreon-plugin-Applications-ActiveDirectory-Wsman
 ```bash
 apt install centreon-plugin-applications-activedirectory-wsman
 ```
-
+  
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 

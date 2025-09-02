@@ -189,6 +189,12 @@ apt install centreon-plugin-\*
 
 If you are using custom plugins, synchronize the directories that contain your custom plugins, including any necessary dependencies.
 
+Use the following command to synchronize images and media between your old server and the new one.
+
+```shell
+rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img/
+```
+
 ### Step 5: Upgrade Centreon
 
 1. On the new server, force the update by moving the contents of the
@@ -245,7 +251,7 @@ chapter for more information.
 
 9. If your old Centreon server was monitoring itself, and you have changed the username/password for the database during the migration, update the configuration of all related resources (host, services attached to that host).
 
-10. Go to **Configuration > Monitoring Connector Manager**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
+10. Go to **Configuration > Connectors > Monitoring Connectors**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
 
 ### Step 6 (older versions only): Migrate to Gorgone
 
