@@ -5,12 +5,6 @@ title: Azure App Service Plan
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-An App Service plan defines a set of compute resources for a web app to run. These compute resources are analogous to the server
-farm in conventional web hosting. One or more apps can be configured to run on the same computing resources (or in the same App
-Service plan).
-
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Azure App Service Plan** connector through the
