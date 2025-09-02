@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias              | Modèle de service                 | Description                                  |
 |:-------------------|:----------------------------------|:---------------------------------------------|
 | Bind9-Memory-Usage | App-Bind9-Memory-Usage-Web-custom | Contrôle l'utilisation mémoire DNS           |
-| Bind9-Server-Usage | App-Bind9-Server-Usage-Web-custom | Contrôle l'utilisation global du serveur DNS |
+| Bind9-Server-Usage | App-Bind9-Server-Usage-Web-custom | Contrôle l'utilisation globale du serveur DNS |
 | Bind9-Zone-Usage   | App-Bind9-Zone-Usage-Web-custom   | Contrôle l'utilisation des zones DNS         |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Bind9-Web-custom** est utilisé.
