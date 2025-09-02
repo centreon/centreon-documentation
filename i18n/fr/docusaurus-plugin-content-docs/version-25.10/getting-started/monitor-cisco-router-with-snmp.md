@@ -54,7 +54,7 @@ apt install centreon-plugin-network-cisco-standard-snmp
 
 ### Sur le serveur central
 
-Dans l'interface web, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**, recherchez et installez le connecteur de supervision **Cisco standard** :
+Dans l'interface web, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**, recherchez et installez le connecteur de supervision **Cisco standard** :
 
 ![image](../assets/getting-started/quick_start_cisco_0.gif)
 

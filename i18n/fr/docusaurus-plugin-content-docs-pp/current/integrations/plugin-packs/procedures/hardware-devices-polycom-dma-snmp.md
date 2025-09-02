@@ -115,7 +115,7 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Dma-Snmp
 ```
 
 2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Polycom DMA SNMP* 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** 
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** 
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -133,7 +133,7 @@ yum install centreon-pack-hardware-devices-polycom-dma-snmp
 ```
 
 3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Polycom DMA SNMP* 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>

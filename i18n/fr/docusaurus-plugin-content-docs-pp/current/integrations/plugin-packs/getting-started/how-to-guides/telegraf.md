@@ -31,13 +31,13 @@ Les limitations suivantes sont dues à des contraintes côté Telegraf ou côté
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
+1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
 2. [Installez](/docs/monitoring/pluginpacks/#installer-un-connecteur-de-supervision) le connecteur de supervision **Linux Telegraf Agent**.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
+1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
 2. [Installez](/docs/monitoring/pluginpacks/#installer-un-connecteur-de-supervision) le connecteur de supervision **Windows Telegraf Agent**.
 
 </TabItem>
@@ -45,15 +45,17 @@ Les limitations suivantes sont dues à des contraintes côté Telegraf ou côté
 
 ### Créez le connecteur Telegraf
 
-Installez le processeur Open Telemetry pour Telegraf sur votre serveur central :
+Si vous êtes sur la version 24.10.6 ou une version plus récente, passez directement à [l'étape suivante](#configurez-engine).
+
+Si vous êtes sur une version antérieure à la 24.10.6, vous devez installer le processeur Open Telemetry pour Telegraf sur votre serveur central :
 
 1. Allez à la page **Configuration > Commandes > Connecteurs**.
 2. Créez un nouveau connecteur avec les données suivantes :
 
 | Paramètre                  | Valeur                                                                                                                                                                                                                           |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nom du connecteur          | Telegraf                                                                                                                                                                                                                         |
-| Description du connecteurn | Telegraf                                                                                                                                                                                                                         |
+| Nom du connecteur          | Telegraf Beta                                                                                                                                                                                                                        |
+| Description du connecteur | Telegraf  Beta                                                                                                                                                                                                                       |
 | Ligne de commande          | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resource_metrics.scope_metrics.data.data_points.attributes.host --service_path=resource_metrics.scope_metrics.data.data_points.attributes.service` |
 | Utilisé par la commande    | Entrez `Telegraf-Agent` et cliquez sur **Sélectionner tout**                                                                                                                                                                     |
 | Statut du connecteur       | Activé                                                                                                                                                                                                                           |
@@ -62,7 +64,7 @@ Installez le processeur Open Telemetry pour Telegraf sur votre serveur central :
 
 2. Configurez la communication entre le collecteur et l'agent :
 
-<PollerAgentConfiguration />
+<PollerAgentConfiguration type="Telegraf" />
 
 5. Le **Fournisseur de configuration** est le serveur à l'intérieur du moteur du collecteur qui enverra à l'agent sa configuration. Entrez le port et les noms des fichiers de certificat. Les certificats doivent être stockés dans le répertoire **/etc/pki/** du collecteur. Vous pouvez utiliser les mêmes certificats que pour le receveur OTLP.
 > Si vous configurez plusieurs collecteurs en même temps, assurez-vous que tous les fichiers de certificat aient le même nom.
