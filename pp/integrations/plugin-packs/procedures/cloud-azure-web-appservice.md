@@ -5,11 +5,6 @@ title: Azure App Service
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Azure App Service is a solution that allows to easily build, deploy and scale
-web apps and APIs running on containers or in Windows or Linux.
-
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Azure App Service** connector through the
