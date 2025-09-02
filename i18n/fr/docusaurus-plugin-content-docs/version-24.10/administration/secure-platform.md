@@ -1299,7 +1299,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 
 Vous pouvez maintenant accéder à votre plateforme via votre navigateur en mode HTTPS.
 
-> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez le configurer en mode HTTPS également. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](../graph-views/secure-your-map-platform.md#configurer-httpstls-sur-le-serveur-map).
+> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez définir l'adresse `centreon.url=https://<server-address>` dans le fichier **/etc/centreon-map/map-config.properties** pour utiliser HTTPS au lieu de HTTP. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](../graph-views/secure-your-map-platform.md#configurer-httpstls-sur-le-serveur-map).
 
 9. Configuration API de Gorgone
 
@@ -1619,6 +1619,29 @@ Vous pouvez [configurer SSL](https://github.com/centreon/centreon-collect/blob/d
 Puis configurez gorgone à la page **Administration > Paramètres > Gorgone**.
 
 Le fichier **/etc/centreon-gorgone/config.d/whitelist.conf.d/centreon.yaml** (sur votre serveur central, vos serveurs distants et vos collecteurs) contient les listes blanches pour Gorgone. Si vous souhaitez personnaliser les commandes autorisées, n'éditez pas ce fichier. Créez un nouveau fichier dans le même dossier, par exemple **/etc/centreon-gorgone/config.d/whitelist.conf.d/custom.yaml**.
+
+## Centreon Gorgone autodiscovery
+
+Par défaut, Gorgone autorise les commandes du module autodiscovery à interpréter les métacaractères bash lorsqu'elles sont exécutées. Cela peut constituer un risque de sécurité si un utilisateur disposant des privilèges nécessaires pour effectuer une découverte d'hôte est compromis.
+
+Pour désactiver ce comportement, vous pouvez définir le paramètre **no_shell_interpolation** à **true** dans le fichier **/etc/centreon-gorgone/config.d/41-autodiscovery.yaml**, comme suit : 
+
+**vi /etc/centreon-gorgone/config.d/41-autodiscovery.yaml**
+
+```yaml
+gorgone:
+  modules:
+    - name: autodiscovery
+      package: "gorgone::modules::centreon::autodiscovery::hooks"
+      enable: true
+      no_shell_interpretation: true
+```
+
+Redémarrez ensuite Gorgone pour que le nouveau paramètre prenne effet :
+
+```shell
+systemctl restart gorgoned
+```
 
 ## Gestion de l'information et des événements de sécurité (SIEM)
 

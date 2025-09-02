@@ -1,6 +1,6 @@
 ---
 id: network-firewalls-fortinet-fortigate-snmp
-title: Fortinet Fortigate
+title: Fortinet Fortigate SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Fortinet Fortigate SNMP** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -29,24 +29,26 @@ The connector brings the following service templates (sorted by the host templat
 | Cpu           | Net-Fortinet-Fortigate-Cpu-SNMP-custom      | Check the rate of utilization of CPU for the machine. This check can give the average utilization rate of the CPU |
 | Memory        | Net-Fortinet-Fortigate-Memory-SNMP-custom   | Check memory usage                                                                                                |
 | Sessions      | Net-Fortinet-Fortigate-Sessions-SNMP-custom | Check current active sessions                                                                                     |
+| Uptime        | Net-Fortinet-Fortigate-Uptime-SNMP-custom   | Time since the server has been working and available                                                              |
 
 > The services listed above are created automatically when the **Net-Fortinet-Fortigate-SNMP-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias    | Service Template                                    | Service Description                                          | Discovery |
-|:-----------------|:----------------------------------------------------|:-------------------------------------------------------------|:---------:|
-| Cluster-Status   | Net-Fortinet-Fortigate-Cluster-Status-SNMP-custom   | Check cluster status                                         |           |
-| Disk             | Net-Fortinet-Fortigate-Disk-SNMP-custom             | Check system disk usage                                      |           |
-| Hardware         | Net-Fortinet-Fortigate-Hardware-SNMP-custom         | Check hardware sensors                                       |           |
-| Ips-Stats-Global | Net-Fortinet-Fortigate-Ips-Stats-Global-SNMP-custom | Check virtual domain IPS statistics                          |           |
-| SDWan            | Net-Fortinet-Fortigate-SDWan-SNMP-custom            | Check SDWan links                                            |           |
-| Traffic-Global   | Net-Fortinet-Fortigate-Traffic-Global-SNMP-custom   | Check traffic of multiple network interfaces                 |     X     |
-| Traffic-Id       | Net-Fortinet-Fortigate-Traffic-Id-SNMP-custom       | Check traffic of a network interface                         |           |
-| Traffic-Name     | Net-Fortinet-Fortigate-Traffic-Name-SNMP-custom     | Check traffic of a network interface                         |           |
-| VPN-Global       | Net-Fortinet-Fortigate-VPN-Global-SNMP-custom       | Check the state of VPN links                                 |           |
-| Vdom-Usage       | Net-Fortinet-Fortigate-Vdom-Usage-SNMP-custom       | Check virtual domains                                        |           |
+| Service Alias    | Service Template                                    | Service Description                                            | Discovery |
+|:-----------------|:----------------------------------------------------|:---------------------------------------------------------------|:---------:|
+| Cluster-Status   | Net-Fortinet-Fortigate-Cluster-Status-SNMP-custom   | Check cluster status                                           |           |
+| Disk             | Net-Fortinet-Fortigate-Disk-SNMP-custom             | Check system disk usage                                        |           |
+| Hardware         | Net-Fortinet-Fortigate-Hardware-SNMP-custom         | Check hardware sensors                                         |           |
+| Ips-Stats-Global | Net-Fortinet-Fortigate-Ips-Stats-Global-SNMP-custom | Check virtual domain IPS statistics                            |           |
+| SDWan            | Net-Fortinet-Fortigate-SDWan-SNMP-custom            | Check SDWan links                                              |           |
+| Switch-Usage     | Net-Fortinet-Fortigate-Switch-Usage-SNMP-custom     | Check switch usage through Fortigate Switch Controller         |     X     |
+| Traffic-Global   | Net-Fortinet-Fortigate-Traffic-Global-SNMP-custom   | Check traffic of multiple network interfaces                   |     X     |
+| Traffic-Id       | Net-Fortinet-Fortigate-Traffic-Id-SNMP-custom       | Check traffic of a network interface                           |           |
+| Traffic-Name     | Net-Fortinet-Fortigate-Traffic-Name-SNMP-custom     | Check traffic of a network interface                           |           |
+| VPN-Global       | Net-Fortinet-Fortigate-VPN-Global-SNMP-custom       | Check the state of VPN links                                   |           |
+| Vdom-Usage       | Net-Fortinet-Fortigate-Vdom-Usage-SNMP-custom       | Check virtual domains                                          |     X     |
 | Virus            | Net-Fortinet-Fortigate-Virus-SNMP-custom            | Check blocked and detected viruses on multiple virtual domains |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
@@ -68,9 +70,11 @@ More information about discovering hosts automatically is available on the [dedi
 
 #### Service discovery
 
-| Rule name                                | Description                                                   |
-|:-----------------------------------------|:--------------------------------------------------------------|
-| Net-Fortinet-Fortigate-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
+| Rule name                                | Description                                                                       |
+|:-----------------------------------------|:----------------------------------------------------------------------------------|
+| Net-Fortinet-Fortigate-SNMP-Switch-Name  | Discover switches and monitor their usage through the Fortigate Switch Controller |
+| Net-Fortinet-Fortigate-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization                     |
+| Net-Fortinet-Fortigate-SNMP-Vdom-Name    | Discover virtual domains and monitor their status and usage                       |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -111,10 +115,10 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Name                     | Unit  |
-|:-------------------------|:------|
-| hardware.sensors.count   | count |
-| hardware.sensors.measure | N/A   |
+| Name                      | Unit  |
+|:--------------------------|:------|
+| hardware.sensors.count    | count |
+| hardware.sensors.measure	 | N/A   |
 
 </TabItem>
 <TabItem value="Ips-Stats-Global" label="Ips-Stats-Global">
@@ -170,6 +174,17 @@ Here is the list of services for this connector, detailing all metrics and statu
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
+<TabItem value="Switch-Usage" label="Switch-Usage">
+
+| Name                                       | Unit  |
+|:-------------------------------------------|:------|
+| status                                     | N/A   |
+| *switch*#switch.cpu.utilization.percentage | %     |
+| *switch*#switch.memory.usage.bytes         | %     |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
 | Metric name                                          | Unit  |
@@ -197,14 +212,23 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *interface_name*#interface.traffic.out.bitspersecond | b/s   |
 
 </TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Name                  | Unit  |
+|:----------------------|:------|
+| system.uptime.seconds | s     |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</TabItem>
 <TabItem value="VPN-Global" label="VPN-Global">
 
 | Name                                     | Unit     |
 |:-----------------------------------------|:---------|
-| *vd*~vpn.users.logged.count              | users    |
-| *vd*~vpn.websessions.active.count        | sessions |
-| *vd*~vpn.tunnels.active.count            | tunnels  |
-| *vd*~vpn.ipsec.tunnels.state.count       | tunnels  |
+| *vd*~vpn.users.logged.count              | count  |    |
+| *vd*~vpn.websessions.active.count        | count  | |
+| *vd*~vpn.tunnels.active.count            | count  |  |
+| *vd*~vpn.ipsec.tunnels.state.count       | count  |  |
 | status                                   | N/A      |
 | *vd*~*vpn*#vpn.traffic.in.bitspersecond  | b/s      |
 | *vd*~*vpn*#vpn.traffic.out.bitspersecond | b/s      |
@@ -263,7 +287,7 @@ SNMP port.
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -299,7 +323,7 @@ yum install centreon-pack-network-firewalls-fortinet-fortigate-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Fortinet Fortigate SNMP** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -484,6 +508,21 @@ yum install centreon-plugin-Network-Firewalls-Fortinet-Fortigate-Snmp
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
+<TabItem value="Switch-Usage" label="Switch-Usage">
+
+| Macro          | Description                                                                                                                              | Default value                                        | Mandatory |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------:|
+| FILTERNAME     | Filter by switch name (can be a regexp)                                                                                                  |                                                      |           |
+| FILTERIP       | Filter by switch IP (can be a regexp)                                                                                                    |                                                      |           |
+| WARNINGCPU     | Warning threshold (%)                                                                                                                    |                                                      |           |
+| CRITICALCPU    | Critical threshold (%)                                                                                                                   |                                                      |           |
+| WARNINGMEMORY  | Warning threshold (%)                                                                                                                    |                                                      |           |
+| CRITICALMEMORY | Critical threshold (%)                                                                                                                   |                                                      |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admin\}, %\{status\}, %\{display\} | %\{admin\} eq "authorized" and %\{status\} eq "down" |           |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admin\}, %\{status\}, %\{display\}  |                                                      |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).   |                                                      |           |
+
+</TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
 | Macro          | Description                                                                                                                                                       | Default value                                    | Mandatory |
@@ -519,6 +558,16 @@ yum install centreon-plugin-Network-Firewalls-Fortinet-Fortigate-Snmp
 | WARNINGOUT    | Threshold                                                                                                                              |               |           |
 | CRITICALOUT   | Threshold                                                                                                                              |               |           |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Macro          | Description                                                                                                                                  | Default value    | Mandatory |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|:---------:|
+| UNIT           | Select the time unit for thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds |                  |           |
+| WARNINGUPTIME  | Warning threshold                                                                                                                            |                  |           |
+| CRITICALUPTIME | Critical threshold                                                                                                                           |                  |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).       | --check-overload |           |
 
 </TabItem>
 <TabItem value="VPN-Global" label="VPN-Global">
@@ -559,7 +608,7 @@ yum install centreon-plugin-Network-Firewalls-Fortinet-Fortigate-Snmp
 | CRITICALSESSIONSACTIVE   | Threshold                                                                                                                              |               |           |
 | WARNINGSESSIONSRATE      | Threshold                                                                                                                              |               |           |
 | CRITICALSESSIONSRATE     | Threshold                                                                                                                              |               |           |
-| WARNINGSTATUS            | Define the conditions to match for the status to be WARNING . You can use the following variables: %\{op\_mode\}, %\{ha\_state\}       |               |           |
+| WARNINGSTATUS            | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{op\_mode\}, %\{ha\_state\}        |               |           |
 | CRITICALSTATUS           | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{op\_mode\}, %\{ha\_state\}       |               |           |
 | WARNINGTRAFFICIN         | Threshold                                                                                                                              |               |           |
 | CRITICALTRAFFICIN        | Threshold                                                                                                                              |               |           |
@@ -654,12 +703,14 @@ The plugin brings the following modes:
 | link-monitor [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/linkmonitor.pm)]               | Not used in this Monitoring Connector                                                                                                                     |
 | list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]                                   | Used for service discovery                                                                                                                                |
 | list-link-monitors [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/listlinkmonitors.pm)]    | Not used in this Monitoring Connector                                                                                                                     |
-| list-virtualdomains [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/listvirtualdomains.pm)] | Not used in this Monitoring Connector                                                                                                                     |
+| list-switches [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/listswitches.pm)]             | Used for service discovery                                                                                                                                |
+| list-virtualdomains [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/listvirtualdomains.pm)] | Used for service discovery                                                                                                                                |
 | memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/memory.pm)]                          | Net-Fortinet-Fortigate-Memory-SNMP-custom                                                                                                                 |
 | sdwan [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/sdwan.pm)]                            | Net-Fortinet-Fortigate-SDWan-SNMP-custom                                                                                                                  |
 | sessions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/sessions.pm)]                      | Net-Fortinet-Fortigate-Sessions-SNMP-custom                                                                                                               |
 | signatures [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/signatures.pm)]                  | Not used in this Monitoring Connector                                                                                                                     |
-| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/uptime.pm)]                                                    | Not used in this Monitoring Connector                                                                                                                     |
+| switch-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/switchusage.pm)]               | Net-Fortinet-Fortigate-Switch-Usage-SNMP-custom                                                                                                           |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/uptime.pm)]                                                    | Net-Fortinet-Fortigate-Uptime-SNMP-custom                                                                                                                 |
 | vdom-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/vdomusage.pm)]                   | Net-Fortinet-Fortigate-Vdom-Usage-SNMP-custom                                                                                                             |
 | virus [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/virus.pm)]                            | Net-Fortinet-Fortigate-Virus-SNMP-custom                                                                                                                  |
 | vpn [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/fortinet/fortigate/snmp/mode/vpn.pm)]                                | Net-Fortinet-Fortigate-VPN-Global-SNMP-custom                                                                                                             |
@@ -820,6 +871,22 @@ All available options for each service template are listed below:
 | --warning-* --critical-* |   Thresholds. Can be: 'active', 'setup-1min', 'setup-10min', 'setup-30min', 'setup-60min'.                                    |
 
 </TabItem>
+<TabItem value="Switch-Usage" label="Switch-Usage">
+
+| Option            | Description                                                                                                                                                                                                     |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                     |
+| --warning-cpu     |   Warning threshold (%).                                                                                                                                                                                        |
+| --critical-cpu    |   Critical threshold (%).                                                                                                                                                                                       |
+| --warning-memory  |   Warning threshold (%).                                                                                                                                                                                        |
+| --critical-memory |   Critical threshold (%).                                                                                                                                                                                       |
+| --filter-name     |   Filter by switch name (can be a regexp).                                                                                                                                                                      |
+| --filter-ip       |   Filter by switch IP (can be a regexp).                                                                                                                                                                        |
+| --unknown-status  |   Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{admin\}, %\{status\}, %\{display\}                                                         |
+| --warning-status  |   Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{admin\}, %\{status\}, %\{display\}                                                         |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{admin\} eq "authorized" and %\{status\} eq "down"'). You can use the following variables: %\{admin\}, %\{status\}, %\{display\}    |
+
+</TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
 | Option                                          | Description                                                                                                                                                                                                                                                                                  |
@@ -942,6 +1009,32 @@ All available options for each service template are listed below:
 | --oid-extra-display                             |   Add an OID to display.                                                                                                                                                                                                                                                                     |
 | --display-transform-src --display-transform-dst |   Modify the interface name displayed by using a regular expression.  Example: adding --display-transform-src='eth' --display-transform-dst='ens'  will replace all occurrences of 'eth' with 'ens'                                                                                          |
 | --show-cache                                    |   Display cache interface data.                                                                                                                                                                                                                                                              |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Option                 | Description                                                                                                                                                                                                                                     |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters      |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                     |
+| --memcached            |   Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             |   Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                          |
+| --memexpiration        |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd |   If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --warning-uptime       |   Warning threshold.                                                                                                                                                                                                                            |
+| --critical-uptime      |   Critical threshold.                                                                                                                                                                                                                           |
+| --add-sysdesc          |   Display system description.                                                                                                                                                                                                                   |
+| --force-oid            |   Can choose your OID (numeric format only).                                                                                                                                                                                                    |
+| --check-overload       |   Uptime counter limit is 4294967296 and overflow. With that option, we manage the counter going back. But there is a few chance we can miss a reboot.                                                                                          |
+| --reboot-window        |   To be used with check-overload option. Time in milliseconds (default: 5000) You increase the chance of not missing a reboot if you decrease that value.                                                                                       |
+| --unit                 |   Select the time unit for thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                                                                 |
 
 </TabItem>
 <TabItem value="VPN-Global" label="VPN-Global">

@@ -67,18 +67,18 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle     | Description                                                |
-|:--------------------|:-----------------------------------------------------------|
-| Aruba Access Points | Discover Aruba Access Points through the Aruba Controller |
+| Nom de la règle     | Description                                                             |
+|:--------------------|:------------------------------------------------------------------------|
+| Aruba Access Points | Découvre les points d'accès Aruba Access au travers du Controller Aruba |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
 #### Découverte de service
 
-| Nom de la règle                            | Description                                                           |
-|:-------------------------------------------|:----------------------------------------------------------------------|
-| Net-Aruba-Standard-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets |
-| Net-Aruba-Standard-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization         |
+| Nom de la règle                            | Description                                                                      |
+|:-------------------------------------------|:---------------------------------------------------------------------------------|
+| Net-Aruba-Standard-SNMP-Packet-Errors-Name | Découvre les interfaces réseau et supervise les paquets en erreur et rejetés     |
+| Net-Aruba-Standard-SNMP-Traffic-Name       | Découvre les interfaces réseau et supervise l'utilisation de leur bande passante |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -196,7 +196,10 @@ Pas de métrique pour ce service.
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -210,7 +213,7 @@ Centreon vers la ressource supervisée.
 La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -247,7 +250,7 @@ yum install centreon-pack-network-switchs-aruba-standard-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Aruba Standard**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 

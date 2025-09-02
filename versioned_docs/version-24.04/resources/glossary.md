@@ -287,6 +287,10 @@ Time periods define a time interval for each day of the week. They enable the fe
 
 **See also**: [Time periods](../monitoring/basic-objects/timeperiods.md).
 
+## VIP
+
+A virtual IP address (VIP) is used in an HA cluster. A VIP is not linked to a physical interface, but can send data to several interfaces. In a cluster, if data is sent to a VIP, the VIP forwards it to whichever node is the current active node.
+
 ## Widget
 
 Configurable visual element that allows you to display data in a custom view.
