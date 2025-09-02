@@ -148,19 +148,26 @@ You can filter the list of resources according to a number of predefined criteri
 
 ### Search bar
 
-If you type text into the search bar, by default the search is performed on the following fields:
+#### Free text search
+
+If you type text into the search bar, the search may be performed on the following fields:
 
 - Name of the host
 - Alias of the host
 - Address or FQDN of the host
 - Name of the service
+- Information
 
 For instance, if you type "rta", all resources containing "rta" in one of the above fields will be displayed (e.g., a metaservice called **Ping-RTA-Average**).
 
-However, you can do a much more specific search using the [Centreon Query Language](#cql-criteria). This language allows you to search only 
-in one or several fields.
+The behavior depends on what you have configured in the **Administration > Parameters > Centreon UI** page, in the **Free text search behavior** field:
+* **Limited search**: Free text search will be performed only on the following fields: host name, alias and address, and service description (i.e., its name). Use if you have a large amount of data.
+* **Full search**: Free text search will also be performed on the "information" field. This is appropriate only if you have a small amount of data, as it affects performance.
 
 #### CQL criteria
+
+You can do a much more specific search using the [Centreon Query Language](#cql-criteria). This language allows you to search only 
+in one or several fields.
 
 - **alias**: search for hosts according to their alias
 - **fqdn**: search for hosts according to their IP address or FQDN

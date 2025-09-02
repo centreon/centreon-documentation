@@ -63,9 +63,9 @@ On the telegram webapp page, click on the group previously created to obtain a c
 
 ![chatid](../../assets/integrations/notifications/telegram/chatid-telegram.png)
 
-for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456** then, your chat-id is **123456**.
+for example, if the url is as follows: **https://web.telegram.org/#/im?p=g123456** then, your chat-id is **123456**.
 
-> Note that while 123456 is your chat-id, you'll need to use **-123456** in your configuration  otherwise it won't work
+> Note that while 123456 is your chat-id, you'll need to use **-123456** in your configuration otherwise it won't work
 
 ### Command creation in Centreon
 
