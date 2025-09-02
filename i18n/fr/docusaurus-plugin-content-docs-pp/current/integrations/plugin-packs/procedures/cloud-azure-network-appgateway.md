@@ -258,7 +258,7 @@ yum install centreon-plugin-Cloud-Azure-Network-AppGateway-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Remplissez le champ **Adresse IP/DNS** avec l'adresse **127.0.0.1**.
 3. Appliquez le modèle d'hôte **Cloud-Azure-Network-AppGateway-V1-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires. Par exemple, pour ce connecteur, **AZURECUSTOMMODE** (valeurs possibles : **api** ou **azcli**). En effet, il existe plusieurs modes de communication avec l'équipement supervisé : soit l'outil en ligne de commande azcli, soit une interrogation directe de l'api.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires. Par exemple, pour ce connecteur, **AZURECUSTOMMODE** (valeurs possibles : **api** ou **azcli**). En effet, il existe plusieurs modes de communication avec l'équipement supervisé : soit l'outil en ligne de commande azcli, soit une interrogation directe de l'API.
 
 | Macro              | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
