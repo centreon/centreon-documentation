@@ -64,7 +64,7 @@ Si ce n'est pas le cas, la connexion vers cet hôte est refusée.
 </TabItem>
 </Tabs>
 
-## TLS Insecure
+## TLS non sécurisé
 
 ### Principe de fonctionnement
 
@@ -80,9 +80,9 @@ Par exemple, dans le cas d'un MSP, qui mutualise des collecteurs pour ses client
 Les hôtes, au sein du parc client, ne connaissent pas les DNS des collecteurs, et doivent utiliser l'IP, qui ne correspondra pas nécessairement aux informations du certificat.
 Cela fait particulièrement sens dans le cas où le même certificat doit être utilisé sur plusieurs collecteurs, et que des restrictions de sécurité ne permettent pas l'usage d'un wildcard.
 
-Le mode de chiffrement TLS Insecure répond à ce cas d'usage.
+Le mode de chiffrement TLS non sécurisé répond à ce cas d'usage.
 
-En TLS Insecure, le client (l'agent/le collecteur) vérifie d'abord le champ "Nom commun CA" du client.
+En TLS non sécurisé, le client (l'agent/le collecteur) vérifie d'abord le champ "Nom commun CA" du client.
 * Si le champ "Nom commun CA" est renseigné, sa valeur est comparée avec les informations du certificat, qui doivent correspondre strictement.
 * Si le champ "Nom commun CA" est vide, la vérification est basée sur l'IP/DNS utilisée pour atteindre le serveur, comme pour le mode TLS.
 
@@ -130,7 +130,7 @@ openssl req -new -subj '/CN={server_hostname}' \
 - \{server_hostname\} = nom DNS du serveur et/ou utiliser \{alt_poller_DNS\} et/ou utiliser \{alt_poller_IP\}
 Dans le mode de chiffrement TLS, le DNS/IP du serveur utilisé par le client doit obligatoirement correspondre à une entrée CN ou SAN (altName) du certificat (\{server_hostname\}).
 La ligne -subj '/CN=\{server_hostname\}' \ est facultative si des SAN sont définis.
-Dans le mode de chiffrement TLS Insecure, le DNS/IP du serveur peut être différent des informations du certificat. Il faudra alors renseigner la valeur à utiliser dans "Nom commun CA", au sein de la configuration du client.
+Dans le mode de chiffrement TLS non sécurisé, le DNS/IP du serveur peut être différent des informations du certificat. Il faudra alors renseigner la valeur à utiliser dans "Nom commun CA", au sein de la configuration du client.
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
