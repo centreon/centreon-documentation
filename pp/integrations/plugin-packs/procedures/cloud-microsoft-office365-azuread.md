@@ -49,18 +49,19 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-### Register an application
+To use this monitoring connector, it's necessary to give the right privileges to your application/client. 
+These privileges are listed [here](https://docs.microsoft.com/en-us/graph/api/organization-get?view=graph-rest-beta&tabs=http#permissions).
 
 Refer to the documentation available [here](./cloud-microsoft-office365-management.md#prerequisites) to register your application.
 
-### Office365 Management API authorization
+### Specify the authorizations your application needs to access Office 365 management API
 
 To collect data from OneDrive Online, you need to specify the following
 authorization:
 
 * Microsoft Graph :
-    * Organization.Read.All
-    * Directory.Read.All
+    * Organization.Read.All (Application and Delegated)
+    * Directory.Read.All (Application and Delegated)
 
 Check out the endpoint documentation [here](https://docs.microsoft.com/en-us/graph/api/organization-get?view=graph-rest-beta&tabs=http#permissions). It describes the required privileges to obtain information about the organization directory quota.
 
