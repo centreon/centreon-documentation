@@ -32,38 +32,40 @@ Due to Telegraf or Centreon constraints, the following limitations need to be co
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-1. On your central server, go to **Configuration > Monitoring Connector Manager**.
-2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the **Linux Telegraf Agent** monitoring connector.
+1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
+2. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the **Linux Telegraf Agent** monitoring connector.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. On your central server, go to **Configuration > Monitoring Connector Manager**.
-2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the **Windows Telegraf Agent** monitoring connector.
+1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
+2. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the **Windows Telegraf Agent** monitoring connector.
 
 </TabItem>
 </Tabs>
 
 ### Create the Telegraf connector
 
-Install the Open Telemetry processor for Telegraf on your central server:
+If your Centreon is on version 24.10.6 or newer, skip this step and move on to the [next one](#configure-engine). 
 
-1. Go to **Configuration > Commands > Connectors**.
-2. Create a new connector with the following values:
+If your Centreon is a version older than 24.10.6, you need to install the Open Telemetry processor for Telegraf on your central server:
 
-| Parameter             | Value                                                                                                                                                                                                                            |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connector Name        | Telegraf                                                                                                                                                                                                                         |
-| Connector Description | Telegraf                                                                                                                                                                                                                         |
-| Command Line          | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resource_metrics.scope_metrics.data.data_points.attributes.host --service_path=resource_metrics.scope_metrics.data.data_points.attributes.service` |
-| Used by command       | Type `Telegraf-Agent` and click **Select all**                                                                                                                                                                                   |
+1. Go to **Configuration > Commands > Connectors**.	
+2. Create a new connector with the following values:	
+
+| Parameter             | Value                                                                                                                                                                                                                            |	
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |	
+| Connector Name        | Telegraf Beta                                                                                                                                                                                                                         |	
+| Connector Description | Telegraf Beta                                                                                                                                                                                                                         |	
+| Command Line          | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resource_metrics.scope_metrics.data.data_points.attributes.host --service_path=resource_metrics.scope_metrics.data.data_points.attributes.service` |	
+| Used by command       | Type `Telegraf-Agent` and click **Select all**                                                                                                                                                                                   |	
 | Connector Status      | Enabled                                                                                                                                                                                                                          |
 
 ### Configure Engine
 
 Configure how the poller and the agent will communicate:
 
-<PollerAgentConfiguration />
+<PollerAgentConfiguration type="Telegraf" />
 
 5. The **Configuration provider** is the server inside the poller's engine that will send the agent its configuration. Enter the port and the file names for the certificates. The certificates must be stored in the **/etc/pki/** directory. You can use the same certificates as for the OTLP receiver.
 > If you configure several pollers at once, make sure all certificate files have the same name.

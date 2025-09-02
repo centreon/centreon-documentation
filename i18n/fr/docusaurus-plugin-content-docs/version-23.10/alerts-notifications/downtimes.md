@@ -155,7 +155,7 @@ de programmer des temps d'arrêts récurrents sur les services concernés
 afin d'éviter de recevoir des notifications de 20h00 à minuit.
 
 > Les temps d'arrêts sont pris en comptes dans le calcul du taux de
-> disponibilité de la ressource.
+> disponibilité de la ressource montré dans le [rapport de disponibilité](availability.md).
 
 ### En pratique
 
