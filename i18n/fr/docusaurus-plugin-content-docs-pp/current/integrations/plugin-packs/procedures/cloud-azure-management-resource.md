@@ -25,15 +25,15 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="Cloud-Azure-Management-Resource-custom" label="Cloud-Azure-Management-Resource-custom">
 
-> Il n'y a pas de modèle de service lié à ce modèle d'hôte.
+> Aucun modèle de service n'est lié à ce modèle d'hôte.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
 | Alias              | Modèle de service                                             | Description                                                |
 |:-------------------|:--------------------------------------------------------------|:-----------------------------------------------------------|
-| Deployments-Status | Cloud-Azure-Management-Resource-Deployments-Status-Api-custom | Contrôle le statut du déploiement d'un groupe de ressource |
-| Items              | Cloud-Azure-Management-Resource-Items-Api-custom              | Contrôle le nombre d'objet dans un groupe de resource      |
+| Deployments-Status | Cloud-Azure-Management-Resource-Deployments-Status-Api-custom | Contrôle le statut du déploiement d'un groupe de ressources |
+| Items              | Cloud-Azure-Management-Resource-Items-Api-custom              | Contrôle le nombre d'objets dans un groupe de resources      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 

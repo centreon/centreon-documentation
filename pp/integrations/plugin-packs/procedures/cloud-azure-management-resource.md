@@ -24,7 +24,7 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Cloud-Azure-Management-Resource-custom" label="Cloud-Azure-Management-Resource-custom">
 
-> There is no service model linked to this host model.
+> No service template is linked to this host template.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
