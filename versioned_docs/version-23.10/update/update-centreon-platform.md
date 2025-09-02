@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 This chapter describes how to update your Centreon 23.10 platform (i.e. switch from version 23.10.x to version 23.10.y).
 
-## Perform a backup
+## Before you update
 
 Make sure that you have fully backed up your environment for the following
 servers:
@@ -16,6 +16,32 @@ servers:
 - database server.
 
 If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
+
+Remove the debuginfo packages before the procedure unless you have a particular use for them.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+  ```shell
+  dnf remove $(rpm -qa --qf "%{NAME}\n" | grep '^centreon.*debuginfo')
+  ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+  ```shell
+  dnf remove $(rpm -qa --qf "%{NAME}\n" | grep '^centreon.*debuginfo')
+  ```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+  ```shell
+ apt remove $(dpkg -l | awk '/^ii/ && $2 ~ /^centreon.*debuginfo/ { print $2 }')
+  ```
+
+</TabItem>
+</Tabs>
 
 ## Update the Centreon central server
 

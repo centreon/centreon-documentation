@@ -105,13 +105,19 @@ centreon-map.keystore-pass=xxx
 systemctl stop centreon-map-engine
 ```
 
-2. Edit the file **/etc/centreon-map/centreon-map.conf**, adding `,tls` after `prod` profile:
+2. Edit the **/etc/centreon-map/centreon-map.conf** file, adding `,tls` after `prod` profile:
 
 ```text
 RUN_ARGS="--spring.profiles.active=prod,tls"
 ```
 
-3. Restart Centreon MAP service:
+3. Set the **centreon.url** inside the **/etc/centreon-map/map-config.properties** file to use HTTPS instead of HTTP:
+
+```shell
+centreon.url=https://<server-address>
+```
+
+4. Restart Centreon MAP service:
 
 ```shell
 systemctl start centreon-map-engine
