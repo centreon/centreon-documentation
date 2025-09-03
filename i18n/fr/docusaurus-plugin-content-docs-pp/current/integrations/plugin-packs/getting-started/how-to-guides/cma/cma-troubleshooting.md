@@ -51,7 +51,10 @@ Aucune ligne ne doit être retournée.
 
 Selon la configuration faite, utilisez l'observateur d'événements ou consultez le fichier spécifié.
 
-### Vérifiez que la connexion se fait vers le collecteur
+</TabItem>
+</Tabs>
+
+### Vérifiez que la connexion avec le collecteur est établie
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
@@ -85,8 +88,6 @@ La valeur **true** doit être retournée.
 
    Elle doit retourner des résultats, indiquant que des paquets arrivent du collecteur.
 
-</TabItem>
-</Tabs>
 </TabItem>
 </Tabs>
 
