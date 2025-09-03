@@ -51,7 +51,10 @@ No lines should be returned.
 
 Depending on the configuration, use the event viewer or look at the specified file.
 
-### Check that the connection to the poller is working
+</TabItem>
+</Tabs>
+
+### Check that the connection with the poller is working
 
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
@@ -86,8 +89,6 @@ The value **true** must be returned.
 
    This command must return results, showing that packets are arriving from the poller.
 
-</TabItem>
-</Tabs>
 </TabItem>
 </Tabs>
 
