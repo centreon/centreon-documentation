@@ -121,6 +121,14 @@ module.exports = {
       items: [
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/test-pack-multiple-htpl.md'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/test-pack-snmp.md'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-voip-3cx-restapi'
         },
         {
