@@ -130,9 +130,16 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+### Configuration SNMP
+
+L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
@@ -353,7 +360,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=38164b/s;;;; 'interface_name2#interface.traffic.in.bitspersecond'=23419b/s;;;; 'interface_name1#interface.traffic.out.bitspersecond'=69587b/s;;;; 'interface_name2#interface.traffic.out.bitspersecond'=14348b/s;;;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=27196b/s;0:80;0:90;0; 'interface_name2#interface.traffic.in.bitspersecond'=83596b/s;0:80;0:90;0; 'interface_name1#interface.traffic.out.bitspersecond'=42365b/s;0:80;0:90;0; 'interface_name2#interface.traffic.out.bitspersecond'=93946b/s;0:80;0:90;0;
 ```
 
 ### Diagnostic des erreurs communes

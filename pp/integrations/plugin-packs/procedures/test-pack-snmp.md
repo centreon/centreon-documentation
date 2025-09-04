@@ -337,7 +337,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=27196b/s;;;; 'interface_name2#interface.traffic.in.bitspersecond'=83596b/s;;;; 'interface_name1#interface.traffic.out.bitspersecond'=42365b/s;;;; 'interface_name2#interface.traffic.out.bitspersecond'=93946b/s;;;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=27196b/s;0:80;0:90;0; 'interface_name2#interface.traffic.in.bitspersecond'=83596b/s;0:80;0:90;0; 'interface_name1#interface.traffic.out.bitspersecond'=42365b/s;0:80;0:90;0; 'interface_name2#interface.traffic.out.bitspersecond'=93946b/s;0:80;0:90;0;
 ```
 
 ### Troubleshooting

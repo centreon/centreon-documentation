@@ -338,8 +338,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=27196b/s;;;; 'interface_name2#interface.traffic.in.bitspersecond'=83596b/s;;;; 'interface_name1#interface.traffic.out.bitspersecond'=42365b/s;;;; 'interface_name2#interface.traffic.out.bitspersecond'=93946b/s;;;; 
-
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=27196b/s;0:80;0:90;0; 'interface_name2#interface.traffic.in.bitspersecond'=83596b/s;0:80;0:90;0; 'interface_name1#interface.traffic.out.bitspersecond'=42365b/s;0:80;0:90;0; 'interface_name2#interface.traffic.out.bitspersecond'=93946b/s;0:80;0:90;0;
 ```
 
 ### Diagnostic des erreurs communes

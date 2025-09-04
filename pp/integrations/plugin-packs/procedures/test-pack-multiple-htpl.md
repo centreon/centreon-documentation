@@ -129,9 +129,16 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+### SNMP Configuration
+
+The SNMP agent must be enabled and configured on the resource. Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
+
+### Network flow
+
+The target resource must be reachable from the Centreon poller on the UDP/161
+SNMP port.
 
 ## Installing the monitoring connector
 
@@ -352,7 +359,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=38164b/s;;;; 'interface_name2#interface.traffic.in.bitspersecond'=23419b/s;;;; 'interface_name1#interface.traffic.out.bitspersecond'=69587b/s;;;; 'interface_name2#interface.traffic.out.bitspersecond'=14348b/s;;;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=27196b/s;0:80;0:90;0; 'interface_name2#interface.traffic.in.bitspersecond'=83596b/s;0:80;0:90;0; 'interface_name1#interface.traffic.out.bitspersecond'=42365b/s;0:80;0:90;0; 'interface_name2#interface.traffic.out.bitspersecond'=93946b/s;0:80;0:90;0;
 ```
 
 ### Troubleshooting
