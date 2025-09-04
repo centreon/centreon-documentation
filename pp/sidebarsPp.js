@@ -121,11 +121,11 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/test-pack-multiple-htpl.md'
+          id: 'integrations/plugin-packs/procedures/test-pack-multiple-htpl'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/test-pack-snmp.md'
+          id: 'integrations/plugin-packs/procedures/test-pack-snmp'
         },
         {
           type: 'doc',
