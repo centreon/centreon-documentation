@@ -1,8 +1,18 @@
 module.exports = {
   dem: [
     {
-      type: 'doc',
-      id: "getting-started/welcome"
-    },
+      type: 'category',
+      label: 'Getting started with Quanta',
+      link: {
+        type: "doc",
+        id: "getting-started/welcome"
+      },
+      items: [
+        {
+          type: 'doc',
+          id: 'getting-started/synthetic-monitoring',
+        }
+      ]
+      }
       ]
     }
