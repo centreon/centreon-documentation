@@ -48,6 +48,8 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 | Root directory                           | \\server\share                | The path to the parent directory where the reports will be copied. The directory must already exist and the **centreonBI** user must be able to access it over the network. |
 | Subdirectory                             | @DAY@                         | Subdirectory path, can include dynamic variables like @DAY@. Use if you want to organize your reports.                                                |
 
+**Notes**
+> By default, CIFS publication rules are configured to use the Samba v2 protocol for communication with the target file server.
 
 </TabItem>
 
