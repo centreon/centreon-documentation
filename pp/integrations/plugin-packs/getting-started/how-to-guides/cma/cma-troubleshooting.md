@@ -59,7 +59,7 @@ Depending on the configuration, use the event viewer or look at the specified fi
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
-1. Execute the following command:
+1. Execute the following command in PowerShell:
 
 ```bash
 tnc <poller IP or DNS> -p 4317
@@ -80,6 +80,12 @@ The value **true** must be returned.
    ```
 
    This command must return results, showing that the server is listening (ESTABLISHED).
+
+```bash
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 127.0.0.1:4317          <POLLER IP>               ESTABLISHED
+```
 
 3. Execute the following command:
 
@@ -109,6 +115,12 @@ The value **true** must be returned.
 
    This command must return results, showing that the server is listening (ESTABLISHED).
 
+```bash
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 127.0.0.1:4317          <HOST IP>               ESTABLISHED
+```
+
 3. Execute the following command:
 
    ```bash
@@ -120,15 +132,8 @@ The value **true** must be returned.
 </TabItem>
 <TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
-1. Port number 4317 must be open (inbound) on the agent.
+Port number 4317 must be open (inbound) on the agent.
 
-2. Execute the following command:
-
-```bash
-tnc <Host IP or DNS> -p 4317
-```
-
-The value **true** must be returned.
 
 </TabItem>
 </Tabs>

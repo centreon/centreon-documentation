@@ -59,7 +59,7 @@ Selon la configuration faite, utilisez l'observateur d'événements ou consultez
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
-1. Exécutez la commande suivante :
+1. Exécutez la commande suivante dans PowerShell :
 ```bash
 tnc <IP ou DNS collecteur> -p 4317
 ```
@@ -79,6 +79,12 @@ La valeur **true** doit être retournée.
    ```
 
    Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
+
+```bash
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 127.0.0.1:4317          <IP COLLECTEUR>               ESTABLISHED
+```
 
 3. Exécutez la commande suivante :
 
@@ -106,6 +112,12 @@ La valeur **true** doit être retournée.
    ```
 
    Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
+
+```bash
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 127.0.0.1:4317          <IP HOTE>               ESTABLISHED
+```
    
 2. Exécutez la commande suivante :
 
@@ -118,12 +130,7 @@ La valeur **true** doit être retournée.
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
 
-1. Le port 4317 doit être ouvert en entrée sur l'agent.
-
-2. Exécutez la commande suivante :
-```bash
-tnc <IP ou DNS Hôte> -p 4317
-```
+Le port 4317 doit être ouvert en entrée sur l'agent.
 
 La valeur **true** doit être retournée.
 </TabItem>
