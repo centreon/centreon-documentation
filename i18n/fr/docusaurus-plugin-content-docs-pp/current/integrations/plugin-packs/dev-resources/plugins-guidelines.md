@@ -1,26 +1,25 @@
 ---
 id: plugins-guidelines
-title: Plugins development guidelines
+title: Directives de développement de plugins
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-A large part of these guidelines come from the [Monitoring Plugins project](https://www.monitoring-plugins.org/doc/guidelines.html). Indeed, some of these are outdated, not relevant anymore or related to a language you don’t use. We will focus on those that we consider as the most important, but this is still a great piece of content you should read.
+Une grande partie de ces directives provient du projet [Plugins de surveillance](https://www.monitoring-plugins.org/doc/guidelines.html) . Certaines sont obsolètes, obsolètes ou liées à un langage que vous n'utilisez pas. Nous nous concentrerons sur celles que nous considérons comme les plus importantes, mais ce contenu reste un excellent point de départ.
 
-## Programming languages
+## Langage de programmation
 
-You can use your favourite programming language to develop monitoring plugins. The only prerequisite is to stick with all the best practices to obtain something reliable and efficient.
+Vous pouvez utiliser votre langage de programmation préféré pour développer des plugins de surveillance. La seule condition préalable est de respecter les bonnes pratiques pour obtenir un outil fiable et efficace.
 
-Indeed, we recommend you use our centreon-plugins library whenever it is possible. It results from years of monitoring probes development, and it ships ready-to-use methods to meet all requirements and obtain a flexible monitoring probe.
+Nous vous recommandons d'utiliser notre bibliothèque centreon-plugins dès que possible. Fruit de nombreuses années de développement de sondes de surveillance, elle propose des méthodes prêtes à l'emploi pour répondre à tous les besoins et obtenir une sonde de surveillance flexible.
 
-We initially chose the Perl programming language for its stability, and since then we are still convinced we have made the right choice. Perl is still
-shipped with all enterprise-grade operating systems, and often a prerequisite. Give it a try!
+Nous avons initialement choisi le langage de programmation Perl pour sa stabilité, et depuis, nous sommes convaincus d'avoir fait le bon choix. Perl est toujours fourni avec tous les systèmes d'exploitation d'entreprise et constitue souvent un prérequis. Essayez-le !
 
-## Outputs
+## Résultats
 
-### Formatting
+### Formatage
 
-The output of a monitoring probe must always be:
+La sortie d'une sonde de surveillance doit toujours être :
 
 ```bash
 STATUS: Information text | metric1=<value>[UOM];<warning_value>;<critical_value>;<minimum>;<maximum> metric2=value[OEM];<warning_value>;<critical_value>;<minimum>;<maximum> \n
@@ -29,118 +28,118 @@ Line 2 containing additional details \n
 Line 3 containing additional details \n
 ```
 
-Let’s identify and name its three main parts:
+Identifions et nommons ses trois parties principales :
 
-* Short output: everything before the pipe (`|`)
-* Performance data and Metrics: everything after the pipe (`|`)
-* Extended output: Everything after the first carriage return (`\n`), splitting each detail line is the best practice.
+Sortie courte : tout ce qui se trouve avant le tube ( |)
+Données de performance et métriques : tout ce qui se trouve après le tuyau ( |)
+Sortie étendue : tout ce qui se trouve après le premier retour chariot ( \n), diviser chaque ligne de détail est la meilleure pratique.
 
-### Short output
+### Sortie Courtes
 
-This part is the one users will more likely see in their monitoring tool or obtain as part of a push/alert message. The information should be straightforward and help identify what is going on quickly.
+Cette partie est celle que les utilisateurs verront probablement dans leur outil de surveillance ou recevront via un message push/d'alerte. Les informations doivent être claires et permettre d'identifier rapidement ce qui se passe.
 
-A plugin must always propose at least such output:
+Un plugin doit toujours proposer au moins une telle sortie :
 
 ```bash
 STATUS: Information text 
 ```
 
-`STATUS`must stick with return codes:
+`STATUS` doit s'en tenir aux codes de retour :
 
 * 0: OK
 * 1: WARNING
 * 2: CRITICAL
 * 3: UNKNOWN
 
-`Information text` should display only relevant information. That implies:
+`Information text` Ne doit afficher que les informations pertinentes. Cela implique :
 
-* showing only the bits of information that led to the NOT-OK state when an alarm is active
-* keeping it short. When checking a large number of a single component (e.g. all partitions on a filer), try to construct a global message, then switch to the format above when an alarm arises.
+* Affichant uniquement les bits d'information qui ont conduit à l'état NON OK lorsqu'une alarme est active
+* Soyez concis. Lors de la vérification d'un grand nombre d'éléments d'un même composant (par exemple, toutes les partitions d'un fichier), essayez de créer un message global, puis adoptez le format ci-dessus lorsqu'une alarme se déclenche.
 
-#### Centreon Plugin example
+#### example de Plugin Centreon 
 
-The output when checking several storage partitions on a server, when everything is OK:
+Le résultat lors de la vérification de plusieurs partitions de stockage sur un serveur, lorsque tout est OK :
 
 `OK: All storages are ok |`
 
-The output of the same plugin, when one of the storage partition space usages triggers a WARNING threshold:
+La sortie du même plugin, lorsqu'une des utilisations de l'espace de partition de stockage déclenche un seuil d'AVERTISSEMENT :
 
 `WARNING: Storage '/var/lib' Usage Total: 9.30 GB Used: 956.44 MB (10.04%) Free: 8.37 GB (89.96%) |`
 
-### Performance data and metrics
+### Données de performances et métriques 
 
-This part is not mandatory. However, if you want to benefit from Centreon or Nagios©-like tools with built-in metrology features, you will need to adopt this format:
+Cette partie n'est pas obligatoire. Cependant, si vous souhaitez bénéficier d'outils de type Centreon ou Nagios© intégrant des fonctionnalités de métrologie, vous devrez adopter ce format :
 
 `metric1=<value>[UOM];<warning_value>;<critical_value>;<minimum>;<maximum>`
 
-After the equals sign, split each piece of information about the metric using a semi-colon.
+Après le signe égal, divisez chaque élément d’information sur la métrique à l’aide d’un point-virgule.
 
-* `metric1=`: The metric’s name is everything before the equals (=) sign. The more detailed it is, the easier it will be to understand a graph or to extend the usability of the metric in a third-party analytics/observability platform. De facto, a metric name must not contain an equals sign. Try to make it self-explanatory even without the Host/Service context.
-* `<value>`: The measurement result, must be a number (int, float)
-* `[UOM]`: Optional Unit Of Measurement. You can also include the unit in the metric’s name as we do in the Centreon metric naming philosophy. It is one of the following:
-  * none (no unit specified), when dealing with a number of things (e.g. users, licences, viruses…)
-  * 's' when dealing with seconds. ‘us’ and ‘ms’ are also valid for microseconds or milliseconds (e.g. response or connection time)
-  * '%' when dealing with percentage (e.g. memory, CPU, storage space…)
-  * 'B' (Bytes), when dealing with storage, memory… The Byte must be the default as it ensures compatibility with all Centreon extensions
-  * When dealing with a network metric or any throughput, ‘b' (Bits). When computing a rate per second, you can use ‘b/s’
-* `<warning_value>`:  Optional. Fill it with the user’s value as a WARNING threshold for the metric.
-* `<critical_value>`: Optional. Fill it with the user-supplied value as a CRITICAL threshold for the metric.
-* `<minimum>`: Optional. Fill it with the lowest value the metric can take.
-* `<maximum>`: Optional. Fill it with the highest value the metric can take.
+* `metric1=`: Le nom de la métrique correspond à tout ce qui précède le signe égal (=). Plus il est détaillé, plus il sera facile de comprendre un graphique ou d'étendre l'utilisation de la métrique dans une plateforme d'analyse/d'observabilité tierce. De facto, le nom d'une métrique ne doit pas contenir de signe égal. Essayez de le rendre explicite, même sans contexte hôte/service.
+* `<value>`: Le résultat de la mesure doit être un nombre (int, float)
+* `[UOM]`: Unité de mesure facultative. Vous pouvez également inclure l'unité dans le nom de la métrique, comme dans la philosophie de nommage des métriques de Centreon. L'unité peut être l'une des suivantes :
+  * none (aucune unité spécifiée), lorsqu'il s'agit d'un certain nombre de choses (par exemple, utilisateurs, licences, virus…)
+  * 's' lorsqu'il s'agit de secondes. ‘us' et ‘ms' sont également valables pour les microsecondes ou les millisecondes (par exemple, le temps de réponse ou de connexion)
+  * '%' lorsqu'il s'agit de pourcentage (par exemple mémoire, CPU, espace de stockage…)
+  * 'B' (Bytes), lorsqu'il s'agit de stockage, de mémoire… L'octet doit être la valeur par défaut car il assure la compatibilité avec toutes les extensions Centreon
+  * Pour une mesure réseau ou un débit, on utilise ‘b' (Bits). Pour calculer un débit par seconde, on utilise ‘b/s’.  
+* `<warning_value>`:  Facultatif. Remplissez-le avec la valeur de l'utilisateur comme seuil d'AVERTISSEMENT pour la métrique.
+* `<critical_value>`: Facultatif. Remplissez-le avec la valeur fournie par l'utilisateur comme seuil CRITIQUE pour la métrique.
+* `<minimum>`: Facultatif. Remplissez-le avec la valeur la plus basse que la métrique peut prendre.
+* `<maximum>`: Facultatif. Remplissez-le avec la valeur la plus élevée que la métrique peut prendre.
 
-Frequently, you have to manage the case where you have to display the same metric for several instances of things. The best practice is to choose a character to separate the metric name from its instance with a given character. At Centreon, we use the `#` sign, and we strongly recommend you do the same (it is recognised and processed by Centreon-Broker).
+Il est fréquent de devoir afficher la même métrique pour plusieurs instances. La meilleure pratique consiste à choisir un caractère pour séparer le nom de la métrique de son instance. Chez Centreon, nous utilisons ce `#` signe, et nous vous recommandons vivement de faire de même (il est reconnu et traité par Centreon-Broker).
 
-Less frequently, you may want to add even more context; that’s why we created a sub-instance concept following the same principles. Append it to the instance of your metric and use a splitting character to clarify that it is another dimension and not confuse it with the primary instance. We use the `~` sign; once again, we strongly advise you to stick with it whenever it is possible.
+Plus rarement, vous souhaiterez peut-être ajouter davantage de contexte ; c'est pourquoi nous avons créé un concept de sous-instance suivant les mêmes principes. Ajoutez-le à l'instance de votre métrique et utilisez un caractère de séparation pour préciser qu'il s'agit d'une autre dimension et ne pas la confondre avec l'instance principale. Nous utilisons le `~` signe ; encore une fois, nous vous recommandons vivement de l'utiliser autant que possible.
 
-#### Centreon Plugin Performance Data / Metrics examples
+#### exemples de données/métriques de performance du plugin Centreon
 
-A **system boot partition**
+Une **partition de démarrage système**
 
 `'/boot#storage.space.usage.bytes'=255832064B;;0:99579084;0;995790848`
 
-`/boot` is the instance
+`/boot` est l'instance
 
-`storage.space.usage.bytes` is the metric name (note the .bytes at the end specifying the unit)
+`storage.space.usage.bytes` est le nom de la métrique (notez les .bytes à la fin spécifiant l'unité)
 
-`B` is the legacy metric’s unit for Bytes.
+`B` est l'unité de mesure héritée pour les octets.
 
-Pay attention to the critical threshold (0:99579084), always use the same unit.
+Faites attention au seuil critique (0:99579084), utilisez toujours la même unité.
 
-A **network interface**
+Une **interface réseau**
 
 `'eth0#interface.traffic.in.bitspersecond'=0.00b/s;;;0;`
 
-`eth0` is the instance
+`eth0` est l'instance
 
-`interface.traffic.in.bitspersecond` is the metric name (note the `.persecond` at the end specifying the unit)
+`interface.traffic.in.bitspersecond` is the metric name (note the `.persecond` à la fin spécifiant l'unité)
 
-`b/s` is the legacy metric’s unit for bits per second
+`b/s` est l'unité de mesure héritée pour les bits par seconde
 
-A **cloud metric**
+Une **métrique cloud**
 
 `'azure-central~/var/lib/mysql#azure.insights.logicaldisk.free.percentage'=94.82%;;;0;100`
 
-`azure-central` is the instance
+`azure-central` est l'instance
 
-`/var/lib/mysql` is the sub-instance
+`/var/lib/mysql` est la sous-instance
 
-`azure.insights.logicaldisk.free.percentage` is the metric name (note the `free` instead of `usage`, and `.percentage` at the end to specify the unit)
+`azure.insights.logicaldisk.free.percentage` est le nom de la métrique (notez le `free` au lieu de `usage`, et `.percentage` à la fin pour spécifier l'unité)
 
-`%` is the legacy metric’s unit
+`%` est l'unité de la métrique héritée
 
-### Extended output
+### Sortie étendue
 
-The extended output's primary purpose is to display each bit of collected information separately on a single line. It will only print if the user adds a `--verbose` flag to its command.
+L'objectif principal de la sortie étendue est d'afficher chaque information collectée séparément sur une seule ligne. Elle ne s'affichera que si l'utilisateur ajoute un `--verbose` indicateur à sa commande.
 
-Overall, you should use it to:
+Dans l’ensemble, vous devriez l’utiliser pour :
 
-* add extra context (numbered instance, serial number) about a checked component
-* print items the check excludes because plugin options have filtered them out
-* organize how the information is displayed using groups that follow the logic of the check.
+* ajouter un contexte supplémentaire (instance numérotée, numéro de série) sur un composant vérifié
+* imprimer les éléments que la vérification exclut car les options du plugin les ont filtrés
+* organiser la manière dont les informations sont affichées à l'aide de groupes qui suivent la logique du contrôle.
 
-#### Centreon Plugin example
+#### Exemple de plugin Centreon
 
-Here is an example of a Cisco device environment check:
+Voici un exemple de vérification de l’environnement d’un périphérique Cisco :
 
 ```bash
 <STATUS>: <information_text> | <perfdata>
@@ -174,37 +173,37 @@ Checking sensors
 
 ## Options
 
-Option management is a central piece of a successful plugin. You should:
+La gestion des options est un élément clé du succès d'un plugin. Vous devez :
 
-* Carefully name your options to make them **self-explanatory**
-* For a given option, **only one format** is possible (either a flag or a value, but not both)
-* Always **check** for values supplied by the user and print a **clear message** when they do not fit with plugin requirements
-* Set default option value when relevant
+* Nommez soigneusement vos options pour les rendre **explicites**
+* Pour une option donnée, **un seul format** est possible (soit un indicateur, soit une valeur, mais pas les deux)
+* **Vérifiez** toujours les valeurs fournies par l'utilisateur et imprimez **un message clair** lorsqu'elles ne correspondent pas aux exigences du plugin
+* Définir la valeur de l'option par défaut si nécessaire
 
-## Discovery
+## Découvertes
 
-This section describes how you should format your data to comply with the requirements of Centreon Discovery UI modules.
+Cette section décrit comment vous devez formater vos données pour respecter les exigences des modules de l'interface utilisateur de Centreon Discovery.
 
-In a nutshell:
+En un mot:
 
-* [host discovery](/docs/monitoring/discovery/hosts-discovery) allows you to return a JSON list the autodiscovery module will understand so the user can choose to automatically or manually add to its monitoring configuration. Optionally, it can use one of the discovered items properties to make some decisions (filter in or out, create or assign a specific host group, etc.)
-* [service discovery](/docs/monitoring/discovery/services-discovery) allows you to return XML data to help users configure unitary checks and link them to a given host (e.g. each VPN definition in AWS VPN, each network interface on a router...).
+* [La découverte d'hôtes](/docs/monitoring/discovery/hosts-discovery) vous permet de renvoyer une liste JSON que le module de découverte automatique comprendra, permettant ainsi à l'utilisateur de l'ajouter automatiquement ou manuellement à sa configuration de surveillance. Le module peut également utiliser l'une des propriétés des éléments découverts pour prendre des décisions (filtrage, création ou affectation d'un groupe d'hôtes spécifique, etc.).
+* [La découverte de services](/docs/monitoring/discovery/services-discovery) permet de renvoyer des données XML pour aider les utilisateurs à configurer des contrôles unitaires et à les lier à un hôte donné (par exemple, chaque définition VPN dans AWS VPN, chaque interface réseau sur un routeur...).
 
-There's no choice here; you should stick with the guidelines described hereafter if you want your code to be fully compliant with our modules.
+Il n'y a pas d'autre choix ici ; vous devez vous en tenir aux directives décrites ci-après si vous souhaitez que votre code soit entièrement conforme à nos modules.
 
-### Hosts
+### Hôtes
 
-The discovery plugin can be a specific script or a particular execution mode enabled with an option. In centreon-plugins, we do it through dedicated `discovery*.pm` modes.
+Le plugin de découverte peut être un script spécifique ou un mode d'exécution particulier activé via une option. Dans Centreon-plugins, nous le faisons via `discovery*.pm` des modes dédiés.
 
-This execution mode is limited to a query toward a cloud provider, an application, or whatever contains a list of assets. The expected output must hold some keys:
+Ce mode d'exécution est limité à une requête adressée à un fournisseur cloud, une application ou tout autre élément contenant une liste d'actifs. Le résultat attendu doit contenir certaines clés :
 
-* `end_time`: the unix timestamp when the execution stops
-* `start_time`: the unix timestamp when the execution starts
-* `duration`: the duration in seconds (`end_time - start_time`)
-* `discovered_items`: the number of discovered items 
-* `results`: an array of hashes, each hash being a collection of key/values describing the discovered assets. 
+* `end_time`: l'horodatage Unix lorsque l'exécution s'arrête
+* `start_time`: l'horodatage Unix lorsque l'exécution démarre
+* `duration`: la durée en secondes (`end_time - start_time`)
+* `discovered_items`: le nombre d'éléments découverts
+* `results`: un tableau de hachages, chaque hachage étant une collection de clés/valeurs décrivant les actifs découverts.
 
-```json title='Sample host discovery output'
+```json title='Exemple de sortie de découverte d'hôte'
 {
    "end_time" : 1649431535,
    "start_time" : 1649431534,
@@ -259,11 +258,11 @@ This execution mode is limited to a query toward a cloud provider, an applicatio
 }
 ```
 
-You can use more advanced structures for values in the result sets, it can be: 
+Vous pouvez utiliser des structures plus avancées pour les valeurs dans les ensembles de résultats, cela peut être :
 
-* an array of hashes:
+* un tableau de hachages :
 
-```json title='Nmap discovery - Tags'
+```json title='Découverte Nmap - Tags'
 "services" : [
   {
     "name" : "ssh",
@@ -276,34 +275,31 @@ You can use more advanced structures for values in the result sets, it can be:
 ]
 ```
 
-* a flat array: 
+* un tableau plat : 
 
-```json title='VMWare discovery - IP vMotion'
+```json title='Découverte VMware - IP vMotion'
 "ip_vmotion": [
   "10.10.5.21",
   "10.30.5.21"
 ],
 ```
 
-Using these structures is convenient when you need to group object properties behind a single key. 
+L’utilisation de ces structures est pratique lorsque vous devez regrouper les propriétés d’un objet derrière une seule clé.
 
-On the users' side, it allows using these values to filter in or out some of the results or make a better choice 
-about the host template for a given discovered host.
+Du côté des utilisateurs, cela permet d'utiliser ces valeurs pour filtrer ou exclure certains résultats ou faire un meilleur choix concernant le modèle d'hôte pour un hôte découvert donné.
 
 ### Services
 
-Service discovery relies on XML to return information that will be parsed and used by the UI module to 
-create new services efficiently.
+La découverte de services s'appuie sur XML pour renvoyer des informations qui seront analysées et utilisées par le module d'interface utilisateur pour créer efficacement de nouveaux services.
 
-As for hosts, it can be an option at runtime, or an execution mode. In centreon-plugins, we choose to have dedicated
-`list<objectname>.pm` modes. 
+Concernant les hôtes, cela peut être une option à l'exécution ou un mode d'exécution. Dans Centreon-plugins, nous avons choisi des
+`list<objectname>.pm` modes dédiés.
 
-All `list<objectname>.pm` modes contain two options that will return properties and results that will be used in the 
-discovery rules definitions. 
+Tous `list<objectname>.pm` les modes contiennent deux options qui renverront des propriétés et des résultats qui seront utilisés dans les définitions des règles de découverte.
 
-The first service discovery option is `--disco-format`, it enables the plugin to return the supported keys in the rule: 
+La première option de découverte de service est `--disco-format`, elle permet au plugin de renvoyer les clés prises en charge dans la règle :
 
-```bash title='Linux Network int --disco-format output' 
+```bash title='Sortie réseau Linux int --disco-format' 
 -bash-4.2$ /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=list-interfaces --hostname=127.0.0.1 --disco-format
 <?xml version="1.0" encoding="utf-8"?>
 <data>
@@ -315,17 +311,17 @@ The first service discovery option is `--disco-format`, it enables the plugin to
 </data>
 ```
 
-The output above shows that the discovery of network interfaces on Linux will return those properties:
+La sortie ci-dessus montre que la découverte des interfaces réseau sous Linux renverra ces propriétés :
 
-- `name`: the name of the interface
-- `total`: the maximum bandwidth supported
-- `status`: the configuration status of the interface (convenient to exclude administratively down interfaces)
-- `interfaceid`: the id
-- `type`: interface type (like ethernet, fiber, loopback, etc.)
+- `name`: le nom de l'interface
+- `total`: la bande passante maximale prise en charge
+- `status`: l'état de configuration de l'interface (pratique pour exclure les interfaces administrativement en panne)
+- `interfaceid`: l'identifiant
+- `type`: type d'interface (comme Ethernet, fibre, boucle de retour, etc.)
 
-Executing exactly the same command, substituting `--disco-format` with `--disco-show` will output the discovered interfaces:
+En exécutant exactement la même commande, en la remplaçant `--disco-format` par `--disco-show` vous obtiendrez les interfaces découvertes :
 
-```bash title='Linux Network int --disco-show output'
+```bash title='Sortie du réseau Linux int --disco-show'
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=list-interfaces --hostname=127.0.0.1 --disco-show
 <?xml version="1.0" encoding="utf-8"?>
 <data>
@@ -334,64 +330,58 @@ Executing exactly the same command, substituting `--disco-format` with `--disco-
 </data>
 ```
 
-The result contains one line per interface and each line contains each set of properties as a `key="value"` pair. Note that even if
-no data is obtained for a given key, it still has to be displayed (e.g `total=""`).
+Le résultat contient une ligne par interface, chaque ligne contenant chaque ensemble de propriétés par `key="value"` paire. Notez que même si aucune donnée n'est obtenue pour une clé donnée, celle-ci doit être affichée (par exemple`total=""`).
 
 ## Performances
 
-A monitoring plugin has to do one thing and do it right - it's important to code your plugin with the idea to make
-it as efficient as possible. Keep in mind that your Plugin might run every minute, against a large
-number of devices, so a minor optimization can result in important benefits at scale.
+Un plugin de surveillance doit faire une chose, et le faire correctement : il est important de le coder de manière à ce qu'il soit aussi efficace que possible. Gardez à l'esprit que votre plugin peut s'exécuter toutes les minutes, sur un grand nombre d'appareils. Une optimisation mineure peut donc générer des avantages importants à grande échelle.
 
-Also think about the 'thing' you're monitoring, it's important to always try to reduce the overhead of a check
-from the monitored object point of view.
+Pensez également à la 'chose' que vous surveillez, il est important de toujours essayer de réduire la surcharge d’une vérification du point de vue de l’objet surveillé.
 
-### Execution time
+### Délai d'exécution
 
-The most basic way to bench a plugin performance is its execution time. Use the
-`time` command utility to run your check and measure over several runs how it behaves.
+La méthode la plus simple pour évaluer les performances d'un plugin est son temps d'exécution. Utilisez l'
+`time` utilitaire de commande pour effectuer votre test et mesurer son comportement sur plusieurs exécutions.
 
 ### Cache
 
-In some cases, it can be interesting to cache some information.
+Dans certains cas, il peut être intéressant de mettre en cache certaines informations.
 
-Caching in a local file might save some calls against an API, for example do not authenticate at every check.
-When possible, use the token obtained at the first check and stored in the cache file to only call the
-authentication endpoint when it's absolutely necessary.
+La mise en cache dans un fichier local peut permettre d'éviter certains appels à une API, par exemple en évitant de s'authentifier à chaque vérification. Dans la mesure du possible, utilisez le jeton obtenu lors de la première vérification et stocké dans le fichier cache pour n'appeler le point de terminaison d'authentification que lorsque cela est absolument nécessaire.
 
-More generally, when an identifier, name or anything that would never change across different executions requires a
-request against the third-party system, cache it to optimize single-check processing time.
+Plus généralement, lorsqu'un identifiant, un nom ou tout autre élément qui ne changerait jamais au cours des différentes exécutions nécessite une requête auprès du système tiers, mettez-le en cache pour optimiser le temps de traitement d'une seule vérification.
 
-### Algorithm
+L'optimisation du nombre de requêtes adressées à un système tiers peut également résider dans l'algorithme de vérification. Privilégiez l'extraction d'un maximum de données en une seule vérification, puis le filtrage programmatique des résultats, plutôt que l'émission de multiples requêtes très spécifiques, qui allongeraient le temps d'exécution et alourdiraient la charge du système cible.
 
-Optimizing the number of requests against a third-party system can also lie in the check algorithm. Prefer scraping
-the maximum of data in one check and then filter the results programmatically instead of issuing multiple very specific
-requests that would result in longer execution time and greater load on the target system.
+### Algorithme
 
-### Timeout
+L'optimisation du nombre de requêtes adressées à un système tiers peut également résider dans l'algorithme de contrôle. Préférer le scraping
+au maximum de données en un seul contrôle, puis filtrer les résultats de manière programmatique plutôt que d'émettre plusieurs requêtes
+très spécifiques qui entraîneraient un temps d'exécution plus long et une charge plus importante sur le système cible.
 
-A Plugin must always include a timeout to avoid never ending checks that might overload your monitoring
-system when something is broken and that, for any reason, the plugin cannot obtain the information.
+### Délai d'attente
 
-## Security
+Un plugin doit toujours inclure un délai d'attente afin d'éviter des vérifications incessantes qui pourraient surcharger votre système de surveillance
+lorsque quelque chose est cassé et que, pour une raison quelconque, le plugin ne peut pas obtenir l'information.
 
-### System commands
+## Sécurité
 
-If the plugin requires to execute a command at the operating system level, and users can modify the command name or
-its parameters, make sure that nobody can leverage your plugin's capabilities to break the underlying
-system or access sensitive information.
+### Commandes du système
 
-### Dependencies
+Si le plugin doit exécuter une commande au niveau du système d'exploitation et que les utilisateurs peuvent modifier le nom de la commande ou
+ses paramètres, assurez-vous que personne ne peut exploiter les capacités de votre plugin pour casser le système
+sous-jacent ou accéder à des informations sensibles.
 
-There is no need to re-invent the wheel: standard centreon-plugins dependencies provide you with the most common
-external libraries that might be required to write a new plugin.
+### Dépendances
 
-Don't overuse large libraries that might end being unsupported or where some governance modification might lead to
-security problems.
+Il n'est pas nécessaire de réinventer la roue : les dépendances standard de centreon-plugins vous fournissent les bibliothèques externes les plus courantes
+qui peuvent être nécessaires pour écrire un nouveau plugin.
 
-## Help and documentation
+N'utilisez pas trop de grandes bibliothèques qui pourraient finir par ne plus être supportées ou pour lesquelles une modification de la gouvernance pourrait conduire à des problèmes de sécurité sur.
 
-For each plugin, the minimum documentation is the help, you have to explain to users what the plugin
-is doing and how they can use the built-in options to achieve their own alerting scenario.
+## Aide et documentation
 
-You can look at how we handle help at mode level with the centreon-plugins framework [here](https://docs.centreon.com/pp/integrations/plugin-packs/dev-resources/develop-with-centreon-plugins).
+Pour chaque plugin, la documentation minimale est l'aide, vous devez expliquer aux utilisateurs ce que fait le plugin
+et comment ils peuvent utiliser les options intégrées pour réaliser leur propre scénario d'alerte.
+
+Vous pouvez voir comment nous gérons l'aide au niveau du mode avec le framework centreon-plugins [ici](https://docs.centreon.com/pp/integrations/plugin-packs/dev-resources/develop-with-centreon-plugins).
