@@ -34,7 +34,55 @@ grep error /var/log/centreon-monitoring-agent/centagent.log
 
 No lines should be returned.
 
+### Check that the connection with the poller is working
+
+<Tabs groupId="sync">
+<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
+
+1. Execute the following command in PowerShell:
+
+   ```bash
+   tnc <poller IP or DNS> -p 4317
+   ```
+
+   The following value must be returned:
+
+   ```bash
+   Connection to <IP ou DNS collecteur> 4317 port [tcp/http] succeeded!
+   ```
+
 </TabItem>
+
+<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
+
+1. Port number 4317 must be open (inbound) on the host.
+
+2. Execute the following command:
+
+   ```bash
+   netstat -na | grep 4317
+   ```
+
+   This command must return results, showing that the server is listening (ESTABLISHED).
+
+   ```bash
+   Active Internet connections (servers and established)
+   Proto Recv-Q Send-Q Local Address           Foreign Address         State
+   tcp        0      0 127.0.0.1:4317          <POLLER IP>:<PORT>      ESTABLISHED
+   ```
+
+3. Execute the following command:
+
+   ```bash
+   tcpdump -i any port 4317
+   ```
+
+   This command must return results, showing that packets are arriving from the poller.
+
+</TabItem>
+</Tabs>
+</TabItem>
+
 <TabItem value="Windows" label="Windows">
 
 ### Check that the service is running
@@ -51,9 +99,6 @@ No lines should be returned.
 
 Depending on the configuration, use the event viewer or look at the specified file.
 
-</TabItem>
-</Tabs>
-
 ### Check that the connection with the poller is working
 
 <Tabs groupId="sync">
@@ -61,9 +106,9 @@ Depending on the configuration, use the event viewer or look at the specified fi
 
 1. Execute the following command in PowerShell:
 
-```bash
-tnc <poller IP or DNS> -p 4317
-```
+   ```bash
+   tnc <poller IP or DNS> -p 4317
+   ```
 
 The value **true** must be returned.
 
@@ -81,23 +126,16 @@ The value **true** must be returned.
 
    This command must return results, showing that the server is listening (ESTABLISHED).
 
-```bash
-Active Internet connections (servers and established)
-Proto Recv-Q Send-Q Local Address           Foreign Address         State
-tcp        0      0 127.0.0.1:4317          <POLLER IP>               ESTABLISHED
-```
-
-3. Execute the following command:
-
    ```bash
-   tcpdump -i any port 4317
+   TCP        127.0.0.1:4317          <IP COLLECTEUR>:<PORT>               ESTABLISHED
    ```
 
-   This command must return results, showing that packets are arriving from the poller.
+3. Check packets are arriving from the poller, using [netsh](https://learn.microsoft.com/fr-fr/windows-server/administration/windows-commands/netsh) or [pktmon](https://learn.microsoft.com/en-us/windows-server/networking/technologies/pktmon/pktmon).
 
 </TabItem>
 </Tabs>
-
+</TabItem>
+</Tabs>
 ## Poller checks
 
 ### Check that the server is listening and that packets are arriving
@@ -115,11 +153,11 @@ tcp        0      0 127.0.0.1:4317          <POLLER IP>               ESTABLISHE
 
    This command must return results, showing that the server is listening (ESTABLISHED).
 
-```bash
-Active Internet connections (servers and established)
-Proto Recv-Q Send-Q Local Address           Foreign Address         State
-tcp        0      0 127.0.0.1:4317          <HOST IP>               ESTABLISHED
-```
+   ```bash
+   Active Internet connections (servers and established)
+   Proto Recv-Q Send-Q Local Address           Foreign Address         State
+   tcp        0      0 127.0.0.1:4317          <HOST IP>:<PORT>        ESTABLISHED
+   ```
 
 3. Execute the following command:
 
@@ -133,7 +171,6 @@ tcp        0      0 127.0.0.1:4317          <HOST IP>               ESTABLISHED
 <TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
 Port number 4317 must be open (inbound) on the agent.
-
 
 </TabItem>
 </Tabs>

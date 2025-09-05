@@ -34,37 +34,22 @@ grep error /var/log/centreon-monitoring-agent/centagent.log
 
 Aucune ligne ne doit être retournée.
 
-</TabItem>
-<TabItem value="Windows" label="Windows">
-
-### Vérifiez que le service est lancé
-
-1. Exécutez la commande suivante :
-
-   ```bash
-   services.msc
-   ```
-
-2. Recherchez **Centreon Monitoring Agent** dans la liste des services : si le service n'est pas démarré, démarrez-le.
-
-### Vérifiez que les logs ne contiennent pas d'erreur
-
-Selon la configuration faite, utilisez l'observateur d'événements ou consultez le fichier spécifié.
-
-</TabItem>
-</Tabs>
-
 ### Vérifiez que la connexion avec le collecteur est établie
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
-1. Exécutez la commande suivante dans PowerShell :
-```bash
-tnc <IP ou DNS collecteur> -p 4317
-```
+1. Exécutez la commande suivante :
 
-La valeur **true** doit être retournée.
+   ```bash
+   nc -vz <IP ou DNS collecteur> 4317
+   ```
+
+   La valeur suivante doit être retournée : 
+
+   ```bash
+   Connection to <IP ou DNS collecteur> 4317 port [tcp/http] succeeded!
+   ```
 
 </TabItem>
 
@@ -80,11 +65,11 @@ La valeur **true** doit être retournée.
 
    Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
 
-```bash
-Active Internet connections (servers and established)
-Proto Recv-Q Send-Q Local Address           Foreign Address         State
-tcp        0      0 127.0.0.1:4317          <IP COLLECTEUR>               ESTABLISHED
-```
+   ```bash
+   Active Internet connections (servers and established)
+   Proto Recv-Q Send-Q Local Address           Foreign Address         State
+   tcp        0      0 127.0.0.1:4317          <IP COLLECTEUR>:<PORT>  ESTABLISHED
+   ```
 
 3. Exécutez la commande suivante :
 
@@ -96,6 +81,63 @@ tcp        0      0 127.0.0.1:4317          <IP COLLECTEUR>               ESTABL
 
 </TabItem>
 </Tabs>
+</TabItem>
+
+<TabItem value="Windows" label="Windows">
+
+### Vérifiez que le service est lancé
+
+1. Exécutez la commande suivante :
+  
+   ```bash
+   services.msc
+   ```
+
+2. Recherchez **Centreon Monitoring Agent** dans la liste des services : si le service n'est pas démarré, démarrez-le.
+
+### Vérifiez que les logs ne contiennent pas d'erreur
+
+Selon la configuration faite, utilisez l'observateur d'événements ou consultez le fichier spécifié.
+
+### Vérifiez que la connexion avec le collecteur est établie
+
+<Tabs groupId="sync">
+<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+
+1. Exécutez la commande suivante dans PowerShell :
+
+   ```bash
+   tnc <IP ou DNS collecteur> -p 4317
+   ```
+
+La valeur **true** doit être retournée.
+
+</TabItem>
+
+<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+
+1. Le port 4317 doit être ouvert en entrée sur l'hôte.
+
+2. Exécutez la commande suivante :
+
+   ```bash
+   netstat -an | find "4317"
+   ```
+
+   Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
+
+   ```bash
+   TCP        127.0.0.1:4317          <IP COLLECTEUR>:<PORT>               ESTABLISHED
+   ```
+
+3. Vérifier que des paquets arrivent du collecteur par exemple à l'aide de [netsh](https://learn.microsoft.com/fr-fr/windows-server/administration/windows-commands/netsh) ou [pktmon](https://learn.microsoft.com/en-us/windows-server/networking/technologies/pktmon/pktmon).
+
+</TabItem>
+</Tabs>
+</TabItem>
+</Tabs>
+
+
 
 ## Vérifications sur le collecteur
 
@@ -103,9 +145,10 @@ tcp        0      0 127.0.0.1:4317          <IP COLLECTEUR>               ESTABL
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+
 1. Le port 4317 doit être ouvert en entrée sur le collecteur.
 
-1. Exécutez la commande suivante :
+2. Exécutez la commande suivante :
 
    ```bash
    netstat -na | grep 4317
@@ -113,13 +156,13 @@ tcp        0      0 127.0.0.1:4317          <IP COLLECTEUR>               ESTABL
 
    Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
 
-```bash
-Active Internet connections (servers and established)
-Proto Recv-Q Send-Q Local Address           Foreign Address         State
-tcp        0      0 127.0.0.1:4317          <IP HOTE>               ESTABLISHED
-```
+   ```bash
+   Active Internet connections (servers and established)
+   Proto Recv-Q Send-Q Local Address           Foreign Address         State
+   tcp        0      0 127.0.0.1:4317          <IP HOTE>:<PORT>        ESTABLISHED
+   ```
    
-2. Exécutez la commande suivante :
+3. Exécutez la commande suivante :
 
    ```bash
    tcpdump -i any port 4317
@@ -132,7 +175,6 @@ tcp        0      0 127.0.0.1:4317          <IP HOTE>               ESTABLISHED
 
 Le port 4317 doit être ouvert en entrée sur l'agent.
 
-La valeur **true** doit être retournée.
 </TabItem>
 </Tabs>
 
