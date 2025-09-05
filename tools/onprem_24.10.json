@@ -1,24 +1,24 @@
 {
     "103": {
-        "Main menu": "Home > Custom Views > Custom Views",
+        "Main menu": "Home > Custom Views",
         "Topology ID": "103",
         "Topology Page": "./include/home/customViews/index.php",
         "Documentation": "https://docs.centreon.com/docs/alerts-notifications/custom-views/"
     },
     "/home/dashboards": {
-        "Main menu": "Home > Dashboards > Dashboards",
+        "Main menu": "Home > Dashboards",
         "Topology ID": "104",
         "Topology Page": "/home/dashboards",
         "Documentation": "https://docs.centreon.com/docs/alerts-notifications/dashboards/"
     },
     "/monitoring/resources": {
-        "Main menu": "Monitoring > Resources Status > Resources Status",
+        "Main menu": "Monitoring > Resources Status",
         "Topology ID": "200",
         "Topology Page": "/monitoring/resources",
         "Documentation": "https://docs.centreon.com/docs/alerts-notifications/resources-status/"
     },
     "207": {
-        "Main menu": "Monitoring > Business Activity > Business Activity",
+        "Main menu": "Monitoring > Business Activity",
         "Topology ID": "207",
         "Topology Page": "./modules/centreon-bam-server/core/dashboard/dashboard.php",
         "Documentation": "https://docs.centreon.com/docs/service-mapping/introduction/"
@@ -30,49 +30,49 @@
         "Documentation": "https://docs.centreon.com/docs/alerts-notifications/downtimes/"
     },
     "/monitoring/map": {
-        "Main menu": "Monitoring > Map > Map",
+        "Main menu": "Monitoring > Map",
         "Topology ID": "288",
         "Topology Page": "/monitoring/map",
         "Documentation": "https://docs.centreon.com/docs/graph-views/introduction-map/"
     },
     "508": {
-        "Main menu": "Administration > Logs > Logs",
+        "Main menu": "Administration > Logs",
         "Topology ID": "508",
         "Topology Page": "./include/Administration/configChangelog/viewLogs.php",
         "Documentation": "https://docs.centreon.com/docs/administration/logging-configuration-changes/"
     },
     "/administration/authentication": {
-        "Main menu": "Administration > Authentication > Authentication",
+        "Main menu": "Administration > Authentication",
         "Topology ID": "509",
         "Topology Page": "/administration/authentication",
         "Documentation": "https://docs.centreon.com/docs/category/configuring-the-connection-to-centreon/"
     },
     "/administration/customize-centreon": {
-        "Main menu": "Administration > Customize Centreon > Customize Centreon",
+        "Main menu": "Administration > Customize Centreon",
         "Topology ID": "510",
         "Topology Page": "/administration/customize-centreon",
         "Documentation": "https://docs.centreon.com/docs/administration/customize-centreon/"
     },
     "/administration/api-token": {
-        "Main menu": "Administration > API Tokens > API Tokens",
+        "Main menu": "Administration > API Tokens",
         "Topology ID": "515",
         "Topology Page": "/administration/api-token",
         "Documentation": "https://docs.centreon.com/docs/api/api-tokens/"
     },
     "/configuration/additional-connector-configurations": {
-        "Main menu": "Configuration > Additional Connector Configurations > Additional Connector Configurations",
+        "Main menu": "Configuration > Additional Connector Configurations",
         "Topology ID": "618",
         "Topology Page": "/configuration/additional-connector-configurations",
         "Documentation": "https://docs.centreon.com/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration/"
     },
     "/configuration/bam/bas": {
-        "Main menu": "Configuration > Business Activity > Business Activity",
+        "Main menu": "Configuration > Business Activity",
         "Topology ID": "62605",
         "Topology Page": "/configuration/bam/bas",
         "Documentation": "https://docs.centreon.com/docs/service-mapping/ba-management/"
     },
     "650": {
-        "Main menu": "Configuration > Monitoring Connector Manager > Monitoring Connector Manager",
+        "Main menu": "Configuration > Monitoring Connector Manager",
         "Topology ID": "650",
         "Topology Page": "./modules/centreon-pp-manager/core/manager/main.php",
         "Documentation": "https://docs.centreon.com/docs/monitoring/pluginpacks/"
@@ -126,7 +126,7 @@
         "Documentation": "https://docs.centreon.com/docs/alerts-notifications/custom-views/"
     },
     "/home/dashboards/library": {
-        "Main menu": "Home > Dashboards > Dashboards",
+        "Main menu": "Home > Dashboards",
         "Topology ID": "-1",
         "Topology Page": "/home/dashboards/library",
         "Documentation": "https://docs.centreon.com/docs/alerts-notifications/dashboards/"
@@ -174,7 +174,7 @@
         "Documentation": "https://docs.centreon.com/docs/alerts-notifications/event-console/"
     },
     "20301": {
-        "Main menu": "Monitoring > Event Logs > Event Logs",
+        "Main menu": "Monitoring > Event Logs",
         "Topology ID": "20301",
         "Topology Page": "./include/eventLogs/viewLog.php",
         "Documentation": "https://docs.centreon.com/docs/alerts-notifications/event-log/"
@@ -228,7 +228,7 @@
         "Documentation": "https://docs.centreon.com/docs/service-mapping/ba-reporting/"
     },
     "21001": {
-        "Main menu": "Monitoring > Downtimes > Downtimes",
+        "Main menu": "Monitoring > Downtimes",
         "Topology ID": "21001",
         "Topology Page": "./include/monitoring/downtime/downtime.php",
         "Documentation": "https://docs.centreon.com/docs/alerts-notifications/downtimes/"
@@ -456,7 +456,7 @@
         "Documentation": "https://docs.centreon.com/docs/graph-views/map-web-install/#step-3-activate-the-map-module"
     },
     "60101": {
-        "Main menu": "Configuration > Hosts > Hosts",
+        "Main menu": "Configuration > Hosts",
         "Topology ID": "60101",
         "Topology Page": "./include/configuration/configObject/host/host.php",
         "Documentation": "https://docs.centreon.com/docs/monitoring/basic-objects/hosts/"
@@ -702,7 +702,7 @@
         "Documentation": "https://docs.centreon.com/docs/monitoring/web-import-export/"
     },
     "61701": {
-        "Main menu": "Configuration > SNMP Traps > SNMP Traps",
+        "Main menu": "Configuration > SNMP Traps",
         "Topology ID": "61701",
         "Topology Page": "./include/configuration/configObject/traps/traps.php",
         "Documentation": "https://docs.centreon.com/docs/category/passive-monitoring/"

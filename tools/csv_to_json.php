@@ -74,8 +74,13 @@ while (($row = fgetcsv($handle)) !== false) {
             $key = $topologyId;
         }
 
+        $menuLevels = explode('>', $dataEntry["Main menu"]);
+        if (strcmp(trim($menuLevels[count($menuLevels) - 1]), trim($dataEntry["Sub menus"]))!== 0) {
+            $dataEntry["Main menu"] .= ' > ' . $dataEntry["Sub menus"];
+        }
+
         $result[$key] = [
-            "Main menu"      => $dataEntry["Main menu"] . (empty($dataEntry["Sub menus"]) ? "" : " > " . $dataEntry["Sub menus"]),
+            "Main menu"      => $dataEntry["Main menu"],
             "Topology ID"    => $dataEntry["Topology ID"],
             "Topology Page"  => $dataEntry["Topology Page"],
             "Documentation"  => $docUrl
