@@ -5,6 +5,8 @@ title: Dépanner l'agent CMA
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/troubleshooting.png)
+
 ## Vérifications sur l'hôte
 
 <Tabs groupId="sync">
@@ -71,14 +73,6 @@ Aucune ligne ne doit être retournée.
    tcp        0      0 127.0.0.1:4317          <IP COLLECTEUR>:<PORT>  ESTABLISHED
    ```
 
-3. Exécutez la commande suivante :
-
-   ```bash
-   tcpdump -i any port 4317
-   ```
-
-   Elle doit retourner des résultats, indiquant que des paquets arrivent du collecteur.
-
 </TabItem>
 </Tabs>
 </TabItem>
@@ -130,18 +124,14 @@ La valeur **true** doit être retournée.
    TCP        127.0.0.1:4317          <IP COLLECTEUR>:<PORT>               ESTABLISHED
    ```
 
-3. Vérifier que des paquets arrivent du collecteur par exemple à l'aide de [netsh](https://learn.microsoft.com/fr-fr/windows-server/administration/windows-commands/netsh) ou [pktmon](https://learn.microsoft.com/en-us/windows-server/networking/technologies/pktmon/pktmon).
-
 </TabItem>
 </Tabs>
 </TabItem>
 </Tabs>
-
-
 
 ## Vérifications sur le collecteur
 
-### Vérifiez que le serveur est en écoute et que les paquets arrivent
+### Vérifiez que le serveur est en écoute et que des paquets sont échangés
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
@@ -161,14 +151,6 @@ La valeur **true** doit être retournée.
    Proto Recv-Q Send-Q Local Address           Foreign Address         State
    tcp        0      0 127.0.0.1:4317          <IP HOTE>:<PORT>        ESTABLISHED
    ```
-   
-3. Exécutez la commande suivante :
-
-   ```bash
-   tcpdump -i any port 4317
-   ```
-
-   Elle doit retourner des résultats, indiquant que des paquets arrivent de l'agent.
 
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
@@ -177,6 +159,14 @@ Le port 4317 doit être ouvert en entrée sur l'agent.
 
 </TabItem>
 </Tabs>
+
+Exécutez la commande suivante :
+
+```bash
+tcpdump -i any port 4317
+```
+
+Elle doit retourner des résultats, indiquant que des paquets circulent entre l'agent et le collecteur.
 
 ### Activez les logs OpenTelemetry
 

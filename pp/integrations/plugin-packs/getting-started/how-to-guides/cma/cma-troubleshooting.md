@@ -5,6 +5,8 @@ title: Troubleshooting CMA
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/troubleshooting.png)
+
 ## Host checks
 
 <Tabs groupId="sync">
@@ -71,14 +73,6 @@ No lines should be returned.
    tcp        0      0 127.0.0.1:4317          <POLLER IP>:<PORT>      ESTABLISHED
    ```
 
-3. Execute the following command:
-
-   ```bash
-   tcpdump -i any port 4317
-   ```
-
-   This command must return results, showing that packets are arriving from the poller.
-
 </TabItem>
 </Tabs>
 </TabItem>
@@ -130,12 +124,11 @@ The value **true** must be returned.
    TCP        127.0.0.1:4317          <IP COLLECTEUR>:<PORT>               ESTABLISHED
    ```
 
-3. Check packets are arriving from the poller, using [netsh](https://learn.microsoft.com/fr-fr/windows-server/administration/windows-commands/netsh) or [pktmon](https://learn.microsoft.com/en-us/windows-server/networking/technologies/pktmon/pktmon).
+</TabItem>
+</Tabs>
+</TabItem>
+</Tabs>
 
-</TabItem>
-</Tabs>
-</TabItem>
-</Tabs>
 ## Poller checks
 
 ### Check that the server is listening and that packets are arriving
@@ -159,14 +152,6 @@ The value **true** must be returned.
    tcp        0      0 127.0.0.1:4317          <HOST IP>:<PORT>        ESTABLISHED
    ```
 
-3. Execute the following command:
-
-   ```bash
-   tcpdump -i any port 4317
-   ```
-
-   This command must return results, showing that packets are arriving from the agent.
-
 </TabItem>
 <TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
@@ -174,6 +159,14 @@ Port number 4317 must be open (inbound) on the agent.
 
 </TabItem>
 </Tabs>
+
+Execute the following command:
+
+```bash
+tcpdump -i any port 4317
+```
+
+This command must return results, showing that packets are exchanged between agent and poller.
 
 ### Enable the OpenTelemetry logs
 
