@@ -1,23 +1,22 @@
 ---
 id: develop-with-centreon-plugins
-title: Develop with centreon-plugins
+title: Développer avec centreon-plugins
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Set up your environment
+## Mise en place de l'environnement
 
-To use the centreon-plugins framework, you'll need the following:
+Pour utiliser le framework centreon-plugins, vous aurez besoin de ce qui suit :
 
-- A Linux operating system, Debian 11 or 12 or RHEL/RHEL-like >= 8
-- The [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) command line utility
-- A [GitHub](https://github.com/) account.
+- Un système d'exploitation Linux, Debian 11 ou 12 ou RHEL/RHEL-like >= 8
+- L'utilitaire de ligne de commande [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- Un compte [GitHub] (https://github.com/).
 
-### Enable our plugins repository
+### Activer notre dépôt de plugins
 
-This repository will provide you our packaged plugins as well as **the dependencies that are not available in the
-standard distribution repositories**.
+Ce dépôt vous fournira nos plugins packagés ainsi que les dépendances qui ne sont pas disponibles dans **les dépôts de distribution standard.**
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -142,7 +141,7 @@ apt-get update
 </TabItem>
 </Tabs>
 
-Install the following dependencies:
+Installez les dépendances suivantes :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -179,34 +178,34 @@ apt-get install -y git 'libpod-parser-perl' 'libnet-curl-perl' 'liburi-encode-pe
 </TabItem>
 </Tabs>
 
-### Fork and clone the centreon-plugins repository
+### Créer un fork et cloner le dépôt centreon-plugins
 
-Within GitHub UI, on the top left, click on the **Fork** button:
+Dans l'interface GitHub, en haut à gauche, cliquez sur le bouton **Fork** :
 
 ![image](../../../assets/integrations/plugin-packs/dev-resources/00_dev-resources_centreon-plugins-fork.png)
 
-Use the git utility to fetch your repository fork:
+Utilisez l'utilitaire git pour récupérer la fourche de votre dépôt :
 
 ```bash
 git clone https://<githubusername>@github.com/<githubusername>/centreon-plugins
 ```
 
-Create a branch:
+Créer une branche :
 
 ```bash
 cd centreon-plugins
 git checkout -b 'my-first-plugin'
 ```
 
-## Understand project organization
+## Comprendre l'organisation du projet
 
-### Layout and concepts
+### Mise en page et concepts
 
-The project content is made of a main binary (`centreon_plugins.pl`), and a logical
-directory structure allowing to separate plugins and modes files across the domain they
-are referring to.
+Le contenu du projet est constitué d'un binaire principal (`centreon_plugins.pl`), et d'une structure logique de répertoires
+permettant de séparer les plugins et les fichiers de modes à travers le domaine auquel ils
+se réfèrent.
 
-You can display it using the command `tree -L 1`.
+Vous pouvez l'afficher en utilisant la commande `tree -L 1`.
 
 ```bash
 .
@@ -232,64 +231,64 @@ You can display it using the command `tree -L 1`.
 └── storage
 ```
 
-Let's take a deeper look at the layout of the directory containing modes to monitor Linux
-systems through the command-line (`tree os/linux/local/ -L 1`).
+Examinons plus en détail la disposition du répertoire contenant les modes de surveillance des systèmes Linux
+en ligne de commande (`tree os/linux/local/ -L 1`).
 
 ```bash
 os/linux/local/
-├── custom      # Type: Directory. Contains code that can be used by several modes (e.g authentication, token management, ...).
-│   └── cli.pm  # Type: File. *Custom mode* defining common methods
-├── mode        # Type: Directory. Contains all **modes**.
+├── custom      # Type: Répertoire. Contient du code qui peut être utilisé par plusieurs modes (par exemple l'authentification, la gestion des jetons, ...).
+│   └── cli.pm  # Type: Fichier. *Mode personnalisé* définissant des méthodes communes
+├── mode        # Type : Répertoire. Contient tous les **modes**.
 [...]
-│   └── cpu.pm  # Type: File. **Mode** containing the code to monitor the CPU
+│   └── cpu.pm  # Type : Fichier. **Mode** contenant le code pour surveiller le CPU
 [...]
-└── plugin.pm   # Type: File. **Plugin** definition.
+└── plugin.pm   # Type : Fichier. **Plugin** définition.
 ```
 
-Note the os/linux/**local**. The project offers other ways to monitor Linux, SNMP for example. To avoid
-mixing modes using different protocols in the same directory and face some naming collisions, we split
-them across several directories making it clear what protocol they rely on.
+Notez le mot os/linux/**local**. Le projet propose d'autres moyens de surveiller Linux, SNMP par exemple. Pour éviter que
+ne mélange des modes utilisant des protocoles différents dans le même répertoire et ne soit confronté à des collisions de noms, nous avons réparti
+ces modes dans plusieurs répertoires en indiquant clairement le protocole sur lequel ils s'appuient.
 
-Now, let's see how these concepts combine to build a command line:
+Voyons maintenant comment ces concepts se combinent pour construire une ligne de commande :
 
 ```bash
 # <perl interpreter> <main_binary> --plugin=<perl_normalized_path_to_plugin_file> --mode=<mode_name>
 perl centreon_plugins.pl --plugin=os::linux::local::plugin --mode=cpu
 ```
 
-### Shared directories
+### Répertoires partagés
 
-Some specific directories are not related to a domain (os, cloud...) and are used
-across all plugins.
+Certains répertoires spécifiques ne sont pas liés à un domaine (os, cloud...) et sont utilisés par tous les plugins.
 
-#### The **centreon** directory
+#### Répertoires **centreon**
 
-The **centreon** directory is specific, it contains:
+Le répertoire **centreon** est spécifique, il contient :
 
-- Project libraries/packages. This is all the code that will help you to develop faster
-by avoiding coding protocol-related things (SNMP, HTTPx, SSH...) or common things like
-options or cache management from scratch. You can read the perl modules if you're an experienced developer
-but there is very little chance that you would have to modify anything in it.
-- Common files shared by multiple plugins. This is to avoid duplicating code across the
-directory tree and ease the maintenance of the project.
+- Les bibliothèques/paquets du projet. C'est tout le code qui vous aidera à développer plus rapidement
+en évitant de coder des choses liées au protocole (SNMP, HTTPx, SSH...) ou des choses communes comme les options
+ou la gestion du cache à partir de zéro. Vous pouvez lire les modules perl si vous êtes un développeur expérimenté
+mais il y a très peu de chance que vous ayez à modifier quoi que ce soit.
+- Fichiers communs partagés par plusieurs plugins. Cela permet d'éviter de dupliquer le code dans l'arborescence de
+et de faciliter la maintenance du projet.
 
-#### The **snmp_standard/mode** directory
+#### Répertoires **snmp_standard/mode**
 
-The **snmp_standard/mode** exists since the beginning when SNMP monitoring was much more used
-than it is today. All the modes it contains use standard OIDs, which means that many plugins are
-relying on these when the manufacturer supports standard MIBs on their devices.
+Le **snmp_standard/mode** existe depuis le début, lorsque la surveillance SNMP était beaucoup plus utilisée
+qu'elle ne l'est aujourd'hui. Tous les modes qu'il contient utilisent des OID standard, ce qui signifie que de nombreux plugins sont
+en s'appuyant sur ceux-ci lorsque le fabricant prend en charge les MIB standard sur leurs appareils.
 
-## Tutorial - How to create a plugin for *my-awesome-app*
+## Tutoriel - Comment créer un plugin pour *mon-application-awesome*
 
-### Context: simple JSON health API
+### Contexte : simple JSON health API
 
-In this tutorial, we will create a very simple probe checking an application's health
-displayed in JSON through a simple API.
 
-You can mockup an API with the free [mocky](https://designer.mocky.io/) tool.
-We created one for this tutorial, test it with `curl https://run.mocky.io/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656`
+Dans ce tutoriel, nous allons créer une sonde très simple vérifiant la santé d'une application
+affichée en JSON à travers une API simple.
 
-It returns the following output:
+Vous pouvez créer une API avec l'outil gratuit [mocky](https://designer.mocky.io/).
+Nous en avons créé une pour ce tutoriel, testez-la avec `curl https://run.mocky.io/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656`
+
+Il renvoie la sortie suivante :
 
 ```json title="my-awesome-app health JSON"
 {
@@ -322,83 +321,83 @@ It returns the following output:
 }
 ```
 
-All files showed in this tutorial can be found on the centreon-plugins GitHub in the
+Tous les fichiers présentés dans ce tutoriel peuvent être trouvés sur le GitHub centreon-plugins dans la section
 [tutorial](https://github.com/centreon/centreon-plugins/tree/master/contrib/tutorial/)
-**contrib** section.
+**contrib**.
 
-> You have to move the contents of `contrib/tutorial/apps/` to `apps/` if you want to run it for testing purposes.
+> Vous devez déplacer le contenu de `contrib/tutorial/apps/` vers `apps/` si vous voulez l'exécuter à des fins de test.
 >
 > `cp -R contrib/tutorial/apps/* apps/`
 
-### Understand the data
+### Comprendre les données
 
-Understanding the data is very important as it will drive the way you will design
-the **mode** internals. This is the **first thing to do**, no matter what protocol you
-are using.
+Il est très important de comprendre les données, car cela déterminera la manière dont vous concevrez
+les internes du **mode**. C'est la **première chose à faire**, quel que soit le protocole que vous
+utilisez.
 
-There are several important properties for a piece of data:
+Il existe plusieurs propriétés importantes pour un morceau de données :
 
-- Type of the data to process: string, int... There is no limitation in the kind of data you can process
-- Dimensions of the data, is it **global** or linked to an **instance**?
-- Data layout, in other words anticipate the kind of **data structure** to manipulate.
+- Type de données à traiter : string, int... Il n'y a pas de limite au type de données que vous pouvez traiter.
+- Dimensions des données : sont-elles **globales** ou liées à une **instance** ?
+- La disposition des données, en d'autres termes, anticiper le type de **structure de données** à manipuler.
 
-In our example, the most common things are present. We can summarize it like that:
+Dans notre exemple, les éléments les plus courants sont présents. Nous pouvons le résumer ainsi :
 
-- the `health` node is **global** data and is a string. Structure is a simple *key/value* pair
-- the `db_queries` node is a collection of **global** integer values about the database. Structure is a hash containing multiple key/value pairs
-- the `connections` node contains integer values (`122`, `92`) referring to specific **instances** (`my-awesome-frontend`, `my-awesome-db`). The structure is an array of hashes
-- `errors` is the same as `connections` except the data itself tracks errors instead of connections.
+- le noeud `health` est une donnée **globale** et est une chaîne de caractères. La structure est une simple paire *clé/valeur*.
+- le nœud `db_queries` est une collection de valeurs entières **globales** concernant la base de données. La structure est un hachage contenant plusieurs paires clé/valeur.
+- le noeud `connections` contient des valeurs entières (`122`, `92`) se référant à des **instances** spécifiques (`my-awesome-frontend`, `my-awesome-db`). La structure est un tableau de hachages
+- `errors` est la même chose que `connections` sauf que les données elles-mêmes suivent les erreurs au lieu des connexions.
 
-Understanding this will be important to code it correctly.
+Il est important de comprendre cela pour coder correctement.
 
-### Create directories for a new plugin
+### Créer des répertoires pour un nouveau plugin
 
-Create directories and files required for your **plugin** and **modes**.
+Créez les répertoires et les fichiers nécessaires à votre **plugin** et **modes**.
 
-Go to your centreon-plugins local git and create the appropriate directories and files:
+Allez dans votre git local centreon-plugins et créez les répertoires et fichiers appropriés :
 
 ```bash
-# path to the main directory and the subdirectory containing modes
+# chemin vers le répertoire principal et le sous-répertoire contenant les modes
 mkdir -p apps/myawesomeapp/api/mode/
-# path to the main plugin file
+# chemin vers le fichier principal du plugin
 touch apps/myawesomeapp/api/plugin.pm
-# path to the specific mode(s) file(s)
+# chemin vers le(s) fichier(s) du (des) mode(s) spécifique(s)
 touch apps/myawesomeapp/api/mode/appsmetrics.pm
 ```
 
-### Create the plugin.pm file
+### Créer le fichier plugin.pm
 
-The `plugin.pm` is the first thing to create, it contains:
+Le `plugin.pm` est la première chose à créer, il contient :
 
-- A set of instructions to load required libraries and compilation options
-- A list of all **mode(s)** and path(s) to their associated files/perl packages
-- A description that will display when you list all plugins or display this plugin's help.
+- Un ensemble d'instructions pour charger les bibliothèques requises et les options de compilation
+- Une liste de tous les **mode(s)** et le(s) chemin(s) vers leurs fichiers/paquets Perl associés.
+- Une description qui s'affichera lorsque vous listerez tous les plugins ou afficherez l'aide de ce plugin.
 
-Here is the commented version of the plugin.pm file:
+Voici la version commentée du fichier plugin.pm :
 
 ```perl title="my-awesome-app plugin.pm file"
 [.. license and copyright things ..]
 
-# Name of your perl package
+# Nom de votre paquetage perl
 package apps::myawesomeapp::api::plugin;
 
-# Always use strict and warnings, will guarantee that your code is clean and help debugging it
+# Utilisez toujours strict et warnings, cela garantira que votre code est propre et aidera à le déboguer.
 use strict;
 use warnings;
-# Load the base for your plugin, here we don't do SNMP, SQL or have a custom directory, so we use the _simple base
+# Chargez la base de votre plugin, ici nous ne faisons pas de SNMP, SQL ou n'avons pas de répertoire personnalisé, donc nous utilisons la base _simple.
 use base qw(centreon::plugins::script_simple);
 
-# Global sub to create and return the perl object. Don't bother understand what each instruction is doing.
+# Sub global pour créer et retourner l'objet perl. Il n'est pas nécessaire de comprendre ce que fait chaque instruction.
 sub new {
     my ($class, %options) = @_;
     my $self = $class->SUPER::new(package => __PACKAGE__, %options);
     bless $self, $class;
 
-    # A version, we don't really use it but could help if your want to version your code
+    # Une version, nous ne l'utilisons pas vraiment mais cela peut être utile si vous voulez versionner votre code.
     $self->{version} = '0.1';
-    # Important part!
-    #    On the left, the name of the mode as users will use it in their command line
-    #    On the right, the path to the file (note that .pm is not present at the end)
+    # Partie importante !
+    # A gauche, le nom du mode tel que les utilisateurs l'utiliseront dans leur ligne de commande
+    # A droite, le chemin du fichier (notez que .pm n'est pas présent à la fin)
     $self->{modes} = {
         'app-metrics' => 'apps::myawesomeapp::api::mode::appmetrics'
     };
@@ -406,209 +405,209 @@ sub new {
     return $self;
 }
 
-# Declare this file as a perl module/package
+# Déclarer ce fichier comme un module/package perl
 1;
 
-# Beginning of the documenation/help. `__END__` Specify to the interpreter that instructions below don't need to be compiled
-# =head1 [..] Specify the section level and the label when using the plugin with --help
-# Check my-awesome [..] Quick overview of wath the plugin is doing
-# =cut Close the head1 section
+# Début de la documenation/help. `__END__` Spécifier à l'interpréteur que les instructions ci-dessous n'ont pas besoin d'être compilées
+# =head1 [...] Spécifie le niveau de la section et l'étiquette lors de l'utilisation du plugin avec --help
+# Check my-awesome [..] Aperçu rapide de ce que fait le plugin
+# =cut Fermer la section head1
 
 __END__
 
 =head1 PLUGIN DESCRIPTION
 
-Check my-awesome-app health and metrics through its custom API
+Vérifier l'état de santé et les mesures de l'application my-awesome grâce à son API personnalisée
 
 =cut
 ```
 
-Your first dummy plugin is working, congrats!
+Votre premier plugin fictif fonctionne, félicitations !
 
-Run this command:
+Exécutez cette commande :
 
 `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --list-mode`
 
-It already outputs a lot of things. Ellipsized lines are basically all standard capabilities
-inherited from the **script_custom** base.
+Il produit déjà beaucoup de choses. Les lignes elliptiques sont en fait toutes les capacités standard
+héritées de la base **script_custom**.
 
-You probably already recognized things you've previsously defined in your **plugin.pm** module.
+Vous avez probablement déjà reconnu des choses que vous avez définies dans votre module **plugin.pm**.
 
 ```perl
 
-Plugin Description:
-    Check my-awesome-app health and metrics through its custom API
+Description du plugin :
+Vérifier l'état de santé et les métriques de l'application my-awesome via son API personnalisée
 
-Global Options:
-    --mode  Choose a mode.
+Options globales :
+--mode Choisir un mode.
 [..]
-    --version
-            Display plugin version.
+--version
+Affiche la version du plugin.
 [..]
 
-Modes Available:
+Modes disponibles :
    app-metrics
 ```
 
-### Create the appmetrics.pm file
+### Créer le fichier appmetrics.pm
 
-The `appmetrics.pm` file will contain your code, in other words, all the instructions to:
+Le fichier `appmetrics.pm` contiendra votre code, en d'autres termes, toutes les instructions pour :
 
-- Declare options for the mode
-- Connect to **run.mocky.io** over HTTPS
-- Get the JSON from the **/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656** endpoint
-- Extract information and format it to be compliant with Centreon.
+- Déclarer des options pour le mode
+- Se connecter à **run.mocky.io** via HTTPS
+- Obtenir le JSON du **/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656** endpoint
+- Extraire les informations et les formater pour qu'elles soient conformes à Centreon.
 
-Let's build it iteratively.
+Construisons-le de manière itérative.
 
-> Important note: function (sub) names must not be modified. For example, you cannot
-> choose to rename `check_options` to `option_check`.
+> Note importante : les noms des (sous) fonctions ne doivent pas être modifiés. Par exemple, vous ne pouvez pas
+> choisir de renommer `check_options` en `option_check`.
 
-#### Common declarations and subs
+#### Déclarations et sous-déclarations communes
 
 ```perl
-# Path to your package. '::' instead of '/', and no .pm at the end.
+# Chemin d'accès à votre paquet. '::' au lieu de '/', et pas de .pm à la fin.
 package apps::myawesomeapp::api::mode::appmetrics;
 
-# Don't forget these ;)
+# Ne les oubliez pas ;)
 use strict;
 use warnings;
-# We want to connect to an HTTP server, let's use the common module
+# Nous voulons nous connecter à un serveur HTTP, utilisons le module commun
 use centreon::plugins::http;
-# Use the counter module. It will save you a lot of work and will manage a lot of things for you.
-# Consider this as mandatory when writing a new mode.
+# Utilisez le module de comptage. Il vous épargnera beaucoup de travail et gérera beaucoup de choses pour vous.
+# Considérez-le comme obligatoire lorsque vous écrivez un nouveau mode.
 use base qw(centreon::plugins::templates::counter);
-# Import some functions that will make your life easier
+# Importer quelques fonctions qui vous faciliteront la vie
 use centreon::plugins::templates::catalog_functions qw(catalog_status_threshold_ng);
-# We will have to process some JSON, no need to reinvent the wheel, load the lib you installed in a previous section
+# Nous allons devoir traiter du JSON, pas besoin de réinventer la roue, chargez la librairie que vous avez installée dans une section précédente
 use JSON::XS;
 ```
 
-Add a `new` function (sub) to initialize the mode:
+Ajouter une fonction `new` (sub) pour initialiser le mode :
 
 ```perl
 sub new {
     my ($class, %options) = @_;
-    # All options/properties of this mode, always add the force_new_perfdata => 1 to enable new metric/performance data naming.
-    # It also where you can specify that the plugin uses a cache file for example
+    # Toutes les options/propéties de ce mode, ajoutez toujours force_new_perfdata => 1 pour activer le nommage des nouvelles données de métriques/performances.
+    # C'est aussi là que vous pouvez spécifier que le plugin utilise un fichier de cache, par exemple
     my $self = $class->SUPER::new(package => __PACKAGE__, %options, force_new_perfdata => 1);
     bless $self, $class;
 
-    # This is where you can specify options/arguments your plugin supports.
-    # All options here stick to what the centreon::plugins::http module needs to establish a connection
-    # You don't have to specify all options from the http module, only the one that the user may want to tweak for its needs
+    # C'est ici que vous pouvez spécifier les options/arguments pris en charge par votre plugin.
+    # Toutes les options ici correspondent à ce dont le module centreon::plugins::http a besoin pour établir une connexion
+    # Il n'est pas nécessaire de spécifier toutes les options du module http, seulement celles que l'utilisateur peut vouloir modifier pour ses besoins.
     $options{options}->add_options(arguments => {
-        # One the left it's the option name that will be used in the command line. The ':s' at the end is to
-        # define that this options takes a value.
-        # On the right, it's the code name for this option, optionnaly you can define a default value so the user
-        # doesn't have to set it
+        # A gauche, c'est le nom de l'option qui sera utilisée dans la ligne de commande. Le ':s' à la fin sert à
+        # définir que cette option prend une valeur.
+        # A droite, c'est le nom de code de cette option, optionnellement vous pouvez définir une valeur par défaut pour que l'utilisateur # n'ait pas à la définir.
+        # n'ait pas à la définir
          'hostname:s'           => { name => 'hostname' },
          'proto:s'              => { name => 'proto', default => 'https' },
          'port:s'               => { name => 'port', default => 443 },
          'timeout:s'            => { name => 'timeout' },
-        # These options are here to defined conditions about which status the plugin will return regarding HTTP response code
+        # Ces options permettent de définir des conditions sur le statut que le plugin va renvoyer en ce qui concerne le code de réponse HTTP.
          'unknown-status:s'     => { name => 'unknown_status', default => '%\{http_code\} < 200 or %\{http_code\} >= 300' },
          'warning-status:s'     => { name => 'warning_status' },
          'critical-status:s'    => { name => 'critical_status', default => '' }
     });
 
-    # This is to create a local copy of a centreon::plugins::http that we will manipulate
-    # %options basically overwrite default http value with key/value pairs from options above to instantiate the http module
+    # Cela permet de créer une copie locale de centreon::plugins::http que nous allons manipuler.
+    # %options écrase la valeur par défaut de http avec les paires clé/valeur des options ci-dessus pour instancier le module http
     # Ref https://github.com/centreon/centreon-plugins/blob/520a1f8c10cd434c6dedd1e342285eecff8b9d1b/centreon/plugins/http.pm#L59
     $self->{http} = centreon::plugins::http->new(%options);
     return $self;
 }
 ```
 
-Add a `check_options` function. This sub will execute right after `new` and allow you to check that the user passed
- mandatory parameter(s) and in some case check that the format is correct.
+Ajoutez une fonction `check_options`. Cette fonction s'exécutera juste après `new` et vous permettra de vérifier que l'utilisateur a passé
+paramètre(s) obligatoire(s) et dans certains cas de vérifier que le format est correct.
 
 ```perl
 sub check_options {
     my ($self, %options) = @_;
     $self->SUPER::check_options(%options);
 
-    # Check if the user provided a value for --hostname option. If not, display a message and exit
+    # Vérifier si l'utilisateur a fourni une valeur pour l'option --hostname. Si ce n'est pas le cas, afficher un message et quitter
     if (!defined($self->{option_results}-\{hostname\}) || $self->{option_results}-\{hostname\} eq '') {
         $self->{output}->add_option_msg(short_msg => 'Please set hostname option');
         $self->{output}->option_exit();
     }
-    # Set parameters for http module, note that the $self->{option_results} is a hash containing
-    # all your options key/value pairs.
+    # Définir les paramètres pour le module http, notez que $self->{option_results} est un hachage contenant
+    # toutes les paires clé/valeur de vos options.
     $self->{http}->set_options(%{$self->{option_results}});
 }
 
 1;
 ```
 
-Nice work, you now have a mode that can be executed without errors!
+Beau travail, vous avez maintenant un mode qui peut être exécuté sans erreur !
 
-Run this command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics`, which
-outputs this message:
+Lancez la commande `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics`, qui
+affiche ce message :
 
-`UNKNOWN: Please set hostname option`
+`UNKNOWN : Please set hostname option`
 
-Now let's do some monitoring thanks to centreon-plugins.
+Maintenant, faisons un peu de monitoring grâce à centreon-plugins.
 
-#### Declare your counters
+#### Déclarez vos compteurs
 
-This part essentially maps the data you want to get from the API with the internal
-counter mode structure.
+Cette partie consiste essentiellement à faire correspondre les données que vous souhaitez obtenir de l'API avec la structure interne du mode compteur de
+.
 
-Remember how we categorized the data in a previous [section](#understand-the-data).
+Rappelez-vous comment nous avons catégorisé les données dans une [section] précédente (#understand-the-data).
 
-The `$self->{maps_counters_type}` data structure describes these data while the `$self->{maps_counters}->{global}` one defines
-their properties like thresholds and how they will be displayed to the users.
+La structure de données `$self->{maps_counters_type}` décrit ces données tandis que la structure `$self->{maps_counters}->{global}` définit
+leurs propriétés comme les seuils et la façon dont elles seront affichées aux utilisateurs.
 
 ```perl
 sub set_counters {
     my ($self, %options) = @_;
 
     $self->{maps_counters_type} = [
-        # health and queries are global metric, they don't refer to a specific instance.
-        # In other words, you cannot get several values for health or queries
-        # That's why the type is 0.
+        # La santé et les requêtes sont des mesures globales, elles ne se réfèrent pas à une instance spécifique.
+        # En d'autres termes, vous ne pouvez pas obtenir plusieurs valeurs pour health ou queries
+        # C'est pourquoi le type est 0.
         { name => 'health', type => 0, cb_prefix_output => 'prefix_health_output' },
-        { name => 'queries', type => 0, cb_prefix_output => 'prefix_queries_output' },
-        # app_metrics groups connections and errors and each will receive value for both instances (my-awesome-frontend and my-awesome-db)
-        # the type => 1 explicits that
-        # as above, you can define a callback (cb) function to manage the output prefix. This function is called
-        # each time a value is passed to the counter and can be shared across multiple counters.
+        { name => 'queries', type => 0, cb_prefix_output => 'prefix_queries_output' },      
+        # app_metrics regroupe les connexions et les erreurs et chacun recevra une valeur pour les deux instances (mon-awesome-frontend et mon-awesome-db)
+        # le type => 1 explique que
+        # comme ci-dessus, vous pouvez définir une fonction callback (cb) pour gérer le préfixe de sortie. Cette fonction est appelée
+        # chaque fois qu'une valeur est passée au compteur et peut être partagée entre plusieurs compteurs.
         { name => 'app_metrics', type => 1, cb_prefix_output => 'prefix_app_output' }
     ];
 
     $self->{maps_counters}->{health} = [
-        # This counter is specific because it deals with a string value
+        # Ce compteur est spécifique car il traite d'une valeur de type chaîne de caractères
         {
             label => 'health',
-            # All properties below (before et) are related to the catalog_status_ng catalog function imported at the top of our mode
+            # Toutes les propriétés ci-dessous (avant et) sont liées à la fonction catalog_status_ng importée au début de notre mode.
             type => 2,
-            # These properties allow you to define default thresholds for each status but not mandatory.
+            # Ces propriétés permettent de définir des seuils par défaut pour chaque état, mais ne sont pas obligatoires.
             warning_default => '%\{health\} =~ /yellow/',
             critical_default => '%\{health\} =~ /red/',
-            # To simplify, manage things related to how get value in the counter, what to display and specific threshold
-            # check because of the type of the data (string)
+            # Pour simplifier, gérer les choses liées à la manière d'obtenir une valeur dans le compteur, ce qu'il faut afficher et le seuil spécifique.
+            # vérifier en raison du type de données (string)
             set => {
                 key_values => [ { name => 'health' } ],
                 output_template => 'status: %s',
-                # Force ignoring perfdata as the collected data is a string
+                # Force à ignorer les données de perfdata car les données collectées sont des chaînes de caractères.
                 closure_custom_perfdata => sub { return 0; },
                 closure_custom_threshold_check => \&catalog_status_threshold_ng
             }
         }
     ];
     $self->{maps_counters}->{queries} = [
-        # The label defines options name, a --warning-select and --critical-select will be added to the mode
-        # The nlabel is the name of your performance data / metric that will show up in your graph
+        # Le label définit le nom des options, un --warning-select et un --critical-select seront ajoutés au mode.
+        # Le nlabel est le nom de votre donnée de performance / métrique qui apparaîtra dans votre graphique.
         {
             label => 'select',
             nlabel => 'myawesomeapp.db.queries.select.count',
             set => {
-            # Key value name is the name we will use to pass the data to this counter. You can have several ones.
+            # Le nom de la valeur de la clé est le nom que nous utiliserons pour transmettre les données à ce compteur. Vous pouvez en avoir plusieurs.
                 key_values => [ { name => 'select' } ],
-                # Output template describe how the value will display
+                # Le modèle de sortie décrit la façon dont la valeur sera affichée
                 output_template => 'select: %s',
-                # Perfdata array allow you to define relevant metrics properties (min, max) and its sprintf template format
+                # Le tableau Perfdata permet de définir les propriétés des mesures (min, max) et le format du modèle sprintf.
                 perfdatas => [
                     { template => '%d', min => 0 }
                 ]
@@ -634,12 +633,12 @@ sub set_counters {
     $self->{maps_counters}->{app_metrics} = [
         # The app_metrics has two different labels, connection and errors.
         { label => 'connections', nlabel => 'myawesomeapp.connections.count', set => {
-                # pay attention the extra display key_value. It will receive the instance value. (my-awesome-db, my-awesome-frontend).
-                # the display key_value isn't mandatory but we show it here for education purpose
+                # Faites attention à l'affichage supplémentaire key_value. Il recevra la valeur de l'instance. (my-awesome-db, my-awesome-frontend).
+                # le display key_value n'est pas obligatoire mais nous le montrons ici à des fins éducatives
                 key_values => [ { name => 'connections' }, { name => 'display' } ],
                 output_template => 'connections: %s',
                 perfdatas => [
-                    # we add the label_extra_instance option to have one perfdata per instance
+                    # nous ajoutons l'option label_extra_instance pour avoir une perfdata par instance
                     { template => '%d', min => 0, label_extra_instance => 1 }
                 ]
             }
@@ -655,35 +654,35 @@ sub set_counters {
     ];
 }
 
-# This should always be present at the end of the script.
+# Ceci devrait toujours être présent à la fin du script.
 1;
 ```
 
-> Remember to always move the final `1;` instruction at the end of the script when you add new lines during this tutorial.
+> N'oubliez pas de toujours déplacer l'instruction finale `1;` à la fin du script lorsque vous ajoutez de nouvelles lignes au cours de ce tutoriel.
 
-The mode compiles. Run the command
-supplying a value to the `--hostname` option to see what it displays:
+Le mode se compile. Exécutez la commande
+en donnant une valeur à l'option `--hostname` pour voir ce qu'elle affiche :
 
 ```bash
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=fakehost
 OK: status : skipped (no value(s)) - select : skipped (no value(s)), update : skipped (no value(s)), delete : skipped (no value(s))
 ```
 
-You can see some of your counters with the `skipped (no value(s))`, it's normal, this is because we
-just created the counters definition and structure but didn't push any values into it.
+Vous pouvez voir certains de vos compteurs avec le `skipped (no value(s))`, c'est normal, c'est parce que nous
+avons juste créé la définition et la structure des compteurs mais n'avons pas poussé de valeurs dedans.
 
-#### Create prefix callback functions
+#### Créer des fonctions de rappel de préfixe
 
-These functions are not mandatory but help to make the output more readable for a human. We will create
-it now but as you have noticed the mode compiles so you can choose to keep those for the polishing moment.
+Ces fonctions ne sont pas obligatoires mais permettent de rendre le résultat plus lisible pour un humain. Nous allons créer
+maintenant mais comme vous l'avez remarqué le mode compile donc vous pouvez choisir de les garder pour le moment de polissage.
 
-During counters definitions, we associated a callback function to each of them:
+Lors de la définition des compteurs, nous avons associé une fonction de rappel à chacun d'entre eux :
 
 - `cb_prefix_output => 'prefix_health_output'`
 - `cb_prefix_output => 'prefix_queries_output'`
 - `cb_prefix_output => 'prefix_app_output'`
 
-Define those functions by adding it to our `appmetrics.pm` file. They are self-explanatory.
+Définissez ces fonctions en les ajoutant à notre fichier `appmetrics.pm`. Elles sont explicites.
 
 ```perl
 sub prefix_health_output {
@@ -701,47 +700,47 @@ sub prefix_queries_output {
 sub prefix_app_output {
     my ($self, %options) = @_;
 
-    # This notation allows you to return the value of the instance (the display key_value)
-    # to bring some context to the output.
+        # Cette notation vous permet de renvoyer la valeur de l'instance (l'affichage clé_valeur)
+        # pour apporter un peu de contexte à la sortie.
     return "'" . $options{instance_value}->{display} . "' ";
 }
 
 1;
 ```
 
-Execute your command and check that the output matches the one below:
+Exécutez votre commande et vérifiez que la sortie correspond à celle ci-dessous :
 
 ```bash
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=fakehost
 OK: My-awesome-app: status : skipped (no value(s)) - Queries: select : skipped (no value(s)), update : skipped (no value(s)), delete : skipped (no value(s))
 ```
 
-The output is easier to read and separators are visible between global counters.
+La sortie est plus facile à lire et les séparateurs sont visibles entre les compteurs globaux.
 
-#### Get raw data from API and understand the data structure
+#### Obtenir des données brutes de l'API et comprendre la structure des données
 
-It's the moment to write the main sub (`manage_selection`) - the most complex, but also the one that
-will transform your mode to something useful and alive.
+C'est le moment d'écrire la sous-section principale (`manage_selection`) - la plus complexe, mais aussi celle qui
+transformera votre mode en quelque chose d'utile et de vivant.
 
-Think about the logic, what we have to do is:
+Pensez à la logique, ce que nous devons faire est :
 
-- Connect to **run.mocky.io** over HTTPS
-- Query a specific path corresponding to our API
-- Store and process the result
-- Spread this result across counters definitions
+- Se connecter à **run.mocky.io** via HTTPS
+- Interroger un chemin spécifique correspondant à notre API
+- Stocker et traiter le résultat
+- Répartir ce résultat dans les définitions des compteurs
 
-Start by writing the code to connect to **run.mocky.io**. It is where the centreon-plugins
-framework delivers its power.
+Commencez par écrire le code pour vous connecter à **run.mocky.io**. C'est là que le framework centreon-plugins
+délivre sa puissance.
 
-> All print instructions are available as commented code in the GitHub tutorial resources.
+> Toutes les instructions d'impression sont disponibles sous forme de code commenté dans les ressources du tutoriel GitHub.
 
-Write the request and add a print to display the received data:
+Ecrivez la requête et ajoutez un print pour afficher les données reçues :
 
 ```perl
 sub manage_selection {
     my ($self, %options) = @_;
-    # We have already loaded all things required for the http module
-    # Use the request method from the module to run the GET request against the path
+    # Nous avons déjà chargé tout ce qui est nécessaire pour le module http
+    # Utiliser la méthode de requête du module pour exécuter la requête GET contre le chemin d'accès
     my ($content) = $self->{http}->request(url_path => '/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656');
     print $content . "\n";
 }
@@ -749,9 +748,9 @@ sub manage_selection {
 1;
 ```
 
-Run this command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io`.
+Lancez cette commande `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io`.
 
-The output should be:
+Le résultat devrait être :
 
 ```perl title="Basic raw content print"
 {
@@ -785,25 +784,24 @@ The output should be:
 OK: My-awesome-app: status : skipped (no value(s)) - Queries: select : skipped (no value(s)), update : skipped (no value(s)), delete : skipped (no value(s))
 ```
 
-Add an `eval` structure to transform `$content` into a data structure that can be easily manipulated with perl. Let's
-introduce the standard `Data::Dumper` library that can help understanding your data structures.
+Ajoutez une structure `eval` pour transformer `$content` en une structure de données qui peut être facilement manipulée avec perl. présente la bibliothèque standard `Data::Dumper` qui peut vous aider à comprendre vos structures de données.
 
-We load the Data::Dumper library and use one of its methods to print the JSON. A second line is here to print
-a simple message and get you familiar with how to access data within perl data structures.
+Nous chargeons la bibliothèque Data::Dumper et utilisons une de ses méthodes pour imprimer le JSON. Une deuxième ligne est ici pour imprimer
+un simple message et vous familiariser avec la façon d'accéder aux données dans les structures de données perl.
 
 ```perl
 sub manage_selection {
     my ($self, %options) = @_;
-    # We have already loaded all things required for the http module
-    # Use the request method from the imported module to run the GET request against the URL path of our API
+    # Nous avons déjà chargé tout ce qui est nécessaire pour le module http
+    # Utiliser la méthode de requête du module importé pour exécuter la requête GET par rapport au chemin URL de notre API
     my ($content) = $self->{http}->request(url_path => '/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656');
 
-    # Declare a scalar deserialize the JSON content string into a perl data structure
+    # Déclarer un scalaire pour désérialiser la chaîne de contenu JSON dans une structure de données perl
     my $decoded_content;
     eval {
         $decoded_content = JSON::XS->new->decode($content);
     };
-    # Catch the error that may arise in case the data received is not JSON
+    # Attrape l'erreur qui peut survenir dans le cas où les données reçues ne sont pas JSON
     if ($@) {
         $self->{output}->add_option_msg(short_msg => "Cannot encode JSON result");
         $self->{output}->option_exit();
@@ -816,12 +814,12 @@ sub manage_selection {
 1;
 ```
 
-Run the command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io`
-again and see how it changed.
+Exécutez la commande `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io`
+à nouveau et voyez comment cela a changé.
 
-You now have your JSON deserialized into a perl `$VAR1` which represents your `$decoded_content` structure.
+Vous avez maintenant votre JSON désérialisé dans un `$VAR1` perl qui représente votre structure `$decoded_content`.
 
-You can also note the result of the latest print and how we accessed the `yellow` value.
+Vous pouvez aussi noter le résultat de la dernière impression et comment nous avons accédé à la valeur `yellow`.
 
 ```perl tile="Perl data structure from JSON"
 $VAR1 = {
@@ -855,46 +853,46 @@ $VAR1 = {
 My App health is 'yellow'
 ```
 
-#### Push data to global counters (type => 0)
+#### Envoi des données aux compteurs globaux (type => 0)
 
-Now that we know our data structure and how to access the values, we have to assign this
-value to the counters we initially defined. Pay attention to the comments above
-the `$self->{health}` and `$self->{db_queries}` assignations.
+Maintenant que nous connaissons notre structure de données et que nous savons comment accéder aux valeurs, nous devons assigner cette valeur
+aux compteurs que nous avons initialement définis. Faites attention aux commentaires ci-dessus
+les assignations `$self->{health}` et `$self->{db_queries}`.
 
 ```perl title="Global counters (type => 0)"
 sub manage_selection {
     my ($self, %options) = @_;
-    # We have already loaded all things required for the http module
-    # Use the request method from the imported module to run the GET request against the URL path of our API
+    # Nous avons déjà chargé tout ce qui est nécessaire pour le module http
+    # Utiliser la méthode de requête du module importé pour exécuter la requête GET par rapport au chemin URL de notre API
     my ($content) = $self->{http}->request(url_path => '/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656');
-    # Uncomment the line below when you reached this part of the tutorial.
-    # print $content;
+    # Décommentez la ligne ci-dessous lorsque vous avez atteint cette partie du tutoriel.
+    # print $content ;
 
-    # Declare a scalar deserialize the JSON content string into a perl data structure
+    # Déclarer un scalaire désérialiser la chaîne de contenu JSON dans une structure de données perl
     my $decoded_content;
     eval {
         $decoded_content = JSON::XS->new->decode($content);
     };
-    # Catch the error that may arise in case the data received is not JSON
+    # Attrape l'erreur qui peut survenir dans le cas où les données reçues ne sont pas JSON
     if ($@) {
         $self->{output}->add_option_msg(short_msg => "Cannot encode JSON result");
         $self->{output}->option_exit();
     }
-    # Uncomment the lines below when you reached this part of the tutorial.
-    # use Data::Dumper;
-    # print Dumper($decoded_content);
-    # print "My App health is '" . $decoded_content->{health} . "'\n";
-
-    # Here is where the counter magic happens.
-
-    # $self->{health} is your counter definition (see $self->{maps_counters}->{<name>})
-    # Here, we map the obtained string $decoded_content->{health} with the health key_value in the counter.
+    # Décommentez les lignes ci-dessous lorsque vous avez atteint cette partie du tutoriel.
+    # use Data::Dumper ;
+    # print Dumper($decoded_content) ;
+    # print "La santé de mon application est '" . $decoded_content->{health} . "'\n" ;
+    
+    # C'est ici que la magie du compteur s'opère.
+    
+    # $self->{health} est la définition de votre compteur (voir $self->{maps_counters}->{<name>})
+    # Ici, nous faisons correspondre la chaîne obtenue $decoded_content->{health} avec la valeur clé de la santé dans le compteur.
     $self->{health} = {
         health => $decoded_content->{health}
     };
 
-    # $self->{queries} is your counter definition (see $self->{maps_counters}->{<name>})
-    # Here, we map the obtained values from the db_queries nodes with the key_value defined in the counter.
+    # $self->{requêtes} est la définition de votre compteur (voir $self->{maps_counters}->{<nom>})
+    # Ici, nous mappons les valeurs obtenues à partir des noeuds db_queries avec la clé_valeur définie dans le compteur.
     $self->{queries} = {
         select => $decoded_content->{db_queries}->{select},
         update => $decoded_content->{db_queries}->{update},
@@ -906,81 +904,82 @@ sub manage_selection {
 1;
 ```
 
-Let's run our command again: no more `skipped (no value(s))` message. You even get a
-WARNING state because of the `yellow` app state.
+Exécutons à nouveau notre commande : plus de message `skipped (no value(s))`. Vous obtenez même un état
+WARNING à cause de l'état `jaune` de l'application.
 
 ```shell
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io
 WARNING: My-awesome-app status: yellow | 'myawesomeapp.db.queries.select.count'=1230;;;0; 'myawesomeapp.db.queries.update.count'=640;;;0; 'myawesomeapp.db.queries.delete.count'=44;;;0;
 ```
 
-Performance data confirm that values for database queries are correctly set as well.
+Les données de performance confirment que les valeurs des requêtes de la base de données sont également correctement définies.
 
-This is how the counters mode template work (`use base qw(centreon::plugins::templates::counter);`), the only thing you have
-to do is getting the data from the thing you have to monitor and push it to a counter definition.
+C'est ainsi que fonctionne le modèle en mode compteur (`use base qw(centreon::plugins::templates::counter);`), la seule chose que vous avez à faire sur
+est de récupérer les données de l'élément que vous devez surveiller et de les pousser dans une définition de compteur.
 
-Behind the scenes, it manages a lot of things for you:
+Dans les coulisses, il gère beaucoup de choses pour vous :
 
-- Options: `--warning-health --warning-select --warning-update --warning-delete and --critical-` have automatically been defined
-- Performance data: thanks to `nlabel` and values from `perfdatas:[]` array in your counters
-- Display: It writes the status and substitutes values with the one assigned to the counter
+- Options : `--avertissement-santé --avertissement-sélection --avertissement-mise à jour --avertissement-suppression et --critique-` ont été automatiquement définies.
+- Données de performance : grâce à `nlabel` et aux valeurs du tableau `perfdatas :[]` dans vos compteurs
+- Affichage : Il écrit le statut et remplace les valeurs par celles assignées au compteur.
 
-Now, you probably understand better why the preparation work about understanding collected data and the counter definition part is essential: simply because it's the bigger part of the job.
+Maintenant, vous comprenez probablement mieux pourquoi le travail de préparation sur la compréhension des données collectées et la définition des compteurs est essentiel : simplement parce que c'est la plus grande partie du travail.
 
-#### Push data to counters having an instance (type => 1)
+#### Envoi de données aux compteurs ayant une instance (type => 1)
 
-Now let's deal with counters with instances. That means that the same counters will
-receive multiple data, each of these data refering to a specific dimension.
+Traitons maintenant les compteurs avec des instances. Cela signifie que les mêmes compteurs recevront
+plusieurs données, chacune de ces données se référant à une dimension spécifique.
 
-They require to be manipulated in a slightly different way as we will have to specify the
-name we want to associate with the data.
+Elles doivent être manipulées d'une manière légèrement différente car nous devons spécifier le nom
+que nous voulons associer aux données.
 
-First, we have to loop over both `connections` and `errors` arrays to access the app name and
-measured value and then spread it within counters.
+Tout d'abord, nous devons faire une boucle sur les tableaux `connections` et `errors` pour accéder au nom de l'application et à la valeur mesurée sur
+, puis les répartir dans les compteurs.
 
 ```perl title="Counters with instances (type 1)"
 sub manage_selection {
     my ($self, %options) = @_;
-    # We have already loaded all things required for the http module
-    # Use the request method from the imported module to run the GET request against the URL path of our API
+    # Nous avons déjà chargé tout ce qui est nécessaire pour le module http
+    # Utiliser la méthode de requête du module importé pour exécuter la requête GET par rapport au chemin URL de notre API
     my ($content) = $self->{http}->request(url_path => '/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656');
-    # Uncomment the line below when you reached this part of the tutorial.
-    # print $content;
-
-    # Declare a scalar deserialize the JSON content string into a perl data structure
+    # Décommentez la ligne ci-dessous lorsque vous avez atteint cette partie du tutoriel.
+    # print $content ;
+    
+    # Déclarer un scalaire désérialiser la chaîne de contenu JSON dans une structure de données perl
     my $decoded_content;
     eval {
         $decoded_content = JSON::XS->new->decode($content);
     };
-    # Catch the error that may arise in case the data received is not JSON
+    # Attrape l'erreur qui peut survenir dans le cas où les données reçues ne sont pas JSON
     if ($@) {
         $self->{output}->add_option_msg(short_msg => "Cannot encode JSON result");
         $self->{output}->option_exit();
     }
-    # Uncomment the lines below when you reached this part of the tutorial.
-    # use Data::Dumper;
-    # print Dumper($decoded_content);
-    # print "My App health is '" . $decoded_content->{health} . "'\n";
+    # Décommentez les lignes ci-dessous lorsque vous avez atteint cette partie du tutoriel.
+    # use Data::Dumper ;
+    # print Dumper($decoded_content) ;
+    # print "La santé de mon application est '" . $decoded_content->{health} . "'\n" ;
+    
+    # C'est ici que la magie du compteur s'opère.
+    
+    # $self->{health} est la définition de votre compteur (voir $self->{maps_counters}->{<name>})
+    # Ici, nous faisons correspondre la chaîne obtenue $decoded_content->{health} avec la valeur clé de la santé dans le compteur.
 
-    # Here is where the counter magic happens.
-
-    # $self->{health} is your counter definition (see $self->{maps_counters}->{<name>})
-    # Here, we map the obtained string $decoded_content->{health} with the health key_value in the counter.
     $self->{health} = {
         health => $decoded_content->{health}
     };
 
-    # $self->{queries} is your counter definition (see $self->{maps_counters}->{<name>})
-    # Here, we map the obtained values from the db_queries nodes with the key_value defined in the counter.
+    # $self->{requêtes} est la définition de votre compteur (voir $self->{maps_counters}->{<nom>})
+    # Ici, nous mappons les valeurs obtenues à partir des noeuds db_queries avec la clé_valeur définie dans le compteur.
     $self->{queries} = {
         select => $decoded_content->{db_queries}->{select},
         update => $decoded_content->{db_queries}->{update},
         delete => $decoded_content->{db_queries}->{delete}
     };
 
-    # Initialize an empty app_metrics counter.
+    # Initialiser un compteur app_metrics vide.
     $self->{app_metrics} = {};
-    # Loop in the connections array of hashes
+    # Boucle dans le tableau de hachages des connexions
     foreach my $entry (@\{ $decoded_content->{connections\} }) {
         # Same logic than type => 0 counters but an extra key $entry->{component} to associate the value
         # with a specific instance
@@ -988,7 +987,7 @@ sub manage_selection {
         $self->{app_metrics}->{ $entry->{component} }->{connections} = $entry->{value};
     };
 
-    # Exactly the same thing with errors
+    # Exactement la même chose avec les erreurs
     foreach my $entry (@\{ $decoded_content->{errors\} }) {
         # Don't need to redefine the display key, just assign a value to the error key_value while
         # keeping the $entry->{component} key to associate the value with the good instance
@@ -1000,21 +999,21 @@ sub manage_selection {
 1;
 ```
 
-Your `app-metrics` mode is (almost) complete. Once again, the counters template managed a lot
-behind the scenes.
+Votre mode `app-metrics` est (presque) terminé. Une fois de plus, le modèle des compteurs a géré beaucoup de choses
+dans les coulisses.
 
-Execute this command to see how it evolved since the last execution. We modify the command with some
-additional parameters:
+Exécutez cette commande pour voir comment elle a évolué depuis la dernière exécution. Nous modifions la commande avec quelques paramètres supplémentaires
+:
 
-- `--warning-health='%{health} eq "care"'` to avoid getting a WARNING, put any value that will not match yellow. Providing it
-as a parameter will automatically override the hardcoded default code value
-- `--verbose` will display the long output and the details for each `type => 1` counters
+- `--warning-health='%{health} eq "care"'` pour éviter de recevoir un WARNING, mettez n'importe quelle valeur qui ne correspondra pas au jaune. Fournir
+comme paramètre remplacera automatiquement la valeur du code par défaut codée en dur
+- `--verbose` affichera la sortie longue et les détails pour chaque compteur `type => 1`.
 
 ```bash
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io --warning-health='%{health} eq "care"' --verbose
 ```
 
-Here is the expected output:
+Voici le résultat attendu :
 
 ```bash
 OK: My-awesome-app status: yellow - Queries: select: 1230, update: 640, delete: 44 | 'myawesomeapp.db.queries.select.count'=1230;;;0; 'myawesomeapp.db.queries.update.count'=640;;;0; 'myawesomeapp.db.queries.delete.count'=44;;;0; 'my-awesome-db#myawesomeapp.connections.count'=92;;;0; 'my-awesome-db#myawesomeapp.errors.count'=27;;;0; 'my-awesome-frontend#myawesomeapp.connections.count'=122;;;0; 'my-awesome-frontend#myawesomeapp.errors.count'=32;;;0;
@@ -1022,105 +1021,104 @@ OK: My-awesome-app status: yellow - Queries: select: 1230, update: 640, delete: 
 'my-awesome-frontend' connections: 122, errors: 32
 ```
 
-You now get metrics displayed for both components `'my-awesome-db'` and `'my-awesome-frontend'` and also performance data
-for your graphs. Note how the counter template automatically added the instance dimension on the left of the `nlabel` defined
-for each counters: `**my-awesome-frontend#**myawesomeapp.errors.count'=32;;;0;`
+Vous avez maintenant des métriques affichées pour les deux composants `'my-awesome-db'` et `'my-awesome-frontend'` et aussi des données de performance
+pour vos graphiques. Notez que le modèle de compteur a automatiquement ajouté la dimension de l'instance à gauche du `nlabel` défini
+pour chaque compteur : `**my-awesome-frontend#**myawesomeapp.errors.count'=32;;;0;`
 
-#### Help section and assistant to build your centreon objects
+#### Section d'aide et assistant pour construire vos objets centraux
 
-Last but not least, you need to write a help section to explain users what your mode is
-doing and what options they can use.
+Enfin, vous devez rédiger une section d'aide pour expliquer aux utilisateurs ce que fait votre mode
+et quelles options ils peuvent utiliser.
 
-The centreon-plugins framework has a built-in assistant to help you with the list of counters
-and options.
+Le framework centreon-plugins dispose d'un assistant intégré pour vous aider avec la liste des compteurs
+et des options.
 
-Run this command to obtain a summary that will simplify the work of creating Centreon commands and write
-the mode's help:
-
+Lancez cette commande pour obtenir un résumé qui simplifiera le travail de création des commandes Centreon et d'écriture de l'aide du mode à l'adresse
+:
 ```bash
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname='anyvalue' --list-coun
 ters --verbose
 ```
 
-Get information from its output (shown below) to start building your mode's help:
+Obtenez des informations à partir de sa sortie (illustrée ci-dessous) pour commencer à construire l'aide de votre mode :
 
 ```bash
 counter list: select update delete health connections errors
 configuration:  --warning-select='$_SERVICEWARNINGSELECT$' --critical-select='$_SERVICECRITICALSELECT$' --warning-update='$_SERVICEWARNINGUPDATE$' --critical-update='$_SERVICECRITICALUPDATE$' --warning-delete='$_SERVICEWARNINGDELETE$' --critical-delete='$_SERVICECRITICALDELETE$' --warning-health='$_SERVICEWARNINGHEALTH$' --critical-health='$_SERVICECRITICALHEALTH$' --warning-connections='$_SERVICEWARNINGCONNECTIONS$' --critical-connections='$_SERVICECRITICALCONNECTIONS$' --warning-errors='$_SERVICEWARNINGERRORS$' --critical-errors='$_SERVICECRITICALERRORS$'
 ```
 
-Here is how you can write the help, note that this time you will add the content after the `1;` and add the same
-`__END__` instruction like you did in the `plugin.pm` file.
+Voici comment vous pouvez écrire l'aide, notez que cette fois vous ajouterez le contenu après le `1;` et ajouterez la même instruction
+`__END__` que vous avez fait dans le fichier `plugin.pm`.
 
 
-```perl title="Help section"
+```perl title="Section d'aide"
 __END__
 
 =head1 MODE
 
-Check my-awesome-app metrics exposed through its API
+Vérifier les métriques de l'application my-awesome-app exposées à travers son API
 
 =over 8
 
 =item B<--warning/critical-health>
 
-Warning and critical threshold for application health string.
+Seuil d'alerte et seuil critique pour la chaîne de santé de l'application.
 
-Defaults values are: --warning-health='%\{health\} eq "yellow"' --critical-health='%\{health\} eq "red"'
+Les valeurs par défaut sont --warning-health='%\{health\} eq "yellow"' --critical-health='%\{health\} eq "red"'
 
 =item B<--warning/critical-select>
 
-Warning and critical threshold for select queries
+Seuil d'alerte et seuil critique pour les requêtes sélectionnées
 
 =item B<--warning/critical-update>
 
-Warning and critical threshold for update queries
+Seuil d'alerte et seuil critique pour les requêtes de mise à jour
 
 =item B<--warning/critical-delete>
 
-Warning and critical threshold for delete queries
+Seuil d'alerte et seuil critique pour les demandes de suppression
 
 =item B<--warning/critical-connections>
 
-Warning and critical threshold for connections
+Seuil d'alerte et seuil critique pour les connexions
 
 =item B<--warning/critical-errors>
 
-Warning and critical threshold for errors
+Seuil d'alerte et seuil critique pour les erreurs
 
 =back
 ```
 
-You're done! You can enjoy a complete plugin and mode and the help now displays in a specific
-mode section:
-
+Vous avez terminé ! Vous pouvez profiter d'un plugin et d'un mode complet et l'aide s'affiche maintenant dans une section spécifique du mode
+:
 
 ```bash
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --help
 [..
-   All global options from the centreon-plugins framework that your plugin benefits from
+   Toutes les options globales du framework centreon-plugins dont bénéficie votre plugin
 ..]
 Mode:
-    Check my-awesome-app metrics exposed through its API
+    
+    Vérifier les métriques de l'application my-awesome-app exposées à travers son API
 
     --warning/critical-health
-            Warning and critical threshold for application health string.
+            Seuil d'alerte et seuil critique pour la chaîne de santé de l'application.
 
-            Defaults are: --warning-health='%\{health\} eq "yellow"' &
+            Les valeurs par défaut sont les suivantes : --warning-health='%\{health\} eq "yellow"' &
             --critical-health='%\{health\} eq "red"'
 
     --warning/critical-select
-            Warning and critical threshold for select queries
+            Seuil d'alerte et seuil critique pour les requêtes sélectionnées
 
     --warning/critical-update
-            Warning and critical threshold for update queries
+            Seuil d'alerte et seuil critique pour les requêtes de mise à jour
 
     --warning/critical-delete
-            Warning and critical threshold for delete queries
+            Seuil d'alerte et seuil critique pour les demandes de suppression
 
     --warning/critical-connections
-            Warning and critical threshold for connections
+            Seuil d'alerte et seuil critique pour les connexions
 
     --warning/critical-errors
-            Warning and critical threshold for errors
+            Seuil d'alerte et seuil critique pour les erreurs
 ```
