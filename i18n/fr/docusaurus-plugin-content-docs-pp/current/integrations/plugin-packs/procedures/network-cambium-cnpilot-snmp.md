@@ -106,9 +106,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent 
-sur le serveur comme indiqué sur la documentation officielle :
-* https://community.cambiumnetworks.com/t/configuring-snmp-on-cnpilot-e-series/51324
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la [documentation officielle](https://community.cambiumnetworks.com/t/configuring-snmp-on-cnpilot-e-series/51324) du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -119,8 +120,10 @@ Centreon vers le serveur supervisé.
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquets
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquet
 associé à sa distribution :
@@ -157,7 +160,7 @@ yum install centreon-pack-network-cambium-cnpilot-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cambium cnPilot SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -210,7 +213,7 @@ yum install centreon-plugin-Network-Cambium-cnPilot-Snmp
 3. Appliquez le modèle d'hôte **Net-Cambium-cnPilot-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                           | Valeur par défaut | Obligatoire |
 |:-----------------|:------------------------------------------------------------------------------------------------------|:------------------|:------------|
@@ -259,8 +262,8 @@ yum install centreon-plugin-Network-Cambium-cnPilot-Snmp
 | CRITICALOUTERROR   | Thresholds                                                                                                                                                                           |                                                      |             |
 | WARNINGOUTTRAFFIC  | Thresholds                                                                                                                                                                           |                                                      |             |
 | CRITICALOUTTRAFFIC | Thresholds                                                                                                                                                                           |                                                      |             |
-| CRITICALSTATUS     | Set critical threshold for status (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). Can used special variables like: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} !~ /up|dormant/ |             |
-| WARNINGSTATUS      | Set warning threshold for status. Can used special variables like: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                            |                                                      |             |
+| CRITICALSTATUS     | Set critical threshold for status (Default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). Can used special variables like: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up|dormant/ |             |
+| WARNINGSTATUS      | Set warning threshold for status. Can used special variables like: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                            |                                                      |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                                                                                  |                                                      |             |
 
 </TabItem>
@@ -282,8 +285,8 @@ yum install centreon-plugin-Network-Cambium-cnPilot-Snmp
 | CRITICALCLIENTS      |                                                                                                                            |                   |             |
 | WARNINGINTERFERENCE  | Thresholds                                                                                                                 |                   |             |
 | CRITICALINTERFERENCE | Thresholds                                                                                                                 |                   |             |
-| WARNINGSTATUS        | Set warning threshold for status. Can used special variables like: %{status}, %{name}                                      |                   |             |
-| CRITICALSTATUS       | Set critical threshold for status (Default: '%{status} eq "expired"'). Can used special variables like: %{status}, %{name} |                   |             |
+| WARNINGSTATUS        | Set warning threshold for status. Can used special variables like: %\{status\}, %\{name\}                                      |                   |             |
+| CRITICALSTATUS       | Set critical threshold for status (Default: '%\{status\} eq "expired"'). Can used special variables like: %\{status\}, %\{name\} |                   |             |
 | WARNINGTRAFFICIN     | Thresholds                                                                                                                 |                   |             |
 | CRITICALTRAFFICIN    | Thresholds                                                                                                                 |                   |             |
 | WARNINGTRAFFICOUT    | Thresholds                                                                                                                 |                   |             |
@@ -316,7 +319,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--add-traffic \
 	--add-errors \
 	--warning-status='' \
-	--critical-status='%{admstatus} eq "up" and %{opstatus} !~ /up|dormant/' \
+	--critical-status='%\{admstatus\} eq "up" and %\{opstatus\} !~ /up|dormant/' \
 	--warning-in-traffic='' \
 	--critical-in-traffic='' \
 	--warning-out-traffic='' \
@@ -385,7 +388,7 @@ Les options génériques aux modes sont listées ci-dessous :
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Output |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Output |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                         | Output |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                           | Output |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                           | Output |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                            | Output |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Change storage free perfdata in used:     --change-perfdata=free,used,invert()      Change storage free perfdata in used:     --change-perfdata=used,free,invert()      Scale traffic values automaticaly:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()   | Output |
 | --extend-perfdata-group                    | Extend perfdata from multiple perfdatas (methods in target are: min, max, average, sum) Syntax: --extend-perfdata-group=searchlabel,newlabel,target\[,\[newuom\],\[m in\],\[max\]\]  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'                                               | Output |
@@ -439,8 +442,8 @@ Les options spécifiques aux modes sont listées ci-dessus :
 | Option                       | Description                                                                               | Type |
 |:-----------------------------|:------------------------------------------------------------------------------------------|:-----|
 | --filter-ap                  | Filter on one or several AP.                                                              | Mode |
-| --warning-connection-status  | Set warning threshold for status. Can used special variables like: %{status}, %{name}     | Mode |
-| --critical-connection-status | Set critical threshold for status. Can used special variables like: %{status}, %{name}    | Mode |
+| --warning-connection-status  | Set warning threshold for status. Can used special variables like: %\{status\}, %\{name\}     | Mode |
+| --critical-connection-status | Set critical threshold for status. Can used special variables like: %\{status\}, %\{name\}    | Mode |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
@@ -476,9 +479,9 @@ Les options spécifiques aux modes sont listées ci-dessus :
 | --add-cast               | Check interface cast.                                                                                                                                                                                                                                                                      | Mode      |
 | --add-speed              | Check interface speed.                                                                                                                                                                                                                                                                     | Mode      |
 | --add-volume             | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      | Mode      |
-| --check-metrics          | If the expression is true, metrics are checked (Default: '%{opstatus} eq "up"').                                                                                                                                                                                                           | Mode      |
-| --warning-status         | Set warning threshold for status. Can used special variables like: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                                                                                  | Mode      |
-| --critical-status        | Set critical threshold for status (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). Can used special variables like: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                       | Mode      |
+| --check-metrics          | If the expression is true, metrics are checked (Default: '%\{opstatus\} eq "up"').                                                                                                                                                                                                           | Mode      |
+| --warning-status         | Set warning threshold for status. Can used special variables like: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                                                                  | Mode      |
+| --critical-status        | Set critical threshold for status (Default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). Can used special variables like: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                       | Mode      |
 | --warning-* --critical-* | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   | Mode      |
 | --units-traffic          | Units of thresholds for the traffic (Default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      | Mode      |
 | --units-errors           | Units of thresholds for errors/discards (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'counter').                                                                                                                                                                     | Mode      |
@@ -528,8 +531,8 @@ Les options spécifiques aux modes sont listées ci-dessus :
 | --statefile-cipher       | Cipher to encrypt cache (Default: 'AES').                                                                                    | Retention |
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='status'                                         | Mode      |
 | --filter-name            | Filter interface by MACAdress                                                                                                | Mode      |
-| --warning-status         | Set warning threshold for status. Can used special variables like: %{status}, %{name}                                        | Mode      |
-| --critical-status        | Set critical threshold for status (Default: '%{status} eq "expired"'). Can used special variables like: %{status}, %{name}   | Mode      |
+| --warning-status         | Set warning threshold for status. Can used special variables like: %\{status\}, %\{name\}                                        | Mode      |
+| --critical-status        | Set critical threshold for status (Default: '%\{status\} eq "expired"'). Can used special variables like: %\{status\}, %\{name\}   | Mode      |
 | --warning-* --critical-* | Thresholds. Can be: 'clients-connected', 'noise-floor', 'interference', 'traffic-in', 'traffic-out'.                         | Mode      |
 
 </TabItem>

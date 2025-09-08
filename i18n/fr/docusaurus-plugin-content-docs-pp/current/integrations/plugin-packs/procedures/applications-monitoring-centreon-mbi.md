@@ -77,11 +77,11 @@ With the `root` user, install the following package and its dependencies:
 
 Try to execute this command:
 
-    $ snmpwalk -v 1 -c <SNMPCOMMUNITY> <IPSERVER> .1.3.6.1.2.1.1.1
+    $ snmpwalk -v 1 -c \<SNMPCOMMUNITY\> \<IPSERVER\> .1.3.6.1.2.1.1.1
 
 You should get a response looking like the following:
 
-    SNMPv2-MIB::sysDescr.0 = STRING: Linux <SERVER> 2.6.18-128.1.10.el5 #1 SMP Thu May 7 10:39:21 EDT 2009 i686
+    SNMPv2-MIB::sysDescr.0 = STRING: Linux \<SERVER\> 2.6.18-128.1.10.el5 #1 SMP Thu May 7 10:39:21 EDT 2009 i686
 
 ### SNMP Permissions
 
@@ -93,8 +93,7 @@ You need a SNMP read access on following OIDs:
 
 ### Troubleshooting
 
-Read [Troubleshooting
-SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp);
+Read [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#dépannage-de-snmp)
 
 ## Centreon Configuration
 

@@ -32,7 +32,7 @@ Les ressources sont contrôlées selon les paramètres suivants :
 3. Configurez la règle de notification :
 
    - Donnez un nom à la règle dans le champ **Name** en haut du panneau.
-   - Sélectionnez les groupes d'hôtes et/ou les groupes de services et/ou les vues métier (Édition Business seulement) pour lesquels vous voulez que des notifications soient envoyées. Pour chaque type de ressource, sélectionnez les évènements qui déclencheront l'envoi d'une notification.
+   - Sélectionnez les groupes d'hôtes et/ou les groupes de services et/ou les vues métier (si vous disposez du module BAM) pour lesquels vous voulez que des notifications soient envoyées. Pour chaque type de ressource, sélectionnez les évènements qui déclencheront l'envoi d'une notification.
    - Sélectionnez la [période temporelle](../monitoring/basic-objects/timeperiods.md) durant laquelle les notifications seront autorisées pour cette ressource.
      > Les exceptions dans les périodes temporelles sont ignorées pour les notifications. Les notifications seront envoyées même pendant les périodes exclues. 
    - Sélectionnez les utilisateurs (contacts) qui recevront une notification en cas d'évènement.
@@ -40,12 +40,12 @@ Les ressources sont contrôlées selon les paramètres suivants :
 	
     | Macro | Description | Exemple |
     | ----- | ----------- |-------- |
-	|{{NOTIFICATIONTYPE}}| **Recovery**, **Warning**, **Critical** or **Unknown** pour un service; **Recovery**, **Down** ou **Unreachable** pour un hôte. | CRITICAL |
-	{{NAME}}| Le nom du service ou de l'hôte. Pour un service, le nom de l'hôte auquel celui-ci est rattaché est également indiqué. | central/proc-ntpd |
-	{{ID}}| Un ID interne pour cette ressource. Cet ID peut être utilisé pour des appels API. | 41:209 |
-	{{STATE}}| Le [statut](./concepts.md) dans lequel la ressource vient de passer. | CRITICAL |
-	{{SHORTDATETIME}}| Date et heure au format suivant : MM/JJ/AA hh:mm:ss | 10/18/23 12:20:42 |
-    {{LONGDATETIME}}| Date et heure, avec le jour de la semaine.  | Wednesday October 18, 2023, 12:20:42 |
-	{{OUTPUT}}| La sortie de la commande de contrôle, c'est-à-dire le texte affiché dans la colonne **Information** de la page **Statut des ressources**. | CRITICAL: Number of current processes running: 0 |
+	|\{\{NOTIFICATIONTYPE\}\}| **Recovery**, **Warning**, **Critical** or **Unknown** pour un service; **Recovery**, **Down** ou **Unreachable** pour un hôte. | CRITICAL |
+	\{\{NAME\}\}| Le nom du service ou de l'hôte. Pour un service, le nom de l'hôte auquel celui-ci est rattaché est également indiqué. | central/proc-ntpd |
+	\{\{ID\}\}| Un ID interne pour cette ressource. Cet ID peut être utilisé pour des appels API. | 41:209 |
+	\{\{STATE\}\}| Le [statut](./concepts.md) dans lequel la ressource vient de passer. | CRITICAL |
+	\{\{SHORTDATETIME\}\}| Date et heure au format suivant : MM/JJ/AA hh:mm:ss | 10/18/23 12:20:42 |
+    \{\{LONGDATETIME\}\}| Date et heure, avec le jour de la semaine.  | Wednesday October 18, 2023, 12:20:42 |
+	\{\{OUTPUT\}\}| La sortie de la commande de contrôle, c'est-à-dire le texte affiché dans la colonne **Information** de la page **Statut des ressources**. | CRITICAL: Number of current processes running: 0 |
 
 3. Cliquez sur le bouton **Save** en haut à droite du panneau. La nouvelle règle de notification apparaît dans la liste. Elle peut mettre jusqu'à 5 minutes pour commencer à s'appliquer.

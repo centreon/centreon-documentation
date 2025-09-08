@@ -80,7 +80,7 @@ https://www.alyvix.com/learn/.
 yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Alyvix Server* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+2. On the Centreon Web interface, install the *Alyvix Server* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -97,7 +97,7 @@ yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 yum install centreon-pack-applications-monitoring-alyvix-restapi
 ```
 
-3. On the Centreon Web interface, install the *Alyvix Server* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+3. On the Centreon Web interface, install the *Alyvix Server* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 </Tabs>
@@ -138,8 +138,8 @@ by running the following command (some of the parameters such as ```--proxyurl``
     --port='80' \
     --proxyurl='http://myproxy.mycompany.org:8080' \
     --filter-testcase='case_app1|case_app2' \
-    --critical-testcase-state='%{state} eq "FAILED"' \
-    --critical-transaction-state='%{state} eq "FAILED"' \
+    --critical-testcase-state='%\{state\} eq "FAILED"' \
+    --critical-transaction-state='%\{state\} eq "FAILED"' \
     --warning-testcase-duration='40000' \
     --critical-testcase-duration='60000' \
     --critical-testcase-freshness='600' \

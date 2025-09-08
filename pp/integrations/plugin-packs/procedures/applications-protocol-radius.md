@@ -52,7 +52,7 @@ For this Monitoring Connector you will need :
 yum install centreon-plugin-Applications-Protocol-Radius
 ```
 
-2. On the Centreon Web interface, install the *Radius Service* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+2. On the Centreon Web interface, install the *Radius Service* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -69,7 +69,7 @@ yum install centreon-plugin-Applications-Protocol-Radius
 yum install centreon-pack-applications-protocol-radius
 ```
 
-3. On the Centreon Web interface, install the *Radius Service* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+3. On the Centreon Web interface, install the *Radius Service* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 </Tabs>
@@ -106,7 +106,7 @@ yum install centreon-pack-applications-protocol-radius
     --username=''  \
     --password=''   \
     --warning-status=''  \
-    --critical-status='%{status} ne "accepted"'  \
+    --critical-status='%\{status\} ne "accepted"'  \
     --warning-time='2'  \
     --critical-time='3'  \
     --use-new-perfdata 

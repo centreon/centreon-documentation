@@ -30,7 +30,7 @@ Les commandes peuvent être configurées à la page **Configuration > Commands >
       * Vous pouvez utiliser des [macros](macros.md) (macros d'hôtes ou de services) afin de rendre votre commande plus générique, mais ce n'est pas obligatoire. Le nom de la macro apparaîtra dans le formulaire de configuration de l'hôte ou du service afin que vous puissiez lui attribuer une valeur spécifique pour chaque hôte ou service avec lequel vous l'utiliserez.
 
    * **Description des macros** : saisissez une description pour les macros personnalisées. Cette description sera visible lorsque vous utiliserez la commande dans le formulaire de configuration d'hôte ou de service.
-   * **Connecteurs**: utilisez le **[connecteur Perl](#perl-connector)** ou le **[connecteur SSH](#ssh-connector)** afin de réduire la comsommation de ressources du plugin. Le connecteur Perl peut être utilisé avec toutes les commandes, sauf **check_icmp** et **check_nrpe**.
+   * **Connecteurs**: utilisez le **[connecteur Perl](#connecteur-perl)** ou le **[connecteur SSH](#connecteur-ssh)** afin de réduire la comsommation de ressources du plugin. Le connecteur Perl peut être utilisé avec toutes les commandes, sauf **check_icmp** et **check_nrpe**.
    * **Modèle de graphique** : liez la commande à un modèle de graphique.
 
 4. Cliquez sur **Sauvegarder**. La commande apparaît maintenant dans la liste **Commande de vérification** dans les formulaires de configuration de modèles d'hôtes ou de services.
@@ -43,7 +43,7 @@ Une fois votre commande personnalisée créée :
 2. Liez ce modèle d'hôte ou de service à l'hôte ou au service désiré : dans le formulaire de configuration de l'hôte ou du service, sélectionnez le modèle auquel vous avez lié la commande.
 3. Renseignez les valeurs correctes pour les macros dans le formulaire de configuration de l'hôte ou du service.
 3. [Déployez la configuration](../monitoring-servers/deploying-a-configuration.md). L'hôte ou le service apparaît à la page **Statut des ressources**. Vous pouvez voir la commande personnalisée dans le panneau de détails de l'hôte ou du service, avec les valeurs correctes pour les macros. Une fois le contrôle exécuté, vous pouvez également voir le message de sortie à cet endroit.
-4. Ajoutez la commande à la [liste blanche de commandes](#command-whitelist) du poller qui exécutera le contrôle.
+4. Ajoutez la commande à la [liste blanche de commandes](#liste-blanche-de-commandes) du poller qui exécutera le contrôle.
 
 ## Liste blanche de commandes
 
@@ -53,13 +53,69 @@ Pour des raisons de sécurité, Centreon Cloud inclut une liste blanche préremp
 
 1. Connectez-vous en **root** au collecteur qui exécutera la commande.
 2. Éditez (ou créez) le fichier suivant : **/etc/centreon-engine-whitelist/my-whitelist.yml**. (Vous pouvez créer autant de fichiers de whitelists que vous souhaitez dans ce répertoire.)
-3. Utilisez une regex pour définir les comandes autorisées. Exemple : 
+3. Assurez-vous que les droits d'accès corrects sont définis sur tous les fichiers de liste blanche :
 
-   ```yaml /etc/centreon-engine-whitelist/my_whitelist.yml
-   whitelist:
-      regex:
-         - \/opt\/my_plugins\/my_custom_plugin\.py .*
+   ```yaml
+   chown root:centreon-engine /etc/centreon-engine-whitelist/my-whitelist.yml
+   chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
+   chown root:centreon-engine /etc/centreon-engine-whitelist
+   chmod 750 /etc/centreon-engine-whitelist
    ```
+   
+4. Utilisez une regex pour définir les commandes autorisées. Exemple : 
+
+  ```yaml /etc/centreon-engine-whitelist/my_whitelist.yml
+  ```
+  ```text
+  whitelist:
+      regex:
+		 - \/usr\/lib(64)?\/nagios\/plugins\/.*
+		 - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
+         - \/opt\/my_plugins\/my_custom_plugin\.py .*
+  cma-whitelist:
+  default:
+    regex:
+      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+      - ^\{\s*"check":".*\}$
+      - \/usr\/bin\/echo\s+Host\s+alive
+      - cmd\.exe\s+\/C\s+echo\s+.*
+  ```
+   
+Le bloc "whitelist" définit les commandes pouvant être exécutées par le Collecteur.
+
+> les deux premières lignes doivent toujours être présentes dans le bloc "whitelist", elles correspondent aux commandes Centreon.
+
+Le bloc "cma-whitelist" définit les commandes pouvant être exécutées par l'agent CMA.
+
+Dans le bloc "cma-whitelist", vous pouvez au besoin spécifier des liste blanches par hôte, la syntaxe sera : 
+
+
+```text
+whitelist:
+  regex:
+	 - \/usr\/lib(64)?\/nagios\/plugins\/.*
+	 - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
+	 - \/opt\/my_plugins\/my_custom_plugin\.py .*
+cma-whitelist:
+  default:
+    regex:
+      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+      - ^\{\s*"check":".*\}$
+      - \/usr\/bin\/echo\s+Host\s+alive
+      - cmd\.exe\s+\/C\s+echo\s+.*
+  hosts:
+    - hostname:Host_1
+    regex:
+      - ...
+      
+    - hostname:Host_2
+    regex:
+      - ...
+```
 
 Utilisez `.*` afin d'inclure tous les arguments dans la regex.
 Le `.*` à la fin de la regex lui permet de gérer tout argument qu'elle contiendrait. Attention, le format doit être strictement identique à celui ci-dessus (cela inclut les indentations).

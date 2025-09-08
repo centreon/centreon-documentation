@@ -27,7 +27,7 @@ Avant toute chose, il est préférable de s’assurer de l’état et de la cons
 ### Mettre à jour la clé de signature RPM
 
 Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021.
-Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../../security/key-rotation.md#existing-installation), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
 ## Processus de mise à jour
 
@@ -307,8 +307,8 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -322,8 +322,8 @@ pcs resource promotable ms_mysql \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"

@@ -368,7 +368,6 @@ Installez le dépôt Centreon à l'aide de la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
 dnf clean all --enablerepo=*
 dnf update
@@ -378,7 +377,6 @@ dnf update
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
 dnf clean all --enablerepo=*
 dnf update
@@ -518,7 +516,7 @@ mysql_secure_installation
 ```
 
 Ensuite, dans la base de données distante, créez un utilisateur avec des privilèges **root**. Vous devrez entrer cet utilisateur pendant 
-le processus d'installation web (à [étape 6](../web-and-post-installation.md#étape-6-database-information),
+le processus d'installation web (à [étape 6](../web-and-post-installation.md#étape-6--database-information),
 dans les champs **Root user** et **Root password**).
 
 ```SQL
@@ -535,11 +533,11 @@ GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<IP_SERVEUR_CENTRAL>' WITH GRANT OPTIO
 FLUSH PRIVILEGES;
 ```
 
-> Remplacez **<IP_SERVEUR_CENTRAL\>** par l'adresse IP du serveur central qui se connectera au serveur de bases de données.
+> Remplacez **\<IP_SERVEUR_CENTRAL\>** par l'adresse IP du serveur central qui se connectera au serveur de bases de données.
 >
-> Remplacez **<UTILISATEUR\>** et **<MOT_DE_PASSE\>** par les identifiants de l'utilisateur.
+> Remplacez **\<UTILISATEUR\>** et **\<MOT_DE_PASSE\>** par les identifiants de l'utilisateur.
 
-Cet utilisateur ne sera utilisé que pour le processus d'installation. Une fois [l'installation web](../web-and-post-installation.md/) terminée, vous pouvez supprimer cet utilisateur via la commande suivante :
+Cet utilisateur ne sera utilisé que pour le processus d'installation. Une fois [l'installation web](../web-and-post-installation.md) terminée, vous pouvez supprimer cet utilisateur via la commande suivante :
 
 ```SQL
 DROP USER '<UTILISATEUR>'@'<IP_SERVEUR_CENTRAL>';
@@ -791,4 +789,4 @@ systemctl start apache2
 </Tabs>
 
 2. Pour terminer l'installation, suivez la procédure
-d'[installation web](../web-and-post-installation.md#web-installation).
+d'[installation web](../web-and-post-installation.md#installation-web).

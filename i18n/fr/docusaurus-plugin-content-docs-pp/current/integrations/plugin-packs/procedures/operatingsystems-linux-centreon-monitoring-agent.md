@@ -5,12 +5,11 @@ title: Linux Centreon Monitoring Agent
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Centreon Monitoring Agent est un agent d'observabilité implémentant le protocole
-OpenTelemetry.
+Le connecteur **Linux Centreon Monitoring Agent** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
 
-> Pour le moment, l'agent de supervision **Centreon Monitoring Agent** est en version *beta*.
+> Pour le moment, ce connecteur de supervision est en version **BETA**. L'agent est encore dans sa phase beta pour les utilisateurs de Centreon Cloud.
 
-Vous pouvez consulter [cette page](../getting-started/how-to-guides/cma.md) pour plus d'informations sur ce que permet Centreon Monitoring Agent.
+Lisez [cette page](../getting-started/how-to-guides/cma/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
 
 ## Contenu du pack
 
@@ -26,39 +25,39 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="OS-Linux-Centreon-Monitoring-Agent-custom" label="OS-Linux-Centreon-Monitoring-Agent-custom">
 
-| Alias  | Modèle de service                                | Description                                                                                                                                                               |
-|:-------|:-------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu    | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom    | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
-| Load   | OS-Linux-Load-Centreon-Monitoring-Agent-custom   | Contrôle de la charge serveur                                                                                                                                             |
-| Memory | OS-Linux-Memory-Centreon-Monitoring-Agent-custom | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                         |
-| Ntp    | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom    | Contrôle la synchronisation du système avec un serveur NTP                                                                                                                |
-| Swap   | OS-Linux-Swap-Centreon-Monitoring-Agent-custom   | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |
-| Uptime | OS-Linux-Uptime-Centreon-Monitoring-Agent-custom | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                 |
+| Alias  | Modèle de service                                | Description                                                                                                                                                               | Type de contrôle |
+|:-------|:-------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --- |
+| Cpu    | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom    | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur | natif |
+| Load   | OS-Linux-Load-Centreon-Monitoring-Agent-custom   | Contrôle de la charge serveur                                                                                                                                             |non natif |
+| Memory | OS-Linux-Memory-Centreon-Monitoring-Agent-custom | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                         |non natif |
+| Ntp    | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom    | Contrôle la synchronisation du système avec un serveur NTP                                                                                                                |non natif |
+| Swap   | OS-Linux-Swap-Centreon-Monitoring-Agent-custom   | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |non natif |
+| Uptime | OS-Linux-Uptime-Centreon-Monitoring-Agent-custom | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                 |non natif |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias               | Modèle de service                                             | Description                                                                                                                                                                           | Découverte |
-|:--------------------|:--------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Cmd-Generic         | OS-Linux-Cmd-Generic-Centreon-Monitoring-Agent-custom         | Permet de vérifier le code retour de commandes Linux                                                                                                                                  |            |
-| Connections-Generic | OS-Linux-Connections-Generic-Centreon-Monitoring-Agent-custom | Contrôle les connexions TCP/UDP                                                                                                                                                       |            |
-| Cpu-Detailed        | OS-Linux-Cpu-Detailed-Centreon-Monitoring-Agent-custom        | Contrôle du taux d'utilisation détaillé du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |            |
-| Disk-IO             | OS-Linux-Disk-IO-Centreon-Monitoring-Agent-custom             | Contrôle les compteurs I/O des disques                                                                                                                                                |            |
-| Disks               | OS-Linux-Disks-Centreon-Monitoring-Agent-custom               | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques                                                               |     X      |
-| File-Date-Generic   | OS-Linux-File-Date-Generic-Centreon-Monitoring-Agent-custom   | Permet de vérifier la date de modification/création/accès/... de fichiers et/ou répertoires                                                                                           |            |
-| File-Size-Generic   | OS-Linux-File-Size-Generic-Centreon-Monitoring-Agent-custom   | Permet de vérifier la taille de fichiers et/ou répertoires                                                                                                                            |            |
-| Inodes              | OS-Linux-Inodes-Centreon-Monitoring-Agent-custom              | Contrôle du taux d'inodes disponibles des disques                                                                                                                                     |            |
-| Is-File-Generic     | OS-Linux-Is-File-Generic-Centreon-Monitoring-Agent-custom     | Permet de vérifier si le fichier 'xxx' est présent                                                                                                                                    |            |
-| Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-Centreon-Monitoring-Agent-custom | Permet de vérifier si le fichier 'xxx' n'est pas présent                                                                                                                              |            |
-| Open-Files          | OS-Linux-Open-Files-Centreon-Monitoring-Agent-custom          | Permet de vérifier le nombre de modifications/créations/accès/... de fichiers et/ou répertoires                                                                                       |            |
-| Packet-Errors       | OS-Linux-Packet-Errors-Centreon-Monitoring-Agent-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                                                                                   |            |
-| Pending-Updates     | OS-Linux-Pending-Updates-Centreon-Monitoring-Agent-custom     | Contrôle le statut des services systemd                                                                                                                                               |            |
-| Process-Generic     | OS-Linux-Process-Generic-Centreon-Monitoring-Agent-custom     | Contrôle permettant de vérifier des processus Linux                                                                                                                                   |            |
-| Systemd-Journal     | OS-Linux-Systemd-Journal-Centreon-Monitoring-Agent-custom     | Compte les entrées de journal grâce à la commande `journalctl`                                                                                                                        |            |
-| Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-Centreon-Monitoring-Agent-custom   | Contrôle le statut des services systemd                                                                                                                                               |            |
-| Traffic             | OS-Linux-Traffic-Centreon-Monitoring-Agent-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                   |     X      |
+| Alias               | Modèle de service                                             | Description                                                                                                                                                                           | Découverte | Type de contrôle |
+|:--------------------|:--------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:| --- |
+| Cmd-Generic         | OS-Linux-Cmd-Generic-Centreon-Monitoring-Agent-custom         | Permet de vérifier le code retour de commandes Linux                                                                                                                                  |            | non natif |
+| Connections-Generic | OS-Linux-Connections-Generic-Centreon-Monitoring-Agent-custom | Contrôle les connexions TCP/UDP                                                                                                                                                       |            | non natif |
+| Cpu-Detailed        | OS-Linux-Cpu-Detailed-Centreon-Monitoring-Agent-custom        | Contrôle du taux d'utilisation détaillé du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |            | non natif |
+| Disk-IO             | OS-Linux-Disk-IO-Centreon-Monitoring-Agent-custom             | Contrôle les compteurs I/O des disques                                                                                                                                                |            | non natif |
+| Disks               | OS-Linux-Disks-Centreon-Monitoring-Agent-custom               | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques                                                               |     X      | non natif |
+| File-Date-Generic   | OS-Linux-File-Date-Generic-Centreon-Monitoring-Agent-custom   | Permet de vérifier la date de modification/création/accès/... de fichiers et/ou répertoires                                                                                           |            | non natif |
+| File-Size-Generic   | OS-Linux-File-Size-Generic-Centreon-Monitoring-Agent-custom   | Permet de vérifier la taille de fichiers et/ou répertoires                                                                                                                            |            | non natif |
+| Inodes              | OS-Linux-Inodes-Centreon-Monitoring-Agent-custom              | Contrôle du taux d'inodes disponibles des disques                                                                                                                                     |            | non natif |
+| Is-File-Generic     | OS-Linux-Is-File-Generic-Centreon-Monitoring-Agent-custom     | Permet de vérifier si le fichier 'xxx' est présent                                                                                                                                    |            | non natif |
+| Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-Centreon-Monitoring-Agent-custom | Permet de vérifier si le fichier 'xxx' n'est pas présent                                                                                                                              |            | non natif |
+| Open-Files          | OS-Linux-Open-Files-Centreon-Monitoring-Agent-custom          | Permet de vérifier le nombre de modifications/créations/accès/... de fichiers et/ou répertoires                                                                                       |            | non natif |
+| Packet-Errors       | OS-Linux-Packet-Errors-Centreon-Monitoring-Agent-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                                                                                   |            | non natif |
+| Pending-Updates     | OS-Linux-Pending-Updates-Centreon-Monitoring-Agent-custom     | Contrôle le statut des services systemd                                                                                                                                               |            | non natif |
+| Process-Generic     | OS-Linux-Process-Generic-Centreon-Monitoring-Agent-custom     | Contrôle permettant de vérifier des processus Linux                                                                                                                                   |            | non natif |
+| Systemd-Journal     | OS-Linux-Systemd-Journal-Centreon-Monitoring-Agent-custom     | Compte les entrées de journal grâce à la commande `journalctl`                                                                                                                        |            | non natif |
+| Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-Centreon-Monitoring-Agent-custom   | Contrôle le statut des services systemd                                                                                                                                               |            | non natif |
+| Traffic             | OS-Linux-Traffic-Centreon-Monitoring-Agent-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                   |     X      | non natif |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -316,179 +315,29 @@ Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
 |----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
 | Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
 
-### Prérequis système sur le collecteur
+### Prérequis système pour le collecteur
 
 > Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
-minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la version `24.04.6` ou `24.10.0` pour les utilisateurs *On Premices* de `centreon-engine`. L'agent devra se configurer en se connectant à Centreon Engine.
+minimum la version <!--`24.09.0` pour les utilisateurs de Centreon Cloud, et la version--> `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent récupérera sa configuration en se connectant à Centreon Engine.
 
-### Configuration de Centreon Engine
+### Configuration de la communication collecteur/agent
 
-Référez-vous à [cette page](../getting-started/how-to-guides/cma.md#configurez-engine) pour la procédure de configuration de centreon-engine.
+Configurez la
+[communication](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent) entre le collecteur et l'agent.
 
-### Prérequis système sur l'hôte à superviser
+### Prérequis système pour l'hôte à superviser
 
-Les prérequis ci-dessous doivent être appliqués sur les serveurs Linux à superviser pour que le connecteur de supervision puisse fonctionner.
-
-#### Installation de Centreon Monitoring Agent
-
-La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée dans 
-[la documentation dédiée à ce sujet](../getting-started/how-to-guides/cma.md#étape-2--préparez-lhôte).
-
-#### Installation du plugin Centreon Linux local
-
-Les prérequis ci-dessous doivent être appliqués sur les serveurs Linux à superviser pour que le connecteur de supervision puisse fonctionner.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-1. Ajoutez le dépôt des plugins Centreon
-
-```bash
-cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
-[centreon-plugins-stable]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/$basearch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-stable-noarch]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/noarch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/$basearch/ 
-enabled=0 
-gpgcheck=1 
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
-module_hotfixes=1 
- 
-[centreon-plugins-unstable-noarch] 
-name=Centreon plugins repository. (UNSUPPORTED) 
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/noarch/ 
-enabled=0 
-gpgcheck=1 
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
-module_hotfixes=1 
-EOF
-```
-
-2. Installez le plugin :
-
-```bash
-dnf install centreon-plugin-Operatingsystems-Linux-Local.noarch
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-1. Ajoutez le dépôt des plugins Centreon
-
-```bash
-cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
-[centreon-plugins-stable]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/$basearch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-stable-noarch]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/noarch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-EOF
-```
-
-2. Installez le plugin :
-
-```bash
-dnf install centreon-plugin-Operatingsystems-Linux-Local.noarch
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-1. Ajoutez le dépôt des plugins Centreon
-
-```bash
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
-apt-get update
-```
-
-2. Installez le plugin :
-
-```bash
-apt-get install centreon-plugin-operatingsystems-linux-Local
-```
-
-</TabItem>
-</Tabs>
+La procédure d'installation et de configuration de Centreon Monitoring Agent pour Linux est détaillée
+[dans la page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte). (Cela comprend l'installation de l'agent et l'installation des plugins qui permettront d'exécuter les contrôles non natifs).
 
 ## Installer le connecteur de supervision
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -523,19 +372,33 @@ apt-get install centreon-pack-operatingsystems-linux-centreon-monitoring-agent
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Linux Centreon Monitoring Agent**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
-3. Créez le nouveau connecteur.
+3. Selon votre version de Centreon, passez à l'étape suivante ou créez un connecteur sur votre serveur central.
 
-Dans le menu **Configuration > Commandes > Connecteurs**, cliquez sur **Ajouter** puis saisissez les champs suivants :
+<Tabs groupId="sync">
+<TabItem value="Version OnPrem 24.10.6 ou plus récente" label="Version OnPrem 24.10.6 ou plus récente">
+
+Pour cette version, aucune configuration n'est nécessaire. Passez à l'[étape suivante](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
+
+</TabItem>
+<TabItem value="Version OnPrem antérieure à la 24.10.6" label="Version OnPrem antérieure à la 24.10.6">
+
+Si vous êtes sur une version antérieure à la 24.10.6, vous devez créer le connecteur Centreon Monitoring Agent sur votre serveur central :
+
+1. Allez à la page **Configuration > Commandes > Connecteurs**.
+2. Créez un nouveau connecteur avec les données suivantes :
 
 | Paramètre                 | Valeur                                                                                                                                                                                        |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nom du connecteur         | Centreon Monitoring Agent                                                                                                                                                                     |
-| Description du connecteur | Centreon Monitoring Agent                                                                                                                                                                     |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nom du connecteur         | Centreon Monitoring Agent Beta                                                                                                                                                                    |
+| Description du connecteur | Centreon Monitoring Agent Beta                                                                                                                                                                    |
 | Ligne de commande         | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
-| Utilisé par la commande   | Selectionner toutes les commandes dont le nom correspond à `OS-Linux-Centreon-Monitoring-Agent-*`                                                                                             |
+| Utilisé par la commande   | Entrez `Centreon-Monitoring-Agent` et cliquez sur **Sélectionner tout**                                                                                                                       |
 | Statut du connecteur      | Activé                                                                                                                                                                                        |
+
+</TabItem>
+</Tabs>
 
 ### Plugin
 
@@ -713,8 +576,8 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CRITICALOFFSET  | Critical threshold offset deviation value in milliseconds                                                                                                           |                              |             |
 | WARNINGPEERS    | Warning threshold minimum amount of NTP-Server                                                                                                                      |                              |             |
 | CRITICALPEERS   | Critical threshold minimum amount of NTP-Server                                                                                                                     |                              |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{state}, %{rawstate}, %{type}, %{rawtype}, %{reach}, %{display}  |                              |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{state}, %{rawstate}, %{type}, %{rawtype}, %{reach}, %{display} |                              |             |
+| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |             |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\} |                              |             |
 | WARNINGSTRATUM  | Warning threshold                                                                                                                                                   |                              |             |
 | CRITICALSTRATUM | Critical threshold                                                                                                                                                  |                              |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                    | --use-new-perfdata --verbose |             |
@@ -803,8 +666,8 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 |:---------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
 | FILTERNAME           | Filter service name (can be a regexp)                                                                                                                                                                                                                                                                                                                                                                                                   | .*                           |             |
 | EXCLUDENAME          | Exclude service name (can be a regexp)                                                                                                                                                                                                                                                                                                                                                                                                  |                              |             |
-| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %{display}, %{active}, %{sub}, %{load}, %{boot} Example of statuses for the majority of these variables: %{active}: active, inactive %{sub}: waiting, plugged, mounted, dead, failed, running, exited, listening, active %{load}: loaded, not-found %{boot}: enabled, disabled, static, indirect                                      |                              |             |
-| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%{active} =~ /failed/i'). You can use the following variables: %{display}, %{active}, %{sub}, %{load}, %{boot} Example of statuses for the majority of these variables: %{active}: active, inactive %{sub}: waiting, plugged, mounted, dead, failed, running, exited, listening, active %{load}: loaded, not-found %{boot}: enabled, disabled, static, indirect |                              |             |
+| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{active\}, %\{sub\}, %\{load\}, %\{boot\} Example of statuses for the majority of these variables: %\{active\}: active, inactive %\{sub\}: waiting, plugged, mounted, dead, failed, running, exited, listening, active %\{load\}: loaded, not-found %\{boot\}: enabled, disabled, static, indirect                                      |                              |             |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%\{active\} =~ /failed/i'). You can use the following variables: %\{display\}, %\{active\}, %\{sub\}, %\{load\}, %\{boot\} Example of statuses for the majority of these variables: %\{active\}: active, inactive %\{sub\}: waiting, plugged, mounted, dead, failed, running, exited, listening, active %\{load\}: loaded, not-found %\{boot\}: enabled, disabled, static, indirect |                              |             |
 | WARNINGTOTALDEAD     | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                              |                              |             |
 | CRITICALTOTALDEAD    | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                              |                              |             |
 | WARNINGTOTALEXITED   | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                              |                              |             |
@@ -946,7 +809,7 @@ Les options génériques sont listées ci-dessous :
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -1187,9 +1050,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --critical-offset  | Critical threshold offset deviation value in milliseconds                                                                                                              |
 | --warning-stratum  | Warning threshold.                                                                                                                                                     |
 | --critical-stratum | Critical threshold.                                                                                                                                                    |
-| --unknown-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{state}, %{rawstate}, %{type}, %{rawtype}, %{reach}, %{display}     |
-| --warning-status   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{state}, %{rawstate}, %{type}, %{rawtype}, %{reach}, %{display}     |
-| --critical-status  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{state}, %{rawstate}, %{type}, %{rawtype}, %{reach}, %{display}    |
+| --unknown-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}     |
+| --warning-status   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}     |
+| --critical-status  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}    |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
@@ -1218,9 +1081,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
-| --unknown-status       | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{display}                                                                                                                       |
-| --warning-status       | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                                                                                                                       |
-| --critical-status      | Define the conditions to match for the status to be CRITICAL (default: '%{status} ne "RU"'). You can use the following variables: %%{status}, %{display}                                                                                      |
+| --unknown-status       | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{display\}                                                                                                                       |
+| --warning-status       | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                                                                                                       |
+| --critical-status      | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} ne "RU"'). You can use the following variables: %%\{status\}, %\{display\}                                                                                      |
 | --warning-*            | Warning threshold in percent of total packets. Can be: in-error, out-error, in-discard, out-discard                                                                                                                                           |
 | --critical-*           | Critical threshold in percent of total packets. Can be: in-error, out-error, in-discard, out-discard                                                                                                                                          |
 | --filter-interface     | Filter interface name (regexp can be used).                                                                                                                                                                                                   |
@@ -1310,8 +1173,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name            | Filter service name (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --exclude-name           | Exclude service name (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --warning-* --critical-* | Thresholds. Can be: 'total-running', 'total-dead', 'total-exited', 'total-failed'.                                                                                                                                                                                                                                                                                                                                                         |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{display}, %{active}, %{sub}, %{load}, %{boot} Example of statuses for the majority of these variables: %{active}: active, inactive %{sub}: waiting, plugged, mounted, dead, failed, running, exited, listening, active %{load}: loaded, not-found %{boot}: enabled, disabled, static, indirect                                         |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{active} =~ /failed/i'). You can use the following variables: %{display}, %{active}, %{sub}, %{load}, %{boot} Example of statuses for the majority of these variables: %{active}: active, inactive %{sub}: waiting, plugged, mounted, dead, failed, running, exited, listening, active %{load}: loaded, not-found %{boot}: enabled, disabled, static, indirect    |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{active\}, %\{sub\}, %\{load\}, %\{boot\} Example of statuses for the majority of these variables: %\{active\}: active, inactive %\{sub\}: waiting, plugged, mounted, dead, failed, running, exited, listening, active %\{load\}: loaded, not-found %\{boot\}: enabled, disabled, static, indirect                                         |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{active\} =~ /failed/i'). You can use the following variables: %\{display\}, %\{active\}, %\{sub\}, %\{load\}, %\{boot\} Example of statuses for the majority of these variables: %\{active\}: active, inactive %\{sub\}: waiting, plugged, mounted, dead, failed, running, exited, listening, active %\{load\}: loaded, not-found %\{boot\}: enabled, disabled, static, indirect    |
 
 </TabItem>
 <TabItem value="Traffic" label="Traffic">
@@ -1334,9 +1197,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --critical-in          | Critical threshold in percent for 'in' traffic.                                                                                                                                                                                               |
 | --warning-out          | Warning threshold in percent for 'out' traffic.                                                                                                                                                                                               |
 | --critical-out         | Critical threshold in percent for 'out' traffic.                                                                                                                                                                                              |
-| --unknown-status       | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %{status}, %{display}                                                                                                         |
-| --warning-status       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                                                                                                         |
-| --critical-status      | Define the conditions to match for the status to be CRITICAL (default: '%{status} ne "RU"'). You can use the following variables: %{status}, %{display}                                                                                       |
+| --unknown-status       | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{status\}, %\{display\}                                                                                                         |
+| --warning-status       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                                                                                                         |
+| --critical-status      | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} ne "RU"'). You can use the following variables: %\{status\}, %\{display\}                                                                                       |
 | --units                | Units of thresholds (default: 'b/s') ('%', 'b/s'). Percent canbe used only if --speed is set.                                                                                                                                                 |
 | --filter-interface     | Filter interface name (regexp can be used).                                                                                                                                                                                                   |
 | --exclude-interface    | Exclude interface name (regexp can be used).                                                                                                                                                                                                  |

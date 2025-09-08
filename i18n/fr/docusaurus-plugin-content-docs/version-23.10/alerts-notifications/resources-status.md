@@ -307,7 +307,7 @@ Les graphiques affichent l'évolution des métriques sur une période donnée. L
 
 - Des sélecteurs de date et d'heure sont disponibles pour les points de début et de fin. Ils sont mis à jour lorsque la période affichée change.
 
-- Utilisez les boutons [<] et [>] qui apparaissent sur les côtés au survol du bord du graphique pour avancer ou reculer dans le temps de la moitié de la période de temps affichée.
+- Utilisez les boutons [\<] et [>] qui apparaissent sur les côtés au survol du bord du graphique pour avancer ou reculer dans le temps de la moitié de la période de temps affichée.
 
 - Sélectionnez une période dans le graphique pour zoomer sur cette période.
 
@@ -335,7 +335,7 @@ Le graphique s'ouvre dans la page **Supervision > Informations de performance > 
 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
-Vous pouvez aussi exporter les données du graphique au format CSV. Toutes les métriques seront incluses.
+Vous pouvez aussi exporter les données du graphique au format CSV (toutes les métriques seront incluses), ou bien au format PNG en différentes tailles.
 
 ### Onglet Notification
 

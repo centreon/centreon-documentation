@@ -9,10 +9,18 @@ import TabItem from '@theme/TabItem';
 
 This procedure only applies if the following conditions are met:
 
-- You wish to migrate from a 64-bit EL-type OS to Debian. For instance, if you want to migrate from CentOS 7 to Debian 11.
+- You wish to migrate from a 64-bit EL-type OS to Debian. For instance, if you want to migrate from CentOS 7 to Debian 12.
 - Your version of Centreon is 18.10 or newer and you wish to upgrade to the latest version of Centreon. If you wish to migrate from an older version, [contact the Centreon support team](https://support.centreon.com).
 
 All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.
+
+Be sure that you have fully backed up your environment for the following
+servers:
+
+- Central server
+- Database server
+
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
 
 > If your Centreon platform includes a Centreon redundancy system, please
 > contact [Centreon support](https://support.centreon.com).
@@ -65,7 +73,7 @@ complete the installation process by connecting to the Centreon web interface.
    rsync -avz -e "ssh -i /root/.ssh/id_rsa_custom" <command>
    ```
 
-   > Replace **<IP_NEW_CENTREON>** by the IP address of the new Centreon server.
+   > Replace **\<IP_NEW_CENTREON\>** by the IP address of the new Centreon server.
 
 5. On the new server, change the following user rights:
 
@@ -149,7 +157,7 @@ create them again::
    systemctl start mariadb
    ```
 
-> Replace **<IP_NEW_CENTREON>** by the IP address of the new Centreon server.
+> Replace **\<IP_NEW_CENTREON\>** by the IP address of the new Centreon server.
 
 ### Step 4: Synchronize the plugins
 
@@ -172,12 +180,12 @@ If you are using custom plugins, synchronize the directories that contain your c
 ### Step 5: Upgrade Centreon
 
 1. On the new server, force the update by moving the contents of the
-**/var/lib/centreon/installs/install-24.04.x-YYYYMMDD\_HHMMSS** directory to
+**/var/lib/centreon/installs/install-24.10.x-YYYYMMDD\_HHMMSS** directory to
 the **/usr/share/centreon/www/install** directory (**x** is the target version number for your migrated machine):
 
    ```shell
    cd /var/lib/centreon/installs/
-   mv install-24.04.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+   mv install-24.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
    ```
 
 2. If you use the same IP address or same DNS name on the old Centreon webserver and the new one, do a full cache cleanup of your browser to avoid JS issues.
@@ -225,7 +233,7 @@ chapter for more information.
 
 9. If your old Centreon server was monitoring itself, and you have changed the username/password for the database during the migration, update the configuration of all related resources (host, services attached to that host).
 
-10. Go to **Configuration > Monitoring Connector Manager**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
+10. Go to **Configuration > Connectors > Monitoring Connectors**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
 
 ### Step 6 (older versions only): Migrate to Gorgone
 
@@ -236,7 +244,7 @@ If you are migrating from a Centreon version 18.10, 19.04 or 19.10, [migrate fro
 To upgrade the modules, go to **Administration > Extensions > Manager** and click **Update all**.
 If you have a MAP server or an MBI server, follow the corresponding migration procedures:
 
-- Migration procedure for [MAP](../graph-views/migrate.md),
+- Migration procedure for [MAP](../graph-views/map-web-migrate.md),
 - Migration procedure for [MBI](../reporting/migrate.md).
 
 ### Step 8: Migrating your other servers (distributed architecture)

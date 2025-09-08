@@ -28,15 +28,15 @@ Il apporte les modèles de service suivants :
 
 | Métrique                   | Unité |
 |:---------------------------|:------|
-| calls.total.lasthour.count |       |
+| calls.total.lasthour.count | count |
 
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
 
 | Métrique                           | Unité |
 |:-----------------------------------|:------|
-| stations.capacity.usage.count      |       |
-| stations.capacity.free.count       |       |
+| stations.capacity.usage.count      | count |
+| stations.capacity.free.count       | count |
 | stations.capacity.usage.percentage | %     |
 
 </TabItem>
@@ -44,7 +44,7 @@ Il apporte les modèles de service suivants :
 
 | Métrique            | Unité |
 |:--------------------|:------|
-| trunk signal status |       |
+| trunk signal status | N/A   |
 
 </TabItem>
 </Tabs>
@@ -53,7 +53,10 @@ Il apporte les modèles de service suivants :
 
 ### Configuration SNMP
 
-Afin de superviser votre **Avaya CM** en SNMP, il est nécessaire de configurer l'agent sur votre équipement.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -62,10 +65,12 @@ Centreon vers l'équipement supervisé.
 
 ## Installation
 
-### Pack de supervision
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md). de supervision
 
 Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquet
@@ -96,7 +101,7 @@ apt install centreon-pack-hardware-telephony-avaya-cm-snmp
 </Tabs>
 
 Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **Avaya CM SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -142,7 +147,7 @@ apt install centreon-plugin-hardware-telephony-avaya-cm-snmp
 * Appliquez le modèle d'hôte **HW-Telephony-Avaya-Cm-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Obligatoire | Macro            | Description                                  |
 |:------------|:-----------------|:---------------------------------------------|

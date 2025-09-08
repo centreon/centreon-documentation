@@ -78,7 +78,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 
 If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the pack displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -114,7 +114,7 @@ apt install centreon-pack-hardware-devices-hms-netbiter-argos-restapi
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **HMS Netbiter Argos RestAPI** Pack through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -313,10 +313,10 @@ All  modes specific options are listed here:
 | --filter-acked            | Hide acknowledged alarms.                                                                                                                                                                                                                      | Mode |
 | --filter-active           | Only show active alarms.                                                                                                                                                                                                                       | Mode |
 | --filter-severity         | Only show alarms with a given severity level. Can be: 'critical', 'major', 'minor', 'warning', 'cleared'. Only one value can be set (no multiple values).                                                                                      | Mode |
-| --warning-active-status   | Set warning threshold for active status (Default: ''). Typical syntax: --warning-active-status='%{active} =~ "true"'                                                                                                                           | Mode |
-| --critical-active-status  | Set critical threshold for active status (Default: '%{active} =~ "true"'). Typical syntax: --critical-active-status='%{active} =~ "true"'                                                                                                      | Mode |
-| --warning-acked-status    | Set warning threshold for acked status (Default: '%{acked} =~ "false"'). Typical syntax: --warning-acked-status='%{acked} =~ "false"'                                                                                                          | Mode |
-| --critical-acked-status   | Set critical threshold for acked status (Default: ''). Typical syntax: --critical-acked-status='%{acked} =~ "false"'                                                                                                                           | Mode |
+| --warning-active-status   | Set warning threshold for active status (Default: ''). Typical syntax: --warning-active-status='%\{active\} =~ "true"'                                                                                                                           | Mode |
+| --critical-active-status  | Set critical threshold for active status (Default: '%\{active\} =~ "true"'). Typical syntax: --critical-active-status='%\{active\} =~ "true"'                                                                                                      | Mode |
+| --warning-acked-status    | Set warning threshold for acked status (Default: '%\{acked\} =~ "false"'). Typical syntax: --warning-acked-status='%\{acked\} =~ "false"'                                                                                                          | Mode |
+| --critical-acked-status   | Set critical threshold for acked status (Default: ''). Typical syntax: --critical-acked-status='%\{acked\} =~ "false"'                                                                                                                           | Mode |
 | --warning-* --critical-*  | Thresholds. Can be: 'warning-alarms-total' (count) 'critical-alarms-total' (count), 'warning-alarm-duration' (s), 'critical-alarm-duration' (s), 'warning-alarm-severity' (level from 0 to 5), critical-alarm-severity (level from 0 to 5).    | Mode |
 
 </TabItem>

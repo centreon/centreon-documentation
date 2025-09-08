@@ -7,7 +7,7 @@ title: Prérequis
 
 ## OS
 
-Le collecteur doit être installé sur un serveur dédié et fraîchement installé, sous Alma Linux/RHEL/Oracle Linux 8 ou 9, ou Debian 11. Debian 12 est également supporté pour les collecteurs à partir de la version 24.04. Voir notre article de base de connaissances [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759).
+Le collecteur doit être installé sur un serveur dédié et fraîchement installé, sous Alma Linux/RHEL/Oracle Linux 8 ou 9. Debian 12 est également supporté pour les collecteurs à partir de la version 24.04. Voir nos articles de base de connaissances [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759) et [OS updates & security](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136).
 
 ## Hardware
 
@@ -41,7 +41,7 @@ Procédez au partitionnement en suivant les recommandations suivantes :
 | swap                       | 1 à 1.5 la taille totale de la mémoire vive                                                                |
 | /                          | au moins 20 Go                                                                                             |
 | /var/log                   | au moins 10 Go                                                                                             |
-| /var/lib/centreon-broker   | au moins 5 Go                                                                                              |
+| /var/lib/centreon-engine   | au moins 5 Go                                                                                              |
 
 ## Réseau
 
@@ -65,3 +65,17 @@ AWS fournit une [liste de leurs plages d'adresses IP](https://ip-ranges.amazonaw
 curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.ipv6_prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ipv6_prefix' 
 curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ip_prefix' 
 ```
+
+
+S'il n'est pas possible pour vous de faire du filtrage sur les adresses IP, vous pouvez faire du filtrage par FQDN ou sur des URLs spécifiques. Les FQDNs/URLs à autoriser sont les suivants :
+
+Sur le réseau de chaque collecteur :
+- api.euwest1.prod1.centreon.cloud
+- api.a.prod.mycentreon.com
+- broker-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
+- gorgone-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
+
+Sur le réseau du navigateur de l'utilisateur :
+- https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/centreon/*
+- https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/_centreon/centreon-map/*
+

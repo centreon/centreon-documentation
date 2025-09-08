@@ -103,7 +103,7 @@ sudo ./aws/install
 yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **AWS Discover** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Connectors > Monitoring Connectors**, install the **AWS Discover** Centreon Monitoring Connector.
  You'll be prompted to install several other AWS Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
@@ -123,7 +123,7 @@ to make all the dependencies available:
 yum install centreon-pack-cloud-aws\*
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **AWS Discover** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Connectors > Monitoring Connectors**, install the **AWS Discover** Centreon Monitoring Connector.
 You'll be prompted to install several other AWS Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
@@ -167,10 +167,10 @@ Adjust the following settings:
 
 The step 4 of the wizard allows to adjust and set **mappers** if necessary; the Monitoring Connector comes along with predefined **mappers** that
 don't typically need to be changed. If you have a specific need and want to edit the **mappers** section, refer to 
-[this documentation](/docs/monitoring/discovery/hosts-discovery#how-to-use-the-mappers) to do so.
+[this documentation](/docs/monitoring/discovery/hosts-discovery#how-to-use-mappers) to do so.
 
 Final steps 5 & 6 will allow you to define a specific policy about the data modeling of the discovered results. Although the default configuration
-is usually enough to proceed, [this documentation](/docs/monitoring/discovery/hosts-discovery#define-analysis-and-update-policies) 
+is usually enough to proceed, [this documentation](/docs/monitoring/discovery/hosts-discovery#step-5-define-analysis-and-update-policies) 
 will help you to customize it if needed. Coming to step 6, just click on *finish* to launch the discovery job.
 
 Once the discovery job complete, you can display the results by clicking on *job results*. All the available Host Templates
