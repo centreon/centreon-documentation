@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **ArubaOS-CX SNMP** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -188,7 +188,7 @@ Centreon vers l'équipement supervisé.
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -225,7 +225,7 @@ yum install centreon-pack-network-aruba-aoscx-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **ArubaOS-CX SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -306,7 +306,7 @@ yum install centreon-plugin-Network-Aruba-Aoscx-Snmp
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'psu', 'temperature', 'fan', 'fantry'                                                          |                   |             |
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'psu', 'temperature', 'fan', 'fantray'                                                         |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -578,17 +578,17 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Option               | Description                                                                                                                                                                                                              |
-|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component          |   Which component to check (default: '.*'). Can be: 'psu', 'temperature', 'fan', 'fantry'.                                                                                                                               |
-| --filter             |   Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=fan,1.1                                                                        |
-| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.   |
-| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                             |
-| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,status,regexp). Example: --threshold-overload='fan,WARNING,string'                   |
-| --warning            |   Set warning threshold for 'temperature', 'fan.speed', 'psu.power' (syntax: section,\[instance,\]status,regexp) Example: --warning='temperature,.*,30' --warning='fan.speed,.*,1000'                                    |
-| --critical           |   Set critical threshold for 'temperature', 'fan.speed', 'psu.power' (syntax: section,\[instance,\]status,regexp) Example: --critical='temperature,.*,40'                                                                |
-| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                           |
-| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                          |
+| Option               | Description                                                                                                                                                                                                          |
+|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          | Which component to check (default: '.*'). Can be: 'psu', 'temperature', 'fan', 'fantray'.                                                                                                                            |
+| --filter             | Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=fan,1.1                                                                      |
+| --absent-problem     | Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'. |
+| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                           |
+| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,status,regexp). Example: --threshold-overload='fan,WARNING,string'                 |
+| --warning            | Set warning threshold for 'temperature', 'fan.speed', 'psu.power' (syntax: section,\[instance,\]status,regexp) Example: --warning='temperature,.*,30' --warning='fan.speed,.*,1000'                                  |
+| --critical           | Set critical threshold for 'temperature', 'fan.speed', 'psu.power' (syntax: section,\[instance,\]status,regexp) Example: --critical='temperature,.*,40'                                                              |
+| --warning-count-*    | Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                         |
+| --critical-count-*   | Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                        |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
