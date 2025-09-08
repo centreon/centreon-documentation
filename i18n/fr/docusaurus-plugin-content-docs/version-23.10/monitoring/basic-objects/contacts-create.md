@@ -41,12 +41,14 @@ les notifications pourront être envoyées. En-dehors de ces périodes de temps,
 
   > La possibilité de connexion automatique (auto login) doit être activée dans le menu : **Administration > Options**.
 
-* Le champ **Source d'authentification** spécifie si les informations de connexion proviennent d’un annuaire LDAP ou
-  d’informations stockées localement sur le serveur.
-* Le champ **Groupes de liste d'accès** permet de définir un groupe d’accès pour un utilisateur, groupe utilisé pour les
-  contrôles d’accès (ACL).
+* Le champ **Source d'authentification** spécifie si les informations de connexion proviennent d’un annuaire LDAP ou d’informations stockées localement sur le serveur (définies via l'interface Centreon).
+* Les trois champs qui suivent servent à autoriser les utilisateurs à faire appel à l'[API v1](../../api/rest-api-v1.md#api-calls) et à l'[API v2](https://docs-api.centreon.com/api/centreon-web/23.04/) (à noter que la documentation API n'est disponible qu'en anglais et est destinée à des développeurs familiers avec les requêtes HTTP et JSON).
+  - Le champ **API de configuration** ne s'applique qu'aux API V2. (Seuls les administrateurs peuvent utiliser cette API en v1).
+  - L'[**API de temps réel**](../../api/rest-api-v1.md#realtime-information) peut être appelée par les non-administrateurs dans les deux versions lorsque ce champ est coché.
+  - Les administrateurs peuvent faire appel à l'**API de configuration** et l'[**API de temps réel**](../../api/rest-api-v1.md#realtime-information) indépendamment de si le champ correspondant à ces APIs est coché. Ceci est valable pour l'API v1 et l'API v2. Les administrateurs sont également les seuls à pouvoir utiliser [**CLAPI**](../../api/clapi.md), les autres utilisteurs n'ont accès qu'à l'API Rest.
+* Le champ **Groupes de liste d'accès** permet de définir un groupe d’accès pour un utilisateur, groupe utilisé pour les [contrôles d’accès (ACL)](../../administration/access-control-lists.md).
 
-  > Un utilisateur Administrateur a tous les droits et les règles de contrôle d’accès ne s'appliquent pas à lui, même si vous l'incluez dans un groupe d’accès.
+> Un utilisateur Administrateur a tous les droits et les règles de contrôle d’accès ne s'appliquent pas à lui, même si vous l'incluez dans un groupe d’accès.
 
 ## Onglet Informations supplémentaires
 
