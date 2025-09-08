@@ -12,6 +12,10 @@ module.exports = {
           type: 'doc',
           id: 'getting-started/about-centreon-cloud',
         },
+         {
+          type: 'doc',
+          id: 'getting-started/centreon-cloud-trial',
+        },
         {
           "collapsed": true,
           "type": "category",
@@ -149,6 +153,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'administration/ram',
+        },
+        {
+          type: 'doc',
+          id: 'ciam/cloud-saml',
         },
       ],
     },
