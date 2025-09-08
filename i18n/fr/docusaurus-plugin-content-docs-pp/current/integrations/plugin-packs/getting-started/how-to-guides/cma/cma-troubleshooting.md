@@ -65,7 +65,7 @@ Aucune ligne ne doit être retournée.
    netstat -na | grep 4317
    ```
 
-   Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
+   Elle doit retourner des résultats, indiquant que le serveur et le client communiquent (ESTABLISHED).
 
    ```bash
    Active Internet connections (servers and established)
