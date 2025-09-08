@@ -59,6 +59,8 @@ Copiez le plugin sur l'hôte, dans le répertoire de votre choix.
       /<path>/<to>/custom_script.sh
       ```
 
-2. Si ce n'est pas déjà fait, [creéz l'hôte](/docs/monitoring/basic-objects/hosts) correspondant à la ressource à superviser.
-3. Pour chaque modèle de service désiré, sélectionnez la commande que vous venez de créez.
-4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
+2. Associez cette commande au connecteur **Centreon Monitoring Agent** (champ **Connectors**).
+
+3. Si ce n'est pas déjà fait, [creéz l'hôte](/docs/monitoring/basic-objects/hosts) correspondant à la ressource à superviser.
+4. Pour chaque modèle de service désiré, sélectionnez la commande que vous venez de créez.
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
