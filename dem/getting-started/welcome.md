@@ -3,14 +3,14 @@ id: welcome
 title: Quanta by Centreon
 ---
 
-[Quanta by Centreon](https://www.quanta.io/) is our Digital Experience Monitoring (DEM) solution. Its documentation will soon be available in this space, but for now please [access the product documentation on the Quanta site](https://quantaio.notion.site/QUANTA-by-Centreon-User-Documentation-EN-2c993c11baff4671a2a1de6154255ab9).
+[Quanta by Centreon](https://www.quanta.io/fr/) est notre solution de Digital Experience Monitoring (DEM). La documentation sera bientôt disponible dans cet espace, mais pour l'instant, veuillez [accéder à la documentation du produit sur le site Quanta](https://quantaio.notion.site/QUANTA-by-Centreon-Documentation-Utilisateur-aab10d5221484f5785dc842868e62d8a).
 
 ![image](../assets/quanta_doc_homepage.png)
 
-## Quanta’s solution
+## La solution Quanta
 
-Quanta is an analytics solution designed specifically to enable all stakeholders to collaborate effectively around a single goal: using web performance to optimise **online revenues**.
+Quanta est une solution analytics conçue spécialement pour permettre à tous les acteurs de collaborer efficacement autour d'un même objectif: utiliser la web performance pour optimiser les **revenus en ligne**.
 
-Quanta offers a web application through which you can monitor the load time of your web pages and shopping tunnel and easily identify shortcomings throughout your software and hardware infrastructure through **simple and dynamic graphics**, **comprehensive audit logs, automatic anomaly detection, customisable alerts and real-time visualisation**.
+Quanta offre une application web à travers laquelle vous pouvez suivre le temps de chargement de vos pages web et de votre tunnel d'achat et d'identifier facilement les insuffisances sur toute votre infrastructure logicielle et matérielle à travers des **graphiques simples et dynamiques**, **des journaux d'audit complets, des détections automatiques des anomalies, des alertes personnalisables et la visualisation en temps réel**.
 
-Quanta offers: an in-depth assessment of your code, a critical path analysis, an expert perspective on your infrastructure, a list of quick wins to implement immediately.
+Quanta offre: un bilan approfondi de votre code, une analyse des chemins critiques, des perspectives expertes sur votre infrastructure, une liste des « quick wins » à mettre en place dans l’immédiat.
