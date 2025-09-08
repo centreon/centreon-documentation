@@ -41,3 +41,16 @@ Exportez la configuration du collecteur :
    * À côté de **Redémarrer l'ordonnanceur**, sélectionnez la méthode **Redémarrer**.
 3. Cliquez sur **Exporter**. Un log de l'export s'affiche : il ne devrait pas y avoir d'erreurs.
 4. Retournez à la page **Configuration > Collecteurs > Collecteurs** : le collecteur affiche **Oui** dans la colonne **En cours d'exécution?**. Votre collecteur est maintenant prêt à superviser des ressources.
+
+## Réinstaller un collecteur
+
+Si, pour une raison quelconque, vous devez réinstaller un collecteur existant, procédez comme suit :
+
+1. Allez à la page **Configuration > Collecteurs > Collecteurs**.
+2. Pour éviter tout conflit lors de l'enregistrement, supprimez le collecteur que vous souhaitez réinstaller.
+3. Exécutez le script d'installation : lorsque vous y êtes invité, sélectionnez l'option 2, **Reinstall the poller from scratch**. Vous pouvez également exécuter le script d'installation avec l'option **--reset** :
+
+   ```shell
+   bash registerPoller.sh install -t <token> -s <site> -o <organization> --reset
+   ```
+4. [Déployez la configuration et redémarrez le collecteur](#étape-2--exporter-la-configuration-et-redémarrer-le-collecteur).
