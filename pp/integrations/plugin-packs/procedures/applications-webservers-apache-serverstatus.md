@@ -105,7 +105,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 </Tabs>
 
-## Prerequisites
+## Connector dependencies
 
 Before using this connector, make sure that the Apache server to be monitored is properly configured:
 

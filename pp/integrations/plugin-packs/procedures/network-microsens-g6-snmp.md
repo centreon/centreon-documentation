@@ -164,8 +164,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your Microsens device:
-* https://www.microsens.com/fileadmin/files/downloads/Application_notes/AN-16010_Basic_Config_of_G6_Devices_v1.0.1.pdf
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the [official documentation](https://www.microsens.com/fileadmin/files/downloads/Application_notes/AN-16010_Basic_Config_of_G6_Devices_v1.0.1.pdf) from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list. 
 
 ### Network flow
 
@@ -181,7 +183,7 @@ port.
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -217,7 +219,7 @@ yum install centreon-pack-network-microsens-g6-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Microsens G6 SNMP** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
