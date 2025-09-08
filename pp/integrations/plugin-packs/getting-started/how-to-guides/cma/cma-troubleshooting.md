@@ -62,15 +62,19 @@ No lines should be returned.
 2. Execute the following command:
 
    ```bash
-   netstat -na | grep 4317
+  ss -plant | grep 4317
    ```
 
-   This command must return results, showing that the server is listening (ESTABLISHED).
+   This command must return results, showing that the agent is listening (LISTEN) or that the connection is established (ESTABLISHED).
 
    ```bash
-   Active Internet connections (servers and established)
-   Proto Recv-Q Send-Q Local Address           Foreign Address         State
-   tcp        0      0 127.0.0.1:4317          <POLLER IP>:<PORT>      ESTABLISHED
+   State           Recv-Q       Send-Q             Local Address:Port                Peer Address:Port       Process
+   LISTEN          0            0                      0.0.0.0:4317                       ::::
+   ```
+
+   ```bash
+   State           Recv-Q       Send-Q             Local Address:Port                Peer Address:Port       Process
+   ESTAB          0            0                      0.0.0.0:4317                       <POLLER IP>:<PORT> 
    ```
 
 </TabItem>
@@ -115,13 +119,21 @@ The value **true** must be returned.
 2. Execute the following command:
 
    ```bash
-   netstat -na | grep 4317
+   netstat -an | find "4317"
    ```
 
-   This command must return results, showing that the server is listening (ESTABLISHED).
+   This command must return results, showing that the agent is listening (LISTEN) or that the connection is established (ESTABLISHED).
 
    ```bash
-   TCP        127.0.0.1:4317          <IP COLLECTEUR>:<PORT>               ESTABLISHED
+   Active Internet connections (servers and established)
+   Proto Recv-Q Send-Q Local Address           Foreign Address         State
+   tcp        0      0 0.0.0.0:4317          ::::                    LISTEN
+   ```
+
+   ```bash
+   Active Internet connections (servers and established)
+   Proto Recv-Q Send-Q Local Address           Foreign Address         State
+   tcp        0      0 0.0.0.0:4317          <POLLER IP>:<PORT>      ESTABLISHED
    ```
 
 </TabItem>
@@ -141,15 +153,19 @@ The value **true** must be returned.
 2. Execute the following command:
 
    ```bash
-   netstat -na | grep 4317
+   ss -plant | grep 4317
    ```
 
-   This command must return results, showing that the server is listening (ESTABLISHED).
+   This command must return results, showing that the poller is listening (LISTEN) or that the connection is established (ESTABLISHED).
 
    ```bash
-   Active Internet connections (servers and established)
-   Proto Recv-Q Send-Q Local Address           Foreign Address         State
-   tcp        0      0 127.0.0.1:4317          <HOST IP>:<PORT>        ESTABLISHED
+   State           Recv-Q       Send-Q             Local Address:Port                Peer Address:Port       Process
+   LISTEN          0            0                      0.0.0.0:4317                       ::::
+   ```
+
+   ```bash
+   State           Recv-Q       Send-Q             Local Address:Port                Peer Address:Port       Process
+   ESTAB          0            0                      0.0.0.0:4317                       <HOST IP>:<PORT> 
    ```
 
 </TabItem>

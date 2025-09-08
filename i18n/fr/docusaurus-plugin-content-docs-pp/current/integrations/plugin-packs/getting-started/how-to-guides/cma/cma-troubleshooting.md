@@ -62,15 +62,21 @@ Aucune ligne ne doit être retournée.
 2. Exécutez la commande suivante :
 
    ```bash
-   netstat -na | grep 4317
+   ss -plant | grep 4317
    ```
 
-   Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
+   Elle doit retourner des résultats, indiquant que le serveur est en écoute (LISTEN) ou que la connexion est établie (ESTABLISHED).
 
    ```bash
    Active Internet connections (servers and established)
    Proto Recv-Q Send-Q Local Address           Foreign Address         State
-   tcp        0      0 127.0.0.1:4317          <IP COLLECTEUR>:<PORT>  ESTABLISHED
+   tcp        0      0 0.0.0.0:4317          ::::                    LISTEN
+   ```
+
+    ```bash
+   Active Internet connections (servers and established)
+   Proto Recv-Q Send-Q    Local Address           Foreign Address         State
+   tcp        0      0    0.0.0.0:4317          <IP COLLECTEUR>:<PORT>  ESTABLISHED
    ```
 
 </TabItem>
@@ -118,10 +124,18 @@ La valeur **true** doit être retournée.
    netstat -an | find "4317"
    ```
 
-   Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
+   Elle doit retourner des résultats, indiquant que l'agent est en écoute (LISTEN) ou que la connexion est établie (ESTABLISHED).
+
+  ```bash
+   Active Internet connections (servers and established)
+   Proto Recv-Q Send-Q Local Address           Foreign Address         State
+   tcp        0      0 0.0.0.0:4317          ::::                    LISTEN
+   ```
 
    ```bash
-   TCP        127.0.0.1:4317          <IP COLLECTEUR>:<PORT>               ESTABLISHED
+   Active Internet connections (servers and established)
+   Proto Recv-Q Send-Q Local Address           Foreign Address         State
+   tcp        0      0 0.0.0.0:4317          <IP COLLECTEUR>:<PORT>      ESTABLISHED
    ```
 
 </TabItem>
@@ -141,15 +155,21 @@ La valeur **true** doit être retournée.
 2. Exécutez la commande suivante :
 
    ```bash
-   netstat -na | grep 4317
+   ss -plant | grep 4317
    ```
 
-   Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
+   Elle doit retourner des résultats, indiquant que le collecteur est en écoute (LISTEN) ou que la connexion est établie (ESTABLISHED).
 
    ```bash
    Active Internet connections (servers and established)
    Proto Recv-Q Send-Q Local Address           Foreign Address         State
-   tcp        0      0 127.0.0.1:4317          <IP HOTE>:<PORT>        ESTABLISHED
+   tcp        0      0 0.0.0.0:4317          ::::                    LISTEN
+   ```
+   
+   ```bash
+   Active Internet connections (servers and established)
+   Proto Recv-Q Send-Q Local Address           Foreign Address         State
+   tcp        0      0 0.0.0.0:4317          <IP HOTE>:<PORT>      ESTABLISHED
    ```
 
 </TabItem>
