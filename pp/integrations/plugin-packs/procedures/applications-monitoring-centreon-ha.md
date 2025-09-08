@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Centreon-HA is Centreon central server's high availability implementation. More information available [here](/docs/installation/installation-of-centreon-ha/overview).
+Centreon-HA is Centreon central server's high availability implementation. <!--More information available [here](/docs/installation/installation-of-centreon-ha/overview).-->
 
 This Monitoring Connector relies on two other Monitoring Connectors:
 
@@ -141,7 +141,7 @@ usermod -a -G haclient centreon-engine
 yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Pacemaker-Ssh
 ```
 
-2. On the Centreon Web interface, install the *Centreon-HA* Monitoring Connector through **Configuration > Monitoring Connector Manager** page.
+2. On the Centreon Web interface, install the *Centreon-HA* Monitoring Connector through **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -158,7 +158,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applicat
 yum install centreon-pack-applications-monitoring-centreon-ha
 ```
 
-3. On the Centreon Web interface, install the *Centreon-HA* Monitoring Connector through **Configuration > Monitoring Connector Manager** page.
+3. On the Centreon Web interface, install the *Centreon-HA* Monitoring Connector through **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 </Tabs>
