@@ -44,11 +44,12 @@ Export the configuration for this poller:
 
 ## Reinstalling a poller
 
-If, for some reason, you need to reinstall a specific poller, follow this procedure:
-1. Go to **Configuration > Pollers > Pollers**
-2. To avoid conflicts during registration, delete the poller you want to reinstall: go to **Configuration > Pollers > Pollers** and remove the related entry.
+If, for some reason, you need to reinstall an existing poller, follow this procedure:
+1. Go to **Configuration > Pollers > Pollers**.
+2. To avoid conflicts during registration, delete the poller you want to reinstall.
 3. Run the poller installation script: when prompted, select option 2, **Reinstall the poller from scratch**. You can also run the installation script with the **--reset** option:
+
    ```shell
    bash registerPoller.sh install -t <token> -s <site> -o <organization> --reset
    ```
-4. [Deploy the configuration and restart the poller](#step-2-exporting-the-configuration-and-restarting-the-poller).
+5. [Deploy the configuration and restart the poller](#step-2-exporting-the-configuration-and-restarting-the-poller).
