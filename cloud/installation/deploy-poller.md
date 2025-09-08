@@ -41,3 +41,14 @@ Export the configuration for this poller:
    * Under **Restart Monitoring Engine**, select the **Restart** method.
 3. Click **Export**. A log of the export is displayed. This should have no errors.
 4. Go back to **Configuration > Pollers > Pollers**: the poller now has **Yes** under **Is running?**. Your poller is now ready to monitor resources.
+
+## Reinstalling a poller
+
+If, for some reason, you need to reinstall a specific poller, follow this procedure:
+1. Go to **Configuration > Pollers > Pollers**
+2. To avoid conflicts during registration, delete the poller you want to reinstall: go to **Configuration > Pollers > Pollers** and remove the related entry.
+3. Run the poller installation script: when prompted, select option 2, **Reinstall the poller from scratch**. You can also run the installation script with the **--reset** option:
+   ```shell
+   bash registerPoller.sh install -t <token> -s <site> -o <organization> --reset
+   ```
+4. [Deploy the configuration and restart the poller](#step-2-exporting-the-configuration-and-restarting-the-poller).
