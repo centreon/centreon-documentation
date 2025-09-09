@@ -108,7 +108,33 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-No metrics for this service.
+| Name                                | Unit |
+|:------------------------------------|:-----|
+| fan.status                          | N/A  |
+| psu.status                          | N/A  |
+| other.status                        | N/A  |
+| unknown.status                      | N/A  |
+| sensor.status                       | N/A  |
+| chassis.status                      | N/A  |
+| backplane.status                    | N/A  |
+| container.status                    | N/A  |
+| module.status                       | N/A  |
+| port.status                         | N/A  |
+| stack.status                        | N/A  |
+| cpu.status                          | N/A  |
+| fan.count                           | N/A  |
+| psu.count                           | N/A  |
+| other.count                         | N/A  |
+| unknown.count                       | N/A  |
+| sensor.count                        | N/A  |
+| chassis.count                       | N/A  |
+| backplane.count                     | N/A  |
+| container.count                     | N/A  |
+| module.count                        | N/A  |
+| port.count                          | N/A  |
+| stack.count                         | N/A  |
+| cpu.count                           | N/A  |
+| hardware.sensor.temperature.celsius | C    |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -166,7 +192,6 @@ No metrics for this service.
 
 | Name   | Unit  |
 |:-------|:------|
-| status | N/A   |
 | status | N/A   |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
