@@ -5,7 +5,7 @@ title: Ansible Tower CLI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Ansible Tower** 
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision** :
@@ -42,9 +42,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle   | Description                                          |
-|:------------------|:-----------------------------------------------------|
-| Ansible Tower CLI | Discover hosts by requesting Ansible Tower using CLI |
+| Nom de la règle   | Description                                             |
+|:------------------|:--------------------------------------------------------|
+| Ansible Tower CLI | Découvre ls hôtes en interrogeant Ansible Tower via CLI |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
