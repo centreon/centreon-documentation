@@ -27,7 +27,11 @@ Pas de métriques et de status collectés pour ce connecteur de supervision.
 
 ## Prérequis
 
-
+Pour utiliser la découverte d'hôte de ce connecteur de supervision, vous devez être en mesure
+d'exécuter la commande CLI : 
+```bash
+ANSIBLE_LOAD_CALLBACK_PLUGINS=true ANSIBLE_STDOUT_CALLBACK=json ansible %(host_pattern) --module-name=setup
+```
 
 ## Installer le connecteur de supervision
 

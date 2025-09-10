@@ -27,7 +27,10 @@ No metrics or status for this monitoring connector.
 
 ## Prerequisites
 
-
+To be able to execute this monitoring connector's host discovery, you should be able to execute the CLI command:
+```bash
+ANSIBLE_LOAD_CALLBACK_PLUGINS=true ANSIBLE_STDOUT_CALLBACK=json ansible %(host_pattern) --module-name=setup
+```
 
 ## Installer le connecteur de supervision
 
