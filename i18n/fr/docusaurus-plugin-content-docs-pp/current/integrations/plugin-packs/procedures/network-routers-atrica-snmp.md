@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Atrica Routeur** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -99,8 +99,10 @@ Centreon vers la ressource supervisée.
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -137,7 +139,7 @@ yum install centreon-pack-network-routers-atrica-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Atrica Routeur**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -190,7 +192,7 @@ yum install centreon-plugin-Network-Routers-Atrica-Snmp
 3. Appliquez le modèle d'hôte **Net-Atrica-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 ### Utiliser un modèle de service issu du connecteur
 
@@ -264,7 +266,7 @@ yum install centreon-plugin-Network-Routers-Atrica-Snmp
 | WARNINGOUTEIR         | Thresholds                                                                                                                                                                                                                                                                             |                    |             |
 | CRITICALOUTEIRDISCARD | Thresholds                                                                                                                                                                                                                                                                             |                    |             |
 | WARNINGOUTEIRDISCARD  | Thresholds                                                                                                                                                                                                                                                                             |                    |             |
-| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. Default (depends of the atrica release): '%{admstatus} eq "on" and %{opstatus} ne "inService"' '%{admstatus} eq "up" and %{opstatus} ne "up"' You can use the following variables: %{admstatus}, %{opstatus}, %{display} |                    |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. Default (depends of the atrica release): '%\{admstatus\} eq "on" and %\{opstatus\} ne "inService"' '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"' You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{display\} |                    |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                       | --verbose          |             |
 
 </TabItem>
@@ -359,9 +361,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --add-status                                    | Check interface status (by default if no --add-* option is set).                                                                                                                                                                                                                         |
 | --add-traffic                                   | Check interface traffic.                                                                                                                                                                                                                                                                 |
 | --add-errors                                    | Check interface errors.                                                                                                                                                                                                                                                                  |
-| --check-metrics                                 | If the expression is true, metrics are checked (default: '%{opstatus} eq "up" or %{opstatus} eq "inService"').                                                                                                                                                                           |
-| --warning-status                                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{display}                                                                                                                                                  |
-| --critical-status                               | Define the conditions to match for the status to be CRITICAL. Default (depends of the atrica release): '%{admstatus} eq "on" and %{opstatus} ne "inService"' '%{admstatus} eq "up" and %{opstatus} ne "up"' You can use the following variables: %{admstatus}, %{opstatus}, %{display}   |
+| --check-metrics                                 | If the expression is true, metrics are checked (default: '%\{opstatus\} eq "up" or %\{opstatus\} eq "inService"').                                                                                                                                                                           |
+| --warning-status                                | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{display\}                                                                                                                                                  |
+| --critical-status                               | Define the conditions to match for the status to be CRITICAL. Default (depends of the atrica release): '%\{admstatus\} eq "on" and %\{opstatus\} ne "inService"' '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"' You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{display\}   |
 | --warning-* --critical-*                        | Thresholds. Can be: 'in-cir', 'in-eir', 'out-cir', 'out-eir', 'in-eir-discard', 'out-eir-discard'.                                                                                                                                                                                       |
 | --units-traffic                                 | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                    |
 | --units-errors                                  | Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                        |

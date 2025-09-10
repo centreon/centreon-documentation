@@ -8,18 +8,14 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Qnap** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
 
 ### Supported equipment models
 
-* EKI using the QTS operating system.
-
-### Unsupported equipment models
-
-* **Only for volume service** : LAGMT using the QuTS hero operating system (The volume information isn't present in the QuTS hero MIB file).
+* EKI using the QTS and QuTS hero operating system.
 
 ### Templates
 
@@ -162,7 +158,10 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -173,9 +172,12 @@ SNMP port.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -211,7 +213,7 @@ yum install centreon-pack-hardware-storage-qnap-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Qnap** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -327,8 +329,8 @@ yum install centreon-plugin-Hardware-Storage-Qnap-Snmp
 | Macro                  | Description                                                                                                                            | Default value                     | Mandatory   |
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|:-----------:|
 | FILTERNAME             | Filter pools by name (can be a regexp)                                                                                                 |                                   |             |
-| WARNINGPOOLSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                   | %{status} =~ /degraded\|warning/i |             |
-| CRITICALPOOLSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}                  | %{status} =~ /error\|critical/i   |             |
+| WARNINGPOOLSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                   | %\{status\} =~ /degraded\|warning/i |             |
+| CRITICALPOOLSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                  | %\{status\} =~ /error\|critical/i   |             |
 | WARNINGSPACEUSAGE      | Threshold                                                                                                                              |                                   |             |
 | CRITICALSPACEUSAGE     | Threshold                                                                                                                              |                                   |             |
 | WARNINGSPACEUSAGEFREE  | Threshold                                                                                                                              |                                   |             |
@@ -371,7 +373,7 @@ yum install centreon-plugin-Hardware-Storage-Qnap-Snmp
 | WARNINGIN      | Threshold                                                                                                                                                                                                           | 80                |             |
 | CRITICALOUT    | Threshold                                                                                                                                                                                                           | 90                |             |
 | WARNINGOUT     | Threshold                                                                                                                                                                                                           | 80                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                              | --verbose         |             |
 
 </TabItem>
@@ -386,8 +388,8 @@ yum install centreon-plugin-Hardware-Storage-Qnap-Snmp
 | CRITICALSPACEUSAGEFREE | Threshold                                                                                                                              |                                   |             |
 | WARNINGSPACEUSAGEPRCT  | Threshold                                                                                                                              |                                   |             |
 | CRITICALSPACEUSAGEPRCT | Threshold                                                                                                                              |                                   |             |
-| WARNINGVOLUMESTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                   | %{status} =~ /degraded\|warning/i |             |
-| CRITICALVOLUMESTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}                  | %{status} =~ /critical/i          |             |
+| WARNINGVOLUMESTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                   | %\{status\} =~ /degraded\|warning/i |             |
+| CRITICALVOLUMESTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                  | %\{status\} =~ /critical/i          |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                         |             |
 
 </TabItem>
@@ -508,7 +510,7 @@ All generic options are listed here:
 | --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
 | --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
@@ -618,9 +620,9 @@ All available options for each service template are listed below:
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                             |
 | --filter-name            |   Filter pools by name (can be a regexp).                                                                                                                               |
-| --unknown-pool-status    |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                                                  |
-| --warning-pool-status    |   Define the conditions to match for the status to be WARNING (default: '%{status} =~ /degraded\|warning/i'). You can use the following variables: %{status}, %{name}   |
-| --critical-pool-status   |   Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /error\|critical/i'). You can use the following variables: %{status}, %{name}    |
+| --unknown-pool-status    |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                                                  |
+| --warning-pool-status    |   Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /degraded\|warning/i'). You can use the following variables: %\{status\}, %\{name\}   |
+| --critical-pool-status   |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /error\|critical/i'). You can use the following variables: %\{status\}, %\{name\}    |
 | --warning-* --critical-* |   Thresholds. Can be: 'space-usage-prct', 'space-usage', 'space-usage-free'.                                                                                            |
 
 </TabItem>
@@ -649,9 +651,9 @@ All available options for each service template are listed below:
 | --add-cast                                      |   Check interface cast.                                                                                                                                                                                                                                                                      |
 | --add-speed                                     |   Check interface speed.                                                                                                                                                                                                                                                                     |
 | --add-volume                                    |   Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      |
-| --check-metrics                                 |   If the expression is true, metrics are checked (default: '%{opstatus} eq "up"').                                                                                                                                                                                                           |
-| --warning-status                                |   Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                                                   |
-| --critical-status                               |   Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                        |
+| --check-metrics                                 |   If the expression is true, metrics are checked (default: '%\{opstatus\} eq "up"').                                                                                                                                                                                                           |
+| --warning-status                                |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                                   |
+| --critical-status                               |   Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                        |
 | --warning-* --critical-*                        |   Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
 | --units-traffic                                 |   Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
 | --units-errors                                  |   Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |
@@ -681,9 +683,9 @@ All available options for each service template are listed below:
 | --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                             |
 | --filter-name            |   Filter volumes by name (can be a regexp).                                                                                                                             |
 | --force-counters-legacy  |   Force to use legacy counters. Should be used when EX/QTS counters are buggy.                                                                                          |
-| --unknown-volume-status  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                                                  |
-| --warning-volume-status  |   Define the conditions to match for the status to be WARNING (default: '%{status} =~ /degraded\|warning/i'). You can use the following variables: %{status}, %{name}   |
-| --critical-volume-status |   Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /critical/i'). You can use the following variables: %{status}, %{name}           |
+| --unknown-volume-status  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                                                  |
+| --warning-volume-status  |   Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /degraded\|warning/i'). You can use the following variables: %\{status\}, %\{name\}   |
+| --critical-volume-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /critical/i'). You can use the following variables: %\{status\}, %\{name\}           |
 | --warning-* --critical-* |   Thresholds. Can be: 'space-usage-prct', 'space-usage', 'space-usage-free'.                                                                                            |
 
 </TabItem>

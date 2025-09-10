@@ -109,8 +109,10 @@ Afin de contrôler votre HPE Simplivity, l'API Rest doit être configurée:
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -147,7 +149,7 @@ yum install centreon-pack-virtualization-hpe-simplivity-restapi
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **HPE Simplivity Rest API**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -220,10 +222,10 @@ yum install centreon-plugin-Virtualization-Hpe-Simplivity-Restapi
 
 | Macro                         | Description                                                                                                                                      | Valeur par défaut        | Obligatoire |
 |:------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| UNKNOWNRAIDSTATUS             | Set unknown threshold for component status. You can use the following variables: %{status}, %{name}                                              | %{status} =~ /unknown/   |             |
-| UNKNOWNPHYSICALDRIVESTATUS    | Set unknown threshold for component status. You can use the following variables: %{status}, %{name}                                              | %{status} =~ /unknown/   |             |
-| UNKNOWNLOGICALDRIVESTATUS     | Set unknown threshold for component status. You can use the following variables: %{status}, %{name}                                              | %{status} =~ /unknown/   |             |
-| UNKNOWNHOSTSTATUS             | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                             | %{status} =~ /unknown/   |             |
+| UNKNOWNRAIDSTATUS             | Set unknown threshold for component status. You can use the following variables: %\{status\}, %\{name\}                                              | %\{status\} =~ /unknown/   |             |
+| UNKNOWNPHYSICALDRIVESTATUS    | Set unknown threshold for component status. You can use the following variables: %\{status\}, %\{name\}                                              | %\{status\} =~ /unknown/   |             |
+| UNKNOWNLOGICALDRIVESTATUS     | Set unknown threshold for component status. You can use the following variables: %\{status\}, %\{name\}                                              | %\{status\} =~ /unknown/   |             |
+| UNKNOWNHOSTSTATUS             | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                             | %\{status\} =~ /unknown/   |             |
 | FILTERNAME                    | Filter hosts by name                                                                                                                             |                          |             |
 | WARNINGHOSTCOMPONENTSGREEN    | Thresholds                                                                                                                                       |                          |             |
 | CRITICALHOSTCOMPONENTSGREEN   | Thresholds                                                                                                                                       |                          |             |
@@ -243,16 +245,16 @@ yum install centreon-plugin-Virtualization-Hpe-Simplivity-Restapi
 | CRITICALHOSTSREMOVED          | Thresholds                                                                                                                                       |                          |             |
 | WARNINGHOSTSSUSPECTED         | Thresholds                                                                                                                                       |                          |             |
 | CRITICALHOSTSSUSPECTED        | Thresholds                                                                                                                                       |                          |             |
-| WARNINGHOSTSTATUS             | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                             | %{status} =~ /suspected/ |             |
-| CRITICALHOSTSTATUS            | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}                            | %{status} =~ /faulty/    |             |
+| WARNINGHOSTSTATUS             | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                             | %\{status\} =~ /suspected/ |             |
+| CRITICALHOSTSTATUS            | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                            | %\{status\} =~ /faulty/    |             |
 | WARNINGHOSTSUNKNOWN           | Thresholds                                                                                                                                       |                          |             |
 | CRITICALHOSTSUNKNOWN          | Thresholds                                                                                                                                       |                          |             |
-| WARNINGLOGICALDRIVESTATUS     | Set warning threshold for component status. You can use the following variables: %{status}, %{name}                                              | %{status} =~ /yellow/    |             |
-| CRITICALLOGICALDRIVESTATUS    | Set critical threshold for component status. You can use the following variables: %{status}, %{name}                                             | %{status} =~ /red/       |             |
-| WARNINGPHYSICALDRIVESTATUS    | Set warning threshold for component status. You can use the following variables: %{status}, %{name}                                              | %{status} =~ /yellow/    |             |
-| CRITICALPHYSICALDRIVESTATUS   | Set critical threshold for component status. You can use the following variables: %{status}, %{name}                                             | %{status} =~ /red/       |             |
-| WARNINGRAIDSTATUS             | Set warning threshold for component status. You can use the following variables: %{status}, %{name}                                              | %{status} =~ /yellow/    |             |
-| CRITICALRAIDSTATUS            | Set critical threshold for component status. You can use the following variables: %{status}, %{name}                                             | %{status} =~ /red/       |             |
+| WARNINGLOGICALDRIVESTATUS     | Set warning threshold for component status. You can use the following variables: %\{status\}, %\{name\}                                              | %\{status\} =~ /yellow/    |             |
+| CRITICALLOGICALDRIVESTATUS    | Set critical threshold for component status. You can use the following variables: %\{status\}, %\{name\}                                             | %\{status\} =~ /red/       |             |
+| WARNINGPHYSICALDRIVESTATUS    | Set warning threshold for component status. You can use the following variables: %\{status\}, %\{name\}                                              | %\{status\} =~ /yellow/    |             |
+| CRITICALPHYSICALDRIVESTATUS   | Set critical threshold for component status. You can use the following variables: %\{status\}, %\{name\}                                             | %\{status\} =~ /red/       |             |
+| WARNINGRAIDSTATUS             | Set warning threshold for component status. You can use the following variables: %\{status\}, %\{name\}                                              | %\{status\} =~ /yellow/    |             |
+| CRITICALRAIDSTATUS            | Set critical threshold for component status. You can use the following variables: %\{status\}, %\{name\}                                             | %\{status\} =~ /red/       |             |
 | EXTRAOPTIONS                  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                |             |
 
 </TabItem>
@@ -280,10 +282,10 @@ yum install centreon-plugin-Virtualization-Hpe-Simplivity-Restapi
 
 | Macro                  | Description                                                                                                                                      | Valeur par défaut           | Obligatoire |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
-| UNKNOWNHASTATUS        | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{ha\_status}, %{vm\_name}                     | %{ha\_status} =~ /unknown/  |             |
+| UNKNOWNHASTATUS        | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{ha_status\}, %\{vm_name\}                     | %\{ha_status\} =~ /unknown/  |             |
 | FILTERVMNAME           | Filter virtual machines by virtual machine name                                                                                                  |                             |             |
-| WARNINGHASTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %{ha\_status}, %{vm\_name}                     | %{ha\_status} =~ /degraded/ |             |
-| CRITICALHASTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{ha\_status}, %{vm\_name}                    |                             |             |
+| WARNINGHASTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ha_status\}, %\{vm_name\}                     | %\{ha_status\} =~ /degraded/ |             |
+| CRITICALHASTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ha_status\}, %\{vm_name\}                    |                             |             |
 | WARNINGSPACEUSAGE      | Thresholds                                                                                                                                       |                             |             |
 | CRITICALSPACEUSAGE     | Thresholds                                                                                                                                       |                             |             |
 | WARNINGSPACEUSAGEFREE  | Thresholds                                                                                                                                       |                             |             |
@@ -335,18 +337,18 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--critical-hosts-suspected='' \
 	--warning-hosts-unknown='' \
 	--critical-hosts-unknown='' \
-	--unknown-raid-status='%{status} =~ /unknown/' \
-	--warning-raid-status='%{status} =~ /yellow/' \
-	--critical-raid-status='%{status} =~ /red/' \
-	--unknown-physical-drive-status='%{status} =~ /unknown/' \
-	--warning-physical-drive-status='%{status} =~ /yellow/' \
-	--critical-physical-drive-status='%{status} =~ /red/' \
-	--unknown-logical-drive-status='%{status} =~ /unknown/' \
-	--warning-logical-drive-status='%{status} =~ /yellow/' \
-	--critical-logical-drive-status='%{status} =~ /red/' \
-	--unknown-host-status='%{status} =~ /unknown/' \
-	--warning-host-status='%{status} =~ /suspected/' \
-	--critical-host-status='%{status} =~ /faulty/' \
+	--unknown-raid-status='%\{status\} =~ /unknown/' \
+	--warning-raid-status='%\{status\} =~ /yellow/' \
+	--critical-raid-status='%\{status\} =~ /red/' \
+	--unknown-physical-drive-status='%\{status\} =~ /unknown/' \
+	--warning-physical-drive-status='%\{status\} =~ /yellow/' \
+	--critical-physical-drive-status='%\{status\} =~ /red/' \
+	--unknown-logical-drive-status='%\{status\} =~ /unknown/' \
+	--warning-logical-drive-status='%\{status\} =~ /yellow/' \
+	--critical-logical-drive-status='%\{status\} =~ /red/' \
+	--unknown-host-status='%\{status\} =~ /unknown/' \
+	--warning-host-status='%\{status\} =~ /suspected/' \
+	--critical-host-status='%\{status\} =~ /faulty/' \
 	--verbose
 ```
 
@@ -422,7 +424,7 @@ checking host 'svt12.acme.com'
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
@@ -471,7 +473,7 @@ Les options génériques sont listées ci-dessous :
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -526,18 +528,18 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                           | Description                                                                                                                                                                                                                      |
 |:---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-name                    | Filter hosts by name.                                                                                                                                                                                                            |
-| --unknown-host-status            | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/'). You can use the following variables: %{status}, %{name}                                                                         |
-| --warning-host-status            | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /suspected/'). You can use the following variables: %{status}, %{name}                                                                       |
-| --critical-host-status           | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /faulty/'). You can use the following variables: %{status}, %{name}                                                                         |
-| --unknown-raid-status            | Set unknown threshold for component status (default: '%{status} =~ /unknown/'). You can use the following variables: %{status}, %{name}                                                                                          |
-| --warning-raid-status            | Set warning threshold for component status (default: '%{status} =~ /yellow/'). You can use the following variables: %{status}, %{name}                                                                                           |
-| --critical-raid-status           | Set critical threshold for component status (default: '%{status} =~ /red/'). You can use the following variables: %{status}, %{name}                                                                                             |
-| --unknown-logical-drive-status   | Set unknown threshold for component status (default: '%{status} =~ /unknown/'). You can use the following variables: %{status}, %{name}                                                                                          |
-| --warning-logical-drive-status   | Set warning threshold for component status (default: '%{status} =~ /yellow/'). You can use the following variables: %{status}, %{name}                                                                                           |
-| --critical-logical-drive-status  | Set critical threshold for component status (default: '%{status} =~ /red/'). You can use the following variables: %{status}, %{name}                                                                                             |
-| --unknown-physical-drive-status  | Set unknown threshold for component status (default: '%{status} =~ /unknown/'). You can use the following variables: %{status}, %{name}                                                                                          |
-| --warning-physical-drive-status  | Set warning threshold for component status (default: '%{status} =~ /yellow/'). You can use the following variables: %{status}, %{name}                                                                                           |
-| --critical-physical-drive-status | Set critical threshold for component status (default: '%{status} =~ /red/'). You can use the following variables: %{status}, %{name}                                                                                             |
+| --unknown-host-status            | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/'). You can use the following variables: %\{status\}, %\{name\}                                                                         |
+| --warning-host-status            | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /suspected/'). You can use the following variables: %\{status\}, %\{name\}                                                                       |
+| --critical-host-status           | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /faulty/'). You can use the following variables: %\{status\}, %\{name\}                                                                         |
+| --unknown-raid-status            | Set unknown threshold for component status (default: '%\{status\} =~ /unknown/'). You can use the following variables: %\{status\}, %\{name\}                                                                                          |
+| --warning-raid-status            | Set warning threshold for component status (default: '%\{status\} =~ /yellow/'). You can use the following variables: %\{status\}, %\{name\}                                                                                           |
+| --critical-raid-status           | Set critical threshold for component status (default: '%\{status\} =~ /red/'). You can use the following variables: %\{status\}, %\{name\}                                                                                             |
+| --unknown-logical-drive-status   | Set unknown threshold for component status (default: '%\{status\} =~ /unknown/'). You can use the following variables: %\{status\}, %\{name\}                                                                                          |
+| --warning-logical-drive-status   | Set warning threshold for component status (default: '%\{status\} =~ /yellow/'). You can use the following variables: %\{status\}, %\{name\}                                                                                           |
+| --critical-logical-drive-status  | Set critical threshold for component status (default: '%\{status\} =~ /red/'). You can use the following variables: %\{status\}, %\{name\}                                                                                             |
+| --unknown-physical-drive-status  | Set unknown threshold for component status (default: '%\{status\} =~ /unknown/'). You can use the following variables: %\{status\}, %\{name\}                                                                                          |
+| --warning-physical-drive-status  | Set warning threshold for component status (default: '%\{status\} =~ /yellow/'). You can use the following variables: %\{status\}, %\{name\}                                                                                           |
+| --critical-physical-drive-status | Set critical threshold for component status (default: '%\{status\} =~ /red/'). You can use the following variables: %\{status\}, %\{name\}                                                                                             |
 | --warning-* --critical-*         | Thresholds. Can be: 'hosts-alive', 'hosts-faulty', 'hosts-managed', 'hosts-removed', 'hosts-suspected', 'hosts-unknown', 'host-components-green', 'host-components-yellow', 'host-components-red', 'host-components-unknown'.    |
 
 </TabItem>
@@ -554,9 +556,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                   | Description                                                                                                                                                         |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-vm-name         | Filter virtual machines by virtual machine name.                                                                                                                    |
-| --unknown-ha-status      | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/'). You can use the following variables: %{ha\_status}, %{vm\_name}    |
-| --warning-ha-status      | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /degraded/'). You can use the following variables: %{ha\_status}, %{vm\_name}   |
-| --critical-ha-status     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{ha\_status}, %{vm\_name}                                       |
+| --unknown-ha-status      | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/'). You can use the following variables: %\{ha_status\}, %\{vm_name\}    |
+| --warning-ha-status      | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /degraded/'). You can use the following variables: %\{ha_status\}, %\{vm_name\}   |
+| --critical-ha-status     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ha_status\}, %\{vm_name\}                                       |
 | --warning-* --critical-* | Thresholds. Can be: 'space-usage', 'space-usage-free', 'space-usage-prct'.                                                                                          |
 
 </TabItem>

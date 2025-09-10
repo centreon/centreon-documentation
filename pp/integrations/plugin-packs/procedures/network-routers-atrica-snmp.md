@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Atrica Routeur** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -98,9 +98,12 @@ SNMP port.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -136,7 +139,7 @@ yum install centreon-pack-network-routers-atrica-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Atrica Routeur** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -265,7 +268,7 @@ yum install centreon-plugin-Network-Routers-Atrica-Snmp
 | WARNINGOUTEIR         | Thresholds                                                                                                                                                                                                                                                                             |                    |             |
 | CRITICALOUTEIRDISCARD | Thresholds                                                                                                                                                                                                                                                                             |                    |             |
 | WARNINGOUTEIRDISCARD  | Thresholds                                                                                                                                                                                                                                                                             |                    |             |
-| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. Default (depends of the atrica release): '%{admstatus} eq "on" and %{opstatus} ne "inService"' '%{admstatus} eq "up" and %{opstatus} ne "up"' You can use the following variables: %{admstatus}, %{opstatus}, %{display} |                    |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. Default (depends of the atrica release): '%\{admstatus\} eq "on" and %\{opstatus\} ne "inService"' '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"' You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{display\} |                    |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                 | --verbose          |             |
 
 </TabItem>
@@ -358,9 +361,9 @@ All available options for each service template are listed below:
 | --add-status                                    | Check interface status (by default if no --add-* option is set).                                                                                                                                                                                                                         |
 | --add-traffic                                   | Check interface traffic.                                                                                                                                                                                                                                                                 |
 | --add-errors                                    | Check interface errors.                                                                                                                                                                                                                                                                  |
-| --check-metrics                                 | If the expression is true, metrics are checked (default: '%{opstatus} eq "up" or %{opstatus} eq "inService"').                                                                                                                                                                           |
-| --warning-status                                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{display}                                                                                                                                                  |
-| --critical-status                               | Define the conditions to match for the status to be CRITICAL. Default (depends of the atrica release): '%{admstatus} eq "on" and %{opstatus} ne "inService"' '%{admstatus} eq "up" and %{opstatus} ne "up"' You can use the following variables: %{admstatus}, %{opstatus}, %{display}   |
+| --check-metrics                                 | If the expression is true, metrics are checked (default: '%\{opstatus\} eq "up" or %\{opstatus\} eq "inService"').                                                                                                                                                                           |
+| --warning-status                                | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{display\}                                                                                                                                                  |
+| --critical-status                               | Define the conditions to match for the status to be CRITICAL. Default (depends of the atrica release): '%\{admstatus\} eq "on" and %\{opstatus\} ne "inService"' '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"' You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{display\}   |
 | --warning-* --critical-*                        | Thresholds. Can be: 'in-cir', 'in-eir', 'out-cir', 'out-eir', 'in-eir-discard', 'out-eir-discard'.                                                                                                                                                                                       |
 | --units-traffic                                 | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                    |
 | --units-errors                                  | Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                        |

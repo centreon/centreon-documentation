@@ -37,7 +37,7 @@ Vous devez avoir **/sbin/nologin** tel que :
 apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 ```
 
-> Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/prerequisites.md#utilisateurs-et-groupes)
+> Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/technical.md#utilisateurs-et-groupes)
 
 ## Activer SELinux
 
@@ -343,7 +343,7 @@ systemctl start firewalld
 Ajoutez des règles pour firewalld :
 
 > La liste des flux réseau nécessaires pour chaque type de serveur est définie
-> [ici](../installation/architectures.md#tableau-des-flux-de-la-plate-forme).
+> [ici](../installation/technical.md#tableaux-des-flux-réseau).
 
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
@@ -780,17 +780,17 @@ cp /etc/apache2/sites-available/centreon.conf{,.origin}
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la section **<VirtualHost *:443>**.
+Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la section **\<VirtualHost *:443\>**.
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la section **<VirtualHost *:443>**.
+Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la section **\<VirtualHost *:443\>**.
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-Éditez le fichier **/etc/apache2/sites-available/centreon.conf** en ajoutant la section **<VirtualHost *:443>**.
+Éditez le fichier **/etc/apache2/sites-available/centreon.conf** en ajoutant la section **\<VirtualHost *:443\>**.
 </TabItem>
 </Tabs>
 
@@ -1299,7 +1299,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 
 Vous pouvez maintenant accéder à votre plateforme via votre navigateur en mode HTTPS.
 
-> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez le configurer en mode HTTPS également. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](../graph-views/secure-your-map-platform.md/#configure-httpstls-on-the-map-server).
+> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez définir l'adresse `centreon.url=https://<server-address>` dans le fichier **/etc/centreon-map/map-config.properties** pour utiliser HTTPS au lieu de HTTP. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](../graph-views/secure-your-map-platform.md#configurer-httpstls-sur-le-serveur-map).
 
 9. Configuration API de Gorgone
 
@@ -1582,7 +1582,7 @@ via la gestion de [liste de contrôle d'accès](./access-control-lists.md).
 Il est fortement recommandé de sécuriser les communications entre les différents serveurs de la plateforme Centreon si
 certains serveurs ne sont pas dans un réseau sécurisé.
 
-> Le tableau des flux réseau est disponible [ici](../installation/architectures.md#tableau-des-flux-réseau).
+> Le tableau des flux réseau est disponible [ici](../installation/technical.md#tableaux-des-flux-réseau).
 
 ### Communication Centreon Broker
 
@@ -1590,7 +1590,7 @@ certains serveurs ne sont pas dans un réseau sécurisé.
 
 Parfois, il n'est pas possible d'initialiser le flux Centreon Broker depuis le collecteur (ou Remote Server)
 vers le serveur Centreon Central ou le Remote Server.
-[Voir la configuration suivante pour inverser le flux](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-and-the-firewall).
+[Voir la configuration suivante pour inverser le flux](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-et-pare-feu).
 
 #### Authentification des flux Centreon Broker
 
@@ -1619,6 +1619,29 @@ Vous pouvez [configurer SSL](https://github.com/centreon/centreon-collect/blob/d
 Puis configurez gorgone à la page **Administration > Paramètres > Gorgone**.
 
 Le fichier **/etc/centreon-gorgone/config.d/whitelist.conf.d/centreon.yaml** (sur votre serveur central, vos serveurs distants et vos collecteurs) contient les listes blanches pour Gorgone. Si vous souhaitez personnaliser les commandes autorisées, n'éditez pas ce fichier. Créez un nouveau fichier dans le même dossier, par exemple **/etc/centreon-gorgone/config.d/whitelist.conf.d/custom.yaml**.
+
+## Centreon Gorgone autodiscovery
+
+Par défaut, Gorgone autorise les commandes du module autodiscovery à interpréter les métacaractères bash lorsqu'elles sont exécutées. Cela peut constituer un risque de sécurité si un utilisateur disposant des privilèges nécessaires pour effectuer une découverte d'hôte est compromis.
+
+Pour désactiver ce comportement, vous pouvez définir le paramètre **no_shell_interpolation** à **true** dans le fichier **/etc/centreon-gorgone/config.d/41-autodiscovery.yaml**, comme suit : 
+
+**vi /etc/centreon-gorgone/config.d/41-autodiscovery.yaml**
+
+```yaml
+gorgone:
+  modules:
+    - name: autodiscovery
+      package: "gorgone::modules::centreon::autodiscovery::hooks"
+      enable: true
+      no_shell_interpretation: true
+```
+
+Redémarrez ensuite Gorgone pour que le nouveau paramètre prenne effet :
+
+```shell
+systemctl restart gorgoned
+```
 
 ## Gestion de l'information et des événements de sécurité (SIEM)
 

@@ -53,16 +53,16 @@ To activate this module, you have to open your nginx configuration file:
 and check that if not already configured, add the followings lines in 'server'
 bracket:
 
-    server { 
-        ... 
-        location /nginx_status { 
-            stub_status on; 
-            access_log off;
-            allow <centreon-poller_@IP>;
-            deny all; 
-        }
+    server \{
         ...
-    }
+        location /nginx_status \{
+            stub_status on;
+            access_log off;
+            allow \<centreon-poller_@IP\>;
+            deny all;
+        \}
+        ...
+    \}
 
 Make sure you are allowing Pollers to access this URL.
 
@@ -78,7 +78,7 @@ Nginx must be reloaded to take this modification into account:
 
 You can now check the result by accessing the URL
 
-    http://<nginx_address>/nginx_status
+    http://\<nginx_address\>/nginx_status
 
 
 ## Installation
@@ -92,7 +92,7 @@ You can now check the result by accessing the URL
 yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 ```
 
-2. On the Centreon Web interface, install the *Nginx Server* Monitoring Connector through **Configuration > Monitoring Connector Manager** page.
+2. On the Centreon Web interface, install the *Nginx Server* Monitoring Connector through **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -109,7 +109,7 @@ yum install centreon-plugin-Applications-Webservers-Nginx-Serverstatus
 yum install centreon-pack-applications-webservers-nginx-serverstatus
 ```
 
-3. On the Centreon Web interface, install the *Nginx Server* Monitoring Connector through **Configuration > Monitoring Connector Manager** page.
+3. On the Centreon Web interface, install the *Nginx Server* Monitoring Connector through **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 </Tabs>

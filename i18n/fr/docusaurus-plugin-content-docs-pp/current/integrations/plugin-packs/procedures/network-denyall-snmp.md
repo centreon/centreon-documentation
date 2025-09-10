@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **DenyAll (Rohde & Schwarz) SNMP** 
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias   | Modèle de service               | Description                       |
 |:--------|:--------------------------------|:----------------------------------|
 | Cpu     | Net-Denyall-Cpu-SNMP-custom     | Contrôle l'utilisation processeur |
-| Load    | Net-Denyall-Load-SNMP-custom    | Contrôle la charge moyenne          |
+| Load    | Net-Denyall-Load-SNMP-custom    | Contrôle la charge moyenne        |
 | Memory  | Net-Denyall-Memory-SNMP-custom  | Contrôle la mémoire               |
 | Storage | Net-Denyall-Storage-SNMP-custom | Contrôle l'espace disque          |
 | Swap    | Net-Denyall-Swap-SNMP-custom    | Contrôle le swap                  |
@@ -40,8 +40,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias         | Modèle de service                     | Description                | Découverte |
 |:--------------|:--------------------------------------|:---------------------------|:----------:|
-| Interfaces    | Net-Denyall-Interfaces-SNMP-custom    | Contrôle les interfaces    | X          |
-| Reverse-Proxy | Net-Denyall-Reverse-Proxy-SNMP-custom | Contrôle les reverse proxy | X          |
+| Interfaces    | Net-Denyall-Interfaces-SNMP-custom    | Contrôle les interfaces    |     X      |
+| Reverse-Proxy | Net-Denyall-Reverse-Proxy-SNMP-custom | Contrôle les reverse proxy |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -167,17 +167,23 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP
 
-L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
+
 La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le serveur supervisé.
 
 ## Installer le connecteur de supervision
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -214,7 +220,7 @@ yum install centreon-pack-network-denyall-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **DenyAll (Rohde & Schwarz) SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -267,7 +273,7 @@ yum install centreon-plugin-Network-Denyall-Snmp
 3. Appliquez le modèle d'hôte **Net-Denyall-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -294,26 +300,26 @@ yum install centreon-plugin-Network-Denyall-Snmp
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro              | Description                                                                                                                                               | Valeur par défaut                                     | Obligatoire |
-|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| OIDFILTER          | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                  | ifname                                                |             |
-| OIDDISPLAY         | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                         | ifname                                                |             |
-| INTERFACENAME      | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored.  To filter on interface names, see --name    |                                                       |             |
-| WARNINGINDISCARD   | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALINDISCARD  | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGINERROR     | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALINERROR    | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGINTRAFFIC   | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALINTRAFFIC  | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGOUTDISCARD  | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALOUTDISCARD | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGOUTERROR    | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALOUTERROR   | Threshold                                                                                                                                                 |                                                       |             |
-| WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALOUTTRAFFIC | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/ |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}  |                                                       |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).          | --verbose --no-skipped-counters --use-new-perfdata    |             |
+| Macro              | Description                                                                                                                                                       | Valeur par défaut                                     | Obligatoire |
+|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+| OIDFILTER          | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                          | ifname                                                |             |
+| OIDDISPLAY         | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                 | ifname                                                |             |
+| INTERFACENAME      | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored.  To filter on interface names, see --name            |                                                       |             |
+| WARNINGINDISCARD   | Threshold                                                                                                                                                         |                                                       |             |
+| CRITICALINDISCARD  | Threshold                                                                                                                                                         |                                                       |             |
+| WARNINGINERROR     | Threshold                                                                                                                                                         |                                                       |             |
+| CRITICALINERROR    | Threshold                                                                                                                                                         |                                                       |             |
+| WARNINGINTRAFFIC   | Threshold                                                                                                                                                         |                                                       |             |
+| CRITICALINTRAFFIC  | Threshold                                                                                                                                                         |                                                       |             |
+| WARNINGOUTDISCARD  | Threshold                                                                                                                                                         |                                                       |             |
+| CRITICALOUTDISCARD | Threshold                                                                                                                                                         |                                                       |             |
+| WARNINGOUTERROR    | Threshold                                                                                                                                                         |                                                       |             |
+| CRITICALOUTERROR   | Threshold                                                                                                                                                         |                                                       |             |
+| WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                         |                                                       |             |
+| CRITICALOUTTRAFFIC | Threshold                                                                                                                                                         |                                                       |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\|dormant/ |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}  |                                                       |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                  | --verbose --no-skipped-counters --use-new-perfdata    |             |
 
 </TabItem>
 <TabItem value="Load" label="Load">
@@ -352,18 +358,18 @@ yum install centreon-plugin-Network-Denyall-Snmp
 </TabItem>
 <TabItem value="Reverse-Proxy" label="Reverse-Proxy">
 
-| Macro                  | Description                                                                                                                                      | Valeur par défaut    | Obligatoire |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
-| FILTERUID              | Filter reverse proxy by UID (can be a regexp)                                                                                                    |                      |             |
-| WARNINGCPUUTILIZATION  | Threshold                                                                                                                                        |                      |             |
-| CRITICALCPUUTILIZATION | Threshold                                                                                                                                        |                      |             |
-| WARNINGMEMORYUSAGE     | Threshold                                                                                                                                        |                      |             |
-| CRITICALMEMORYUSAGE    | Threshold                                                                                                                                        |                      |             |
-| WARNINGREQUESTS        | Threshold                                                                                                                                        |                      |             |
-| CRITICALREQUESTS       | Threshold                                                                                                                                        |                      |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{uid}                             | %{status} =~ /down/i |             |
-| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{uid}                              |                      |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose            |             |
+| Macro                  | Description                                                                                                                                      | Valeur par défaut      | Obligatoire |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
+| FILTERUID              | Filter reverse proxy by UID (can be a regexp)                                                                                                    |                        |             |
+| WARNINGCPUUTILIZATION  | Threshold                                                                                                                                        |                        |             |
+| CRITICALCPUUTILIZATION | Threshold                                                                                                                                        |                        |             |
+| WARNINGMEMORYUSAGE     | Threshold                                                                                                                                        |                        |             |
+| CRITICALMEMORYUSAGE    | Threshold                                                                                                                                        |                        |             |
+| WARNINGREQUESTS        | Threshold                                                                                                                                        |                        |             |
+| CRITICALREQUESTS       | Threshold                                                                                                                                        |                        |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{uid\}                         | %\{status\} =~ /down/i |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{uid\}                          |                        |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose              |             |
 
 </TabItem>
 <TabItem value="Storage" label="Storage">
@@ -372,11 +378,11 @@ yum install centreon-plugin-Network-Denyall-Snmp
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
 | OIDFILTER      | Choose OID used to filter storage (values: hrStorageDescr, hrFSMountPoint)                                                                       | hrStorageDescr               |             |
 | OIDDISPLAY     | Choose OID used to display storage (values: hrStorageDescr, hrFSMountPoint)                                                                      | hrStorageDescr               |             |
-| UNITS          | Units of thresholds (default: '%') ('%', 'B')                                                                                                    | %                            |             |
-| FILTERSTORAGE  | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                            |                              |             |
+| UNITS          | Units of thresholds ('%', 'B')                                                                                                                   | %                            |             |
+| FILTERSTORAGE  | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                            | .*                           |             |
 | WARNINGACCESS  | Warning threshold                                                                                                                                |                              |             |
 | CRITICALACCESS | Critical threshold. Check if storage is readOnly: --critical-access=readOnly                                                                     |                              |             |
-| WARNINGCOUNT   | Warning threshold                                                                                                                                 |                              |             |
+| WARNINGCOUNT   | Warning threshold                                                                                                                                |                              |             |
 | CRITICALCOUNT  | Critical threshold                                                                                                                               |                              |             |
 | WARNINGUSAGE   | Warning threshold                                                                                                                                |                              |             |
 | CRITICALUSAGE  | Critical threshold                                                                                                                               |                              |             |
@@ -515,7 +521,7 @@ Les options génériques sont listées ci-dessous :
 | --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
 | --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
@@ -581,9 +587,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --add-cast                                      |   Check interface cast.                                                                                                                                                                                                                                                                      |
 | --add-speed                                     |   Check interface speed.                                                                                                                                                                                                                                                                     |
 | --add-volume                                    |   Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      |
-| --check-metrics                                 |   If the expression is true, metrics are checked (default: '%{opstatus} eq "up"').                                                                                                                                                                                                           |
-| --warning-status                                |   Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                                                   |
-| --critical-status                               |   Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                        |
+| --check-metrics                                 |   If the expression is true, metrics are checked (default: '%\{opstatus\} eq "up"').                                                                                                                                                                                                           |
+| --warning-status                                |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                                   |
+| --critical-status                               |   Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                        |
 | --warning-* --critical-*                        |   Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
 | --units-traffic                                 |   Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
 | --units-errors                                  |   Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |
@@ -634,9 +640,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                |
 | --filter-uid             |   Filter reverse proxy by UID (can be a regexp).                                                                                                           |
-| --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{uid}                                      |
-| --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{uid}                                      |
-| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /down/i'). You can use the following variables: %{status}, %{uid}   |
+| --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{uid\}                                      |
+| --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{uid\}                                      |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /down/i'). You can use the following variables: %\{status\}, %\{uid\}   |
 | --warning-* --critical-* |   Thresholds. Can be: 'cpu-utilization', 'memory-usage', 'requests'.                                                                                       |
 
 </TabItem>

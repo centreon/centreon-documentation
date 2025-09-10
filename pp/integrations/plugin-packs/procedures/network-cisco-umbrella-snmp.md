@@ -1,6 +1,6 @@
 ---
 id: network-cisco-umbrella-snmp
-title: Cisco Umbrella
+title: Cisco Umbrella SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Cisco Umbrella** brings a host template:
+The Monitoring Connector **Cisco Umbrella SNMP** brings a host template:
 
 * **Net-Cisco-Umbrella-SNMP-custom**
 
@@ -150,9 +150,12 @@ SNMP port.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -188,7 +191,7 @@ yum install centreon-pack-network-cisco-umbrella-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Cisco Umbrella** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -261,8 +264,8 @@ yum install centreon-plugin-Network-Cisco-Umbrella-Snmp
 
 | Macro          | Description                                                                                                                            | Default value         | Mandatory   |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                            | %{status} =~ /yellow/ |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                           | %{status} =~ /red/    |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                            | %\{status\} =~ /yellow/ |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                           | %\{status\} =~ /red/    |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                       |             |
 
 </TabItem>
@@ -270,14 +273,14 @@ yum install centreon-plugin-Network-Cisco-Umbrella-Snmp
 
 | Macro                  | Description                                                                                                                            | Default value         | Mandatory   |
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| WARNINGADSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                | %{status} =~ /yellow/ |             |
-| CRITICALADSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{display}               | %{status} =~ /red/    |             |
-| WARNINGCLOUDSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                | %{status} =~ /yellow/ |             |
-| CRITICALCLOUDSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{display}               | %{status} =~ /red/    |             |
-| WARNINGDNSSTATUS       | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                | %{status} =~ /yellow/ |             |
-| CRITICALDNSSTATUS      | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{display}               | %{status} =~ /red/    |             |
-| WARNINGLOCALDNSSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                | %{status} =~ /yellow/ |             |
-| CRITICALLOCALDNSSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{display}               | %{status} =~ /red/    |             |
+| WARNINGADSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                | %\{status\} =~ /yellow/ |             |
+| CRITICALADSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}               | %\{status\} =~ /red/    |             |
+| WARNINGCLOUDSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                | %\{status\} =~ /yellow/ |             |
+| CRITICALCLOUDSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}               | %\{status\} =~ /red/    |             |
+| WARNINGDNSSTATUS       | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                | %\{status\} =~ /yellow/ |             |
+| CRITICALDNSSTATUS      | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}               | %\{status\} =~ /red/    |             |
+| WARNINGLOCALDNSSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                | %\{status\} =~ /yellow/ |             |
+| CRITICALLOCALDNSSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}               | %\{status\} =~ /red/    |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                       |             |
 
 </TabItem>
@@ -425,7 +428,7 @@ All generic options are listed here:
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -479,16 +482,16 @@ All available options for each service template are listed below:
 
 | Option            | Description                                                                                                                                      |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-status  | Define the conditions to match for the status to be WARNING. (default: '%{status} =~ /yellow/') You can use the following variables: %{status}   |
-| --critical-status | Define the conditions to match for the status to be CRITICAL. (default: '%{status} =~ /red/'). You can use the following variables: %{status}    |
+| --warning-status  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /yellow/') You can use the following variables: %\{status\}   |
+| --critical-status | Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /red/'). You can use the following variables: %\{status\}    |
 
 </TabItem>
 <TabItem value="Connectivity" label="Connectivity">
 
-| Option       | Description                                                                                                                                                                                                                                          |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-*  | Define the conditions to match for the status to be WARNING. (default: '%{status} =~ /yellow/'). Can be: 'dns-status', 'localdns-status', 'cloud-status', 'ad-status'.  Can use special variables like: %{status}, %{display}                        |
-| --critical-* | Define the conditions to match for the status to be CRITICAL. (default: %{status} =~ /red/). Can be: 'dns-connectivity', 'localdns-connectivity', 'cloud-connectivity', 'ad-connectivity'.  Can use special variables like: %{status}, %{display}    |
+| Option       | Description                                                                                                                                                                                                                         |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-*  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /yellow/'). Can be: 'dns-status', 'localdns-status', 'cloud-status', 'ad-status'.  Can use special variables like: %\{status\}, %\{display\} |
+| --critical-* | Define the conditions to match for the status to be CRITICAL. (default: %\{status\} =~ /red/). Can be: 'dns-status', 'localdns-status', 'cloud-status', 'ad-status'.  Can use special variables like: %\{status\}, %\{display\}     |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">

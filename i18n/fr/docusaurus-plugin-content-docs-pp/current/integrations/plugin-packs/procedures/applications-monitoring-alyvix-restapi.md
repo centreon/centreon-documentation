@@ -82,7 +82,7 @@ yum install centreon-plugin-Applications-Monitoring-Alyvix-Restapi
 ```
 
 2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Alyvix Server*
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -100,7 +100,7 @@ yum install centreon-pack-applications-monitoring-alyvix-restapi
 ```
 
 3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Alyvix Server*
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
@@ -141,8 +141,8 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     --port='80' \
     --proxyurl='http://myproxy.mycompany.org:8080' \
     --filter-testcase='case_app1|case_app2' \
-    --critical-testcase-state='%{state} eq "FAILED"' \
-    --critical-transaction-state='%{state} eq "FAILED"' \
+    --critical-testcase-state='%\{state\} eq "FAILED"' \
+    --critical-transaction-state='%\{state\} eq "FAILED"' \
     --warning-testcase-duration='40000' \
     --critical-testcase-duration='60000' \
     --critical-testcase-freshness='600' \

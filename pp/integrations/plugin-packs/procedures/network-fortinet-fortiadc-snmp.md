@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Fortinet FortiADC SNMP** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -90,24 +90,24 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Metric name                      | Description       | Unit  |
-|:---------------------------------|:------------------|:------|
-| fan status                       | Status of the fan |       |
-| *fan_name*hardware.fan.speed.rpm | Current fan speed | rpm   |
-| temperature status               |                   |       |
+| Metric name                      | Description       | Unit |
+|:---------------------------------|:------------------|:-----|
+| fan status                       | Status of the fan | N/A  |
+| *fan_name*hardware.fan.speed.rpm | Current fan speed | rpm  |
+| temperature status               |                   | N/A  |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Metric name                                               | Description                                            | Unit  |
-|:----------------------------------------------------------|:-------------------------------------------------------|:------|
-| status                                                    | Status of the interface                                |       |
-| *interface_name*#interface.traffic.in.bitspersecond       | Incoming traffic going through the interface           | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface           | b/s   |
-| *interface_name*#interface.packets.in.error.percentage    | Incoming errored packets going through the interface   | %     |
-| *interface_name*#interface.packets.in.discard.percentage  | Incoming discarded packets going through the interface | %     |
-| *interface_name*#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface   | %     |
-| *interface_name*#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface | %     |
+| Metric name                                               | Description                                            | Unit |
+|:----------------------------------------------------------|:-------------------------------------------------------|:-----|
+| status                                                    | Status of the interface                                | N/A  |
+| *interface_name*#interface.traffic.in.bitspersecond       | Incoming traffic going through the interface           | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface           | b/s  |
+| *interface_name*#interface.packets.in.error.percentage    | Incoming errored packets going through the interface   | %    |
+| *interface_name*#interface.packets.in.discard.percentage  | Incoming discarded packets going through the interface | %    |
+| *interface_name*#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface   | %    |
+| *interface_name*#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface | %    |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -148,7 +148,10 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP agent must be configured and activated on the host. Please refer to the [official documentation](https://docs.fortinet.com/product/fortiac/) from the manufacturer/publisher.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the [official documentation](https://docs.fortinet.com/product/fortiac/) from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -158,9 +161,12 @@ The target resource must be reachable from the Centreon poller on the UDP/161 SN
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -196,7 +202,7 @@ yum install centreon-pack-network-fortinet-fortiadc-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Fortinet FortiADC SNMP** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -311,8 +317,8 @@ yum install centreon-plugin-Network-Fortinet-Fortiadc-Snmp
 | CRITICALOUTERROR   | Threshold                                                                                                                                                 |                                                       |             |
 | WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                 |                                                       |             |
 | CRITICALOUTTRAFFIC | Threshold                                                                                                                                                 |                                                       |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/ |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}  |                                                       |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\|dormant/ |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}  |                                                       |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                    | --verbose                                             |             |
 
 </TabItem>
@@ -329,8 +335,8 @@ yum install centreon-plugin-Network-Fortinet-Fortiadc-Snmp
 
 | Macro              | Description                                                                                                                            | Default value            | Mandatory   |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| CRITICALDDOSSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                           | %{status} eq "attacking" |             |
-| WARNINGDDOSSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                            |                          |             |
+| CRITICALDDOSSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                           | %\{status\} eq "attacking" |             |
+| WARNINGDDOSSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                            |                          |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                          |             |
 
 </TabItem>
@@ -349,8 +355,8 @@ yum install centreon-plugin-Network-Fortinet-Fortiadc-Snmp
 |:---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
 | FILTERNAME                       | Filter virtual servers by name                                                                                                           |                          |             |
 | FILTERVDOM                       | Filter virtual servers by vdom name                                                                                                      |                          |             |
-| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{state}, %{name}, %{vdom} | %{status} eq "unhealthy" |             |
-| WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{state}, %{name}, %{vdom}  |                          |             |
+| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{state\}, %\{name\}, %\{vdom\} | %\{status\} eq "unhealthy" |             |
+| WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{state\}, %\{name\}, %\{vdom\}  |                          |             |
 | WARNINGVIRTUALSERVERCONNECTIONS  | Threshold                                                                                                                                |                          |             |
 | CRITICALVIRTUALSERVERCONNECTIONS | Threshold                                                                                                                                |                          |             |
 | WARNINGVIRTUALSERVERSDETECTED    | Threshold                                                                                                                                |                          |             |
@@ -380,7 +386,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
 	--warning-ddos-status='' \
-	--critical-ddos-status='%{status} eq "attacking"' 
+	--critical-ddos-status='%\{status\} eq "attacking"' 
 ```
 
 The expected command output is shown below:
@@ -466,7 +472,7 @@ All generic options are listed here:
 | --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
 | --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
@@ -532,9 +538,9 @@ All available options for each service template are listed below:
 | --add-cast                                      |   Check interface cast.                                                                                                                                                                                                                                                                      |
 | --add-speed                                     |   Check interface speed.                                                                                                                                                                                                                                                                     |
 | --add-volume                                    |   Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      |
-| --check-metrics                                 |   If the expression is true, metrics are checked (default: '%{opstatus} eq "up"').                                                                                                                                                                                                           |
-| --warning-status                                |   Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                                                   |
-| --critical-status                               |   Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                        |
+| --check-metrics                                 |   If the expression is true, metrics are checked (default: '%\{opstatus\} eq "up"').                                                                                                                                                                                                           |
+| --warning-status                                |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                                   |
+| --critical-status                               |   Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                        |
 | --warning-* --critical-*                        |   Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
 | --units-traffic                                 |   Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
 | --units-errors                                  |   Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |
@@ -582,8 +588,8 @@ All available options for each service template are listed below:
 | Option                 | Description                                                                                                                                             |
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters      |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                             |
-| --warning-ddos-status  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                           |
-| --critical-ddos-status |   Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "attacking"'). You can use the following variables: %{status}    |
+| --warning-ddos-status  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                                           |
+| --critical-ddos-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} eq "attacking"'). You can use the following variables: %\{status\}    |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -619,9 +625,9 @@ All available options for each service template are listed below:
 | --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                        |
 | --filter-name            |   Filter virtual servers by name.                                                                                                                                                  |
 | --filter-vdom            |   Filter virtual servers by vdom name.                                                                                                                                             |
-| --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{state}, %{name}, %{vdom}                                          |
-| --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{state}, %{name}, %{vdom}                                          |
-| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "unhealthy"'). You can use the following variables: %{status}, %{state}, %{name}, %{vdom}   |
+| --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{state\}, %\{name\}, %\{vdom\}                                          |
+| --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{state\}, %\{name\}, %\{vdom\}                                          |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} eq "unhealthy"'). You can use the following variables: %\{status\}, %\{state\}, %\{name\}, %\{vdom\}   |
 | --warning-* --critical-* |   Thresholds. Can be: 'virtualservers-detected', 'virtualservers-healthy', 'virtualserver-connections', 'virtualserver-throughput'.                                                |
 
 </TabItem>

@@ -373,7 +373,6 @@ Install the Centreon repository using this command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
 dnf clean all --enablerepo=*
 dnf update
@@ -383,7 +382,6 @@ dnf update
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
 dnf clean all --enablerepo=*
 dnf update
@@ -542,9 +540,9 @@ GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<CENTRAL_SERVER_IP>' WITH GRANT OPTION
 FLUSH PRIVILEGES;
 ```
 
-> Replace **<CENTRAL_SERVER_IP\>** with the Centreon Central IP address that will connect to the database server.
+> Replace **\<CENTRAL_SERVER_IP\>** with the Centreon Central IP address that will connect to the database server.
 >
-> Replace **<USER\>** and **<PASSWORD\>** with the user's credentials.
+> Replace **\<USER\>** and **\<PASSWORD\>** with the user's credentials.
 
 This user will only be used for the installation process; once the [web installation](../web-and-post-installation.md) is complete you can delete this user using:
 

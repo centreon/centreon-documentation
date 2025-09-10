@@ -19,28 +19,28 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Net-Lenovo-Flexsystem-SNMP-custom" label="Net-Lenovo-Flexsystem-SNMP-custom">
 
-| Service Alias  | Service Template                                 | Service Description |
-|:---------------|:-------------------------------------------------|:--------------------|
-| Cpu            | Net-Lenovo-Flexsystem-Cpu-custom                 | Check CPU usage                    |
-| Environment    | Net-Lenovo-Flexsystem-Environment-custom         | Check hardware                    |
-| Memory Usage   | Net-Lenovo-Flexsystem-Memory-Usage-custom        | Check memory usage                    |
-| Traffic-Global | Net-Lenovo-Flexsystem-Traffic-Global-SNMP-custom | Check network traffic                    |
+| Service Alias  | Service Template                                 | Service Description   |
+|:---------------|:-------------------------------------------------|:----------------------|
+| Cpu            | Net-Lenovo-Flexsystem-Cpu-custom                 | Check CPU usage       |
+| Environment    | Net-Lenovo-Flexsystem-Environment-custom         | Check hardware        |
+| Memory Usage   | Net-Lenovo-Flexsystem-Memory-Usage-custom        | Check memory usage    |
+| Traffic-Global | Net-Lenovo-Flexsystem-Traffic-Global-SNMP-custom | Check network traffic |
 
 > The services listed above are created automatically when the **Net-Lenovo-Flexsystem-SNMP-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias              | Service Template                                             | Service Description |
-|:---------------------------|:-------------------------------------------------------------|:--------------------|
-| Packet-Errors-Generic-Id   | Net-Lenovo-Flexsystem-Packet-Errors-Generic-Id-SNMP-custom   | Check packets in error and discarded packets for multiple network interfaces                    |
-| Packet-Errors-Generic-Name | Net-Lenovo-Flexsystem-Packet-Errors-Generic-Name-SNMP-custom | Check packets in error and discarded packets for a network interface                    |
-| Packet-Errors-Global       | Net-Lenovo-Flexsystem-Packet-Errors-Global-SNMP-custom       | Check packets in error and discarded packets for multiple network interfaces                    |
-| Storage                    | Net-Lenovo-Flexsystem-Disk-Usage-custom                      | Check the disk usage                    |
-| Time                       | Net-Lenovo-Flexsystem-Time-custom                            | Check the connection time to the server                    |
-| Traffic-Generic-Id         | Net-Lenovo-Flexsystem-Traffic-Generic-Id-SNMP-custom         | Check traffic of a network interface                    |
-| Traffic-Generic-Name       | Net-Lenovo-Flexsystem-Traffic-Generic-Name-SNMP-custom       | Check traffic of a network interface                    |
-| Uptime                     | Net-Lenovo-Flexsystem-Uptime-custom                          | Time since the server has been working and available                    |
+| Service Alias              | Service Template                                             | Service Description                                                          |
+|:---------------------------|:-------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Packet-Errors-Generic-Id   | Net-Lenovo-Flexsystem-Packet-Errors-Generic-Id-SNMP-custom   | Check packets in error and discarded packets for multiple network interfaces |
+| Packet-Errors-Generic-Name | Net-Lenovo-Flexsystem-Packet-Errors-Generic-Name-SNMP-custom | Check packets in error and discarded packets for a network interface         |
+| Packet-Errors-Global       | Net-Lenovo-Flexsystem-Packet-Errors-Global-SNMP-custom       | Check packets in error and discarded packets for multiple network interfaces |
+| Storage                    | Net-Lenovo-Flexsystem-Disk-Usage-custom                      | Check the disk usage                                                         |
+| Time                       | Net-Lenovo-Flexsystem-Time-custom                            | Check the connection time to the server                                      |
+| Traffic-Generic-Id         | Net-Lenovo-Flexsystem-Traffic-Generic-Id-SNMP-custom         | Check traffic of a network interface                                         |
+| Traffic-Generic-Name       | Net-Lenovo-Flexsystem-Traffic-Generic-Name-SNMP-custom       | Check traffic of a network interface                                         |
+| Uptime                     | Net-Lenovo-Flexsystem-Uptime-custom                          | Time since the server has been working and available                         |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -72,10 +72,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Environment" label="Environment">
 
-| Metric name                  | Unit    |
-|:-----------------------------|:--------|
-| hardware.temperature.celsius | C |
-| faultled                     | N/A        |
+| Metric name                  | Unit |
+|:-----------------------------|:-----|
+| hardware.temperature.celsius | C    |
+| faultled                     | N/A  |
 
 </TabItem>
 <TabItem value="Memory Usage" label="Memory Usage">
@@ -144,11 +144,13 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To use this pack, the SNMP service must be properly configured on your
-Flex System blade server. Lenovo provides an official documentation
-to achieve this:
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher:
 * Through the CMM Web console : https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.lxci_hwmp_scom.doc%2Fhwmp_enable_snmp_agent
 * Through the CMM Command-Line Interface : https://flexsystem.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.acc.cmm.doc%2Fcli_command_snmp
+
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -159,9 +161,12 @@ on the UDP/161 SNMP port.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -197,7 +202,7 @@ yum install centreon-pack-network-lenovo-flexsystem-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Lenovo Flexsystem Switch** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -345,7 +350,7 @@ yum install centreon-plugin-Network-Lenovo-Flexsystem-Snmp
 | CRITICALOUTDISCARD | Thresholds                                                                                                                                                                                                          |                   |             |
 | WARNINGOUTERROR    | Thresholds                                                                                                                                                                                                          |                   |             |
 | CRITICALOUTERROR   | Thresholds                                                                                                                                                                                                          |                   |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                  | --verbose         |             |
 
 </TabItem>
@@ -403,7 +408,7 @@ yum install centreon-plugin-Network-Lenovo-Flexsystem-Snmp
 | CRITICALINTRAFFIC  | Thresholds                                                                                                                                                                                                          | 90                |             |
 | WARNINGOUTTRAFFIC  | Thresholds                                                                                                                                                                                                          | 80                |             |
 | CRITICALOUTTRAFFIC | Thresholds                                                                                                                                                                                                          | 90                |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                  | --verbose         |             |
 
 </TabItem>
@@ -502,7 +507,7 @@ All generic options are listed here:
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -603,9 +608,9 @@ All available options for each service template are listed below:
 | --add-cast                                      | Check interface cast.                                                                                                                                                                                                                                                                      |
 | --add-speed                                     | Check interface speed.                                                                                                                                                                                                                                                                     |
 | --add-volume                                    | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      |
-| --check-metrics                                 | If the expression is true, metrics are checked (default: '%{opstatus} eq "up"').                                                                                                                                                                                                           |
-| --warning-status                                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                                                   |
-| --critical-status                               | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                        |
+| --check-metrics                                 | If the expression is true, metrics are checked (default: '%\{opstatus\} eq "up"').                                                                                                                                                                                                           |
+| --warning-status                                | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                                   |
+| --critical-status                               | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                        |
 | --warning-* --critical-*                        | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
 | --units-traffic                                 | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
 | --units-errors                                  | Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |
@@ -693,9 +698,9 @@ All available options for each service template are listed below:
 | --add-cast                                      | Check interface cast.                                                                                                                                                                                                                                                                      |
 | --add-speed                                     | Check interface speed.                                                                                                                                                                                                                                                                     |
 | --add-volume                                    | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      |
-| --check-metrics                                 | If the expression is true, metrics are checked (default: '%{opstatus} eq "up"').                                                                                                                                                                                                           |
-| --warning-status                                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                                                   |
-| --critical-status                               | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                        |
+| --check-metrics                                 | If the expression is true, metrics are checked (default: '%\{opstatus\} eq "up"').                                                                                                                                                                                                           |
+| --warning-status                                | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                                   |
+| --critical-status                               | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                        |
 | --warning-* --critical-*                        | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
 | --units-traffic                                 | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
 | --units-errors                                  | Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |

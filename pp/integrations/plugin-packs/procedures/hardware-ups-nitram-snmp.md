@@ -81,7 +81,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -92,9 +95,12 @@ SNMP port.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -130,7 +136,7 @@ yum install centreon-pack-hardware-ups-nitram-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Nitram UPS SNMP** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -203,11 +209,11 @@ yum install centreon-plugin-Hardware-Ups-Nitram-Snmp
 
 | Macro                   | Description                                                                                                                                                  | Default value                       | Mandatory   |
 |:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
-| UNKNOWNSTATUS           | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown\|notPresent/i'). You can use the following variables: %{status} | %{status} =~ /unknown\|notPresent/i |             |
+| UNKNOWNSTATUS           | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown\|notPresent/i'). You can use the following variables: %\{status\} | %\{status\} =~ /unknown\|notPresent/i |             |
 | WARNINGCHARGEREMAINING  | Thresholds                                                                                                                                                   |                                     |             |
 | CRITICALCHARGEREMAINING | Thresholds                                                                                                                                                   |                                     |             |
-| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /low/i'). You can use the following variables: %{status}                 | %{status} =~ /low/i                 |             |
-| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %{status}                                   |                                     |             |
+| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /low/i'). You can use the following variables: %\{status\}                 | %\{status\} =~ /low/i                 |             |
+| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %\{status\}                                   |                                     |             |
 | WARNINGTEMPERATURE      | Thresholds                                                                                                                                                   |                                     |             |
 | CRITICALTEMPERATURE     | Thresholds                                                                                                                                                   |                                     |             |
 | WARNINGVOLTAGE          | Thresholds                                                                                                                                                   |                                     |             |
@@ -219,11 +225,11 @@ yum install centreon-plugin-Hardware-Ups-Nitram-Snmp
 
 | Macro             | Description                                                                                                                                     | Default value         | Mandatory   |
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %{status}                       |                       |             |
+| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{status\}                       |                       |             |
 | WARNINGFREQUENCE  | Thresholds                                                                                                                                      |                       |             |
 | CRITICALFREQUENCE | Thresholds                                                                                                                                      |                       |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/'). You can use the following variables: %{status} | %{status} !~ /normal/ |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}                       |                       |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /normal/'). You can use the following variables: %\{status\} | %\{status\} !~ /normal/ |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}                       |                       |             |
 | WARNINGVOLTAGE    | Thresholds                                                                                                                                      |                       |             |
 | CRITICALVOLTAGE   | Thresholds                                                                                                                                      |                       |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                              |                       |             |
@@ -233,7 +239,7 @@ yum install centreon-plugin-Hardware-Ups-Nitram-Snmp
 
 | Macro             | Description                                                                                                                                                             | Default value         | Mandatory   |
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/i'). You can use the following variables: %{status}                        |                       |             |
+| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}                        |                       |             |
 | WARNINGCURRENT    | Thresholds                                                                                                                                                              |                       |             |
 | CRITICALCURRENT   | Thresholds                                                                                                                                                              |                       |             |
 | WARNINGFREQUENCE  | Thresholds                                                                                                                                                              |                       |             |
@@ -242,8 +248,8 @@ yum install centreon-plugin-Hardware-Ups-Nitram-Snmp
 | CRITICALLOAD      | Thresholds                                                                                                                                                              |                       |             |
 | WARNINGPOWER      | Thresholds                                                                                                                                                              |                       |             |
 | CRITICALPOWER     | Thresholds                                                                                                                                                              |                       |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %{status}                                              | %{status} !~ /normal/ |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /rebooting\|onBattery\|onBypass/i'). You can use the following variables: %{status} |                       |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %\{status\}                                              | %\{status\} !~ /normal/ |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /rebooting\|onBattery\|onBypass/i'). You can use the following variables: %\{status\} |                       |             |
 | WARNINGVOLTAGE    | Thresholds                                                                                                                                                              |                       |             |
 | CRITICALVOLTAGE   | Thresholds                                                                                                                                                              |                       |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                      | --verbose             |             |
@@ -268,7 +274,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--snmp-community='my-snmp-community'  \
 	--unknown-status='' \
 	--warning-status='' \
-	--critical-status='%{status} !~ /normal/' \
+	--critical-status='%\{status\} !~ /normal/' \
 	--warning-load='' \
 	--critical-load='' \
 	--warning-current='' \
@@ -334,7 +340,7 @@ All generic options are listed here:
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -388,9 +394,9 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                    |
 |:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown\|notPresent/i'). You can use the following variables: %{status}   |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /low/i'). You can use the following variables: %{status}                   |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %{status}                                     |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown\|notPresent/i'). You can use the following variables: %\{status\}   |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /low/i'). You can use the following variables: %\{status\}                   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %\{status\}                                     |
 | --warning-* --critical-* | Thresholds. Can be: 'charge-remaining' (%), 'voltage' (V), 'temperature' (C).                                                                                  |
 
 </TabItem>
@@ -398,9 +404,9 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                       |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %{status}                         |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}                         |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/'). You can use the following variables: %{status}   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{status\}                         |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}                         |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /normal/'). You can use the following variables: %\{status\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'voltage', 'frequence'.                                                                                                       |
 
 </TabItem>
@@ -408,9 +414,9 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                               |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/i'). You can use the following variables: %{status}                          |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /rebooting\|onBattery\|onBypass/i'). You can use the following variables: %{status}   |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %{status}                                                |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}                          |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /rebooting\|onBattery\|onBypass/i'). You can use the following variables: %\{status\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %\{status\}                                                |
 | --warning-* --critical-* | Thresholds. Can be: 'load', 'voltage', 'current', 'power', 'frequence'.                                                                                                   |
 
 </TabItem>

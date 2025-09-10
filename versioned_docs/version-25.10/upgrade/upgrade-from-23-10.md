@@ -13,6 +13,16 @@ This chapter describes how to upgrade your Centreon platform from version 23.10 
 
 > Business edition users: MAP Legacy is no longer available in Centreon 24.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
+> Version 24.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
+
+> Warning: If you were using the following monitoring connectors, from version 24.10 you must declare all of their configurations using [the **Configuration \> Additional connector configurations** page](/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration) before deploying the configuration of the corresponding poller:
+> * [VMware ESX](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/)
+> * [VMware vCenter](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-generic/)
+> * [VMware VM](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vm/)
+> * [VMware vCenter v4](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-4/)
+> * [VMware vCenter v5](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-5/)
+> * [VMware vCenter v6](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-6/)
+
 ## Prerequisites
 
 ### Perform a backup
@@ -22,6 +32,8 @@ servers:
 
 - Central server
 - Database server
+
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
 
 ## Upgrade the Centreon Central server
 
@@ -88,7 +100,7 @@ apt update
 </TabItem>
 </Tabs>
 
-> If you have an [offline license](../administration/licenses.md#types-of-licenses), also remove the old Monitoring Connectors repository, then install the new one.
+> If you have an [offline license](../administration/licenses.md#types-of-license), also remove the old Monitoring Connectors repository, then install the new one.
 >
 > If you have a Business edition, do the same with the Business repository.
 >
@@ -139,45 +151,71 @@ systemctl disable php8.1-fpm
 
 ### Upgrade the Centreon solution
 
-> Make sure all users are logged out from the Centreon web interface
-> before starting the upgrade procedure.
+1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
 
-If you have installed Business extensions, update the Business repository to version 24.10.
-Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+2. If you have installed Business extensions, delete the configuration of the 23.10 repository: 
 
-If your OS is Debian 12 and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Stop the Centreon Broker process:
+```shell
+rm /etc/yum.repos.d/centreon-business-23.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-23.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Debian" label="Debian">
+
+```shell
+rm /etc/apt/sources.list.d/centreon-business.list
+```
+
+</TabItem>
+</Tabs>
+
+3. Install the 25.10 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+
+4. If your OS is Debian and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
+
+5. Stop the Centreon Broker process:
 
 ```shell
 systemctl stop cbd
 ```
 
-Delete existing retention files:
+6. Delete existing retention files:
 
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
 
-Clean the cache:
+7. Clean the cache:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
+   
 ```shell
 dnf clean all --enablerepo=*
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
+   
 ```shell
 dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
+<TabItem value="Debian" label="Debian">
+   
 ```shell
 apt clean all
 apt update
@@ -186,7 +224,7 @@ apt update
 </TabItem>
 </Tabs>
 
-Then upgrade all the components with the following command:
+8. Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -206,7 +244,7 @@ dnf update centreon\* php-pecl-gnupg
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-apt install --only-upgrade centreon
+apt install --only-upgrade centreon\*
 ```
 
 </TabItem>
@@ -410,7 +448,7 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 
 ### Finalizing the upgrade
 
-Before starting the web upgrade process, reload the Apache server with the
+Before starting the web upgrade process, upgrade the [Centreon BAM module](../service-mapping/upgrade.md) and reload the Apache server with the
 following command:
 
 <Tabs groupId="sync">
@@ -433,8 +471,6 @@ systemctl reload php-fpm httpd
 ```shell
 apt autoremove
 systemctl daemon-reload
-systemctl stop php8.1-fpm
-systemctl disable php8.1-fpm
 systemctl enable php8.2-fpm
 systemctl start php8.2-fpm
 systemctl restart apache2
@@ -469,7 +505,7 @@ page:
 
   ![image](../assets/upgrade/web_update_5.png)
 
-  > If the Centreon BAM module is installed, refer to the [update procedure](../service-mapping/update.md).
+Refer to the [Centreon MBI](../reporting/update.md)  and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
 
 6. Deploy the central's configuration from the Centreon web UI by following [this
 procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
@@ -538,7 +574,7 @@ Finally, restart Broker, Engine and Gorgone on the central server by running thi
   systemctl restart cbd centengine gorgoned
   ```
 
-Update the permissions on the centreon-broker configuration files.
+Add the **apache** user to the **centreon-broker** group and vice versa.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -567,8 +603,6 @@ usermod -a -G www-data centreon-broker
 </TabItem>
 </Tabs>
 
-If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade.md).
 
 ### Post-upgrade actions
 

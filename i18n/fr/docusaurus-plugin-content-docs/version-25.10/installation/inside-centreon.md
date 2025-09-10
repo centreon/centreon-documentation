@@ -39,8 +39,8 @@ Dans cet exemple, nous avons un serveur central (sans modules Business installé
 * Il existe en réalité 2 Brokers: 1 **master Broker** et 1 **Broker RRD**.
 * Seuls le serveur central et les serveurs distants contiennent des Brokers.
 * Engine envoie les données au master Broker:
-   * Le master Broker écrit les données dans les [bases MariaDB/MySQL](#a-mariadbmysql-database).
-   * Le master Broker envoie une copie des [métriques](https://docs.centreon.com/fr/docs/monitoring/metrics) et des [statuts](https://docs.centreon.com/fr/docs/alerts-notifications/concepts) au Broker RRD afin qu'il les écrive dans la [base de données RRD](#a-rrd-databaserrd-files).
+   * Le master Broker écrit les données dans les [bases MariaDB/MySQL](#une-base-de-données-mariadbmysql).
+   * Le master Broker envoie une copie des [métriques](https://docs.centreon.com/fr/docs/monitoring/metrics) et des [statuts](https://docs.centreon.com/fr/docs/alerts-notifications/concepts) au Broker RRD afin qu'il les écrive dans la [base de données RRD](#une-base-de-données-rrd-fichiers-rrd).
 * Les données sont envoyées au [format BBDO](https://docs.centreon.com/fr/docs/developer/developer-broker-bbdo/).
 * Chaque Broker a des entrées (inputs) et des sorties (outputs) que vous pouvez configurer. Par défaut, Broker est principalement installé avec des entrées et sorties IPv4 (en réalité, une sortie IPv4 vers la base RRD et une sortie Unified SQL vers la base de données MariaDB/MySQL). Cependant, il est recommandé de configurer un client et un serveur BBDO entre Engine et le master Broker, car cette configuration est plus simple.
 * Pour configurer un Broker, utlisez la page **Configuration > Collecteurs > Configuration de Centreon Broker**.
@@ -48,7 +48,7 @@ Dans cet exemple, nous avons un serveur central (sans modules Business installé
 
 Voir aussi :
 
-* [Centreon Broker dans la section Ressources développeur](https://docs.centreon.com/fr/docs/developer/developer-centreon-broker).
+* [Centreon Broker dans la section Ressources développeur](https://docs.centreon.com/fr/docs/developer/centreon-broker).
 * [Configuration avancée de Centreon Broker](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/advanced-configuration/#pour-aller-plus-loin-avec-centreon-broker).
 
 ### Gorgone
@@ -58,7 +58,7 @@ Voir aussi :
 * Les données de configuration sont transférées depuis le central vers les engines des collecteurs et des serveurs distants au format ZMQ.
 * Quand vous [déployez la configuration](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/deploying-a-configuration), Gorgone prend les fichiers générés et les copie sur tous les engines des collecteurs et des serveurs distants, et redémarre ceux-ci.
 
-Voir aussi : [Centreon Gorgone dans la section Ressources développeur](https://docs.centreon.com/fr/docs/developer/developer-centreon-gorgone).
+Voir aussi : [Centreon Gorgone dans la section Ressources développeur](https://docs.centreon.com/fr/docs/developer/centreon-gorgone).
 
 ### Une base de données MariaDB/MySQL
 

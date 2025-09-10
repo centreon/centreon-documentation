@@ -53,10 +53,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="DSMQueue-Count" label="DSMQueue-Count">
 
-| Metric name                                | Unit  |
-|:-------------------------------------------|:------|
-| centreon.dsm.queue.cache.count             | count |
-| centreon.dsm.queue.lock.count              | count |
+| Metric name                                                | Unit  |
+|:-----------------------------------------------------------|:------|
+| centreon.dsm.queue.cache.count                             | count |
+| centreon.dsm.queue.lock.count                              | count |
 | *hostname~pool_prefix*#centreon.dsm.host.queue.cache.count | count |
 
 </TabItem>
@@ -70,9 +70,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Notifications-Count" label="Notifications-Count">
 
-| Metric name              | Unit  |
-|:-------------------------|:------|
-| notifications.sent.count | count |
+| Metric name                            | Unit  |
+|:---------------------------------------|:------|
+| notifications.sent.count               | count |
 | *poller_name*#notifications.sent.count | count |
 
 </TabItem>
@@ -133,9 +133,12 @@ When using the **Virtual-Service** service, the configuration file must be reada
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -226,13 +229,13 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 3. Apply the **App-Monitoring-Centreon-SQL-Metrics-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                    | Description                                                                                          | Default value     | Mandatory   |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CENTREONDATABASEUSER     | User name used to connect to the database                                                            | centreon          |      X       |
-| CENTREONDATABASEPASSWORD | Password for the defined user name                                                                   | PASSWORD          |      X       |
-| CENTREONDATABASE         |                                                                                                      | centreon          |             |
-| CENTREONSTORAGEDATABASE  | Centreon storage database name (default: 'centreon\_storage')                                        | centreon\_storage |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                    | Description                                                                                                                              | Default value     | Mandatory |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:---------:|
+| CENTREONDATABASEUSER     | User name used to connect to the database                                                                                                | centreon          |     X     |
+| CENTREONDATABASEPASSWORD | Password for the defined user name                                                                                                       | PASSWORD          |     X     |
+| CENTREONDATABASE         | Centreon database name                                                                                                                   | centreon          |           |
+| CENTREONSTORAGEDATABASE  | Centreon storage database name                                                                           | centreon\_storage |           |
+| EXTRAOPTIONS             | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -244,100 +247,100 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 <Tabs groupId="sync">
 <TabItem value="DSMQueue-Count" label="DSMQueue-Count">
 
-| Macro                   | Description                                                                                        | Default value     | Mandatory   |
-|:------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERCOUNTERS          | Only display some counters (regexp can be used). Example: --filter-counters='^total-queue-cache$'  |                   |             |
-| FILTERHOSTQUEUE         | Filter by host and pool prefix name (regexp can be used). Example: host1.queue1                    |                   |             |
-| WARNINGHOSTQUEUECACHE   | Warning threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                   |                   |             |
-| CRITICALHOSTQUEUECACHE  | Critical threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                  |                   |             |
-| WARNINGTOTALQUEUECACHE  | Warning threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                   |                   |             |
-| CRITICALTOTALQUEUECACHE | Critical threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                  |                   |             |
-| WARNINGTOTALQUEUELOCK   | Warning threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                   |                   |             |
-| CRITICALTOTALQUEUELOCK  | Critical threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                  |                   |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                   | Description                                                                                                                            | Default value | Mandatory |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERCOUNTERS          | Only display some counters (regexp can be used). Example: --filter-counters='^total-queue-cache$'                                      |               |           |
+| FILTERHOSTQUEUE         | Filter by host and pool prefix name (regexp can be used). Example: host1.queue1                                                        |               |           |
+| WARNINGHOSTQUEUECACHE   | Warning threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                                                       |               |           |
+| CRITICALHOSTQUEUECACHE  | Critical threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                                                      |               |           |
+| WARNINGTOTALQUEUECACHE  | Warning threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                                                       |               |           |
+| CRITICALTOTALQUEUECACHE | Critical threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                                                      |               |           |
+| WARNINGTOTALQUEUELOCK   | Warning threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                                                       |               |           |
+| CRITICALTOTALQUEUELOCK  | Critical threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                                                      |               |           |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Execution-Time" label="Execution-Time">
 
-| Macro         | Description                                                                                        | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXECUTIONTIME | Set the number of seconds which defines the limit of execution time (default: '20')                | 20                |             |
-| FILTERPOLLER  | Filter by poller name (regexp can be used)                                                         |                   |             |
-| WARNINGCOUNT  | Thresholds on the number of services exceeding defined execution time                              |                   |             |
-| CRITICALCOUNT | Thresholds on the number of services exceeding defined execution time                              |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro         | Description                                                                                                                            | Default value | Mandatory |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| EXECUTIONTIME | Set the number of seconds which defines the limit of execution time                                                                    | 20            |           |
+| FILTERPOLLER  | Filter by poller name (regexp can be used)                                                                                             |               |           |
+| WARNINGCOUNT  | Thresholds on the number of services exceeding defined execution time                                                                  |               |           |
+| CRITICALCOUNT | Thresholds on the number of services exceeding defined execution time                                                                  |               |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Notifications-Count" label="Notifications-Count">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                  |                   |             |
-| CRITICAL     | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING      | Warning threshold                                                                                                                      |               |           |
+| CRITICAL     | Critical threshold                                                                                                                     |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Poller-Delay" label="Poller-Delay">
 
-| Macro         | Description                                                                                        | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERPOLLER  | Filter by poller name (can be a regexp)                                                            | .*                |             |
-| WARNINGDELAY  | Warning threshold in seconds                                                                       | 180               |             |
-| CRITICALDELAY | Critical threshold in seconds                                                                      | 300               |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro         | Description                                                                                                                            | Default value     | Mandatory |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:---------:|
+| FILTERPOLLER  | Filter by poller name (can be a regexp)                                                                                                | .*                |           |
+| WARNINGDELAY  | Warning threshold in seconds                                                                                                           | 180               |           |
+| CRITICALDELAY | Critical threshold in seconds                                                                                                          | 300               |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |           |
 
 </TabItem>
 <TabItem value="Problems-Count" label="Problems-Count">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                  |                   |             |
-| CRITICAL     | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING      | Warning threshold                                                                                                                      |               |           |
+| CRITICAL     | Critical threshold                                                                                                                     |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Resources-Count" label="Resources-Count">
 
-| Macro                        | Description                                                                                        | Default value     | Mandatory   |
-|:-----------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERCOUNTERS               | Only display some counters (regexp can be used). Example: --filter-counters='service'              |                   |             |
-| FILTERPOLLER                 | Filter by poller name (regexp can be used)                                                         |                   |             |
-| WARNINGHOSTDOWNCOUNT         | Thresholds                                                                                         |                   |             |
-| CRITICALHOSTDOWNCOUNT        | Thresholds                                                                                         |                   |             |
-| WARNINGHOSTUNREACHABLECOUNT  | Thresholds                                                                                         |                   |             |
-| CRITICALHOSTUNREACHABLECOUNT | Thresholds                                                                                         |                   |             |
-| WARNINGSVCWARNINGCOUNT       | Thresholds                                                                                         |                   |             |
-| WARNINGSVCCRITICALCOUNT      | Thresholds                                                                                         |                   |             |
-| CRITICALSVCWARNINGCOUNT      | Thresholds                                                                                         |                   |             |
-| CRITICALSVCCRITICALCOUNT     | Thresholds                                                                                         |                   |             |
-| WARNINGSVCUNKNOWNCOUNT       | Thresholds                                                                                         |                   |             |
-| CRITICALSVCUNKNOWNCOUNT      | Thresholds                                                                                         |                   |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                        | Description                                                                                                                            | Default value | Mandatory |
+|:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERCOUNTERS               | Only display some counters (regexp can be used). Example: --filter-counters='service'                                                  |               |           |
+| FILTERPOLLER                 | Filter by poller name (regexp can be used)                                                                                             |               |           |
+| WARNINGHOSTDOWNCOUNT         | Thresholds                                                                                                                             |               |           |
+| CRITICALHOSTDOWNCOUNT        | Thresholds                                                                                                                             |               |           |
+| WARNINGHOSTUNREACHABLECOUNT  | Thresholds                                                                                                                             |               |           |
+| CRITICALHOSTUNREACHABLECOUNT | Thresholds                                                                                                                             |               |           |
+| WARNINGSVCWARNINGCOUNT       | Thresholds                                                                                                                             |               |           |
+| WARNINGSVCCRITICALCOUNT      | Thresholds                                                                                                                             |               |           |
+| CRITICALSVCWARNINGCOUNT      | Thresholds                                                                                                                             |               |           |
+| CRITICALSVCCRITICALCOUNT     | Thresholds                                                                                                                             |               |           |
+| WARNINGSVCUNKNOWNCOUNT       | Thresholds                                                                                                                             |               |           |
+| CRITICALSVCUNKNOWNCOUNT      | Thresholds                                                                                                                             |               |           |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Storage-Partitioning" label="Storage-Partitioning">
 
-| Macro        | Description                                                                                        | Default value                           | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:----------------------------------------|:-----------:|
-| TABLENAME1   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                   | centreon\_storage.data\_bin             | X           |
-| TABLENAME2   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                   | centreon\_storage.logs                  | X           |
-| TABLENAME3   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                   | centreon\_storage.log\_archive\_host    | X           |
-| TABLENAME4   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                   | centreon\_storage.log\_archive\_service | X           |
-| WARNING      | Warning threshold (number of retention forward days)                                               | 10:                                     |             |
-| CRITICAL     | Critical threshold (number of retention forward days)                                              | 5:                                      |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                         |             |
+| Macro        | Description                                                                                                                            | Default value                           | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|:---------:|
+| TABLENAME1   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                       | centreon\_storage.data\_bin             |     X     |
+| TABLENAME2   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                       | centreon\_storage.logs                  |     X     |
+| TABLENAME3   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                       | centreon\_storage.log\_archive\_host    |     X     |
+| TABLENAME4   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                       | centreon\_storage.log\_archive\_service |     X     |
+| WARNING      | Warning threshold (number of retention forward days)                                                                                   | 10:                                     |           |
+| CRITICAL     | Critical threshold (number of retention forward days)                                                                                  | 5:                                      |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                         |           |
 
 </TabItem>
 <TabItem value="Virtual-Service" label="Virtual-Service">
 
-| Macro          | Description                                                                                        | Default value     | Mandatory   |
-|:---------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CONFIG         |                                                                                                    |                   |             |
-| WARNINGGLOBAL  | Warning threshold (can be 'unique' or 'global') (Override config\_file if set)                     |                   |             |
-| CRITICALGLOBAL | Critical threshold (can be 'unique' or 'global') (Override config\_file if set)                    |                   |             |
-| WARNINGMETRIC  |                                                                                                    |                   |             |
-| CRITICALMETRIC |                                                                                                    |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro          | Description                                                                                                                            | Default value | Mandatory |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CONFIG         | Specify the full path to a json config file                                                                                            |               |           |
+| WARNINGGLOBAL  | Warning threshold (Override config\_file if set)                                                                                       |               |           |
+| CRITICALGLOBAL | Critical threshold (Override config\_file if set)                                                                                      |               |           |
+| WARNINGMETRIC  | Warning threshold (Override config\_file if set)                                                                                       |               |           |
+| CRITICALMETRIC | Critical threshold(Override config\_file if set)                                                                                       |               |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 </Tabs>
@@ -451,7 +454,7 @@ All generic options are listed here:
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on an "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      | Filter perfdata based on an "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale"Mbps",mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |

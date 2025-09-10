@@ -10,6 +10,7 @@ import TabItem from '@theme/TabItem';
 ### Templates
 
 The Monitoring Connector **Centreon-HA** brings a host template:
+Centreon-HA is Centreon central server's high availability implementation. <!--More information available [here](/docs/installation/installation-of-centreon-ha/overview).-->
 
 * **App-Monitoring-Centreon-HA-Cluster-Node-custom**
 

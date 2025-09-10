@@ -146,9 +146,9 @@ The module stores the user list selection in an array (can be used in
 a smart section like **body** or **mapping ticket arguments**). There are 3
 fields (**LIST\_ID** must be replaced):
 
--   {$select.LIST\_ID.id}
--   {$select.LIST\_ID.value}
--   {$select.LIST\_ID.label}
+-   \{$select.LIST\_ID.id\}
+-   \{$select.LIST\_ID.value\}
+-   \{$select.LIST\_ID.label\}
 
 ### Chaining rules
 

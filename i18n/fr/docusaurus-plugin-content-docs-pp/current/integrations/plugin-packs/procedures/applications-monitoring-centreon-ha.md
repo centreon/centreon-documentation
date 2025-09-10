@@ -10,6 +10,7 @@ import TabItem from '@theme/TabItem';
 ### Modèles
 
 Le connecteur de supervision **Centreon-HA** apporte un modèle d'hôte :
+Centreon-HA est l'implémentation en haute disponibilité de la fonction centrale de Centreon. <!--Plus d'informations sont disponibles [ici](/docs/installation/installation-of-centreon-ha/overview).-->
 
 * **App-Monitoring-Centreon-HA-Cluster-Node-custom**
 
