@@ -160,6 +160,20 @@ Body: {
 }
 ```
 
+### Using a delegated authentication
+
+A user logged in with a delegated authentication can use MAP APIs by replacing the current token by a Centreon token in the header, as follows:
+
+```
+Headers {
+    Content-Type = application/json
+    X-client-version =  25.10.0
+    Authorization = Bearer \{jwtToken\}
+}
+```
+
+Replace ``Authorization = Bearer \{jwtToken\}`` with ``X-AUTH-TOKEN = your-centreon-token``.
+
 ## More information
 
 > Follow this [link](https://docs-api.centreon.com/api/centreon-map/24.10/) to access the Centreon API documentation and preview the API capabilities.
