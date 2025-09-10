@@ -122,29 +122,6 @@ yum install centreon-plugin-Applications-Ansible-Cli
 </TabItem>
 </Tabs>
 
-## How to check in the CLI that the configuration is OK and what are the main options for?
-
-Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
-is able to monitor a resource using a command like this one (replace the sample values by yours):
-
-```bash
-/usr/lib/centreon/plugins/centreon_ansible_tower.pl \
-	--plugin=apps::automation::ansible::cli::plugin \
-	--mode=discovery
-```
-
-The expected command output is shown below:
-
-```bash
-
-```
-
-### Troubleshooting
-
-Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
-for Centreon Plugins typical issues.
-
 ### Available modes
 
 In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
@@ -166,7 +143,7 @@ The plugin brings the following modes:
 
 | Mode                                                                                                                            | Linked service template |
 |:--------------------------------------------------------------------------------------------------------------------------------|:--------------------------|
-| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/automation/ansible/cli/mode/discovery.pm)] | Used for host discovery   |
+| discovery [code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/automation/ansible/cli/mode/discovery.pm)] | Used for host discovery   |
 
 ### Available options
 
