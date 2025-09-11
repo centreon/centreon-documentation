@@ -66,6 +66,7 @@ Aucune ligne ne doit être retournée.
    ```
 
    Elle doit retourner des résultats, indiquant que le serveur est en écoute (LISTEN) ou que la connexion est établie (ESTABLISHED).
+   
    ```bash
    Active Internet connections (servers and established)
    Proto Recv-Q Send-Q Local Address           Foreign Address         State
@@ -125,6 +126,7 @@ La valeur **true** doit être retournée.
 
    Elle doit retourner des résultats, indiquant que l'agent est en écoute (LISTEN) ou que la connexion est établie (ESTABLISHED).
 
+  
   ```bash
    Active Internet connections (servers and established)
    Proto Recv-Q Send-Q Local Address           Foreign Address         State
@@ -159,6 +161,7 @@ La valeur **true** doit être retournée.
 
    Elle doit retourner des résultats, indiquant que le collecteur est en écoute (LISTEN) ou que la connexion est établie (ESTABLISHED).
 
+   
    ```bash
    Active Internet connections (servers and established)
    Proto Recv-Q Send-Q Local Address           Foreign Address         State
