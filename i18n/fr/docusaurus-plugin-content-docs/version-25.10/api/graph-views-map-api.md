@@ -161,7 +161,7 @@ Body: {
 
 ### Avec une authentification déléguée
 
-Un utilisateur connecté avec une authentification déléguée peut utiliser les APIs de MAP en remplaçant le jeton actuel par un jeton Centreon dans le header, comme suit :
+Un utilisateur peut utiliser les APIs de MAP en utilisant un jeton Centreon, comme ci-dessous dans le header :
 
 ```
 Headers {
@@ -171,7 +171,7 @@ Headers {
 }
 ```
 
-Remplacer ``Authorization = Bearer \{jwtToken\}`` par ``X-AUTH-TOKEN = your-centreon-token``.
+Remplacer ``Authorization = Bearer \{jwtToken\}`` par ``X-AUTH-TOKEN = your-centreon-token``. Assurez-vous que le jeton n'est pas révoqué ou expiré.
 
 ## Pour plus d'informations
 
