@@ -317,7 +317,7 @@ Le plugin apporte les modes suivants :
 | container-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/docker/restapi/mode/containerusage.pm)] | App-Docker-Container-Usage-Restapi-custom     |
 | list-containers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/docker/restapi/mode/listcontainers.pm)] | Utilisé pour la découverte de services        |
 | node-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/docker/restapi/mode/nodestatus.pm)]         | App-Docker-Node-Status-Restapi-custom         |
-| service-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/docker/restapi/mode/servicestatus.pm)]   | Pas utilisé dans ce connecteur de supervision |
+| service-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/docker/restapi/mode/servicestatus.pm)]   | Non utilisé dans ce connecteur de supervision |
 
 ### Options disponibles
 
