@@ -13,7 +13,7 @@ Les tableaux de bord sont un moyen de visualiser en un coup d’oeil des informa
 
 Dans Quanta, vous pouvez appartenir à plusieurs organisations, et chaque organisation peut avoir plusieurs sites internet. Les tableaux de bord vous permettent d’afficher n’importe quelles cartes de Quanta auxquelles vous avez accès.
 
-![Exemple de cartes issues de 2 sites dans 2 organisations différentes](Les%20tableaux%20de%20bord%20866b281e9b014c0791275231bd7066ca/app.quanta.io_app_dashboards_32203_from1658048160tonow.png)
+![image](../assets/getting-started/dashboards-1.png)
 
 Exemple de cartes issues de 2 sites dans 2 organisations différentes
 
@@ -25,7 +25,7 @@ Au sein de votre organisation, certaines personnes vont attendre des information
 
 Vous pouvez créer des tableaux de bord et les partager avec votre organisation afin que tous ceux qui sont dans votre organisation y ai accès.
 
-![Capture d’écran 2022-07-18 à 11.04.49.png](Les%20tableaux%20de%20bord%20866b281e9b014c0791275231bd7066ca/Capture_decran_2022-07-18_a_11.04.49.png)
+![image](../assets/getting-started/dashboards-2.png)
 
 Dans la liste de vos tableaux de bord, vous verrez en premier vos tableaux de bord privés. En cliquant sur le cadenas, vous accédez aux options de partage pour choisir avec quelle organisation le partager.
 

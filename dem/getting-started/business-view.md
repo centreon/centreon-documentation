@@ -7,12 +7,12 @@ title: La vue Business
 
 Cette section permet l’analyse des indicateurs “Métiers” du site. Pour y accéder, rendez-vous dans le menu de gauche, puis ***Business*** :
 
-![quanta-menu-business2.jpg](La%20vue%20Business%20b6700810216b43a3b0e7bacabb078bde/quanta-menu-business2.jpg)
+![image](../assets/getting-started/business-view-1)
 
 Pré-requis d’utilisation :
 
 - avoir une licence Quanta **Business**, **Full** ou **Enterprise**.
-- avoir synchronisé les données votre compte Quanta avec votre compte Google Analytics
+- avoir synchronisé les données votre compte Quanta avec votre compte Google Analytics.
 
 Les **bénéfices clés** apportés par la vue Business sont :
 

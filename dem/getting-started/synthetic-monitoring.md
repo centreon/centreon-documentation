@@ -5,7 +5,7 @@ title: Le Monitoring Synthétique (ou “Parcours Utilisateurs”)
 
 # Le Monitoring Synthétique (ou “Parcours Utilisateurs”)
 
-![Untitled](Le%20Monitoring%20Synth%C3%A9tique%20(ou%20%E2%80%9CParcours%20Utilisateu%2005689609e69346d39f20f0b4d92433a8/Untitled.png)
+![image](../assets/getting-started/synthetic-monitoring-1.png)
 
 Le Monitoring Synthétique consiste à naviguer à fréquence régulière sur un site cible afin :
 
@@ -20,7 +20,7 @@ La notion de “**parcours type**” est centrale dans l’utilisation du Monito
 
 Voici un exemple de parcours type, pour un site ecommerce :
 
-![Untitled](Le%20Monitoring%20Synth%C3%A9tique%20(ou%20%E2%80%9CParcours%20Utilisateu%2005689609e69346d39f20f0b4d92433a8/Untitled%201.png)
+![image](../assets/getting-started/synthetic-monitoring-2.png)
 
 Ces parcours peuvent être effectués dans plusieurs conditions différentes, par exemple :
 
@@ -34,6 +34,4 @@ De cette manière, si un changement structurel du site (ex: nouvelle mise en pro
 
 Le dysfonctionnement peut d’ailleurs ne pas être une erreur de fonctionnement, mais un **ralentissement sévère** à l’une des étapes, ce qui induirait une baisse drastique de l’expérience utilisateur et une potentielle perte immédiate de conversion. C’est pourquoi il est capital d’obtenir l’information **en temps réel** dans ce type de situation.
 
-Pour compléter cet article, vous trouverez ci-dessous une vidéo montrant l’utilisation des Parcours Utilisateurs dans Quanta :
-
-[https://youtu.be/My1FGpvhhWM](https://youtu.be/My1FGpvhhWM)
+Pour compléter cet article, vous trouverez ci-dessous une vidéo montrant l’utilisation des [Parcours Utilisateurs dans Quanta](https://youtu.be/My1FGpvhhWM).

@@ -1,6 +1,6 @@
 ---
 id: install-php-magento-orocommerce-profiler
-title: Checklist d'installation
+title: Installer le profiler PHP / Magento / OroCommerce
 --- 
 
 # Installer le profiler PHP / Magento / OroCommerce
@@ -12,7 +12,7 @@ Le module PHP Quanta se présente sous la forme d'une extension PHP et vous perm
 <aside>
 ⚠️ Le profiler nécessite ****l’installation de l’agent système. Référez-vous à la page dédiée pour installer l’agent.
 
-[Installer les agents systèmes](Installer%20les%20agents%20syst%C3%A8mes%200b72daf5790f48cebc84ee760b81ef37.md)
+[Installer les agents systèmes](./install-system-agents.md)
 
 </aside>
 
@@ -159,6 +159,6 @@ Dans le cas d'utilisation d'un CMS Magento (v1 ou 2) ou de la plateforme OroComm
 <aside>
 💡 Les métriques avancées (Apache, MySQL, Redis, etc…) sont à installer à part. Référez-vous à la page dédiée:
 
-[Ajouter les métriques avancées](Ajouter%20les%20m%C3%A9triques%20avanc%C3%A9es%202661aa6dad7f4b4487bc0a53513b8445.md)
+[Ajouter les métriques avancées](./add-advanced-metrics.md)
 
 </aside>

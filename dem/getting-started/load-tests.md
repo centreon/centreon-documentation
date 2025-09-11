@@ -9,7 +9,7 @@ Cette section permet l’analyse du comportement de la plateforme qui héberge v
 
 Réaliser un Test de Montée en Charge (ou “TMC” pour les intimes) consiste à lancer, directement depuis Quanta, un grand nombre de navigateurs web en parallèle et les faire interagir avec un site Internet afin de “stresser” volontairement la plateforme et l’application web.
 
-![TMC.jpg](Les%20tests%20de%20mont%C3%A9e%20en%20charge%20d6d2731e766244a68fc15ec31606106e/TMC.jpg)
+![image](../assets/getting-started/load-tests-1.png)
 
 En quelques clics, il est donc possible de reproduire les conditions d’un jour de **très grande affluence** afin d’analyser volontairement le comportement du site dans ces conditions.
 

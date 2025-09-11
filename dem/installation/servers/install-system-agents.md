@@ -16,7 +16,7 @@ La remontée d’information vers l’application QUANTA nécessite l’installa
 
 Les agents systèmes doivent pouvoir communiquer avec notre infrastructure. Retrouvez nos adresses IPs sur la page dédiée:
 
-[Les adresses IP de Quanta](Les%20adresses%20IP%20de%20Quanta%20fe266c2b790649f28b33d1c9c0a1a51a.md)
+[Les adresses IP de Quanta](../quanta-ip-addresses.md)
 
 </aside>
 
@@ -216,7 +216,7 @@ Vous devriez voir apparaître des données système dans Quanta une minute plus 
 
 L'utilisation de l'agent Quanta est tout à fait compatible avec les infrastructures “conteneurisées", néanmoins **elle nécessite une légère variante dans le processus d'installation**.
 
-[Configuration de nos agents pour le cloud](Configuration%20de%20nos%20agents%20pour%20le%20cloud%202108650de9ca42e2bd1efc2bf0ed9b2c.md)
+[Configuration de nos agents pour le cloud](cloud-configuration-of-agents.md)
 
 ### Explications
 
@@ -267,4 +267,4 @@ Vous pouvez désormais installer les modules applicatifs pour obtenir des métri
 
 En cas de doute, vous pouvez vous reportez à la checklist d’installation :
 
-[Checklist d’installation de Quanta](Checklist%20d%E2%80%99installation%20de%20Quanta%2081ec0249e8064845ab0059b0fede83b6.md)
+[Checklist d’installation de Quanta](../installation-checklist.md)

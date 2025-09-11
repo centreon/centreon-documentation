@@ -10,7 +10,7 @@ L'agent Quanta dispose de modules (ou agents applicatifs), permettant de récup�
 <aside>
 ⚠️ Ces agents applicatifs sont à installer **après** l’installation de l’agent système. Référez-vous à la page dédiée pour installer l’agent.
 
-[Installer les agents systèmes](Installer%20les%20agents%20syst%C3%A8mes%200b72daf5790f48cebc84ee760b81ef37.md)
+[Installer les agents systèmes](./install-system-agents.md)
 
 </aside>
 
@@ -237,6 +237,6 @@ Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
 <aside>
 💡 Le profiler PHP est à installer à part. Référez-vous à la page dédiée:
 
-[Installer le profiler PHP / Magento / OroCommerce](Installer%20le%20profiler%20PHP%20Magento%20OroCommerce%2015ba69c7c03f4aad8bd54e10d5ee8d61.md)
+[Installer le profiler PHP / Magento / OroCommerce](./install-php-magento-orocommerce-profiler.md)
 
 </aside>

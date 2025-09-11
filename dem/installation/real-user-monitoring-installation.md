@@ -30,13 +30,13 @@ Le Real User Monitoring ou RUM, nécessite l’installation d’un tag javascrip
 
 Aller dans la configuration
 
-![Configuration](Installer%20le%20Real%20User%20Monitoring%20fa29c4e7154540579d91d32719616546/app.quanta.io_app_settings_sites_45_integrations_.png)
+![image](../assets/getting-started/install-rum-1.png)
 
 Configuration
 
 Aller dans l’onglet *“Intégrations”*
 
-![Intégrations](Installer%20le%20Real%20User%20Monitoring%20fa29c4e7154540579d91d32719616546/app.quanta.io_app_settings_sites_45_integrations_%201.png)
+![image](../assets/getting-started/install-rum-2.png)
 
 Intégrations
 

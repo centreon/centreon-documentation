@@ -7,7 +7,7 @@ title: Checklist de configuration de Quanta
 
 Cette documentation sous-entend que vous avez réalisé l’installation de Quanta. Référez-vous à la page d’installation:
 
-[Checklist d’installation de Quanta](Checklist%20d%E2%80%99installation%20de%20Quanta%2081ec0249e8064845ab0059b0fede83b6.md)
+[Checklist d’installation de Quanta](../installation/installation-checklist.md)
 
 # Inviter les utilisateurs et configurer l’expiration des mots de passes
 
@@ -15,13 +15,13 @@ Les licences Quanta ne contiennent pas de limites de nombre d’utilisateurs. No
 
 La procédure et la gestion des utilisateurs est détaillée sur cette page:
 
-[Gérez vos utilisateurs et leurs droits](G%C3%A9rez%20vos%20utilisateurs%20et%20leurs%20droits%20b61090f390964d2fb8f07a12cc38678e.md)
+[Gérez vos utilisateurs et leurs droits](./manage-users-and-rights.md)
 
 # Configurer l’évaluation du CO2 émis
 
 Pour évaluer le CO2, Quanta a besoin de quelques informations. Suivez le guide sur cette page: 
 
-[Configurer la Sobriété Numérique](Configurer%20la%20Sobri%C3%A9t%C3%A9%20Num%C3%A9rique%201ec660c2230a4d75add0114659c5da20.md)
+[Configurer la Sobriété Numérique](./configure-digital-sobriety.md)
 
 # Suivi du chiffre d’affaires et des manques à gagner
 
@@ -29,7 +29,7 @@ Quanta peut récupérer le chiffre d’affaires et les taux de conversion depuis
 
 Pour cela vous devez donner un accès en lecture à votre compte Google Analytics. Cette page détaille comment configurer ce lien:
 
-[Configurer Google Analytics avec Quanta](Configurer%20Google%20Analytics%20avec%20Quanta%20351e4894bacd4d09bb5e99ca52f3e51a.md)
+[Configurer Google Analytics avec Quanta](./configure-google-analytics.md)
 
 # Parcours utilisateurs
 
@@ -37,7 +37,7 @@ Les parcours utilisateurs peuvent être réalisés par le support Quanta. Demand
 
 Retrouver la page de documentation pour les parcours utilisateurs ici: 
 
-[Création d’un scénario (”Parcours Utilisateur”)](Cr%C3%A9ation%20d%E2%80%99un%20sc%C3%A9nario%20(%E2%80%9DParcours%20Utilisateur%E2%80%9D)%20dcdc4e44b9af44fd892dd834e2d0a452.md)
+[Création d’un scénario (”Parcours Utilisateur”)](./user-journey/create-a-scenario.md)
 
 # Alertes et rapports
 
@@ -47,4 +47,4 @@ Les alertes et les rapports se configurent sur le même écran dans *Configurati
 
 Vous pouvez retrouver la procédure complète sur les pages:
 
-[Recevoir et configurer les alertes](Recevoir%20et%20configurer%20les%20alertes%20902c187d638241c3856bad5e1f844239.md)
+[Recevoir et configurer les alertes](./receive-and-configure-alerts.md)

@@ -9,13 +9,13 @@ Les alertes sont accessibles **dans toutes les licences par email**.
 
 Certaines licences permettent de recevoir des alertes **par SMS, par Slack, ou par webhooks** (Microsoft Teams, Google Chat, Mattermost...). Pour souscrire à cette option, contactez votre interlocuteur commercial ou le support: 
 
-[Contacter le support Quanta](Contacter%20le%20support%20Quanta%20a3b36767f3d143c8bbba932fcddf55cd.md)
+[Contacter le support Quanta](../getting-started/contact-support.md)
 
 # Configurer les moyens de communication
 
 Les notifications sont **personnelles**. Pour qu’un utilisateur reçoive les emails, les SMS ou Slack, il suffit de configurer dans sa page profil les informations.
 
-![Page profil](Recevoir%20et%20configurer%20les%20alertes%20902c187d638241c3856bad5e1f844239/app.quanta.io_app_profile.png)
+![image](../assets/configuration/receive-and-configure-alerts-1.png)
 
 Page profil
 
@@ -24,7 +24,7 @@ Pour envoyer une notification dans un canal Teams, Google Chat, ou d’autres lo
 <aside>
 💡 Si vous souhaitez envoyer des notifications à un email d’équipe, vous pouvez créer un utilisateur utilisant cet email d’équipe. Référez-vous à la page dédiée:
 
-[Gérez vos utilisateurs et leurs droits](G%C3%A9rez%20vos%20utilisateurs%20et%20leurs%20droits%20b61090f390964d2fb8f07a12cc38678e.md)
+[Gérez vos utilisateurs et leurs droits](./manage-users-and-rights.md)
 
 </aside>
 
@@ -32,11 +32,11 @@ Pour envoyer une notification dans un canal Teams, Google Chat, ou d’autres lo
 
 Vous pouvez accéder à l’écran de configuration en cliquant sur les trois petits points au-dessus d’un parcours utilisateur, puis sur *Alerting*.
 
-![app.quanta.io_app_sites_2182_uj_from=1657807500&to=now.png](Recevoir%20et%20configurer%20les%20alertes%20902c187d638241c3856bad5e1f844239/app.quanta.io_app_sites_2182_uj_from1657807500tonow.png)
+![image](../assets/configuration/receive-and-configure-alerts-2.png)
 
 Vous pouvez aussi accéder à l’écran de configuration soit en cliquant sur *Configuration* puis *Alerting*.
 
-![Accès à l’alerting depuis la configuration](Recevoir%20et%20configurer%20les%20alertes%20902c187d638241c3856bad5e1f844239/app.quanta.io_app_settings_sites_10486_alerting.png)
+![image](../assets/configuration/receive-and-configure-alerts-3.png)
 
 Accès à l’alerting depuis la configuration
 
@@ -46,7 +46,7 @@ Accès à l’alerting depuis la configuration
 
 Les utilisateurs peuvent définir les périodes pendant lesquelles ils ne reçoivent pas d’alertes.
 
-![Exemple de planning](Recevoir%20et%20configurer%20les%20alertes%20902c187d638241c3856bad5e1f844239/app.quanta.io_app_profile_(1).png)
+![image](../assets/configuration/receive-and-configure-alerts-4.png)
 
 Exemple de planning
 
@@ -58,13 +58,13 @@ Sélectionnez la façon dont vous souhaitez être alerté (SMS/Email/Slack). Voi
 
 ### Email
 
-![Exemple d’alerte par email](Recevoir%20et%20configurer%20les%20alertes%20902c187d638241c3856bad5e1f844239/capture-alerte-email-exemple1.png)
+![image](../assets/configuration/receive-and-configure-alerts-5.png)
 
 Exemple d’alerte par email
 
 ### SMS
 
-![Exemple d’alerte par SMS](Recevoir%20et%20configurer%20les%20alertes%20902c187d638241c3856bad5e1f844239/capture-alerte-sms-exemple1.png)
+![image](../assets/configuration/receive-and-configure-alerts-6.png)
 
 Exemple d’alerte par SMS
 
@@ -73,11 +73,11 @@ Exemple d’alerte par SMS
 En complément des alertes par e-mail ou SMS, Quanta permet aux utilisateurs de recevoir leurs alertes via un **webhook**, offrant ainsi une plus grande flexibilité pour l'intégration avec d'autres outils et systèmes. Lorsqu'un incident est détecté sur une application web surveillée, Quanta peut envoyer une requête **HTTP POST** à une URL spécifiée par l'utilisateur. Cette URL peut être protégée par un accès **htaccess**, et l'utilisateur peut également définir des **headers spécifiques** si nécessaire.
 La configuration de cette URL est disponible en cliquant sur le mot “Webhook” d’une alerte nouvellement créée ou pré-existante, puis en cliquant sur l’icone “**+**” (**Créer un webhook**) :
 
-![Capture d’écran 2025-02-11 à 18.04.32.png](Recevoir%20et%20configurer%20les%20alertes%20902c187d638241c3856bad5e1f844239/Capture_decran_2025-02-11_a_18.04.32.png)
+![image](../assets/configuration/receive-and-configure-alerts-7.png)
 
 Ensuite il suffit de rentrer l’URL de votre choix et les éventuels paramètres de connexion htaccess (si l’API est sécurisée par un Htaccess) :
 
-![Capture d’écran 2025-02-11 à 18.08.17.png](Recevoir%20et%20configurer%20les%20alertes%20902c187d638241c3856bad5e1f844239/Capture_decran_2025-02-11_a_18.08.17.png)
+![image](../assets/configuration/receive-and-configure-alerts-8.png)
 
 Le corps de la requête POST qui sera envoyée en cas d’alerte contient un **payload JSON** avec des informations détaillées sur l'alerte, permettant une exploitation automatisée des données. Voici un exemple du format envoyé :
 
@@ -187,4 +187,4 @@ Il n’y a pas de quotas pour les emails, les webhooks et les notifications Slac
 
 Pour voir votre crédit de SMS, aller dans *Configuration*, puis dans l’onglet *Site*. Vous trouverez votre quota dans la partie *Alertes & Rapports*
 
-![app.quanta.io_app_settings_sites_10220_edit.png](Recevoir%20et%20configurer%20les%20alertes%20902c187d638241c3856bad5e1f844239/app.quanta.io_app_settings_sites_10220_edit.png)
+![image](../assets/configuration/receive-and-configure-alerts-9.png)

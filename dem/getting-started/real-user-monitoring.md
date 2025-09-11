@@ -5,11 +5,11 @@ title: Le Real User Monitoring (ou RUM)
 
 # Le Real User Monitoring (ou RUM)
 
-![Untitled](Le%20Real%20User%20Monitoring%20(ou%20RUM)%204c122a6a8526461fbe31e9da5a536641/Untitled.png)
+![image](../assets/getting-started/rum-1.png)
 
 Appelé “RUM”🍹 pour les intimes, le “Real User Monitoring” consiste à observer et analyser l**’expérience perçue par les internautes réels**, et ce directement depuis leurs navigateurs quels qu’ils soient.
 
-⚠️ Il est important de noter que :
+Il est important de noter que :
 
 - cette fonctionnalité implique l’ajout d’un **tag externe** dans la page, qui est conçu pour être chargé de façon **asynchrone** et être **extrêmement léger dans son fonctionnement** afin de ne pas ralentir la navigation de l’internaute sur le site.
 - le type de données remontées par le navigateur grâce au tag Quanta ainsi que la manière dont Quanta enregistre ces éléments dans sa base de donnée garantissent **l’exclusion du tag Quanta du périmètre de la GDPR**. En effet, les chiffres remontés via le tag sont purement techniques et **non nominatifs**. Le tableau de bord Quanta permet d’observer le comportement du site pour différents type de navigateurs (Chrome, Safari Mobile, EDGE, ...) mais sans possibilité de remonter à un internaute unique.
@@ -20,16 +20,11 @@ Les **bénéfices clés** apportés par le RUM sont :
 
 - une vue **objective** de la performance car mesurée **par les internautes eux-mêmes**. Exemple : si le site est majoritairement consulté par des internautes utilisant Safari et que le code du site fonctionne particulièrement mal sur celui-ci, il sera immédiatement visible qu’un problème **sur ce navigateur en particulier** impacte une majorité du trafic du site.
     
-    ![Untitled](Le%20Real%20User%20Monitoring%20(ou%20RUM)%204c122a6a8526461fbe31e9da5a536641/Untitled%201.png)
+![image](../assets/getting-started/rum-2.png)
     
-- une vue **exhaustive** de la performance pour **toutes les pages** consultées par les internautes. C’est une différence majeure par rapport au [Monitoring Synthétique](Le%20Monitoring%20Synth%C3%A9tique%20(ou%20%E2%80%9CParcours%20Utilisateu%2005689609e69346d39f20f0b4d92433a8.md) qui mesure certaines pages ou parcours de référence. A l’inverse, le collecteur de donnée RUM va enregistrer les métriques de performance (TTFB, Speed Index, etc.) **à chaque fois qu’un clic est réalisé** sur le site. Le résultat est la construction d’une vue croisée et actualisée en temps réel des pages les + consultées avec leurs notations respectives quant à la performance :
+- une vue **exhaustive** de la performance pour **toutes les pages** consultées par les internautes. C’est une différence majeure par rapport au [Monitoring Synthétique](./synthetic-monitoring.md) qui mesure certaines pages ou parcours de référence. A l’inverse, le collecteur de donnée RUM va enregistrer les métriques de performance (TTFB, Speed Index, etc.) **à chaque fois qu’un clic est réalisé** sur le site. Le résultat est la construction d’une vue croisée et actualisée en temps réel des pages les + consultées avec leurs notations respectives quant à la performance :
     
-    ![Untitled](Le%20Real%20User%20Monitoring%20(ou%20RUM)%204c122a6a8526461fbe31e9da5a536641/Untitled%202.png)
+![image](../assets/getting-started/rum-3.png)
     
 
-<aside>
-➡️
-
-A suivre : comment [Installer le Real User Monitoring](Installer%20le%20Real%20User%20Monitoring%20fa29c4e7154540579d91d32719616546.md) 
-
-</aside>
+> A suivre : comment [Installer le Real User Monitoring](../installation/real-user-monitoring-installation.md).

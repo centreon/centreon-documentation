@@ -13,11 +13,11 @@ Si c'est votre cas alors cet article est fait pour vous, vous y découvrirez com
 
 Afin de bien comprendre la suite vous trouverez  le guide d'installation standard de notre agent est ici:
 
-[Installer les agents systèmes](Installer%20les%20agents%20syst%C3%A8mes%200b72daf5790f48cebc84ee760b81ef37.md)
+[Installer les agents systèmes](./install-system-agents.md)
 
  Et le guide d'installation de notre module PHP (si vous utilisez cette technologie) ici:
 
-[Installer le profiler PHP / Magento / OroCommerce](Installer%20le%20profiler%20PHP%20Magento%20OroCommerce%2015ba69c7c03f4aad8bd54e10d5ee8d61.md)
+[Installer le profiler PHP / Magento / OroCommerce](./install-php-magento-orocommerce-profiler.md)
 
 # Dynamisation pour le cloud
 
@@ -39,4 +39,4 @@ Par exemple, dans le cas de RDS il vous suffit de déployer l'agent "quanta-agen
 
 De plus si vous utilisez plusieurs instances de ElastiCache ou équivalent (plusieurs types de cache ainsi que sessions) vous pouvez facilement configurer l'agent Redis (ou Varnish ou Memcached) afin de lui indiquer les différentes bases à cibler. Le guide pour ce point se trouve là:
 
-[Ajouter les métriques avancées](Ajouter%20les%20m%C3%A9triques%20avanc%C3%A9es%202661aa6dad7f4b4487bc0a53513b8445.md)
+[Ajouter les métriques avancées](./add-advanced-metrics.md)
