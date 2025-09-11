@@ -1,13 +1,13 @@
 ---
 id: applications-vtom-restapi
-title: VTOM Rest API
+title: Absyss VTOM Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Abyss VTOM Rest API** connector through the
+The following monitoring connectors will be installed when you install the **Absyss VTOM Rest API** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -81,15 +81,15 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 To control your VTOM, the Rest API must be configured.
 
-The Pack supports following authentication:
+The connector supports following authentication:
 * username/password
 * direct token
 
-At least VTOM 6.6.1a is mandatory for the Pack:
+At least VTOM 6.6.1a is mandatory for the connector:
 * /auth/1.0/authorize
 * /monitoring/1.0/jobs/status
 
-For previous VTOM version, please use **legacy** Plugin mode.
+For previous VTOM version, please use **legacy** plugin mode.
 
 ## Installer le connecteur de supervision
 
@@ -134,7 +134,7 @@ yum install centreon-pack-applications-vtom-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Abyss VTOM Rest API** connector through
+2. Whatever the license type (*online* or *offline*), install the **Absyss VTOM Rest API** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
@@ -228,7 +228,7 @@ yum install centreon-plugin-Applications-Vtom-Restapi
 | CRITICALERRORS       | Threshold                                                                                                                                                                                    |                         |           |
 | WARNINGFINISHED      | Threshold                                                                                                                                                                                    |                         |           |
 | CRITICALFINISHED     | Threshold                                                                                                                                                                                    |                         |           |
-| WARNINGLONG          | Set warning threshold for long jobs You can use the following variables: %\{name\}, %\{status\}, %\{elapsed\}, %\{application\}                                                              | none                    |           |
+| WARNINGLONG          | Set warning threshold for long jobs. You can use the following variables: %\{name\}, %\{status\}, %\{elapsed\}, %\{application\}                                                             | none                    |           |
 | CRITICALLONG         | Set critical threshold for long jobs. You can use the following variables: %\{name\}, %\{status\}, %\{elapsed\}, %\{application\}                                                            | none                    |           |
 | WARNINGNOTSCHEDULED  | Threshold                                                                                                                                                                                    |                         |           |
 | CRITICALNOTSCHEDULED | Threshold                                                                                                                                                                                    |                         |           |

@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Abyss VTOM Rest API** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Absyss VTOM Rest API** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -51,7 +51,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle           | Description       |
 |:--------------------------|:------------------|
-| App-Vtom-Restapi-Job-Name | Découvre les Jobs |
+| App-Vtom-Restapi-Job-Name | Découvre les jobs |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -82,15 +82,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 Afin de contrôler votre VTOM, l'API Rest doit être configurée.
 
-Le Pack supporte les méthodes d'authentification:
+Le connecteur supporte les méthodes d'authentification:
 * par utilisateur et mot de passe
 * par token directement
 
-La version minimum VTOM 6.6.1a est nécessaire pour le bon fonctionnement du Pack:
+La version minimum VTOM 6.6.1a est nécessaire pour le bon fonctionnement du connecteur :
 * /auth/1.0/authorize
 * /monitoring/1.0/jobs/status 
 
-Pour les versions antérieures, il est nécessaire d'utiliser le mode **legacy** du Plugin.
+Pour les versions antérieures, il est nécessaire d'utiliser le mode **legacy** du plugin.
 
 ## Installer le connecteur de supervision
 
@@ -135,7 +135,7 @@ yum install centreon-pack-applications-vtom-restapi
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Abyss VTOM Rest API**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Absyss VTOM Rest API**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -227,7 +227,7 @@ yum install centreon-plugin-Applications-Vtom-Restapi
 | CRITICALERRORS       | Threshold                                                                                                                                                                                    |                         |             |
 | WARNINGFINISHED      | Threshold                                                                                                                                                                                    |                         |             |
 | CRITICALFINISHED     | Threshold                                                                                                                                                                                    |                         |             |
-| WARNINGLONG          | Set warning threshold for long jobs You can use the following variables: %\{name\}, %\{status\}, %\{elapsed\}, %\{application\}                                                              | none                    |             |
+| WARNINGLONG          | Set warning threshold for long jobs. You can use the following variables: %\{name\}, %\{status\}, %\{elapsed\}, %\{application\}                                                             | none                    |             |
 | CRITICALLONG         | Set critical threshold for long jobs. You can use the following variables: %\{name\}, %\{status\}, %\{elapsed\}, %\{application\}                                                            | none                    |             |
 | WARNINGNOTSCHEDULED  | Threshold                                                                                                                                                                                    |                         |             |
 | CRITICALNOTSCHEDULED | Threshold                                                                                                                                                                                    |                         |             |
@@ -258,7 +258,13 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 /usr/lib/centreon/plugins/centreon_vtom_restapi.pl \
     --plugin=apps::vtom::restapi::plugin \
     --mode=jobs \
-    --help
+    --hostname='10.0.0.1' \
+    --api-username='my-username' \
+    --api-password='my-password' \
+    --filter-application='' \
+    --filter-environment='' \
+    --filter-name='' \
+    --verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
