@@ -371,8 +371,8 @@ Le plugin apporte les modes suivants :
 |:-------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
 | job-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/veeam/wsman/mode/jobstatus.pm)]               | App-Veeam-Job-Status-WSMAN-custom             |
 | licenses [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/veeam/wsman/mode/licenses.pm)]                  | App-Veeam-Licenses-WSMAN-custom               |
-| list-jobs [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/veeam/wsman/mode/listjobs.pm)]                 | Pas utilisé dans ce connecteur de supervision |
-| list-repositories [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/veeam/wsman/mode/listrepositories.pm)] | Pas utilisé dans ce connecteur de supervision |
+| list-jobs [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/veeam/wsman/mode/listjobs.pm)]                 | Non utilisé dans ce connecteur de supervision |
+| list-repositories [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/veeam/wsman/mode/listrepositories.pm)] | Non utilisé dans ce connecteur de supervision |
 | repositories [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/veeam/wsman/mode/repositories.pm)]          | App-Veeam-Repositories-WSMAN-custom           |
 | tape-jobs [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/veeam/wsman/mode/tapejobs.pm)]                 | App-Veeam-Tape-Jobs-WSMAN-custom              |
 | vsb-jobs [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/veeam/wsman/mode/vsbjobs.pm)]                   | App-Veeam-Vsb-Jobs-WSMAN-custom               |
