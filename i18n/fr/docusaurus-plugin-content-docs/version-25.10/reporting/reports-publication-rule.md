@@ -1,6 +1,6 @@
 ---
 id: reports-publication-rule
-title: Publishing your reports
+title: Publier vos rapports
 ---
 
 import Tabs from '@theme/Tabs';
