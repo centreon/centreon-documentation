@@ -27,13 +27,13 @@ Le temps bloquant est le temps de la tâche au-delà de ces 50ms. Le TBT est la 
 
 Par exemple, considérons ce thread principal:
 
-![](https://web-dev.imgix.net/image/admin/clHG8Yv239lXsGWD6Iu6.svg)
+![image](https://web-dev.imgix.net/image/admin/clHG8Yv239lXsGWD6Iu6.svg)
 
 Parmi les 5 tâches, 3 sont bloquantes: les 2 premières et la dernière.
 
 La première dure 250ms et génère donc 200ms de temps bloquant. La seconde dure 90ms, et génère 40ms de temps bloquant. La dernière dure 155ms et génère 105ms de temps bloquant.
 
-![](https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xKxwKagiz8RliuOI2Xtc.svg)
+![image](https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xKxwKagiz8RliuOI2Xtc.svg)
 
 Le TBT est de 345ms (la somme des temps bloquants), alors que le thread principal a duré 560ms (la somme de tous les temps).
 

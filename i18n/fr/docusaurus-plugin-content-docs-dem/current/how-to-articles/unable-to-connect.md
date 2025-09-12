@@ -27,10 +27,10 @@ Si vous avez oublié le mail que vous utilisez pour vous connecter à Quanta, vo
 
 Il est également possible que vous n'ayez pas encore de compte sur notre outil, auquel cas un administrateur de votre organisation (sur Quanta) pourra vous envoyer une invitation par mail, si besoin, la démarche à suivre est disponible ici :
 
-[Gérez vos utilisateurs et leurs droits](G%C3%A9rez%20vos%20utilisateurs%20et%20leurs%20droits%20b61090f390964d2fb8f07a12cc38678e.md)
+[Gérez vos utilisateurs et leurs droits](../configuration/manage-users-and-rights.md)
 
 # Nous contacter
 
 Si malgré cela vous éprouvez toujours des difficultés, n'hésitez pas à prendre directement contact avec notre support:
 
-[Contacter le support Quanta](Contacter%20le%20support%20Quanta%20a3b36767f3d143c8bbba932fcddf55cd.md)
+[Contacter le support Quanta](../getting-started/contact-support.md)

@@ -9,7 +9,7 @@ title: Gérez vos utilisateurs et leurs droits
 
 L’ensemble des manipulations présentées ici passe par le menu *Organisation*. Celui-ci est accessible dans le menu en haut à droite comme suit:
 
-![Raccourci vers le menu Organisation](G%C3%A9rez%20vos%20utilisateurs%20et%20leurs%20droits%20b61090f390964d2fb8f07a12cc38678e/Capture_decran_2022-07-27_a_11.22.15.png)
+![image](../assets/configuration/manage-users-and-rights-1.png)
 
 Raccourci vers le menu Organisation
 
@@ -45,7 +45,7 @@ En bas de cet écran, vous aurez accès à la liste des différents utilisateurs
 
 Pour ajouter l'utilisateur, cliquez sur l’icône à côté du rôle auquel vous voulez l’ajouter et saisissez l'adresse mail de l'utilisateur. S'il n'a pas encore d'accès à Quanta, il sera automatiquement invité à se créer un compte.
 
-![Capture d’écran 2022-07-27 à 11.24.24.png](G%C3%A9rez%20vos%20utilisateurs%20et%20leurs%20droits%20b61090f390964d2fb8f07a12cc38678e/Capture_decran_2022-07-27_a_11.24.24.png)
+![image](../assets/configuration/manage-users-and-rights-2.png)
 
 # **Changer les permissions d'un utilisateur**
 

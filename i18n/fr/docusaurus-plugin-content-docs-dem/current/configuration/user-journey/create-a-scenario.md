@@ -8,18 +8,18 @@ title: Création d’un scénario (”Parcours Utilisateur”)
 <aside>
 ⚠️ Vous pouvez vérifier qu’il vous reste suffisamment d’étapes dans la page Organisation
 
-![Untitled](Cr%C3%A9ation%20d%E2%80%99un%20sc%C3%A9nario%20(%E2%80%9DParcours%20Utilisateur%E2%80%9D)%20dcdc4e44b9af44fd892dd834e2d0a452/Untitled.png)
+![image](../../assets/configuration/user-journey/create-scenario-1.png)
 
 </aside>
 
 <aside>
 ⚠️ Vous devez disposer des droits Propriétaire ou Administrateur pour modifier vos scénarios. Vous pouvez vérifier dans votre page Profil
 
-![Untitled](Cr%C3%A9ation%20d%E2%80%99un%20sc%C3%A9nario%20(%E2%80%9DParcours%20Utilisateur%E2%80%9D)%20dcdc4e44b9af44fd892dd834e2d0a452/Untitled%201.png)
+![image](../../assets/configuration/user-journey/create-scenario-2.png)
 
 Pour les modifier, consultez:
 
-[Gérez vos utilisateurs et leurs droits](G%C3%A9rez%20vos%20utilisateurs%20et%20leurs%20droits%20b61090f390964d2fb8f07a12cc38678e.md)
+[Gérez vos utilisateurs et leurs droits](../manage-users-and-rights.md)
 
 </aside>
 
@@ -31,7 +31,7 @@ Le mode édition de parcours vous permet de modifier vos parcours ou d’en cré
 
 Si le site n’a pas de Parcours Utilisateur configuré, alors ce message s’affiche :
 
-![Untitled](Cr%C3%A9ation%20d%E2%80%99un%20sc%C3%A9nario%20(%E2%80%9DParcours%20Utilisateur%E2%80%9D)%20dcdc4e44b9af44fd892dd834e2d0a452/Untitled%202.png)
+![image](../../assets/configuration/user-journey/create-scenario-3.png)
 
 Vous pouvez cliquer sur *“Configurez votre parcours utilisateur maintenant !”* pour entrer en mode édition.
 
@@ -39,7 +39,7 @@ Vous pouvez cliquer sur *“Configurez votre parcours utilisateur maintenant !�
 
 Si un parcours existe**,** vous verrez un écran semblable à celui-ci:
 
-![Untitled](Cr%C3%A9ation%20d%E2%80%99un%20sc%C3%A9nario%20(%E2%80%9DParcours%20Utilisateur%E2%80%9D)%20dcdc4e44b9af44fd892dd834e2d0a452/Untitled%203.png)
+![image](../../assets/configuration/user-journey/create-scenario-4.png)
 
 Cliquez sur les 3 points et sur *Configurer* pour entrer en mode édition/création.
 
@@ -47,7 +47,7 @@ Cliquez sur les 3 points et sur *Configurer* pour entrer en mode édition/créat
 
 En bas de la page d’édition, vous trouverez un bouton pour créer un nouveau parcours:
 
-![Bouton d’action en mode édition](Cr%C3%A9ation%20d%E2%80%99un%20sc%C3%A9nario%20(%E2%80%9DParcours%20Utilisateur%E2%80%9D)%20dcdc4e44b9af44fd892dd834e2d0a452/app.quanta.io_app_settings_sites_45_user-journey_ids337.png)
+![image](../../assets/configuration/user-journey/create-scenario-5.png)
 
 Bouton d’action en mode édition
 
@@ -57,13 +57,13 @@ Quanta génère un nouveau parcours avec une seule étape: la navigation vers la
 
 Pour activer votre parcours, vous devez le sauvegarder. Pour cela, cliquer sur l’icône *Sauvegarder* ou sur le bouton au pied de votre parcours:
 
-![Options pour sauvegarder un parcours utilisateur](Cr%C3%A9ation%20d%E2%80%99un%20sc%C3%A9nario%20(%E2%80%9DParcours%20Utilisateur%E2%80%9D)%20dcdc4e44b9af44fd892dd834e2d0a452/app.quanta.io_app_settings_sites_45_user-journey_ids337_(1).png)
+![image](../../assets/configuration/user-journey/create-scenario-6.png)
 
 Options pour sauvegarder un parcours utilisateur
 
 Vous verrez un symbole de chargement dans le coin supérieur droit qui indique que votre parcours fonctionne mais que la sonde n’est pas encore passée depuis les dernières modifications
 
-![Indicateur de changements sauvegardés mais pas encore exécuté par la sonde](Cr%C3%A9ation%20d%E2%80%99un%20sc%C3%A9nario%20(%E2%80%9DParcours%20Utilisateur%E2%80%9D)%20dcdc4e44b9af44fd892dd834e2d0a452/app.quanta.io_app_settings_sites_45_user-journey_ids337_(2).png)
+![image](../../assets/configuration/user-journey/create-scenario-7.png)
 
 Indicateur de changements sauvegardés mais pas encore exécuté par la sonde
 
@@ -224,7 +224,7 @@ Permet d’activer / désactiver le profilage PHP sur ce parcours si vous avez l
 
 Vous pouvez retrouver la procédure d’installation des agents sur cette page: 
 
-[Checklist d’installation de Quanta](Checklist%20d%E2%80%99installation%20de%20Quanta%2081ec0249e8064845ab0059b0fede83b6.md)
+[Checklist d’installation de Quanta](../../installation/installation-checklist.md)
 
 ### Vérifier le certificat SSL
 
@@ -237,7 +237,7 @@ Permet d’activer / désactiver la vérification de conformité du certificat T
 
 Lorsque qu’un site n’est pas sécurisé, les clients peuvent voir un écran équivalent à celui-ci.
 
-![Exemple de page d’échec SSL](Cr%C3%A9ation%20d%E2%80%99un%20sc%C3%A9nario%20(%E2%80%9DParcours%20Utilisateur%E2%80%9D)%20dcdc4e44b9af44fd892dd834e2d0a452/chrome-error___chromewebdata_.png)
+![image](../../assets/configuration/user-journey/create-scenario-8.png)
 
 Exemple de page d’échec SSL
 

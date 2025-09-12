@@ -17,7 +17,7 @@ title: Intervalle de mesure
 
 L'intervalle de mesure d'un parcours utilisateur est configurable dans les paramètres avancés de chaque parcours.
 
-[Création d’un scénario (”Parcours Utilisateur”)](Cr%C3%A9ation%20d%E2%80%99un%20sc%C3%A9nario%20(%E2%80%9DParcours%20Utilisateur%E2%80%9D)%20dcdc4e44b9af44fd892dd834e2d0a452.md)
+[Création d’un scénario (”Parcours Utilisateur”)](../configuration/user-journey/create-a-scenario.md)
 
 # **Implications**
 

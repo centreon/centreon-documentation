@@ -7,7 +7,7 @@ title: Score de Sobriété Numérique
 
 Spécifications v1.1 (Avril 2023)
 
-![Untitled](Score%20de%20Sobri%C3%A9t%C3%A9%20Num%C3%A9rique%20f9a8d71286024729a626597a6223391a/Untitled.png)
+![Image](../assets/digital-sobriety/digital-sobriety-score-1.png)
 
 ## Contexte : l**a raison d’être du Score de Sobriété Numérique**
 
@@ -15,7 +15,7 @@ Chez Quanta, nous sommes convaincus que la transition écologique passe par une 
 
 Aujourd’hui le numérique représente 4% des gaz à effet de serre à l’échelle mondiale avec une tendance **en hausse de +8% par an**. Or dans le même temps, l’accord de Paris pour le climat exige d’engager une baisse annuelle de nos émissions, tous secteurs confondus, **de -7%** :
 
-![Untitled](Score%20de%20Sobri%C3%A9t%C3%A9%20Num%C3%A9rique%20f9a8d71286024729a626597a6223391a/Untitled%201.png)
+![Image](../assets/digital-sobriety/digital-sobriety-score-2.png)
 
 Bien qu’il soit utile pour décarboner d’autres industries, le numérique ne pourra donc pas échapper à une nécessaire baisse de ses propres émissions. Mais pour pouvoir s’améliorer, encore faut-il avoir **une mesure fiable et partagée**.
 
@@ -31,7 +31,7 @@ Les quelques indicateurs existants dans le domaine de la mesure de l’empreinte
 
 Le Score de Sobriété Numérique est donc une **notation globale** qui regroupe l’ensemble des impacts environnementaux liés à l’usage d’un site internet ou d’une application mobile avec une notation simplifiée sous forme d’un score sur 100, également exprimé de A à E, comme un produit alimentaire :
 
-[](https://lh6.googleusercontent.com/Bm68mZmtg1qh0ZU4z-jAkYdHnoOXCRV7aOayp23POfTmXppi97Ccc914RKt1_4ZiZA3swUVxK-vMrfqclGzFhUw2_S-OeY4hps11fwoczvsJDdiSq9flBFKrtrVpHWOj-4MI6CoTj1wFOgXize5BqEc)
+![Image](../assets/digital-sobriety/digital-sobriety-score-5.png)
 
 Pour davantage de précision, il convient de lire le score sous sa forme numérique. Voici le tableau de correspondance entre le score numérique et la notation en lettre :
 
@@ -99,7 +99,7 @@ Pour les équipes RSE souhaitant néanmoins obtenir une mesure de l’empreinte 
 
 ### Algor**ithme détaillé du Score de Sobriété Numérique via la méthode d’audit complet (version 1.1 - avril 2023)**
 
-![20241016-1-digital sobriety score - algo.jpg](Score%20de%20Sobri%C3%A9t%C3%A9%20Num%C3%A9rique%20f9a8d71286024729a626597a6223391a/20241016-1-digital_sobriety_score_-_algo.jpg)
+![Image](../assets/digital-sobriety/digital-sobriety-score-3.png)
 
 Le Score de Sobriété Numérique repose sur plusieurs critères, avec un système de pondération en arborescence permettant de valoriser chacun d’entre eux dans la notation globale.
 
@@ -154,7 +154,7 @@ Ce score compte pour 50% sur le Score de Sobriété Numérique. Il est lui-même
 
 Une fois l’ensemble des indicateurs mesuré, une pondération est effectuée en fonction de l’importance donnée à chaque critère d’un point de vue environnemental :
 
-[](https://lh4.googleusercontent.com/m1OZU5Q_y111cdyOMwLRoHhT9nqPilZVMX6m0O2ES6S7NMal8Be38Gp4BmsdnurVm4xRSlUPjYM0ERJBWGmQa7ZGu8NincEPQTLG4tLgKNyritBS5tPe4vupUQX12mN1YWw5Lkhl0mYn2JFjFWvKPF8)
+![Image](../assets/digital-sobriety/digital-sobriety-score-6.png)
 
 Pour obtenir la note correspondante à chaque sous-indicateur du score d'éco-conception, des tableaux de correspondance sont utilisés pour convertir les mesures en score (exemple : 28 points sur le score d’éco-conception pour 90ms dans la mesure du “Time To First Byte”). Ces tableaux de correspondance sont publiquement disponibles afin de permettre à chacun de calculer de bout en bout le Score de Sobriété Numérique. La source ayant permis l’établissement de ces tableaux de correspondance sont les base de données [HTTP Archive](https://httparchive.org/) et [Chrome UX report](https://developer.chrome.com/docs/crux/). et la méthode celle des quantiles de valeurs (par exemple : pour obtenir 30 points sur 30 sur la valeur “Time To First Byte”, le site doit se situer dans les 5% de l’ensemble du web ayant les valeurs les plus rapides sur cet indicateur).
 
@@ -181,7 +181,7 @@ Grâce à cette méthode, une même page web consultée en France, en Irlande ou
 
 Le résultat qui en découle du calcul, exprimé en CO2eq permet également de distinguer la part des différents périmètres (centre de données, réseau et terminaux des utilisateurs).
 
-[](https://lh6.googleusercontent.com/Ce4Km8R1sVVGMLcJ_knHa94FGdp9maJqUHow9Klbyn_mn1oJ4jKv7qPYVgUq3UXoOycXFq8eqccLSfHookTxH9jxckOSVZUnlSq0CHlrKMrZHOxRF66tlC6u3oWlqO2Xsg0uhHm4AaEQtZLVswc4z5k)
+![Image](../assets/digital-sobriety/digital-sobriety-score-7.png)
 
 ---
 
@@ -243,7 +243,7 @@ Enfin, la notation globale sur 100 du Score de Sobriété Numérique prend en co
 
 Chacun de ces 2 sous-indicateurs compte pour 50% de la note globale, de sorte à valoriser à la fois une faible empreinte carbone par clic, mais également le bon respect des règles de l’éco-conception :
 
-[](https://lh4.googleusercontent.com/saAFobbhyXMz9yDn4plit1_sx_i2abcxVX_YlT7j9KCjQHHKPMxuITLn0zX0F30ii1830FlMjH5lLnOVCBWDAgwTNN2MlObYGQbwyDF1iyYCBWqcMZNl6Mjfo9XB7zdpPxPtsTfBPY3VjX0RLnIzbEc)
+![Image](../assets/digital-sobriety/digital-sobriety-score-8.png)
 
 NB : Bien que la méthode de calcul et les pondérations soient identiques dans le cas d’un audit simple ou d’un audit complet, il est à noter que dans le cas de l’audit simple les calculs de Score d’éco-conception moyen et de l’Empreinte carbone moyenne par clic ne prennent en compte que les 10 principales pages du site. Se référer au premier chapitre “Comment est calculé le Score de Sobriété Numérique” pour plus d’informations.
 
@@ -251,7 +251,7 @@ NB : Bien que la méthode de calcul et les pondérations soient identiques dans 
 
 Quanta permet de fournir un Score de Sobriété Numérique sous une forme certifiée contenant un visuel récapitulatif pouvant être utilisé sur le site lui-même et/ou dans d’autres communications. Ce certificat est accompagné d’un rapport plus détaillé et contenant l’ensemble des mesures clés ayant donné lieu au calcul du score global.
 
-![Untitled](Score%20de%20Sobri%C3%A9t%C3%A9%20Num%C3%A9rique%20f9a8d71286024729a626597a6223391a/Untitled%202.png)
+![Image](../assets/digital-sobriety/digital-sobriety-score-4.png)
 
 Le rapport fourni sert à la fois à prouver l’origine de la mesure et du calcul ayant donné lieu à la fourniture du Score de Sobriété Numérique, mais également à guider les équipes digitales ou numérique responsable dans le choix des prochaines optimisations du site qui pourront améliorer son score.
 

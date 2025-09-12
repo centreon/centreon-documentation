@@ -138,7 +138,7 @@ module.exports = {
         type: 'generated-index',
       },
       items: [
-        { type: 'doc', id: 'digital-sobriety/carbon-footpring-evaluation-and-digital-sobriety' },
+        { type: 'doc', id: 'digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety' },
         { type: 'doc', id: 'digital-sobriety/digital-sobriety-score' },
         { type: 'doc', id: 'digital-sobriety/differences-with-eco-index' },
       ],

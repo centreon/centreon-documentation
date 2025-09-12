@@ -17,11 +17,11 @@ Une page qui commence à afficher des éléments au bout d’une seconde et char
 
 Tout ce que vous faites pour améliorer la vitesse de chargement devrait améliorer le Speed Index.
 
-A part cela, 2 autres éléments ont un impact fort sur le Speed Index:
+A part cela, 2 autres éléments ont un impact fort sur le Speed Index :
 
 ## Le TTFB
 
-[TTFB (”Time To First Byte”)](TTFB%20(%E2%80%9DTime%20To%20First%20Byte%E2%80%9D)%20f8c5ee69ec7f4e66acd716da92099386.md)
+[TTFB (”Time To First Byte”)](./time-to-first-byte.md)
 
 En réduisant le temps d’attente du premier octet, vous rapprochez dans le temps le moment où les éléments s’affichent.
 

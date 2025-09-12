@@ -9,7 +9,7 @@ title: Comprendre le fonctionnement des alertes dans Quanta
 
 Quanta peut vous alerter sur de nombreux sujets, si vous n'avez pas encore souscrit aux alertes, rendez-vous ici:
 
-[Recevoir et configurer les alertes](Recevoir%20et%20configurer%20les%20alertes%20902c187d638241c3856bad5e1f844239.md)
+[Recevoir et configurer les alertes](../../configuration/receive-and-configure-alerts.md)
 
 Cet article vise à être exhaustif sur les alertes que vous pouvez recevoir afin de bien les comprendre et vous permettre une meilleure analyse de ces dernières.
 

@@ -11,7 +11,7 @@ Il peut vous arriver de constater, en naviguant sur vos graphes Quanta, de voir 
 
 # Barres supérieures
 
-![app.quanta.io_app_sites_10362_uj_1406_speedIndex_from=1661479200&to=1661563860.png](Que%20signifient%20les%20barres%20vertes-jaunes-rouges%20et%20%20b6ebaefba54a4deb84a0b489eedf22f9/app.quanta.io_app_sites_10362_uj_1406_speedIndex_from1661479200to1661563860.png)
+![Image](../assets/how-to-articles/color-meaning-in-graphs-1.png)
 
 Au-dessus de la plupart des graphs, vous trouverez une barre supérieure de couleur verte, jaune, ou rouge. Chaque couleur a sa signification:
 
@@ -27,7 +27,7 @@ En passant votre souris sur les quartiers dans cette bande supérieure, Quanta m
 
 ## Barres rouges
 
-![app.quanta.io_app_sites_10362_uj_1406_speedIndex_from=1660948980&to=1661051220.png](Que%20signifient%20les%20barres%20vertes-jaunes-rouges%20et%20%20b6ebaefba54a4deb84a0b489eedf22f9/app.quanta.io_app_sites_10362_uj_1406_speedIndex_from1660948980to1661051220.png)
+![Image](../assets/how-to-articles/color-meaning-in-graphs-2.png)
 
 Ces barres rouges qui peuvent s'afficher sur vos scénarios mettent en évidence des erreurs qui ont pu se produire lors de l'exécution de celui-ci.
 

@@ -7,7 +7,7 @@ title: TTFB - Time To First Byte
 
 Le Time To First Byte (plus couramment appelé TTFB), ou “temps du premier octet” en français, est la mesure qui sépare l’émission de la **première requête** HTTP (demande initiale d’une page web) par le navigateur et le début de la réception de la réponse, soit la réception du premier octet de donnée :
 
-![TTFB.jpg](TTFB%20(%E2%80%9DTime%20To%20First%20Byte%E2%80%9D)%20f8c5ee69ec7f4e66acd716da92099386/TTFB.jpg)
+![image](../../assets/performance-analysis/metrics/ttfb-1.png)
 
 Ce temps représente donc la capacité d’un site web à produire et délivrer rapidement le code HTML de la page demandée.
 
@@ -24,7 +24,7 @@ Enfin, lorsque le TTFB est très long, en règle général il se produit car l�
 - les ressources cloud utilisées
 - l’impact environnementale de l’application
 
-Dans Quanta, le TTFB est visible dans les analyses synthétiques ([les “Parcours Utilisateurs”](https://www.notion.so/Le-Monitoring-Synth-tique-utilisation-70a60b39bf2445beb2ca67a25c70d83c?pvs=21)), mais également dans le [Real User Monitoring](Le%20Real%20User%20Monitoring%20(ou%20RUM)%204c122a6a8526461fbe31e9da5a536641.md).
+Dans Quanta, le TTFB est visible dans les analyses synthétiques des Parcours Utilisateurs, mais également dans le [Real User Monitoring](../../getting-started/real-user-monitoring.md).
 
 L’échelle de notation est la suivante :
 

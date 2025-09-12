@@ -117,7 +117,7 @@ qm3k_session="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 Pour récupérer ces paramètres, il suffit d’ouvrir la console “Network” dans Chrome au moment du chargement d’une page de l’interface Quanta, puis d’aller chercher les paramètres **csrf_token** et **qm3k_session** dans la requête HTTP effectuée par le navigateur web, comme ici :
 
-![Quanta-cookies.png](Automatiser%20l%E2%80%99activation%20d%C3%A9sactivation%20d%E2%80%99un%20sc%C3%A9nar%201fe417a17af24ae29bf427627e1ffcb9/Quanta-cookies.png)
+![image](../../assets/configuration/advanced-config/scenario-or-alert-via-api-1.png)
 
 Pour assurer une bonne sécurité des données du site dans Quanta, il est fortement conseillé de créer un compte utilisateur dédié à cet usage dans Quanta.
 

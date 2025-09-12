@@ -30,7 +30,7 @@ Les types d’éléments considérés sont:
 - `<img>`
 - `<image>` dans un élément `<svg>`
 - `<video>` via l’image d’illustration
-- Un élément avec une image de fond chargé via [`url(](https://developer.mozilla.org/docs/Web/CSS/url()))` (à l’inverse des gradients CSS)
+- Un élément avec une image de fond chargé via [`url`](https://developer.mozilla.org/docs/Web/CSS/url()) (à l’inverse des gradients CSS)
 - Des éléments de bloc contenant des noeuds de texte ou des textes inline.
 
 Des éléments additionnels (ex: `<svg>`, `<video>`) sont envisagés dans le standard à l’avenir.

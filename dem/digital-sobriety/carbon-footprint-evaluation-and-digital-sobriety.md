@@ -1,5 +1,5 @@
 ---
-id: carbon-footpring-evaluation-and-digital-sobriety
+id: carbon-footprint-evaluation-and-digital-sobriety
 title: Approche d’évaluation carbone et sobriété numérique dans Quanta
 --- 
 
@@ -13,13 +13,13 @@ Pour respecter ces principes et fournir une mesure d’impact carbone la plus pr
 
 - Le Score de Sobriété Numérique pour le score d’éco-conception, représenté par un score par page sur un total de 100 points
     
-    ![Mesure du score d’éco-conception dans Quanta pour un parcours utilisateur donné](Approche%20d%E2%80%99%C3%A9valuation%20carbone%20et%20sobri%C3%A9t%C3%A9%20num%C3%A9riqu%20535c966ec6bf448989ab738cf21e7f24/Untitled.png)
+    ![Image](../assets/digital-sobriety/carbon-footprint-1.png)
     
     Mesure du score d’éco-conception dans Quanta pour un parcours utilisateur donné
     
 - La méthode [Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/) pour l’estimation du coût en CO2eq émis par le téléchargement d’une page sur le réseau
     
-    ![Mesure de l’impact carbone, en CO2eq, réalisé via des requêtes synthétiques pour un parcours utilisateur donné](Approche%20d%E2%80%99%C3%A9valuation%20carbone%20et%20sobri%C3%A9t%C3%A9%20num%C3%A9riqu%20535c966ec6bf448989ab738cf21e7f24/Untitled%201.png)
+    ![Image](../assets/digital-sobriety/carbon-footprint-2.png)
     
     Mesure de l’impact carbone, en CO2eq, réalisé via des requêtes synthétiques pour un parcours utilisateur donné
     
@@ -27,7 +27,7 @@ Pour respecter ces principes et fournir une mesure d’impact carbone la plus pr
 
 Selon les fonctionnalités concernées, que cela soit pour la mesure d’impact carbone d’un parcours utilisateur donné sur le site, pour la mesure d’impact carbone de chacune des pages du site pondérées à leur fréquentation, ou encore l’affichage des pages ayant les plus gros leviers d’optimisations d’éco-conception à réaliser, Quanta va utiliser l’une ou l’autre de ces méthodes, et toujours de façon transparente.
 
-![Mesure globale d’un site Internet (score d’éco-conception et empreinte carbone) calculé sur la base du **trafic réel** dans le module Real User Monitoring de Quanta](Approche%20d%E2%80%99%C3%A9valuation%20carbone%20et%20sobri%C3%A9t%C3%A9%20num%C3%A9riqu%20535c966ec6bf448989ab738cf21e7f24/Untitled%202.png)
+  ![Image](../assets/digital-sobriety/carbon-footprint-3.png)
 
 Mesure globale d’un site Internet (score d’éco-conception et empreinte carbone) calculé sur la base du **trafic réel** dans le module Real User Monitoring de Quanta
 

@@ -1,6 +1,6 @@
 ---
 id: errors-and-unavailability-front-end
-title: Checklist d'installation
+title: Comprendre les erreurs & indisponibilités dans Quanta
 --- 
 
 # Comprendre les erreurs & indisponibilités dans Quanta
@@ -18,11 +18,11 @@ Lorsque les sondes Quanta détectent un incident sur votre scénario web, elles
 
 Vous pouvez visualiser ce screenshot en cliquant sur le graph dans la zone rouge et en sélectionnant l'option "voir le screenshot".
 
-![Capture d’écran 2022-09-12 à 14.54.37.png](Comprendre%20les%20erreurs%20&%20indisponibilit%C3%A9s%20dans%20Qua%20790f058b69df457592e4a07e53231380/Capture_decran_2022-09-12_a_14.54.37.png)
+![image](../assets/performance-analysis/errors-and-unavailability-1.png)
 
 Une fenêtre s'ouvre alors et vous montrera la page renvoyée lors de l'incident.
 
-![Capture d’écran 2022-09-12 à 14.57.45.png](Comprendre%20les%20erreurs%20&%20indisponibilit%C3%A9s%20dans%20Qua%20790f058b69df457592e4a07e53231380/Capture_decran_2022-09-12_a_14.57.45.png)
+![image](../assets/performance-analysis/errors-and-unavailability-2.png)
 
 ## **Pourquoi n’ai-je pas de screenshot dans les détails de l’un de mes incidents ?**
 

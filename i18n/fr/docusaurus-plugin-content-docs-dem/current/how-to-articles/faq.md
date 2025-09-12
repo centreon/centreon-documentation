@@ -7,7 +7,7 @@ title: FAQ
 
 ### **Quels sont les ports de firewall à ouvrir pour l'agent Quanta ?**
 
-Il est nécessaire pour que l'agent fonctionne, d'autoriser en sortie les connections HTTPS [vers nos IPs](https://support.quanta-monitoring.com/hc/fr/articles/203813211-Quelles-sont-les-adresses-IP-de-QUANTA-).
+Il est nécessaire pour que l'agent fonctionne, d'autoriser en sortie les connections HTTPS [vers nos IPs](../installation/quanta-ip-addresses.md).
 
 Pour l'installation des paquets il faudra également autoriser votre serveur à se connecter en HTTP à apt.quanta.io
 
