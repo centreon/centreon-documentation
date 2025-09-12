@@ -21,7 +21,7 @@ Vous pouvez envoyer les logs dans un autre fichier en remplacant la variable **f
 
 **J'ai Varnish sur mon serveur et j'ai installé le module Varnish mais je ne vois pas de données remonter, comment résoudre cela ?**
 
-Il est probable que l'instance Varnish que vous utilisez ne soit pas l'instance par défaut (c'est à dire que vous utilisez le flag "-n <nom>" pour lancer Varnish ainsi que pour utiliser les différentes commandes d'administration).
+Il est probable que l'instance Varnish que vous utilisez ne soit pas l'instance par défaut (c'est à dire que vous utilisez le flag "-n &lt;nom&gt;" pour lancer Varnish ainsi que pour utiliser les différentes commandes d'administration).
 
 Si c'est bien le cas, il vous suffit d'ajouter la configuration suivante dans le fichier /etc/quanta/modules.d/varnish.yml:
 
@@ -65,7 +65,7 @@ Pour varnish, le paramètre "instance" est également utilisé comme nom d'insta
 
 ### **Est-il possible de monitorer des services qui ne sont pas sur la même machine ?**
 
-Nous recommandons d'installer l'agent sur l'ensemble des serveurs de votre infrastructure, néanmoins si vous ne pouvez pas le faire sur certains de vos serveurs (base de données par exemple) et que vous souhaitez tout de même monitorer le service MySQL, vous pouvez changer le paramètre **host** dans la configuration de l'agent (*/etc/quanta/modules.d/<service>.yml*)
+Nous recommandons d'installer l'agent sur l'ensemble des serveurs de votre infrastructure, néanmoins si vous ne pouvez pas le faire sur certains de vos serveurs (base de données par exemple) et que vous souhaitez tout de même monitorer le service MySQL, vous pouvez changer le paramètre **host** dans la configuration de l'agent (*/etc/quanta/modules.d/&lt;service&gt;.yml*)
 
 ### **Mon serveur est mutualisé entre plusieurs sites qui ont chacun un abonnement Quanta, comment faire pour que les données soient visibles dans les 2 sites ?**
 

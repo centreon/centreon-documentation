@@ -8,7 +8,7 @@ title: Suivez et ajoutez les évènements de votre site dans Quanta
 <aside>
 💡 Cette page décrit comment ajouter vos propres commentaires via l’interface, mais il est également possible de les ajouter automatiquement (par exemple à chaque mise à jour). Rendez-vous sur cette page pour utiliser notre API:
 
-[Suivre automatiquement les événements de mise en production](Suivre%20automatiquement%20les%20%C3%A9v%C3%A9nements%20de%20mise%20en%20p%20f8560b2885dc4386a150b967388f8a4b.md)
+[Suivre automatiquement les événements de mise en production](../../installation/monitor-production-events.md)
 
 </aside>
 

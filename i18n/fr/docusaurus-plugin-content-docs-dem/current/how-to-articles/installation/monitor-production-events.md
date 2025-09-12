@@ -31,8 +31,8 @@ Vous devrez également spécifier un token API pour authentifier la requête. Ce
 
 Ce token devra être au choix:
 
-- Inséré dans le header HTTP "Authorization" sous la forme *Authorization: Token <votre_token>*
-- Passé directement dans la requête en ajoutant un paramètre ?*auth_token=<votre_token>* à la fin de l'URL
+- Inséré dans le header HTTP "Authorization" sous la forme "Authorization: Token &lt;votre_token&gt;"
+- Passé directement dans la requête en ajoutant un paramètre "?auth_token=&lt;votre_token&gt;" à la fin de l'URL
 
 ## Exemples d’utilisation
 

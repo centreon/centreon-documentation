@@ -7,7 +7,7 @@ title: La vue Business
 
 Cette section permet l’analyse des indicateurs “Métiers” du site. Pour y accéder, rendez-vous dans le menu de gauche, puis ***Business*** :
 
-![image](../assets/getting-started/business-view-1)
+![image](../assets/getting-started/business-view-1.png)
 
 Pré-requis d’utilisation :
 

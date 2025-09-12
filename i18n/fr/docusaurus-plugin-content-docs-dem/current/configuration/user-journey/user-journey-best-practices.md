@@ -130,7 +130,7 @@ iframe #my-form
     Certaines requêtes incluent des paramètres qui peuvent varier :
     
     - soit de temps à autre, ex: ID produit sur une étape dynamique
-    - soit systématiquement (ex: bypass de cache de type "?_=<timestamp>")
+    - soit systématiquement (ex: bypass de cache de type "?_=&lt;timestamp&gt;")
     
     Ce type de paramètres diminue la maintenabilité (voire peut causer des erreurs en cas de paramètre qui change à chaque fois). **L'idéal est de n'inclure que les paramètres qui sont nécessaires pour identifier spécifiquement la requête de la page,** auquel cas la sonde ne sera pas sensible aux paramètres supplémentaires qui pourraient être présents
     
@@ -181,16 +181,24 @@ iframe #my-form
     **:not()**
     
     Exemple 1 :
-    **.counter.qty:not(.empty)** : Class .qty sans la class empty (<div class="qty">)
+    **.counter.qty:not(.empty)** : Class .qty sans la class empty (&lt;div class="qty"&gt;)
     
     L'usage du :not() est particulièrement utile dans l'exemple ci-dessus pour indiquer que le panier n'est plus vide. On se rend d'ailleurs compte que le :not(...) peut servir à détecter la **disparition** d'une classe sur un élément ! Il faut alors bien penser le test de manière inversée.
     
     Exemple 2 : 
     
     Un autre exemple assez fréquent, il s'agit d'un bouton qui est grisé au départ et possède une classe ".disabled". Disons que le bouton a comme ID "product-addtocart-button". Dans le code HTML initial de la page, le bouton va ressembler à ça :
+
+    ```css
     <button id="product-addtocart-button" class="add-to-cart **disabled**">
+    ```
+
     ****Suite à une action sur le site (ex: choix d'une taille d'un produit), le bouton va se dégriser en se voyant supprimer sa classe "disabled", il devient :
+
+    ```css
     <button id="product-addtocart-button" class="add-to-cart">
+    ```
+
     On peut alors insérer un test dans le scénario qui vérifie l'apparition du sélecteur CSS suivant : **#product-addtocart-button:not(.disabled)**
     
     En effet, si on teste cette chaine avec la console de Chrome, alors que le bouton est grisé on voit que le sélecteur CSS ne renvoi rien. Par contre, dès que la taille du produit a été sélectionnée et que la classe .disabled disparait, alors le sélecteur CSS va renvoyer l'objet. Au sens du scénario Quanta, cet élément **#product-addtocart-button:not(.disabled)** apparait ! C'est donc un parfait test pour vérifier que le bouton d'ajout au panier est désormais dé-grisé, avant d'envisager de le cliquer.
@@ -198,7 +206,11 @@ iframe #my-form
     Exemple 3 :
     La formulation :not() peut s'appliquer à d'autres éléments que les classes. En l'occurence, Quanta surveille également l'apparition et la disparition des paramètres "disabled" ou "disable" au sein des objets du DOM, car il est fréquent que l'aspect "grisé" d'un bouton soit stocké sous forme d'un paramètre et non d'une classe (attention à ces subtilités qui sont spécifique à chaque site !).
     Vous pouvez donc avoir un bouton qui ressemble à ça :
+
+    ```css
     <button id="product-addtocart-button" class="add-to-cart" **disabled**>
+    ```
+
     Vous remarquez ici que le disabled est extérieur aux classes, c'est un autre "paramètre".
     Pour constater la disparition de ce paramètre "disabled", on peut donc attendre l'apparition de la chaine CSS suivante : 
     
@@ -206,12 +218,16 @@ iframe #my-form
     
     Attention, ce paramètre peut être également rempli avec une chaine, comme ceci : 
     
+    ```css
     <button id="product-addtocart-button" class="add-to-cart" **disabled="disabled"**>
+    ```
     
     Si c'est le cas, on peut imaginer que le site ne supprime pas le paramètre, mais le remplisse avec une chaine "false" quand il se dégrise, comme ceci :
     
+    ```css
     <button id="product-addtocart-button" class="add-to-cart" **disabled="false"**>
-    
+    ```
+
     Auquel cas, il conviendra de bien préciser la valeur du paramètre dans le not() dans notre chaine attendue comme ceci : 
     
     **#product-addtocart-button:not([disabled="disabled"])**
@@ -230,7 +246,7 @@ iframe #my-form
     
     **button[data-role="change-store"]**
     
-    Il est possible de désigner des objets en fonction des paramètres spécifiques qui les composent. Cette chaine permettra de cliquer sur l'élément de ce type : <button data-role="change-store">
+    Il est possible de désigner des objets en fonction des paramètres spécifiques qui les composent. Cette chaine permettra de cliquer sur l'élément de ce type : &lt;button data-role="change-store"&gt;
     
     ⚠️ Attention néanmoins, il est important de savoir que Quanta ne vérifie pas systématiquement **les changements d'états des paramètres** des objets de la page après avoir récupéré le code HTML initial. En effet, un compromis a du être fait en matière de performance lors de l'exécution des scénarios, et il a été choisi de surveiller les changements suivants :
     
@@ -245,9 +261,9 @@ iframe #my-form
     
     **button[id^="checkout-"]**
     
-    Ce sélecteur permet de dire "je souhaite récupérer les boutons de la page, dont l'ID **commence par** "checkout-". Cela permet par exemple de récupérer un bouton de ce type : <button id="checkout-920284853">
+    Ce sélecteur permet de dire "je souhaite récupérer les boutons de la page, dont l'ID **commence par** "checkout-". Cela permet par exemple de récupérer un bouton de ce type : &lt;button id="checkout-920284853"&gt;
     
-    On aurait pu mettre dans le scénario le sélecteur CSS "button#checkout-920284853", mais voyant le très grand chiffre qui figure sur la fin de cette ID, on peut largement supposer qu'il s'agit d'un paramètre généré automatiquement. La mention d'un objet comprenant un grand chiffre ou une chaine de caractère ayant l'air aléatoire est à éviter, car si ce chiffre est re-généré au moment d'une nouvelle mise en production sur le site, le scénario Quanta se mettra en erreur. Par exemple, si suite à la mise en production le bouton devient <button id="checkout-946202742">, alors notre chaine de sélection ne correspondra plus et ne trouvera pas le bouton.
+    On aurait pu mettre dans le scénario le sélecteur CSS "button#checkout-920284853", mais voyant le très grand chiffre qui figure sur la fin de cette ID, on peut largement supposer qu'il s'agit d'un paramètre généré automatiquement. La mention d'un objet comprenant un grand chiffre ou une chaine de caractère ayant l'air aléatoire est à éviter, car si ce chiffre est re-généré au moment d'une nouvelle mise en production sur le site, le scénario Quanta se mettra en erreur. Par exemple, si suite à la mise en production le bouton devient &lt;button id="checkout-946202742"&gt;, alors notre chaine de sélection ne correspondra plus et ne trouvera pas le bouton.
     A l'inverse, si nous avons utilisé la chaine **button[id^="checkout-"]** alors le scénario continuera d'identifier le bon bouton avec son chiffre pourtant modifié.
     Ces subtilités sont importantes pour éviter d'avoir à mener des maintenances trop récurrentes sur un scénario. Il y a une balance à trouver entre :
     
