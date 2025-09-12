@@ -50,10 +50,10 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                                             | Description                                            |
-|:------------------------------------------------------|:-------------------------------------------------------|
-| App-Monitoring-Quanta-Restapi-Userjourneys-Incidents  | Discover user journeys of a site to monitor incidents  |
-| App-Monitoring-Quanta-Restapi-Userjourneys-Statistics | Discover user journeys on a site to monitor statistics |
+| Rule name                                             | Description                                              |
+|:------------------------------------------------------|:---------------------------------------------------------|
+| App-Monitoring-Quanta-Restapi-Userjourneys-Incidents  | Discover user journeys for a site and monitor incidents  |
+| App-Monitoring-Quanta-Restapi-Userjourneys-Statistics | Discover user journeys for a site and monitor statistics |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -122,7 +122,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-In order to monitor your Quanta interface, it is necessary to [configure your Quanta interface](https://app.quanta.io/app/settings/organizations).
+In order to monitor Quanta, you must have [a valid API token](https://quantaio.notion.site/Automatically-track-events-0ba555d180e145b4bc2e116327fe8a2d#:~:text=Authentication%20and%20token%20generation), and [have user journeys configured in Quanta](https://quantaio.notion.site/Creation-of-a-scenario-or-User-Journey-bdd229fbe6d14ac885e9a3e91a8d57f1).
+Data from Real User Monitoring will only be accessible if you have completed [the integration of Quanta's RUM TAG](https://quantaio.notion.site/Installer-le-Real-User-Monitoring-fa29c4e7154540579d91d32719616546).
 
 ## Installing the monitoring connector
 

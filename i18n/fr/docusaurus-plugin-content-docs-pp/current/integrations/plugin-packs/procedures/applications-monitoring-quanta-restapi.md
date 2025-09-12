@@ -53,8 +53,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                                       | Description                                                                       |
 |:------------------------------------------------------|:----------------------------------------------------------------------------------|
-| App-Monitoring-Quanta-Restapi-Userjourneys-Incidents  | Découvrir les parcours utilisateurs d'un site pour en superviser les incidents    |
-| App-Monitoring-Quanta-Restapi-Userjourneys-Statistics | Découvrir les parcours utilisateurs d'un site pour en superviser les statistiques |
+| App-Monitoring-Quanta-Restapi-Userjourneys-Incidents  | Découvrir les parcours utilisateur d'un site pour en superviser les incidents     |
+| App-Monitoring-Quanta-Restapi-Userjourneys-Statistics | Découvrir les parcours utilisateur d'un site pour en superviser les statistiques  |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -123,7 +123,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de superviser votre interface Quanta, il est nécessaire de [configurer votre interface Quanta](https://app.quanta.io/app/settings/organizations).
+Afin de superviser Quanta, vous devez disposer [d'un jeton d'API valide](https://quantaio.notion.site/Suivre-automatiquement-les-v-nements-de-mise-en-production-f8560b2885dc4386a150b967388f8a4b#:~:text=Authentification%20et%20g%C3%A9n%C3%A9ration%20de%20token), et [avoir des parcours utilisateur configurés dans Quanta](https://quantaio.notion.site/Cr-ation-d-un-sc-nario-Parcours-Utilisateur-dcdc4e44b9af44fd892dd834e2d0a452).
+
+Les données issues du Real User Monitoring ne seront accessibles que si vous avez réalisé [l'intégration du TAG RUM de Quanta](https://quantaio.notion.site/Installer-le-Real-User-Monitoring-fa29c4e7154540579d91d32719616546).
 
 ## Installer le connecteur de supervision
 
@@ -364,7 +366,7 @@ OK: User journey is OK | 'metrics1#journey.performance.score'=16818;;;0;100 'met
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
