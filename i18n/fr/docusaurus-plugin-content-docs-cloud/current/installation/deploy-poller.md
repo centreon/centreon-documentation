@@ -44,10 +44,10 @@ Exportez la configuration du collecteur :
 
 ## Réinstaller un collecteur
 
-Si, pour une raison quelconque, vous devez réinstaller un collecteur existant, procédez comme suit :
+Si, pour une raison quelconque, vous devez réinstaller un collecteur existant, procédez comme suit pour éviter tout conflit lors de l'enregistrement :
 
 1. Allez à la page **Configuration > Collecteurs > Collecteurs**.
-2. Pour éviter tout conflit lors de l'enregistrement, supprimez le collecteur que vous souhaitez réinstaller.
+2. Supprimez le collecteur que vous souhaitez réinstaller.
 3. Exécutez le script d'installation : lorsque vous y êtes invité, sélectionnez l'option 2, **Reinstall the poller from scratch**. Vous pouvez également exécuter le script d'installation avec l'option **--reset** :
 
    ```shell
