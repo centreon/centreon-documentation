@@ -20,7 +20,7 @@ After installing your server, update your operating system using the following
 command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / " label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL /  Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf update
