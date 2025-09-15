@@ -15,7 +15,7 @@ As such, we have implemented the following features and enhancements:
 - Authenticated communication thanks to token management.
 - Dedicated whitelist for CMA commands. Only whitelisted commands can be executed by the CMA agent.
 - Native **Files** and **Task scheduler** check for Windows & Linux.
-- Central poller configuration: you can now use the central poller to collect data from your agents. (TBC)
+- Central poller configuration: you can now use the central poller to collect data from your agents.
 - The agent configuration now requires a valid authentication token for TLS connection.
 - To avoid disrupting configurations already in place at the time of the update, a default token has been generated and applied to existing configurations and hosts.
   * This token must be copied (from the **Administration > Authentication tokens** page) and applied to the agent configuration, on the host.
