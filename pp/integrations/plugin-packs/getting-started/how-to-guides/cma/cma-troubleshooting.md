@@ -62,7 +62,7 @@ No lines should be returned.
 2. Execute the following command:
 
    ```bash
-  ss -plant | grep 4317
+   ss -plant | grep 4317
    ```
 
    This command must return results, showing that the agent is listening (LISTEN) or that the connection is established (ESTABLISHED).

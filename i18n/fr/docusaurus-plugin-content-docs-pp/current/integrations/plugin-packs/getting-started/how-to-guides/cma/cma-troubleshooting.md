@@ -73,7 +73,7 @@ Aucune ligne ne doit être retournée.
    tcp        0      0 0.0.0.0:4317          ::::                    LISTEN
    ```
 
-    ```bash
+   ```bash
    Active Internet connections (servers and established)
    Proto Recv-Q Send-Q    Local Address           Foreign Address         State
    tcp        0      0    0.0.0.0:4317          <IP COLLECTEUR>:<PORT>  ESTABLISHED
@@ -127,7 +127,7 @@ La valeur **true** doit être retournée.
    Elle doit retourner des résultats, indiquant que l'agent est en écoute (LISTEN) ou que la connexion est établie (ESTABLISHED).
 
   
-  ```bash
+   ```bash
    Active Internet connections (servers and established)
    Proto Recv-Q Send-Q Local Address           Foreign Address         State
    tcp        0      0 0.0.0.0:4317          ::::                    LISTEN
