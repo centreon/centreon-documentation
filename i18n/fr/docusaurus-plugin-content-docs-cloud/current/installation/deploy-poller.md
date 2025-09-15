@@ -52,21 +52,16 @@ Si vous ne pouvez pas vous connecter au dépôt public Centreon, vous pouvez dé
 2. Suivez la procédure ci-dessus (étapes [1](#étape-1--exécuter-le-script-dinstallation-du-collecteur) et
 [2](#étape-2--exporter-la-configuration-et-redémarrer-le-collecteur)) : avant d'exécuter la commande d'installation que vous avez copiée depuis l'interface, modifiez-la et ajoutez l'option `--private-repo` après la commande `install`.
 
-### Liste des paquets installés par la commande de déploiement
+<!--### Liste des paquets installés par la commande de déploiement
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux" label="Alma / RHEL / Oracle Linux">
+* Alma / RHEL / Oracle Linux :
 
 ```shell
 centreon-poller perl-Mojolicious jq
 ```
 
-</TabItem>
-<TabItem value="Debian" label="Debian">
+* Debian :
 
 ```shell
 centreon-poller libmojolicious-perl jq
-```
-
-</TabItem>
-</Tabs>
+```-->
