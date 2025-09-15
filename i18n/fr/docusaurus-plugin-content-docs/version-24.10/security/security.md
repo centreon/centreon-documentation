@@ -27,7 +27,8 @@ en récupérant les paquets à partir de référentiels publics « instables ».
 
 ### Sécurité open source
 
-Centreon distribue sa plateforme principale sous les licences GPLv2 et Apache Open Source, ce qui permet aux
+Centreon distribue sa plateforme principale sous licence Apache Open Source (GPLv2 pour certains fichiers), ce qui permet aux
+contributeurs (https://github.com/centreon/.github/blob/master/CONTRIBUTING.md) de l'étendre.
 contributeurs (https://github.com/centreon/.github/blob/master/CONTRIBUTING.md) de l'étendre.
 Toute personne souhaitant contribuer et participer au
 développement du projet doit respecter le [Code de conduite](https://github.com/centreon/.github/blob/master/CODE_OF_CONDUCT.md) de Centreon.
