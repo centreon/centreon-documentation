@@ -48,6 +48,8 @@ Pour créer une règle de publication, allez à la page **Reporting > Monitoring
 | Répertoire racine                                   | \\serveur\partage        | Chemin d'accès au répertoire parent où les rapports seront copiés. Le répertoire doit déjà exister et l'utilisateur **centreonBI** doit pouvoir y accéder via le réseau. |
 | Sous-répertoire                                     | @DAY@                    | Chemin d'accès au sous-répertoire, pouvant inclure des variables dynamiques telles que @DAY@. À utiliser si vous souhaitez organiser vos rapports.            |
 
+> Les règles de publication CIFS utilisent le protocole Samba v2 pour communiquer avec le serveur de fichiers de destination.
+
 </TabItem>
 
 <!--<TabItem value="Dropbox" label="Dropbox">-->
