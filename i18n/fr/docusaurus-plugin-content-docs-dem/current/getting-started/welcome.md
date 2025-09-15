@@ -7,6 +7,7 @@ title: Quanta by Centreon
 
 ![image](../assets/quanta_doc_homepage.png)
 
+
 ## La solution Quanta
 
 Quanta est une solution analytics conçue spécialement pour permettre à tous les acteurs de collaborer efficacement autour d'un même objectif: utiliser la web performance pour optimiser les **revenus en ligne**.
