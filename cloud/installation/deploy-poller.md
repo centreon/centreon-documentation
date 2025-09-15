@@ -52,21 +52,16 @@ If you cannot connect to the Centreon public repository, you can disable automat
 2. Follow the procedure above (steps [1](#step-1-running-the-poller-installation-script) and
 [2](#step-2-exporting-the-configuration-and-restarting-the-poller)): before running the installation command that you copied from the interface, edit it and add the `--private-repo` option after the `install` command.
 
-### List of packages installed by the deployment command
+<!--### List of packages installed by the deployment command
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux" label="Alma / RHEL / Oracle Linux">
+* Alma / RHEL / Oracle Linux:
 
 ```shell
 centreon-poller perl-Mojolicious jq
 ```
 
-</TabItem>
-<TabItem value="Debian" label="Debian">
+* Debian:
 
 ```shell
 centreon-poller libmojolicious-perl jq
-```
-
-</TabItem>
-</Tabs>
+```-->
