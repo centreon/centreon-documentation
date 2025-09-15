@@ -335,7 +335,7 @@ apt install centreon-monitoring-agent
   "encryption":<full/insecure>,
   "private_key":"/tmp/server_1234.key",
   "public_cert":"/tmp/server_1234.crt",
-  "ca":"/tmp/ca_1234.crt"
+  "ca":"/tmp/ca_1234.crt",
   "token":"<JETON>"
 }
 ```
@@ -440,8 +440,8 @@ Les différents arguments sont:
 | --log_max_file_size        | Taille maximale du fichier de log avant rotation, en Mo.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --log_max_files            | Nombre maximal de fichiers de log. Pour que la rotation des logs soit activée, ces deux paramètres sont nécessaires.                                                                                                                                                                                                                                                                                                                                                                                |
 | --encryption               | Mode de chiffrement. Valeurs possibles : \{full;insecure;no\}.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --private_key              | Chemin du fichier contenant la clé privée. Obligatoire si le chiffrement et le mode reverse sont activés.                                                                                                                                                                                                                                                                                                                                                                                           |
-| --public_cert              | Chemin du fichier contenant la clé publique. Obligatoire si le chiffrement et le mode reverse sont activés.                                                                                                                                                                                                                                                                                                                                                                                         |
+| --private_key              | Chemin du fichier contenant la clé privée.                                                                                                                                                                                                                                                                                                                           |
+| --public_cert              | Chemin du fichier contenant la clé publique.                                                                                                                                                                                                                                                                                                        |
 | --ca                       | Chemin du fichier contenant le certificat de confiance.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --ca_name                  | Nom commun CA (mode TLS non sécurisé uniquement).                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --token                    | Jeton d'authentification.
@@ -450,8 +450,6 @@ Si vous utilisez l'option **--install_plugins** et que le téléchargement écho
 
 </TabItem>
 </Tabs>
-
-
 
 #### Données de configuration
 
