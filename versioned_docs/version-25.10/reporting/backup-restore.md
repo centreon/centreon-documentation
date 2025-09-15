@@ -6,7 +6,7 @@ title: Creating a backup and restoring MBI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Centreon MBI backup
+## Centreon MBI backup 
 
 ### Backup: Configuration data on the Centreon server
 
