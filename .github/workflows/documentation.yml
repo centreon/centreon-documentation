@@ -56,9 +56,6 @@ jobs:
             pp:
               - 'pp/**'
               - 'i18n/**/docusaurus-plugin-content-docs-pp/**'
-            dem:
-              - 'dem/**'
-              - 'i18n/**/docusaurus-plugin-content-docs-dem/**'
             versions:
               - 'i18n/**/docusaurus-plugin-content-docs/**'
               - 'versioned_docs/**'
