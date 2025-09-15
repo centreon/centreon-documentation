@@ -86,7 +86,7 @@ The classification must follow the CVSS v3:
 ### Vulnerability disclosure program
 
 
-Centreon follows a reponsible disclosure policy : 
+Centreon follows a reponsible disclosure policy: 
 * Denial of service (DoS) attacks on Centreon applications, servers, networks or infrastructure
 are strictly forbidden.
 * Avoid tests that could cause degradation or interruption of our services.
