@@ -225,8 +225,8 @@ Enable the repository using these commands:
 
 ```shell
 dnf install dnf-plugins-core
-dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-dnf config-manager --set-enabled ol9_codeready_builder
+dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
 </TabItem>
