@@ -24,11 +24,11 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Virt-VMware8-VM-Restapi-custom" label="Virt-VMware8-VM-Restapi-custom">
 
-| Service Alias | Service Template                        | Service Description                               |
-|:--------------|:----------------------------------------|:--------------------------------------------------|
-| Cpu           | Virt-VMWare8-VM-Cpu-Restapi-custom      | Monitor the CPU usage of a virtual machine        |
-| Memory        | Virt-VMWare8-VM-Memory-Restapi-custom   | Monitor the memory usage of a virtual machine     |
-| Vm-Tools      | Virt-VMWare8-VM-Vm-Tools-Restapi-custom | Monitor the state and version of the VMware Tools |
+| Service Alias | Service Template                         | Service Description                               |
+|:--------------|:-----------------------------------------|:--------------------------------------------------|
+| Vm-Cpu        | Virt-VMWare8-VM-Vm-Cpu-Restapi-custom    | Monitor the CPU usage of a virtual machine        |
+| Vm-Memory     | Virt-VMWare8-VM-Vm-Memory-Restapi-custom | Monitor the memory usage of a virtual machine     |
+| Vm-Tools      | Virt-VMWare8-VM-Vm-Tools-Restapi-custom  | Monitor the state and version of the VMware Tools |
 
 > The services listed above are created automatically when the **Virt-VMware8-VM-Restapi-custom** host template is used.
 
@@ -50,7 +50,7 @@ More information about discovering hosts automatically is available on the [dedi
 Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Vm-Cpu" label="Vm-Cpu">
 
 | Name                          | Unit  |
 |:------------------------------|:------|
@@ -58,7 +58,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | cpu.capacity.usage.hertz      | Hz    |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Vm-Memory" label="Vm-Memory">
 
 | Name                        | Unit  |
 |:----------------------------|:------|
@@ -203,7 +203,7 @@ yum install centreon-plugin-Virtualization-Vmware8-Vm-Restapi
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Vm-Cpu" label="Vm-Cpu">
 
 | Macro                  | Description                                                                                                                            | Default value | Mandatory |
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
@@ -214,7 +214,7 @@ yum install centreon-plugin-Virtualization-Vmware8-Vm-Restapi
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Vm-Memory" label="Vm-Memory">
 
 | Macro              | Description                                                                                                                            | Default value | Mandatory |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
@@ -306,13 +306,13 @@ the command:
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                        | Linked service template                 |
-|:----------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/cpu.pm)]             | Virt-VMWare8-VM-Cpu-Restapi-custom      |
-| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/discovery.pm)] | Used for host discovery                 |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/memory.pm)]       | Virt-VMWare8-VM-Memory-Restapi-custom   |
-| vm-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/vmstatus.pm)]  | Not used in this Monitoring Connector   |
-| vm-tools [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/vmtools.pm)]    | Virt-VMWare8-VM-Vm-Tools-Restapi-custom |
+| Mode                                                                                                                        | Linked service template                  |
+|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------|
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/cpu.pm)]             | Virt-VMWare8-VM-Vm-Cpu-Restapi-custom    |
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/discovery.pm)] | Used for host discovery                  |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/memory.pm)]       | Virt-VMWare8-VM-Vm-Memory-Restapi-custom |
+| vm-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/vmstatus.pm)]  | Not used in this Monitoring Connector    |
+| vm-tools [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/vmtools.pm)]    | Virt-VMWare8-VM-Vm-Tools-Restapi-custom  |
 
 ### Available options
 
@@ -391,7 +391,7 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Vm-Cpu" label="Vm-Cpu">
 
 | Option                     | Description                                                                                                               |
 |:---------------------------|:--------------------------------------------------------------------------------------------------------------------------|
@@ -402,7 +402,7 @@ All available options for each service template are listed below:
 | --critical-usage-prct      | Threshold in percentage.                                                                                                  |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Vm-Memory" label="Vm-Memory">
 
 | Option                 | Description              |
 |:-----------------------|:-------------------------|

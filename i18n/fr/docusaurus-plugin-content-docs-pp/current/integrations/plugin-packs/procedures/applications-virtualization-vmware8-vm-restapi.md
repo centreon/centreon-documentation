@@ -25,11 +25,11 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="Virt-VMware8-VM-Restapi-custom" label="Virt-VMware8-VM-Restapi-custom">
 
-| Alias    | Modèle de service                       | Description                                                                           |
-|:---------|:----------------------------------------|:--------------------------------------------------------------------------------------|
-| Cpu      | Virt-VMWare8-VM-Cpu-Restapi-custom      | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle     |
-| Memory   | Virt-VMWare8-VM-Memory-Restapi-custom   | Contrôle permettant de vérifier le taux d'utilisation mémoire d'une machine virtuelle |
-| Vm-Tools | Virt-VMWare8-VM-Vm-Tools-Restapi-custom | Supervision de l'état des VMware Tools                                                |
+| Alias     | Modèle de service                        | Description                                                                           |
+|:----------|:-----------------------------------------|:--------------------------------------------------------------------------------------|
+| Vm-Cpu    | Virt-VMWare8-VM-Vm-Cpu-Restapi-custom    | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle     |
+| Vm-Memory | Virt-VMWare8-VM-Vm-Memory-Restapi-custom | Contrôle permettant de vérifier le taux d'utilisation mémoire d'une machine virtuelle |
+| Vm-Tools  | Virt-VMWare8-VM-Vm-Tools-Restapi-custom  | Supervision de l'état des VMware Tools                                                |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-VMware8-VM-Restapi-custom** est utilisé.
 
@@ -51,7 +51,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Vm-Cpu" label="Vm-Cpu">
 
 | Nom                           | Unité |
 |:------------------------------|:------|
@@ -59,7 +59,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | cpu.capacity.usage.hertz      | Hz    |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Vm-Memory" label="Vm-Memory">
 
 | Nom                         | Unité |
 |:----------------------------|:------|
@@ -202,7 +202,7 @@ yum install centreon-plugin-Virtualization-Vmware8-Vm-Restapi
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Vm-Cpu" label="Vm-Cpu">
 
 | Macro                  | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -213,7 +213,7 @@ yum install centreon-plugin-Virtualization-Vmware8-Vm-Restapi
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Vm-Memory" label="Vm-Memory">
 
 | Macro              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -307,13 +307,13 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                        | Modèle de service associé               |
-|:----------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/cpu.pm)]             | Virt-VMWare8-VM-Cpu-Restapi-custom      |
-| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/discovery.pm)] | Used for host discovery                 |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/memory.pm)]       | Virt-VMWare8-VM-Memory-Restapi-custom   |
-| vm-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/vmstatus.pm)]  | Used for the host status                |
-| vm-tools [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/vmtools.pm)]    | Virt-VMWare8-VM-Vm-Tools-Restapi-custom |
+| Mode                                                                                                                        | Modèle de service associé                |
+|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------|
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/cpu.pm)]             | Virt-VMWare8-VM-Vm-Cpu-Restapi-custom    |
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/discovery.pm)] | Used for host discovery                  |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/memory.pm)]       | Virt-VMWare8-VM-Vm-Memory-Restapi-custom |
+| vm-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/vmstatus.pm)]  | Used for the host status                 |
+| vm-tools [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/vmtools.pm)]    | Virt-VMWare8-VM-Vm-Tools-Restapi-custom  |
 
 ### Options disponibles
 
@@ -392,7 +392,7 @@ Les options génériques sont listées ci-dessous :
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Vm-Cpu" label="Vm-Cpu">
 
 | Option                     | Description                                                                                                               |
 |:---------------------------|:--------------------------------------------------------------------------------------------------------------------------|
@@ -403,7 +403,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --critical-usage-prct      | Threshold in percentage.                                                                                                  |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Vm-Memory" label="Vm-Memory">
 
 | Option                 | Description              |
 |:-----------------------|:-------------------------|
