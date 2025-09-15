@@ -85,30 +85,19 @@ The classification must follow the CVSS v3:
 
 ### Vulnerability disclosure program
 
+Centreon is committed to the security of its product and services and is continuously improving policies, processes, and products to meet the highest standards. Despite our best efforts, due to the highly complex and sophisticated nature of our products and services, vulnerabilities and errors may still be present in our products and services.
 
-Centreon follows a reponsible disclosure policy: 
-* Denial of service (DoS) attacks on Centreon applications, servers, networks or infrastructure
-are strictly forbidden.
+As an open source project, Centreon welcomes vulnerability disclosure from the community with a process governed by the vulnerability disclosure policy available at this URL: [Vulnerability disclosure policy](https://vdp.centreon.com/p/centreon-VDP). This policy describes Centreon's approach to requesting and receiving reports related to potential vulnerabilities and errors in its products and services. Customers, users, researchers, partners and any other person that interacts with Centreon's products and services are encouraged to report identified vulnerabilities and errors by using the form present on the Vulnerability Disclosure Policy platform.
+
+Furthermore, Centreon follows a reponsible disclosure policy:
+
+* Denial of service (DoS) attacks on Centreon applications, servers, networks or infrastructure are strictly forbidden.
 * Avoid tests that could cause degradation or interruption of our services.
 * Do not use automated scanners or tools that generate large amounts of network traffic.
 * Do not leak, manipulate, or destroy any user data or files in any of our applications/servers.
 * Do not copy any files from our applications/servers and disclose them.
 
-As an open source project, Centreon allows vulnerability disclosure from the community. The
-vulnerability disclosure program is implemented and must be followed for the disclosure to be taken
-into account. Centreon is committed to the security of its product and services and is continuously
-improving policies, processes, and products to meet the highest standards.
-Despite our best efforts, due to the highly complex and sophisticated nature of our products and
-services, vulnerabilities and errors may still be present in our products and services.
-This policy describes Centreon's approach to requesting and receiving reports related to potential
-vulnerabilities and errors in its products and services.
-Customers, users, researchers, partners and any other person that interacts with Centreon's
-products and services are encouraged to report identified vulnerabilities and errors by using the
-form present on the Vulnerability Disclosure Policy platform.
-
-Centreon’s public vulnerability disclosure policy is available following this URL :
-[Vulnerability disclosure policy](https://vdp.centreon.com/p/centreon-VDP)
-
+The vulnerability disclosure program is implemented and must be followed for the disclosure to be taken into account.
 
 ## Securing your Centreon installation
 
