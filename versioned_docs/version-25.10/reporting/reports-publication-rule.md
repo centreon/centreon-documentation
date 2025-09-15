@@ -36,7 +36,7 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 | Field                                    | Possible value                | Description                                                                                                                                           |
 |------------------------------------------|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Name                                     | CIFS rule name                | A name to identify the rule. Choose something meaningful.                                                                                             |
-| Publication protocol                     | CIFS                          | In ths case, CIFS.                                                                                                                                    |
+| Publication protocol                     | CIFS                          | In this case, CIFS.                                                                                                                                    |
 | [Global](#global-rules-and-custom-rules) | No                            | Defines whether the rule will be applied to all jobs. If set to **No**, the rule will be a custom rule applied only to the selected jobs.                 |
 | Description                              |                               | The description of the rule appears only in the list of publication rules.                                                                            |
 | Publish log file                         | Yes                           | Whether to include the publishing step in the **cbis.DATE.log** log files.                                                                                |
@@ -48,6 +48,7 @@ To create a publication rule, go to **Reporting > Monitoring Business Intelligen
 | Root directory                           | \\server\share                | The path to the parent directory where the reports will be copied. The directory must already exist and the **centreonBI** user must be able to access it over the network. |
 | Subdirectory                             | @DAY@                         | Subdirectory path, can include dynamic variables like @DAY@. Use if you want to organize your reports.                                                |
 
+> CIFS publication rules use the Samba v2 protocol for communication with the target file server.
 
 </TabItem>
 

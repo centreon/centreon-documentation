@@ -122,7 +122,7 @@ d'hôtes , par mois.
 #### Description
 
 Ce widget vous permet de connaître la fiabilité (MTBF) et la
-mainteabilité (MTRS) de vos ressources ainsi que l'efficacité des
+maintenabilité (MTRS) de vos ressources ainsi que l'efficacité des
 équipes dans la prise en compte des évènements (MTTA). Ces informations
 sont affichées sous forme de Top. Des informations additionnelles sont
 associées au widget afin de faciliter la prise de décision : statut en
