@@ -204,7 +204,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 ### SNMP Configuration
 
 The SNMP service must be configured and activated on the host. 
-Please refer to the official documentation from the constructor/editor.
+Please refer to the official documentation. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
