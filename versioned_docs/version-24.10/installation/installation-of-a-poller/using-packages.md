@@ -20,7 +20,7 @@ After installing your server, update your operating system using the following
 command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / " label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf update
@@ -225,7 +225,7 @@ Enable the repository using these commands:
 
 ```shell
 dnf install dnf-plugins-core
-dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf config-manager --set-enabled ol9_codeready_builder
 ```
 
