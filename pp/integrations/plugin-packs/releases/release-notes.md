@@ -32,7 +32,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Quanta Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Full rework of the current plugin.
+- [**Quanta by Centreon Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Full rework of the current plugin.
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
