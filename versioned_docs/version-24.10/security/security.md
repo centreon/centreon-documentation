@@ -66,7 +66,7 @@ infrastructure: servers, VM, containers...
 Upon receipt of a report for a vulnerability, Centreon will attempt to replicate the reported
 vulnerability and build an action plan with timelines depending on the computed severity.
 
-Centreon will provide feedback to the reporter of the vulnerability and work with them to mitigate or fix
+Centreon will provide feedback to the reporter of the vulnerability and work with them to mitigate or to fix
 the vulnerability.
 
 ### Vulnerability scoring
