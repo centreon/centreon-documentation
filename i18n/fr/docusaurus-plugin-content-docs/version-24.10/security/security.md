@@ -84,7 +84,21 @@ La classification doit suivre le CVSS v3 :
 
 ### Programme de divulgation des vulnérabilités
 
-Centreon suit une politique de divulgation responsable : 
+Centreon s'engage à assurer la sécurité de ses produits et services et améliore en permanence ses
+politiques, ses processus et ses produits afin de répondre aux normes les plus strictes.
+Malgré tous nos efforts, en raison de la nature très complexe et sophistiquée de nos produits et
+services, des vulnérabilités et des erreurs peuvent encore être présentes dans nos produits et services.
+
+En tant que projet open source, Centreon autorise la divulgation des vulnérabilités par la communauté, suivant un 
+process régi par la politique de divulgation des vulnérabilités disponible à l'adresse suivante : [Vulnerability disclosure policy](https://vdp.centreon.com/p/centreon-VDP).
+Cette politique décrit l'approche de Centreon en matière de demande et de réception de rapports liés à des
+vulnérabilités et erreurs potentielles dans ses produits et services.
+Les clients, utilisateurs, chercheurs, partenaires et toute autre personne qui interagit avec les
+produits et services de Centreon sont encouragés à signaler les vulnérabilités et erreurs identifiées en utilisant le
+formulaire disponible sur la plateforme de politique de divulgation des vulnérabilités.
+
+De plus, Centreon suit une politique de divulgation responsable :
+
 * Les attaques par déni de service (DoS) sur les applications, serveurs, réseaux ou infrastructures de Centreon
 sont strictement interdites.
 * Évitez les tests susceptibles d'entraîner une dégradation ou une interruption de nos services.
@@ -92,21 +106,8 @@ sont strictement interdites.
 * Ne divulguez, ne manipulez et ne détruisez aucune donnée ou fichier utilisateur dans nos applications/serveurs.
 * Ne copiez aucun fichier de nos applications/serveurs et ne les divulguez pas.
 
-En tant que projet open source, Centreon autorise la divulgation des vulnérabilités par la communauté. Le
-programme de divulgation des vulnérabilités est mis en œuvre et doit être suivi pour que la divulgation soit prise
-en compte. Centreon s'engage à assurer la sécurité de ses produits et services et améliore en permanence ses
-politiques, ses processus et ses produits afin de répondre aux normes les plus strictes.
-Malgré tous nos efforts, en raison de la nature très complexe et sophistiquée de nos produits et
-services, des vulnérabilités et des erreurs peuvent encore être présentes dans nos produits et services.
-Cette politique décrit l'approche de Centreon en matière de demande et de réception de rapports liés à des
-vulnérabilités et erreurs potentielles dans ses produits et services.
-Les clients, utilisateurs, chercheurs, partenaires et toute autre personne qui interagit avec les
-produits et services de Centreon sont encouragés à signaler les vulnérabilités et erreurs identifiées en utilisant le
-formulaire disponible sur la plateforme de politique de divulgation des vulnérabilités.
-
-La politique publique de divulgation des vulnérabilités de Centreon est disponible à l'adresse suivante :
-[Politique de divulgation des vulnérabilités](https://vdp.centreon.com/p/centreon-VDP)
-
+Le programme de divulgation des vulnérabilités est mis en œuvre et doit être suivi pour que la divulgation soit prise
+en compte. 
 
 ## Sécurisation de votre installation Centreon
 
