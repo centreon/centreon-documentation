@@ -54,7 +54,7 @@ The CMA can be installed on and monitor the following OSs:
 
 ## Applications you can monitor with CMA
 
-* Included with the Centreon connectors: [**Veeam**](../../../procedures/applications-veeam-centreon-monitoring-agent.md), [**Active Directory**](../../../procedures/infrastructure-active-directory-centreon-monitoring-agent), [**Hyper-V 2012**](../procedures/virtualization-hyperv-2012-cma.md).
+* Included with the Centreon connectors: [**Veeam**](../../../procedures/applications-veeam-centreon-monitoring-agent.md), [**Active Directory**](../../../procedures/infrastructure-active-directory-centreon-monitoring-agent), [**Hyper-V 2012**](../../../procedures/virtualization-hyperv-2012-cma.md).
 * You can also [develop your own plugins](cma-custom.md).
 
 ## How do the host and the poller interact?
