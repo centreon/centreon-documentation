@@ -15,7 +15,7 @@ La sécurité dès la conception est une préoccupation majeure tout au long du 
 les produits et services sont conçus dès le départ pour répondre aux besoins en matière de sécurité des données, notamment en termes de contrôle d'accès,
  de surveillance et de chiffrement.
 
-Un pipeline d'intégration continue est utilisé pour automatiser le processus, de la demande d'extraction à la
+Un pipeline d'intégration continue est utilisé pour automatiser le processus, de la proposition de modification à la
 livraison de l'image/du paquet. Les modifications du code sont d'abord examinées à l'aide d'analyses de qualité du code, puis elles doivent être
 validées par deux développeurs principaux avant d'être acceptées. Une analyse statique du code est effectuée sur chaque
 build afin de détecter le plus tôt possible les éventuels problèmes de sécurité.
