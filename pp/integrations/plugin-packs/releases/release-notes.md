@@ -21,10 +21,10 @@ import TabItem from '@theme/TabItem';
 
 - [**Ansible Tower**](../procedures/applications-ansible-tower.md) - Improve UUID generation to make it more unique in **host discovery**.
 - [**HP Standard Network SNMP**](../procedures/network-hp-standard-snmp.md) - Added **vrrp-status** mode, from community contribution [PR 4842](https://github.com/centreon/centreon-plugins/pull/4842).
-- [**Linux Centreon Monitoring Agent**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Added support for `timedatectl` in **ntp** mode, base on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
-- [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - Added support for `timedatectl` in **ntp** mode, base on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
-- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Added support for `timedatectl` in **ntp** mode, base on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
-- [**Linux Telegraf Agent**](../procedures/operatingsystems-linux-telegraf-agent.md) - Added support for `timedatectl` in **ntp** mode, base on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
+- [**Linux Centreon Monitoring Agent**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
+- [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
+- [**Linux Telegraf Agent**](../procedures/operatingsystems-linux-telegraf-agent.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
 - [**Proxmox VE Rest API**](../procedures/virtualization-proxmox-ve-restapi.md) - Added option `include-node-name` in **vm-usage** mode, from community contribution [Issue 5642](https://github.com/centreon/centreon-plugins/issues/5642).
 - [**APC UPS SNMP**](../procedures/hardware-ups-apc-snmp.md) - Added support for APC Galaxy in **sensors** mode, based on community contribution [PR 55692](https://github.com/centreon/centreon-plugins/pull/5692).
 - [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Added default values in **API custom** help section.
@@ -38,13 +38,13 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Docker Rest API**](../procedures/applications-docker-restapi.md) - Fixed memory usage calculation in **container-usage** mode.
-- [**Kubernetes w/ Prometheus API**](../procedures/cloud-prometheus-kubernetes-api.md) - Fixed `daemonset-status` wrong key causing skips in **daemonset-status** mode.
+- [**Kubernetes w/ Prometheus API**](../procedures/cloud-prometheus-kubernetes-api.md) - Fixed `daemonset-status` incorrect key causing skips in **daemonset-status** mode.
 - [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Fixed total space calculation error and missing snapshot info in **volumes** mode. 
 - [**VTOM Rest API**](../procedures/applications-vtom-restapi.md) - Fixed an issue leading to `Unknown option --token` in the legacy custom in **jobs** mode.
-- [**Veeam API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Added Veeam Agent compatibility for jobs monitoring in **job-status** mode.
-- [**Veeam Centreon Monitoring Agent**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Added Veeam Agent compatibility for jobs monitoring in **job-status** mode.
-- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Added Veeam Agent compatibility for jobs monitoring in **job-status** mode.
-- [**Veeam**](../procedures/applications-veeam-nrpe.md) - Added Veeam Agent compatibility for jobs monitoring in **job-status** mode.
+- [**Veeam API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Added Veeam Agent compatibility for job monitoring in **job-status** mode.
+- [**Veeam Centreon Monitoring Agent**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Added Veeam Agent compatibility for job monitoring in **job-status** mode.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Added Veeam Agent compatibility for job monitoring in **job-status** mode.
+- [**Veeam**](../procedures/applications-veeam-nrpe.md) - Added Veeam Agent compatibility for job monitoring in **job-status** mode.
 
 </TabItem>
 </Tabs>
