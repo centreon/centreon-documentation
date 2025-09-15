@@ -1657,6 +1657,10 @@
         },
         {
           "type": "doc",
+          "id": "resources/logs"
+        },
+        {
+          "type": "doc",
           "id": "resources/glossary"
         },
         {

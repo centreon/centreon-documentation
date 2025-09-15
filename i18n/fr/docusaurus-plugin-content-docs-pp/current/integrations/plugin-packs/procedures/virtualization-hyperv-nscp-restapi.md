@@ -306,7 +306,7 @@ yum install
 | CRITICALGLOBALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{integration\_service\_state\},  %\{integration\_service\_version\}, %\{state\}                                                         |                                |            |
 | CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{service\}, %\{primary\_status\}, %\{secondary\_status\}, %\{enabled\}                                                                  | %\{primary\_status\} =~ /Ok/i  |            |
 | WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{service\}, %\{primary\_status\}, %\{secondary\_status\}, %\{enabled\}                                                                   |                                |            |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                | --verbose                      |            |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles).                                                                                                                | --verbose                      |            |
 
 </TabItem>
 <TabItem value="Node-Replication" label="Node-Replication">
@@ -316,7 +316,7 @@ yum install
 | FILTERVM       | Filter virtual machines (can be a regexp)                                                                                                                                   |                            |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{state\}, %\{health\}                                          | %\{health\} =~ /Warning/i  |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{state\}, %\{health\}                                         | %\{health\} =~ /Critical/i |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                      | --verbose                  |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles).                                      | --verbose                  |             |
 
 </TabItem>
 <TabItem value="Node-Snapshot" label="Node-Snapshot">
@@ -330,7 +330,7 @@ yum install
 | CRITICALBACKING  | Threshold                                                                                          |               |           |
 | WARNINGSNAPSHOT  | Threshold                                                                                          |               |           |
 | CRITICALSNAPSHOT | Threshold                                                                                          |               |           |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Node-Vm-Status" label="Node-Vm-Status">
@@ -341,7 +341,7 @@ yum install
 | FILTERNOTE     | Filter by VM notes (can be a regexp)                                                                                                                                                                      |                                          |           |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{state\}, %\{status\}, %\{is\_clustered\}                                                   | %\{status\} =~ /Operating normally/i     |           |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{state\}, %\{status\}, %\{is\_clustered\}                                                    |                                          |           |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                    | --verbose                                |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles).                                                                    | --verbose                                |           |
 
 </TabItem>
 <TabItem value="Scvmm-Integration-Service" label="Scvmm-Integration-Service">
@@ -354,7 +354,7 @@ yum install
 | FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                                                                                                       | %\{vmaddition\} =~ /not detected/i |             |
 | CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{vmaddition\}, %\{status\}                                                 |                                    |             |
 | WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{vmaddition\}, %\{status\}                                                  |                                    |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                   | --verbose                          |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles).                                                   | --verbose                          |             |
 
 </TabItem>
 <TabItem value="Scvmm-Snapshot" label="Scvmm-Snapshot">
@@ -367,7 +367,7 @@ yum install
 | FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                 |                   |             |
 | WARNINGSNAPSHOT   | Threshold                                                                                          |                   |             |
 | CRITICALSNAPSHOT  | Threshold                                                                                          |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Scvmm-Vm-Status" label="Scvmm-Vm-Status">
@@ -379,7 +379,7 @@ yum install
 | FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                                                                                                      |                                            |           |
 | CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{status\}, %\{hostgroup\}                                                 | not %\{status\} =~ /Running\|Stopped/i     |           |
 | WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{status\}, %\{hostgroup\}                                                  |                                            |           |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                  | --verbose                                  |           |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles).                                                  | --verbose                                  |           |
 
 </TabItem>
 </Tabs>

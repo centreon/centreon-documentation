@@ -7,7 +7,9 @@ import TabItem from '@theme/TabItem';
 
 The **Windows Centreon Monitoring Agent** connector supplies templates and commands to be used with the Centreon Monitoring Agent (this is an observability agent implementing the OpenTelemetry protocol).
 
-Read [this page](../getting-started/how-to-guides/cma.md) for more information about the Centreon Monitoring Agent itself.
+> For the moment, this monitoring connector is in **BETA** version. The agent is in its beta phase for Centreon Cloud users.
+
+Read [this page](../getting-started/how-to-guides/cma/cma.md) for more information about the Centreon Monitoring Agent itself.
 
 ## Pack assets
 
@@ -30,7 +32,7 @@ The connector brings the following service templates (sorted by the host templat
 | Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Check the rate of memory utilization                                                                                                                            | native        |
 | Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Check the synchronization with a NTP server.                                                                                                                    | non-native    |
 | Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Check if Windows needs rebooting.                                                                                                                               | non-native    |
-| Services-Auto  | OS-Windows-Services-Auto-Centreon-Monitoring-Agent-custom  | CCheck if all auto-start Windows services are running                                                                                                           | native        |
+| Services-Auto  | OS-Windows-Services-Auto-Centreon-Monitoring-Agent-custom  | Check if all auto-start Windows services are running                                                                                                           | native        |
 | Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Check the number of active sessions.                                                                                                                            | non-native    |
 | Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Check virtual memory usage                                                                                                                                      | native        |
 | Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Check if there are pending updates.                                                                                                                             | non-native    |
@@ -268,12 +270,12 @@ Only one TCP flow must be open from the host to the poller.
 
 ### Configure poller/agent communication
 
-[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma.md#configure-polleragent-communication).
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma-setup.md#configure-polleragent-communication).
 
 ### System prerequisites for the monitored host
 
 The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in
-[this dedicated page](../getting-started/how-to-guides/cma.md#step-2-prepare-the-host).
+[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host).
 
 ## Installing the monitoring connector
 

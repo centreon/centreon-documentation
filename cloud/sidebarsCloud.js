@@ -154,6 +154,10 @@ module.exports = {
           type: 'doc',
           id: 'administration/ram',
         },
+        {
+          type: 'doc',
+          id: 'ciam/cloud-saml',
+        },
       ],
     },
     {

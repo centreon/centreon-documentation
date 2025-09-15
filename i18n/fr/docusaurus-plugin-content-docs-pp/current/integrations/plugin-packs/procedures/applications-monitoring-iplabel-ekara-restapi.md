@@ -179,19 +179,19 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
 3. Appliquez le modèle d'hôte **App-Monitoring-Iplabel-Ekara-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                | Description                                                                                          | Valeur par défaut      | Obligatoire |
-|:---------------------|:-----------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| EKARAAPIHOSTNAME     | Set hostname (default: 'api.ip-label.net')                                                           | api.ekara.ip-label.net | X           |
-| EKARAAPIUSERNAME     | Set username                                                                                         |                        | X           |
-| EKARAAPIPASSWORD     | Set password.                                                                                        |                        | X           |
-| EKARAAPIPROTO        | Specify https if needed (default: 'https')                                                           | https                  |             |
-| EKARAAPIPORT         | Port used (default: 443)                                                                             | 443                    |             |
-| EKARAAPIKEY          | Set API key authentication                                                                           |                        |             |
-| FILTERID             | Filter by monitor ID (can be a regexp)                                                               |                        |             |
-| FILTERNAME           | Filter by monitor name (can be a regexp)                                                             |                        |             |
-| FILTERSITEID         | Filter scenario to check by site id                                                                  |                        |             |
-| FILTERWORKSPACEID    | Filter scenario to check by workspace id                                                             |                        |             |
-| PROXYURL             | Proxy URL. Example: http://my.proxy:3128                                                             |                        |             |
+| Macro                | Description                                                                                                                                        | Valeur par défaut      | Obligatoire |
+|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
+| EKARAAPIHOSTNAME     | Set hostname                                                                                                                                       | api.ekara.ip-label.net |      X      |
+| EKARAAPIUSERNAME     | Set username (alternative authentication if API key not set)                                                                                       |                        |             |
+| EKARAAPIPASSWORD     | Set password (alternative authentication if API key not set)                                                                                       |                        |             |
+| EKARAAPIPROTO        | Specify https if needed                                                                                                                            | https                  |             |
+| EKARAAPIPORT         | Port used                                                                                                                                          | 443                    |             |
+| EKARAAPIKEY          | Set API key authentication                                                                                                                         |                        |      X      |
+| FILTERID             | Filter by monitor ID (can be a regexp)                                                                                                             |                        |             |
+| FILTERNAME           | Filter by monitor name (can be a regexp)                                                                                                           |                        |             |
+| FILTERSITEID         | Filter scenario to check by site id                                                                                                                |                        |             |
+| FILTERWORKSPACEID    | Filter scenario to check by workspace id                                                                                                           |                        |             |
+| PROXYURL             | Proxy URL. Example: http://my.proxy:3128                                                                                                           |                        |             |
 | EKARAAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                        |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -204,20 +204,20 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
 <Tabs groupId="sync">
 <TabItem value="Incidents" label="Incidents">
 
-| Macro                    | Description                                                                                                                                                                                                                                  | Valeur par défaut           | Obligatoire |
-|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
-| TIMEFRAME                | Set timeframe period in seconds.  Example: --timeframe='3600' will check the last hour                                                                                                                                                       | 900                         |             |
-| WARNINGINCIDENTDURATION  | Threshold in seconds                                                                                                                                                                                                                         |                             |             |
-| CRITICALINCIDENTDURATION | Threshold in seconds                                                                                                                                                                                                                         |                             |             |
-| CRITICALINCIDENTSEVERITY | Critical threshold for incident severity. Syntax: --critical-incident-severity='%\{severity\} =~ "xxx"'                                                                                                                                      | %\{severity\} =~ "Critical" |             |
-| WARNINGINCIDENTSEVERITY  | Warning threshold for incident severity. Syntax: --warning-incident-severity='%\{severity\} =~ "xxx"'                                                                                                                                        | none                        |             |
-| CRITICALINCIDENTSTATUS   | Critical threshold for incident status. Syntax: --critical-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                                                                  | %\{status\} =~ "Open"       |             |
-| WARNINGINCIDENTSTATUS    | Warning threshold for incident status. Syntax: --warning-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                                                                    | none                        |             |
-| WARNINGINCIDENTSTOTAL    | Threshold                                                                                                                                                                                                                                    |                             |             |
-| CRITICALINCIDENTSTOTAL   | Threshold                                                                                                                                                                                                                                    |                             |             |
-| CRITICALTRIGGERSTATUS    | Critical threshold for trigger status. Syntax: --critical-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded'                                         | %\{severity\} =~ "Failure"  |             |
-| WARNINGTRIGGERSTATUS     | Warning threshold for trigger status. Syntax: --warning-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded'                                           | none                        |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                             | --ignore-closed --verbose   |             |
+| Macro                    | Description                                                                                                                                                                                          | Valeur par défaut           | Obligatoire |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
+| TIMEFRAME                | Set timeframe period in seconds.  Example: --timeframe='3600' will check the last hour                                                                                                               | 900                         |             |
+| WARNINGINCIDENTDURATION  | Threshold in seconds                                                                                                                                                                                 |                             |             |
+| CRITICALINCIDENTDURATION | Threshold in seconds                                                                                                                                                                                 |                             |             |
+| CRITICALINCIDENTSEVERITY | Critical threshold for incident severity. Syntax: --critical-incident-severity='%\{severity\} =~ "xxx"'                                                                                              | %\{severity\} =~ "Critical" |             |
+| WARNINGINCIDENTSEVERITY  | Warning threshold for incident severity. Syntax: --warning-incident-severity='%\{severity\} =~ "xxx"'                                                                                                | none                        |             |
+| CRITICALINCIDENTSTATUS   | Critical threshold for incident status. Syntax: --critical-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                          | %\{status\} =~ "Open"       |             |
+| WARNINGINCIDENTSTATUS    | Warning threshold for incident status. Syntax: --warning-incident-status='%\{status\} =~ "xxx"' Can be 'Open' or 'Closed'                                                                            | none                        |             |
+| WARNINGINCIDENTSTOTAL    | Threshold                                                                                                                                                                                            |                             |             |
+| CRITICALINCIDENTSTOTAL   | Threshold                                                                                                                                                                                            |                             |             |
+| CRITICALTRIGGERSTATUS    | Critical threshold for trigger status. Syntax: --critical-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded' | %\{severity\} =~ "Failure"  |             |
+| WARNINGTRIGGERSTATUS     | Warning threshold for trigger status. Syntax: --warning-trigger-status='%\{status\} =~ "xxx"' Can be 'Unknown', 'Success', 'Failure', 'Aborted', 'No execution', 'Stopped', 'Excluded', 'Degraded'   | none                        |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                     | --ignore-closed --verbose   |             |
 
 </TabItem>
 <TabItem value="Scenario-Status" label="Scenario-Status">
@@ -260,7 +260,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::monitoring::iplabel::ekara::restapi::plugin \
 	--mode=scenarios \
 	--hostname='api.ekara.ip-label.net' \
-	--api-key='' \
+	--api-key='XXXX' \
 	--api-username='' \
 	--api-password='' \
 	--port='443' \
