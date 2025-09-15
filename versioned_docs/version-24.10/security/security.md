@@ -28,7 +28,7 @@ versions by pulling the packages from “unstable” public repositories.
 
 ### Opensource security
 
-Centreon distributes its core platform under GPLv2 and Apache Open Source licenses, which makes it
+Centreon distributes its core platform under Apache Open Source license (GPLv2 for some files), which makes it
 possible for [contributors](https://github.com/centreon/.github/blob/master/CONTRIBUTING.md) to extend it.
 Any person who wants to contribute and participate in
 developing the project must respect Centreon’s [Code of Conduct](https://github.com/centreon/.github/blob/master/CODE_OF_CONDUCT.md).
