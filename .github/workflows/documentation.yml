@@ -23,6 +23,7 @@ jobs:
       build_next_version: ${{ steps.filters.outputs.build_next_version }}
       build_pp: ${{ steps.filters.outputs.build_pp }}
       build_cloud: ${{ steps.filters.outputs.build_cloud }}
+      build_dem: ${{ steps.filters.outputs.build_dem }}
 
     steps:
       - name: Checkout sources
