@@ -145,7 +145,7 @@ Only one TCP flow must be open from the host to the poller.
 
 ### System prerequisites on the monitored host
 
-The installer can be downloaded from the [centreon-collect's releases page](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true).
+The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in [this dedicated page](https://docs.centreon.com/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-setup/#step-3-prepare-the-host).
 
 #### Installing the Centreon Monitoring Agent
 

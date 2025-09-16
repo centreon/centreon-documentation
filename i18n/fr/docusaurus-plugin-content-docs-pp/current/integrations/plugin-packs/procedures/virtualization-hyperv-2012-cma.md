@@ -138,8 +138,7 @@ Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
 
 ### Prérequis système sur le collecteur
 
-> Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
-minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la version `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent devra se configurer en se connectant à Centreon Engine.
+> Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la version `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent devra se configurer en se connectant à Centreon Engine.
 
 ### Configuration de Centreon Engine
 
@@ -147,8 +146,7 @@ minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la vers
 
 ### Prérequis système sur l'hôte à superviser
 
-L'installateur de Centreon Monitoring Agent pour Windows peut se télécharger à partir des [pages de release du projet
-centreon-collect](https://github.com/centreon/centreon-collect/releases?q=centreon-collect&expanded=true).
+La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur [cette page dédiée](https://docs.centreon.com/fr/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-setup/#%C3%A9tape-3--pr%C3%A9parez-lh%C3%B4te)
 
 #### Installation de Centreon Monitoring Agent
 
