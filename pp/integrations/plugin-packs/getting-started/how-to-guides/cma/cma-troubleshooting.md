@@ -5,7 +5,18 @@ title: Troubleshooting CMA
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/troubleshooting.png)
+## Refresh a status
+In many situations, you need to quickly re-check one or multiple resources to refresh their status.
+
+Two types of check action are available:
+
+The **Forced check** action on [Resources status page](/docs/alerts-notifications/resources-status) is a check available for CMA, that you can perform at any time (in or out of the configured check period).
+
+Check your resources and refresh their status in three ways:
+
+By directly clicking the button on the line when the mouse is over it.
+By selecting one or multiple lines and clicking the Forced check button above the table.
+By clicking the Forced check button in the detail panel of the resource.
 
 ## Host checks
 
@@ -36,51 +47,7 @@ grep error /var/log/centreon-monitoring-agent/centagent.log
 
 No lines should be returned.
 
-### Check that the connection with the poller is working
-
-<Tabs groupId="sync">
-<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
-
-1. Execute the following command in PowerShell:
-
-   ```bash
-   tnc <poller IP or DNS> -p 4317
-   ```
-
-   The following value must be returned:
-
-   ```bash
-   Connection to <IP ou DNS collecteur> 4317 port [tcp/http] succeeded!
-   ```
-
 </TabItem>
-
-<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
-
-1. Port number 4317 must be open (inbound) on the host.
-
-2. Execute the following command:
-
-   ```bash
-  ss -plant | grep 4317
-   ```
-
-   This command must return results, showing that the agent is listening (LISTEN) or that the connection is established (ESTABLISHED).
-
-   ```bash
-   State           Recv-Q       Send-Q             Local Address:Port                Peer Address:Port       Process
-   LISTEN          0            0                      0.0.0.0:4317                       ::::
-   ```
-
-   ```bash
-   State           Recv-Q       Send-Q             Local Address:Port                Peer Address:Port       Process
-   ESTAB          0            0                      0.0.0.0:4317                       <POLLER IP>:<PORT> 
-   ```
-
-</TabItem>
-</Tabs>
-</TabItem>
-
 <TabItem value="Windows" label="Windows">
 
 ### Check that the service is running
@@ -97,16 +64,16 @@ No lines should be returned.
 
 Depending on the configuration, use the event viewer or look at the specified file.
 
-### Check that the connection with the poller is working
+### Check that the connection to the poller is working
 
 <Tabs groupId="sync">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
-1. Execute the following command in PowerShell:
+1. Execute the following command:
 
-   ```bash
-   tnc <poller IP or DNS> -p 4317
-   ```
+```bash
+tnc <poller IP or DNS> -p 4317
+```
 
 The value **true** must be returned.
 
@@ -119,22 +86,18 @@ The value **true** must be returned.
 2. Execute the following command:
 
    ```bash
-   netstat -an | find "4317"
+   netstat -na | grep 4317
    ```
 
-   This command must return results, showing that the agent is listening (LISTEN) or that the connection is established (ESTABLISHED).
+   This command must return results, showing that the server is listening (ESTABLISHED).
 
-   ```bash
-   Active Internet connections (servers and established)
-   Proto Recv-Q Send-Q Local Address           Foreign Address         State
-   tcp        0      0 0.0.0.0:4317          ::::                    LISTEN
-   ```
+3. Execute the following command:
 
    ```bash
-   Active Internet connections (servers and established)
-   Proto Recv-Q Send-Q Local Address           Foreign Address         State
-   tcp        0      0 0.0.0.0:4317          <POLLER IP>:<PORT>      ESTABLISHED
+   tcpdump -i any port 4317
    ```
+
+   This command must return results, showing that packets are arriving from the poller.
 
 </TabItem>
 </Tabs>
@@ -153,36 +116,34 @@ The value **true** must be returned.
 2. Execute the following command:
 
    ```bash
-   ss -plant | grep 4317
+   netstat -na | grep 4317
    ```
 
-   This command must return results, showing that the poller is listening (LISTEN) or that the connection is established (ESTABLISHED).
+   This command must return results, showing that the server is listening (ESTABLISHED).
 
-   ```bash
-   State           Recv-Q       Send-Q             Local Address:Port                Peer Address:Port       Process
-   LISTEN          0            0                      0.0.0.0:4317                       ::::
-   ```
+3. Execute the following command:
 
    ```bash
-   State           Recv-Q       Send-Q             Local Address:Port                Peer Address:Port       Process
-   ESTAB          0            0                      0.0.0.0:4317                       <HOST IP>:<PORT> 
+   tcpdump -i any port 4317
    ```
+
+   This command must return results, showing that packets are arriving from the agent.
 
 </TabItem>
 <TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
-Port number 4317 must be open (inbound) on the agent.
+1. Port number 4317 must be open (inbound) on the agent.
+
+2. Execute the following command:
+
+```bash
+tnc <Host IP or DNS> -p 4317
+```
+
+The value **true** must be returned.
 
 </TabItem>
 </Tabs>
-
-Execute the following command:
-
-```bash
-tcpdump -i any port 4317
-```
-
-This command must return results, showing that packets are exchanged between agent and poller.
 
 ### Enable the OpenTelemetry logs
 

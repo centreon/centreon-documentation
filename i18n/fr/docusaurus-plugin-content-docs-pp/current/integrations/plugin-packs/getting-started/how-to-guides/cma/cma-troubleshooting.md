@@ -5,7 +5,16 @@ title: Dépanner l'agent CMA
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/troubleshooting.png)
+## Relancer un contrôle
+Dans de nombreuses situations, il est nécessaire de pouvoir rafraîchir le statut d'une ou plusieurs ressources en lançant un contrôle manuellement via l'interface.
+
+L'action **Vérification forcée** de la page [Statut des ressources](/docs/alerts-notifications/resources-status) est un contrôle disponible pour CMA, que vous pouvez effectuer à tout moment (pendant ou en dehors de la période de vérification configurée).
+
+Vous pouvez contrôler vos ressources et rafraîchir leur statut de trois manières :
+
+En lançant le contrôle directement via le bouton qui s'affiche au survol de la ligne.
+En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton Vérification forcée au-dessus du tableau.
+En cliquant le bouton Vérification forcée dans le Panneau de détail de la ressource.
 
 ## Vérifications sur l'hôte
 
@@ -36,59 +45,13 @@ grep error /var/log/centreon-monitoring-agent/centagent.log
 
 Aucune ligne ne doit être retournée.
 
-### Vérifiez que la connexion avec le collecteur est établie
-
-<Tabs groupId="sync">
-<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
-
-1. Exécutez la commande suivante :
-
-   ```bash
-   nc -vz <IP ou DNS collecteur> 4317
-   ```
-
-   La valeur suivante doit être retournée : 
-
-   ```bash
-   Connection to <IP ou DNS collecteur> 4317 port [tcp/http] succeeded!
-   ```
-
 </TabItem>
-
-<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
-
-1. Le port 4317 doit être ouvert en entrée sur l'hôte.
-
-2. Exécutez la commande suivante :
-
-   ```bash
-   ss -plant | grep 4317
-   ```
-
-   Elle doit retourner des résultats, indiquant que le serveur est en écoute (LISTEN) ou que la connexion est établie (ESTABLISHED).
-   
-   ```bash
-   Active Internet connections (servers and established)
-   Proto Recv-Q Send-Q Local Address           Foreign Address         State
-   tcp        0      0 0.0.0.0:4317          ::::                    LISTEN
-   ```
-
-    ```bash
-   Active Internet connections (servers and established)
-   Proto Recv-Q Send-Q    Local Address           Foreign Address         State
-   tcp        0      0    0.0.0.0:4317          <IP COLLECTEUR>:<PORT>  ESTABLISHED
-   ```
-
-</TabItem>
-</Tabs>
-</TabItem>
-
 <TabItem value="Windows" label="Windows">
 
 ### Vérifiez que le service est lancé
 
 1. Exécutez la commande suivante :
-  
+
    ```bash
    services.msc
    ```
@@ -99,16 +62,15 @@ Aucune ligne ne doit être retournée.
 
 Selon la configuration faite, utilisez l'observateur d'événements ou consultez le fichier spécifié.
 
-### Vérifiez que la connexion avec le collecteur est établie
+### Vérifiez que la connexion se fait vers le collecteur
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
-1. Exécutez la commande suivante dans PowerShell :
-
-   ```bash
-   tnc <IP ou DNS collecteur> -p 4317
-   ```
+1. Exécutez la commande suivante :
+```bash
+tnc <IP ou DNS collecteur> -p 4317
+```
 
 La valeur **true** doit être retournée.
 
@@ -121,23 +83,18 @@ La valeur **true** doit être retournée.
 2. Exécutez la commande suivante :
 
    ```bash
-   netstat -an | find "4317"
+   netstat -na | grep 4317
    ```
 
-   Elle doit retourner des résultats, indiquant que l'agent est en écoute (LISTEN) ou que la connexion est établie (ESTABLISHED).
+   Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
 
-  
-  ```bash
-   Active Internet connections (servers and established)
-   Proto Recv-Q Send-Q Local Address           Foreign Address         State
-   tcp        0      0 0.0.0.0:4317          ::::                    LISTEN
-   ```
+3. Exécutez la commande suivante :
 
    ```bash
-   Active Internet connections (servers and established)
-   Proto Recv-Q Send-Q Local Address           Foreign Address         State
-   tcp        0      0 0.0.0.0:4317          <IP COLLECTEUR>:<PORT>      ESTABLISHED
+   tcpdump -i any port 4317
    ```
+
+   Elle doit retourner des résultats, indiquant que des paquets arrivent du collecteur.
 
 </TabItem>
 </Tabs>
@@ -146,49 +103,41 @@ La valeur **true** doit être retournée.
 
 ## Vérifications sur le collecteur
 
-### Vérifiez que le serveur est en écoute et que des paquets sont échangés
+### Vérifiez que le serveur est en écoute et que les paquets arrivent
 
 <Tabs groupId="sync">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
-
 1. Le port 4317 doit être ouvert en entrée sur le collecteur.
 
+1. Exécutez la commande suivante :
+
+   ```bash
+   netstat -na | grep 4317
+   ```
+
+   Elle doit retourner des résultats, indiquant que le serveur est en écoute (ESTABLISHED).
+   
 2. Exécutez la commande suivante :
 
    ```bash
-   ss -plant | grep 4317
+   tcpdump -i any port 4317
    ```
 
-   Elle doit retourner des résultats, indiquant que le collecteur est en écoute (LISTEN) ou que la connexion est établie (ESTABLISHED).
-
-   
-   ```bash
-   Active Internet connections (servers and established)
-   Proto Recv-Q Send-Q Local Address           Foreign Address         State
-   tcp        0      0 0.0.0.0:4317          ::::                    LISTEN
-   ```
-   
-   ```bash
-   Active Internet connections (servers and established)
-   Proto Recv-Q Send-Q Local Address           Foreign Address         State
-   tcp        0      0 0.0.0.0:4317          <IP HOTE>:<PORT>      ESTABLISHED
-   ```
+   Elle doit retourner des résultats, indiquant que des paquets arrivent de l'agent.
 
 </TabItem>
 <TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
 
-Le port 4317 doit être ouvert en entrée sur l'agent.
+1. Le port 4317 doit être ouvert en entrée sur l'agent.
 
-</TabItem>
-</Tabs>
-
-Exécutez la commande suivante :
-
+2. Exécutez la commande suivante :
 ```bash
-tcpdump -i any port 4317
+tnc <IP ou DNS Hôte> -p 4317
 ```
 
-Elle doit retourner des résultats, indiquant que des paquets circulent entre l'agent et le collecteur.
+La valeur **true** doit être retournée.
+</TabItem>
+</Tabs>
 
 ### Activez les logs OpenTelemetry
 
