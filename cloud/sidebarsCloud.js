@@ -280,6 +280,10 @@ module.exports = {
             {
               "type": "doc",
               "id": "monitoring/basic-objects/services-templates"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/meta-services"
             }
           ]
         },
