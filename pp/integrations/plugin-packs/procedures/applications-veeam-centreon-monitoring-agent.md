@@ -244,7 +244,7 @@ yum install
 
 | Macro           | Description                                                                                                                                                               | Default value                                           | Mandatory |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:---------:|
-| TIMEOUT         | Set timeout time for command execution                                                                                                                                    | 120                                                     |           |
+| TIMEOUT         | Set the command timeout                                                                                                                                    | 120                                                     |           |
 | FILTERENDTIME   | Tolerance value in seconds, to avoid skipping jobs whose end time is earlier than the current time                                                                        | 86400                                                   |           |
 | FILTERNAME      | Filter job name (can be a regexp)                                                                                                                                         |                                                         |           |
 | FILTERSTARTTIME | Tolerance value in seconds, to avoid skipping jobs whose start time is earlier than the current time                                                                      |                                                         |           |
@@ -261,7 +261,7 @@ yum install
 
 | Macro                             | Description                                                                                                                                                 | Default value                      | Mandatory |
 |:----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:---------:|
-| TIMEOUT                           | Set timeout time for command execution                                                                                                                      | 120                                |           |
+| TIMEOUT                           | Set the command timeout                                                                                                                      | 120                                |           |
 | FILTERTO                          | Filter licenses by person/organization (can be a regexp)                                                                                                    |                                    |           |
 | FILTERTYPE                        | Filter licenses by type (can be a regexp)                                                                                                                   |                                    |           |
 | FILTERSTATUS                      | Filter licenses by status (can be a regexp)                                                                                                                 |                                    |           |
@@ -285,7 +285,7 @@ yum install
 
 | Macro                  | Description                                                                                                                                      | Default value                              | Mandatory |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------|:---------:|
-| TIMEOUT                | Set timeout time for command execution                                                                                                           | 120                                        |           |
+| TIMEOUT                | Set the command timeout                                                                                                           | 120                                        |           |
 | FILTERNAME             | Filter repositories by name (can be a regexp)                                                                                                    |                                            |           |
 | FILTERTYPE             | Filter repositories by type (can be a regexp)                                                                                                    |                                            |           |
 | WARNINGSPACEUSAGE      | Threshold                                                                                                                                        |                                            |           |
@@ -303,7 +303,7 @@ yum install
 
 | Macro          | Description                                                                                                                                                                   | Default value                                                   | Mandatory |
 |:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|:---------:|
-| TIMEOUT        | Set timeout time for command execution                                                                                                                                        | 120                                                             |           |
+| TIMEOUT        | Set the command timeout                                                                                                                                        | 120                                                             |           |
 | FILTERNAME     | Filter job name (can be a regexp)                                                                                                                                             |                                                                 |           |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{display\}, %\{enabled\}, %\{type\}, %\{last\_result\}, %\{last\_state\} | %\{enabled\} == 1 and not %\{last\_result\} =~ /Success\|None/i |           |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING You can use the following variables: %\{display\}, %\{enabled\}, %\{type\}, %\{last\_result\}, %\{last\_state\}   |                                                                 |           |
@@ -316,7 +316,7 @@ yum install
 
 | Macro                | Description                                                                                                                                         | Default value                 | Mandatory |
 |:---------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
-| TIMEOUT              | Set timeout time for command execution                                                                                                              | 120                           |           |
+| TIMEOUT              | Set the command timeout                                                                                                              | 120                           |           |
 | FILTERNAME           | Filter job name (can be a regexp)                                                                                                                   |                               |           |
 | FILTERTYPE           | Filter job type (can be a regexp)                                                                                                                   |                               |           |
 | WARNINGJOBSWARNING   | Threshold                                                                                                                                           |                               |           |
