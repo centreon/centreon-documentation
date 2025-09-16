@@ -42,6 +42,19 @@ Exportez la configuration du collecteur :
 3. Cliquez sur **Exporter**. Un log de l'export s'affiche : il ne devrait pas y avoir d'erreurs.
 4. Retournez à la page **Configuration > Collecteurs > Collecteurs** : le collecteur affiche **Oui** dans la colonne **En cours d'exécution?**. Votre collecteur est maintenant prêt à superviser des ressources.
 
+## Réinstaller un collecteur
+
+Si, pour une raison quelconque, vous devez réinstaller un collecteur existant, procédez comme suit pour éviter tout conflit lors de l'enregistrement :
+
+1. Allez à la page **Configuration > Collecteurs > Collecteurs**.
+2. Supprimez le collecteur que vous souhaitez réinstaller.
+3. Exécutez le script d'installation : lorsque vous y êtes invité, sélectionnez l'option 2, **Reinstall the poller from scratch**. Vous pouvez également exécuter le script d'installation avec l'option **--reset** :
+
+   ```shell
+   bash registerPoller.sh install -t <token> -s <site> -o <organization> --reset
+   ```
+4. [Déployez la configuration et redémarrez le collecteur](#étape-2--exporter-la-configuration-et-redémarrer-le-collecteur).
+
 ## Scénario de déploiement avancé : utilisation d'un dépôt privé
 
 Si vous ne pouvez pas vous connecter au dépôt public Centreon, vous pouvez désactiver l'installation automatique à partir de celui-ci et gérer l'installation des paquets d'une autre manière.

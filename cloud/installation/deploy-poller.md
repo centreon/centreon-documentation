@@ -42,6 +42,18 @@ Export the configuration for this poller:
 3. Click **Export**. A log of the export is displayed. This should have no errors.
 4. Go back to **Configuration > Pollers > Pollers**: the poller now has **Yes** under **Is running?**. Your poller is now ready to monitor resources.
 
+## Reinstalling a poller
+
+If, for some reason, you need to reinstall an existing poller, follow this procedure to avoid conflicts during registration:
+1. Go to **Configuration > Pollers > Pollers**.
+2. Delete the poller you want to reinstall.
+3. Run the poller installation script: when prompted, select option 2, **Reinstall the poller from scratch**. You can also run the installation script with the **--reset** option:
+
+   ```shell
+   bash registerPoller.sh install -t <token> -s <site> -o <organization> --reset
+   ```
+4. [Deploy the configuration and restart the poller](#step-2-exporting-the-configuration-and-restarting-the-poller).
+
 ## Advanced deployment scenario: using a private repository
 
 If you cannot connect to the Centreon public repository, you can disable automatic installation from this repository and manage package installation in another way.
