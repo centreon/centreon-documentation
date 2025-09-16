@@ -340,7 +340,7 @@ This connector relies on an integration supported by Centreon Engine and does no
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Once the plugin is installed, log into your Centreon poller's CLI using the
+Once the plugin is installed, log into your host's CLI (this command cannot be run on the pollers) using the
 **centreon-engine** user account (`su - centreon-engine`). Test that the connector 
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
