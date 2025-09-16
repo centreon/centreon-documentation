@@ -423,6 +423,10 @@ module.exports = {
           "id": "alerts-notifications/notif-configuration"
         },
         {
+          "type": "doc",
+          "id": "alerts-notifications/notif-flapping"
+        },
+        {
           "type": "category",
           "label": "Managing tickets",
           "link": {
