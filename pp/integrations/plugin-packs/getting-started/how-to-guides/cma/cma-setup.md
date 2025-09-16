@@ -58,7 +58,7 @@ In the case of a Cloud platform, these connectors are already installed.
 * The monitoring engine checks the presence and validity of the token, and disconnects if the token is missing (because it has been disabled or revoked) or has expired. The message **Token expired** appears in the [poller and agent logs](cma-troubleshooting.md#location-of-poller-and-agent-logs).
 
 </TabItem>
-<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
+<TabItem value="Poller connects to agent" label="Poller connects to agent">
 
 * The agent checks the presence and validity of the token and disconnects if the token is missing (because it has been disabled or revoked) or has expired. The message **Token expired** appears in the [poller and agent logs](cma-troubleshooting.md#location-of-poller-and-agent-logs).
 

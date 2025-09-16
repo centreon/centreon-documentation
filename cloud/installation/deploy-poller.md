@@ -52,4 +52,28 @@ If, for some reason, you need to reinstall an existing poller, follow this proce
    ```shell
    bash registerPoller.sh install -t <token> -s <site> -o <organization> --reset
    ```
-5. [Deploy the configuration and restart the poller](#step-2-exporting-the-configuration-and-restarting-the-poller).
+4. [Deploy the configuration and restart the poller](#step-2-exporting-the-configuration-and-restarting-the-poller).
+
+## Advanced deployment scenario: using a private repository
+
+If you cannot connect to the Centreon public repository, you can disable automatic installation from this repository and manage package installation in another way.
+
+1. Prepare the OS so that it can find the necessary packages using another channel. For your information, the necessary repositories can be found in the
+[Centreon OnPrem documentation](/docs/installation/installation-of-a-central-server/using-packages#install-the-repositories).
+
+2. Follow the procedure above (steps [1](#step-1-running-the-poller-installation-script) and
+[2](#step-2-exporting-the-configuration-and-restarting-the-poller)): before running the installation command that you copied from the interface, edit it and add the `--private-repo` option after the `install` command.
+
+<!--### List of packages installed by the deployment command
+
+* Alma / RHEL / Oracle Linux:
+
+```shell
+centreon-poller perl-Mojolicious jq
+```
+
+* Debian:
+
+```shell
+centreon-poller libmojolicious-perl jq
+```-->

@@ -54,3 +54,27 @@ Si, pour une raison quelconque, vous devez réinstaller un collecteur existant, 
    bash registerPoller.sh install -t <token> -s <site> -o <organization> --reset
    ```
 4. [Déployez la configuration et redémarrez le collecteur](#étape-2--exporter-la-configuration-et-redémarrer-le-collecteur).
+
+## Scénario de déploiement avancé : utilisation d'un dépôt privé
+
+Si vous ne pouvez pas vous connecter au dépôt public Centreon, vous pouvez désactiver l'installation automatique à partir de celui-ci et gérer l'installation des paquets d'une autre manière.
+
+1. Préparez le système d'exploitation afin qu'il puisse trouver les paquets nécessaires via un autre canal. Pour information, les dépôts nécessaires sont listés dans la
+[documentation Centreon OnPrem](/docs/installation/installation-of-a-central-server/using-packages#install-the-repositories).
+
+2. Suivez la procédure ci-dessus (étapes [1](#étape-1--exécuter-le-script-dinstallation-du-collecteur) et
+[2](#étape-2--exporter-la-configuration-et-redémarrer-le-collecteur)) : avant d'exécuter la commande d'installation que vous avez copiée depuis l'interface, modifiez-la et ajoutez l'option `--private-repo` après la commande `install`.
+
+<!--### Liste des paquets installés par la commande de déploiement
+
+* Alma / RHEL / Oracle Linux :
+
+```shell
+centreon-poller perl-Mojolicious jq
+```
+
+* Debian :
+
+```shell
+centreon-poller libmojolicious-perl jq
+```-->
