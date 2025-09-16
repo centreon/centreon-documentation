@@ -342,7 +342,7 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
 Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis votre collecteur Centreon en vous connectant avec
+de commande depuis votre hôte (cette commande ne peut pas s'exécuter sur les collecteurs) en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
 que le connecteur arrive bien à superviser une ressource en utilisant une commande
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
