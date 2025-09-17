@@ -8,52 +8,57 @@ import TabItem from '@theme/TabItem';
 
 ## Centreon MBI backup 
 
-### Backup: Configuration data on the Centreon server
+Centreon MBI backup uses 2 crons to backup all your files:
+- Backup module on your Central for all your reports and ETL configuration
+- Backup datawarehouse databases, cbis configuration files and birt files on your MBI server.
+
+> Each Backup solution has purge mechanism to delete old data
+
+### Backing up your Central server
 
 #### Items to back up
 
--   Custom report designs and their settings
--   Generated reports.
+- Generated reports (pdf, docx, xlsx or other formats file).
+- 2 SQL dumps (dump_centreon.sql, dump_centreon_storage.sql) represents all your MBI module configuration on your Central.
+
+#### Backup frequency
+
+- Daily
+- Purge Rotation: 8 days.
 
 #### How the backup script works
 
 The backup script is executed on a daily basis using a cron job located
-in ```/etc/cron.d/centreon-bi-backup-web```:
+in ```/etc/cron.d/centreon-bi-interface-crons``:
 
 ```
-    #
-    # Cron to backup Centreon MBI Engine frontend module
-    #
-    PATH=/sbin:/bin:/usr/sbin:/usr/bin
+#
+# Cron to backup Centreon BI Engine frontend module
+#
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
 
-    # rewrite file with new cron line
-    CRONTAB_EXEC_USER=""
+# rewrite file with new cron line
+CRONTAB_EXEC_USER=""
 
-    0 12 * * * root bash /usr/share/centreon-bi-backup/centreon-bi-backup-web.sh >> /var/log/centreon-bi/centreon-bi-backup-web.log 2>&1
+0 12 * * * root bash /usr/share/centreon-bi-backup/centreon-bi-backup-web.sh >> /var/log/centreon/centreon-bi-backup-web.log 2>&1
+
+0 3 * * * root /usr/bin/php -q /usr/share/centreon/www/modules/centreon-bi-server/tools/purgeArchivesFiles.php >> /var/log/centreon/centreon-bi-archive-retention.log 2>&1
 ```
 
-By default, backups are saved to ```/var/backup```.
+The backup format is
+```centreon-bi-front-reports-and-custom-conf-aaaa-mm-jj.tar.gz```
 
-To modify this folder, update the ```BACKUP_DIR``` value in the backup
+By default, backups are saved to ```/var/backup```. To modify this folder, update the ```BACKUP_DIR``` value in the backup
 script (line **63**) located here:
 ```/usr/share/centreon-bi-backup/centreon-bi-backup-web.sh```
 
-On a Centreon server, only generated reports and report designs need to
-be backed up. The backup format is
-```centreon-bi-front-reports-and-custom-conf-aaaa-mm-jj.tar.gz```
-
-#### Backup frequency
-
--   Daily
--   Rotation: 8 days.
-
-To modify this value, update ```RETENTION_AGE``` in the backup script
+By default, retention is set to 8 days, to modify this value, update ```RETENTION_AGE``` in the backup script
 (line **67**) located here:
 ```/usr/share/centreon-bi-backup/centreon-bi-backup-web.sh```
 
 > We advise you to export backups to another resource in order to secure them.
 
-### Backing up the reporting server
+### Backing up your MBI server
 
 > It is important to have at least 5 GB of free space on the **Volume Group**
 > hosting the data storage MariaDB/MySQL DBMS. To check your free
@@ -61,11 +66,17 @@ To modify this value, update ```RETENTION_AGE``` in the backup script
 >
 >       ```vgdisplay vg_data | grep -i free```
 
+
 #### Items to back up
 
--   Configuration files
--   Aggregated data
--   Reports & resources.
+- Configuration files (mariadb configuration).
+- Aggregated data (all your datadir folder, ex: /var/lib/mysql).
+- Reports & resources rptidesign/rptlibrary and XML parameters.
+
+#### Backup frequency
+
+-   Daily
+-   Rotation: 8 days.
 
 #### How the backup script works on the central server
 
@@ -86,27 +97,23 @@ in ```/etc/cron.d/centreon-bi-backup-reporting-server```:
     0 12 * * * root bash /usr/share/centreon-bi-backup/centreon-bi-backup-reporting-server.sh --centreonbifiles >> /var/log/centreon-bi/centreon-bi-backup-reporting-server-files.log 2>&1
 ```
 
-By default, backups are saved to ```/var/backup```.
-
-To modify this folder, update the ```BACKUP_DIR``` value in the backup
-script (line **83**) located here:
-```/usr/share/centreon-bi-backup/centreon-bi-backup-reporting-server.sh```
-
 Three types of backup are executed during the week:
 
 -   Daily backup of configuration files for the report generation engine. Format: ```centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz```
 -   Every Sunday, full ETL backup. Format: ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
 -   From Monday to Saturday an incremental ETL backup (all tables and only the last partition of partitioned tables). Format: ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
 
+By default, backups are saved to ```/var/backup```. To modify this folder, update the ```BACKUP_DIR``` value in the backup script (line **83**) located here:
+```/usr/share/centreon-bi-backup/centreon-bi-backup-reporting-server.sh```
+
+
+
 > **Warning**
 > 
 > During backup of the reporting server, ensure that no ETL scripts are
 > running. No job reports should be running either
 
-#### Backup frequency
 
--   Daily
--   Rotation: 8 days.
 
 To modify this value, update **RETENTION_AGE** in the backup script
 (line **88**) located here:
@@ -118,13 +125,13 @@ To modify this value, update **RETENTION_AGE** in the backup script
 
 The restore process is divided into several steps:
 
--   Reinstalling the centreon-bi-server module in the same version as the one saved
--   Integrating generated reports
--   Integrating custom report settings
--   Integrating Centreon MBI configuration data
--   Integrating MariaDB/MySQL data
--   Deleting data extracted from the backup
--   Reinstalling the backup.
+- Reinstalling the centreon-bi-server module in the same version as the one saved
+- Integrating generated reports
+- Integrating custom report settings
+- Integrating Centreon MBI configuration data
+- Integrating MariaDB/MySQL data
+- Deleting data extracted from the backup
+- Reinstalling the backup.
 
 ### Restore configuration data
 
