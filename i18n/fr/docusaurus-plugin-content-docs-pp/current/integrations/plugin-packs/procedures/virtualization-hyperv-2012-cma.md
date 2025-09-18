@@ -1,44 +1,50 @@
 ---
-id: virtualization-hyperv-2012-nrpe
-title: Hyper-V 2012 NSClient++ NRPE
+id: virtualization-hyperv-2012-cma
+title: Hyper-V 2012 CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Hyper-V 2012 CMA** 
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
 ## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision **Hyper-V 2012** apporte 2 modèles d'hôte :
+Le connecteur de supervision **Hyper-V 2012 CMA** apporte 2 modèles d'hôte :
 
-* **Virt-Hyperv-2012-Node-NRPE-custom**
-* **Virt-Hyperv-2012-Scvmm-NRPE-custom**
+* **Virt-Hyperv-2012-Node-CMA-custom**
+* **Virt-Hyperv-2012-Scvmm-CMA-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Virt-Hyperv-2012-Node-NRPE-custom" label="Virt-Hyperv-2012-Node-NRPE-custom">
+<TabItem value="Virt-Hyperv-2012-Node-CMA-custom" label="Virt-Hyperv-2012-Node-CMA-custom">
 
-| Alias                    | Modèle de service                                     | Description                                                            |
-|:-------------------------|:------------------------------------------------------|:-----------------------------------------------------------------------|
-| Node-Integration-Service | Virt-Hyperv-2012-Node-Integration-Service-NRPE-custom | Contrôle permettant de vérifier le statut des services d'intégration   |
-| Node-Replication         | Virt-Hyperv-2012-Node-Replication-NRPE-custom         | Contrôle permettant de vérifier la réplication des machines virtuelles |
-| Node-Snapshot            | Virt-Hyperv-2012-Node-Snapshot-NRPE-custom            | Contrôle permettant de vérifier les snapshots des machines virtuelles  |
-| Node-Vm-Status           | Virt-Hyperv-2012-Node-Vm-Status-NRPE-custom           | Contrôle permettant de vérifier le statut des machines virtuelles      |
+| Alias                    | Modèle de service                                    | Description                                                            |
+|:-------------------------|:-----------------------------------------------------|:-----------------------------------------------------------------------|
+| Node-Integration-Service | Virt-Hyperv-2012-Node-Integration-Service-CMA-custom | Contrôle permettant de vérifier le statut des services d'intégration   |
+| Node-Replication         | Virt-Hyperv-2012-Node-Replication-CMA-custom         | Contrôle permettant de vérifier la réplication des machines virtuelles |
+| Node-Snapshot            | Virt-Hyperv-2012-Node-Snapshot-CMA-custom            | Contrôle permettant de vérifier les snapshots des machines virtuelles  |
+| Node-Vm-Status           | Virt-Hyperv-2012-Node-Vm-Status-CMA-custom           | Contrôle permettant de vérifier le statut des machines virtuelles      |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-Hyperv-2012-Node-NRPE-custom** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-Hyperv-2012-Node-CMA-custom** est utilisé.
 
 </TabItem>
-<TabItem value="Virt-Hyperv-2012-Scvmm-NRPE-custom" label="Virt-Hyperv-2012-Scvmm-NRPE-custom">
+<TabItem value="Virt-Hyperv-2012-Scvmm-CMA-custom" label="Virt-Hyperv-2012-Scvmm-CMA-custom">
 
 | Alias                     | Modèle de service                                      | Description                                                    |
 |:--------------------------|:-------------------------------------------------------|:---------------------------------------------------------------|
-| Scvmm-Integration-Service | Virt-Hyperv-2012-Scvmm-Integration-Service-NRPE-custom | Contrôle permettant de vérifier les services d'intégration     |
-| Scvmm-Snapshot            | Virt-Hyperv-2012-Scvmm-Snapshot-NRPE-custom            | Contrôle permettant de vérifier les snapshots                  |
-| Scvmm-Vm-Status           | Virt-Hyperv-2012-Scvmm-Vm-Status-NRPE-custom           | Contrôle permettant de vérifier l'état des machines virtuelles |
+| Scvmm-Integration-Service | Virt-Hyperv-2012-Scvmm-Integration-Service-CMA-custom | Contrôle permettant de vérifier les services d'intégration     |
+| Scvmm-Snapshot            | Virt-Hyperv-2012-Scvmm-Snapshot-CMA-custom            | Contrôle permettant de vérifier les snapshots                  |
+| Scvmm-Vm-Status           | Virt-Hyperv-2012-Scvmm-Vm-Status-CMA-custom           | Contrôle permettant de vérifier l'état des machines virtuelles |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-Hyperv-2012-Scvmm-NRPE-custom** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-Hyperv-2012-Scvmm-CMA-custom** est utilisé.
 
 </TabItem>
 </Tabs>
@@ -122,16 +128,34 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-### Centreon NSClient++
+### Flux réseau
 
-Pour superviser les ressources *Windows* via NRPE, installez la version Centreon
-de l'agent NSClient++. Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que la configuration du **serveur NRPE** est correcte.
+Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
+
+| Source         | Destination | Protocole | Port | Objet                                                                       |
+|----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
+| Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
+
+### Prérequis système sur le collecteur
+
+> Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la version `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent devra se configurer en se connectant à Centreon Engine.
+
+### Configuration de Centreon Engine
+
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma.md#configurez-la-communication-collecteuragent).
+
+### Prérequis système sur l'hôte à superviser
+
+La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur [cette page dédiée](https://docs.centreon.com/fr/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma-setup/#%C3%A9tape-3--pr%C3%A9parez-lh%C3%B4te)
+
+#### Installation de Centreon Monitoring Agent
+
+La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée dans 
+[la documentation dédiée à ce sujet](../getting-started/how-to-guides/cma.md#étape-2--préparez-lhôte).
 
 ## Installer le connecteur de supervision
 
 ### Pack
-
-La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
 n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
@@ -143,28 +167,28 @@ associé à sa distribution :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-virtualization-hyperv-2012-nrpe
+dnf install centreon-pack-virtualization-hyperv-2012-cma
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-virtualization-hyperv-2012-nrpe
+dnf install centreon-pack-virtualization-hyperv-2012-cma
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-virtualization-hyperv-2012-nrpe
+apt install centreon-pack-virtualization-hyperv-2012-cma
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-virtualization-hyperv-2012-nrpe
+yum install centreon-pack-virtualization-hyperv-2012-cma
 ```
 
 </TabItem>
@@ -175,78 +199,43 @@ depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de
 
 ### Plugin
 
-Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```bash
-dnf install centreon-nrpe3-plugin
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```bash
-dnf install centreon-nrpe3-plugin
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```bash
-apt install centreon-nrpe3-plugin
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-nrpe3-plugin
-```
-
-</TabItem>
-</Tabs>
+Ce connecteur de supervision s'appuie sur une intégration prise en charge par Centreon Engine et ne requiert pas de plugin.
 
 ## Utiliser le connecteur de supervision
 
 ### Utiliser un modèle d'hôte issu du connecteur
 
 <Tabs groupId="sync">
-<TabItem value="Virt-Hyperv-2012-Node-NRPE-custom" label="Virt-Hyperv-2012-Node-NRPE-custom">
+<TabItem value="Virt-Hyperv-2012-Node-CMA-custom" label="Virt-Hyperv-2012-Node-CMA-custom">
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **Virt-Hyperv-2012-Node-NRPE-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+3. Appliquez le modèle d'hôte **Virt-Hyperv-2012-Node-CMA-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro            | Description                                                                                                                                        | Valeur par défaut     | Obligatoire |
-|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| NRPEPORT         | NRPE Port of the target server                                                                                                                     | 5666                  |             |
-| NRPECLIENT       | NRPE Plugin binary to use                                                                                                                          | check\_centreon\_nrpe |             |
-| NRPETIMEOUT      | Timeout value                                                                                                                                      | 55                    |             |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | -u -m 8192            |             |
+| Macro                | Description                                             | Valeur par défaut                 | Obligatoire |
+|:---------------------|:--------------------------------------------------------|:----------------------------------|:-----------:|
+| CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |      X      |
+| SYSTEMLANGUAGE       | Language installed on the Windows system                | en                                |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
 </TabItem>
-<TabItem value="Virt-Hyperv-2012-Scvmm-NRPE-custom" label="Virt-Hyperv-2012-Scvmm-NRPE-custom">
+<TabItem value="Virt-Hyperv-2012-Scvmm-CMA-custom" label="Virt-Hyperv-2012-Scvmm-CMA-custom">
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **Virt-Hyperv-2012-Scvmm-NRPE-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+3. Appliquez le modèle d'hôte **Virt-Hyperv-2012-Scvmm-CMA-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro            | Description                                                                                                                                        | Valeur par défaut     | Obligatoire |
-|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| NRPEPORT         | NRPE Port of the target server                                                                                                                     | 5666                  |             |
-| SCVMMPORT        | SCVMM port used                                                                                                                                    | 8100                  |             |
-| SCVMMHOSTNAME    | SCVMM hostname                                                                                                                                     |                       |             |
-| SCVMMUSERNAME    | SCVMM username                                                                                                                                     |                       |      X      |
-| SCVMMPASSWORD    | SCVMM password                                                                                                                                     |                       |      X      |
-| NRPECLIENT       | NRPE Plugin binary to use                                                                                                                          | check\_centreon\_nrpe |             |
-| NRPETIMEOUT      | Timeout value                                                                                                                                      | 55                    |             |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | -u -m 8192            |             |
+| Macro                | Description                                             | Valeur par défaut                 | Obligatoire |
+|:---------------------|:--------------------------------------------------------|:----------------------------------|:-----------:|
+| CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |      X      |
+| SYSTEMLANGUAGE       | Language installed on the Windows system                | en                                |             |
+| SCVMMPORT            | SCVMM port used                                         | 8100                              |             |
+| SCVMMHOSTNAME        | SCVMM hostname                                          |                                   |             |
+| SCVMMUSERNAME        | SCVMM username                                          |                                   |      X      |
+| SCVMMPASSWORD        | SCVMM password                                          |                                   |      X      |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -261,26 +250,26 @@ yum install centreon-nrpe3-plugin
 <Tabs groupId="sync">
 <TabItem value="Node-Integration-Service" label="Node-Integration-Service">
 
-| Macro                 | Description                                                                                                                                                                          | Valeur par défaut                                    | Obligatoire |
-|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-----------:|
-| FILTERSTATUS          | Filter virtual machine status (can be a regexp)                                                                                                                                      | Running                                              |             |
-| FILTERVM              | Filter virtual machines (can be a regexp)                                                                                                                                            |                                                      |             |
-| FILTERNOTE            | Filter by VM notes (can be a regexp)                                                                                                                                                 |                                                      |             |
+| Macro                 | Description                                                                                                                                                                              | Valeur par défaut                                   | Obligatoire |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-----------:|
+| FILTERSTATUS          | Filter virtual machine status (can be a regexp)                                                                                                                                          | Running                                             |             |
+| FILTERVM              | Filter virtual machines (can be a regexp)                                                                                                                                                |                                                     |             |
+| FILTERNOTE            | Filter by VM notes (can be a regexp)                                                                                                                                                     |                                                     |             |
 | WARNINGGLOBALSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{integration_service_state\}, %\{integration_service_version\}, %\{state\}  | %\{integration_service_state\}=~ /Update required/i |             |
-| CRITICALGLOBALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{integration_service_state\}, %\{integration_service_version\}, %\{state\} |                                                      |             |
-| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{service\}, %\{primary_status\}, %\{secondary_status\}, %\{enabled\}           | not %\{primary_status\} =~ /Ok/i                      |             |
-| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{service\}, %\{primary_status\}, %\{secondary_status\}, %\{enabled\}            |                                                      |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                     | --verbose                                            |             |
+| CRITICALGLOBALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{integration_service_state\}, %\{integration_service_version\}, %\{state\} |                                                     |             |
+| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{service\}, %\{primary_status\}, %\{secondary_status\}, %\{enabled\}       | not %\{primary_status\} =~ /Ok/i                    |             |
+| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{service\}, %\{primary_status\}, %\{secondary_status\}, %\{enabled\}        |                                                     |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                         | --verbose                                           |             |
 
 </TabItem>
 <TabItem value="Node-Replication" label="Node-Replication">
 
-| Macro          | Description                                                                                                                                      | Valeur par défaut        | Obligatoire |
-|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| FILTERVM       | Filter virtual machines (can be a regexp)                                                                                                        |                          |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{state\}, %\{health\}                     | %\{health\} =~ /Warning/i  |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{state\}, %\{health\}                    | %\{health\} =~ /Critical/i |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                |             |
+| Macro          | Description                                                                                                                                      | Valeur par défaut          | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
+| FILTERVM       | Filter virtual machines (can be a regexp)                                                                                                        |                            |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{state\}, %\{health\}               | %\{health\} =~ /Warning/i  |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{state\}, %\{health\}              | %\{health\} =~ /Critical/i |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                  |             |
 
 </TabItem>
 <TabItem value="Node-Snapshot" label="Node-Snapshot">
@@ -299,26 +288,26 @@ yum install centreon-nrpe3-plugin
 </TabItem>
 <TabItem value="Node-Vm-Status" label="Node-Vm-Status">
 
-| Macro          | Description                                                                                                                                      | Valeur par défaut                      | Obligatoire |
-|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|:-----------:|
-| FILTERVM       | Filter virtual machines (can be a regexp)                                                                                                        |                                        |             |
-| FILTERNOTE     | Filter by VM notes (can be a regexp)                                                                                                             |                                        |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{state\}, %\{status\}, %\{is_clustered\}  | not %\{status\} =~ /Operating normally/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{state\}, %\{status\}, %\{is_clustered\}   |                                        |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                              |             |
+| Macro          | Description                                                                                                                                            | Valeur par défaut                        | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------|:-----------:|
+| FILTERVM       | Filter virtual machines (can be a regexp)                                                                                                              |                                          |             |
+| FILTERNOTE     | Filter by VM notes (can be a regexp)                                                                                                                   |                                          |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{state\}, %\{status\}, %\{is_clustered\} | not %\{status\} =~ /Operating normally/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{state\}, %\{status\}, %\{is_clustered\}  |                                          |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).       | --verbose                                |             |
 
 </TabItem>
 <TabItem value="Scvmm-Integration-Service" label="Scvmm-Integration-Service">
 
-| Macro             | Description                                                                                                                                      | Valeur par défaut                | Obligatoire |
-|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
-| FILTERSTATUS      | Filter virtual machine status (can be a regexp)                                                                                                  | Running                          |             |
-| FILTERVM          | Filter virtual machines (can be a regexp)                                                                                                        |                                  |             |
-| FILTERDESCRIPTION | Filter by description (can be a regexp)                                                                                                          |                                  |             |
-| FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                                                               |                                  |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{vmaddition\}, %\{status\}               | %\{vmaddition\} =~ /not detected/i |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING . You can use the following variables: %\{vm\}, %\{vmaddition\}, %\{status\}               |                                  |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                        |             |
+| Macro             | Description                                                                                                                                      | Valeur par défaut                  | Obligatoire |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:-----------:|
+| FILTERSTATUS      | Filter virtual machine status (can be a regexp)                                                                                                  | Running                            |             |
+| FILTERVM          | Filter virtual machines (can be a regexp)                                                                                                        |                                    |             |
+| FILTERDESCRIPTION | Filter by description (can be a regexp)                                                                                                          |                                    |             |
+| FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                                                               |                                    |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{vmaddition\}, %\{status\}         | %\{vmaddition\} =~ /not detected/i |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING . You can use the following variables: %\{vm\}, %\{vmaddition\}, %\{status\}         |                                    |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                          |             |
 
 </TabItem>
 <TabItem value="Scvmm-Snapshot" label="Scvmm-Snapshot">
@@ -336,14 +325,14 @@ yum install centreon-nrpe3-plugin
 </TabItem>
 <TabItem value="Scvmm-Vm-Status" label="Scvmm-Vm-Status">
 
-| Macro             | Description                                                                                                                                      | Valeur par défaut                    | Obligatoire |
-|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-----------:|
-| FILTERVM          | Filter virtual machines (can be a regexp)                                                                                                        |                                      |             |
-| FILTERDESCRIPTION | Filter by description (can be a regexp)                                                                                                          |                                      |             |
-| FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                                                               |                                      |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{status\}, %\{hostgroup\}                | not %\{status\} =~ /Running\|Stopped/i |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING . You can use the following variables: %\{vm\}, %\{status\}, %\{hostgroup\}                |                                      |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                            |             |
+| Macro             | Description                                                                                                                                      | Valeur par défaut                      | Obligatoire |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|:-----------:|
+| FILTERVM          | Filter virtual machines (can be a regexp)                                                                                                        |                                        |             |
+| FILTERDESCRIPTION | Filter by description (can be a regexp)                                                                                                          |                                        |             |
+| FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                                                               |                                        |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{status\}, %\{hostgroup\}          | not %\{status\} =~ /Running\|Stopped/i |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING . You can use the following variables: %\{vm\}, %\{status\}, %\{hostgroup\}          |                                        |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                              |             |
 
 </TabItem>
 </Tabs>
@@ -353,13 +342,15 @@ yum install centreon-nrpe3-plugin
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
 Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis votre collecteur Centreon en vous connectant avec
+de commande depuis votre hôte (cette commande ne peut pas s'exécuter sur les collecteurs) en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
 que le connecteur arrive bien à superviser une ressource en utilisant une commande
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib64/nagios/plugins// -H 10.0.0.1 -p  -t   -c check_centreon_plugins -a 'apps::microsoft::hyperv::2012::local::plugin' 'scvmm-vm-status'  '  \
+"/centreon_plugins.exe" \
+    --plugin=apps::microsoft::hyperv::2012::local::plugin \
+    --mode=scvmm-vm-status \
 	--scvmm-hostname="" \
 	--scvmm-username="XXXX" \
 	--scvmm-password="XXXX" \
@@ -369,7 +360,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--filter-hostgroup="" \
 	--warning-status="" \
 	--critical-status="not %\{status\} =~ /Running|Stopped/i" \
-	--verbose'
+	--verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
@@ -397,24 +388,24 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib64/nagios/plugins// -H 10.0.0.1 -p  -t   -c check_centreon_plugins -a 'apps::microsoft::hyperv::2012::local::plugin' 'scvmm-vm-status'  '  \
-	--scvmm-hostname="" \
-	--list-mode'
+"/centreon_plugins.exe" \
+    --plugin=apps::microsoft::hyperv::2012::local::plugin \
+	--list-mode
 ```
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                                               | Modèle de service associé                              |
-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|
-| list-node-vms [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/listnodevms.pm)]                         | Not used in this Monitoring Connector                  |
-| node-integration-service [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/nodeintegrationservice.pm)]   | Virt-Hyperv-2012-Node-Integration-Service-NRPE-custom  |
-| node-replication [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/nodereplication.pm)]                  | Virt-Hyperv-2012-Node-Replication-NRPE-custom          |
-| node-snapshot [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/nodesnapshot.pm)]                        | Virt-Hyperv-2012-Node-Snapshot-NRPE-custom             |
-| node-vm-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/nodevmstatus.pm)]                       | Virt-Hyperv-2012-Node-Vm-Status-NRPE-custom            |
-| scvmm-discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/scvmmdiscovery.pm)]                    | Not used in this Monitoring Connector                  |
-| scvmm-integration-service [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/scvmmintegrationservice.pm)] | Virt-Hyperv-2012-Scvmm-Integration-Service-NRPE-custom |
-| scvmm-snapshot [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/scvmmsnapshot.pm)]                      | Virt-Hyperv-2012-Scvmm-Snapshot-NRPE-custom            |
-| scvmm-vm-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/scvmmvmstatus.pm)]                     | Virt-Hyperv-2012-Scvmm-Vm-Status-NRPE-custom           |
+| Mode                                                                                                                                                               | Modèle de service associé                             |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|
+| list-node-vms [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/listnodevms.pm)]                         | Not used in this Monitoring Connector                 |
+| node-integration-service [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/nodeintegrationservice.pm)]   | Virt-Hyperv-2012-Node-Integration-Service-CMA-custom  |
+| node-replication [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/nodereplication.pm)]                  | Virt-Hyperv-2012-Node-Replication-CMA-custom          |
+| node-snapshot [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/nodesnapshot.pm)]                        | Virt-Hyperv-2012-Node-Snapshot-CMA-custom             |
+| node-vm-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/nodevmstatus.pm)]                       | Virt-Hyperv-2012-Node-Vm-Status-CMA-custom            |
+| scvmm-discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/scvmmdiscovery.pm)]                    | Not used in this Monitoring Connector                 |
+| scvmm-integration-service [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/scvmmintegrationservice.pm)] | Virt-Hyperv-2012-Scvmm-Integration-Service-CMA-custom |
+| scvmm-snapshot [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/scvmmsnapshot.pm)]                      | Virt-Hyperv-2012-Scvmm-Snapshot-CMA-custom            |
+| scvmm-vm-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/hyperv/2012/local/mode/scvmmvmstatus.pm)]                     | Virt-Hyperv-2012-Scvmm-Vm-Status-CMA-custom           |
 
 ### Options disponibles
 
@@ -603,8 +594,8 @@ Pour un mode, la liste de toutes les options disponibles et leur signification p
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib64/nagios/plugins// -H 10.0.0.1 -p  -t   -c check_centreon_plugins -a 'apps::microsoft::hyperv::2012::local::plugin' 'scvmm-vm-status'  '  \
-	--scvmm-hostname="" \
-	--scvmm-username="" \
+"/centreon_plugins.exe" \
+    --plugin=apps::microsoft::hyperv::2012::local::plugin \
+    --mode=scvmm-vm-status \
 	--help
 ```
