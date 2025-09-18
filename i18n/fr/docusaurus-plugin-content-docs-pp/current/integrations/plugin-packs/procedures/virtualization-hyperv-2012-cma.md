@@ -142,7 +142,7 @@ Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
 
 ### Configuration de Centreon Engine
 
-[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma.md#configurez-la-communication-collecteuragent).
+[Configurez la communication entre le collecteur et l'agent](../getting-started/how-to-guides/cma/cma-setup.md#configurez-la-communication-collecteuragent).
 
 ### Prérequis système sur l'hôte à superviser
 
@@ -151,7 +151,7 @@ La procédure d'installation et de configuration de Centreon Monitoring Agent po
 #### Installation de Centreon Monitoring Agent
 
 La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée dans 
-[la documentation dédiée à ce sujet](../getting-started/how-to-guides/cma/cma.md#étape-2--préparez-lhôte).
+[la documentation dédiée à ce sujet](../getting-started/how-to-guides/cma/cma-setup.md#étape-2--préparez-lhôte).
 
 ## Installer le connecteur de supervision
 
