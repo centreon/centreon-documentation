@@ -179,7 +179,7 @@ Depending on the type of server, install the packages with the following command
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-SELinux only concrns EL environments.
+SELinux only concerns EL environments.
 
 </TabItem>
 </Tabs>
