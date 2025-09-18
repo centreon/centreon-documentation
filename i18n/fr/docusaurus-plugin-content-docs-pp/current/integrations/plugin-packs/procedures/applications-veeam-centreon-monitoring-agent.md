@@ -296,42 +296,20 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-Une fois Centreon Monitoring Agent installé, vous pouvez tester le plugin directement en ligne
-de commande depuis votre hôte supervisé. Vous pouvez tester
-que le connecteur arrive bien à superviser une ressource en utilisant une commande
-telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) dans un terminal PowerShell :
+Vous pouvez tester que le plugin parvient bien à superviser votre serveur Windows en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
-```powershell
-cd "C:/Program Files/Centreon/Plugins/"
-.\centreon_plugins.exe `
-	--plugin apps::backup::veeam::local::plugin `
-	--mode vsb-jobs `
-	--timeout="120" `
-	--filter-name="" `
-	--filter-type="" `
-	--warning-jobs-detected="" `
-	--critical-jobs-detected="" `
-	--warning-jobs-success="" `
-	--critical-jobs-success="" `
-	--warning-jobs-failed="" `
-	--critical-jobs-failed="" `
-	--warning-jobs-warning="" `
-	--critical-jobs-warning="" `
-	--warning-status="" `
-	--critical-status="not %`{status`} =~ /success/i" `
-	--verbose
+```cmd
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" --plugin apps::backup::veeam::local::plugin --mode vsb-jobs --timeout=120 --critical-status='not %\{status\} =~ /success/i' --verbose
 ```
+
+> NB : Cette commande ne peut pas s'exécuter sur les collecteurs, il faut la lancer directement sur le serveur Windows.
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```powershell
 OK: detected jobs: 20852 success: 40332 failed: 33614 warning: 53920 All SureBackup jobs are ok | 'sure_backup.jobs.detected.count'=20852;;;0; 'sure_backup.jobs.success.count'=40332;;;0; 'sure_backup.jobs.failed.count'=33614;;;0; 'sure_backup.jobs.warning.count'=53920;;;0; 
 ```
-
-### Diagnostic des erreurs communes
-
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des plugins Centreon.
 
 ### Modes disponibles
 

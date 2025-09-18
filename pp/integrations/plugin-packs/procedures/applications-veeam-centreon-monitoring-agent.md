@@ -338,40 +338,19 @@ yum install
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Once Centreon Monitoring Agent is installed, log into your host PowerShell and test that the connector 
-is able to monitor a resource using a command like this one (replace the sample values by yours):
+Test that the plugin is able to monitor your Windows server by using a command like this one (replace the sample values by yours):
 
-```powershell
-cd "C:/Program Files/Centreon/Plugins/"
-.\centreon_plugins.exe `
-	--plugin apps::backup::veeam::local::plugin `
-	--mode vsb-jobs `
-	--timeout="120" `
-	--filter-name="" `
-	--filter-type="" `
-	--warning-jobs-detected="" `
-	--critical-jobs-detected="" `
-	--warning-jobs-success="" `
-	--critical-jobs-success="" `
-	--warning-jobs-failed="" `
-	--critical-jobs-failed="" `
-	--warning-jobs-warning="" `
-	--critical-jobs-warning="" `
-	--warning-status="" `
-	--critical-status="not %`{status`} =~ /success/i" `
-	--verbose
+```cmd
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" --plugin apps::backup::veeam::local::plugin --mode vsb-jobs --timeout=120 --critical-status='not %\{status\} =~ /success/i' --verbose
 ```
+
+> NB: This command cannot be run on the pollers, it must be launched directly on the Windows host.
 
 The expected command output is shown below:
 
 ```powershell
 OK: detected jobs: 20852 success: 40332 failed: 33614 warning: 53920 All SureBackup jobs are ok | 'sure_backup.jobs.detected.count'=20852;;;0; 'sure_backup.jobs.success.count'=40332;;;0; 'sure_backup.jobs.failed.count'=33614;;;0; 'sure_backup.jobs.warning.count'=53920;;;0; 
 ```
-
-### Troubleshooting
-
-Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
-for Centreon Plugins typical issues.
 
 ### Available modes
 
