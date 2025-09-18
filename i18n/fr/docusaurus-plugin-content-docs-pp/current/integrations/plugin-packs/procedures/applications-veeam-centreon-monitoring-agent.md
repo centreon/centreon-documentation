@@ -124,7 +124,7 @@ minimum la version <!--`24.09.0` pour les utilisateurs de Centreon Cloud, et la 
 ### Prérequis système pour l'hôte à superviser
 
 La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée sur
-[cette page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-2--préparez-lhôte)
+[cette page dédiée](../getting-started/how-to-guides/cma/cma-setup.md#étape-3--préparez-lhôte)
 
 ### Installer le connecteur de supervision
 
