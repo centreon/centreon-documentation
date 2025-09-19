@@ -31,7 +31,8 @@ Renseignez les informations du fournisseur d'identité :
 - **Copier/coller le certificat x509** : ajoutez ici le certificat x509 du fournisseur d'identité (obligatoire).
 - **Attribut de l'identifiant utilisateur (login) pour l'utilisateur Centreon** : définit quelle variable renvoyée par
   le fournisseur d'identité doit être utilisée pour authentifier les utilisateurs. Par exemple, **email**. (obligatoire).
-- **Contexte d'authentification requis** : définit le niveau d'authentification attendu du fournisseur d'identité.
+- **Activer le contexte d'authentification requis** : lorsque cette option est activée, définit le niveau d'authentification attendu du fournisseur d'identité.
+- **Règle de comparaison du contexte d'authentification requis**: définit la règle de comparaison que le fournisseur d'identité doit utiliser. Les valeurs possibles sont les suivantes :
   * **Minimum** : le contexte d'authentification doit être au moins aussi fort que la classe de contexte ou la déclaration spécifiée.
   * **Exact** : le contexte d'authentification doit correspondre exactement à la classe de contexte ou à la déclaration spécifiée dans la requête. Il s'agit d'une condition stricte.
   * **Renforcé** : tout contexte d'authentification qui est plus fort que la classe de contexte ou la déclaration spécifiée est acceptable.

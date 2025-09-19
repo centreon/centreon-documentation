@@ -30,7 +30,8 @@ Configure Identity Provider information:
 - **Copy/paste x509 certificate**: add here the x509 certificate of the identity provider (mandatory).
 - **User ID (login) attribute for Centreon user**: defines which of the variables returned by the identity provider
   must be used to authenticate users. For example, **email**. (mandatory).
-- **Requested authentication context**: defines the level of authentication expected from the identity provider.
+- **Enable requested authentication context**: when enabled, defines the level of authentication expected from the identity provider.
+- **Comparison rule for the requested authentication context**: defines the comparison rule that the identity provider must use. The possible values are:
   * **Minimum**: the authentication context must be at least as strong as the specified context class or declaration.
   * **Exact**: the authentication context must exactly match the specified context class or declaration in the request. This is a strict requirement.
   * **Better**: any authentication context that is better than the specified context class or declaration is acceptable.
