@@ -499,6 +499,70 @@ Resource 'snmptrapd' is started on node 'central-secondary'
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
 pour le diagnostic des erreurs communes des plugins Centreon.
 
+#### The authenticity of host 'x.x.x.x (x.x.x.x)' can't be established
+
+> Attention, la tentative d'exécution du plugin et de connexion via SSH doivent impérativement se faire depuis le compte `centreon-engine`.
+
+Le message complet ressemble à ce qui suit :
+
+```text
+The authenticity of host 'x.x.x.x (x.x.x.x)' can't be established.
+ECDSA key fingerprint is SHA256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+ECDSA key fingerprint is MD5:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+Are you sure you want to continue connecting (yes/no)? UNKNOWN: Command too long to execute (timeout)...
+```
+
+Si vous obtenez ce message, cela signifie que vous n'avez pas accepté l'empreinte du serveur.
+
+Pour y remédier il faut initier une première connexion :
+
+```bash
+ssh x.x.x.x
+```
+
+Puis taper 'yes' à l'invite suivante :
+
+```text
+The authenticity of host 'x.x.x.x (x.x.x.x)' can't be established.
+ECDSA key fingerprint is SHA256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+ECDSA key fingerprint is MD5:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+Are you sure you want to continue connecting (yes/no)?
+```
+
+#### UNKNOWN: Command error: Permission denied, please try again
+
+Le message complet ressemble à ce qui suit :
+
+```text
+UNKNOWN: Command error: Permission denied, please try again. - Permission denied, please try again. - Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+```
+
+Si l'exécution de la sonde renvoie ce message, c'est que la clé publique du compte `centreon-engine` du poller n'est pas correctement déposée sur le nœud que l'on cherche à superviser.
+
+Il faut tout d'abord s'assurer que celle-ci (contenue dans `/var/lib/centreon-engine/.ssh/id_ed25519.pub`) est bien présente dans le fichier `/var/lib/centreon-engine/.ssh/authorized_keys`.
+
+Si le point précédent est bien validé, alors s'assurer que les permissions du fichier `authorized_keys` et du répertoire `.ssh` qui le contient sont conformes à ce qui s'affiche suite à la commande :
+
+```bash
+ls -al /var/lib/centreon-engine/.ssh
+```
+
+Le résultat doit être conforme à ce qui suit :
+
+```text
+total 20
+drwx------  2 centreon-engine centreon-engine 4096 Sep  4 14:44 .
+drwxr-xr-x. 5 centreon-engine centreon-engine 4096 Sep  4 14:44 ..
+-rw-------  1 centreon-engine centreon-engine    0 Sep  4 14:44 authorized_keys
+```
+
+Dans le cas contraire, lancer ces commandes :
+
+```bash
+chmod 700 /var/lib/centreon-engine/.ssh
+chmod 600 /var/lib/centreon-engine/.ssh/authorized_keys
+```
+
 ### Modes disponibles
 
 Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 

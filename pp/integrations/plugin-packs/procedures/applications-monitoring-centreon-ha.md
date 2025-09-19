@@ -504,6 +504,70 @@ Resource 'snmptrapd' is started on node 'central-secondary'
 Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
 for Centreon Plugins typical issues.
 
+#### The authenticity of host 'x.x.x.x (x.x.x.x)' can't be established
+
+> Warning: all the SSH and monitoring commands must be executed as `centreon-engine` on the poller.
+
+The full message looks like:
+
+```text
+The authenticity of host 'x.x.x.x (x.x.x.x)' can't be established.
+ECDSA key fingerprint is SHA256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+ECDSA key fingerprint is MD5:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+Are you sure you want to continue connecting (yes/no)? UNKNOWN: Command too long to execute (timeout)...
+```
+
+If you are getting this error message, this means that you have not yet accepted the server's fingerprint.
+
+To fix that issue, run:
+
+```bash
+ssh x.x.x.x
+```
+
+Then type 'yes' (without quotes) at this prompt:
+
+```text
+The authenticity of host 'x.x.x.x (x.x.x.x)' can't be established.
+ECDSA key fingerprint is SHA256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+ECDSA key fingerprint is MD5:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+Are you sure you want to continue connecting (yes/no)?
+```
+
+#### UNKNOWN: Command error: Permission denied, please try again
+
+The full message looks like:
+
+```text
+UNKNOWN: Command error: Permission denied, please try again. - Permission denied, please try again. - Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+```
+
+If the Plugin returns this message, it means that `centreon-engine`'s public key has not correctly been added to the list of authorized keys on the server that we are trying to monitor.
+
+First we have to make sure that this key (stored in `/var/lib/centreon-engine/.ssh/id_ed25519.pub`) is present in the file `/var/lib/centreon-engine/.ssh/authorized_keys`.
+
+If the check point above is valid, then make sure that the `authorized_keys` file and `.ssh` directory permissions are correct. You can check the permissions with this command:
+
+```bash
+ls -al /var/lib/centreon-engine/.ssh
+```
+
+The permissions (first part of the line) should be the same as:
+
+```text
+total 20
+drwx------  2 centreon-engine centreon-engine 4096 Sep  4 14:44 .
+drwxr-xr-x. 5 centreon-engine centreon-engine 4096 Sep  4 14:44 ..
+-rw-------  1 centreon-engine centreon-engine    0 Sep  4 14:44 authorized_keys
+```
+
+To fix any read/write/execute permission difference, just run:
+
+```bash
+chmod 700 /var/lib/centreon-engine/.ssh
+chmod 600 /var/lib/centreon-engine/.ssh/authorized_keys
+```
+
 ### Available modes
 
 In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
