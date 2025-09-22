@@ -51,7 +51,7 @@ components by the operating system.
 
 ### SELinux Overview
 
-Security Enhanced Linux (SELinux) provides an additional layer of system security. SELinux fundamentally answers the
+Security Enhanced Linux (SELinux) provides an additional layer of system security in EL environments. SELinux fundamentally answers the
 question: `May <subject> do <action> to <object>?`, for example: May a web server access files in users' home
 directories?
 
@@ -179,45 +179,7 @@ Depending on the type of server, install the packages with the following command
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-<Tabs groupId="sync">
-<TabItem value="Central / Remote Server" label="Central / Remote Server">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-web-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Poller" label="Poller">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Map server" label="Map server">
-
-   ```shell
-   apt install centreon-map-selinux
-   ```
-
-</TabItem>
-<TabItem value="MBI server" label="MBI server">
-
-   ```shell
-   apt install centreon-mbi-selinux
-   ```
-
-</TabItem>
-</Tabs>
+SELinux only concerns EL environments.
 
 </TabItem>
 </Tabs>
