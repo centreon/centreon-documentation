@@ -271,6 +271,10 @@
     "message": "Finaliser votre installation Centreon HA",
     "description": "The label for category Completing your Centreon HA setup in sidebar docs"
   },
+  "sidebar.docs.category.Completing your Centreon HA setup.link.generated-index.description": {
+    "message": "Votre plateforme HA a été installée par Centreon Professional Services. Que pouvez-vous faire ensuite ?",
+    "description": "The generated-index page description for category Completing your Centreon HA setup in sidebar docs"
+  },
   "sidebar.docs.category.Operating Centreon HA": {
     "message": "Faire fonctionner Centreon HA",
     "description": "The label for category Operating Centreon HA in sidebar docs"
