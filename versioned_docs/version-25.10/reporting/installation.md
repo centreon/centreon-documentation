@@ -337,7 +337,14 @@ apt install centreon-bi-server
 </TabItem>
 </Tabs>
 
-### 
+### Grant rights to the centreon user
+      
+Grant trigger rights to the **centreon** user:
+
+```shell
+GRANT TRIGGER ON centreon.* TO `centreon`@'%';
+GRANT TRIGGER ON centreon_storage.* TO `centreon`@'%';
+```
 
 ### Enable the extension
 
