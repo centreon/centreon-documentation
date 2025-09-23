@@ -76,9 +76,6 @@ Le connecteur apporte les modèles de service suivants
 | Nom       | Unité |
 |:----------|:------|
 | nbproc    | N/A   |
-| mem_total | B     |
-| mem_avg   | B     |
-| cpu_total | %     |
 
 </TabItem>
 <TabItem value="proc-mysql" label="proc-mysql">
@@ -86,9 +83,6 @@ Le connecteur apporte les modèles de service suivants
 | Nom       | Unité |
 |:----------|:------|
 | nbproc    | N/A   |
-| mem_total | B     |
-| mem_avg   | B     |
-| cpu_total | %     |
 
 </TabItem>
 </Tabs>

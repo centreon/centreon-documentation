@@ -77,9 +77,6 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Name      | Unit |
 |:----------|:-----|
 | nbproc    | N/A  |
-| mem_total | B    |
-| mem_avg   | B    |
-| cpu_total | %    |
 
 </TabItem>
 <TabItem value="proc-mysql" label="proc-mysql">
@@ -87,9 +84,6 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Name      | Unit |
 |:----------|:-----|
 | nbproc    | N/A  |
-| mem_total | B    |
-| mem_avg   | B    |
-| cpu_total | %    |
 
 </TabItem>
 </Tabs>
