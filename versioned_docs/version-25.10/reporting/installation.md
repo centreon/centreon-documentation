@@ -339,7 +339,7 @@ apt install centreon-bi-server
 
 ### Grant rights to the centreon user
       
-Grant trigger rights to the **centreon** user:
+In the central database, grant trigger rights to the **centreon** user:
 
 ```shell
 GRANT TRIGGER ON centreon.* TO `centreon`@'%';
