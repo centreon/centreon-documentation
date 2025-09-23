@@ -30,12 +30,12 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias              | Modèle de service                                   | Description                             | Découverte |
 |:-------------------|:----------------------------------------------------|:----------------------------------------|:----------:|
-| Elb-Connections    | Cloud-Aws-Elb-Application-Connections-Api-custom    | Contrôle les statistiques de connexion |            |
+| Elb-Connections    | Cloud-Aws-Elb-Application-Connections-Api-custom    | Contrôle les statistiques de connexion  |            |
 | Elb-Http-Codes     | Cloud-Aws-Elb-Http-Codes-Api-custom                 | Contrôle le nombre de codes retour HTTP |            |
 | Elb-Http-Codes     | Cloud-Aws-Elb-Application-Http-Codes-Api-custom     | Contrôle le nombre de codes retour HTTP |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Contrôle la santé des instances cibles  |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Contrôle la santé des instances cibles  |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles  | X          |
+| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles  |     X      |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Aws-Elb-Application-LoadBalancer-custom** est utilisé.
 
@@ -52,7 +52,7 @@ Le connecteur apporte les modèles de service suivants
 | Elb-Queues         | Cloud-Aws-Elb-Queues-Api-custom                     | Contrôle la file d'attente              |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Contrôle la santé des instances cibles  |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Contrôle la santé des instances cibles  |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles  | X          |
+| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles  |     X      |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Aws-Elb-AvailabilityZone-custom** est utilisé.
 
@@ -69,7 +69,7 @@ Le connecteur apporte les modèles de service suivants
 | Elb-Queues         | Cloud-Aws-Elb-Queues-Api-custom                     | Contrôle la file d'attente              |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Contrôle la santé des instances cibles  |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Contrôle la santé des instances cibles  |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles  | X          |
+| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles  |     X      |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Aws-Elb-LoadBalancer-custom** est utilisé.
 
@@ -87,7 +87,7 @@ Ce modèle d'hôte n'a pas de modèle de service associé.
 |:-------------------|:----------------------------------------------------|:---------------------------------------|:----------:|
 | Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Contrôle la santé des instances cibles |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Contrôle la santé des instances cibles |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles | X          |
+| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -270,28 +270,28 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Cloud-Aws-Elb-Api
+dnf install centreon-plugin-Cloud-Aws-Elb-Api centreon-plugin-Cloud-Aws-Elb-Application-Api centreon-plugin-Cloud-Aws-Elb-Network-Api
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Cloud-Aws-Elb-Api
+dnf install centreon-plugin-Cloud-Aws-Elb-Api centreon-plugin-Cloud-Aws-Elb-Application-Api centreon-plugin-Cloud-Aws-Elb-Network-Api
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-plugin-cloud-aws-elb-api
+apt install centreon-plugin-cloud-aws-elb-api centreon-plugin-cloud-aws-elb--application-api centreon-plugin-cloud-aws-elb-network-api
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Cloud-Aws-Elb-Api
+yum install centreon-plugin-Cloud-Aws-Elb-Api centreon-plugin-Cloud-Aws-Elb-Application-Api centreon-plugin-Cloud-Aws-Elb-Network-Api
 ```
 
 </TabItem>
