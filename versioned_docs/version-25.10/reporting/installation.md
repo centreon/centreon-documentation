@@ -337,6 +337,8 @@ apt install centreon-bi-server
 </TabItem>
 </Tabs>
 
+### 
+
 ### Enable the extension
 
 The **Administration > Extension > Manager** menu allows you to install the extensions detected by Centreon. Click the **Centreon MBI** tile to install.
