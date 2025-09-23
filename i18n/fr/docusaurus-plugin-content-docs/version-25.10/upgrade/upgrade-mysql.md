@@ -79,68 +79,77 @@ mysql Ver 8.0.x for Linux on x86_64
        ALTER TABLE `centreon`.`topology` ADD UNIQUE (`topology_page`);
        ```
     
-    4. Si vous utilisez [MBI](../reporting/introduction.md), exécutez les requêtes suivantes :
+    4. Si vous utilisez [MBI](../reporting/introduction.md) :
+    
+       * Donnez des droits trigger à  l'utilisateur **centreon** :
 
-```shell
-ALTER TABLE `mod_bi_generation` DROP CONSTRAINT IF EXISTS `mod_bi_generation_ibfk_1`;
-ALTER TABLE `mod_bi_archives` DROP CONSTRAINT IF EXISTS `mod_bi_archives_ibfk1`;
-ALTER TABLE `mod_bi_generation_cg_relation` DROP CONSTRAINT IF EXISTS `mod_bi_generation_cg_relation_ibfk_2`;
-ALTER TABLE `mod_bi_generation_output_relations` DROP CONSTRAINT IF EXISTS `mob_bi_generation_output_relations_ibfk_1`;
-ALTER TABLE `mod_bi_logo_relations` DROP CONSTRAINT IF EXISTS `mob_bi_logo_relations_ibfk_1`;
-ALTER TABLE `mod_bi_publication_options` DROP CONSTRAINT IF EXISTS `mob_bi_publication_options_ibfk_1`;
-ALTER TABLE `mod_bi_publication_relations` DROP CONSTRAINT IF EXISTS `mob_bi_publication_relations_ibfk_1`;
-ALTER TABLE `mod_bi_publication_relations` DROP CONSTRAINT IF EXISTS `mob_bi_publication_relations_ibfk_2`;
-ALTER TABLE `mod_bi_report_acl_rules_relations` DROP CONSTRAINT IF EXISTS `fk_mod_bi_report_has_mod_bi_access_rule_mod_bi_report1`;
-ALTER TABLE `mod_bi_generation_jobs_groups_relations` DROP CONSTRAINT IF EXISTS `fk_mod_bi_jobs_groups_has_mod_bi_generation_mod_bi_generation1`;
+         ```shell
+         GRANT TRIGGER ON centreon.* TO `centreon`@'%';
+         GRANT TRIGGER ON centreon_storage.* TO `centreon`@'%';
+         ```
+    
+       * Exécutez les requêtes suivantes :
 
-DELIMITER $$
+         ```shell
+         ALTER TABLE `mod_bi_generation` DROP CONSTRAINT IF EXISTS `mod_bi_generation_ibfk_1`;
+         ALTER TABLE `mod_bi_archives` DROP CONSTRAINT IF EXISTS `mod_bi_archives_ibfk1`;
+         ALTER TABLE `mod_bi_generation_cg_relation` DROP CONSTRAINT IF EXISTS `mod_bi_generation_cg_relation_ibfk_2`;
+         ALTER TABLE `mod_bi_generation_output_relations` DROP CONSTRAINT IF EXISTS `mob_bi_generation_output_relations_ibfk_1`;
+         ALTER TABLE `mod_bi_logo_relations` DROP CONSTRAINT IF EXISTS `mob_bi_logo_relations_ibfk_1`;
+         ALTER TABLE `mod_bi_publication_options` DROP CONSTRAINT IF EXISTS `mob_bi_publication_options_ibfk_1`;
+         ALTER TABLE `mod_bi_publication_relations` DROP CONSTRAINT IF EXISTS `mob_bi_publication_relations_ibfk_1`;
+         ALTER TABLE `mod_bi_publication_relations` DROP CONSTRAINT IF EXISTS `mob_bi_publication_relations_ibfk_2`;
+         ALTER TABLE `mod_bi_report_acl_rules_relations` DROP CONSTRAINT IF EXISTS `fk_mod_bi_report_has_mod_bi_access_rule_mod_bi_report1`;
+         ALTER TABLE `mod_bi_generation_jobs_groups_relations` DROP CONSTRAINT IF EXISTS `fk_mod_bi_jobs_groups_has_mod_bi_generation_mod_bi_generation1`;
 
-CREATE TRIGGER IF NOT EXISTS `generation_cascade_delete`
-AFTER DELETE ON `mod_bi_generation`
-FOR EACH ROW
-BEGIN
-	DECLARE result INT default 0;
-  SET result = (SELECT count(`mod_bi_generation`.`id`) FROM `mod_bi_generation` WHERE `mod_bi_generation`.`id` = OLD.`id`);
-	IF (result < 1)
-  THEN
-    DELETE FROM `mod_bi_archives` WHERE `generation_id` = OLD.id;
-    DELETE FROM `mod_bi_generation_acl_rules_relations` WHERE `generation_id` = OLD.id;
-    DELETE FROM `mod_bi_generation_cg_relation` WHERE `generation_id` = OLD.id;
-    DELETE FROM `mod_bi_generation_jobs_groups_relations` WHERE `generation_id` = OLD.id;
-    DELETE FROM `mod_bi_generation_output_relations` WHERE `generation_id` = OLD.id;
-    DELETE FROM `mod_bi_logo_relations` WHERE `generation_id` = OLD.id;
-    DELETE FROM `mod_bi_publication_relations` WHERE `generation_id` = OLD.id;
-  END IF;
-END$$
+         DELIMITER $$
 
-CREATE TRIGGER IF NOT EXISTS `report_cascade_delete`
-AFTER DELETE ON `mod_bi_report`
-FOR EACH ROW
-BEGIN
-	DECLARE result INT default 0;
-  SET result = (SELECT count(`mod_bi_report`.`id`) FROM `mod_bi_report` WHERE `mod_bi_report`.`id` = OLD.`id`);
-	IF (result < 1)
-  THEN
-    DELETE FROM `mod_bi_report_acl_rules_relations` WHERE `report_id` = OLD.id;
-    DELETE FROM `mod_bi_generation` WHERE `id_report` = OLD.id;
-  END IF;
-END$$
+         CREATE TRIGGER IF NOT EXISTS `generation_cascade_delete`
+         AFTER DELETE ON `mod_bi_generation`
+         FOR EACH ROW
+         BEGIN
+         	DECLARE result INT default 0;
+           SET result = (SELECT count(`mod_bi_generation`.`id`) FROM `mod_bi_generation` WHERE `mod_bi_generation`.`id` = OLD.`id`);
+         	IF (result < 1)
+           THEN
+             DELETE FROM `mod_bi_archives` WHERE `generation_id` = OLD.id;
+             DELETE FROM `mod_bi_generation_acl_rules_relations` WHERE `generation_id` = OLD.id;
+             DELETE FROM `mod_bi_generation_cg_relation` WHERE `generation_id` = OLD.id;
+             DELETE FROM `mod_bi_generation_jobs_groups_relations` WHERE `generation_id` = OLD.id;
+             DELETE FROM `mod_bi_generation_output_relations` WHERE `generation_id` = OLD.id;
+             DELETE FROM `mod_bi_logo_relations` WHERE `generation_id` = OLD.id;
+             DELETE FROM `mod_bi_publication_relations` WHERE `generation_id` = OLD.id;
+           END IF;
+         END$$
 
-CREATE TRIGGER IF NOT EXISTS `publication_cascade_delete`
-AFTER DELETE ON `mod_bi_publication`
-FOR EACH ROW
-BEGIN
-	DECLARE result INT default 0;
-  SET result = (SELECT count(`mod_bi_publication`.`id`) FROM `mod_bi_publication` WHERE `mod_bi_publication`.`id` = OLD.`id`);
-	IF (result < 1)
-  THEN
-    DELETE FROM `mod_bi_publication_options` WHERE `publication_id` = OLD.id;
-    DELETE FROM `mod_bi_publication_relations` WHERE `publication_id` = OLD.id;
-  END IF;
-END$$
+         CREATE TRIGGER IF NOT EXISTS `report_cascade_delete`
+         AFTER DELETE ON `mod_bi_report`
+         FOR EACH ROW
+         BEGIN
+         	DECLARE result INT default 0;
+           SET result = (SELECT count(`mod_bi_report`.`id`) FROM `mod_bi_report` WHERE `mod_bi_report`.`id` = OLD.`id`);
+         	IF (result < 1)
+           THEN
+             DELETE FROM `mod_bi_report_acl_rules_relations` WHERE `report_id` = OLD.id;
+             DELETE FROM `mod_bi_generation` WHERE `id_report` = OLD.id;
+           END IF;
+         END$$
 
-DELIMITER ;
-```
+         CREATE TRIGGER IF NOT EXISTS `publication_cascade_delete`
+         AFTER DELETE ON `mod_bi_publication`
+         FOR EACH ROW
+         BEGIN
+         	DECLARE result INT default 0;
+           SET result = (SELECT count(`mod_bi_publication`.`id`) FROM `mod_bi_publication` WHERE `mod_bi_publication`.`id` = OLD.`id`);
+         	IF (result < 1)
+           THEN
+             DELETE FROM `mod_bi_publication_options` WHERE `publication_id` = OLD.id;
+             DELETE FROM `mod_bi_publication_relations` WHERE `publication_id` = OLD.id;
+           END IF;
+         END$$
+
+         DELIMITER ;
+         ```
 
 3. Une fois toutes les opérations ci-dessus terminées, [suivez la documentation officielle MySQL pour mettre à niveau MySQL](http://dev.mysql.com/doc/refman/8.4/en/upgrade-binary-package.html).
 
