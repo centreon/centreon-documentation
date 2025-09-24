@@ -80,7 +80,7 @@ mysql Ver 8.0.x for Linux on x86_64
        ALTER TABLE `centreon`.`topology` ADD UNIQUE (`topology_page`);
        ```
     
-    4. If you are using [MBI](../reporting/introduction.md):
+    4. If you are using [MBI](../reporting/introduction.md), in the central database:
 
        * Grant trigger rights to the **centreon** user:
 

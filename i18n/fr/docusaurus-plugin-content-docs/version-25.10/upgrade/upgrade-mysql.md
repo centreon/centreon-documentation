@@ -79,9 +79,9 @@ mysql Ver 8.0.x for Linux on x86_64
        ALTER TABLE `centreon`.`topology` ADD UNIQUE (`topology_page`);
        ```
     
-    4. Si vous utilisez [MBI](../reporting/introduction.md) :
+    4. Si vous utilisez [MBI](../reporting/introduction.md), dans la base de données du central :
     
-       * Donnez des droits trigger à  l'utilisateur **centreon** :
+       * Donnez des droits trigger à l'utilisateur **centreon** :
 
          ```shell
          GRANT TRIGGER ON centreon.* TO `centreon`@'%';
