@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ##  Compatibility
 
-This connector was designed to be compatible with LatenceTechversion 2.1 and above (see [official documentation page](https://docs.latence.ca/50-release-notes/)).
+This connector was designed to be compatible with LatenceTech version 2.1 and above (see the [official LatenceTech documentation page](https://docs.latence.ca/50-release-notes/)).
 
 ## Connector dependencies
 
