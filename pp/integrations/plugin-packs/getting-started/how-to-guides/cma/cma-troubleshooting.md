@@ -7,6 +7,20 @@ import TabItem from '@theme/TabItem';
 
 ![image](../../../../../assets/integrations/plugin-packs/how-to-guides/cma/troubleshooting.png)
 
+## Refresh a status
+
+In many situations, you need to quickly re-check one or multiple resources to refresh their status.
+
+Two types of check action are available:
+
+The **Forced check** action on [Resources status page](/docs/alerts-notifications/resources-status) is a check available for CMA, that you can perform at any time (in or out of the configured check period).
+
+Check your resources and refresh their status in three ways:
+
+By directly clicking the button on the line when the mouse is over it.
+By selecting one or multiple lines and clicking the Forced check button above the table.
+By clicking the Forced check button in the detail panel of the resource.
+
 ## Host checks
 
 <Tabs groupId="sync">
