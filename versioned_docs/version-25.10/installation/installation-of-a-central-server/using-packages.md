@@ -171,16 +171,11 @@ systemctl disable firewalld
 
 <TabItem value="Alma 8" label="Alma 8">
 
-#### Remi repository
-
-To install Centreon you will need to install the **remi** repository.
-
 Run the following commands:
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
 
@@ -188,22 +183,21 @@ Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
 
-#### Remi and CodeReady Builder repository
+#### CodeReady Builder repository
 
-To install Centreon you will need to install the **remi** and **CodeReady Builder** repositories.
+To install Centreon you will need to install the **CodeReady Builder** repository.
 
 Run the following commands:
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
@@ -217,22 +211,21 @@ Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
-#### Remi and CodeReady Builder repositories
+#### CodeReady Builder repository
 
-To install Centreon you will need to install the **remi** and **CodeReady Builder** repositories.
+To install Centreon you will need to install the **CodeReady Builder** repository.
 
 Run the following commands:
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
@@ -240,7 +233,7 @@ Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>

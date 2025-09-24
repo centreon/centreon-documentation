@@ -35,11 +35,11 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias        | Service Template                         | Service Description                          | Discovery  |
-|:---------------------|:-----------------------------------------|:---------------------------------------------|:----------:|
-| Traffic-Generic-Id   | Net-H3C-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface        |            |
-| Traffic-Generic-Name | Net-H3C-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface        |            |
-| Traffic-Global       | Net-H3C-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces | X          |
+| Service Alias        | Service Template                         | Service Description                          | Discovery |
+|:---------------------|:-----------------------------------------|:---------------------------------------------|:---------:|
+| Traffic-Generic-Id   | Net-H3C-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface         |           |
+| Traffic-Generic-Name | Net-H3C-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface         |           |
+| Traffic-Global       | Net-H3C-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -83,10 +83,33 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Name              | Unit  |
-|:------------------|:------|
-| count_component | count |
-| temp_instance   | C     |
+| Name                                | Unit |
+|:------------------------------------|:-----|
+| fan.status                          | N/A  |
+| psu.status                          | N/A  |
+| other.status                        | N/A  |
+| unknown.status                      | N/A  |
+| sensor.status                       | N/A  |
+| chassis.status                      | N/A  |
+| backplane.status                    | N/A  |
+| container.status                    | N/A  |
+| module.status                       | N/A  |
+| port.status                         | N/A  |
+| stack.status                        | N/A  |
+| cpu.status                          | N/A  |
+| fan.count                           | N/A  |
+| psu.count                           | N/A  |
+| other.count                         | N/A  |
+| unknown.count                       | N/A  |
+| sensor.count                        | N/A  |
+| chassis.count                       | N/A  |
+| backplane.count                     | N/A  |
+| container.count                     | N/A  |
+| module.count                        | N/A  |
+| port.count                          | N/A  |
+| stack.count                         | N/A  |
+| cpu.count                           | N/A  |
+| hardware.sensor.temperature.celsius | C    |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -250,9 +273,9 @@ yum install centreon-plugin-Network-H3c-Snmp
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                                                              | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro            | Description                                                                                                                              | Default value | Mandatory |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -264,65 +287,65 @@ yum install centreon-plugin-Network-H3c-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro         | Description                                                                                                                            | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICALUSAGE | Critical threshold                                                                                                                     |                   |             |
-| WARNINGUSAGE  | Warning threshold                                                                                                                      |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro         | Description                                                                                                                            | Default value    | Mandatory |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------|:---------:|
+| CRITICALUSAGE | Critical threshold                                                                                                                     |                  |           |
+| WARNINGUSAGE  | Warning threshold                                                                                                                      |                  |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose        |           |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                                                                                         | Default value     | Mandatory   |
-|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'psu', 'other', 'unknown', 'sensor', 'chassis', 'backplane', 'container', 'module', 'port', 'stack', 'cpu' | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              | --verbose         |             |
+| Macro        | Description                                                                                                                                         | Default value | Mandatory |
+|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| COMPONENT    | Which component to check. Can be: 'fan', 'psu', 'other', 'unknown', 'sensor', 'chassis', 'backplane', 'container', 'module', 'port', 'stack', 'cpu' | .*            |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).              | --verbose     |           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro         | Description                                                                                                                            | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICALUSAGE | Critical threshold (in percent)                                                                                                        | 90                |             |
-| WARNINGUSAGE  | Warning threshold (in percent)                                                                                                         | 80                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro         | Description                                                                                                                            | Default value | Mandatory |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CRITICALUSAGE | Critical threshold (in percent)                                                                                                        | 90            |           |
+| WARNINGUSAGE  | Warning threshold (in percent)                                                                                                         | 80            |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                              |                   |             |
-| CRITICALIN   | Threshold                                                                                                                              | 90                |             |
-| WARNINGIN    | Threshold                                                                                                                              | 80                |             |
-| CRITICALOUT  | Threshold                                                                                                                              | 90                |             |
-| WARNINGOUT   | Threshold                                                                                                                              | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INTERFACEID  | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                              |               |           |
+| CRITICALIN   | Threshold                                                                                                                              | 90            |           |
+| WARNINGIN    | Threshold                                                                                                                              | 80            |           |
+| CRITICALOUT  | Threshold                                                                                                                              | 90            |           |
+| WARNINGOUT   | Threshold                                                                                                                              | 80            |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
 
-| Macro         | Description                                                                                                                            | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Set the interface name (empty means 'check all interfaces')                                                                            |                   |             |
-| CRITICALIN    | Threshold                                                                                                                              | 90                |             |
-| WARNINGIN     | Threshold                                                                                                                              | 80                |             |
-| CRITICALOUT   | Threshold                                                                                                                              | 90                |             |
-| WARNINGOUT    | Threshold                                                                                                                              | 80                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro         | Description                                                                                                                            | Default value | Mandatory |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INTERFACENAME | Set the interface name (empty means 'check all interfaces')                                                                            |               |           |
+| CRITICALIN    | Threshold                                                                                                                              | 90            |           |
+| WARNINGIN     | Threshold                                                                                                                              | 80            |           |
+| CRITICALOUT   | Threshold                                                                                                                              | 90            |           |
+| WARNINGOUT    | Threshold                                                                                                                              | 80            |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
-| Macro          | Description                                                                                                                                                                                                         | Default value     | Mandatory   |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                           | .*                |             |
-| CRITICALIN     | Threshold                                                                                                                                                                                                           | 90                |             |
-| WARNINGIN      | Threshold                                                                                                                                                                                                           | 80                |             |
-| CRITICALOUT    | Threshold                                                                                                                                                                                                           | 90                |             |
-| WARNINGOUT     | Threshold                                                                                                                                                                                                           | 80                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                              | --verbose         |             |
+| Macro          | Description                                                                                                                                                                                                                     | Default value | Mandatory |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTER         | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                                       | .*            |           |
+| CRITICALIN     | Threshold                                                                                                                                                                                                                       | 90            |           |
+| WARNINGIN      | Threshold                                                                                                                                                                                                                       | 80            |           |
+| CRITICALOUT    | Threshold                                                                                                                                                                                                                       | 90            |           |
+| WARNINGOUT     | Threshold                                                                                                                                                                                                                       | 80            |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |               |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                          | --verbose     |           |
 
 </TabItem>
 </Tabs>

@@ -9,7 +9,7 @@ Chaque jour, MBI suit 3 phases principales indépendantes :
 * [L'ETL copie les données du jour précédent sur le serveur MBI et les agrège](#phase-2--lancement-de-letl-les-données-sont-copiées-sur-mbi-puis-agrégées). Les données sont alors prêtes à être utilisées dans les rapports.
 * Aux heures prévues, [CBIS recueille les données pertinentes pour un rapport et le génère](#phase-3--cbis-génère-les-rapports).
 
-Étant donné que chaque phase est indépendante des autres, une configuration incorrecte dans l'une des trois phases peut entraîner l'échec de la génération du rapport.
+Bien que chaque phase soit indépendante des autres, une configuration incorrecte dans l'une des trois phases peut entraîner l'échec de la génération du rapport.
 
 ## Phase 1 : Les données sont préparées par le serveur central
 

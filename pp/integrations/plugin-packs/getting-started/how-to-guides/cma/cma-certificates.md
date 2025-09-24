@@ -70,7 +70,7 @@ If you do not have a certificate, you can generate a self-signed one. To generat
 
 ```shell
 openssl req -new -subj '/CN={server_hostname}' \
-                 -addext "subjectAltName = CN:{server_hostname}, DNS:{alt_poller_DNS}, IP:{alt_poller_IP}" \
+                 -addext "subjectAltName = DNS:{alt_poller_DNS}, IP:{alt_poller_IP}" \
                  -days 365 -nodes -x509 \
                  -newkey rsa:2048 -keyout {key} -out {cert}
 ```
