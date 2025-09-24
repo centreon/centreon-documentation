@@ -29,34 +29,34 @@ Release date: `September 24, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [Custom Views] "Global Health" and "Top 10" widgets - Improved display and fixed issue with MySQL8.
-- [Resource Status] It is now possible to avoid performance issues when using free text search, by using a new option named "Free text search behavior" in the Administration > Parameters > Centreon UI menu.
+- [Custom Views] "Global Health" and "Top 10" widgets: improved display and fixed an issue with MySQL8.
+- [Resource Status] It is now possible to avoid performance issues when using free text search, by using a new option named "Free text search behavior" in the **Administration > Parameters > Centreon UI** menu.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [API v1] Fixed creation of services by CLAPI with a non-administrator user
-- [Authentication] LDAP user with no mail can now authenticate on Centreon with LDAP auto import.
-- [Configuration] Fixed a circular dependencies issue for service template inheritance (UI + API).
-- [Configuration] Fixed a display issue on command information popin.
+- [API v1] Fixed an issue affecting the creation of services by CLAPI by non-administrator users.
+- [Authentication] LDAP users with no email can now authenticate to Centreon with LDAP auto import.
+- [Configuration] Fixed a circular dependency issue for service template inheritance (interface + API).
+- [Configuration] Fixed a display issue affecting the command information window.
 - [Configuration] Fixed an issue on "configuration changed" flag which was not updated when changing extended info using CLAPI.
-- [Configuration] Fixed an issue where non explicit error message were displayed when saving host configuration if geo-coordinates are too long.
-- [Configuration] Fixed host alias not properly handling quotes in input.
-- [Configuration] Increased contact_pager property to enable longer tokens (e.g. Microsoft Teams)
+- [Configuration] Fixed an issue where non explicit error messages were displayed when saving host configuration when geographic coordinates were too long.
+- [Configuration] Fixed an issue where host aliases were not handling quotes in inputs properly.
+- [Configuration] Increased contact_pager property to allow for longer tokens (e.g. Microsoft Teams tokens)
 - [Configuration] The creation of metaservices no longer fails for users with several ACL rules on resources.
-- [Custom Views] Host Monitoring - Fixed the export functionality for all resources.
-- [Event Logs] Pagination was not working properly.
-- Fixed an issue where service deploy endpoint was adding the command line to the service.
-- [Packaging] Removed obsolete dependencies for database related centreon packages
-- [Resource Status] Default values for monitoring options are now also applied to non-admins.
-- [Resources Status] Fixed an issue on notification tab where same user was displayed multiple times.
+- [Custom Views] Host Monitoring- fixed the export functionality for all resources.
+- [Event Logs] Fixed an issue where pagination was not working properly.
+- Fixed an issue where the service deployment endpoint was adding the command line to the service.
+- [Packaging] Removed obsolete dependencies for database-related Centreon packages.
+- [Resource Status] Default values for monitoring options are now also applied to non-admin users.
+- [Resources Status] Fixed an issue on the notification tab where the same user was displayed multiple times.
 - [Resource Status] Fixed an issue preventing the selection of multiple resources when using advanced filters.
-- [Resource Status] Fixed error when displaying metrics of a meta service.
-- [Resource Status] Fixed notification tab to display the contact set on service template rather than on the host.
+- [Resource Status] Fixed an error that occurred when displaying metrics for a metaservice.
+- [Resource Status] Fixed the notification tab to display the contact defined on the service template rather than on the host.
 - [Resource Status] The pipe “|” character is now handled correctly in the command section of a resource.
-- [Resource Status] View by host - Fixed issue preventing resources from being displayed when filtering on a resource that has no metric.
+- [Resource Status] View by host: fixed an issue preventing resources from being displayed when filtering on a resource that had no metrics.
 - [Update] Fixed an issue on modules routes which were no longer up to date.
 
 </details>
@@ -65,12 +65,10 @@ Release date: `September 24, 2025`
   <summary>Security fixes</summary>
 
 - [Authentication] Fixed an issue that prevented users logged in via OIDC from logging out of the interface.	
-- [Security] Enhanced security on password DOM storage in login page.
 - [Security] The current password is now required when modifying a user password.
-- [Vulnerability] Custom Views - Fixed XSS in the HTTP Loader widget "Website" field.
-- [Vulnerability] Enhanced security on password DOM storage in login page.
+- [Vulnerability] Enhanced security on login page.
 - [Vulnerability] Fixed insecure direct object reference allowing private widget retrieval.
-- [Vulnerability] Securized Poller configuration commands to avoid RCE vulnerability.
+- [Vulnerability] Securized poller configuration commands to avoid RCE vulnerability.
 - [Vulnerability] Fixed multiple XSS vulnerabilities.
 - [Vulnerability] Upgraded select2 dependency.
 
