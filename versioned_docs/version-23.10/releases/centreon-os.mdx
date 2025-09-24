@@ -23,6 +23,40 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 23.10.28
+
+Release date: `September 24, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Administration] Fixed XSS in Administration > ACL > Action Access.
+- [API v1] Fixed creation of services by CLAPI with a non-administrator user.
+- [Configuration] Fixed a circular dependencies issue for service template inheritance (UI + API).
+- [Configuration] Fixed host alias not properly handling quotes in input.
+- [Configuration] Fixed XSS in Configuration > SNMP Traps form.
+- [Custom Views] Host Monitoring - Fixed the export functionality for all resources.
+- [Install] Added monitoring-plugins-basic dependency for installation on Debian platform.
+- [Resource Status] Fixed a notification tab issue when using the “Inherit only contacts/contacts group from host” parameter.
+- [Resource Status] The pipe “|” character is now handled correctly in the command section of a resource.
+- Securized Poller configuration commands to avoid RCE vulnerability.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] The current password is now required when modifying a user password.
+- [Vulnerability] Custom Views - Fixed XSS in the HTTP Loader widget "Website" field.
+- [Vulnerability] Upgraded select2 dependency.
+- [Vulnerability] Fixed XSS vulnerability on Connectors.
+- [Vulnerability] Fixed XSS vulnerability on Recurrent downtimes.
+- [Vulnerability] Fixed XSS vulnerability on Hosts templates.
+- [Vulnerability] Fixed XSS vulnerability on SNMP traps.
+- [Vulnerability] Fixed XSS vulnerability on Resources Access parameters.
+
+</details>
+
 ### 23.10.27
 
 Release date: `August 21, 2025`
