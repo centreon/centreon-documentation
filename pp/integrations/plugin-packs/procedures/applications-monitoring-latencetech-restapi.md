@@ -5,6 +5,10 @@ title: LatenceTech RestAPI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+##  Compatibility
+
+This connector was designed to be compatible with LatenceTechversion 2.1 and above (see [official documentation page](https://docs.latence.ca/50-release-notes/)).
+
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **LatenceTech RestAPI** connector through the
