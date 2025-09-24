@@ -5,6 +5,10 @@ title: LatenceTech RestAPI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+##  Compatibilité
+
+Le connecteur a été conçu pour être compatible avec les versions 2.1 et supérieures de LatenceTech (voir la [page de documentation officielle LatenceTech](https://docs.latence.ca/50-release-notes/)).
+
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **LatenceTech RestAPI** 
