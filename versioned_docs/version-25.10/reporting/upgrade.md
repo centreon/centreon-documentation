@@ -25,6 +25,15 @@ The upgrade of Centreon MBI consists of four steps:
 
 See [Introduction to upgrade](../upgrade/introduction.md).
 
+### Grant rights to the centreon user
+      
+If you have upgraded the central database to MySQL 8.4, grant trigger rights to the **centreon** user:
+
+```shell
+GRANT TRIGGER ON centreon.* TO `centreon`@'%';
+GRANT TRIGGER ON centreon_storage.* TO `centreon`@'%';
+```
+
 ### Update the RPM signing key
 
 On EL8, for security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation) to remove the old key and install the new one.
