@@ -52,7 +52,7 @@ mysql Ver 8.0.x for Linux on x86_64
 
 1. [Effectuez une sauvegarde de vos bases de données](https://dev.mysql.com/doc/refman/8.0/en/backup-methods.html).
 
-2. AVant de mettre à jour MySQL, effectuez les opérations suivantes avec soin. **Si vous omettez ces étapes, votre base de données ne fonctionnera plus !**
+2. Avant de mettre à jour MySQL, effectuez les opérations suivantes avec soin. **Si vous omettez ces étapes, votre base de données ne fonctionnera plus !**
 
    1. Supprimez la ligne suivante du fichier **/etc/my.cnf.d/mysql-server.cnf** :
 
