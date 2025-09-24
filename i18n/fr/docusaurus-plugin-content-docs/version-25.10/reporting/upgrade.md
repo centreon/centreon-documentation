@@ -25,15 +25,6 @@ La montée de version de Centreon MBI se fait en 4 étapes :
 
 Voir [Introduction à la montée de version](../upgrade/introduction.md).
 
-### Donner des droits à l'utilisateur centreon
-
-Si vous avez [monté de version la base de données du central de MySQL 8.0 à 8.4](../upgrade/upgrade-mysql.md), dans celle-ci, donnez des droits trigger à l'utilisateur **centreon** :
-
-```shell
-GRANT TRIGGER ON centreon.* TO `centreon`@'%';
-GRANT TRIGGER ON centreon_storage.* TO `centreon`@'%';
-```
-
 ### Mettre à jour la clé de signature RPM
 
 Sous EL8, pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
