@@ -23,7 +23,7 @@ Some services have no associated metrics: they check statuses rather than metric
 
 On the **Resource status** page, in the **Details** panel for a service, the **Performance data** section gives you the detailed values for all metrics for this service. The values are that of the last check.
 
-Example: We are monitoring a Centreon poller (for this service, via the [Linux SNMP](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp/#collected-metrics--status) connector). In the following picture, we can see that the **Memory** service returns 6 metrics: **used**, **free**, **used_prct**, **buffer**, **cached** and **shared**.
+Example: We are monitoring a Centreon poller (for this service, via the [Linux SNMP](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp#collected-metrics--status) connector). In the following picture, we can see that the **Memory** service returns 6 metrics: **used**, **free**, **used_prct**, **buffer**, **cached** and **shared**.
 
 ![image](../assets/monitoring/metrics.png)
 

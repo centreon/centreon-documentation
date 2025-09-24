@@ -89,7 +89,7 @@ On your Elasticsearch server, you will need:
 
 7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Elasticsearch](#filtering-or-adapting-the-data-you-want-to-send-to-elasticsearch).
 
-8. [Deploy the configuration](https://docs.centreon.com/docs/monitoring/monitoring-servers/deploying-a-configuration/).
+8. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 9. Restart **centengine** on all pollers:
 
