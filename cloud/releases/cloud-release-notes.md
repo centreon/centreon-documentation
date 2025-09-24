@@ -11,7 +11,7 @@ title: Centreon Cloud release notes
 
 As the Centreon Monitoring Agent (CMA) is about to be generally available, enhancements in its configuration are now available for our Centreon Cloud customers.
 
-As a reminder, CMA collects metrics and computes statuses on the servers it monitors, and sends them to Centreon. 
+As a reminder, CMA collects metrics and computes statuses on the servers it monitors, and sends them to Centreon.
 Centreon plugins as well as Nagios-compatible plugins can be used with this agent.
 More information about configuration is available in our [official documentation](https://docs.centreon.com/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/).
 

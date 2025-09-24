@@ -97,7 +97,6 @@ apt update
 >
 > You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-
 ### Upgrade the Centreon solution
 
 1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.

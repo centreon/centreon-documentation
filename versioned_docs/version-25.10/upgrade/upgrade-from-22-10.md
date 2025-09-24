@@ -102,7 +102,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module enable php:remi-8.2
+dnf module enable php:8.2
 ```
 
 </TabItem>
