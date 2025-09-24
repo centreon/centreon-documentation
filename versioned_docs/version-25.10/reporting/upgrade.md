@@ -27,7 +27,7 @@ See [Introduction to upgrade](../upgrade/introduction.md).
 
 ### Grant rights to the centreon user
       
-If you have upgraded the central database to MySQL 8.4, grant trigger rights to the **centreon** user:
+If you have [upgraded the central database to MySQL 8.4](../upgrade/upgrade-mysql.md), grant trigger rights to the **centreon** user:
 
 ```shell
 GRANT TRIGGER ON centreon.* TO `centreon`@'%';
