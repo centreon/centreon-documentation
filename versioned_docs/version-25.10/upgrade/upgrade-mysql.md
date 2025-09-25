@@ -14,22 +14,6 @@ and the MBI and MAP modules each have a dedicated database. Within your architec
 
 Do not upgrade your version of Centreon and your version of MySQL at the same time. You can perform both upgrades one after the other in the order you want, however, make sure the first upgrade procedure is fully complete before you perform the second one.
 
-<!--If you are upgrading from one major version of Centreon to another at the same time as upgrading MySQL (e.g. upgrading from Centreon 24.04 to Centreon 25.10), you must:
-
-1. Upgrade Centreon (packages, web installation, deploying the configuration).
-2. Upgrade MySQL.
-
-> Refer to the official MySQL documentation for more information about this process:
-> http://dev.mysql.com/doc/refman/8.4/en/upgrade-binary-package.html-->
-
-<!--## Version of MySQL for each version of Centreon-->
-
-<!--| Centreon | MySQL   |
-|----------|---------|
-| 25.10    | <ul><li>8.4</li><li>8.0, mainly for upgrades from earlier versions, until the end of support for MySQL 8.0 (end of April 2026)</li></ul>    |
-| 24.10    | <ul><li>8.0 until the end of April 2026</li><li>8.4 from November 2025 to the version's end of life (end of October 2026)</li></ul>     |
-| 24.04    | 8.0     |-->
-
 ## Versions of MySQL compatible with Centreon 25.10
 
 * MySQL 8.4 is recommended for new installations.

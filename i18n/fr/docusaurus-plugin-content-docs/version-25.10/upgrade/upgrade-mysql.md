@@ -13,22 +13,6 @@ Vous pouvez potentiellement avoir plusieurs bases MySQL dans votre architecture.
 
 Ne mettez pas à jour votre version de Centreon et votre version de MySQL en même temps. Vous pouvez effectuer les deux mises à jour l'une après l'autre dans l'ordre que vous souhaitez, mais assurez-vous que la première procédure de mise à jour soit entièrement terminée avant d'effectuer la seconde.
 
-<!--If you are upgrading from one major version of Centreon to another at the same time as upgrading MySQL (e.g. upgrading from Centreon 24.04 to Centreon 25.10), you must:
-
-1. Upgrade Centreon (packages, web installation, deploying the configuration).
-2. Upgrade MySQL.
-
-> Refer to the official MySQL documentation for more information about this process:
-> http://dev.mysql.com/doc/refman/8.4/en/upgrade-binary-package.html-->
-
-<!--## Version of MySQL for each version of Centreon-->
-
-<!--| Centreon | MySQL   |
-|----------|---------|
-| 25.10    | <ul><li>8.4</li><li>8.0, mainly for upgrades from earlier versions, until the end of support for MySQL 8.0 (end of April 2026)</li></ul>    |
-| 24.10    | <ul><li>8.0 until the end of April 2026</li><li>8.4 from November 2025 to the version's end of life (end of October 2026)</li></ul>     |
-| 24.04    | 8.0     |-->
-
 ## Versions de MySQL compatibles avec Centreon 25.10
 
 * MySQL 8.4 est recommandé pour les nouvelles installations.
