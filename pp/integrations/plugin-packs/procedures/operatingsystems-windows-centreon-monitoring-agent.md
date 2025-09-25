@@ -67,7 +67,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Certificates" label="Certificates">
 
-| Metric                               | Unit  |
+| Name                                 | Unit  |
 |:-------------------------------------|:------|
 | certificates.detected.count          | count |
 | certificate#certificate.expires.days | d     |
@@ -75,7 +75,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="CMA-Health" label="CMA-Health">
 
-| Metric   | Unit |
+| Name     | Unit |
 |:---------|:-----|
 | runtime  | s    |
 | interval | s    |
@@ -83,7 +83,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
 
-| Metric         | Unit   |
+| Name           | Unit   |
 |:---------------|:-------|
 | *counter_name* | *unit* |
 | critical-count | count  |
@@ -95,7 +95,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="CPU" label="CPU">
 
-| Metric                                       | Unit |
+| Name                                         | Unit |
 |:---------------------------------------------|:-----|
 | *core_index*#core.cpu.utilization.percentage | %    |
 | user#cpu.utilization.percentage              | %    |
@@ -103,7 +103,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
 
-| Metric                                                      | Unit |
+| Name                                                        | Unit |
 |:------------------------------------------------------------|:-----|
 | *core_index*\~user#core.cpu.utilization.percentage          | %    |
 | user#cpu.utilization.percentage                             | %    |
@@ -116,7 +116,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="Eventlog-Nscp" label="Eventlog-Nscp">
 
-| Metric         | Unit  |
+| Name           | Unit  |
 |:---------------|:------|
 | critical-count | count |
 | warning-count  | count |
@@ -124,7 +124,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
 
-| Metric         | Unit  |
+| Name           | Unit  |
 |:---------------|:------|
 | critical_count | count |
 | warning_count  | count |
@@ -133,7 +133,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric                  | Unit |
+| Name                    | Unit |
 |:------------------------|:-----|
 | memory.usage.bytes      | B    |
 | memory.free.bytes       | B    |
@@ -142,9 +142,9 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Metric   | Unit |
-|:---------|:-----|
-| offset   | s    |
+| Name   | Unit |
+|:-------|:-----|
+| offset | s    |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
@@ -154,14 +154,14 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Process-Generic" label="Process-Generic">
 
-| Metric        | Unit  |
+| Name          | Unit  |
 |:--------------|:------|
 | process.count | count |
 
 </TabItem>
 <TabItem value="Services" label="Services">
 
-| Metric                    | Unit  |
+| Name                      | Unit  |
 |:--------------------------|:------|
 | services.stopped.count    | count |
 | services.starting.count   | count |
@@ -174,7 +174,7 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
 
-| Metric                    | Unit  |
+| Name                      | Unit  |
 |:--------------------------|:------|
 | services.stopped.count    | count |
 | services.starting.count   | count |
@@ -187,7 +187,7 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Metric                              | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | sessions.created.total.count        | count |
 | sessions.disconnected.total.count   | count |
@@ -200,7 +200,7 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Metric   | Unit |
+| Name     | Unit |
 |:---------|:-----|
 | used_C:\ | B    |
 | used_D:\ | B    |
@@ -208,7 +208,7 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Metric                  | Unit |
+| Name                    | Unit |
 |:------------------------|:-----|
 | memory.usage.bytes      | B    |
 | memory.free.bytes       | B    |
@@ -220,7 +220,7 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Task-Global" label="Task-Global">
 
-| Metric         | Unit      |
+| Name           | Unit      |
 |:---------------|:----------|
 | *task_name*    | exit_code |
 | ok_count       | count     |
@@ -230,7 +230,7 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Task-Name" label="Task-Name">
 
-| Metric         | Unit      |
+| Name           | Unit      |
 |:---------------|:----------|
 | *task_name*    | exit_code |
 | ok_count       | count     |
@@ -240,14 +240,14 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Updates" label="Updates">
 
-| Metric                        | Unit  |
+| Name                          | Unit  |
 |:------------------------------|:------|
 | windows.pending.updates.count | count |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Metric | Unit |
+| Name   | Unit |
 |:-------|:-----|
 | uptime | s    |
 
@@ -385,7 +385,7 @@ This connector relies on an integration supported by Centreon Engine and does no
 | CRITICALCERTIFICATEEXPIRES   | Thresholds.                                                                                                                                                 | 30:           |           |
 | WARNINGCERTIFICATESDETECTED  | Thresholds.                                                                                                                                                 |               |           |
 | CRITICALCERTIFICATESDETECTED | Thresholds.                                                                                                                                                 |               |           |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options)                      |               |           |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |               |           |
 
 </TabItem>
 <TabItem value="CMA-Health" label="CMA-Health">

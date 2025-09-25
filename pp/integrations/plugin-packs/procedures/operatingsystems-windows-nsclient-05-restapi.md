@@ -27,13 +27,13 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="OS-Windows-NSClient-05-Restapi-custom" label="OS-Windows-NSClient-05-Restapi-custom">
 
-| Service Alias | Service Template                                   | Service Description                                                                                                                                |
-|:--------------|:---------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
+| Service Alias | Service Template                                   | Service Description                                                                                                                                 |
+|:--------------|:---------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cpu           | OS-Windows-NSClient05-Cpu-Restapi-custom           | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
-| Disks         | OS-Windows-NSClient05-Disks-Restapi-custom         | Check Windows disk usage                                                                                                                           |
-| Memory        | OS-Windows-NSClient05-Memory-Restapi-custom        | Check the rate of the utilization of memory                                                                                                        |
-| Services-Auto | OS-Windows-NSClient05-Services-Auto-Restapi-custom | Check that all auto-start services are running                                                                                                     |
-| Swap          | OS-Windows-NSClient05-Swap-Restapi-custom          | Check the rate of the utilization of virtual memory                                                                                                |
+| Disks         | OS-Windows-NSClient05-Disks-Restapi-custom         | Check Windows disk usage                                                                                                                            |
+| Memory        | OS-Windows-NSClient05-Memory-Restapi-custom        | Check the rate of the utilization of memory                                                                                                         |
+| Services-Auto | OS-Windows-NSClient05-Services-Auto-Restapi-custom | Check that all auto-start services are running                                                                                                      |
+| Swap          | OS-Windows-NSClient05-Swap-Restapi-custom          | Check the rate of the utilization of virtual memory                                                                                                 |
 
 > The services listed above are created automatically when the **OS-Windows-NSClient-05-Restapi-custom** host template is used.
 
@@ -43,24 +43,36 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias         | Service Template                                             | Service Description                          |
 |:----------------------|:-------------------------------------------------------------|:---------------------------------------------|
 | Active-Sessions       | OS-Windows-NSClient05-Counter-Active-Sessions-Restapi-custom | Check active sessions                        |
+| Certificates          | OS-Windows-NSClient05-Certificates-Restapi-custom            | Check Windows local certificates             |
 | Counter-Generic       | OS-Windows-NSClient05-Counter-Generic-Restapi-custom         | Check the content of a performance counter   |
 | Eventlog-Generic      | OS-Windows-NSClient05-Eventlog-Generic-restapi-custom        | Check event log errors                       |
 | Files-Generic         | OS-Windows-NSClient05-Files-Generic-Restapi-custom           | Check files                                  |
 | Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-Restapi-custom        | Check log files                              |
 | Ntp                   | OS-Windows-NSClient05-Ntp-Restapi-custom                     | Check the synchronization with an NTP server |
 | Pending-Reboot        | OS-Windows-NSClient05-Pending-Reboot-Restapi-custom          | Check pending Windows reboot                 |
-| Process-generic       | OS-Windows-NSClient05-Process-Generic-Restapi-custom         | Check processes                             |
+| Process-generic       | OS-Windows-NSClient05-Process-Generic-Restapi-custom         | Check processes                              |
 | Services-Generic-Name | OS-Windows-NSClient05-Services-Generic-Name-Restapi-custom   | Check Windows services states                |
 | Sessions              | OS-Windows-NSClient05-Sessions-Restapi-custom                | Check Windows user sessions                  |
-| Task-Generic          | OS-Windows-NSClient05-Task-Generic-Restapi-custom            | Check Windows scheduled tasks                 |
-| Updates               | OS-Windows-NSClient05-Updates-Restapi-custom                 | Check pending Windows 
- updates                |
+| Task-Generic          | OS-Windows-NSClient05-Task-Generic-Restapi-custom            | Check Windows scheduled tasks                |
+| Updates               | OS-Windows-NSClient05-Updates-Restapi-custom                 | Check pending Windows updates                |
 | Uptime                | OS-Windows-NSClient05-Uptime-Restapi-custom                  | Check Windows uptime                         |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
 </TabItem>
 </Tabs>
+
+### Discovery rules
+
+#### Service discovery
+
+| Rule name                                         | Description                                               |
+|:--------------------------------------------------|:----------------------------------------------------------|
+| OS-Windows-NSClient05-Restapi-Certificate-Subject | Discover and monitor Windows local certificates           |
+| OS-Windows-NSClient05-Restapi-Disk-Name           | Discover the disk partitions and monitor space occupation |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
 ### Collected metrics & status
 
@@ -69,52 +81,60 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Active-Sessions" label="Active-Sessions">
 
-| Metric name     | Unit  |
-|:--------------- |:----- |
+| Name            | Unit  |
+|:----------------|:----- |
 | Sessions\_value | count |
+
+</TabItem>
+<TabItem value="Certificates" label="Certificates">
+
+| Name                                 | Unit  |
+|:-------------------------------------|:------|
+| certificates.detected.count          | count |
+| certificate#certificate.expires.days | d     |
 
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
 
-| Metric name    | Unit |
-| :------------- | :---- |
+| Name           | Unit  |
+|:---------------|:------|
 | Counter\_value | count |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name | Unit |
-|:-------- |:----- |
-| total 5m | %     |
-| total 1m | %     |
-| total 5s | %     |
+| Name     | Unit |
+|:---------|:-----|
+| total 5m | %    |
+| total 1m | %    |
+| total 5s | %    |
 
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Metric name | Unit |
-|:----------- |:---- |
-| used        | B    |
+| Name | Unit |
+|:-----|:-----|
+| used | B    |
 
 </TabItem>
 <TabItem value="Eventlog-Generic" label="Eventlog-Generic">
 
-| Metric name  | Unit  |
-|:------------ |:----- |
+| Name         | Unit  |
+|:-------------|:----- |
 | problemCount | count |
 
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
 
-| Metric name | Unit  |
-|:----------- |:----- |
-| count       | count |
+| Name  | Unit  |
+|:------|:----- |
+| count | count |
 
 </TabItem>
 <TabItem value="Logfiles-Generic" label="Logfiles-Generic">
 
-| Metric name         | Unit |
-|:---------------- |:----- |
+| Name             | Unit  |
+|:-----------------|:------|
 | *tag*\_lines     | count |
 | *tag*\_warnings  | count |
 | *tag*\_criticals | count |
@@ -123,30 +143,30 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name | Unit |
-|:----------- |:---- |
-| used        | B    |
+| Name | Unit |
+|:-----|:---- |
+| used | B    |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Metric name | Unit |
-|:----------- |:---- |
-| offset      | s    |
+| Name   | Unit |
+|:-------|:---- |
+| offset | s    |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
 
-| Metric name   | Unit  |
-|:------------- |:----- |
+| Name          | Unit  |
+|:--------------|:----- |
 | pendingreboot | count |
 
 </TabItem>
 <TabItem value="Process-generic" label="Process-generic">
 
-| Metric name | Unit  |
-|:----------- |:----- |
-| exec_name   | count |
+| Name      | Unit  |
+|:----------|:----- |
+| exec_name | count |
 
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
@@ -161,7 +181,7 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Metric name                         | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | sessions.created.total.count        | count |
 | sessions.disconnected.total.count   | count |
@@ -174,30 +194,30 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Metric name | Unit |
-|:----------- |:---- |
-| swap        | B    |
+| Name | Unit |
+|:-----|:---- |
+| swap | B    |
 
 </TabItem>
 <TabItem value="Task-Generic" label="Task-Generic">
 
-| Metric name | Unit  |
-|:----------- |:----- |
-| task_name   | count |
+| Name      | Unit  |
+|:----------|:----- |
+| task_name | count |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
 
-| Metric name                   | Unit  |
+| Name                          | Unit  |
 |:------------------------------|:------|
 | windows.pending.updates.count | count |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Metric name | Unit |
-|:----------- |:---- |
-| uptime      | s    |
+| Name   | Unit |
+|:-------|:---- |
+| uptime | s    |
 
 </TabItem>
 </Tabs>
@@ -301,11 +321,11 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 3. Apply the **OS-Windows-NSClient-05-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                     | Description                                                                                           | Default value     | Mandatory   |
-|:--------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NSCPRESTAPILEGACYPASSWORD | Specify password for old authentification system                                                      |                   |             |
-| NSCPRESTAPIPROTO          | Specify https if needed (Default: 'https')                                                            | https             |             |
-| NSCPRESTAPIPORT           | Port used (Default: 8443)                                                                             | 8443              |             |
+| Macro                     | Description                                                                                                                      | Default value     | Mandatory   |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| NSCPRESTAPILEGACYPASSWORD | Specify password for old authentification system                                                                                 |                   |             |
+| NSCPRESTAPIPROTO          | Specify https if needed                                                                                                          | https             |             |
+| NSCPRESTAPIPORT           | Port used                                                                                                                        | 8443              |             |
 | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -321,6 +341,21 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | Macro        | Description                                                                                         | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --arg=show-all    |             |
+
+</TabItem>
+<TabItem value="Certificates" label="Certificates">
+
+| Macro                        | Description                                                                                                                                                 | Default value | Mandatory |
+|:-----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERSUBJECT                | Filter certificate by subject (can be a regexp).                                                                                                            |               |           |
+| FILTERTHUMBPRINT             | Filter certificate by thumbprint (can be a regexp).                                                                                                         |               |           |
+| FILTERPATH                   | Filter certificate by path (can be a regexp).                                                                                                               |               |           |
+| THRESHOLDSUNIT               | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. | s             |           |
+| WARNINGCERTIFICATEEXPIRES    | Thresholds.                                                                                                                                                 |               |           |
+| CRITICALCERTIFICATEEXPIRES   | Thresholds.                                                                                                                                                 |               |           |
+| WARNINGCERTIFICATESDETECTED  | Thresholds.                                                                                                                                                 |               |           |
+| CRITICALCERTIFICATESDETECTED | Thresholds.                                                                                                                                                 |               |           |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |               |           |
 
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
@@ -566,10 +601,10 @@ The plugin brings the following modes:
 
 | Mode                                                                                                                                | Linked service template                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |:------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/certificates.pm)]          | Not used in this Monitoring Connector                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/certificates.pm)]          | OS-Windows-NSClient05-Certificates-Restapi-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | cmd-return [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/cmdreturn.pm)]               | Not used in this Monitoring Connector                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| list-certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/listcertificates.pm)] | Not used in this Monitoring Connector                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/liststorages.pm)]         | Not used in this Monitoring Connector                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| list-certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/listcertificates.pm)] | Used for service discovery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/liststorages.pm)]         | Used for service discovery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | pending-reboot [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/pendingreboot.pm)]       | OS-Windows-NSClient05-Pending-Reboot-Restapi-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | query [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/nsclient/restapi/mode/query.pm)]                   | OS-Windows-NSClient05-Counter-Active-Sessions-Restapi-custom<br />OS-Windows-NSClient05-Counter-Generic-Restapi-custom<br />OS-Windows-NSClient05-Cpu-Restapi-custom<br />OS-Windows-NSClient05-Disks-Restapi-custom<br />OS-Windows-NSClient05-Eventlog-Generic-restapi-custom<br />OS-Windows-NSClient05-Files-Generic-Restapi-custom<br />OS-Windows-NSClient05-Logfiles-Generic-Restapi-custom<br />OS-Windows-NSClient05-Memory-Restapi-custom<br />OS-Windows-NSClient05-Process-Generic-Restapi-custom<br />OS-Windows-NSClient05-Services-Auto-Restapi-custom<br />OS-Windows-NSClient05-Services-Generic-Name-Restapi-custom<br />OS-Windows-NSClient05-Swap-Restapi-custom<br />OS-Windows-NSClient05-Task-Generic-Restapi-custom<br />OS-Windows-NSClient05-Uptime-Restapi-custom |
 | sessions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/sessions.pm)]                  | OS-Windows-NSClient05-Sessions-Restapi-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -642,6 +677,26 @@ All available options for each service template are listed below:
 | --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
 | --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
 | --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Certificates" label="Certificates">
+
+| Option                           | Description                                                                                                                                                 |
+|:---------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-thumbprint              | Filter certificate by thumbprint (can be a regexp).                                                                                                         |
+| --filter-subject                 | Filter certificate by subject (can be a regexp).                                                                                                            |
+| --filter-path                    | Filter certificate by path (can be a regexp).                                                                                                               |
+| --unit                           | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. |
+| --warning-certificates-detected  | Thresholds.                                                                                                                                                 |
+| --critical-certificates-detected | Thresholds.                                                                                                                                                 |
+| --warning-certificate-expires    | Thresholds.                                                                                                                                                 |
+| --critical-certificate-expires   | Thresholds.                                                                                                                                                 |
+| --no-ps                          | Don't encode powershell. To be used with --command and 'type' command.                                                                                      |
+| --command                        | Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                      |
+| --command-path                   | Command path (default: none).                                                                                                                               |
+| --command-options                | Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                     |
+| --ps-display                     | Display powershell script.                                                                                                                                  |
+| --ps-exec-only                   | Print powershell output.                                                                                                                                    |
 
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
