@@ -386,7 +386,7 @@ The CMA installer can be executed in 2 modes:
 <TabItem value="Interactive mode" label="Interactive mode">
 
 1. Start the installer (during the configuration, you can click on the (i) icons for help).
-   If you choose to install **centreon-plugins**, the installer will try to download and install the latest version of the Centreon plugins. If it can't (no web connection, network issue...), a popup is displayed to ask confirmation before using embedded plugins.
+   If you choose to install **centreon-plugins**, the installer will try to download and install the latest version of the Centreon plugins. If it can't (no web connection, network issue...), a popup is displayed to ask confirmation before using embedded plugins. If you only want to use native checks, there is no need to install the plugins.
   
    Results are displayed in the installer's window.
 
