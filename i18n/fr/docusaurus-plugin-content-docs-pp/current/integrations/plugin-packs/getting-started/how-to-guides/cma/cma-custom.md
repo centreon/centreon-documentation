@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 **Centreon Monitoring Agent** est capable d'exécuter des plugins personnalisés. Utilisez cette fonctionnalité si vos besoins de supervision sont spécifiques et non couverts par les contrôles natifs et plugins Centreon. Les langages supportés sont : PowerShell, Perl, Python, Bash.
 
-Pour commencer, créez votre plugin : vous pouvez par exemple utiliser [notre guide développeur](https://docs.centreon.com/pp/integrations/plugin-packs/dev-resources/introduction.md).
+Pour commencer, créez votre plugin : vous pouvez par exemple utiliser [notre guide développeur](../../../dev-resources/introduction.md).
 
 ## Actions sur l'hôte
 
@@ -59,6 +59,8 @@ Copiez le plugin sur l'hôte, dans le répertoire de votre choix.
       /<path>/<to>/custom_script.sh
       ```
 
-2. Si ce n'est pas déjà fait, [creéz l'hôte](/docs/monitoring/basic-objects/hosts) correspondant à la ressource à superviser.
-3. Pour chaque modèle de service désiré, sélectionnez la commande que vous venez de créez.
-4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
+2. Associez cette commande au connecteur **Centreon Monitoring Agent** (champ **Connectors**).
+
+3. Si ce n'est pas déjà fait, [creéz l'hôte](/docs/monitoring/basic-objects/hosts) correspondant à la ressource à superviser.
+4. Pour chaque modèle de service désiré, sélectionnez la commande que vous venez de créez.
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).

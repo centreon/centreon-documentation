@@ -88,7 +88,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom                                  | Unité |
 |:-------------------------------------|:------|
 | vm-status                            | N/A   |
-| vm-status                            | N/A   |
 | *vms1*#vm.cpu.utilization.percentage | %     |
 | *vms2*#vm.cpu.utilization.percentage | %     |
 | *vms1*#vm.memory.usage.bytes         | B     |
@@ -262,6 +261,9 @@ yum install centreon-plugin-Virtualization-Proxmox-Ve-Restapi
 | Macro              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERNAME         | Filter by vm name (can be a regexp)                                                                                                              | .*                |             |
+| EXCLUDENAME        | Exclude by virtual machine name (can be a regexp)                                                                                                |                   |             |
+| INCLUDENODENAME    | Filter only virtual machine running on specified node name (can be a regexp)                                                                     |                   |             |
+| EXCLUDENODENAME    | Exclude virtual machine running on specified node name (can be a regexp)                                                                         |                   |             |
 | WARNINGCPU         | Threshold                                                                                                                                        | 80                |             |
 | CRITICALCPU        | Threshold                                                                                                                                        | 90                |             |
 | WARNINGMEMORY      | Threshold                                                                                                                                        | 80                |             |
@@ -427,6 +429,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --node-name              |   Exact node name (if multiple names: names separated by ':').                                                                 |
 | --use-name               |   Use node name for perfdata and display.                                                                                      |
 | --filter-name            |   Filter by node name (can be a regexp).                                                                                       |
+| --exclude-name           |   Exclude by virtual machine name (can be a regexp).                                                                           |
+| --include-node-name      |   Filter only virtual machine running on specified node name (can be a regexp).                                                |
+| --exclude-node-name      |   Exclude virtual machine running on specified node name (can be a regexp).                                                    |
 | --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='^node-status$'                                  |
 | --warning-* --critical-* |   Thresholds. Can be: 'cpu' (%), 'memory' (%), 'swap' (%), 'fs' (%).                                                           |
 | --warning-node-status    |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{state\}.     |

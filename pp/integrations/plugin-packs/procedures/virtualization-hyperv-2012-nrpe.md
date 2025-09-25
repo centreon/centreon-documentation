@@ -238,13 +238,16 @@ yum install centreon-nrpe3-plugin
 3. Apply the **Virt-Hyperv-2012-Scvmm-NRPE-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro            | Description                                                                                                                              | Default value         | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| NRPEPORT         | NRPE Port of the target server                                                                                                           | 5666                  |             |
-| SCVMMPORT        | SCVMM port used                                                                                                                          | 8100                  |             |
-| NRPECLIENT       | NRPE Plugin binary to use                                                                                                                | check\_centreon\_nrpe |             |
-| NRPETIMEOUT      | Timeout value                                                                                                                            | 55                    |             |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). | -u -m 8192            |             |
+| Macro            | Description                                                                                                                              | Default value         | Mandatory |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:---------:|
+| NRPEPORT         | NRPE Port of the target server                                                                                                           | 5666                  |           |
+| SCVMMPORT        | SCVMM port used                                                                                                                          | 8100                  |           |
+| SCVMMHOSTNAME    | SCVMM hostname                                                                                                                           |                       |           |
+| SCVMMUSERNAME    | SCVMM username                                                                                                                           |                       |     X     |
+| SCVMMPASSWORD    | SCVMM password                                                                                                                           |                       |     X     |
+| NRPECLIENT       | NRPE Plugin binary to use                                                                                                                | check\_centreon\_nrpe |           |
+| NRPETIMEOUT      | Timeout value                                                                                                                            | 55                    |           |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). | -u -m 8192            |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
