@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-The Centreon Monitoring Agent (CMA) is a piece of software installed on the host it monitors: it collects metrics and computes statuses, and sends them to Centreon.
+The Centreon Monitoring Agent (CMA) is a piece of software installed on the host it monitors: it collects metrics and computes statuses, and sends them to Centreon. The agent can be used with Centreon Cloud, or with Centreon OnPrem from version 24.10.
 
 The agent can execute native checks, or use Centreon plugins to execute non-native checks. Native checks are run directly by the agent (as opposed to non-native checks, which require local plugins to be installed on the host). Native checks have better performance and a better footprint (reduced CPU and memory usage).
 
@@ -54,7 +54,7 @@ The CMA can be installed on and monitor the following OSs:
 
 ## Applications you can monitor with CMA
 
-* Included with the Centreon connectors: [**Veeam**](../../../procedures/applications-veeam-centreon-monitoring-agent.md), [**Active Directory**](../../../procedures/infrastructure-active-directory-centreon-monitoring-agent)
+* Included with the Centreon connectors: [**Veeam**](../../../procedures/applications-veeam-centreon-monitoring-agent.md), [**Active Directory**](../../../procedures/infrastructure-active-directory-centreon-monitoring-agent), [**Hyper-V 2012**](../../../procedures/virtualization-hyperv-2012-cma.md).
 * You can also [develop your own plugins](cma-custom.md).
 
 ## How do the host and the poller interact?

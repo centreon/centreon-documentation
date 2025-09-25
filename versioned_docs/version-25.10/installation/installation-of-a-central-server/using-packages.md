@@ -171,16 +171,11 @@ systemctl disable firewalld
 
 <TabItem value="Alma 8" label="Alma 8">
 
-#### Remi repository
-
-To install Centreon you will need to install the **remi** repository.
-
 Run the following commands:
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
 
@@ -188,22 +183,21 @@ Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
 
-#### Remi and CodeReady Builder repository
+#### CodeReady Builder repository
 
-To install Centreon you will need to install the **remi** and **CodeReady Builder** repositories.
+To install Centreon you will need to install the **CodeReady Builder** repository.
 
 Run the following commands:
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
@@ -217,22 +211,21 @@ Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
-#### Remi and CodeReady Builder repositories
+#### CodeReady Builder repository
 
-To install Centreon you will need to install the **remi** and **CodeReady Builder** repositories.
+To install Centreon you will need to install the **CodeReady Builder** repository.
 
 Run the following commands:
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
@@ -240,7 +233,7 @@ Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
@@ -337,7 +330,7 @@ Install the Centreon repository using this command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -346,7 +339,7 @@ dnf update
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -357,7 +350,7 @@ dnf update
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-25.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 

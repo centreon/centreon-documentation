@@ -102,7 +102,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
@@ -116,7 +116,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>

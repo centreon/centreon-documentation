@@ -2965,6 +2965,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/virtualization-hyperv-2012-cma'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-hyperv-2012-nrpe'
         },
         {
@@ -3014,6 +3018,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-virtualization-vmware8-vcenter-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vmware8-vm-restapi'
         }
       ]
     }

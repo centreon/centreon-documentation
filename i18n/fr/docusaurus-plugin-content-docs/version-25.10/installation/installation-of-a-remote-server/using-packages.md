@@ -168,16 +168,11 @@ systemctl disable firewalld
 <Tabs groupId="sync">
 <TabItem value="Alma 8" label="Alma 8">
 
-#### Dépôt remi
-
-Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
-
 Exécutez les commandes suivantes :
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
 
@@ -185,22 +180,21 @@ Activez PHP 8.2 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
 
-#### Dépôt remi et CodeReady Builder
+#### Dépôt CodeReady Builder
 
-Afin d'installer les logiciels Centreon, les dépôts **remi** et **CodeReady Builder** doivent être installés.
+Afin d'installer les logiciels Centreon, le dépôt **CodeReady Builder** doit être installé.
 
 Exécutez les commandes suivantes :
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
@@ -214,23 +208,22 @@ Activez PHP 8.2 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
 
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
-#### Dépôt remi et CodeReady Builder
+#### Dépôt CodeReady Builder
 
-Afin d'installer les logiciels Centreon, les dépôts **remi** et **CodeReady Builder** doivent être installés.
+Afin d'installer les logiciels Centreon, le dépôt **CodeReady Builder** doit être installé.
 
 Exécutez les commandes suivantes :
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
@@ -238,7 +231,7 @@ Activez PHP 8.2 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
@@ -345,7 +338,7 @@ Exécutez la commande suivante :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -355,7 +348,7 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -364,7 +357,7 @@ dnf update
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-25.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -637,7 +630,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 24.10.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 25.10.
 
 ## Étape 6 : Étendre les droits du SGBD local
 
