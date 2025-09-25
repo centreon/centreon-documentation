@@ -28,19 +28,13 @@ Vous pouvez retrouver les recommandations de la CNIL [sur cette page](https://ww
 
 Le Real User Monitoring ou RUM, nécessite l’installation d’un tag javascript. Le tag est disponible dans l’application en suivant le chemin suivant:
 
-Aller dans la configuration
+Aller dans la configuration, puis dans *Intégrations* :
 
 ![image](../assets/installation/install-rum-1.png)
 
-Configuration
-
-Aller dans l’onglet *“Intégrations”*
+Vous trouverez ensuite le tag sur cet écran avec un bouton pour le copier facilement :
 
 ![image](../assets/installation/install-rum-2.png)
-
-Intégrations
-
-Vous trouverez le tag sur cet écran avec un bouton pour le copier facilement.
 
 Ce tag est à insérer dans la section “HEAD” du site web. L’opération peut être effectuée manuellement par un développeur, ou alternativement **il peut être ajouté dans un tag manager comme GTM en suivant la procédure suivante** : 
 

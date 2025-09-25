@@ -7,12 +7,12 @@ title: Le Real User Monitoring (ou RUM)
 
 ![image](../assets/getting-started/rum-1.png)
 
-Appelé “RUM”🍹 pour les intimes, le “Real User Monitoring” consiste à observer et analyser l**’expérience perçue par les internautes réels**, et ce directement depuis leurs navigateurs quels qu’ils soient.
+Appelé “RUM”🍹 pour les intimes, le “Real User Monitoring” consiste à observer et analyser **l'expérience perçue par les internautes réels**, et ce directement depuis leurs navigateurs quels qu’ils soient.
 
 Il est important de noter que :
 
 - cette fonctionnalité implique l’ajout d’un **tag externe** dans la page, qui est conçu pour être chargé de façon **asynchrone** et être **extrêmement léger dans son fonctionnement** afin de ne pas ralentir la navigation de l’internaute sur le site.
-- le type de données remontées par le navigateur grâce au tag Quanta ainsi que la manière dont Quanta enregistre ces éléments dans sa base de donnée garantissent **l’exclusion du tag Quanta du périmètre de la GDPR**. En effet, les chiffres remontés via le tag sont purement techniques et **non nominatifs**. Le tableau de bord Quanta permet d’observer le comportement du site pour différents type de navigateurs (Chrome, Safari Mobile, EDGE, ...) mais sans possibilité de remonter à un internaute unique.
+- le type de données remontées par le navigateur grâce au tag Quanta ainsi que la manière dont Quanta enregistre ces éléments dans sa base de donnée garantissent **l’exclusion du tag Quanta du périmètre de la GDPR**. En effet, les chiffres remontés via le tag sont purement techniques et **non nominatifs**. Le tableau de bord Quanta permet d’observer le comportement du site pour différents type de navigateurs (Chrome, Safari Mobile, EDGE, ...) mais sans possibilité d'identifier un internaute unique.
 
 Une fois ce tag mis en place, Quanta est capable d’enregistrer l’expérience perçue par l’ensemble des internautes **avec ou sans échantillonnage** ce qui permet d’obtenir une vue très précise des métriques clés de performance (ex: TTFB, Speed Index, temps de chargement complet de la page, etc.)
 

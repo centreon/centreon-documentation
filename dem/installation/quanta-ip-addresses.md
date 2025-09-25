@@ -23,7 +23,6 @@ Si vous êtes dans ce cas, alors voici la liste des IPs devant être utilisées 
 - 52.30.194.126
 - 52.48.148.3
 - 52.50.31.122
-
 - 52.31.137.223
 - 52.51.174.216
 - 52.208.14.10

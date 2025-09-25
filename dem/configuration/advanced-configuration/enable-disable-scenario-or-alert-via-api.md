@@ -16,10 +16,10 @@ Dans certains cas, il peut être utile de modifier la configuration de Quanta de
 
 Dans Quanta, l’ensemble des fonctionnalités sont accessibles par API, il est donc possible d’effectuer des requêtes vers Quanta avec des outils comme “*curl*” ou “*wget*” en spécifiant l’ID du site, l’ID du Parcours Utilisateurs ainsi que les paramètres d’authentification (*x-csrf-token* et *_qm3k_session*).
 
-Exemple de requête REST pour désactiver un scénario dont l’URL du panel de modification dans Quanta est https://app.quanta.io/app/settings/sites/**29274**/user-journey?ids=**2913** :
+Exemple de requête REST pour désactiver un scénario dont l’URL du panel de modification dans Quanta est https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913 :
 
 ```bash
-curl "https://app.quanta.io/api/sites/**29274**/uj/journeys/**2913"** -X 'PUT' \
+curl "https://app.quanta.io/api/sites/29274/uj/journeys/2913" -X 'PUT' \
   -H "authority: app.quanta.io" \
   -H "accept: application/json" \
   -H "accept-language: fr-FR,fr;q=0.9" \
@@ -126,7 +126,7 @@ Par exemple : monlogin+api@mondomaine.com
 # Exemple d’utilisation du script
 
 Dans notre script d’exemple les 2 premiers chiffres à passer en paramètre correspondent à l’ID du site, et l’ID du Parcours Utilisateur. Ils sont tous les deux présents dans l’URL d’accès au scénario quand on accède à la configuration du scénario en question dans Quanta :
-https://app.quanta.io/app/settings/sites/**29274**/user-journey?ids=**2913**
+https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913
 
 Une fois ces paramètres récupérés, on utilise le script de modification automatique comme ceci :
 

@@ -5,12 +5,6 @@ title: Contacter le support Quanta
 
 # Contacter le support Quanta
 
-Une question ? Besoin d'aide sur votre outil, sur vos scénarios ? Vous ne comprenez pas les alertes remontées par l'outil?
+Une question ? Besoin d'aide sur votre outil, sur vos scénarios ? Vous ne comprenez pas les alertes remontées par l'outil ? Nous sommes là pour vous répondre !
 
-N'hésitez pas à nous contacter, nous sommes là pour vous répondre!
-
-Dans l'application via l'icône en bas de votre écran à droite:
-
-![image](../assets/getting-started/contact-support-1.png)
-
-Vous pouvez aussi nous contacter par email en écrivant à [support@quanta.io](mailto:support@quanta.io) si vous souhaitez un délai de traitement optimal.
+Pour nous contacter, c'est très simple. Il suffit d'écrire un email à [support@quanta.io](mailto:support@quanta.io) ce qui enclenchera automatiquement l'ouverture d'un ticket auprès de notre équipe support.
