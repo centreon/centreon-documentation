@@ -27,35 +27,35 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="OS-Windows-NSClient-05-Restapi-custom" label="OS-Windows-NSClient-05-Restapi-custom">
 
-| Alias         | Modèle de service                                  | Description                                                                                                                                                                  |
-|:--------------|:---------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | OS-Windows-NSClient05-Cpu-Restapi-custom           | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
-| Disks         | OS-Windows-NSClient05-Disks-Restapi-custom         | Contrôle le taux d'utilisation des disques Windows                                                                                                                           |
-| Memory        | OS-Windows-NSClient05-Memory-Restapi-custom        | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                            |
-| Services-Auto | OS-Windows-NSClient05-Services-Auto-Restapi-custom | Contrôle permettant de vérifier si les services automatiques sont démarrés                                                                                                   |
-| Swap          | OS-Windows-NSClient05-Swap-Restapi-custom          | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                       |
+| Alias         | Modèle de service                                  | Description                                                                                                                                                                  | Découverte |
+|:--------------|:---------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------|
+| Cpu           | OS-Windows-NSClient05-Cpu-Restapi-custom           | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |            |
+| Disks         | OS-Windows-NSClient05-Disks-Restapi-custom         | Contrôle le taux d'utilisation des disques Windows                                                                                                                           |      X     |
+| Memory        | OS-Windows-NSClient05-Memory-Restapi-custom        | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                            |            |
+| Services-Auto | OS-Windows-NSClient05-Services-Auto-Restapi-custom | Contrôle permettant de vérifier si les services automatiques sont démarrés                                                                                                   |            |
+| Swap          | OS-Windows-NSClient05-Swap-Restapi-custom          | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                       |            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Windows-NSClient-05-Restapi-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                 | Modèle de service                                            | Description                                                             |
-|:----------------------|:-------------------------------------------------------------|:------------------------------------------------------------------------|
-| Active-Sessions       | OS-Windows-NSClient05-Counter-Active-Sessions-Restapi-custom | Contrôle le nombre de sessions actives                                  |
-| Certificates          | OS-Windows-NSClient05-Certificates-Restapi-custom            | Contrôle les certificats locaux Windows                                 |
-| Counter-Generic       | OS-Windows-NSClient05-Counter-Generic-Restapi-custom         | Contrôle permettant de récupérer la valeur d'un compteur de performance |
-| Eventlog-Generic      | OS-Windows-NSClient05-Eventlog-Generic-restapi-custom        | Contrôle les événements en erreur dans les eventlogs                    |
-| Files-Generic         | OS-Windows-NSClient05-Files-Generic-Restapi-custom           | Contrôle permettant de vérifier des fichiers                            |
-| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-Restapi-custom        | Controle les fichiers de logs                                           |
-| Ntp                   | OS-Windows-NSClient05-Ntp-Restapi-custom                     | Contrôle la synchronisation avec un serveur NTP                         |
-| Pending-Reboot        | OS-Windows-NSClient05-Pending-Reboot-Restapi-custom          | Contrôle si Windows nécessite un redémarrage                            |
-| Process-generic       | OS-Windows-NSClient05-Process-Generic-Restapi-custom         | Contrôle des processus                                                  |
-| Services-Generic-Name | OS-Windows-NSClient05-Services-Generic-Name-Restapi-custom   | Contrôle permettant de vérifier l'état des services Windows             |
-| Sessions              | OS-Windows-NSClient05-Sessions-Restapi-custom                | Contrôle les sessions utilisateur Windows                               |
-| Task-Generic          | OS-Windows-NSClient05-Task-Generic-Restapi-custom            | Contrôle les tâches planifiées Windows                                  |
-| Updates               | OS-Windows-NSClient05-Updates-Restapi-custom                 | Contrôle si Windows a des mises à jour en attente                       |
-| Uptime                | OS-Windows-NSClient05-Uptime-Restapi-custom                  | Contrôle l'uptime Windows                                               |
+| Alias                 | Modèle de service                                            | Description                                                             | Découverte |
+|:----------------------|:-------------------------------------------------------------|:------------------------------------------------------------------------|:-----------|
+| Active-Sessions       | OS-Windows-NSClient05-Counter-Active-Sessions-Restapi-custom | Contrôle le nombre de sessions actives                                  |            |
+| Certificates          | OS-Windows-NSClient05-Certificates-Restapi-custom            | Contrôle les certificats locaux Windows                                 |      X     |
+| Counter-Generic       | OS-Windows-NSClient05-Counter-Generic-Restapi-custom         | Contrôle permettant de récupérer la valeur d'un compteur de performance |            |
+| Eventlog-Generic      | OS-Windows-NSClient05-Eventlog-Generic-restapi-custom        | Contrôle les événements en erreur dans les eventlogs                    |            |
+| Files-Generic         | OS-Windows-NSClient05-Files-Generic-Restapi-custom           | Contrôle permettant de vérifier des fichiers                            |            |
+| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-Restapi-custom        | Controle les fichiers de logs                                           |            |
+| Ntp                   | OS-Windows-NSClient05-Ntp-Restapi-custom                     | Contrôle la synchronisation avec un serveur NTP                         |            |
+| Pending-Reboot        | OS-Windows-NSClient05-Pending-Reboot-Restapi-custom          | Contrôle si Windows nécessite un redémarrage                            |            |
+| Process-generic       | OS-Windows-NSClient05-Process-Generic-Restapi-custom         | Contrôle des processus                                                  |            |
+| Services-Generic-Name | OS-Windows-NSClient05-Services-Generic-Name-Restapi-custom   | Contrôle permettant de vérifier l'état des services Windows             |            |
+| Sessions              | OS-Windows-NSClient05-Sessions-Restapi-custom                | Contrôle les sessions utilisateur Windows                               |            |
+| Task-Generic          | OS-Windows-NSClient05-Task-Generic-Restapi-custom            | Contrôle les tâches planifiées Windows                                  |            |
+| Updates               | OS-Windows-NSClient05-Updates-Restapi-custom                 | Contrôle si Windows a des mises à jour en attente                       |            |
+| Uptime                | OS-Windows-NSClient05-Uptime-Restapi-custom                  | Contrôle l'uptime Windows                                               |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
