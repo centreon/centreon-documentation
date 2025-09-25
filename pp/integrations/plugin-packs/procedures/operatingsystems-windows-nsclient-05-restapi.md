@@ -27,35 +27,35 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="OS-Windows-NSClient-05-Restapi-custom" label="OS-Windows-NSClient-05-Restapi-custom">
 
-| Service Alias | Service Template                                   | Service Description                                                                                                                                 |
-|:--------------|:---------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | OS-Windows-NSClient05-Cpu-Restapi-custom           | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
-| Disks         | OS-Windows-NSClient05-Disks-Restapi-custom         | Check Windows disk usage                                                                                                                            |
-| Memory        | OS-Windows-NSClient05-Memory-Restapi-custom        | Check the rate of the utilization of memory                                                                                                         |
-| Services-Auto | OS-Windows-NSClient05-Services-Auto-Restapi-custom | Check that all auto-start services are running                                                                                                      |
-| Swap          | OS-Windows-NSClient05-Swap-Restapi-custom          | Check the rate of the utilization of virtual memory                                                                                                 |
+| Service Alias | Service Template                                   | Service Description                                                                                                                                 | Discovery |
+|:--------------|:---------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| Cpu           | OS-Windows-NSClient05-Cpu-Restapi-custom           | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |           |
+| Disks         | OS-Windows-NSClient05-Disks-Restapi-custom         | Check Windows disk usage                                                                                                                            |     X     |
+| Memory        | OS-Windows-NSClient05-Memory-Restapi-custom        | Check the rate of the utilization of memory                                                                                                         |           |
+| Services-Auto | OS-Windows-NSClient05-Services-Auto-Restapi-custom | Check that all auto-start services are running                                                                                                      |           |
+| Swap          | OS-Windows-NSClient05-Swap-Restapi-custom          | Check the rate of the utilization of virtual memory                                                                                                 |           |
 
 > The services listed above are created automatically when the **OS-Windows-NSClient-05-Restapi-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias         | Service Template                                             | Service Description                          |
-|:----------------------|:-------------------------------------------------------------|:---------------------------------------------|
-| Active-Sessions       | OS-Windows-NSClient05-Counter-Active-Sessions-Restapi-custom | Check active sessions                        |
-| Certificates          | OS-Windows-NSClient05-Certificates-Restapi-custom            | Check Windows local certificates             |
-| Counter-Generic       | OS-Windows-NSClient05-Counter-Generic-Restapi-custom         | Check the content of a performance counter   |
-| Eventlog-Generic      | OS-Windows-NSClient05-Eventlog-Generic-restapi-custom        | Check event log errors                       |
-| Files-Generic         | OS-Windows-NSClient05-Files-Generic-Restapi-custom           | Check files                                  |
-| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-Restapi-custom        | Check log files                              |
-| Ntp                   | OS-Windows-NSClient05-Ntp-Restapi-custom                     | Check the synchronization with an NTP server |
-| Pending-Reboot        | OS-Windows-NSClient05-Pending-Reboot-Restapi-custom          | Check pending Windows reboot                 |
-| Process-generic       | OS-Windows-NSClient05-Process-Generic-Restapi-custom         | Check processes                              |
-| Services-Generic-Name | OS-Windows-NSClient05-Services-Generic-Name-Restapi-custom   | Check Windows services states                |
-| Sessions              | OS-Windows-NSClient05-Sessions-Restapi-custom                | Check Windows user sessions                  |
-| Task-Generic          | OS-Windows-NSClient05-Task-Generic-Restapi-custom            | Check Windows scheduled tasks                |
-| Updates               | OS-Windows-NSClient05-Updates-Restapi-custom                 | Check pending Windows updates                |
-| Uptime                | OS-Windows-NSClient05-Uptime-Restapi-custom                  | Check Windows uptime                         |
+| Service Alias         | Service Template                                             | Service Description                          | Discovery |
+|:----------------------|:-------------------------------------------------------------|:---------------------------------------------|:----------|
+| Active-Sessions       | OS-Windows-NSClient05-Counter-Active-Sessions-Restapi-custom | Check active sessions                        |           |
+| Certificates          | OS-Windows-NSClient05-Certificates-Restapi-custom            | Check Windows local certificates             |     X     |
+| Counter-Generic       | OS-Windows-NSClient05-Counter-Generic-Restapi-custom         | Check the content of a performance counter   |           |
+| Eventlog-Generic      | OS-Windows-NSClient05-Eventlog-Generic-restapi-custom        | Check event log errors                       |           |
+| Files-Generic         | OS-Windows-NSClient05-Files-Generic-Restapi-custom           | Check files                                  |           |
+| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-Restapi-custom        | Check log files                              |           |
+| Ntp                   | OS-Windows-NSClient05-Ntp-Restapi-custom                     | Check the synchronization with an NTP server |           |
+| Pending-Reboot        | OS-Windows-NSClient05-Pending-Reboot-Restapi-custom          | Check pending Windows reboot                 |           |
+| Process-generic       | OS-Windows-NSClient05-Process-Generic-Restapi-custom         | Check processes                              |           |
+| Services-Generic-Name | OS-Windows-NSClient05-Services-Generic-Name-Restapi-custom   | Check Windows services states                |           |
+| Sessions              | OS-Windows-NSClient05-Sessions-Restapi-custom                | Check Windows user sessions                  |           |
+| Task-Generic          | OS-Windows-NSClient05-Task-Generic-Restapi-custom            | Check Windows scheduled tasks                |           |
+| Updates               | OS-Windows-NSClient05-Updates-Restapi-custom                 | Check pending Windows updates                |           |
+| Uptime                | OS-Windows-NSClient05-Uptime-Restapi-custom                  | Check Windows uptime                         |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
