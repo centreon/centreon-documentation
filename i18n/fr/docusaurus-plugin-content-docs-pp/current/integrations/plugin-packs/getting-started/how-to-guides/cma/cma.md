@@ -6,9 +6,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PollerAgentConfiguration from '../_poller-agent-configuration.mdx';
 
-> Utilisateurs de Centreon Cloud: l'agent CMA est encore en phase bêta pour la version Cloud. 
-> Pour obtenir de l'aide ou échanger sur les évolutions de l'agent Centreon, visitez [notre groupe dédié sur The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
-
 ## Introduction
 
 L'agent de supervision Centreon (Centreon Monitoring Agent, CMA) est un logiciel qu'on installe sur les hôtes à superviser : il collecte des métriques et calcule des statuts, et les envoie à Centreon. L'agent peut être utilisé avec Centreon Cloud, ou avec Centreon OnPrem à partir de la version 24.10.
