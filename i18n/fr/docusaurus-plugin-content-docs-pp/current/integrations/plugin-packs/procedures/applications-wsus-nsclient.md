@@ -241,10 +241,7 @@ yum install
 
 | Macro                     | Description                                                                                          | Valeur par défaut     | Obligatoire |
 |:--------------------------|:-----------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| NSCPRESTAPILEGACYPASSWORD |  Password to authenticate against the API if relevant                                                                                                     |                       |             |
-| NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                                                                                                     |                       |             |
 | NRPEPORT                  | Port used to reach the NRPE server                                                                                                  | 5666                  |             |
-| NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')                                                                                                     |                       |             |
 | NRPECLIENT                | NRPE Plugin binary to use                                                                                                     | check\_centreon\_nrpe |             |
 | NRPETIMEOUT               | Timeout value                                                                                                   | 55                    |             |
 | NRPEEXTRAOPTIONS          | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                       |             |
@@ -264,7 +261,6 @@ yum install
 | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                                                                                                     |                   |             |
 | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                                                                                                     | https             |             |
 | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')                                                                                                     | 8443              |             |
-| NRPEEXTRAOPTIONS          | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
