@@ -259,8 +259,8 @@ yum install
 | Macro                     | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:--------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                                                                                                     |                   |             |
-| NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                                                                                                     | https             |             |
-| NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')                                                                                                     | 8443              |             |
+| NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use                                                                                                     | https             |             |
+| NSCPRESTAPIPORT           | NSClient++ RestAPI port                                                                                                     | 8443              |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
