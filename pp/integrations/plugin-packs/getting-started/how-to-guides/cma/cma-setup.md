@@ -6,8 +6,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PollerAgentConfiguration from '../_poller-agent-configuration.mdx';
 
-> Note to Centreon Cloud users: The Centreon Monitoring Agent is still in its beta phase for Centreon Cloud. To get support, visit [our dedicated group on The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
-
 ## Step 1: Configure Centreon
 
 This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/24.10/).)

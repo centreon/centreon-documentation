@@ -7,8 +7,6 @@ import TabItem from '@theme/TabItem';
 
 Le connecteur **Linux Centreon Monitoring Agent** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
 
-> Pour le moment, ce connecteur de supervision est en version **BETA**. L'agent est encore dans sa phase beta pour les utilisateurs de Centreon Cloud.
-
 Lisez [cette page](../getting-started/how-to-guides/cma/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
 
 ## Contenu du pack

@@ -7,8 +7,6 @@ import TabItem from '@theme/TabItem';
 
 The **Linux Centreon Monitoring Agent** connector supplies templates and commands to be used with the Centreon Monitoring Agent (this is an observability agent implementing the OpenTelemetry protocol).
 
-> For the moment, this monitoring connector is in **BETA** version. The agent is still in its beta phase for Centreon Cloud users.
-
 Read [this page](../getting-started/how-to-guides/cma/cma.md) for more information about the Centreon Monitoring Agent itself.
 
 ## Pack assets
