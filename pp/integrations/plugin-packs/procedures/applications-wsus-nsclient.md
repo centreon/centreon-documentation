@@ -28,13 +28,9 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias          | Service Template                                          | Service Description                                   |
 |:-----------------------|:----------------------------------------------------------|:------------------------------------------------------|
 | Computers-Status       | App-Wsus-Computers-Status-NRPE-custom                     | Check computers status count                          |
-| Computers-Status       | App-Wsus-Computers-Status-NSClient05-Restapi-custom       | Check computers status count                          |
 | Server-Statistics      | App-Wsus-Server-Statistics-NRPE-custom                    | Check serveral WSUS server statistics                 |
-| Server-Statistics      | App-Wsus-Server-Statistics-NSClient05-Restapi-custom      | Check serveral WSUS server statistics                 |
 | Synchronisation-Status | App-Wsus-Synchronisation-Status-NRPE-custom               | Check updates synchronisation with WSUS server status |
-| Synchronisation-Status | App-Wsus-Synchronisation-Status-NSClient05-Restapi-custom | Check updates synchronisation with WSUS server status |
 | Update-Status          | App-Wsus-Update-Status-NRPE-custom                        | Check updates status                                  |
-| Update-Status          | App-Wsus-Update-Status-NSClient05-Restapi-custom          | Check updates status                                  |
 
 > The services listed above are created automatically when the **App-Wsus-NRPE-custom** host template is used.
 
@@ -43,13 +39,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias          | Service Template                                          | Service Description                                   |
 |:-----------------------|:----------------------------------------------------------|:------------------------------------------------------|
-| Computers-Status       | App-Wsus-Computers-Status-NRPE-custom                     | Check computers status count                          |
 | Computers-Status       | App-Wsus-Computers-Status-NSClient05-Restapi-custom       | Check computers status count                          |
-| Server-Statistics      | App-Wsus-Server-Statistics-NRPE-custom                    | Check serveral WSUS server statistics                 |
 | Server-Statistics      | App-Wsus-Server-Statistics-NSClient05-Restapi-custom      | Check serveral WSUS server statistics                 |
-| Synchronisation-Status | App-Wsus-Synchronisation-Status-NRPE-custom               | Check updates synchronisation with WSUS server status |
 | Synchronisation-Status | App-Wsus-Synchronisation-Status-NSClient05-Restapi-custom | Check updates synchronisation with WSUS server status |
-| Update-Status          | App-Wsus-Update-Status-NRPE-custom                        | Check updates status                                  |
 | Update-Status          | App-Wsus-Update-Status-NSClient05-Restapi-custom          | Check updates status                                  |
 
 > The services listed above are created automatically when the **App-Wsus-NSClient-05-Restapi-custom** host template is used.
@@ -72,7 +64,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | not-contacted      | N/A   |
 | unassigned         | N/A   |
 
-> Applies to the following service templates: Computers-Status, Computers-Status
+> Applies to the following service templates: Computers-Status-NRPE, Computers-Status-NSClient-Restapi
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -90,7 +82,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | stale-updates        | N/A   |
 | expired-updates      | N/A   |
 
-> Applies to the following service templates: Server-Statistics, Server-Statistics
+> Applies to the following service templates: Server-Statistics-NRPE, Server-Statistics-NSClient-Restapi
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -104,7 +96,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | last-synchronisation-status   | N/A   |
 | last_synchronisation_duration | s     |
 
-> Applies to the following service templates: Synchronisation-Status, Synchronisation-Status
+> Applies to the following service templates: Synchronisation-Status-NRPE, Synchronisation-Status-NSClient-Restapi
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
