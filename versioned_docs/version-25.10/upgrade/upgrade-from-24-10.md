@@ -15,6 +15,8 @@ This chapter describes how to upgrade your Centreon platform from version 24.10 
 
 > If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
 
+> If you were using MySQL 8.0, you may want to [upgrade to MySQL 8.4](upgrade-mysql.md) before the end of support for version 8.0. at the end of April 2026.
+
 ## Prerequisites
 
 ### Perform a backup

@@ -16,6 +16,8 @@ Centreon depuis la version 24.10 vers la version 25.10.
 
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux / RHEL 8, vous devez suivre la [procédure de migration](../migrate/introduction.md).
 
+> Si vous utilisiez MySQL 8.0, prévoyez de [passer à MySQL 8.4](upgrade-mysql.md) avant la fin du support de la version 8.0, prévue fin avril 2026.
+
 > Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 25.10. Si vous utilisiez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
 ## Prérequis
@@ -30,7 +32,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ## Montée de version du serveur Centreon Central
 
-> Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
+> Lorsque vous lancez une commande, vérifiez les messages obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
 
 ### Installation du nouveau dépôt Centreon
 

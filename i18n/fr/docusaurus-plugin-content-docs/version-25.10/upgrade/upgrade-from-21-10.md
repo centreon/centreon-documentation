@@ -37,7 +37,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 ## Montée de version du serveur Centreon Central
 
-> Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
+> Lorsque vous lancez une commande, vérifiez les messages obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
 
 ### Installer les nouveaux dépôts
 
