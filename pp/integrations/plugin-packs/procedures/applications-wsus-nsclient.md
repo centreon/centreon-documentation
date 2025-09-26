@@ -253,10 +253,10 @@ yum install
 |:--------------------------|:-----------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
 | NSCPRESTAPILEGACYPASSWORD |  Password to authenticate against the API if relevant                                                                                                     |                       |             |
 | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                                                                                                     |                       |             |
-| NRPEPORT                  | Port used to reach the NRPE server (default: '5666')                                                                                                     | 5666                  |             |
+| NRPEPORT                  | Port used to reach the NRPE server                                                                                                    | 5666                  |             |
 | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')                                                                                                     |                       |             |
 | NRPECLIENT                | NRPE Plugin binary to use                                                                                                     | check\_centreon\_nrpe |             |
-| NRPETIMEOUT               | Timeout value (Default: '30')                                                                                                     | 55                    |             |
+| NRPETIMEOUT               | Timeout value                                                                                                     | 55                    |             |
 | NRPEEXTRAOPTIONS          | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                       |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
