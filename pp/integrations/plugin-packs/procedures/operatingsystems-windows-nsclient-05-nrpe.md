@@ -314,7 +314,7 @@ dnf install nagios-plugins-nrpe
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
-3. Apply the **OS-Windows-NSClient-05-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+3. Apply the **OS-Windows-NSClient-05-NRPE-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
 | Macro            | Description                                                                                                                      | Default value        | Mandatory |
