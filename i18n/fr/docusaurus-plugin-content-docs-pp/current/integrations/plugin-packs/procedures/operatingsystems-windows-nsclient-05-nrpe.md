@@ -1,4 +1,4 @@
-    ---
+---
 id: operatingsystems-windows-nsclient-05-nrpe
 title: Windows NSClient 0.5 NRPE
 ---
