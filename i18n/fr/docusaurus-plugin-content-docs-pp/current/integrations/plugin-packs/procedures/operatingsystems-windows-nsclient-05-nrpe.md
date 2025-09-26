@@ -15,7 +15,7 @@ grâce à l'agent de monitoring NSClient++ et son serveur NRPE embarqué. Le con
 
 ### Modèles
 
-Le connecteur de supervision **Windows NSClient API** apporte un modèle d'hôte :
+Le connecteur de supervision **Windows NSClient NRPE** apporte un modèle d'hôte :
 
 * **OS-Windows-NSClient-05-NRPE-custom**
 
@@ -220,6 +220,13 @@ Pas de métrique pour ce service.
 </TabItem>
 </Tabs>
 
+## Prérequis
+
+### Centreon NSClient++
+
+Pour surveiller les ressources *Windows* via NRPE, installez la version Centreon de l'agent NSClient++.
+Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que la configuration du **serveur NRPE** est correcte.
+
 ## Installer le connecteur de supervision
 
 ### Pack
@@ -387,8 +394,8 @@ dnf install nagios-plugins-nrpe
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-----------:|
 | FILE         | The logfile name                                                                                                                         |                                                  |             |
 | FILTER       | Filter which marks interesting items.                                                                                                    | written > -60m and level in ('error', 'warning') |             |
-| TOPSYNTAX    | The top level syntax string                                                                                                              | \${status}: \${count} \${problem_list}              |             |
-| DETAILSYNTAX | Detail level syntax                                                                                                                      | \${source} \${id}                                  |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{status}: $\{count} $\{problem_list}           |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{source} $\{id}                                |             |
 | WARNING      | Filter which marks items which generates a warning state.                                                                                | count>0                                          |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               | count>5                                          |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | count>5                                          |             |
@@ -396,16 +403,16 @@ dnf install nagios-plugins-nrpe
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut                                            | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|:-----------:|
-| PATHS        | The path to search for files under                                                                                                       |                                                              |             |
-| PATTERN      | The pattern of files to search for (works like a filter but is faster and can be combined with a filter)                                 |                                                              |             |
-| TOPSYNTAX    | The top level syntax string                                                                                                              | \${status}: \${problem_count}/\${count} files (\${problem_list}) |             |
-| DETAILSYNTAX | Detail level syntax                                                                                                                      | \${name}                                                      |             |
-| FILTER       | Filter which marks interesting items.                                                                                                    |                                                              |             |
-| WARNING      | Filter which marks items which generates a warning state.                                                                                |                                                              |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               |                                                              |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                                                     |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut                                                | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:-----------:|
+| PATHS        | The path to search for files under                                                                                                       |                                                                  |             |
+| PATTERN      | The pattern of files to search for (works like a filter but is faster and can be combined with a filter)                                 |                                                                  |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{status}: $\{problem_count}/$\{count} files ($\{problem_list}) |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{name}                                                         |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    |                                                                  |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                |                                                                  |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               |                                                                  |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                                                         |             |
 
 </TabItem>
 <TabItem value="Logfiles-Generic" label="Logfiles-Generic">
@@ -451,15 +458,15 @@ dnf install nagios-plugins-nrpe
 </TabItem>
 <TabItem value="Process-generic" label="Process-generic">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut          | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
-| PROCESS      | The service to check, set this to * to check all services                                                                                |                            |             |
-| TOPSYNTAX    | The top level syntax string                                                                                                              | \${status}: \${problem_list} |             |
-| DETAILSYNTAX | Detail level syntax                                                                                                                      | \${exe}=\${state}            |             |
-| FILTER       | Filter which marks interesting items.                                                                                                    | none                       |             |
-| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                       |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none                       |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut            | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
+| PROCESS      | The service to check, set this to * to check all services                                                                                |                              |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{status}: $\{problem_list} |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{exe}=$\{state}            |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | none                         |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                         |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none                         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                     |             |
 
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
@@ -469,8 +476,8 @@ dnf install nagios-plugins-nrpe
 | EXCLUDE      | A list of services to ignore (mainly useful in combination with service=*)                                                               |                                        |             |
 | EXCLUDE2     | A list of services to ignore (mainly useful in combination with service=*)                                                               |                                        |             |
 | SERVICE      | The service to check, set this to * to check all services                                                                                | *                                      |             |
-| TOPSYNTAX    | The top level syntax string                                                                                                              | \${problem_list}                        |             |
-| DETAILSYNTAX | Detail level syntax                                                                                                                      | \${name}=\${state} (\${start_type})       |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{problem_list}                       |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{name}=$\{state} ($\{start_type})    |             |
 | FILTER       | Filter which marks interesting items.                                                                                                    | start_type = 'auto' and is_trigger = 0 |             |
 | WARNING      | Filter which marks items which generates a warning state.                                                                                | not state_is_perfect()                 |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               | not state_is_ok()                      |             |
@@ -479,17 +486,17 @@ dnf install nagios-plugins-nrpe
 </TabItem>
 <TabItem value="Services-Generic-Name" label="Services-Generic-Name">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut                | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
-| EXCLUDE      | A list of services to ignore (mainly useful in combination with service=*)                                                               |                                  |             |
-| OK           | Filter which marks items which generates an ok state                                                                                     | state_is_ok()                    |             |
-| SERVICE      | The service to check, set this to * to check all services                                                                                | \${name}=\${state} (\${start_type}) |             |
-| TOPSYNTAX    | The top level syntax string                                                                                                              | \${problem_list}                  |             |
-| DETAILSYNTAX | Detail level syntax                                                                                                                      | \${name}=\${state} (\${start_type}) |             |
-| FILTER       | Filter which marks interesting items.                                                                                                    | none                             |             |
-| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                             |             |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | not state_is_ok()                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | 'perf-config=none'               |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut                   | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
+| EXCLUDE      | A list of services to ignore (mainly useful in combination with service=*)                                                               |                                     |             |
+| OK           | Filter which marks items which generates an ok state                                                                                     | state_is_ok()                       |             |
+| SERVICE      | The service to check, set this to * to check all services                                                                                | $\{name}=$\{state} ($\{start_type}) |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{problem_list}                    |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{name}=$\{state} ($\{start_type}) |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | none                                |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                                |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | not state_is_ok()                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | 'perf-config=none'                  |             |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
@@ -515,11 +522,11 @@ dnf install nagios-plugins-nrpe
 | Macro        | Description                                                                                                                              | Valeur par défaut                         | Obligatoire |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------:|
 | PERFCONFIG   | Performance data generation configuration                                                                                                | *(prefix:'used_')*(unit:B)%(ignored:true) |             |
-| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\${name} \${used} (\${size})                |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $$\{name} $\{used} ($\{size})             |             |
 | FILTER       | Filter which marks interesting items.                                                                                                    | size > 0 and name = 'total'               |             |
 | WARNING      | Filter which marks items which generates a warning state.                                                                                | none                                      |             |
 | CRITICAL     | Filter which marks items which generates a critical state.                                                                               | used > 0                                  |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | erf-syntax=swap                           |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | perf-syntax=swap                          |             |
 
 </TabItem>
 <TabItem value="Task-Generic" label="Task-Generic">
