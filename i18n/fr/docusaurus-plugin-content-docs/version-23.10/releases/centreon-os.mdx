@@ -803,7 +803,7 @@ Release date: `September 29, 2025`
 <details>
   <summary>Bug fixes</summary>
 
-- [Engine] Fixed Engine crash when deleting a host during downtime notification.
+- [Engine] Engine no longer crashes when users delete a host during downtime notification.
 - [Packaging] Fixed package dependency issue with centreon-broker-caching-sha2-password that could block a broker update.
 
 </details>
@@ -1086,15 +1086,15 @@ Release date: `September 29, 2025`
 <details>
   <summary>Bug fixes</summary>
 
-- [Gorgone] Fixed centreontrapd configuration file permissions when exporting poller configuration.
-- [MBI] Fixed an issue where ETL would never finish if some service templates were referencing themselfes.
+- [Gorgone] Fixed centreontrapd configuration file permissions applied when exporting poller configuration.
+- [MBI] Fixed an issue where the ETL would never finish executing if some service templates were referencing themselves.
 
 </details>
 
 <details>
   <summary>Security fixes</summary>
 
-- [Gorgone] Added option to make discovery commands less permissive
+- [Gorgone] Added an option to make discovery commands less permissive.
 
 </details>
 
