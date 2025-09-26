@@ -572,8 +572,10 @@ module.exports = {
         {
           "type": "category",
           "label": "Guide",
+          "key": "graph-views-guide",
           "link": {
             "type": "generated-index",
+            "slug": "graph-views-guide"
           },
           "items": [
             {

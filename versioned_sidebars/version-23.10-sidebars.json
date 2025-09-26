@@ -881,6 +881,7 @@
         {
           "type": "category",
           "label": "Guide",
+          "key": "reporting-guide",
           "link": {
             "type": "generated-index"
           },
@@ -914,6 +915,7 @@
         {
           "type": "category",
           "label": "Administrate",
+          "key": "reporting-administrate",
           "link": {
             "type": "generated-index"
           },

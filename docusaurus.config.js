@@ -73,7 +73,11 @@ const config = {
   url: 'https://docs.centreon.com',
   baseUrl,
   onBrokenLinks: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
-  onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
+    }
+  },
   onBrokenAnchors: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
