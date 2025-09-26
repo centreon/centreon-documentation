@@ -65,7 +65,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | not-contacted      | N/A   |
 | unassigned         | N/A   |
 
-> Concerne les modèles de service suivants : Computers-Status, Computers-Status
+> Concerne les modèles de service suivants : Computers-Status-NRPE, Computers-Status-NSClient-Restapi
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
@@ -83,7 +83,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | stale-updates        | N/A   |
 | expired-updates      | N/A   |
 
-> Concerne les modèles de service suivants : Server-Statistics, Server-Statistics
+> Concerne les modèles de service suivants : Server-Statistics-NRPE, Server-Statistics-NSClient-Restapi
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
@@ -97,7 +97,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | last-synchronisation-status   | N/A   |
 | last_synchronisation_duration | s     |
 
-> Concerne les modèles de service suivants : Synchronisation-Status, Synchronisation-Status
+> Concerne les modèles de service suivants : Synchronisation-Status-NRPE, Synchronisation-Status-NSClient-Restapi
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
@@ -112,7 +112,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | needed-by-computers | N/A   |
 | up-to-date          | N/A   |
 
-> Concerne les modèles de service suivants : Update-Status, Update-Status
+> Concerne les modèles de service suivants : Update-Status-NRPE, Update-Status-NSClient-Restapi
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
