@@ -29,13 +29,9 @@ Le connecteur apporte les modèles de service suivants
 | Alias                  | Modèle de service                                         | Description                                                                    |
 |:-----------------------|:----------------------------------------------------------|:-------------------------------------------------------------------------------|
 | Computers-Status       | App-Wsus-Computers-Status-NRPE-custom                     | Contrôle le nombre d'ordinateurs dans chacun des statuts                       |
-| Computers-Status       | App-Wsus-Computers-Status-NSClient05-Restapi-custom       | Contrôle le nombre d'ordinateurs dans chacun des statuts                       |
 | Server-Statistics      | App-Wsus-Server-Statistics-NRPE-custom                    | Contrôle plusieurs statistiques du serveur WSUS                                |
-| Server-Statistics      | App-Wsus-Server-Statistics-NSClient05-Restapi-custom      | Contrôle plusieurs statistiques du serveur WSUS                                |
 | Synchronisation-Status | App-Wsus-Synchronisation-Status-NRPE-custom               | Contrôle le statut de la synchronisation des mises à jour avec le serveur WSUS |
-| Synchronisation-Status | App-Wsus-Synchronisation-Status-NSClient05-Restapi-custom | Contrôle le statut de la synchronisation des mises à jour avec le serveur WSUS |
 | Update-Status          | App-Wsus-Update-Status-NRPE-custom                        | Contrôle le statut des mises à jour                                            |
-| Update-Status          | App-Wsus-Update-Status-NSClient05-Restapi-custom          | Contrôle le statut des mises à jour                                            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Wsus-NRPE-custom** est utilisé.
 
@@ -44,13 +40,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                  | Modèle de service                                         | Description                                                                    |
 |:-----------------------|:----------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Computers-Status       | App-Wsus-Computers-Status-NRPE-custom                     | Contrôle le nombre d'ordinateurs dans chacun des statuts                       |
 | Computers-Status       | App-Wsus-Computers-Status-NSClient05-Restapi-custom       | Contrôle le nombre d'ordinateurs dans chacun des statuts                       |
-| Server-Statistics      | App-Wsus-Server-Statistics-NRPE-custom                    | Contrôle plusieurs statistiques du serveur WSUS                                |
 | Server-Statistics      | App-Wsus-Server-Statistics-NSClient05-Restapi-custom      | Contrôle plusieurs statistiques du serveur WSUS                                |
-| Synchronisation-Status | App-Wsus-Synchronisation-Status-NRPE-custom               | Contrôle le statut de la synchronisation des mises à jour avec le serveur WSUS |
 | Synchronisation-Status | App-Wsus-Synchronisation-Status-NSClient05-Restapi-custom | Contrôle le statut de la synchronisation des mises à jour avec le serveur WSUS |
-| Update-Status          | App-Wsus-Update-Status-NRPE-custom                        | Contrôle le statut des mises à jour                                            |
 | Update-Status          | App-Wsus-Update-Status-NSClient05-Restapi-custom          | Contrôle le statut des mises à jour                                            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Wsus-NSClient-05-Restapi-custom** est utilisé.
