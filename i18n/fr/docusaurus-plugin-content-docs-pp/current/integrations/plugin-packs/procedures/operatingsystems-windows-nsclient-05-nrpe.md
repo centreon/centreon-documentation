@@ -45,7 +45,7 @@ Le connecteur apporte les modèles de service suivants
 | Counter-Generic       | OS-Windows-NSClient05-Counter-Generic-NRPE-custom         | Contrôle permettant de récupérer la valeur d'un compteur de performance |            |
 | Eventlog-Generic      | OS-Windows-NSClient05-Eventlog-Generic-NRPE-custom        | Contrôle les événements en erreur dans les eventlogs                    |            |
 | Files-Generic         | OS-Windows-NSClient05-Files-Generic-NRPE-custom           | Contrôle permettant de vérifier des fichiers                            |            |
-| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-NRPE-custom        | Controle les fichiers de logs                                           |            |
+| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-NRPE-custom        | Contrôle les fichiers de logs                                           |            |
 | Ntp                   | OS-Windows-NSClient05-Ntp-NRPE-custom                     | Contrôle la synchronisation avec un serveur NTP                         |            |
 | Pending-Reboot        | OS-Windows-NSClient05-Pending-Reboot-NRPE-custom          | Contrôle si Windows nécessite un redémarrage                            |            |
 | Process-generic       | OS-Windows-NSClient05-Process-Generic-NRPE-custom         | Contrôle des processus                                                  |            |
@@ -319,8 +319,8 @@ dnf install nagios-plugins-nrpe
 
 | Macro            | Description                                                                                                                                | Valeur par défaut    | Obligatoire |
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
-| NRPECLIENT       | Name of the plugin to use to dialog with the NRPE3 daemon                                                                                  | check_centreon_nrpe3 |             |
-| NRPEPORT         | TCP port the NRPE3 daemon is listening to                                                                                                  | 5666                 |             |
+| NRPECLIENT       | Name of the plugin to use to talk with the NRPE3 daemon                                                                                  | check_centreon_nrpe3 |             |
+| NRPEPORT         | TCP port the NRPE3 daemon is listening on                                                                                                  | 5666                 |             |
 | NRPETIMEOUT      | Command timeout                                                                                                                            | 30                   |             |
 | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | -u -2 -P 8192        |             |
 

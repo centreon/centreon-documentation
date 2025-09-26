@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-This Monitoring Connector allows to get metrics and statuses collected thanks to the NSClient++ 
+This Monitoring Connector collects metrics and statuses using the NSClient++ 
 monitoring agent and its embedded NRPE Server. The connector allows you to monitor:
 * Windows Server OS from 2003 SP2 version
 * Windows Workstation from XP version
@@ -28,9 +28,9 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
 | Cpu           | OS-Windows-NSClient05-Cpu-NRPE-custom           | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |           |
 | Disks         | OS-Windows-NSClient05-Disks-NRPE-custom         | Check Windows disk usage                                                                                                                            |     X     |
-| Memory        | OS-Windows-NSClient05-Memory-NRPE-custom        | Check the rate of the utilization of memory                                                                                                         |           |
+| Memory        | OS-Windows-NSClient05-Memory-NRPE-custom        | Check the utilization rate of the memory                                                                                                         |           |
 | Services-Auto | OS-Windows-NSClient05-Services-Auto-NRPE-custom | Check that all auto-start services are running                                                                                                      |           |
-| Swap          | OS-Windows-NSClient05-Swap-NRPE-custom          | Check the rate of the utilization of virtual memory                                                                                                 |           |
+| Swap          | OS-Windows-NSClient05-Swap-NRPE-custom          | Check the utilization  rate of the virtual memory                                                                                                 |           |
 
 > The services listed above are created automatically when the **OS-Windows-NSClient-05-NRPE-custom** host template is used.
 
@@ -168,12 +168,12 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
 
-Pas de métrique pour ce service.
+No metric for this service.
 
 </TabItem>
 <TabItem value="Services-Generic-Name" label="Services-Generic-Name">
 
-Pas de métrique pour ce service.
+No metric for this service.
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
@@ -186,7 +186,7 @@ Pas de métrique pour ce service.
 | sessions.active.current.count       | count |
 | sessions.disconnected.current.count | count |
 
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+> To obtain this new metric format, include the value **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -223,7 +223,7 @@ Pas de métrique pour ce service.
 
 ### Centreon NSClient++
 
-To monitor an *Windows* through NRPE, install the Centreon packaged version 
+To monitor a *Windows* server through NRPE, install the Centreon packaged version 
 of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) 
 and make sure that the **NRPE Server** configuration is correct.
 
@@ -319,8 +319,8 @@ dnf install nagios-plugins-nrpe
 
 | Macro            | Description                                                                                                                      | Default value        | Mandatory |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------|:---------------------|:---------:|
-| NRPECLIENT       | Name of the plugin to use to dialog with the NRPE3 daemon                                                                        | check_centreon_nrpe3 |           |
-| NRPEPORT         | TCP port the NRPE3 daemon is listening to                                                                                        | 5666                 |           |
+| NRPECLIENT       | Name of the plugin to use to talk with the NRPE3 daemon                                                                        | check_centreon_nrpe3 |           |
+| NRPEPORT         | TCP port the NRPE3 daemon is listening on                                                                                        | 5666                 |           |
 | NRPETIMEOUT      | Command timeout                                                                                                                  | 30                   |           |
 | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) | -u -2 -P 8192        |           |
 
