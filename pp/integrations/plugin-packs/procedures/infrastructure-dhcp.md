@@ -42,7 +42,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 | Name | Unit  |
 |:-----|:------|
-| time | ms    |
+| time | s    |
 
 </TabItem>
 </Tabs>

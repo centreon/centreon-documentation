@@ -43,7 +43,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 | Nom  | Unité |
 |:-----|:------|
-| time | ms    |
+| time | s    |
 
 </TabItem>
 </Tabs>
