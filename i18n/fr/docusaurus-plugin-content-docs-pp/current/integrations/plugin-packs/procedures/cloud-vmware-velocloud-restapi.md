@@ -141,7 +141,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Pour utiliser ce connecteur, vous devez disposer du login et du mot de passe d'un compte autorisé à utiliser l'API VeloCloud Orchestrator.
+Pour utiliser ce connecteur, vous devez disposer de l'identifiant et du mot de passe d'un compte autorisé à utiliser l'API VeloCloud Orchestrator.
+Les comptes de type MSP ne sont pas supportés.
 
 ## Installer le connecteur de supervision
 
