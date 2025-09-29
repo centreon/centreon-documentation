@@ -105,7 +105,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | system.status                   | N/A   |
 | system.total                    | count |
 
-> `disk.health` metric is only provided with DSM version 7.1 and higher. 
+> `disk.health` metric is only provided for DSM version 7.1 and higher. 
 
 </TabItem>
 <TabItem value="Load" label="Load">
