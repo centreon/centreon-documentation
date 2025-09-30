@@ -25,12 +25,12 @@ poller to the Centreon platform.
     - **Create new Poller** if you haven't registered the poller yet on the central or remote server
     - **Select a Poller** if you have already registered the poller on the central or remote server.
 
-4. Type in the name, the IP address of the new poller, and the IP address of the Central
+4. Type in the name, the address of the new poller (IP or FQDN), and the IP address of the Central
 Server. Click **Next**:
 
   ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
 
-  > The IP address of the Poller is the IP address or the FQDN used to access this
+  > The address of the poller is the IP address or the FQDN used to access this
   > poller from the Central server.
   >
   > The IP address of the Central server is the IP address or the FQDN used to
