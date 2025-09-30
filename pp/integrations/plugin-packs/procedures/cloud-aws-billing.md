@@ -65,7 +65,7 @@ Configure a service account (access/secret key combo) for which the following pr
 * cloudwatch:ListMetrics
 * cloudwatch:getMetricStatistics
 
-> **Warning**, you must [enable billing alerts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/gs_monitor_estimated_charges_with_cloudwatch.html#gs_turning_on_billing_metrics) in order to receive them in CloudWatch.
+> **Warning**: you must [enable billing alerts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/gs_monitor_estimated_charges_with_cloudwatch.html#gs_turning_on_billing_metrics) in order to receive that type of information in CloudWatch.
  
 ### Plugin dependencies
 
