@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Centreon-MBI** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 * [Linux SNMP](./operatingsystems-linux-snmp.md)
 
@@ -98,7 +98,7 @@ La configuration de SNMP sur un serveur Linux est expliquée dans [la page de do
 ### Pack
 
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -135,7 +135,7 @@ yum install centreon-pack-applications-monitoring-centreon-mbi centreon-pack-ope
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Centreon-MBI**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -190,7 +190,7 @@ yum install nagios-plugins-nrpe centreon-pack-operatingsystems-linux-snmp
 
 | Macro            | Description                                                                                                                                       | Valeur par défaut   | Obligatoire |
 |:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
-| NRPECLIENT       | Name of the plugin to use to dialog with the NRPE daemon                                                                                          | check_centreon_nrpe |             |
+| NRPECLIENT       | Name of the plugin to use to talk with the NRPE daemon                                                                                          | check_centreon_nrpe |             |
 | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles) | -u -m 8192          |             |
 | NRPEPORT         | TCP port the NRPE daemon is listening to                                                                                                          | 5666                |             |
 | NRPETIMEOUT      | Command timeout                                                                                                                                   | 30                  |             |

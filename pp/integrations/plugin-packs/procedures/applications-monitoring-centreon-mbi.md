@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Centreon-MBI** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 * [Linux SNMP](./operatingsystems-linux-snmp.md)
 
@@ -29,10 +29,10 @@ The connector brings the following service templates (sorted by the host templat
 |:---------------|:--------------------------------------------------|:-------------------------------------------------------------------------|
 | DWH-db-content | App-Monitoring-Centreon-MBI-DWH-db-content-custom | Check if the datawarehouse of the reporting server is up to date         |
 | DWH-partitions | App-Monitoring-Centreon-MBI-DWH-partitions-custom | Check if partitions of the reporting server datawarehouse are up to date |
-| failed-jobs    | App-Monitoring-Centreon-MBI-failed-jobs-custom    | Check if failed job are present                                          |
+| failed-jobs    | App-Monitoring-Centreon-MBI-failed-jobs-custom    | Check if failed jobs are present                                          |
 | Ntp            | App-Monitoring-Centreon-MBI-Ntp-custom            | Check the synchronization with an NTP server via SNMP                    |
-| proc-cbis      | App-Monitoring-Centreon-MBI-Process-cbis-custom   | Check the presence and the memory consumption of cbis process via SNMP   |
-| proc-mysql     | App-Monitoring-Centreon-MBI-Process-mysql-custom  | Check the presence and the memory consumption of mysql process via SNMP  |
+| proc-cbis      | App-Monitoring-Centreon-MBI-Process-cbis-custom   | Check the presence and the memory consumption of the cbis process via SNMP   |
+| proc-mysql     | App-Monitoring-Centreon-MBI-Process-mysql-custom  | Check the presence and the memory consumption of the mysql process via SNMP  |
 
 > The services listed above are created automatically when the **App-Monitoring-Centreon-MBI-custom** host template is used.
 
@@ -104,7 +104,7 @@ The Centreon Poller must be able to reach UDP/161 (SNMP) and TCP/22 (SSH) ports 
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -140,7 +140,7 @@ yum install centreon-pack-applications-monitoring-centreon-mbi centreon-pack-ope
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Centreon-MBI** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -197,7 +197,7 @@ yum install nagios-plugins-nrpe centreon-pack-operatingsystems-linux-snmp
 
 | Macro           | Description                                                                                                                                       | Default value       | Mandatory |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:---------:|
-| NRPECLIENT       | Name of the plugin to use to dialog with the NRPE daemon                                                                                          | check_centreon_nrpe |           |
+| NRPECLIENT       | Name of the plugin to use to talk with the NRPE daemon                                                                                          | check_centreon_nrpe |           |
 | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [here](#available-options). | -u -m 8192          |           |
 | NRPEPORT         | TCP port the NRPE daemon is listening to                                                                                                          | 5666                |           |
 | NRPETIMEOUT      | Command timeout                                                                                                                                   | 30                  |           |
