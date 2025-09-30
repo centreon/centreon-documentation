@@ -798,6 +798,18 @@ Release date: `October 30, 2023`
 
 ## Centreon Collect
 
+### 23.10.17
+
+Release date: `September 29, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Engine] Engine no longer crashes when users delete a host during downtime notification.
+- [Packaging] Fixed package dependency issue with centreon-broker-caching-sha2-password that could block a broker update.
+
+</details>
+
 ### 23.10.16
 
 Release date: `July 16, 2025`
@@ -1068,6 +1080,25 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Gorgone
+
+### 23.10.15
+
+Release date: `September 29, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed centreontrapd configuration file permissions applied when exporting poller configuration.
+- [MBI] Fixed an issue where the ETL would never finish executing if some service templates were referencing themselves.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Gorgone] Added an option to make discovery commands less permissive.
+
+</details>
 
 ### 23.10.14
 
