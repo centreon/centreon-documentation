@@ -153,20 +153,20 @@ La configuration de SNMP sur un serveur Linux est expliquée dans [la page de do
 
 ### Configuration de la connexion SSH sans mot de passe
 
-> NB : Il est très fortement recommandé de surveiller le cluster à partir d'un poller plutôt qu'à partir du cluster.
+> NB : Il est très fortement recommandé de superviser le cluster à partir d'un collecteur plutôt qu'à partir du cluster.
 
-Ouvrir une session en ligne de commande sur :
+Ouvrez une session en ligne de commande sur :
 
-* le poller qui sera chargé de superviser le cluster
+* le collecteur qui sera chargé de superviser le cluster
 * chaque nœud de ce cluster
 
-Une fois ces sessions ouvertes, lancer cette commande :
+Une fois ces sessions ouvertes, lancez cette commande :
 
 ```bash
 su - centreon-engine
 ```
 
-À présent nous sommes dans l'environnement `bash` de `centreon-engine`. Lancer ensuite cette commande :
+À présent nous sommes dans l'environnement `bash` de `centreon-engine`. Lancez ensuite cette commande :
 
 ```bash
 ssh-keygen -t ed25519 -a 100
@@ -174,27 +174,27 @@ ssh-keygen -t ed25519 -a 100
 
 Nous avons généré une paire de clés sur chaque serveur, ainsi que le répertoire `~/.ssh`. 
 
-Sur le poller lancer cette commande pour afficher la clé publique créée :
+Sur le collecteur, lancez cette commande pour afficher la clé publique créée :
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Après avoir lancé cette commande, copier le contenu du fichier qui s'est affiché sous la commande `cat` et le coller à la fin du fichier (probablement à créer) `~/.ssh/authorized_keys` des nœuds centraux, puis appliquer les bons droits sur le fichier (toujours en tant que `centreon-engine`) :
+Après avoir lancé cette commande, copiez le contenu du fichier qui s'est affiché sous la commande `cat` et collez-le à la fin du fichier (probablement à créer) `~/.ssh/authorized_keys` des nœuds centraux, puis appliquez les bons droits sur le fichier (toujours en tant que `centreon-engine`) :
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-Une fois cette étape effectuée sur chaque nœud central, il ne reste plus qu'à initialiser une première connexion depuis le poller vers chacun des nœuds :
+Une fois cette étape effectuée sur chaque nœud central, il ne reste plus qu'à initialiser une première connexion depuis le collecteur vers chacun des nœuds :
 
 ```bash
 ssh <cluster-node-ip-address>
 ```
 
-L'utilisateur `centreon-engine` du poller est alors capable d'ouvrir une session SSH sur les deux nœuds centraux. 
+L'utilisateur `centreon-engine` du collecteur est alors capable d'ouvrir une session SSH sur les deux nœuds centraux. 
 
-Il ne reste plus qu'à l'intégrer au groupe `haclient` pour lui permettre d'exécuter les commandes nécessaires à la surveillance du cluster :
+Il ne reste plus qu'à l'intégrer au groupe `haclient` pour lui permettre d'exécuter les commandes nécessaires à la supervision du cluster :
 
 ```bash
 usermod -a -G haclient centreon-engine
