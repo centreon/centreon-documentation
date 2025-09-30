@@ -152,16 +152,16 @@ The configuration of SNMP on a Linux server is detailed in [the *Linux SNMP* Mon
 
 ### Network flows
 
-The Centreon Poller must be able to reach UDP/161 (SNMP) and TCP/22 (SSH) ports of the central nodes.
+The Centreon Poller must be able to reach the UDP/161 (SNMP) and TCP/22 (SSH) ports of the central nodes.
 
 ### SSH keys exchange
 
-> NB : It is strongly recommended to monitor the cluster from an external poller rather than from the cluster's active node.
+> NB: It is strongly recommended to monitor the cluster from an external poller rather than from the cluster's active node.
 
 Open a `root` command-line session on:
 
 * the poller that will monitor the cluster
-* both of the cluster nodes
+* both of the cluster nodes.
 
 Then switch to `centreon-engine`'s bash environment on both nodes:
 
@@ -189,7 +189,7 @@ Once done, copy the content of the public key file displayed by `cat` and paste 
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (still as `centreon-engine` user):
+The key exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (still as `centreon-engine` user):
 
 ```
 ssh <cluster-node-ip-address>
@@ -197,9 +197,9 @@ ssh <cluster-node-ip-address>
 
 Then exit the `centreon-engine` session typing `exit` or `Ctrl-D`.
 
-The `centreon-engine` user is now able to log in *via* SSH to both central nodes.
+The `centreon-engine` user is now able to log in via SSH to both central nodes.
 
-Now add the `centreon-engine` user to the `haclient` group to entitle it to run the cluster management commands.
+Now add the `centreon-engine` user to the `haclient` group to allow it to run the cluster management commands.
 
 ```bash
 usermod -a -G haclient centreon-engine
