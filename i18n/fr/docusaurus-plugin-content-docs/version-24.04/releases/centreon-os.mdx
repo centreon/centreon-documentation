@@ -646,6 +646,20 @@ Many features have been added in this version.
 
 ## Centreon Collect
 
+### 24.04.15
+
+Release date: `September 30, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed a segfault on Broker that was occurring when Engine stopped or was restarted, when Engine's version was older than 24.04.
+- [Core] Fixed the compatibility of Engine with older versions of the Linux kernel.
+- [Engine] Engine no longer crashes when users delete a host during downtime notification.
+- [Packaging] Fixed package dependency issue with centreon-broker-caching-sha2-password that could block a broker update. 
+
+</details>
+
 ### 24.04.14
 
 Release date: `August 6, 2025`
@@ -874,6 +888,27 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.04.11
+
+Release date: `September 30, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed centreontrapd configuration file permissions applied when exporting poller configuration.
+- [Gorgone] Gorgone now raises an error if the ETL configuration file doesn't exist.
+- [MBI] Fixed a bug in MBI where a hostname with a semicolon broke database insertion.	
+- [MBI] Fixed an issue where the ETL would never finish executing if some service templates were referencing themselves.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Gorgone] Added an option to make discovery commands less permissive.
+
+</details>
 
 ### 24.04.10
 
