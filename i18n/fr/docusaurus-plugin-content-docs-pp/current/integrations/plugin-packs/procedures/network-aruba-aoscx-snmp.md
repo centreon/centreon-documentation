@@ -13,7 +13,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ## Contenu du connecteur
 
-> Note : Depuis le rachat d'Aruba par HP certaines MIB peuvent avoir changé et certains équipements Aruba peuvent désormais être supervisés par le connecteur [HP Procurve SNMP](network-switchs-hp-procurve-snmp.md).
+> Depuis le rachat d'Aruba par HP, certaines MIB peuvent avoir changé. Si votre équipement Aruba n'est plus supervisé correctement par le connecteur Aruba, utilisez le connecteur [HP Procurve SNMP](network-switchs-hp-procurve-snmp.md).
 
 ### Modèles
 
