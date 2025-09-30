@@ -203,7 +203,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option         | Description                                                                                                                                                                                                                                            |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --subnet       | Specify subnet from which discover resources (must be C<<ip>/<cidr>> format) (mandatory).                                                                                                                                                                |
+| --subnet       | Specify subnet from which discover resources (mandatory).                                                                                                                                                                |
 | --nmap-options | Specify the options to use with Nmap. Default value: -sS -sU -R -O --osscan-limit --osscan-guess -p U:161,162,T:21-25,80,139,443,3306,8080,8443 -oX - __SUBNET_OPTION__ Note that -oX - are mandatory when using the Plugin in Centreon Host Discovery |
 | --prettify     | Prettify JSON output.                                                                                                                                                                                                                                  |
 
