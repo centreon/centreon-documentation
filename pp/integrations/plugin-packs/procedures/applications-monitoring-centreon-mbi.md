@@ -198,10 +198,10 @@ yum install nagios-plugins-nrpe centreon-pack-operatingsystems-linux-snmp
 | Macro           | Description                                                                                                                                       | Default value       | Mandatory |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:---------:|
 | NRPECLIENT       | Name of the plugin to use to talk with the NRPE daemon                                                                                          | check_centreon_nrpe |           |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [here](#available-options). | -u -m 8192          |           |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | -u -m 8192          |           |
 | NRPEPORT         | TCP port the NRPE daemon is listening to                                                                                                          | 5666                |           |
 | NRPETIMEOUT      | Command timeout                                                                                                                                   | 30                  |           |
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [here](#available-options). |                     |           |
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles) |                     |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -215,21 +215,21 @@ yum install nagios-plugins-nrpe centreon-pack-operatingsystems-linux-snmp
 
 | Macro        | Description                                                                                                                                    | Default value | Mandatory |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [here](#available-options) |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles) |               |           |
 
 </TabItem>
 <TabItem value="DWH-partitions" label="DWH-partitions">
 
 | Macro        | Description                                                                                                                                    | Default value | Mandatory |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [here](#available-options) |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles) |               |           |
 
 </TabItem>
 <TabItem value="failed-jobs" label="failed-jobs">
 
 | Macro        | Description                                                                                                                                    | Default value | Mandatory |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [here](#available-options) |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles) |               |           |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
@@ -241,7 +241,7 @@ yum install nagios-plugins-nrpe centreon-pack-operatingsystems-linux-snmp
 | TIMEZONE     | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'                                |               |           |
 | WARNING      | Time offset warning threshold (in seconds)                                                                                                     | -1:1          |           |
 | CRITICAL     | Time offset critical Threshold (in seconds)                                                                                                    | -2:2          |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [here](#available-options) |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles) |               |           |
 
 </TabItem>
 <TabItem value="proc-cbis" label="proc-cbis">
@@ -253,7 +253,7 @@ yum install nagios-plugins-nrpe centreon-pack-operatingsystems-linux-snmp
 | PROCESSPATH  | Filter process path                                                                                                                            |               |           |
 | CRITICAL     | Critical threshold of matching processes count                                                                                                 | 1:            |           |
 | WARNING      | Warning threshold of matching processes count                                                                                                  |               |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [here](#available-options) | --memory      |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles) | --memory      |           |
 
 
 </TabItem>
@@ -266,7 +266,7 @@ yum install nagios-plugins-nrpe centreon-pack-operatingsystems-linux-snmp
 | PROCESSPATH  | Filter process path                                                                                                                            |               |           |
 | CRITICAL     | Critical threshold of matching processes count                                                                                                 | 1:            |           |
 | WARNING      | Warning threshold of matching processes count                                                                                                  |               |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [here](#available-options) | --memory      |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles) | --memory      |           |
 
 </TabItem>
 </Tabs>
