@@ -21,7 +21,7 @@ import TabItem from '@theme/TabItem';
 
 - [**Ansible Tower**](../procedures/applications-ansible-tower.md) - Improve UUID generation to make it unique in **host discovery**.
 - [**HP Standard Network SNMP**](../procedures/network-hp-standard-snmp.md) - Added **vrrp-status** mode, from community contribution [PR 4842](https://github.com/centreon/centreon-plugins/pull/4842).
-- [**Linux Centreon Monitoring Agent**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
+- [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
 - [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
 - [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
 - [**Linux Telegraf Agent**](../procedures/operatingsystems-linux-telegraf-agent.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
@@ -42,7 +42,7 @@ import TabItem from '@theme/TabItem';
 - [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Fixed total space calculation error and missing snapshot info in **volumes** mode. 
 - [**VTOM Rest API**](../procedures/applications-vtom-restapi.md) - Fixed an issue leading to `Unknown option --token` in **jobs** mode.
 - [**Veeam API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Added Veeam Agent compatibility for job monitoring in **job-status** mode.
-- [**Veeam Centreon Monitoring Agent**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Added Veeam Agent compatibility for job monitoring in **job-status** mode.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Added Veeam Agent compatibility for job monitoring in **job-status** mode.
 - [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Added Veeam Agent compatibility for job monitoring in **job-status** mode.
 - [**Veeam**](../procedures/applications-veeam-nrpe.md) - Added Veeam Agent compatibility for job monitoring in **job-status** mode.
 
@@ -55,7 +55,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
 - [**Forcepoint SNMP**](../procedures/network-firewalls-forcepoint-sdwan-snmp.md) - Initial release of Forcepoint SNMP, based on community contribution [PR 5512](https://github.com/centreon/centreon-plugins/pull/5512) and a [The Watch idea](https://thewatch.centreon.com/ideas/update-stonesoft-forcepoint-plugin-4169).
-- [**Active Directory Centreon Monitoring Agent**](../procedures/infrastructure-active-directory-centreon-monitoring-agent.md) - Initial release of Active Directory Centreon Monitoring Agent.
+- [**Active Directory CMA**](../procedures/infrastructure-active-directory-centreon-monitoring-agent.md) - Initial release of Active Directory CMA.
 - [**LatenceTech RestAPI**](../procedures/applications-monitoring-latencetech-restapi.md) - Initial release of LatenceTech RestAPI.
 
 
@@ -67,13 +67,13 @@ import TabItem from '@theme/TabItem';
 - [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - Added OS and IP info retrieval to **host discovery**.
 - [**Redis Database**](../procedures/applications-databases-redis.md) - Added `cert` and `key` options for authentication (available for redis-cli >= 6.x), based on community contribution [PR 5555](https://github.com/centreon/centreon-plugins/pull/5555).
 - [**Redis Sentinel**](../procedures/applications-redis-sentinel.md) - Added `cert` and `key` options for authentication (available for redis-cli >= 6.x), from community contribution [PR 5555](https://github.com/centreon/centreon-plugins/pull/5555).
-- [**Veeam Centreon Monitoring Agent**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Converted into stable and added default timeout service macro, set to 120s.
-- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added native checks for **Process**, **Counter**, **Taskched** and **Files**. Added default timeout service macro, set to 120s.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Converted into stable and added default timeout service macro, set to 120s.
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added native checks for **Process**, **Counter**, **Taskched** and **Files**. Added default timeout service macro, set to 120s.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Converted into stable with the new CMA version leading to breaking changes for earlier versions.
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Converted into stable with the new CMA version leading to breaking changes for earlier versions.
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
@@ -310,7 +310,7 @@ systemctl restart centreon_vmware
 - [**VMware8 ESX REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - Added new **diskio**, **network** and **swap** modes.
 - [**Veeam Backup Enterprise Manager Rest API**](../procedures/applications-veeam-vbem-restapi.md) - Added handling of replication jobs to **jobs** mode.
 - [**Viptela SNMP**](../procedures/network-viptela-snmp.md) - Added the `--check-overload` option to the **uptime** service template.
-- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added new native checks: **cma-health**, **eventlog** and **services**.
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added new native checks: **cma-health**, **eventlog** and **services**.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
@@ -335,7 +335,7 @@ systemctl restart centreon_vmware
 <TabItem value="New connectors" label="New connectors">
 
 - [**VMware8 ESX REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - Initial release of VMWare 8 ESX.
-- [**Veeam Centreon Monitoring Agent**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Initial release of Veeam using the Centreon Monitoring Agent, from a [The Watch idea](https://thewatch.centreon.com/ideas/prepare-veeam-template-with-centreon-monitoring-agent-4024).
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Initial release of Veeam using the CMA, from a [The Watch idea](https://thewatch.centreon.com/ideas/prepare-veeam-template-with-centreon-monitoring-agent-4024).
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
@@ -445,7 +445,7 @@ systemctl restart centreon_vmware
 - [**IBM Bladecenter Switch SNMP**](../procedures/network-ibm-bladecenter-snmp.md) - Fixed **Net-IBM-Bladecenter-SNMP-Time** command.
 - [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Fixed scenario monitoring where scenarios names were not correctly ordered.
 - [**Lenovo Flex System Switch SNMP**](../procedures/network-lenovo-flexsystem-snmp.md) - Fixed **Net-Lenovo-Flexsystem-SNMP-Time** command.
-- [**Linux Centreon Monitoring Agent**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Fixed wrong default values in uptime service.
+- [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Fixed wrong default values in uptime service.
 - [**NetApp Ontap SNMP**](../procedures/hardware-storage-netapp-ontap-snmp.md) - Fixed **Disk-Failed** command.
 - [**OpenMetrics**](../procedures/applications-monitoring-openmetrics.md) - Fixed **App-Monitoring-Openmetrics-File-Scrape-Metrics** command.
 - [**Panzura SNMP**](../procedures/hardware-storage-panzura-snmp.md) - Removed unrelated service templates.
@@ -482,7 +482,7 @@ systemctl restart centreon_vmware
 - [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Added new mode **stack** from community contribution [PR 5082](https://github.com/centreon/centreon-plugins/pull/5082).
 - [**Keysight NVOS Rest API**](../procedures/network-keysight-nvos-restapi.md) - Enhanced **ports** mode and added **license** mode.
 - [**Nokia TiMos SNMP**](../procedures/network-nokia-timos-snmp.md) - Added new **sas-alarm** mode from community contribution [PR 5083](https://github.com/centreon/centreon-plugins/pull/5083).
-- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added native checks for CPU, Cpu-detailed, Memory, Storage, Swap and Uptime (these native checks will be available with the upcoming Collect 24.10.3 release).
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added native checks for CPU, Cpu-detailed, Memory, Storage, Swap and Uptime (these native checks will be available with the upcoming Collect 24.10.3 release).
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
@@ -533,8 +533,8 @@ systemctl restart centreon_vmware
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Linux Centreon Monitoring Agent**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Initial release of Linux Centreon Monitoring Agent.
-- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Initial release of Windows Centreon Monitoring Agent.
+- [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Initial release of Linux CMA.
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Initial release of Windows CMA.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">

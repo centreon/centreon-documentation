@@ -1,11 +1,11 @@
 ---
 id: operatingsystems-windows-centreon-monitoring-agent
-title: Windows Centreon Monitoring Agent
+title: Windows CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Le connecteur **Windows Centreon Monitoring Agent** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
+Le connecteur **Windows CMA** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent - CMA). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
 
 > Pour le moment, ce connecteur de supervision est en version **BETA**. L'agent est encore dans sa phase beta pour les utilisateurs de Centreon Cloud.
 
@@ -15,7 +15,7 @@ Lisez [cette page](../getting-started/how-to-guides/cma/cma.md) pour plus d'info
 
 ### Modèles
 
-Le connecteur de supervision **Windows Centreon Monitoring Agent** apporte un modèle d'hôte :
+Le connecteur de supervision **Windows CMA** apporte un modèle d'hôte :
 
 * **OS-Windows-Centreon-Monitoring-Agent-custom**
 
@@ -320,20 +320,20 @@ apt install centreon-pack-operatingsystems-windows-centreon-monitoring-agent
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Windows Centreon Monitoring Agent**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Windows CMA**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 3. Créez le connecteur suivant :
 
 Dans le menu **Configuration > Commandes > Connecteurs**, cliquez sur **Ajouter** puis saisissez les champs suivants :
 
-| Paramètre                 | Valeur                                                                                                                                                                                        |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nom du connecteur         | Centreon Monitoring Agent Beta                                                                                                                                                                |
-| Description du connecteur | Centreon Monitoring Agent Beta                                                                                                                                                                |
+| Paramètre                 | Valeur                                                                                                                                                                                      |
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nom du connecteur         | Centreon Monitoring Agent                                                                                                                                                               |
+| Description du connecteur | Centreon Monitoring Agent                                                                                                                                                               |
 | Ligne de commande         | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
-| Utilisé par la commande   | Selectionner toutes les commandes dont le nom correspond à `OS-Windows-Centreon-Monitoring-Agent-*`                                                                                           |
-| Statut du connecteur      | Activé                                                                                                                                                                                        |
+| Utilisé par la commande   | Selectionner toutes les commandes dont le nom correspond à `OS-Windows-Centreon-Monitoring-Agent-*`                                                                                         |
+| Statut du connecteur      | Activé                                                                                                                                                                                      |
 
 ### Plugin
 

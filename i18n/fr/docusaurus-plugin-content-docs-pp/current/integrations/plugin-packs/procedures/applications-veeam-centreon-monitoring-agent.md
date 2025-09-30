@@ -1,13 +1,13 @@
 ---
 id: applications-veeam-centreon-monitoring-agent
-title: Veeam Centreon Monitoring Agent
+title: Veeam CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Veeam Centreon Monitoring Agent** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Veeam CMA** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Veeam Centreon Monitoring Agent** apporte un modèle d'hôte :
+Le connecteur de supervision **Veeam CMA** apporte un modèle d'hôte :
 
 * **App-Veeam-Centreon-Monitoring-Agent-custom**
 
@@ -169,7 +169,7 @@ yum install centreon-pack-applications-veeam-centreon-monitoring-agent
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Veeam Centreon Monitoring Agent**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Veeam CMA**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
