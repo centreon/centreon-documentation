@@ -623,7 +623,7 @@ with the following:
      ```shell
      sudo -u apache php /usr/share/centreon/bin/console w:m:c
      ```
-     (You can also adapt them manuall. 
+     (You can also adapt them manually.)
 
 3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
