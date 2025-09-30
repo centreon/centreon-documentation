@@ -90,7 +90,23 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Pas de métrique pour ce service.
+| Nom                             | Unité |
+|:--------------------------------|:------|
+| disk.total                      | count |
+| disk.status                     | N/A   |
+| disk.health                     | N/A   |
+| hardware.disk.bad_sectors.count | count |
+| cpu.fan.status                  | N/A   |
+| system.fan.status               | N/A   |
+| fan.total                       | count |
+| psu.status                      | N/A   |
+| psu.total                       | count |
+| raid.status                     | N/A   |
+| raid.total                      | count |
+| system.status                   | N/A   |
+| system.total                    | count |
+
+> La métrique `disk.health` n'est disponible que pour les DSM version 7.1 et supérieures.
 
 </TabItem>
 <TabItem value="Load" label="Load">
