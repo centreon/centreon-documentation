@@ -311,7 +311,7 @@ Centreon Web from your computer:
 If you open a geographic view or container and your background is composed of
 gray with Xs and the following pop-up message...
 
-Error while retrieving Mapbox tiles. Please check your Mapbox configuration."
+Error while retrieving Mapbox tiles. Please check your Mapbox configuration."
 
 ![image](../assets/graph-views/mapbox-configuration-error.png)
 
