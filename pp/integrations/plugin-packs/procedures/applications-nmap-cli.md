@@ -202,7 +202,6 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-<Tabs groupId="sync">
 <TabItem value="Discovery" label="Discovery">
 
 | Option         | Description                                                                                                                                                                                                                                            |
