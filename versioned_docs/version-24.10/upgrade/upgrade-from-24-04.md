@@ -628,9 +628,9 @@ with the following:
      ```
      (You can also adapt them manually.)
 
-4. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-5. Restart the processes:
+4. Restart the processes:
 
     ``` shell
     systemctl restart cbd centengine centreontrapd gorgoned
