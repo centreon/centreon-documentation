@@ -65,6 +65,8 @@ Configure a service account (access/secret key combo) for which the following pr
 * cloudwatch:ListMetrics
 * cloudwatch:getMetricStatistics
 
+> **Warning**: you must [enable billing alerts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/gs_monitor_estimated_charges_with_cloudwatch.html#gs_turning_on_billing_metrics) in order to receive that type of information in CloudWatch.
+ 
 ### Plugin dependencies
 
 To interact with the Amazon APIs, you can use either use the *awscli* binary provided by Amazon or *paws*, a Perl AWS SDK (recommended). You must install it on every poller expected to monitor AWS resources.

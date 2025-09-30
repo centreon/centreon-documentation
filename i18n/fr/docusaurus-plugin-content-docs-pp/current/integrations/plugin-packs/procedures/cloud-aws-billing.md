@@ -66,6 +66,8 @@ Configurez un compte de service (via une combinaison d'access key et de secret k
 * cloudwatch:ListMetrics
 * cloudwatch:getMetricStatistics
 
+> **Attention**, vous devez [activer les alertes de facturation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/gs_monitor_estimated_charges_with_cloudwatch.html#gs_turning_on_billing_metrics) afin de pouvoir récupérer les informations correspondantes dans CloudWatch.
+
 ### Dépendances du Plugin
 
 Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli* fourni par Amazon, soit le SDK Perl *paws*. Le SDK est recommandé car plus performant.
