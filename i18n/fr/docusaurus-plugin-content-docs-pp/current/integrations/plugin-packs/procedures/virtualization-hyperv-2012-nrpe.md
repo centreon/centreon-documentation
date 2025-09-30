@@ -241,6 +241,9 @@ yum install centreon-nrpe3-plugin
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
 | NRPEPORT         | NRPE Port of the target server                                                                                                                     | 5666                  |             |
 | SCVMMPORT        | SCVMM port used                                                                                                                                    | 8100                  |             |
+| SCVMMHOSTNAME    | SCVMM hostname                                                                                                                                     |                       |             |
+| SCVMMUSERNAME    | SCVMM username                                                                                                                                     |                       |      X      |
+| SCVMMPASSWORD    | SCVMM password                                                                                                                                     |                       |      X      |
 | NRPECLIENT       | NRPE Plugin binary to use                                                                                                                          | check\_centreon\_nrpe |             |
 | NRPETIMEOUT      | Timeout value                                                                                                                                      | 55                    |             |
 | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | -u -m 8192            |             |

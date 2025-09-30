@@ -193,6 +193,7 @@ Le menu d'action à trois points situé à la fin de la ligne de la liste de dif
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Diagramme d'activité métier           | Affiche graphiquement et permet la navigation dans la hiérarchie d'une activité métier.   |
+| Historique du statut d’une Activité Métier           | Affiche la répartition des statuts actuels sur une activité métier, sous forme de frise chronologique pour une période donnée.   |
 | Horloge/Minuteur           | Affiche l'heure en fonction du fuseau horaire sélectionné, ou un minuteur.   |
 | Texte générique           | Permet d'ajouter du texte libre à vos tableaux de bord (titres de sections, informations, etc.).   |
 | Group monitoring           | Affiche la répartition des statuts actuels pour les groupes de ressources sélectionnés, sous forme de tableau.   |
