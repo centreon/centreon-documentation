@@ -141,7 +141,7 @@ Le plugin apporte les modes suivants :
 
 | Mode                                                                                                                            | Modèle de service associé |
 |:--------------------------------------------------------------------------------------------------------------------------------|:--------------------------|
-| discovery [code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/automation/ansible/cli/mode/discovery.pm)] | Used for host discovery   |
+| discovery [code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/automation/ansible/cli/mode/discovery.pm) | Used for host discovery   |
 
 ### Options disponibles
 

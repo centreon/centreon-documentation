@@ -143,7 +143,7 @@ The plugin brings the following modes:
 
 | Mode                                                                                                                            | Linked service template |
 |:--------------------------------------------------------------------------------------------------------------------------------|:--------------------------|
-| discovery [code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/automation/ansible/cli/mode/discovery.pm)] | Used for host discovery   |
+| discovery [code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/automation/ansible/cli/mode/discovery.pm) | Used for host discovery   |
 
 ### Available options
 
