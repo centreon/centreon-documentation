@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 ## Pack assets
 
+> Since HP acquired Aruba, some MIBs may have changed. If your Aruba device is no longer correcty monitored by the Aruba connector, use the [HP Procurve SNMP](network-switches-hp-procurve-snmp.md) connector instead.
+
 ### Templates
 
 The Monitoring Connector **Aruba Standard** brings 2 host templates:
