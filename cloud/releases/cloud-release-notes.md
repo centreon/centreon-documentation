@@ -3,6 +3,106 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## 25.09.0
+
+### Centreon Collect
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Credentials encryption] Broker is now able to handle encrypted credentials.
+- [Credentials encryption] Engine is now able to check its encryption readiness.
+- Enhanced configuration generation to handle Insecure TLS.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- AES 256 encryption keys are now automatically resized (zero-padded if too short, truncated if too long) instead of throwing an error when not exactly 32 bytes.
+- [Broker] Fixed Broker connection issue during MySQL upgrades where prepared statements were not recognized by the new database instance, causing query failures.
+- [CORE] Fixed compatibility of engine with older versions of Linux kernel.
+- [Engine] Fixed an Engine crash when deleting a host during downtime notification.
+- [Engine] Fixed a segmentation fault in Engine that could occur if checks were still running when a shutdown was requested.
+- [Routing] Correctly prefix modules routes.
+
+</details>
+
+### Centreon Monitoring Agent
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Added a native Files check for Windows.
+- CMA installer and CLI wording have been harmonized to fit with new UI labels.
+- CMA now handles forced checks.
+- CMA related TLS connections now require tokens.
+- [credentials encryption] CMA is now able to retrieve encryption key & handle encrypted credentials.
+- Insecure TLS is now available as encryption mode in CMA.
+
+</details>
+
+### Centreon Gorgone
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug where, when a poller didn't connect for a long time to a central, it could not connect anymore until the sqlite database was deleted.
+
+</details>
+
+### Centreon Map
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Library] Added the possibility to select a custom icon representing a Geoview.
+- [MAP API] It is now possible to use MAP API with API Token.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Server] BBDOv2 messages are no longer supported.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- Added authentication for actuator endpoints.
+
+</details>
+
+### Centreon Web
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [ACL] Added Image Folders in Resource Access Management to allow access control to images in MAP.
+- [Administration] Added INFO logs on API&CMA Tokens Add/Delete/Activate/Revoke & API Tokens usage.
+- [Agent configuration] It's now possible to configure both connection direction in the same configuration. The user interface has been improved according to this.
+- [API] Enhanced Agent configuration endpoints documentation.
+- [Authentication Tokens] Added a welcome page when no token exists in the token configuration page.
+- [Configuration] Cleaned up labels in Agent configuration screens.
+- [Configuration] Insecure TLS is now available as encryption mode in Agent configuration.
+- [Credentials encryption] Configuration generation is now able to handle encrypted credentials.
+- [Dashboards] It is now possible to use regex (regular expressions) to filter certain resource types in specific widgets.
+- [UX/UI] Updated forms and pop-ups to improve readability and added a new tab navigation system for quick access to collapsible sub-menus.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Authentication] Fixed an issue that prevented users logged in via OIDC from logging out of the interface.
+- [Configuration] The creation of metaservices no longer fails for users with several RAM rules.
+- Fixed an error in notifications page.
+- [Notification] Fixed erroneous user count in notification rule listing.
+ 
+</details>
+
 ## September 25th, 2025
 
 ### Centreon IT Edition
