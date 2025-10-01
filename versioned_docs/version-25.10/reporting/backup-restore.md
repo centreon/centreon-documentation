@@ -253,17 +253,17 @@ rm -Rf /tmp/var
 
 The restore process is divided into several steps:
 
--   Reinstalling centreon-bi-reporting-server module in the same version
+- Reinstalling centreon-bi-reporting-server module in the same version
     as the one saved
--   Integrating the CBIS configuration
--   Integrating the custom report designs
--   Restarting the CBIS engine
--   Deleting the data from the extracted backup
--   Reinstalling the backup.
+- Integrating the CBIS configuration
+- Integrating the custom report designs
+- Restarting the CBIS engine
+- Deleting the data from the extracted backup
+- Reinstalling the backup.
 
 #### Reinstall the centreon-bi-reporting-server module in the same version as the one saved
 
-On the main Centreon server run the following command:
+On the MBI server run the following command:
 
 ```
 yum install centreon-bi-engine-x.y.z
@@ -274,33 +274,35 @@ yum install centreon-bi-engine-x.y.z
 Take the latest **centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz**
 backup and extract it to **/tmp** directory:
 
+> **Notes**: By default, the backup folder used is /var/backup, change the folder in the command below if needed
+
 ```
+tar xzf /var/backup/centreon-bin-reports-and-conf-YYYY-MM-DD.tar.gz -C /tmp
 cd /tmp
-tar xzf centreon-bin-reports-and-conf-YYYY-MM-DD.tar.gz
 ```
 
-Then copy the settings:
+Then copy the cbis settings:
 
 ```
-/bin/cp -rf /tmp/etc/centreon-bi/* /etc/centreon-bi
+cp -rf /tmp/etc/centreon-bi/* /etc/centreon-bi
 ```
 
 #### Integrating the custom reports settings
 
-Take the latest **centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz**
+<!-- Take the latest **centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz**
 backup and extract it to **/tmp** directory:
 
 ```
 cd /tmp
 tar xzf centreon-bin-reports-and-conf-YYYY-MM-DD.tar.gz
-```
+``` -->
 
 Then copy the report designs:
 
 ```
-/bin/cp -rf /tmp/usr/share/centreon-bi/reports/* /usr/share/centreon-bi/reports
+cp -rf /tmp/usr/share/centreon-bi/reports/* /usr/share/centreon-bi/reports
 chown -R centreonBI:centreonBI /usr/share/centreon-bi/reports
-/bin/cp -rf /tmp/usr/share/centreon-bi/Resources/* /usr/share/centreon-bi/Resources
+cp -rf /tmp/usr/share/centreon-bi/Resources/* /usr/share/centreon-bi/Resources
 chown -R centreonBI:centreonBI /usr/share/centreon-bi/Resources
 ```
 
@@ -318,10 +320,17 @@ Remove the directory */var/lib/mysql* from the reporting server:
 rm -rf /var/lib/mysql
 ```
 
+> **Note**: If you receive the error message : "rm: impossible de supprimer '/var/lib/mysql': Périphérique ou ressource occupé", you have to umount/mount the datadir partition.
+```
+umount /var/lib/mysql 
+mount /var/lib/mysql
+rm -rf /var/lib/mysql
+```
+
 Extract the latest complete backup(created by default on Sunday):
 
 ```
-tar -xzf /var/backup/mysql-centreon_storage-bi-xxxx-xx-xx.tar.gz -C /
+tar -xzf /var/backup/mysql-centreon_storage-bi-xxxx-xx-xx.tar.gz -C /var/lib/mysql
 ```
 
 Extract all incremental backups created between the latest complete
@@ -329,7 +338,8 @@ backup and the current date **from the oldest to the most recent** via
 the command:
 
 ```
-tar -xzf /var/backup/mysql-centreon_storage-bi-xxxx-xx-xx.tar.gz -C /
+tar -xzf /var/backup/mysql-centreon_storage-bi-xxxx-xx-xx.tar.gz -C /var/lib/mysql
+
 ```
 
 Change the rights on the directory */var/lib/mysql*:
