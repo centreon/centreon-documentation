@@ -183,15 +183,17 @@ Take the latest
 ```centreon-bi-front-reports-and-custom-conf-aaaa-mm-jj.tar.gz``` backup
 and extract it to the ```/tmp``` directory:
 
+> **Notes**: By default, the backup folder used is /var/backup, change the folder in the command below if needed
+
 ```
-    cd /tmp
-    tar xzf centreon-bi-front-reports-and-custom-conf-YYYY-MM-DD.tar.gz
+tar xzf /var/backup/centreon-bi-front-reports-and-custom-conf-YYYY-MM-DD.tar.gz -C /tmp
+cd /tmp
 ```
 
 Then copy the backed up reports:
 
 ```
-/bin/cp -rf /tmp/var/lib/centreon/centreon-bi-server/archives/* /var/lib/centreon/centreon-bi-server/archives
+cp -rf /tmp/var/lib/centreon/centreon-bi-server/archives/* /var/lib/centreon/centreon-bi-server/archives
 ```
 
 > If the directory is different than expected, the user has changed the
@@ -200,29 +202,29 @@ Then copy the backed up reports:
 Change the rights for the files:
 
 ```
-    chown -R centreonBI:centreonBI /var/lib/centreon/centreon-bi-server/archives
+chown -R centreonBI:centreonBI /var/lib/centreon/centreon-bi-server/archives
 ```
 
 #### Integrate custom report settings
 
-Take the latest backup in the format
+<!-- Take the latest backup in the format
 ```centreon-bi-front-reports-and-custom-conf-aaaa-mm-jj.tar.gz``` and
 extract it to the ```/tmp``` directory:
 
 ```
 cd /tmp
 tar xzf centreon-bi-front-reports-and-custom-conf-YYYY-MM-DD.tar.gz
-```
-Then copy the saved settings:
+``` -->
+Copy the saved settings:
 
 ```
-/bin/cp -rf /tmp/usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl/* /usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl
+cp -rf /tmp/usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl/* /usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl
 ```
 
 and 
 
 ```
-/bin/cp -rf /tmp/var/lib/centreon/centreon-bi-server/reports/infos/* /var/lib/centreon/centreon-bi-server/reports/infos
+cp -rf /tmp/var/lib/centreon/centreon-bi-server/reports/infos/* /var/lib/centreon/centreon-bi-server/reports/infos
 ```
 
 Change the rights for the files:
@@ -266,7 +268,7 @@ The restore process is divided into several steps:
 On the MBI server run the following command:
 
 ```
-yum install centreon-bi-engine-x.y.z
+yum install centreon-bi-server-x.y.z
 ```
 
 #### Integrating the CBIS configuration
