@@ -8,9 +8,10 @@ import TabItem from '@theme/TabItem';
 
 ## Centreon MBI backup 
 
-Centreon MBI backup uses 2 crons to backup all your files:
-- Backup module on your Central for all your reports and ETL configuration
-- Backup datawarehouse databases, cbis configuration files and birt files on your MBI server.
+Centreon MBI backup triggers crons to backup all your files:
+
+- on your Central to backup MBI module, all your reports and database containing ETL configuration.
+- on your MBI server to backup MBI datawarehouse, yours databases, cbis configuration files and birt files.
 
 > Each Backup solution has purge mechanism to delete old data
 
@@ -56,7 +57,10 @@ By default, retention is set to 8 days, to modify this value, update ```RETENTIO
 (line **67**) located here:
 ```/usr/share/centreon-bi-backup/centreon-bi-backup-web.sh```
 
+> **Notes**
 > We advise you to export backups to another resource in order to secure them.
+> The purge script "/usr/share/centreon/www/modules/centreon-bi-server/tools/purgeArchivesFiles.php" verify retention configuration and delete old reports (36 months by default)
+
 
 ### Backing up your MBI server
 
@@ -70,7 +74,7 @@ By default, retention is set to 8 days, to modify this value, update ```RETENTIO
 #### Items to back up
 
 - Configuration files (mariadb configuration).
-- Aggregated data (all your datadir folder, ex: /var/lib/mysql).
+- Raw data and Aggregated data (all your datadir folder, ex: /var/lib/mysql).
 - Reports & resources rptidesign/rptlibrary and XML parameters.
 
 #### Backup frequency
@@ -133,7 +137,7 @@ The restore process is divided into several steps:
 - Deleting data extracted from the backup
 - Reinstalling the backup.
 
-### Restore configuration data
+### Restore Centreon MBI module 
 
 #### Re-install centreon-bi-server module in the same version as the one saved
 
@@ -251,7 +255,7 @@ rm -Rf /tmp/usr
 rm -Rf /tmp/var
 ```
 
-### Restore Centreon MBI Reporting Server settings
+### Restore Centreon MBI Reporting Server 
 
 The restore process is divided into several steps:
 
@@ -262,6 +266,8 @@ The restore process is divided into several steps:
 - Restarting the CBIS engine
 - Deleting the data from the extracted backup
 - Reinstalling the backup.
+
+> If you need to provision new server, take care about server configurations prerequisite and install centreon-business repository
 
 #### Reinstall the centreon-bi-reporting-server module in the same version as the one saved
 
@@ -280,7 +286,6 @@ backup and extract it to **/tmp** directory:
 
 ```
 tar xzf /var/backup/centreon-bin-reports-and-conf-YYYY-MM-DD.tar.gz -C /tmp
-cd /tmp
 ```
 
 Then copy the cbis settings:
@@ -290,14 +295,6 @@ cp -rf /tmp/etc/centreon-bi/* /etc/centreon-bi
 ```
 
 #### Integrating the custom reports settings
-
-<!-- Take the latest **centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz**
-backup and extract it to **/tmp** directory:
-
-```
-cd /tmp
-tar xzf centreon-bin-reports-and-conf-YYYY-MM-DD.tar.gz
-``` -->
 
 Then copy the report designs:
 
@@ -325,11 +322,11 @@ rm -rf /var/lib/mysql
 > **Note**: If you receive the error message : "rm: impossible de supprimer '/var/lib/mysql': Périphérique ou ressource occupé", you have to umount/mount the datadir partition.
 ```
 umount /var/lib/mysql 
+rm -rf /var/lib/mysql/*
 mount /var/lib/mysql
-rm -rf /var/lib/mysql
 ```
 
-Extract the latest complete backup(created by default on Sunday):
+Extract the latest complete backup (created by default on Sunday):
 
 ```
 tar -xzf /var/backup/mysql-centreon_storage-bi-xxxx-xx-xx.tar.gz -C /var/lib/mysql
@@ -341,7 +338,6 @@ the command:
 
 ```
 tar -xzf /var/backup/mysql-centreon_storage-bi-xxxx-xx-xx.tar.gz -C /var/lib/mysql
-
 ```
 
 Change the rights on the directory */var/lib/mysql*:
