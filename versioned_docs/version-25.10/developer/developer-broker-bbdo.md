@@ -89,52 +89,27 @@ The table below lists event types available in the NEB category. They
 must be mixed with the BBDO_NEB_TYPE category to get a BBDO event ID.
 
 
-| Type                            | Value | Uses Protobuf |
-|---------------------------------|-------|---------------|
-| Acknowledgement                 | 1     |            No |
-| Comment                         | 2     |            No |
-| Custom variable                 | 3     |            No |
-| Custom variable status          | 4     |            No |
-| Downtime                        | 5     |            No |
-| Event handler                   | 6     |            No |
-| Host check                      | 8     |            No |
-| Host dependency                 | 9     |            No |
-| Host group                      | 10    |            No |
-| Host group member               | 11    |            No |
-| Host                            | 12    |            No |
-| Host parent                     | 13    |            No |
-| Host status                     | 14    |            No |
-| Instance                        | 15    |            No |
-| Instance status                 | 16    |            No |
-| Log entry                       | 17    |            No |
-| Module                          | 18    |            No |
-| Service check                   | 19    |            No |
-| Service dependency              | 20    |            No |
-| Service group                   | 21    |            No |
-| Service group member            | 22    |            No |
-| Service                         | 23    |            No |
-| Service status                  | 24    |            No |
-| Instance Configuration          | 25    |            No |
-| Responsive Instance             | 26    |            No |
-| Pb Service                      | 27    |           Yes |
-| Pb Adaptive Service             | 28    |           Yes |
-| Pb Service Status               | 29    |           Yes |
-| Pb Host                         | 30    |           Yes |
-| Pb Adaptive Host                | 31    |           Yes |
-| Pb Host Status                  | 32    |           Yes |
-| Pb Severity                     | 33    |           Yes |
-| Pb Tag                          | 34    |           Yes |
-| Pb Comment                      | 35    |           Yes |
-| Pb Downtime                     | 36    |           Yes |
-| Pb Custom variable              | 37    |           Yes |
-| Pb Custom variable status       | 38    |           Yes |
-| Pb Host check                   | 39    |           Yes |
-| Pb Service check                | 40    |           Yes |
-| Pb Log entry                    | 41    |           Yes |
-| Pb Instance Status              | 42    |           Yes |
-| Pb Instance                     | 44    |           Yes |
-| Pb Acknowledgement              | 45    |           Yes |
-| Pb Responsive Instance          | 46    |           Yes |
+| Type                            | Value |
+|---------------------------------|-------|
+| Pb Service                      | 27    |
+| Pb Adaptive Service             | 28    |
+| Pb Service Status               | 29    |
+| Pb Host                         | 30    |
+| Pb Adaptive Host                | 31    |
+| Pb Host Status                  | 32    |
+| Pb Severity                     | 33    |
+| Pb Tag                          | 34    |
+| Pb Comment                      | 35    |
+| Pb Downtime                     | 36    |
+| Pb Custom variable              | 37    |
+| Pb Custom variable status       | 38    |
+| Pb Host check                   | 39    |
+| Pb Service check                | 40    |
+| Pb Log entry                    | 41    |
+| Pb Instance Status              | 42    |
+| Pb Instance                     | 44    |
+| Pb Acknowledgement              | 45    |
+| Pb Responsive Instance          | 46    |
 
 ### Storage
 
@@ -142,20 +117,14 @@ The table below lists event types available in the Storage category.
 They must be mixed with the BBDO\_STORAGE\_TYPE category to get a BBDO
 event ID.
 
-| Type                            | Value | Uses Protobuf |
-|---------------------------------|-------|---------------|
-| Metric                          | 1     |            No |
-| Rebuild                         | 2     |            No |
-| Remove\_graph                   | 3     |            No |
-| Status                          | 4     |            No |
-| Index mapping                   | 5     |            No |
-| Metric mapping                  | 6     |            No |
-| Pb Rebuild Message              | 7     |           Yes |
-| Pb Remove Graph Message         | 8     |           Yes |
-| Pb Metric                       | 9     |           Yes |
-| Pb Status                       | 10    |           Yes |
-| Pb Index mapping                | 11    |           Yes |
-| Pb Metric mapping               | 12    |           Yes |
+| Type                            | Value |
+|---------------------------------|-------|
+| Pb Rebuild Message              | 7     |
+| Pb Remove Graph Message         | 8     |
+| Pb Metric                       | 9     |
+| Pb Status                       | 10    |
+| Pb Index mapping                | 11    |
+| Pb Metric mapping               | 12    |
 
 ### BBDO
 
@@ -181,110 +150,33 @@ The table below lists event types available in the BAM category.
 They must be mixed with the BBDO\_BAM\_TYPE category to get a
 BBDO event ID.
 
-| Type                                | Value | Uses Protobuf |
-|------------------------------------ | ----- | ------------- |
-| BA status                           | 1     |            No |
-| KPI status                          | 2     |            No |
-| Meta Service Status                 | 3     |            No |
-| BA event                            | 4     |            No |
-| KPI event                           | 5     |            No |
-| BA Duration Event                   | 6     |            No |
-| Dimension BA Event                  | 7     |            No |
-| Dimension KPI Event                 | 8     |            No |
-| Dimension BA BV Relation Event      | 9     |            No |
-| Dimension BV Event                  | 10    |            No |
-| Dimension Truncate Table Signal     | 11    |            No |
-| Rebuild                             | 12    |            No |
-| Dimension Timeperiod                | 13    |            No |
-| Dimension BA Timeperiod Relation    | 14    |            No |
-| Inherited Downtime                  | 17    |            No |
-| Pb Inherited Downtime               | 18    |           Yes |
-| Pb BA status                        | 19    |           Yes |
-| Pb BA event                         | 20    |           Yes |
-| Pb KPI event                        | 21    |           Yes |
-| Pb Dimension BV Event               | 22    |           Yes |
-| Pb Dimension BA BV Relation Event   | 23    |           Yes |
-| Pb Dimension Timeperiod             | 24    |           Yes |
-| Pb Dimension BA Event               | 25    |           Yes |
-| Pb Dimension KPI Event              | 26    |           Yes |
-| Pb KPI status                       | 27    |           Yes |
-| Pb BA Duration Event                | 28    |           Yes |
-| Pb Dimension BA Timeperiod Relation | 29    |           Yes |
-| Pb Dimension Truncate Table Signal  | 30    |           Yes |
-
-## Event serialization
-
-Most events listed in each [event category](#event-categories) have a mapping used to serialize their content. In fact,
-their content is directly serialized in the [packet payload data](#packet-format), one field after the other in the
-order described in the [mapping tables](developer-broker-mapping.md). They are encoded according to the rules described in the
-[types paragraph](#types).
-
-## Example
-
-Let's take an example and see how a *host check event* is sent in a
-packet. Its mapping is as follows:
-
-| Property                | Type             | Value in example
-|-------------------------|------------------|---------------------------
-| active\_checks\_enabled | boolean          | True.
-| check\_type             | short integer    | 0 (active host check).
-| host\_id                | unsigned integer | 42
-| next\_check             | time             | 1365080225
-| command\_line           | string           | ./my\_plugin -H 127.0.0.1
-
-And gives the following packet with values in hexadecimal.
-
-```
-+-----------------+-----------------+-----------------------------------+
-|      CRC16      |      SIZE       |                ID                 |
-+========+========+========+========+========+========+========+========+
-|   0A   |   23   |   00   |   28   |   00   |   01   |   00   |   09   |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-
-+--------+-----------------+-----------------------------------+--------
-| active_|                 |                                   |
-| checks_|    check_type   |              host_id              |    =>
-| enabled|                 |                                   |
-+========+========+========+========+==========================+========+
-|   01   |   00   |   00   |   00   |   00   |   00   |   2A   |   00   |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-
---------------------------+--------------------------------------------
-                            =>  next_check                      |    =>
-+========+========+========+========+========+========+========+========+
-|   00   |   00   |   00   |   51   |   5D   |   78   |   A1   |   2E   |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-
------------------------------------------------------------------------
-                            => command_line =>
-+========+========+========+========+========+========+========+========+
-|   2F   |   6D   |   79   |   5F   |   70   |   6C   |   75   |   67   |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-
------------------------------------------------------------------------
-                            => command_line =>
-+========+========+========+========+========+========+========+========+
-|   69   |   6E   |   20   |   2D   |   48   |   20   |   31   |   32   |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-
------------------------------------------------------------------------+
-                            => command_line                              |
-+========+========+========+========+========+========+========+========+
-|   37   |   2E   |   30   |   2E   |   30   |   2E   |   31   |   00   |
-+--------+--------+--------+--------+--------+--------+--------+--------+
-```
+| Type                                | Value |
+|------------------------------------ | ----- |
+| Pb Inherited Downtime               | 18    |
+| Pb BA status                        | 19    |
+| Pb BA event                         | 20    |
+| Pb KPI event                        | 21    |
+| Pb Dimension BV Event               | 22    |
+| Pb Dimension BA BV Relation Event   | 23    |
+| Pb Dimension Timeperiod             | 24    |
+| Pb Dimension BA Event               | 25    |
+| Pb Dimension KPI Event              | 26    |
+| Pb KPI status                       | 27    |
+| Pb BA Duration Event                | 28    |
+| Pb Dimension BA Timeperiod Relation | 29    |
+| Pb Dimension Truncate Table Signal  | 30    |
 
 ## Connection establishment
 
 BBDO is a protocol that can negotiate features. When establishing a
-connection, a *version_response* packet is sent by the client. It
+connection, a **welcome** message is sent by the client. It
 provides its supported BBDO protocol version and extensions. The server
-replies to this message with another *version_response* packet
+replies to this message with another **welcome** packet
 containing its own supported protocol version and extensions. If
 protocol versions match, then the extension negotiation begins.
 
 Currently, two extensions are supported: **TLS** and **COMPRESSION**. Right
-after the **version_response** packet, each peer searches in the other
+after the **welcome** packet, each peer searches in the other
 peer's extension list for the extensions it supports. When one is found, it
 is enabled (i.e., it immediately starts).
 
@@ -294,12 +186,12 @@ Let us call the client **C** and the server *S*. The following steps are
 performed sequentially.
 
   - **C** initiates a TCP connection with **S** and the connection is established
-  - **C** sends a *version_response* packet with the following attributes
+  - **C** sends a **welcome** packet with the following attributes
     - protocol major: 1
     - protocol minor: 0
     - protocol patch: 0
     - extensions: "TLS COMPRESSION"
-  - **S** sends its own **version_response** packet in reply to **C**'s
+  - **S** sends its own **welcome** packet in reply to **C**'s
     - protocol major: 1
     - protocol minor: 0
     - protocol patch: 0
