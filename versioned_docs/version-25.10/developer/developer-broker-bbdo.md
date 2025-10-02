@@ -25,8 +25,6 @@ send the new versions.
 
 ## Types
 
-This section is about BBDO 2.
-
 As a binary protocol, BBDO uses data types to serialize data. They are
 written in a Big Endian format and described in the following table.
 
@@ -166,13 +164,16 @@ They must be mixed with the BBDO\_BBDO\_TYPE category to get a BBDO
 event ID.
 
 
-| Type              | Value| Uses Protobuf |
-|-------------------|------|---------------|
-| version response  | 1    |            No |
-| ack               | 2    |            No |
-| stop              | 3    |            No |
-| Pb ack            | 8    |           Yes |
-| Pb stop           | 9    |           Yes |
+| Type              | Value|
+|----------------------|---|
+| de_rebuild_graphs    | 4 |       
+| de_remove_graphs     | 5 |
+| de_remove_poller     | 6 |   
+| de_welcome           | 7 |
+| Pb ack               | 8 |
+| Pb stop              | 9 |
+| de_pb_diff_state     | 10 | 
+| de_pb_diff_state_ack | 11 |
 
 ### BAM
 
