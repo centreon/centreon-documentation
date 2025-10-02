@@ -13,14 +13,14 @@ Centreon MBI backup triggers crons to backup all your files:
 - on your Central to backup MBI module, all your reports and database containing ETL configuration.
 - on your MBI server to backup MBI datawarehouse, yours databases, cbis configuration files and birt files.
 
-> Each Backup solution has purge mechanism to delete old data
+> Each backup script uses purge mechanism to delete old data
 
 ### Backing up your Central server
 
 #### Items to back up
 
 - Generated reports (pdf, docx, xlsx or other formats file).
-- 2 SQL dumps (dump_centreon.sql, dump_centreon_storage.sql) represents all your MBI module configuration on your Central.
+- SQL dumps (dump_centreon.sql, dump_centreon_storage.sql) represents all your MBI module configuration on your Central.
 
 #### Backup frequency
 
@@ -58,8 +58,10 @@ By default, retention is set to 8 days, to modify this value, update ```RETENTIO
 ```/usr/share/centreon-bi-backup/centreon-bi-backup-web.sh```
 
 > **Notes**
-> We advise you to export backups to another resource in order to secure them.
-> The purge script "/usr/share/centreon/www/modules/centreon-bi-server/tools/purgeArchivesFiles.php" verify retention configuration and delete old reports (36 months by default)
+> 
+> - We advise you to export backups to another resource in order to secure them.
+>
+> - The script "/usr/share/centreon/www/modules/centreon-bi-server/tools/purgeArchivesFiles.php" verify retention configuration and delete old reports (36 months by default)
 
 
 ### Backing up your MBI server
@@ -74,7 +76,7 @@ By default, retention is set to 8 days, to modify this value, update ```RETENTIO
 #### Items to back up
 
 - Configuration files (mariadb configuration).
-- Raw data and Aggregated data (all your datadir folder, ex: /var/lib/mysql).
+- Aggregated data (all your datadir folder, ex: /var/lib/mysql).
 - Reports & resources rptidesign/rptlibrary and XML parameters.
 
 #### Backup frequency
@@ -191,7 +193,6 @@ and extract it to the ```/tmp``` directory:
 
 ```
 tar xzf /var/backup/centreon-bi-front-reports-and-custom-conf-YYYY-MM-DD.tar.gz -C /tmp
-cd /tmp
 ```
 
 Then copy the backed up reports:
@@ -200,7 +201,7 @@ Then copy the backed up reports:
 cp -rf /tmp/var/lib/centreon/centreon-bi-server/archives/* /var/lib/centreon/centreon-bi-server/archives
 ```
 
-> If the directory is different than expected, the user has changed the
+> If the directory is different than expected, you have to changed the
 > default settings. Just specify the right path.
 
 Change the rights for the files:
@@ -211,14 +212,6 @@ chown -R centreonBI:centreonBI /var/lib/centreon/centreon-bi-server/archives
 
 #### Integrate custom report settings
 
-<!-- Take the latest backup in the format
-```centreon-bi-front-reports-and-custom-conf-aaaa-mm-jj.tar.gz``` and
-extract it to the ```/tmp``` directory:
-
-```
-cd /tmp
-tar xzf centreon-bi-front-reports-and-custom-conf-YYYY-MM-DD.tar.gz
-``` -->
 Copy the saved settings:
 
 ```
@@ -267,7 +260,7 @@ The restore process is divided into several steps:
 - Deleting the data from the extracted backup
 - Reinstalling the backup.
 
-> If you need to provision new server, take care about server configurations prerequisite and install centreon-business repository
+> If you provision new server, follow the server configuration prerequisites and install Centreon Business repository
 
 #### Reinstall the centreon-bi-reporting-server module in the same version as the one saved
 
