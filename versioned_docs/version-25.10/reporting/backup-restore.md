@@ -84,7 +84,7 @@ By default, retention is set to 8 days, to modify this value, update ```RETENTIO
 -   Daily
 -   Rotation: 8 days.
 
-#### How the backup script works on the central server
+#### How the backup script works on the MBI server
 
 The backup script is executed on a daily basis with a cron job located
 in ```/etc/cron.d/centreon-bi-backup-reporting-server```:
