@@ -267,7 +267,13 @@ The restore process is divided into several steps:
 On the MBI server run the following command:
 
 ```
-yum install centreon-bi-server-x.y.z
+yum install centreon-bi-reporting-server-x.y.z
+```
+
+if you was up-to-date, you can just execute:
+
+```
+yum install centreon-bi-reporting-server
 ```
 
 #### Integrating the CBIS configuration
