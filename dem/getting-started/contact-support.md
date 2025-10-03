@@ -1,10 +1,10 @@
 ---
 id: contact-support
-title: Contacter le support Quanta
+title: Contact Quanta Support
 ---
 
-# Contacter le support Quanta
+# Contact Quanta Support
 
-Une question ? Besoin d'aide sur votre outil, sur vos scénarios ? Vous ne comprenez pas les alertes remontées par l'outil ? Nous sommes là pour vous répondre !
+Have a question? Need help with your tool or your scenarios? Not sure what the alerts from the tool mean? We are here to help!
 
-Pour nous contacter, c'est très simple. Il suffit d'écrire un email à [support@quanta.io](mailto:support@quanta.io) ce qui enclenchera automatiquement l'ouverture d'un ticket auprès de notre équipe support.
+To contact us, it's very simple. Just send an email to [support@quanta.io](mailto:support@quanta.io) and a ticket will automatically be created for our support team.

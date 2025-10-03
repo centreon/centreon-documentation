@@ -1,26 +1,26 @@
 ---
 id: quanta-solution
-title: La solution Quanta
---- 
+title: The Quanta Solution
+---
 
-# La solution Quanta
+# The Quanta Solution
 
-**Quanta est une plateforme de Digital Experience Monitoring conçue pour allier performance web et sobriété numérique.** Elle permet aux équipes tech, produit et métier de collaborer efficacement pour offrir des expériences digitales rapides et fiables tout en économisant les ressources matérielles.
+**Quanta is a Digital Experience Monitoring platform designed to combine web performance and digital sustainability.** It enables tech, product, and business teams to collaborate efficiently to deliver fast and reliable digital experiences while saving hardware resources.
 
-La solution combine plusieurs briques complémentaires :
+The solution combines several complementary components:
 
-- **Synthetic Monitoring** : simulation de parcours utilisateurs, via des navigateurs web, pour mesurer les temps de chargement (notamment via les Core Web Vitals) et détecter les ralentissements ou dysfonctionnement.
-- **Real User Monitoring (RUM)** : analyse fine de l'expérience réelle vécue par les visiteurs sur l'application.
-- **Monitoring de sobriété numérique** : évaluation continue de l’empreinte carbone et du score d’éco-conception de chaque page.
-- **Tests de montée en charge** : validation de la robustesse technique du site en conditions de trafic élevé.
+- **Synthetic Monitoring**: Simulates user journeys via web browsers to measure loading times (notably through Core Web Vitals) and detect slowdowns or malfunctions.
+- **Real User Monitoring (RUM)**: Detailed analysis of the actual experience of visitors on the application.
+- **Digital Sustainability Monitoring**: Continuous assessment of the carbon footprint and eco-design score of each page.
+- **Load Testing**: Validates the technical robustness of the site under high traffic conditions.
 
-Quanta fournit une interface claire et unifiée, enrichie par :
+Quanta provides a clear and unified interface, enhanced by:
 
-- des **graphes dynamiques** pour visualiser les temps de chargement,
-- des **alertes personnalisables** et intelligentes,
-- des **rapports d’audit complets**,
-- et un accompagnement humain avec nos experts (les *Perfgurus*), pour identifier les axes d’amélioration les plus impactants.
+- **Dynamic graphs** to visualize loading times,
+- **Customizable and intelligent alerts**,
+- **Comprehensive audit reports**,
+- And human support from our experts (the *Perfgurus*), to identify the most impactful areas for improvement.
 
-**Objectif : vous aider à améliorer l’expérience utilisateur, booster vos performances SEO, sécuriser vos pics de trafic et réduire concrètement votre impact environnemental.**
+**Objective: to help you improve user experience, boost your SEO performance, secure your traffic peaks, and concretely reduce your environmental impact.**
 
-Vous trouverez ci-dessous une [vidéo de présentation de l'interface Quanta](https://www.youtube.com/watch?v=ae_8gF-KFG8).
+Below you will find a [video presentation of the Quanta interface](https://www.youtube.com/watch?v=ae_8gF-KFG8).

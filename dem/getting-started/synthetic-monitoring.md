@@ -1,37 +1,37 @@
 ---
 id: synthetic-monitoring
-title: Le Monitoring Synthétique (ou “Parcours Utilisateurs”)
---- 
+title: Synthetic Monitoring (or "User Journeys")
+---
 
-# Le Monitoring Synthétique (ou “Parcours Utilisateurs”)
+# Synthetic Monitoring (or "User Journeys")
 
 ![image](../assets/getting-started/synthetic-monitoring-1.png)
 
-Le Monitoring Synthétique consiste à naviguer à fréquence régulière sur un site cible afin :
+Synthetic Monitoring consists of regularly browsing a target site in order to:
 
-- de **surveiller le bon fonctionnement d’un parcours type** et de calculer son **taux de disponibilité** (ex: “il a été possible de naviguer et d’acheter sur le site ecommerce pendant 99,5% du temps ce mois-ci”)
-- d’**alerter en temps réel** les gestionnaires du site en cas de dysfonctionnement du site, via l’envoi d’email, SMS ou autres notifications avec un rapport détaillé de l’incident contenant à la fois une capture d’écran de l’erreur rencontrée mais également un enregistrement précis du chargement de la page dans le navigateur.
-- de **mesurer et d’historiser le temps de chargement des pages** selon plusieurs critères clés (temps de chargement du premier octet, Speed Index, temps de chargement complet de la page, ou encore au regard des “[Core Web Vitals](https://web.dev/vitals/)” de Google)
-- d’analyser chaque page avec un moteur de règle permettant de lister précisément **les axes d’améliorations à mener** afin de rendre le site rapide (ex: pour améliorer le temps de chargement de la page d’accueil il est prioritaire d’optimiser telles et telles images, et de réduire le code javascript de tel fichier, etc.)
+- **Monitor the proper functioning of a typical journey** and calculate its **availability rate** (e.g., "it was possible to browse and purchase on the ecommerce site 99.5% of the time this month")
+- **Alert site managers in real time** in case of site malfunction, by sending emails, SMS, or other notifications with a detailed incident report containing both a screenshot of the encountered error and a precise recording of the page load in the browser.
+- **Measure and record page load times** according to several key criteria (time to first byte, Speed Index, full page load time, or with respect to Google's [Core Web Vitals](https://web.dev/vitals/))
+- Analyze each page with a rule engine that precisely lists **areas for improvement** to make the site faster (e.g., to improve the homepage load time, it is a priority to optimize certain images and reduce the JavaScript code of a specific file, etc.)
 
-Comme vous pouvez le constater, pour une seule fonctionnalité, les “User Journeys”, Quanta va en réalité regrouper ici au moins **4 fonctionnalités majeures** permettant au gérant d’une application web de s’assurer de la bonne expérience sur celle-ci.
+As you can see, for a single feature, "User Journeys", Quanta actually groups at least **4 major features** here, allowing a web application manager to ensure a good experience on their site.
 
-La notion de “**parcours type**” est centrale dans l’utilisation du Monitoring Synthétique. En effet, afin de surveiller et optimiser le site, il doit être fait le choix **d’un ou plusieurs scénarios de références**. Dans Quanta, la flexibilité dans la création de ces scénarios est extrêmement importante. Il est typiquement possible d’effectuer presque tout ce que pourrait faire un véritable internaute sur le site (ex: effectuer des clics, positionner le curseur à un endroit spécifique de la page, changer de page, cocher des cases, ajouter un produit au panier, remplir un formulaire, se rendre au checkout, réaliser une commande en ligne, rentrer un numéro de carte bleue, etc.).
+The concept of a "**typical journey**" is central to the use of Synthetic Monitoring. Indeed, to monitor and optimize the site, you must choose **one or more reference scenarios**. In Quanta, flexibility in creating these scenarios is extremely important. It is typically possible to perform almost anything a real user could do on the site (e.g., click, move the cursor to a specific spot on the page, change pages, check boxes, add a product to the cart, fill out a form, go to checkout, place an online order, enter a credit card number, etc.).
 
-Voici un exemple de parcours type, pour un site ecommerce :
+Here is an example of a typical journey for an ecommerce site:
 
 ![image](../assets/getting-started/synthetic-monitoring-2.png)
 
-Ces parcours peuvent être effectués dans plusieurs conditions différentes, par exemple :
+These journeys can be performed under several different conditions, for example:
 
-- en utilisant un navigateur en mode **Desktop ou Mobile**
-- en simulant une **connexion réseau lente (3G) ou rapide (fibre)**
-- en décidant de charger ou non les **“third parties”** (ex: tags Google Analytics, AB Tasty, etc.)
+- Using a browser in **Desktop or Mobile** mode
+- Simulating a **slow (3G) or fast (fiber) network connection**
+- Deciding whether or not to load **third parties** (e.g., Google Analytics tags, AB Tasty, etc.)
 
-Dans la plupart des cas, nous vous conseillons de choisir un ou plusieurs scénarios représentant **la majorité des usages** qui sont effectués par l’internaute sur le site. Ex : s’il s’agit d’un site de ecommerce, il sera important de tester la bonne connexion à un compte utilisateur car c’est une étape essentielle dans le tunnel de vente, ou encore le moteur de recherche s’il est central dans la navigation sur le site.
+In most cases, we recommend choosing one or more scenarios representing **the majority of user actions** performed on the site. For example, if it is an ecommerce site, it will be important to test proper login to a user account as it is an essential step in the sales funnel, or the search engine if it is central to site navigation.
 
-De cette manière, si un changement structurel du site (ex: nouvelle mise en prod, ajout de tag, etc.) entraine un dysfonctionnement non prévu sur l’une de ces étapes clés, Quanta pourra alerter automatiquement les bonnes personnes avec les explications correspondantes.
+This way, if a structural change to the site (e.g., new deployment, tag addition, etc.) causes an unexpected malfunction at one of these key steps, Quanta can automatically alert the right people with the corresponding explanations.
 
-Le dysfonctionnement peut d’ailleurs ne pas être une erreur de fonctionnement, mais un **ralentissement sévère** à l’une des étapes, ce qui induirait une baisse drastique de l’expérience utilisateur et une potentielle perte immédiate de conversion. C’est pourquoi il est capital d’obtenir l’information **en temps réel** dans ce type de situation.
+The malfunction may not be a functional error, but rather a **severe slowdown** at one of the steps, which would drastically reduce the user experience and potentially cause an immediate loss of conversion. That is why it is crucial to get the information **in real time** in this type of situation.
 
-Pour compléter cet article, vous trouverez ci-dessous une vidéo montrant l’utilisation des [Parcours Utilisateurs dans Quanta](https://youtu.be/My1FGpvhhWM).
+To complement this article, below is a video showing the use of [User Journeys in Quanta](https://youtu.be/My1FGpvhhWM).

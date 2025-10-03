@@ -7,7 +7,7 @@
     "message": "Démarrer avec Quanta",
     "description": "The label for category Getting started in sidebar DEM"
   },
-  "sidebar.dem.category.Installation": {
+    "sidebar.dem.category.Installation": {
     "message": "Installation",
     "description": "The label for category Installation in sidebar DEM"
   },
