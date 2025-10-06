@@ -28,7 +28,7 @@ Voici la marche à suivre si vous ne souhaitez pas que tous les utilisateurs pui
    * Si vous voulez ajouter un autre groupe de ressources indépendant des critères définis au-dessus, cliquez sur **Ajouter un nouveau jeu de données**. La liste propose à nouveau tous les types de ressources.
 
    > Vous pouvez également sélectionner **All resources** : les utilisateurs pourront voir toutes les ressources existantes ainsi que toutes celles crées par la suite.
-   > Si vous sélectionnez un groupe de ressources (hôtes, services, BVs), les utilisateurs pourront voir toutes les ressources existantes ainsi que toutes celles ajoutées au groupe par la suite.
+   > Si vous sélectionnez un groupe de ressources (hôtes, services, BVs, dossiers d'images), les utilisateurs pourront voir toutes les ressources existantes ainsi que toutes celles ajoutées au groupe par la suite.
 
 4. Dans la section **Contacts/Groupes de contacts**, définissez quels utilisateurs verront ces ressources. Si vous sélectionnez **Tous les contacts/Tous les groupes de contact**, la règle s'appliquera à tous les contacts/groupes de contacts existants, mais aussi à tout contact créé dans le futur. Attention, les utilisateurs et groupes d'utilisateurs sont gérés via le [CIAM](../ciam/ciam.md).
 
