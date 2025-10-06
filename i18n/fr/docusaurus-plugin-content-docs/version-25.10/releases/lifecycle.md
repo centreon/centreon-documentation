@@ -54,25 +54,6 @@ Le schéma suivant présente le cycle de vie des produits Centreon à partir de 
 
 ![image](../assets/releases/lifecycle-24.10.png)
 
-## Tableau de maintenance des versions
-
-> Tous les autres produits non décrits dans les tableaux suivants ne sont plus
-> pris en charge par Centreon.
-
-| Produit        | Sortie       | Date de fin de support    | État                |
-|----------------|--------------|---------------------------|---------------------|
-| Centreon 25.10 | 10/2025      | 04/2027                   | Supportée           |
-| Centreon 24.10 | 10/2024      | 10/2027                   | Supportée           |
-| Centreon 24.04 | 04/2024      | 04/2026                   | Supportée           |
-| Centreon 23.10 | 10/2023      | 10/2025                   | Plus supportée      |
-| Centreon 23.04 | 04/2023      | 04/2025                   | Plus supportée      |
-| Centreon 22.10 | 10/2022      | 10/2024                   | Plus supportée      |
-| Centreon 22.04 | 05/2022      | 05/2024                   | Plus supportée      |
-| Centreon 21.10 | 11/2021      | 11/2023                   | Plus supportée      |
-| Centreon 21.04 | 04/2021      | 10/2022                   | Plus supportée      |
-| Centreon 20.10 | 10/2020      | 05/2022                   | Plus supportée      |
-| Centreon 20.04 | 04/2020      | 10/2021                   | Plus supportée      |
-
 </TabItem>
 <TabItem value="Jusqu'à la version 24.04" label="Jusqu'à la version 24.04">
 
@@ -125,6 +106,9 @@ Le schéma suivant présente le cycle de vie des produits Centreon jusqu'à la v
 
 ![image](../assets/releases/lifecycle.png)
 
+</TabItem>
+</Tabs>
+
 ## Tableau de maintenance des versions
 
 > Tous les autres produits non décrits dans les tableaux suivants ne sont plus
@@ -146,6 +130,3 @@ Le schéma suivant présente le cycle de vie des produits Centreon jusqu'à la v
 | Centreon 19.10 | 10/2019      | 04/2021                   | Plus supportée      |
 | Centreon 19.04 | 04/2019      | 10/2020                   | Plus supportée      |
 | Centreon 18.10 | 10/2018      | 04/2020                   | Plus supportée      |
-
-</TabItem>
-</Tabs>
