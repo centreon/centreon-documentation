@@ -3,7 +3,7 @@ id: ram
 title: Granting users rights on resources
 ---
 
-Resource access rules allow you to grant users the right to see specific [resources](../resources/glossary.md#resource).
+Resource access rules allow you to grant users the right to see specific [resources](../resources/glossary.md#resource) and image folders.
 
 By default, all users can see all resources. This is because a default access rule called "ALL" is created automatically when the platform is installed. Users with the **Administrator** role can see all resources in all cases, even if no rule grants them this right explicitly.
 
