@@ -510,7 +510,7 @@ dnf update
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-25.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard/ bookworm-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -756,7 +756,7 @@ apt install lsb-release ca-certificates apt-transport-https software-properties-
 Install the Centreon repository:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-25.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard/ bookworm-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-stable.list
 ```
 
 For an installation based on a blank distribution, install the GPG key:
