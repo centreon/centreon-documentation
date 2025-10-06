@@ -1,15 +1,15 @@
 ---
 id: quanta-ip-addresses
-title: Les adresses IP de Quanta
---- 
+title: Quanta IP addresses
+---
 
-# Les adresses IP de Quanta
+# Quanta IP addresses
 
-## Adresses des sondes
+## Probe addresses
 
-Nos sondes peuvent interroger votre site sur les ports 80 (HTTP) et 443 (HTTPS) ou utiliser le protocole ICMP. Pour la plupart des sites ouverts au public aucun configuration ne sera nécessaire, néanmoins dans d’autres cas des pare-feux ou des protections contre les robots comme Imperva ou reCaptcha peuvent automatiquement bloquer nos visites.
+Our probes can query your site on ports 80 (HTTP) and 443 (HTTPS) or use the ICMP protocol. For most publicly accessible sites no configuration is required; however, in some cases firewalls or bot protections like Imperva or reCaptcha may automatically block our visits.
 
-Si vous êtes dans ce cas, alors voici la liste des IPs devant être utilisées pour ajouter Quanta en liste blanche :
+If that's the case, here is the list of IPs you should whitelist to allow Quanta access:
 
 - 18.200.8.204
 - 34.241.126.134
@@ -36,11 +36,11 @@ Si vous êtes dans ce cas, alors voici la liste des IPs devant être utilisées 
 - 99.81.201.50
 - 185.48.122.159
 
-## Adresses des points de terminaisons pour les agents serveurs
+## Endpoint addresses for server agents
 
-Si vous utilisez les agents serveurs (section “Système” dans Quanta), alors chacun de vos serveurs envoi à fréquence régulière (une fois par minute) des données à destination de la solution Quanta.
+If you use server agents (the “System” section in Quanta), each of your servers regularly sends data (once per minute) to the Quanta service.
 
-Il s’agit d’un **trafic sortant** en HTTPS (port 443) et donc assez souvent ouvert par défaut, mais si vos restrictions firewalls sont assez strictes et qu’il est nécessaire d’ajouter une autorisation spécifique pour l’usage de Quanta, voici les adresses IP de destination à lister :
+This is **outbound** HTTPS traffic (port 443) and is often allowed by default, but if your firewall restrictions are strict and you need to allow specific destinations for Quanta, list the following destination IPs:
 
 - 52.215.166.110
 - 52.215.179.235

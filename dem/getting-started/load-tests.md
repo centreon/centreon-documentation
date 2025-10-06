@@ -1,28 +1,30 @@
 ---
 id: load-tests
-title: Les tests de montée en charge
---- 
+title: Load Tests
+---
 
-# Les tests de montée en charge
+# Load Tests
 
-Cette section permet l’analyse du comportement de la plateforme qui héberge votre application Web, **dans des conditions de trafic intense**. Pour y accéder, rendez-vous dans le menu principal, puis **Tests de charge**.
+This section allows analysis of how the platform hosting your web application behaves under conditions of heavy traffic. To access it, open the main menu and select **Load Tests**.
 
-Réaliser un Test de Montée en Charge (ou “TMC” pour les intimes) consiste à lancer, directement depuis Quanta, un grand nombre de navigateurs web en parallèle et les faire interagir avec un site Internet afin de “stresser” volontairement la plateforme et l’application web.
+Performing a Load Test (often abbreviated “LT”) consists of launching a large number of web browsers in parallel directly from Quanta and having them interact with a website to deliberately "stress" the platform and the web application.
 
 ![image](../assets/getting-started/load-tests-1.png)
 
-En quelques clics, il est donc possible de reproduire les conditions d’un jour de **très grande affluence** afin d’analyser volontairement le comportement du site dans ces conditions.
+With just a few clicks, it's possible to reproduce the conditions of a day of **very high traffic** in order to intentionally analyze the site's behavior under those conditions.
 
-En fonction du besoin, un TMC peut répondre à **3 grands objectifs principaux** :
+Depending on the needs, a Load Test can serve **three main objectives**:
 
-- **mesurer la capacité d’accueil** d’un site internet dans son architecture actuelle ou dans sa future architecture (on parlera dans ce cas de TMC en preprod, ou “future prod”).
+- **measure the site's capacity** on its current architecture or on a planned/future architecture (in that case, the test is performed in pre-production or “future prod”).
 
-Exemple de conclusion : “*Lors du TMC réalisé sur le site de production de MonSite.com, nous avons constaté l’atteinte de 1 450 pages vues / minutes avant dégradation de l’expérience utilisateur, soit l’équivalent de 43 500 visiteurs uniques par heure. En comparant cette donnée avec l’historique Google Analytics du site, on peut constater que le TMC a dépassé le dernier pic de trafic des soldes Janvier d’un facteur x4,5 dans un contexte de navigation confortable.*”
-- **identifier le ou les goulots d’étranglements** principalement responsables de l’atteinte de la limite de la capacité d’accueil. L’identification de ces différents goulots d’étranglements (“bottlenecks” en anglais), va généralement permettre d’**orienter fortement les travaux d'optimisation** qui permettront d’augmenter la capacité d’accueil.
+Example conclusion: “*During the load test performed on the production site MonSite.com, we observed 1,450 page views per minute before user experience degradation, equivalent to 43,500 unique visitors per hour. Comparing this with the site's Google Analytics history shows the load test exceeded the last January sales traffic peak by a factor of 4.5 in a comfortable browsing context.*”
 
-Exemple de conclusion : “*on constate que la fonction d’ajout au panier et la sélection de la livraison sont les étapes dont le temps va augmenter le plus rapidement. Peu avant la rupture, elles atteignent respectivement 18 et 34 secondes de temps de chargement moyen. Leur optimisation permettrait d’économiser des ressources et d’augmenter la capacité d’accueil.*”
-- **analyser les symptômes des perturbations lors de la surcharge ainsi que la nature du “crash”** afin de guider les équipes DEV et OPS dans l’amélioration de la fiabilité de fonctionnement du site.
+- **identify the bottleneck(s)** mainly responsible for reaching the capacity limit. Identifying these bottlenecks will generally help **strongly direct optimization work** that increases capacity.
 
-Exemple de conclusion : “*proche de l’atteinte de la limite, plusieurs erreurs 503 (internal server error) ont été repérées sur les webservices MonSiteEcommerce.com/reloadBasket.php rendant l’affichage du panier inopérant dans le navigateur de l’internaute, quelques minutes plus tard la sélection de la livraison avait [...]*”
+Example conclusion: “*We observe that the add-to-cart function and the delivery selection are the steps whose times increase the fastest. Just before failure, they reach average load times of 18 and 34 seconds respectively. Optimizing them would save resources and increase capacity.*”
 
-Proposés avec ou sans accompagnement d’experts, les TMC Quanta font l’objet d’une facturation spécifique. Pour en savoir + n’hésitez pas à contacter votre commercial ou l’équipe commerciale Quanta by Centreon sur [sales@quanta.io](mailto:sales@quanta.io).
+- **analyze the symptoms of disruptions under overload and the nature of any 'crash'** to guide DEV and OPS teams in improving the site's operational reliability.
+
+Example conclusion: “*Near the limit, several 503 errors (internal server error) were detected on the webservice MonSiteEcommerce.com/reloadBasket.php, making cart display inoperative in the user's browser; a few minutes later, delivery selection had [...]*”
+
+Offered with or without expert support, Quanta's load tests are billed separately. For more information, contact your sales representative or the Quanta by Centreon sales team at [sales@quanta.io](mailto:sales@quanta.io).

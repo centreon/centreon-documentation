@@ -1,38 +1,38 @@
 ---
 id: dashboards
-title: Les tableaux de bord
---- 
+title: Dashboards
+---
 
-# Les tableaux de bord
+# Dashboards
 
-Les tableaux de bord sont un moyen de visualiser en un coup d’oeil des informations issues de Quanta.
+Dashboards are a way to visualize Quanta information at a glance.
 
-# Cas d’usage
+# Use cases
 
-## 1. Regrouper des informations issues de sites ou d’organisation différentes
+## 1. Combine information from different sites or organizations
 
-Dans Quanta, vous pouvez appartenir à plusieurs organisations, et chaque organisation peut contenir l'accès au monitoring de plusieurs applications web. Dans ce contexte, les tableaux de bord vous permettent d’afficher, sur un même écran, n’importe quelles cartes de Quanta auxquelles vous avez accès.
+In Quanta, you can belong to multiple organizations, and each organization can include monitoring access for multiple web applications. In this context, dashboards let you display, on a single screen, any Quanta cards to which you have access.
 
-Exemple de cartes issues de 2 sites dans 2 organisations différentes :
+Example of cards from two sites in two different organizations:
 
 ![image](../assets/getting-started/dashboards-1.png)
 
-Dans cet exemple, les 2 cartes viennent de 2 sites différents, dans 2 organisations différentes. Avec les tableaux de bord, vous pouvez donc garder la maitrise de l'ensemble de vos sites d'un seul coup d'oeil !
+In this example, the two cards come from two different sites in two different organizations. With dashboards you can keep an eye on all your sites at once!
 
-## 2. Créer un tableau de bord partagé.
+## 2. Create a shared dashboard
 
-Au sein de votre organisation, certaines personnes vont attendre des informations différentes. Par exemple, votre équipe marketing ne s’intéressera qu’aux mesures de trafic et aux Core Web Vitals pour le SEO.
+Within your organization, different people will expect different information. For example, your marketing team will only care about traffic measurements and Core Web Vitals for SEO.
 
-Vous pouvez créer des tableaux de bord et les partager avec votre organisation afin que tous ceux qui sont dans votre organisation y ai accès.
+You can create dashboards and share them with your organization so everyone in your organization has access.
 
 ![image](../assets/getting-started/dashboards-2.png)
 
-Dans la liste de vos tableaux de bord, vous verrez en premier vos tableaux de bord privés. En cliquant sur le cadenas, vous accédez aux options de partage pour choisir avec quelle organisation le partager.
+In your dashboard list, your private dashboards appear first. By clicking the lock icon you access sharing options to choose which organization to share it with.
 
-## 3. Agréger des données d’écran différents de Quanta
+## 3. Aggregate data from different Quanta screens
 
-En imaginant que sur votre site, vous souhaitez vous concentrer sur le panier de votre site, il est intéressant d’avoir les informations à jour sur cette page venant des mesures faites par le RUM et les Parcours Utilisateurs.
+Suppose you want to focus on your site's shopping cart. It's useful to have up-to-date information on that page coming from RUM measurements and User Journeys.
 
-Or, toutes les informations sont dans des écrans différents: dans les parcours utilisateurs, vous avez un onglet pour les Core Web Vitals, et un pour les performances, et le RUM n’est pas non plus sur la même page.
+However, that information lives on different screens: user journeys have a tab for Core Web Vitals and one for performance, and RUM is not on the same page either.
 
-Les tableaux de bord permettent de faire des écrans personnalisés pour cela.
+Dashboards let you build custom screens for this purpose.

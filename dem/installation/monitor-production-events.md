@@ -1,56 +1,55 @@
 ---
 id: monitor-production-events
-title: Suivre les événements de mise en production
---- 
+title: Track production deployment events
+---
 
-# Suivre automatiquement les événements de mise en production
+# Automatically track production deployment events
 
-Vous pouvez renseigner automatiquement vos déploiements de code ou modifications de configuration système dans Quanta :
-
-![image](../assets/installation/monitor-prod-events-1.png)
-
-Ces évènements peuvent être créés **de manière automatisée** via notre API. La meilleure façon de les utiliser est d'intégrer un appel à notre API dans vos scripts de déploiement de code et dans votre outil de gestion de configuration s'il y a lieu.
-
-## Fonctionnement API
-
-Notre API s’enclenche via un simple appel HTTP sur l'URL *"https://app.quanta.io/api/events/push"*, les paramètres à renseigner sont les suivants:
-
-- *type*: Le type de l'évènement. Il peut avoir comme valeur au choix:
-    - *code_deploy* (déploiement de code)
-    - *config_change* (modification de configuration système)
-    - *comment* (commentaire)
-    - *cron* (tache planifiée)
-    - *custom* (évènement générique)
-- *content*: **Le message associé à l'évènement. Cela peut-être la version de l'application ou les modifications effectuées. Ce champ est libre.
-
-## Authentification et génération de token
-
-Vous devrez également spécifier un token API pour authentifier la requête. Ce token peut être généré dans la section "Intégrations" des paramètres de votre site dans QUANTA. Vous avez également la possibilité d'ajouter une icône personnalisée.
+You can automatically record your code deployments or system configuration changes in Quanta:
 
 ![image](../assets/installation/monitor-prod-events-1.png)
 
-Ce token devra être au choix:
+These events can be created **automatically** via our API. The best practice is to integrate a call to our API in your deployment scripts and in your configuration management tooling where appropriate.
 
-- Inséré dans le header HTTP "Authorization" sous la forme "Authorization: Token &lt;votre_token&gt;"
-- Passé directement dans la requête en ajoutant un paramètre "?auth_token=&lt;votre_token&gt;" à la fin de l'URL
+## How the API works
 
-## Exemples d’utilisation
+Our API is triggered with a simple HTTP call to the URL "https://app.quanta.io/api/events/push". The parameters to provide are:
 
-Voici un exemple de requête avec cURL qui ajoute un évènement de déploiement de code avec le message "version 42.0". On notera la présence du header "*Content-Type*" qui est indispensable pour que notre API puisse prendre en compte la requête :
+- *type*: The event type. It may have one of the following values:
+    - *code_deploy* (code deployment)
+    - *config_change* (system configuration change)
+    - *comment* (comment)
+    - *cron* (scheduled task)
+    - *custom* (generic event)
+- *content*: **The message associated with the event.** This can be the application version or a description of the changes made. This field is free-form.
+
+## Authentication and token generation
+
+You must also provide an API token to authenticate the request. This token can be generated from the "Integrations" section of your site settings in QUANTA. You can also add a custom icon.
+
+![image](../assets/installation/monitor-prod-events-1.png)
+
+This token should be provided either:
+
+- In the HTTP header "Authorization" as `Authorization: Token <your_token>`
+- Or passed directly in the request by adding the parameter `?auth_token=<your_token>` at the end of the URL
+
+## Usage examples
+
+Here's an example cURL request that adds a code deployment event with the message "version 42.0". Note the presence of the "Content-Type" header which is required for our API to accept the request:
 
 ```bash
-curl -L -m 10 -X POST -d '{"type": "code_deploy", "content": "version 42.0"}' -H 'Content-Type: application/json' -H 'Authorization: Token 78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216' https://app.quanta.io/api/events/push
+curl -L -m 10 -X POST -d '{"type": "code_deploy", "content": "version 42.0"}' -H 'Content-Type: application/json' -H 'Authorization: Token 78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216' https://app.quanta.io/api/events/push
 ```
 
-Si vous souhaitez intégrer des évènements via un autre service qui ne permet pas d'effectuer de requêtes POST, vous pouvez également utiliser l'API via une requête GET. Par exemple, la commande suivante ajoute un évènement générique ("custom") en utilisant cURL :
+If you need to send events from a service that cannot perform POST requests, you can also use the API via GET. For example, the following command adds a generic ("custom") event using cURL:
 
 ```bash
-curl -L -m 10 https://app.quanta.io/api/events/push?content=bonjour&type=custom&auth_token=78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216
+curl -L -m 10 "https://app.quanta.io/api/events/push?content=bonjour&type=custom&auth_token=78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216"
 ```
 
 <aside>
-💡 Dans les 2 commandes ci-dessus, l'option *-m* de cURL permet de positionner un timeout à 10 secondes afin de ne pas bloquer vos scripts en cas d'une indisponibilité éventuelle de notre API.
-
+💡 In the 2 commands above, the cURL option *-m* sets a timeout of 10 seconds to avoid blocking your scripts in case our API is temporarily unavailable.
 </aside>
 
-Notre API renverra un code HTTP 200 en cas de succès et un code 5xx ou 4xx en cas d'erreur. La réponse contiendra un contenu JSON avec le champ "error" en cas d'erreur ou "success" en cas de réussite.
+Our API returns an HTTP 200 on success and a 4xx or 5xx code on error. The response includes JSON with an "error" field on failure or "success" on success.

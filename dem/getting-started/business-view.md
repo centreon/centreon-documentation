@@ -1,22 +1,21 @@
 ---
 id: business-view
-title: La vue Business
---- 
+title: Business View
+---
 
-# La vue Business
+# Business View
 
-Cette section permet l’analyse des indicateurs “Métiers” du site. Pour y accéder, rendez-vous dans le menu principal, puis ***Les données Business*** :
+This section enables analysis of the site's business-related metrics. To access it, open the main menu and select **Business Data**:
 
 ![image](../assets/getting-started/business-view-1.png)
 
-Pré-requis d’utilisation :
+Prerequisites:
 
-- avoir une licence Quanta **Business**, **Full** ou **Enterprise**.
-- avoir synchronisé les données votre compte Quanta avec votre compte Google Analytics.
+- a Quanta license of type **Business**, **Full**, or **Enterprise**.
+- synchronization of your Quanta account with your Google Analytics account.
 
-Les **bénéfices clés** apportés par la vue Business sont :
+The **key benefits** provided by the Business view are:
 
-- une mesure précise (minute après minute) et historisée de métriques métiers issus de Google Analytics 4 ou Matomo. Par exemple, l’historique du nombre de pages vues par minute enregistré sur le site est une donnée particulièrement intéressante quand elle est corrélé aux temps de réponse du site. Cela permet généralement de répondre immédiatement à la question “est-ce que le ralentissement est lié à une récente augmentation du trafic ?”
-En effet, si le site ralenti lors d’un pic de trafic, on constatera une augmentation simultanée de ces 2 indicateurs distincts, qui sont visuellement superposés dans Quanta.
-- une mesure des pertes et gains de conversion liés à des incidents techniques et à des ralentissements sur le site.
-- une liste des pages du site nécessitant des améliorations de performance et ayant le plus d’impact potentiel en cas d’optimisation. Pour effectuer ce calcul, Quanta analyse le trafic que génère chaque page du site, ainsi que les temps de réponse de chacune des pages. Le résultat est un tableau récapitulatif exprimant les gains potentiels en chiffre d’affaire annuel additionnel.
+- an accurate (minute-by-minute), historical measurement of business metrics from Google Analytics 4 or Matomo. For example, the timeline of page views per minute recorded on the site is particularly valuable when correlated with site response times. This typically answers the question “is the slowdown related to a recent traffic spike?” quickly. If the site slows down during a traffic spike, you'll observe simultaneous increases in both metrics, which are visually overlaid in Quanta.
+- measurement of conversion losses and gains related to technical incidents and slowdowns on the site.
+- a ranked list of pages that need performance improvements and that have the greatest potential impact if optimized. To calculate this, Quanta analyzes the traffic each page generates together with each page's response times. The result is a summary table expressing potential gains in additional annual revenue.

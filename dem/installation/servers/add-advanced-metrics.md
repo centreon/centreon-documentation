@@ -1,242 +1,232 @@
 ---
 id: add-advanced-metrics
-title: Ajouter les métriques avancées
---- 
+title: Add Advanced Metrics
+---
 
-# Ajouter les métriques avancées
+# Add Advanced Metrics
 
-L'agent Quanta dispose de modules (ou agents applicatifs), permettant de récupérer des données systèmes sur différents composants de votre infrastructure tels que vos services Apache, MySQL, Redis, Varnish, PostgreSQL, …
+The Quanta agent includes modules (or application agents) that allow you to collect system data from various components of your infrastructure, such as Apache, MySQL, Redis, Varnish, PostgreSQL, and more.
 
 <aside>
-⚠️ Ces agents applicatifs sont à installer **après** l’installation de l’agent système. Référez-vous à la page dédiée pour installer l’agent.
+⚠️ These application agents must be installed **after** installing the system agent. Refer to the dedicated page to install the agent.
 
-[Installer les agents systèmes](./install-system-agents.md)
-
+[Install System Agents](./install-system-agents.md)
 </aside>
 
 ### Apache
 
-1. Installez le package
-*Sur Debian*
-    
+1. Install the package  
+*On Debian*
+
     ```bash
     apt-get install quanta-agent-apache
     ```
-    
-    *Sur CentOS*
-    
+
+    *On CentOS*
+
     ```bash
     yum install quanta-agent-apache
     ```
-    
-2. Vérifiez que le module de status (*mod_status* d’Apache) est correctement configuré sur votre serveur avec la commande:
-    
+
+2. Verify that the status module (*mod_status* of Apache) is correctly configured on your server with the command:
+
     ```
-    curl http://127.0.0.1/server-status
+    curl http://127.0.0.1/server-status
     ```
-    
-3. Si ce n'est pas le cas, il faudra mettre en place le module **mod_status** d'Apache: [*https://httpd.apache.org/docs/current/mod/mod_status.html*](https://httpd.apache.org/docs/current/mod/mod_status.html)
-4. Si vous souhaitez modifier l'URL utilisée par notre module, vous pouvez modifier le fichier: ***/etc/quanta/modules.d/apache.yml***
-5. Redémarrez l'agent
-    
+
+3. If not, you will need to enable the **mod_status** module in Apache: [https://httpd.apache.org/docs/current/mod/mod_status.html](https://httpd.apache.org/docs/current/mod/mod_status.html)
+4. If you want to modify the URL used by our module, you can edit the file: ***/etc/quanta/modules.d/apache.yml***
+5. Restart the agent
+
     ```bash
     systemctl restart quanta-agent
     ```
-    
 
-Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
+You should see metrics appear in Quanta within a few minutes.
 
 ### MySQL
 
-1. Installez le package
-*Sur Debian*
-    
+1. Install the package  
+*On Debian*
+
     ```bash
     apt-get install quanta-agent-mysql
     ```
-    
-    *Sur CentOS*
-    
+
+    *On CentOS*
+
     ```bash
     yum install quanta-agent-mysql
     ```
-    
-2. Nous vous recommandons de créer un utilisateur MySQL dédié à notre sonde, bien que ce ne soit pas obligatoire. Pour ce faire utilisez par exemple la commande ci-dessous:
-    
+
+2. We recommend creating a dedicated MySQL user for our probe, although it is not mandatory. For example, use the command below:
+
     ```bash
     echo "CREATE USER quanta@localhost IDENTIFIED BY 'supersecret'; " | mysql -u root -p
     ```
-    
-3. Renseignez le nom d'utilisateur et le mot de passe que vous avez choisi dans le fichier: **/etc/quanta/modules.d/mysqlstat.yml**
-4. Redémarrez l'agent
-    
+
+3. Enter the username and password you chose in the file: **/etc/quanta/modules.d/mysqlstat.yml**
+4. Restart the agent
+
     ```bash
     systemctl restart quanta-agent
     ```
-    
 
-Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
+You should see metrics appear in Quanta within a few minutes.
 
 ### PostgreSQL
 
-1. Installez le package
-*Sur Debian*
-    
+1. Install the package  
+*On Debian*
+
     ```bash
     apt-get install quanta-agent-postgresql
     ```
-    
-    *Sur CentOS*
-    
+
+    *On CentOS*
+
     ```bash
     yum install quanta-agent-postgresql
     ```
-    
-2. Nous vous recommandons de créer un utilisateur PostgreSQL dédié à notre sonde, bien que ce ne soit pas obligatoire. Pour ce faire utilisez par exemple la commande ci-dessous:
-    
+
+2. We recommend creating a dedicated PostgreSQL user for our probe, although it is not mandatory. For example, use the command below:
+
     ```bash
     echo "CREATE ROLE quanta LOGIN password 'supersecret';" | sudo -u postgres psql postgres
     ```
-    
-3. Renseignez le nom d'utilisateur et le mot de passe que vous avez choisi dans le fichier: **/etc/quanta/modules.d/postgresql.yml**
-4. Redémarrez l'agent
-    
-    ```
+
+3. Enter the username and password you chose in the file: **/etc/quanta/modules.d/postgresql.yml**
+4. Restart the agent
+
+    ```bash
     systemctl restart quanta-agent
     ```
-    
 
-Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
+You should see metrics appear in Quanta within a few minutes.
 
 ### Nginx
 
-1. Installez le package
-*Sur Debian*
-    
-    ```
+1. Install the package  
+*On Debian*
+
+    ```bash
     apt-get install quanta-agent-nginx
     ```
-    
-    *Sur CentOS*
-    
-    ```
+
+    *On CentOS*
+
+    ```bash
     yum install quanta-agent-nginx
     ```
-    
-2. Vérifiez que le module de status est correctement configuré sur votre serveur avec la commande:
-    
+
+2. Verify that the status module is correctly configured on your server with the command:
+
+    ```bash
+    curl http://127.0.0.1/status
     ```
-    curl http://127.0.0.1/status
-    ```
-    
-3. Si ce n'est pas le cas, il faudra mettre en place la bonne configuration comme décris si-dessous:[*http://nginx.org/en/docs/http/ngx_http_stub_status_module.html*](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html)
-4. Si vous souhaitez modifier l'URL utilisée par notre module, vous pouvez modifier le fichier: ***/etc/quanta/modules.d/nginx.yml***
-5. Redémarrez l'agent
-    
-    ```
+
+3. If not, you will need to set up the correct configuration as described here: [http://nginx.org/en/docs/http/ngx_http_stub_status_module.html](http://nginx.org/en/docs/http/ngx_http_stub_status_module.html)
+4. If you want to modify the URL used by our module, you can edit the file: ***/etc/quanta/modules.d/nginx.yml***
+5. Restart the agent
+
+    ```bash
     systemctl restart quanta-agent
     ```
-    
 
-Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
+You should see metrics appear in Quanta within a few minutes.
 
 ### Varnish
 
-1. Installez le package
-*Sur Debian*
-    
-    ```
+1. Install the package  
+*On Debian*
+
+    ```bash
     apt-get install quanta-agent-varnish
     ```
-    
-    *Sur CentOS*
-    
-    ```
+
+    *On CentOS*
+
+    ```bash
     yum install quanta-agent-varnish
     ```
-    
-2. Si vous utilisez plusieurs instances Varnish, il faut indiquer pour quelle instance vous souhaitez remonter les données vers Quanta en ajoutant les lignes suivantes à la fin du fichier **/etc/quanta/modules.d/varnish.yml**
-    
-    ```
+
+2. If you are using multiple Varnish instances, specify which instance you want to send data to Quanta by adding the following lines at the end of the file **/etc/quanta/modules.d/varnish.yml**:
+
+    ```bash
     varnish:
-        instance: nom_de_votre_instance
+        instance: your_instance_name
     ```
-    
-3. Redémarrez l'agent
-    
-    ```
+
+3. Restart the agent
+
+    ```bash
     systemctl restart quanta-agent
     ```
-    
 
-Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
+You should see metrics appear in Quanta within a few minutes.
 
 ### Redis
 
-1. Installez le package
-*Sur Debian*
-    
-    ```
+1. Install the package  
+*On Debian*
+
+    ```bash
     apt-get install quanta-agent-redis
     ```
-    
-    *Sur CentOS*
-    
-    ```
+
+    *On CentOS*
+
+    ```bash
     yum install quanta-agent-redis
     ```
-    
-2. Si vous n'utilisez pas le port par défaut (6379), éditez le fichier **/etc/quanta/modules.d/redis.yml**
-3. Si vous utilisez de l'authentification Redis, il faut décommenter la ligne et indiquer le mot de passe dans le fichier **/etc/quanta/modules.d/redis.yml**
-    
-    ```
+
+2. If you are not using the default port (6379), edit the file **/etc/quanta/modules.d/redis.yml**
+3. If you are using Redis authentication, uncomment the line and enter the password in the file **/etc/quanta/modules.d/redis.yml**:
+
+    ```bash
     auth: password
     ```
-    
-4. Si vous utilisez plusieurs instances Redis, il faut indiquer pour quelle instance vous souhaitez remonter les données vers Quanta en ajoutant les lignes suivantes à la fin du fichier **/etc/quanta/modules.d/redis.yml**
-    
+
+4. If you are using multiple Redis instances, specify which instance you want to send data to Quanta by adding the following lines at the end of the file **/etc/quanta/modules.d/redis.yml**:
+
+    ```bash
+    instance: your_instance_name
     ```
-    instance: nom_de_votre_instance
-    ```
-    
-5. Redémarrez l'agent
-    
-    ```
+
+5. Restart the agent
+
+    ```bash
     systemctl restart quanta-agent
     ```
-    
 
-Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
+You should see metrics appear in Quanta within a few minutes.
 
 ### Memcached
 
-1. Installez le package
-*Sur Debian*
-    
-    ```
+1. Install the package  
+*On Debian*
+
+    ```bash
     apt-get install quanta-agent-memcached
     ```
-    
-    *Sur CentOS*
-    
-    ```
+
+    *On CentOS*
+
+    ```bash
     yum install quanta-agent-memcached
     ```
-    
-2. Si vous n'utilisez pas le port par défaut (11211), éditez le fichier **/etc/quanta/modules.d/memcached.yml**
-3. Redémarrez l'agent
 
-    
-    ```
+2. If you are not using the default port (11211), edit the file **/etc/quanta/modules.d/memcached.yml**
+3. Restart the agent
+
+    ```bash
     systemctl restart quanta-agent
     ```
-    
 
-Vous devriez voir des métriques apparaître dans Quanta sous quelques minutes.
+You should see metrics appear in Quanta within a few minutes.
 
 <aside>
-💡 Le profiler PHP est à installer à part. Référez-vous à la page dédiée:
+💡 The PHP profiler must be installed separately. Refer to the dedicated page:
 
-[Installer le profiler PHP / Magento / OroCommerce](./install-php-magento-orocommerce-profiler.md)
-
+[Install the PHP / Magento / OroCommerce Profiler](./install-php-magento-orocommerce-profiler.md)
 </aside>

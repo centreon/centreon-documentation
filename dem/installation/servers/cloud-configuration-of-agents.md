@@ -1,42 +1,42 @@
 ---
 id: cloud-configuration-of-agents
-title: Configuration de nos agents pour le cloud
---- 
+title: Configuring our agents for the cloud
+---
 
-# Configuration de nos agents pour le cloud
+# Configuring our agents for the cloud
 
-Avec l'avènement du cloud, des services managés, des IaaS et des PaaS, nos paquets ne se suffisent plus à eux même et chaque infrastructure utilise ses propres processus d'orchestration quant au déploiement de nouveaux serveurs (VM ou conteneurs).
+With the rise of cloud, managed services, IaaS and PaaS, our packages are no longer sufficient by themselves and each infrastructure uses its own orchestration processes for deploying new servers (VMs or containers).
 
-Si c'est votre cas alors cet article est fait pour vous, vous y découvrirez comment configurer nos agents à l'aide de vos orchestrateurs.
+If this applies to you, this article explains how to configure our agents using your orchestrators.
 
-# Procédure standard d'installation
+# Standard installation procedure
 
-Afin de bien comprendre la suite vous trouverez  le guide d'installation standard de notre agent est ici:
+To understand the following steps, you can find the standard installation guide for our agent here:
 
-[Installer les agents systèmes](./install-system-agents.md)
+[Install system agents](./install-system-agents.md)
 
- Et le guide d'installation de notre module PHP (si vous utilisez cette technologie) ici:
+And the installation guide for our PHP module (if you use that technology) here:
 
-[Installer le profiler PHP / Magento / OroCommerce](./install-php-magento-orocommerce-profiler.md)
+[Install PHP / Magento / OroCommerce profiler](./install-php-magento-orocommerce-profiler.md)
 
-# Dynamisation pour le cloud
+# Cloud-specific considerations
 
-Dans le cas de déploiement automatique ou semi-automatique d'instances (VM ou conteneurs) certains champs de configurations devront être modifiés ou répliqués entre chaque instance nouvellement créées:
+When instances (VMs or containers) are deployed automatically or semi-automatically, some configuration fields must be modified or replicated for each newly created instance:
 
-- **Token**: Le token d'identification doit être le même pour tous les agents Quanta d'une même licence et d'un même site, celui-ci se trouve dans le fichier de configuration "/etc/quanta/agent.yml". Le token indique à l'agent à quel site appartiennent les données monitorées.
-- **Hostid**: Celui-ci se trouve également dans le fichier de configuration "/etc/quanta/agent.yml". Le hostid est un identifiant unique permettant à Quanta d'identifier de manière unique une instance:
-    - Dans la grande majorité des cas le hostid doit être différents pour chaque nouvelle instance, ainsi votre nouvelle instance "front-nginx-3" n'essaiera pas d'écraser les données envoyées par l'instance "front-nginx-2"
-    - Dans le cas d'auto-scaling vous pouvez avoir besoin de conserver un identifiant unique lorsque une instance est supprimée puis recréée plus tard. Par exemple si tous les soirs vers 19h vous ajoutez un quatrième front pour gérer la charge de début de soirée et le supprimez vers 21h vous voudrez surement éviter d'avoir tous les jours un nouveau graphique qui apparaisse dans vos données Quanta (et vous retrouver avec une liste très rapidement trop longues de graphiques). Dans ce cas précis il vous faudra conserver un identifiant unique à chaque fois que vous supprimez et re-créez le front en question, ainsi les données apparaitrons toujours dans le même graphique.
-- **Hostname**: Toujours dans le même fichier "/etc/quanta/agent.yml", cette variable de configuration vous permet d'attribuer un label à votre instance, contrairement au hostid ce n'est pas un identifiant mais uniquement un nom afin de vous faciliter la lecture dans les graphiques, par exemple "VM prod 006 - Varnish - 3". Vous pouvez également le modifier depuis l'interface QUANTA.
+- **Token**: The identification token must be the same for all Quanta agents that belong to the same license and site; it is stored in the configuration file `/etc/quanta/agent.yml`. The token tells the agent which site the monitored data belongs to.
+- **Hostid**: Also located in `/etc/quanta/agent.yml`. The hostid is a unique identifier used by Quanta to uniquely identify an instance:
+    - In most cases the hostid must be different for each new instance, so your new instance `front-nginx-3` won't overwrite the data sent by `front-nginx-2`.
+    - In auto-scaling scenarios you may need to preserve a stable identifier when an instance is removed and later recreated. For example, if you add a fourth front each evening at 19:00 to handle peak traffic and remove it at 21:00, you probably want to avoid seeing a new chart created every day in Quanta (and a rapidly growing list of charts). In that case you should preserve a unique identifier each time you remove and recreate that front so its data always appears in the same chart.
+- **Hostname**: Also in `/etc/quanta/agent.yml`, this setting lets you assign a label to your instance. Unlike hostid, hostname is just a human-friendly name to make charts easier to read (for example `VM prod 006 - Varnish - 3`). You can also change it from the QUANTA UI.
 
-# Adaptation
+# Adaptation for managed/cloud services
 
-Certains fournisseurs de Cloud proposent des services managés, AWS propose RDS et ElastiCache par exemple pour les services de base de données et de gestion de cache espectivement. Ces services managés viennent généralement clés en main et ne vous permettent pas d'installer des packets sur leurs instances.
+Some cloud providers offer managed services — for example AWS provides RDS and ElastiCache for managed databases and caching. These managed services are typically provided as a black-box and do not allow you to install packages on their instances.
 
-Pour palier à cette situation vous pouvez installer un agent sur une autre instance sur laquelle vous avez la main, par exemple un front, et lui demander de monitorer également une machine distante en lui indiquant l'ip et le port du service managé concerné.
+To work around this, install an agent on another instance you control (for example a front) and have it monitor the remote managed service by pointing it at the service's IP and port.
 
-Par exemple, dans le cas de RDS il vous suffit de déployer l'agent "quanta-agent-mysql" (cf le guide standard) et de modifier le fichier de configuration de l'agent "/etc/quanta/modules.d/mysqlstat.yml" pour y indiquer le host et le port du service managé (IP et port).
+For example, for RDS you can deploy the `quanta-agent-mysql` agent (see the standard guide) and edit the agent configuration file `/etc/quanta/modules.d/mysqlstat.yml` to specify the host and port of the managed service (IP and port).
 
-De plus si vous utilisez plusieurs instances de ElastiCache ou équivalent (plusieurs types de cache ainsi que sessions) vous pouvez facilement configurer l'agent Redis (ou Varnish ou Memcached) afin de lui indiquer les différentes bases à cibler. Le guide pour ce point se trouve là:
+If you use multiple ElastiCache instances or equivalents (multiple cache types and session stores), you can configure the Redis (or Varnish or Memcached) agent to target the different backends. The guide for this is here:
 
-[Ajouter les métriques avancées](./add-advanced-metrics.md)
+[Add advanced metrics](./add-advanced-metrics.md)

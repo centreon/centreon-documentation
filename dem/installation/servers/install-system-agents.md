@@ -1,240 +1,237 @@
 ---
 id: install-system-agents
-title: Installer les agents systèmes
---- 
+title: Install System Agents
+---
 
-# Installer les agents systèmes
+# Install System Agents
 
-Pour pouvoir ajouter/modifier/supprimer un serveur dans Quanta vous avez besoin d’avoir les permissions « Admin » ou « Propriétaire » sur votre Organisation. Demandez à votre administrateur ou au support Quanta de vous créer cet accès ([support@quanta.io](mailto:support@quanta.io)).
+To add, modify, or delete a server in Quanta, you must have “Admin” or “Owner” permissions on your Organization. Ask your administrator or Quanta support to grant you this access ([support@quanta.io](mailto:support@quanta.io)).
 
-A l’heure actuelle, il n’est pas possible de rattacher un serveur à plusieurs sites, qu’ils soient dans la même Organisation ou non.
+At this time, it is not possible to link a server to multiple sites, whether within the same Organization or not.
 
-La remontée d’information vers l’application QUANTA nécessite l’installation d’un agent sur tous les serveurs que vous souhaitez surveiller. Pour ce faire, vous devez installer l’agent Quanta.
+Sending information to the QUANTA application requires installing an agent on all servers you wish to monitor. To do so, you need to install the Quanta agent.
 
 <aside>
-💡 Les agents systèmes doivent pouvoir communiquer avec notre infrastructure. Retrouvez nos adresses IPs sur la page dédiée:
+💡
 
-[Les adresses IP de Quanta](../quanta-ip-addresses.md)
+System agents must be able to communicate with our infrastructure. Find our IP addresses on the dedicated page:
+
+[Quanta IP Addresses](../quanta-ip-addresses.md)
 
 </aside>
 
-# Obtenir le token
+# Get the Token
 
-Pour installer les Agents Systèmes Quanta vous aurez besoin de votre **token** d'auto enregistrement. Il est disponible dans *Configuration > Système.*
+To install Quanta System Agents, you will need your **auto-registration token**. It is available in *Configuration > System.*
 
-Retrouvez l’emplacement du token en vidéo:
+See where to find the token in this video:
 
-[Trouver le token pour les agents systèmes](https://www.loom.com/share/8e1958d64017451a8a0b7a63ab5c8185)
+[Find the token for system agents](https://www.loom.com/share/8e1958d64017451a8a0b7a63ab5c8185)
 
-Trouver le token pour les agents systèmes
-
-# Procéder à l’installation
+# Proceed with Installation
 
 <aside>
-⚠️ Si vous utilisez des conteneurs Docker, ou des systèmes d’autoscaling (AWS ASG, Azure Scale Set ou autres), reportez-vous à la section *“Installation pour Docker et systèmes d’autoscaling”* avant l’installation sur l’OS.
-
+⚠️ If you are using Docker containers or autoscaling systems (AWS ASG, Azure Scale Set, or others), refer to the section *“Installation for Docker and Autoscaling Systems”* before installing on the OS.
 </aside>
 
-## Installation pour Debian
+## Installation for Debian
 
-Pour installer l'agent Quanta :
+To install the Quanta agent:
 
-1. Ajoutez la ligne suivante dans le fichier **/etc/apt/sources.list.d/quanta.list**
-*Pour Buster (versions 10.*)*
-    
+1. Add the following line to the file **/etc/apt/sources.list.d/quanta.list**  
+*For Buster (versions 10.*)*
+
     ```bash
     deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] http://apt.quanta.io/debian buster main
     ```
-    
-    *Pour Bullseye (versions 11.*)*
-    
+
+    *For Bullseye (versions 11.*)*
+
     ```bash
     deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/debian bullseye main
     ```
-    
-    *Pour Bookworm (versions 12.*)*
-    
+
+    *For Bookworm (versions 12.*)*
+
     ```bash
     deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/debian bookworm main
     ```
-    
-    En cas de doute sur votre version, vous pouvez lire le fichier ***/etc/debian_version***.
-    
-    ### Version `BETA`
-    
+
+    If unsure of your version, you can read the file ***/etc/debian_version***.
+
+    ### `BETA` Version
+
     <aside>
     💡
-    
-    Pour utiliser la version **BETA** vous devrez simplement remplacer à la fin de la ligne `main`par `beta`
-    
+
+    To use the **BETA** version, simply replace `main` at the end of the line with `beta`.
     </aside>
-    
-2. Téléchargez et ajoutez la clé **GPG** de notre dépôt:
-    
+
+2. Download and add the **GPG** key for our repository:
+
     ```bash
     curl https://apt.quanta.io/quanta-repo-key.gpg | gpg -o /usr/share/keyrings/quanta-archive-keyring.pgp --dearmor
     ```
-    
-3. Mettez à jour la liste des packages disponibles:
-    
+
+3. Update the package list:
+
     ```bash
     apt update
     ```
-    
-4. Installez l'agent:
-    
+
+4. Install the agent:
+
     ```bash
     apt install quanta-agent
     ```
-    
 
-Le token vous sera demandé lors de l'installation, vous devriez voir apparaître des données systèmes dans Quanta une minute plus tard.
+You will be prompted for the token during installation, and system data should appear in Quanta within a minute.
 
-## Installation pour Ubuntu
+## Installation for Ubuntu
 
-Pour installer l'agent Quanta :
+To install the Quanta agent:
 
-1. Ajoutez la ligne suivante dans le fichier **/etc/apt/sources.list.d/quanta.list**
-*Pour Jammy*
-    
+1. Add the following line to the file **/etc/apt/sources.list.d/quanta.list**  
+*For Jammy*
+
     ```bash
     deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu jammy main
     ```
-    
-    *Pour Kinetic*
-    
+
+    *For Kinetic*
+
     ```bash
     deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu kinetic main
     ```
-    
-    *Pour Lunar*
-    
+
+    *For Lunar*
+
     ```bash
     deb [signed-by=/usr/share/keyrings/quanta-archive-keyring.pgp] https://apt.quanta.io/ubuntu lunar main
     ```
-    
-    ### Version `BETA`
-    
+
+    ### `BETA` Version
+
     <aside>
-    💡 Pour utiliser la version **BETA** vous devrez simplement remplacer à la fin de la ligne `main`par `beta`
-    
+    💡
+
+    To use the **BETA** version, simply replace `main` at the end of the line with `beta`.
     </aside>
-    
-2. Téléchargez et ajoutez la clé **GPG** de notre dépôt:
-    
+
+2. Download and add the **GPG** key for our repository:
+
     ```bash
     curl https://apt.quanta.io/quanta-repo-key.gpg | gpg -o /usr/share/keyrings/quanta-archive-keyring.pgp --dearmor
     ```
-    
-3. Mettez à jour la liste des packages disponibles:
-    
+
+3. Update the package list:
+
     ```bash
     apt update
     ```
-    
-4. Installez l'agent:
-    
+
+4. Install the agent:
+
     ```bash
     apt install quanta-agent
     ```
-    
 
-Le token vous sera demandé lors de l'installation, vous devriez voir apparaître des données systèmes dans Quanta une minute plus tard.
+You will be prompted for the token during installation, and system data should appear in Quanta within a minute.
 
-## Installation pour CentOS / RHEL
+## Installation for CentOS / RHEL
 
-**Versions supportées:**
+**Supported Versions:**
 
 - Centos 7
 - Centos 8 Stream
 
-Pour installer l'agent Quanta :
+To install the Quanta agent:
 
-1. Créez le fichier de configuration du dépôt dans le fichier **/etc/yum.repos.d/quanta.repo**. Pour ce faire vous pouvez télécharger le fichier de configuration disponible ici: [https://rpm.quanta.io/quanta-centos-repo.txt](https://rpm.quanta.io/quanta-centos-repo.txt)
-    
+1. Create the repository configuration file **/etc/yum.repos.d/quanta.repo**. You can download the configuration file available here: [https://rpm.quanta.io/quanta-centos-repo.txt](https://rpm.quanta.io/quanta-centos-repo.txt)
+
     <aside>
-    💡 Pour utiliser la version **BETA** vous devrez simplement remplacer la ligne :
-    
+    💡
+
+    To use the **BETA** version, simply replace the line:
+
     ```
     baseurl=http://rpm.quanta.io/centos/$releasever/main
     ```
-    
-    par la ligne suivante :
-    
+
+    with the following:
+
     ```
     baseurl=http://rpm.quanta.io/centos/$releasever/beta
     ```
-    
     </aside>
-    
-2. Installez la clé **GPG** de notre dépôt:
-    
+
+2. Install the **GPG** key for our repository:
+
     ```
     curl https://rpm.quanta.io/quanta-repo-key.gpg -o /tmp/quanta.key && rpm --import /tmp/quanta.key && rm -f /tmp/quanta.key
     ```
-    
-3. Mettez à jour la liste des packages disponibles:
-    
+
+3. Update the package list:
+
     ```
     yum makecache
     ```
-    
-4. Installez l'agent:
-    
+
+4. Install the agent:
+
     ```
     yum install quanta-agent
     ```
-    
-5. Éditez le fichier **/etc/quanta/agent.yml** et remplacez*Par votre **token** d'auto-enregistrement récupéré auparavant.*
-    
+
+5. Edit the file **/etc/quanta/agent.yml** and replace *with your previously obtained **auto-registration token***:
+
     ```
     __YOUR_QUANTA_TOKEN__
     ```
-    
-6. Démarrez l'agent:
-    
+
+6. Start the agent:
+
     ```
     systemctl start quanta-agent
     ```
-    
-7. Pour que l'agent démarre tout seul au démarrage du serveur:
-    
+
+7. Enable the agent to start automatically on boot:
+
     ```
     systemctl enable quanta-agent
     ```
-    
 
-Vous devriez voir apparaître des données système dans Quanta une minute plus tard.
+You should see system data appear in Quanta within a minute.
 
-## Installation pour Docker et systèmes d’autoscaling
+## Installation for Docker and Autoscaling Systems
 
-L'utilisation de l'agent Quanta est tout à fait compatible avec les infrastructures “conteneurisées", néanmoins **elle nécessite une légère variante dans le processus d'installation**.
+The use of the Quanta agent is fully compatible with “containerized” infrastructures, but **it requires a slight variation in the installation process**.
 
-[Configuration de nos agents pour le cloud](cloud-configuration-of-agents.md)
+[Configuration of our agents for the cloud](cloud-configuration-of-agents.md)
 
-### Explications
+### Explanation
 
-Le *hostid* est un paramètre interne permettant à Quanta d'identifier de manière unique un serveur. Il est nécessaire d'utiliser un *hostid* différent pour chaque serveur. Il est configuré automatiquement par le script d'installation du paquet (en utilisant l'adresse MAC de la première interface réseau sans les ":")
+The *hostid* is an internal parameter that allows Quanta to uniquely identify a server. Each server must have a unique *hostid*, which is automatically configured by the installation script (using the MAC address of the first network interface without “:” characters).
 
-Or, dans le cas d'un conteneur Docker, la configuration ne permet pas au script d'installation de trouver cette valeur. Dans le cas des systèmes de scalabilité automatique (comme AWS ASG ou Azure Scale Set), la copie de l’image copie également le *hostid*.
+However, in the case of Docker containers, the configuration prevents the installation script from finding this value. In autoscaling systems (like AWS ASG or Azure Scale Set), the image copy also duplicates the *hostid*.
 
-### Contournement
+### Workaround
 
-Pour avoir un *hostid* unique, vous pouvez le configurer dans le fichier /etc/quanta/agent.yml via un script au démarrage du conteneur ou de la VM (*script de bootstrap*). Vous pouvez spécifier un identifiant unique de votre choix qui peut être généré à la volée au moment de la création du conteneur (par exemple, en utilisant les metadata exposées par AWS, ou des variables d’environnement dans Docker), ou bien un élément unique comme la valeur du UUID depuis */proc/sys/kernel/random/uuid*.
+To have a unique *hostid*, you can configure it in the file /etc/quanta/agent.yml via a script at container or VM startup (*bootstrap script*). You can specify a unique identifier generated at runtime (e.g., using AWS metadata or Docker environment variables) or use a unique element like the UUID value from */proc/sys/kernel/random/uuid*.
 
-## Installation sur d’autres OS
+## Installation on Other OS
 
-Nous ne fournissons pas de packages pour les autres OS, les sources sont néanmoins disponibles publiquement sur Github et peuvent être compilés:
+We do not provide packages for other OSs, but the source code is publicly available on GitHub and can be compiled:
 
 [https://github.com/quanta-computing/quanta-agent](https://github.com/quanta-computing/quanta-agent)
 
-L'agent n'est compatible **qu'avec Linux**.
+The agent is **only compatible with Linux**.
 
-# Modifier une installation déjà effectuée
+# Modifying an Existing Installation
 
-Si vous souhaitez modifier la configuration d’un agent Quanta **déjà installé** sur l’un de vos serveurs, vous trouverez sa configuration dans le fichier ***/etc/quanta/agent.yml***. Il contient les informations principales de connexion, dont le token Quanta correspondant au site concerné. L’accès à ce fichier peut se révéler utile si vous surveillez plusieurs sites avec un même compte Quanta, auquel cas vous souhaiterez spécifier le bon token pour rattacher chaque serveur au  site qu’il héberge, par exemple pour un site de production et un site de préproduction ayant chacun leur(s) serveur(s) distinct(s).
+If you want to modify the configuration of a Quanta agent **already installed** on one of your servers, you will find its configuration in the file ***/etc/quanta/agent.yml***. It contains the main connection information, including the Quanta token corresponding to the relevant site. Access to this file can be useful if you monitor multiple sites with the same Quanta account and wish to specify the correct token to associate each server with its hosted site (e.g., for separate production and pre-production servers).
 
-Voici un extrait du fichier ***/etc/quanta/agent.yml*** :
+Here is an excerpt from the file ***/etc/quanta/agent.yml***:
 
 ```jsx
 user: quanta-agent
@@ -249,16 +246,16 @@ logger:
   level: notice
   file: syslog
 
-hostid: [...] <- identifiant du serveur, généré automatiquement à l'installation
-quanta_token: [...] <- insérer ici le token correspondant à votre site
+hostid: [...] <- server ID, automatically generated at installation
+quanta_token: [...] <- insert here the token corresponding to your site
 
 [...]
 ```
 
-# Pour aller plus loin
+# To Go Further
 
-Vous pouvez désormais installer les modules applicatifs pour obtenir des métriques sur vos systèmes Apache, Nginx, MySQL, Varnish, Magento, etc… 
+You can now install application modules to get metrics on your Apache, Nginx, MySQL, Varnish, Magento systems, etc.
 
-En cas de doute, vous pouvez vous reportez à la checklist d’installation :
+If in doubt, refer to the installation checklist:
 
-[Checklist d’installation de Quanta](../installation-checklist.md)
+[Quanta Installation Checklist](../installation-checklist.md)

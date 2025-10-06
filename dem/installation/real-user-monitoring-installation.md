@@ -1,56 +1,59 @@
 ---
 id: real-user-monitoring-installation
-title: Installer le Real User Monitoring
---- 
+title: Install Real User Monitoring
+---
 
-# Installer le Real User Monitoring
+# Install Real User Monitoring
 
-# Considérations RGPD
+# GDPR considerations
 
 <aside>
-🏆 Bien que Quanta utilise un cookie, **aucun consentement n’est nécessaire.**
-
+🏆 Although Quanta uses a cookie, **no consent is required.**
 </aside>
 
-La CNIL exempte de consentement les cookies sous certaines conditions:
+The CNIL (French data protection authority) exempts certain cookies from requiring consent under these conditions:
 
-- avoir une finalité limitée à la mesure des performances, la détection de problèmes de navigation, l’optimisation des performances techniques ou de son ergonomie...
-- produire des statistiques anonymes uniquement
-- ne pas recouper les données avec d’autres traitements
-- ne pas transmettre les données à des tiers
-- ne pas permettre le suivi global de la navigation de la personne sur d’autres sites web
+- they have a limited purpose such as measuring performance, detecting navigation issues, optimizing technical performance or usability...
+- they produce only anonymous statistics
+- they are not cross-referenced with other datasets
+- they are not transmitted to third parties
+- they do not enable tracking a user's browsing across other websites
 
-**Quanta répond à ces conditions.**
+**Quanta meets these conditions.**
 
-Vous pouvez retrouver les recommandations de la CNIL [sur cette page](https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies-solutions-pour-les-outils-de-mesure-daudience).
+You can find CNIL's recommendations on this page: https://www.cnil.fr/fr/cookies-et-autres-traceurs/regles/cookies-solutions-pour-les-outils-de-mesure-daudience
 
-# Trouver le tag à insérer dans mon site
+# Find the tag to insert on my site
 
-Le Real User Monitoring ou RUM, nécessite l’installation d’un tag javascript. Le tag est disponible dans l’application en suivant le chemin suivant:
-
-Aller dans la configuration, puis dans *Intégrations* :
+Real User Monitoring (RUM) requires installing a JavaScript tag. The tag is available in the application by following this path:
+Go to Configuration, then *Integrations*:
 
 ![image](../assets/installation/install-rum-1.png)
 
-Vous trouverez ensuite le tag sur cet écran avec un bouton pour le copier facilement :
+You will then find the tag on that screen with a button to copy it easily:
 
 ![image](../assets/installation/install-rum-2.png)
 
-Ce tag est à insérer dans la section “HEAD” du site web. L’opération peut être effectuée manuellement par un développeur, ou alternativement **il peut être ajouté dans un tag manager comme GTM en suivant la procédure suivante** : 
+This tag should be inserted into the site's HEAD section. The operation can be done manually by a developer, or alternatively **it can be added to a tag manager such as GTM by following the procedure below**:
 
-**1-**  **Créer une nouvelle balise** : 
+**1 — Create a new tag**
 
-Connectez-vous à votre compte GTM et sélectionnez le conteneur approprié pour votre site web. Cliquez ensuite sur "Ajouter une nouvelle balise".
+Sign in to your GTM account and select the container for your website. Click "Add a new tag."
 
-**2- Configurer la balise** :
-Sélectionnez "Balise HTML personnalisée" comme type de balise.
-Collez le script que vous avez fourni dans le champ HTML.
-Assurez-vous que le type de script est correctement défini comme "JavaScript" si nécessaire. GTM gère généralement cela automatiquement, mais il est bon de vérifier.
+**2 — Configure the tag**
 
-**3-** **Définir les déclencheurs** : 
+Select "Custom HTML Tag" as the tag type.
+Paste the script provided into the HTML field.
+Ensure the script type is correctly set to "JavaScript" if required. GTM usually handles this automatically, but it's good to check.
 
-Choisissez quand vous voulez que ce script soit exécuté. Vous pouvez le faire pour toutes les pages ou pour des pages spécifiques en fonction de vos besoins. Les déclencheurs permettent de contrôler précisément quand le script est exécuté.
+**3 — Set triggers**
 
-**4- Sauvegarder et tester la balise** : Après avoir configuré la balise et ses déclencheurs, sauvegardez-la et utilisez la fonction de prévisualisation de GTM pour tester si le script fonctionne comme prévu sur votre site. Cela vous permet de voir les modifications en temps réel sans affecter les visiteurs réels de votre site.
+Choose when you want the script to execute. You can apply it to all pages or to specific pages depending on your needs. Triggers allow precise control over when the script runs.
 
-**5- Publier les modifications** : Une fois que vous avez vérifié que tout fonctionne correctement, n'oubliez pas de publier les modifications dans GTM pour que le script soit actif sur votre site en live.
+**4 — Save and test the tag**
+
+After configuring the tag and its triggers, save it and use GTM's preview feature to test whether the script works as expected on your site. This lets you see changes in real time without affecting real visitors.
+
+**5 — Publish the changes**
+
+Once you've verified everything works correctly, remember to publish the changes in GTM so the script is active on your live site.

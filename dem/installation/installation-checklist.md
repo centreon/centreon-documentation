@@ -1,51 +1,51 @@
 ---
 id: installation-checklist
-title: Checklist d'installation
---- 
+title: Installation checklist
+---
 
-# Checklist d’installation de Quanta
+# Quanta installation checklist
 
-Cette liste couvre les besoins pour permettre le bon fonctionnement des différents modules de Quanta sur un site donnée.
+This list covers the requirements to ensure proper operation of Quanta's different modules for a given site.
 
-# Parcours utilisateur
+# User journeys
 
-Il n'y a **rien n’est à installer** puisque Quanta vient se connecter à votre application comme le ferait n'importe quel internaute.
+There is **nothing to install** because Quanta connects to your application just like any regular user.
 
-Néanmoins, en fonction du niveau de sécurité mis en place sur votre site, vous pourriez avoir besoin d’autoriser nos IPs pour éviter que votre système "anti-robot" ne bloque nos sondes. Si vous êtes dans ce cas, vous trouverez la procédure à suivre :
+However, depending on the security level on your site, you may need to allow our IPs so that your anti-bot system does not block our probes. If that's the case, you'll find the procedure here:
 
-[Les adresses IP de Quanta](./quanta-ip-addresses.md)
+[Quanta IP addresses](./quanta-ip-addresses.md)
 
 # Real User Monitoring
 
-Le Real User Monitoring s’installe comme n'importe quel tag marketing : via l’insertion d’un tag javascript. Pour retrouver la procédure complète et les instructions d’installation rendez-vous sur la page dédiée :
+Real User Monitoring installs like any marketing tag: by inserting a JavaScript tag. For the full procedure and installation instructions, see:
 
-[Installer le Real User Monitoring](./real-user-monitoring-installation.md)
+[Install Real User Monitoring](./real-user-monitoring-installation.md)
 
-# Agent système
+# System agent
 
-La partie système de Quanta nécessite à minima l’installation des agents systèmes, puis l’ajout de modules selon le niveau de détails souhaité ou accessible dans votre licence.
+Quanta's system functionality requires at minimum the installation of system agents, then adding modules depending on the level of detail required or allowed by your license.
 
-## Installation minimale
+## Minimal installation
 
-Pour installer les agents systèmes, vous pouvez retrouver la procédure détaillée ici: 
+To install the system agents, follow the detailed procedure here:
 
-[Installer les agents systèmes](./servers/install-system-agents.md)
+[Install system agents](./servers/install-system-agents.md)
 
-## Installation pour les métriques avancées
+## Installation for advanced metrics
 
-Une fois l’agent installé, vous pouvez installer des modules supplémentaires:
+After the agent is installed, you can install additional modules:
 
-- Les agents applicatifs Apache, MySQL, Varnish, … pour obtenir des informations sur chacun de ces services :
+- Application agents for Apache, MySQL, Varnish, … to obtain information specific to those services:
     
-    [Ajouter les métriques avancées](./servers/add-advanced-metrics.md)
+    [Add advanced metrics](./servers/add-advanced-metrics.md)
     
-- Le profiler, compatible avec toute application PHP comme Magento ou OroCommerce :
+- The profiler, compatible with any PHP application such as Magento or OroCommerce:
     
-    [Installer le profiler PHP / Magento / OroCommerce](./servers/install-php-magento-orocommerce-profiler.md)
+    [Install PHP / Magento / OroCommerce profiler](./servers/install-php-magento-orocommerce-profiler.md)
     
 
-# Evénements automatiques
+# Automatic events
 
-Vous avez la possibilité d’ajouter des évènements manuellement dans l’interface mais également automatiquement par API. **C’est utile notamment que vous déployez une nouvelle version de votre site.** Nous recommandons dans tous les cas cette installation afin de garder trace de ces changements dans Quanta.
+You can add events manually in the UI but also automatically via API. **This is especially useful when you deploy a new version of your site.** We recommend setting this up so changes are recorded in Quanta.
 
-[Suivre automatiquement les événements de mise en production](./monitor-production-events.md)
+[Automatically track production deployment events](./monitor-production-events.md)

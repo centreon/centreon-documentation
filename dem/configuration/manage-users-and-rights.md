@@ -1,65 +1,63 @@
 ---
 id: manage-users-and-rights
-title: Gérez vos utilisateurs et leurs droits
+title: Manage users and their rights
 ---
 
-# Gérez vos utilisateurs et leurs droits
+# Manage users and their rights
 
-# Accéder au menu de configuration
+# Access the configuration menu
 
-L’ensemble des manipulations présentées ici passe par le menu *Organisation*. Celui-ci est accessible dans le menu en haut à droite comme suit:
+All actions described here are performed from the *Organization* menu. It is available in the top-right menu as shown:
 
 ![image](../assets/configuration/manage-users-and-rights-1.png)
 
-Raccourci vers le menu Organisation
+Shortcut to the Organization menu
 
-# Expiration automatique des mots de passe
+# Automatic password expiration
 
-Dans une Organisation, vous pouvez définir une politique d’expiration des mots de passe.
+Within an Organization you can define a password expiration policy.
 
-Le premier bloc de l’écran propose d’activer l’expiration des mots de passe après une certaine période (en jours) pour se conformer à votre politique de sécurité.
+The first block on the screen lets you enable password expiration after a given period (in days) to comply with your security policy.
 
-Les utilisateurs devront changer leur mot de passe après le nombre de jours que vous avez décidé. Si un utilisateur appartient à plusieurs organisations, ils devront changer leur mot de passe selon la période la plus courte définie dans toutes leurs organisations.
+Users will be required to change their password after the number of days you set. If a user belongs to multiple organizations, they must change their password according to the shortest period defined across all their organizations.
 
-# **Inviter un nouvel utilisateur à votre organisation**
+# Invite a new user to your organization
 
 <aside>
-⚠️ Si personne de votre organisation n’est Administrateur ou Propriétaire, contactez le support Quanta ou votre revendeur pour gérer votre organisation.
-
+⚠️ If nobody in your organization is an Administrator or Owner, contact Quanta support or your reseller to manage your organization.
 </aside>
 
-## **Les permissions**
+## Permissions
 
-Quanta distingue 2 types de permissions pour les utilisateurs que vous invitez :
+Quanta distinguishes two types of permissions for invited users:
 
-- **Membre** : les Membres peuvent lire les informations. Ils ne peuvent pas modifier la configuration du site et des scénarios QUANTA. Ils ne peuvent que gérer leurs propres paramètres et leurs inscriptions aux différentes alertes et rapports, et ajouter des commentaires dans les graphes.
-- **Administrateur** : les Administrateurs ont les permissions les plus étendues. Ils peuvent modifier les paramètres des scénarios, ajouter / supprimer des utilisateurs à l'organisation, activer / désactiver les rapports et alertes, ajouter des utilisateurs aux rapports et alertes, ...
+- **Member**: Members can read information. They cannot change site or QUANTA scenario configuration. They can only manage their own settings and subscriptions to alerts and reports, and add comments to charts.
+- **Administrator**: Administrators have the widest set of permissions. They can modify scenario settings, add/remove users to the organization, enable/disable reports and alerts, add users to reports and alerts, and more.
 
-Les permissions sont partagées au niveau de tous les sites d'une même *Organisation*.
+Permissions are shared across all sites within the same *Organization*.
 
-## Ajouter un utilisateur
+## Add a user
 
-Pour ajouter un nouvel utilisateur à votre organisation vous devez être *Administrateur* de l'*Organisation*.
+To add a new user to your organization you must be an *Administrator* of the *Organization*.
 
-En bas de cet écran, vous aurez accès à la liste des différents utilisateurs ayant déjà accès à l'*Organisation* ainsi que les permissions attribuées à chacun.
+At the bottom of this screen you have the list of users who already have access to the *Organization* and the permissions assigned to each.
 
-Pour ajouter l'utilisateur, cliquez sur l’icône à côté du rôle auquel vous voulez l’ajouter et saisissez l'adresse mail de l'utilisateur. S'il n'a pas encore d'accès à Quanta, il sera automatiquement invité à se créer un compte.
+To add a user, click the icon next to the role you want to assign and enter the user's email address. If they don't yet have a Quanta account, they will be invited to create one automatically.
 
 ![image](../assets/configuration/manage-users-and-rights-2.png)
 
-# **Changer les permissions d'un utilisateur**
+# Change a user's permissions
 
-Pour changer les permissions d'un utilisateur dans votre organisation vous devez être *Administrateur* de l'*Organisation*.
+To change a user's permissions in your organization you must be an *Administrator* of the *Organization*.
 
-Pour changer les permissions d'un utilisateur il suffit de le déplacer (drag & drop) dans la colonne correspondant au profil que vous voulez lui attribuer.
+To change a user's permissions, simply drag & drop them into the column corresponding to the role you want to assign.
 
-# **Retirer les permissions**
+# Remove permissions
 
-Pour retirer les permissions d'un utilisateur dans votre organisation vous devez être *Administrateur* de l'*Organisation*.
+To remove a user's permissions in your organization you must be an *Administrator* of the *Organization*.
 
-Pour retirer les permissions d'un utilisateur, il suffit de cliquer sur la croix à côté de son nom
+To remove a user's permissions, click the cross next to their name.
 
 <aside>
-⚠️ Si vous souhaitez supprimer l'accès d'un utilisateur à plusieurs organisations, il faut le faire pour chacune d'entre elles. Si vous avez accès à beaucoup d'Organisations, n'hésitez pas à contacter le support Quanta pour que nous vous assistions.
-
+⚠️ If you want to remove a user's access from multiple organizations, you must do it for each organization separately. If you have access to many Organizations, contact Quanta support for assistance.
 </aside>

@@ -1,50 +1,50 @@
 ---
 id: configuration-checklist
-title: Checklist de configuration de Quanta
---- 
+title: Quanta configuration checklist
+---
 
-# Checklist de configuration de Quanta
+# Quanta configuration checklist
 
-Cette documentation sous-entend que vous avez réalisé l’installation de Quanta. Référez-vous à la page d’installation:
+This documentation assumes you have already installed Quanta. Refer to the installation page:
 
-[Checklist d’installation de Quanta](../installation/installation-checklist.md)
+[Quanta installation checklist](../installation/installation-checklist.md)
 
-# Inviter les utilisateurs et configurer l’expiration des mots de passes
+# Invite users and configure password expiration
 
-Les licences Quanta ne contiennent pas de limites de nombre d’utilisateurs. Nous vous recommandons d’inviter toutes les personnes concernées par le projet, quelque soit leurs fonctions. Rendez-vous directement dans la page Organisation pour les inviter.
+Quanta licenses have no user count limits. We recommend inviting everyone involved in the project, regardless of role. Go to the Organization page to invite users.
 
-La procédure et la gestion des utilisateurs est détaillée sur cette page:
+User management is detailed here:
 
-[Gérez vos utilisateurs et leurs droits](./manage-users-and-rights.md)
+[Manage users and rights](./manage-users-and-rights.md)
 
-# Configurer l’évaluation du CO2 émis
+# Configure CO2 estimation
 
-Pour évaluer le CO2, Quanta a besoin de quelques informations. Suivez le guide sur cette page: 
+To estimate CO2, Quanta needs a few details. Follow the guide on this page:
 
-[Configurer la Sobriété Numérique](./configure-digital-sobriety.md)
+[Configure Digital Sobriety](./configure-digital-sobriety.md)
 
-# Suivi du chiffre d’affaires et des manques à gagner
+# Revenue tracking and missed revenue
 
-Quanta peut récupérer le chiffre d’affaires et les taux de conversion depuis votre compte Google Analytics pour les corréler à la performance et la disponibilité de votre site internet.
+Quanta can import revenue and conversion rates from your Google Analytics account to correlate them with site performance and availability.
 
-Pour cela vous devez donner un accès en lecture à votre compte Google Analytics. Cette page détaille comment configurer ce lien:
+To do so, you must grant read access to your Google Analytics account. This page explains how to set up that connection:
 
-[Configurer Google Analytics avec Quanta](./configure-google-analytics.md)
+[Configure Google Analytics with Quanta](./configure-google-analytics.md)
 
-# Parcours utilisateurs
+# User journeys
 
-Les parcours utilisateurs peuvent être réalisés par le support Quanta. Demandez à votre interlocuteur commercial ou au support en cliquant sur le point d’interrogation en bas à droite.
+User journeys can be implemented by Quanta support. Ask your sales contact or open a support request using the question mark in the bottom-right corner.
 
-Retrouver la page de documentation pour les parcours utilisateurs ici: 
+Find the documentation for user journeys here:
 
-[Création d’un scénario (”Parcours Utilisateur”)](./user-journey/create-a-scenario.md)
+[Create a scenario (\"User Journey\")]('./user-journey/create-a-scenario.md')
 
-# Alertes et rapports
+# Alerts and reports
 
-Une fois les parcours créés, vous pouvez recevoir des alertes et des rapports récurrents sur les performances de vos parcours utilisateurs.
+Once journeys are created, you can receive alerts and recurring reports on their performance.
 
-Les alertes et les rapports se configurent sur le même écran dans *Configuration* > *Alerting*.
+Alerts and reports are configured on the same screen under *Configuration* > *Alerting*.
 
-Vous pouvez retrouver la procédure complète sur les pages:
+See the full procedure on these pages:
 
-[Recevoir et configurer les alertes](./receive-and-configure-alerts.md)
+[Receive and configure alerts](./receive-and-configure-alerts.md)

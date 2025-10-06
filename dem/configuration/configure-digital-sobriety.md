@@ -1,17 +1,17 @@
 ---
 id: configure-digital-sobriety
-title: Configurer la Sobriété Numérique
---- 
+title: Configure Digital Sobriety
+---
 
-# Configurer la Sobriété Numérique
+# Configure Digital Sobriety
 
-Si vous disposez de l’option Sobriété Numérique, vous devez indiquer à Quanta deux informations:
+If you have the Digital Sobriety option, you must provide Quanta with two pieces of information:
 
-- Où se situent vos serveurs ?
-- S’agit-il d’un hébergement Cloud ?
+- Where are your servers located?
+- Are they hosted in the Cloud?
 
-A partir de ces informations, Quanta évaluera le CO2 émis par page.
+Based on this information, Quanta will estimate the CO2 emitted per page.
 
-Pour remplir ces informations, rendez vous dans *Configuration* > *Site*
+To fill in these details, go to *Configuration* > *Site*
 
 ![image](../assets/configuration/config-digital-sobriety-1.png)

@@ -1,164 +1,157 @@
 ---
 id: install-php-magento-orocommerce-profiler
-title: Installer le profiler PHP / Magento / OroCommerce
---- 
+title: Install the PHP / Magento / OroCommerce Profiler
+---
 
-# Installer le profiler PHP / Magento / OroCommerce
+# Install the PHP / Magento / OroCommerce Profiler
 
-Le module PHP Quanta se présente sous la forme d'une extension PHP et vous permettra de remonter des informations concernant le temps d'exécution de chaque partie de votre CMS.
+The Quanta PHP module comes as a PHP extension that allows you to collect detailed information about the execution time of each part of your CMS.
 
-# Pré-requis
+# Prerequisites
 
 <aside>
-⚠️ Le profiler nécessite l’installation de l’agent système. Référez-vous à la page dédiée pour installer l’agent.
+⚠️ The profiler requires the installation of the system agent. Refer to the dedicated page to install the agent.
 
-[Installer les agents systèmes](./install-system-agents.md)
-
+[Install System Agents](./install-system-agents.md)
 </aside>
 
-# Compatibilité
+# Compatibility
 
-[QUANTA PHP Module Compatibility list](Installer%20le%20profiler%20PHP%20Magento%20OroCommerce%2015ba69c7c03f4aad8bd54e10d5ee8d61/QUANTA%20PHP%20Module%20Compatibility%20list%200f42fda5162b4ed7bad011eceab8f586.csv)
+[QUANTA PHP Module Compatibility List](Installer%20le%20profiler%20PHP%20Magento%20OroCommerce%2015ba69c7c03f4aad8bd54e10d5ee8d61/QUANTA%20PHP%20Module%20Compatibility%20list%200f42fda5162b4ed7bad011eceab8f586.csv)
 
 # Installation
 
 <aside>
-💡 Le module PHP est à installer sur chaque serveur exécutant votre application PHP.
-
+💡 The PHP module must be installed on every server running your PHP application.
 </aside>
 
-### Installer le module PHP Quanta pour Debian / Ubuntu
+### Install the Quanta PHP Module for Debian / Ubuntu
 
-Il vous faudra avoir ajouté les [dépôts Quanta](https://support.quanta-monitoring.com/hc/fr/articles/360018850454#Debian), vous avez déjà dû le faire lors de l'installation de l'agent.
+You must have added the [Quanta repositories](https://support.quanta-monitoring.com/hc/fr/articles/360018850454#Debian), which you should already have done during the system agent installation.
 
-En fonction de votre version de PHP, il vous faudra installer le package correspondant. Voici quelques exemples:
+Depending on your PHP version, install the corresponding package. Here are a few examples:
 
-- Pour PHP 7.3:
-    
+- For PHP 7.3:
+
     ```bash
     apt install php73-quanta-mon
     ```
-    
-- Pour PHP 7.4:
-    
+
+- For PHP 7.4:
+
     ```bash
     apt install php74-quanta-mon
     ```
-    
-- Pour PHP 8.0:
-    
+
+- For PHP 8.0:
+
     ```bash
     apt install php80-quanta-mon
     ```
-    
-- Pour PHP 8.1:
-    
+
+- For PHP 8.1:
+
     ```bash
     apt install php81-quanta-mon
     ```
-    
-- Pour PHP 8.2:
-    
+
+- For PHP 8.2:
+
     ```bash
     apt install php82-quanta-mon
     ```
-    
 
-Vous devrez ensuite activer l'extension avec la commande:
+Then, enable the extension with the command:
 
 ```bash
 phpenmod quanta_mon
 ```
 
-### Installer le module PHP Quanta pour CentOS / RedHat
+### Install the Quanta PHP Module for CentOS / RedHat
 
-Il vous faudra avoir ajouté les [dépôts Quanta](https://support.quanta-monitoring.com/hc/fr/articles/360018850454#Centos), vous avez déjà dû le faire lors de l'installation de l'agent.
+You must have added the [Quanta repositories](https://support.quanta-monitoring.com/hc/fr/articles/360018850454#Centos), which you should already have done during the system agent installation.
 
-En fonction de votre version de PHP, il vous faudra installer le package correspondant, par exemple:
+Depending on your PHP version, install the corresponding package, for example:
 
-- Pour PHP 7.2:
-    
+- For PHP 7.2:
+
     ```bash
     yum install php72-quanta-mon
     ```
-    
-- Pour PHP 7.3:
-    
+
+- For PHP 7.3:
+
     ```bash
     yum install php73-quanta-mon
     ```
-    
-- Pour PHP 7.4:
-    
+
+- For PHP 7.4:
+
     ```bash
     yum install php74-quanta-mon
     ```
-    
 
-Vous devrez ensuite activer l'extension avec la commande:
+Then, enable the extension with the command:
 
 ```bash
 phpenmod quanta_mon
 ```
 
-### Installer le module PHP pour les autres OS
+### Install the PHP Module for Other OS
 
-Nous ne supportons pas officiellement de packages pour les autres OS. Néanmoins vous pouvez compiler vous-même le module, les sources sont disponibles sur Github: [https://github.com/quanta-computing/quanta-php-module](https://github.com/quanta-computing/quanta-php-module)
+We do not officially support packages for other operating systems. However, you can compile the module yourself — the source code is available on GitHub:  
+[https://github.com/quanta-computing/quanta-php-module](https://github.com/quanta-computing/quanta-php-module)
 
-# Configurez l'URL de votre backoffice si vous utilisez Magento
+# Configure Your Backoffice URL if You Use Magento
 
-Si vous utilisez Magento et qu'une URL customisée est utilisée pour accéder au backoffice Magento (c'est-à-dire une URL qui ne commence pas par **"/admin/"**)
+If you use Magento and a custom URL is used to access the Magento backoffice (i.e., an URL that does **not** start with **"/admin/"**), you must modify the module configuration so that “Magento” type events are correctly reported in Quanta.
 
-Il est nécessaire de modifier la configuration du module afin que les évènements de type "Magento" remontent correctement dans Quanta.
-
-Ce fichier se trouve généralement ici pour Debian/Ubuntu:
+This file is usually located here for Debian/Ubuntu:
 
 ```bash
 /etc/php<VERSION>/mods-available/quanta_mon.ini
 ```
 
-et là pour Centos:
+and here for CentOS:
 
 ```bash
 /etc/php.d/quanta_mon.ini
 ```
 
-Cela peut néanmoins varier en fonction de votre installation PHP.
+However, this may vary depending on your PHP installation.
 
-Par exemple, si l'URL de votre backoffice est "http://admin.monsite.com/admin_123456/" vous devez entrer le paramètre suivant:
+For example, if your backoffice URL is "http://admin.mysite.com/admin_123456/", you must enter the following parameter:
 
 ```
 quanta_mon.admin_url="/admin_123456/"
 ```
 
-# Redémarrage du serveur web
+# Restarting the Web Server
 
-Après l'installation du module, il vous faudra redémarrer le service web pour que l'extension PHP soit chargée et activée.
+After installing the module, you must restart your web service so that the PHP extension is loaded and activated.
 
-- Par exemple si vous utilisez Apache sous Debian :
-    
+- For example, if you use Apache on Debian:
+
     ```bash
     systemctl restart apache2
     ```
-    
-- Si vous utilisez PHP-FPM, la commande sera par exemple:
-    
+
+- If you use PHP-FPM, the command would be for example:
+
     ```bash
     systemctl restart php8.2-fpm
     ```
-    
 
-# Vérification du bon fonctionnement
+# Verifying Proper Operation
 
-Lorsque tout est installé, **et que le scénario de navigation web est créé dans Quanta**, allez dans le menu Scénario Web, puis cliquez sur "+ détails" dans la légende sur l'une des pages nécessitant l'exécution de PHP (exemple : une page Panier qui n'est généralement jamais en cache).
+Once everything is installed **and the web scenario has been created in Quanta**, go to the Web Scenario menu, then click “+ details” in the legend of one of the pages requiring PHP execution (for example: a Cart page, which is usually never cached).
 
-Vous devriez alors voir l'onglet "Application" (autrement cet onglet est grisé) des informations concernant le temps passé dans PHP.
+You should then see an “Application” tab (otherwise this tab is grayed out) with information about the time spent in PHP.
 
-Dans le cas d'utilisation d'un CMS Magento (v1 ou 2) ou de la plateforme OroCommerce, le code couleur est différent. Il est orange pour Magento et jaune pour OroCommerce
+In the case of a Magento (v1 or 2) CMS or the OroCommerce platform, the color coding differs — it is orange for Magento and yellow for OroCommerce.
 
 <aside>
-💡 Les métriques avancées (Apache, MySQL, Redis, etc…) sont à installer à part. Référez-vous à la page dédiée:
+💡 Advanced metrics (Apache, MySQL, Redis, etc.) must be installed separately. Refer to the dedicated page:
 
-[Ajouter les métriques avancées](./add-advanced-metrics.md)
-
+[Add Advanced Metrics](./add-advanced-metrics.md)
 </aside>
