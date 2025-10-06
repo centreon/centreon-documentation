@@ -210,7 +210,7 @@ Change the rights for the files:
 chown -R centreonBI:centreonBI /var/lib/centreon/centreon-bi-server/archives
 ```
 
-#### Integrate custom report settings
+#### Integrate custom report settings (Optionnal)
 
 Copy the saved settings:
 
