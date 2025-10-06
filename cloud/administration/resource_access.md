@@ -28,7 +28,7 @@ If you don't want all users to see all resources, you need to:
    * If you want to add another set of resources that do not depend on any of the criteria defined above, click **Add new dataset**. The list will propose all types of resources again.
 
    > You can also select **All resources**: users will see all existing resources, as well as be able to see any resources created afterwards automatically.
-   > If you select a group of resources (hosts, services, BVs), users will see all existing resources in the group, as well as see any resources added to the group afterwards automatically.
+   > If you select a group of resources (hosts, services, BVs, image folders), users will see all existing resources in the group, as well as see any resources added to the group afterwards automatically.
 
 4. In the **Contacts/contact groups** section, define which users will be able to see these resources. If you select **All contacts/All contact groups**, the rule will apply to all existing contacts/contact groups, and also to any contacts/contact groups created in the future. Bear in mind that users and user groups are managed using the [CIAM](../ciam/ciam.md).
 
