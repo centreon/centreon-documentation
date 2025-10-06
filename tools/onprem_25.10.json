@@ -298,56 +298,35 @@
         "menu_fr": "Rapports > Monitoring Business Intelligence > T\u00e2ches",
         "Topology ID": "30210",
         "Topology Page": "./modules/centreon-bi-server/configuration/generation/generation_task.php",
-        "Documentation": "https://docs.centreon.com/docs/reporting/manage-reports/#jobs"
+        "Documentation": "https://docs.centreon.com/docs/reporting/generating-reports/"
     },
     "30220": {
         "menu_en": "Reporting > Monitoring Business Intelligence > Job groups",
         "menu_fr": "Rapports > Monitoring Business Intelligence > Groupes de t\u00e2ches",
         "Topology ID": "30220",
         "Topology Page": "./modules/centreon-bi-server/configuration/generationGroups/groups.php",
-        "Documentation": "https://docs.centreon.com/docs/reporting/manage-reports/#job-groups"
+        "Documentation": "https://docs.centreon.com/docs/reporting/share/"
     },
     "30230": {
         "menu_en": "Reporting > Monitoring Business Intelligence > Report designs",
         "menu_fr": "Rapports > Monitoring Business Intelligence > Mod\u00e8les de rapport",
         "Topology ID": "30230",
         "Topology Page": "./modules/centreon-bi-server/configuration/report/report.php",
-        "Documentation": "https://docs.centreon.com/docs/reporting/manage-reports/#report-design"
+        "Documentation": "https://docs-next-int.centreon.com/docs/reporting/generating-reports/"
     },
     "30231": {
         "menu_en": "Reporting > Monitoring Business Intelligence > General options",
         "menu_fr": "Rapports > Monitoring Business Intelligence > Param\u00e8tres globaux",
         "Topology ID": "30231",
         "Topology Page": "./modules/centreon-bi-server/options/options/options.php",
-        "Documentation": "https://docs.centreon.com/docs/reporting/configure/#general-options"
-    },
-    "30232": {
-        "menu_en": "Reporting > Monitoring Business Intelligence > Trash",
-        "menu_fr": "Rapports > Monitoring Business Intelligence > Poubelle",
-        "Topology ID": "30232",
-        "Topology Page": "./modules/centreon-bi-server/options/trash/trash.php",
-        "Documentation": "https://docs.centreon.com/docs/reporting/manage-reports/#trash"
+        "Documentation": "https://docs.centreon.com/docs/reporting/available-reports/"
     },
     "30233": {
         "menu_en": "Reporting > Monitoring Business Intelligence > Publication rules",
         "menu_fr": "Rapports > Monitoring Business Intelligence > R\u00e8gles de publication",
         "Topology ID": "30233",
         "Topology Page": "./modules/centreon-bi-server/options/publications/publications.php",
-        "Documentation": "https://docs.centreon.com/docs/reporting/configure/"
-    },
-    "30234": {
-        "menu_en": "Reporting > Monitoring Business Intelligence > Report design groups",
-        "menu_fr": "Rapports > Monitoring Business Intelligence > Groupes de mod\u00e8les de rapport",
-        "Topology ID": "30234",
-        "Topology Page": "./modules/centreon-bi-server/configuration/reportGroups/reportGroups.php",
-        "Documentation": "https://docs.centreon.com/docs/reporting/manage-reports/#report-design-groups"
-    },
-    "30240": {
-        "menu_en": "Reporting > Monitoring Business Intelligence > Logos",
-        "menu_fr": "Rapports > Monitoring Business Intelligence > Logos",
-        "Topology ID": "30240",
-        "Topology Page": "./modules/centreon-bi-server/configuration/logo/logo.php",
-        "Documentation": "https://docs.centreon.com/docs/reporting/manage-reports/#logo"
+        "Documentation": "https://docs.centreon.com/docs/reporting/reports-publication-rule/"
     },
     "30701": {
         "menu_en": "Reporting > Availability > Hosts",
@@ -488,6 +467,13 @@
         "Topology ID": "50205",
         "Topology Page": "./include/options/accessLists/reloadACL/reloadACL.php",
         "Documentation": "https://docs.centreon.com/docs/administration/access-control-lists/"
+    },
+    "50221": {
+        "menu_en": "Administration > ACL > ACL rules (MBI)",
+        "menu_fr": "Administration > ACL > R\u00e8gles d'acc\u00e8s (MBI)",
+        "Topology ID": "50221",
+        "Topology Page": "./modules/centreon-bi-server/configuration/aclRules/aclRules.php",
+        "Documentation": "https://docs-next-int.centreon.com/docs/reporting/share/#preparing-acls"
     },
     "50501": {
         "menu_en": "Administration > Platform Status > Broker Statistics",

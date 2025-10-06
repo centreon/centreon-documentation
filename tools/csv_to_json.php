@@ -38,8 +38,8 @@ foreach ($columns as $index => $name) {
 
 // Define base columns to extract
 $desiredColumns = [
-    "Main menu",
-    "Sub menus",
+    "complete_menu_en",
+    "complete_menu_fr",
     "Topology ID",
     "Topology Page",
     "Documentation URL"
@@ -74,13 +74,9 @@ while (($row = fgetcsv($handle)) !== false) {
             $key = $topologyId;
         }
 
-        $menuLevels = explode('>', $dataEntry["Main menu"]);
-        if (strcmp(trim($menuLevels[count($menuLevels) - 1]), trim($dataEntry["Sub menus"]))!== 0) {
-            $dataEntry["Main menu"] .= ' > ' . $dataEntry["Sub menus"];
-        }
-
         $result[$key] = [
-            "Main menu"      => $dataEntry["Main menu"],
+            "menu_en" => $dataEntry["complete_menu_en"],
+            "menu_fr" => $dataEntry["complete_menu_fr"],
             "Topology ID"    => $dataEntry["Topology ID"],
             "Topology Page"  => $dataEntry["Topology Page"],
             "Documentation"  => $docUrl
