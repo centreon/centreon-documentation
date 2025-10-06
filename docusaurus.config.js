@@ -119,7 +119,7 @@ const config = {
               (accumulator, currentValue) => {
                 accumulator[currentValue] = {
                   label: Object.keys(accumulator).length === 0 ? `⭐ ${currentValue}` : currentValue,
-                  currentValue.match(/^(22\.10|23\.04)$/) ? 'unmaintained' : 'none',
+                  banner: currentValue.match(/^(22\.10|23\.04)$/) ? 'unmaintained' : 'none',
                 }
 
                 return accumulator;
