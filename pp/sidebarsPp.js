@@ -110,7 +110,7 @@ module.exports = {
             {
               type: 'doc',
               id: 'integrations/plugin-packs/dev-resources/plugins-advanced'
-            }
+            },
             {
               type: 'doc',
               id: 'integrations/plugin-packs/dev-resources/tutorial-api'
@@ -118,7 +118,7 @@ module.exports = {
             {
               type: 'doc',
               id: 'integrations/plugin-packs/dev-resources/tutorial-snmp'
-            }
+            },
             {
               type: 'doc',
               id: 'integrations/plugin-packs/dev-resources/tutorial-service-discovery'
