@@ -29,47 +29,47 @@ Release date: `October 7, 2025`
 <details open>
   <summary>Enhancements</summary>
 
-- [API] Enhanced Agent configuration endpoints documentation.
-- [Configuration] ACC - vCenter/ESC names are now unique.
-- [configuration] Cleaned up labels in Agent configuration screens.
-- [Custom Views] "Global Health" and "Top 10" widgets - Improved display and fixed issue with MySQL8.
+- [API] Enhanced agent configuration endpoints documentation.
+- [Configuration] ACC: vCenter/ESC names are now unique.
+- [configuration] Cleaned up labels in agent configuration screens.
+- [Custom Views] "Global Health" and "Top 10" widgets: improved display and fixed issue with MySQL8.
 
 </details>
 
 <details open>
   <summary>Bug fixes</summary>
 
-- A default Token has been generated and applied to existing agent configuration.
+- A default token has been generated and applied to existing agent configurations.
 - Added missing French translations for help messages.
-- [Administration] Fixed an error message when a CMA token was copied.
-- [API v1] Fixed creation of services by CLAPI with a non-administrator user.
-- [API v1] Forbid creation of host and host groups with an empty name.
+- [Administration] Fixed an error occurring when a CMA token was copied.
+- [API v1] Fixed an issue with the creation of services by CLAPI with a non-administrator user.
+- [API v1] Creating hosts and host groups with an empty name is now forbidden.
 - [Authentication] Fixed an issue that prevented users logged in via OIDC from logging out of the interface.
-- [Authentication] LDAP user with no mail can now authenticate on Centreon with LDAP auto import.
-- [CLAPI] Fixed host creation form to accept spaces in name.
-- [Configuration] Fixed a circular dependencies issue for service template inheritance (UI + API).
-- [Configuration] Fixed an issue on Additional Configuration where configuration were lost if name are just numbers.
-- [Configuration] Fixed an issue where non explicit error message were displayed when saving host configuration if geo-coordinates are too long.
-- [Configuration] Fixed host alias not properly handling quotes in input.
-- [Configuration] Fixed an issue on "configuration changed" flag which was not updated when changing extended info using CLAPI.
-- [Configuration] Increased contact_pager property to enable longer tokens (e.g. Microsoft Teams).
+- [Authentication] LDAP users with no email can now authenticate to Centreon using LDAP auto import.
+- [CLAPI] Spaces in host names are now replaced by an underscore, making CLAPI's behavior consistent with that of the interface.
+- [Configuration] Fixed a circular dependency issue affecting service template inheritance (interface + API).
+- [Configuration] Fixed an issue with Additional Configurations where configuration were lost if the name of the vCenter contained only numbers.
+- [Configuration] Fixed an issue where non explicit error messages were displayed when saving host configuration when geographic coordinates were too long.
+- [Configuration]  Fixed an issue where host aliases were not handling quotes in inputs properly.
+- [Configuration] Fixed an issue where the "configuration changed" flag was not updated when changing extended info using CLAPI.
+- [Configuration] Increased contact_pager property to allow for longer tokens (e.g. Microsoft Teams tokens)
 - [Configuration] The creation of metaservices no longer fails for users with several ACL rules on resources.
-- [Custom Views] Host Monitoring - Fixed the export functionality for all resources.
-- [Dashboards] Metrics Graph widget - Fixed display issue when changing graph display type.
-- [Dashboards] Fixed contact search when sharing a dashboard or a playlist.
-- [Dashboards] Fixed saving issue when leaving dashboards to a legacy page.
+- [Custom Views] Host Monitoring: fixed the export functionality for all resources.
+- [Dashboards] Metrics Graph widget: fixed a display issue occurring when changing the graph display type.
+- [Dashboards] Fixed some issues with contact search when sharing a dashboard or a playlist.
+- [Dashboards] Fixed a saving issue occurring when leaving dashboards for a legacy page.
 - [Dashboards] Reduced the minimum size for MAP and Resource table widgets.
-- [Dashboards] Status Grid - Fixed link to Resource Status page.
-- [Event Logs] Pagination was not working properly.
-- Fixed an issue where service deploy endpoint was adding the command line to the service.
-- Fixed an issue where exported Tokens was ignored by engine.
-- [LDAP] Fixed an issue on Users & Groups filters validation.
-- [Packaging] Removed obsolete dependencies for database related centreon packages.
-- [Resource Status] Fixed an issue on notification tab where same user was displayed multiple times.
-- [Resource Status] Fixed notification tab to display the contact set on service template rather than on the host.
-- [Resource Status] Removed deleted resources from search results.
+- [Dashboards] Status Grid: fixed link to Resource Status page.
+- [Event Logs] Fixed pagination that was not working properly.
+- Fixed an issue where the service deployment endpoint was adding the command line to the service.
+- Fixed an issue where exported tokens were ignored by Engine.
+- [LDAP] User & Group filters now work correctly when editing an LDAP configuration.
+- [Packaging] Removed obsolete dependencies for database-related Centreon packages.
+- [Resource Status] Fixed an issue on the notification tab where the same user was displayed multiple times.
+- [Resource Status] Fixed the notification tab to display the contact defined on the service template rather than on the host.
+- [Resource Status] Deleted resources no longer appear in search results.
 - [Resource Status] The pipe “|” character is now handled correctly in the command section of a resource.
-- [Resource Status] View by host - Fixed issue preventing resources from being displayed when filtering on a resource that has no metric.
+- [Resource Status] View by host: fixed an issue preventing resources from being displayed when filtering on a resource that had no metrics.
 - [Update] Fixed an issue on modules routes which were no longer up to date.
 
 </details>
@@ -77,17 +77,10 @@ Release date: `October 7, 2025`
 <details open>
   <summary>Security fixes</summary>
 
-- [Administration] Fixed XSS in Administration > ACL > Action Access.
-- [Configuration] Fixed XSS in Configuration > SNMP Traps form.
 - [Security] The current password is now required when modifying a user password.
-- [Vulnerability] Custom Views - Fixed XSS in the HTTP Loader widget "Website" field.
 - [Vulnerability] Fixed insecure direct object reference allowing private widget retrieval.
-- [Vulnerability] Fixed XSS vulnerability on Hosts templates.
-- [Vulnerability] Fixed XSS vulnerability on Recurrent downtimes.
-- [Vulnerability]	Fixed XSS vulnerability on Connectors.
-- [Vulnerability]	Fixed XSS vulnerability on Resources Access parameters.
-- [Vulnerability] Fixed XSS vulnerability on SNMP traps.
-- [Vulnerability] Securized Poller configuration commands to avoid RCE vulnerability.
+- [Vulnerability] Fixed multiple XSS vulnerabilities.
+- [Vulnerability] Securized poller configuration commands to avoid RCE vulnerability.
 - [Vulnerability] Upgraded select2 dependency.
 
 </details>
@@ -1016,8 +1009,8 @@ Release date: `October 7, 2025`
 <details>
   <summary>Bug fixes</summary>
 
-- [Packaging] sql files are now correctly packaged on centreon-dsm.
-- [Packaging] Updated permissions of dsm purge log file.
+- [Packaging] SQL files are now correctly packaged for centreon-dsm.
+- [Packaging] Updated permissions for DSM purge and cron files.
 
 </details>
 
