@@ -14,7 +14,7 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
    **Workaround**: When you create a new Business View, you need to go to the **Resource Access Management** menu to add the Business View to a rule.
 
-* To grant access to services independently of their host, you can define rules only at services group or service category level.
+* To grant access to services independently of their host, you can define rules only at service group or service category level.
 
 ## Notifications
 
@@ -24,7 +24,6 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
 ## Configuration
 
-* Incremental mass changes are not possible for hosts and services.
 
 * Users cannot yet configure Stream Connectors themselves.
 

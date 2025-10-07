@@ -46,7 +46,7 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 #### Logiciel
 
-Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
+Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiques-des-serveurs).
 
 #### Matériel
 
@@ -171,7 +171,7 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 #### Compatibilité
 
-Notez que l'interface web de MAP a les mêmes prérequis que l'interface web Centreon. Voir les prérequis pour la compatibilité des navigateurs web [ici](../installation/prerequisites.md).
+Notez que l'interface web de MAP a les mêmes prérequis que l'interface web Centreon. Voir les prérequis pour la compatibilité des navigateurs web [ici](../installation/compatibility.md#interface-web-de-centreon).
 
 ## Pré-installation
 

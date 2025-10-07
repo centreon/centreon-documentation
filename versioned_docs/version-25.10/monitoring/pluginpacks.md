@@ -88,7 +88,7 @@ Installing a Monitoring Connector is a 4-step process:
 
 ### Accessing the Monitoring Connectors catalog
 
-* If you have an online [license](../administration/licenses.md), the Monitoring Connectors catalog is already available on your platform, on the **Configuration > Monitoring Connector Manager** page.
+* If you have an online [license](../administration/licenses.md), the Monitoring Connectors catalog is already available on your platform, on the **Configuration > Connectors > Monitoring Connectors** page.
 
 * If you have an offline license:
     - install the Monitoring Connectors repository (go to the [Centreon support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) for its address)
@@ -139,7 +139,7 @@ apt install --only-upgrade centreon-pack-\*
 
 ### Installing the pack
 
-You now have access to the Monitoring Connectors catalog, on page **Configuration > Monitoring Connector Manager**:
+You now have access to the Monitoring Connectors catalog, on page **Configuration > Connectors > Monitoring Connectors**:
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
@@ -164,11 +164,6 @@ objects and are not required to deploy the configuration templates provided by t
 
 Most of the time, it is necessary to update your Centreon platform and then reinstall your pack.
 
-In the following example, the "autodiscover" object is a discovery rule for the "Centreon Auto Discovery" module, but
-this one is only available for Centreon in version 18.10.x:
-
-![image](../assets/configuration/pluginpacks/objects_not_installed.png)
-
 ### Checking the monitoring procedure
 
 Some Monitoring Connectors require extra configuration steps. Read the monitoring procedure for each installed pack
@@ -184,7 +179,7 @@ Plugins can be installed from the command line or automatically.
 
 1. [Install the pack](#installing-the-pack).
 2. [Check the monitoring procedure](#checking-the-monitoring-procedure) for extra configuration steps.
-3. On the **Configuration > Monitoring Connector Manager** page, set **Automatic installation of plugins** to **ON**.
+3. On the **Configuration > Connectors > Monitoring Connectors** page, set **Automatic installation of plugins** to **ON**.
 4. Use a template provided by the pack to monitor a host or a service.
 5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for the pollers that monitor these hosts or services: the corresponding plugins will be automatically installed on these pollers.
 
@@ -291,7 +286,7 @@ Note that you will still have to [update the plugins](#updating-the-plugins).
 
 ### Updating the plugins
 
-On the **Configuration > Monitoring Connector Manager** page, if **Automatic installation of plugins** is set to **ON**, plugins will be updated automatically when you deploy the configuration for a poller that monitors a host that uses these plugins.
+On the **Configuration > Connectors > Monitoring Connectors** page, if **Automatic installation of plugins** is set to **ON**, plugins will be updated automatically when you deploy the configuration for a poller that monitors a host that uses these plugins.
 
 If **Automatic installation of plugins** is set to **OFF**, use the following command to update the plugins:
 
@@ -351,15 +346,20 @@ Your Monitoring Connector is now uninstalled.
 
 #### Managing dependencies
 
-You will not be able remove a pack if host and service templates created by the Monitoring Connector are being used by any
-monitored hosts and services.
+If host or service templates provided by the monitoring connector are used by a host, service or template, the monitoring connector cannot be uninstalled.
 
 ![image](../assets/configuration/pluginpacks/uninstall_pp_used.png)
 
-To uninstall the pack you will need to either:
+If the connector is used by a host or by a service, in order to uninstall it, you will need to:
 
-* delete the hosts and services linked to the templates provided by the Monitoring Connector,
-* or unlink the hosts and services from the corresponding templates.
+* either delete the hosts or services linked to the templates provided by this monitoring connector
+* or unlink hosts linked to templates provided by this monitoring connector (note that if this was the only host template applied to this host, it will no longer be monitored).
 
-Attempting to uninstall a pack that is a dependency of another pack will cause the uninstallation process to stop if
-the pack or its dependency is used by any hosts and services. Otherwise, the pack and its dependencies can be removed.
+If a template provided by the connector is used by another template, you will need to remove the link between templates before you can remove the connector, even if the other template is not used by any host or service.
+
+Besides, if you try to uninstall a connector on which another connector depends, the uninstallation can only be performed if
+neither connector is in use. 
+Example: the **Centreon Central** connector uses the **Linux SNMP** connector as a dependency. (The **Centreon Central** connector depends on the **Linux SNMP** connector.)
+
+* If you attempt to uninstall the **Linux SNMP** connector, you will get an error indicating that it is being used by the **Centreon Central** connector.
+* If neither the **Centreon Central** nor the **Linux SNMP** connector are in use, uninstallation will be possible.

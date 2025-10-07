@@ -36,6 +36,20 @@ Click the dedicated button to improve the readability of the information in the 
 - Compact view mode ![image](../assets/alerts/resources-status/compact-icon.png)
 - Extended view mode ![image](../assets/alerts/resources-status/extended-icon.png)
 
+### Export to CSV
+
+You can quickly get a detailed report on the status of your resources in a CSV file format, easy to work with. The file created contains the list of resources you have filtered and you can export up to 10,000 rows.
+
+- Click the **Export to CSV** button above the list of resources.
+- In the window that opens, set the following parameters:
+  - **Select columns**: **Visible columns only** or **All columns**.
+  - **Select pages**: **Current page only** or **All pages**.
+- Click **Export** to start the export processing. You will get a downloaded file.
+
+> Note that export processing might take some time. The real time data displayed at the output may have changed since the start of processing.
+
+- Once the download is complete, retrieve the file in the **Downloads** folder.
+
 ## Take actions on events
 
 ### Acknowledge an event
@@ -219,9 +233,9 @@ Use the **gear icon** next to **Filter** to:
 - Edit filters so that you can rename, re-order or delete them
 
 As soon as a filter is saved, it can be reused in the Filter dropdown list,
-categorized under **My Filter**.
+categorized under **My Filters**.
 
-By clicking the **Edit filters** menu, you can manage your existing filters (rename, re-order and delete):
+By clicking the **Manage filters** menu, you can manage your existing filters (rename, re-order and delete them).
 
 ## Detail panel
 
@@ -323,4 +337,4 @@ The graph opens on the **Monitoring > Performances > Graphs** page, allowing you
 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
-You can also export the data for the graph as a CSV file. This will include all metrics.
+You can also export the data for the graph as a CSV file (this will include all metrics), or as a PNG file in various sizes.

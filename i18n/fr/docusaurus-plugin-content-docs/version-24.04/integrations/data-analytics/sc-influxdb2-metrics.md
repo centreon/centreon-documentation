@@ -15,7 +15,7 @@ de défaillance unique, ou bien si vous êtes un MSP et vous installez le stream
 - Par défaut, le stream connector InfluxDB 2 Metrics envoie des métriques des évènements Broker [**host_status**](../../developer/developer-broker-mapping.md#host-status) 
 et [**service_status**](../../developer/developer-broker-mapping.md#service-status). Ces métriques sont contenues dans le champ **perf_data** des évènements. 
 Le format des évènements est décrit **[ici](#format-des-évènements)**.
-- Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres dédiés vous permettent de [ne pas envoyer certains évènements](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-influxdb2).
+- Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres dédiés vous permettent de [ne pas envoyer certains évènements](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-influxdb-2).
 
 ## Installation
 
@@ -85,7 +85,7 @@ Assurez-vous que InfluxDB 2 puisse recevoir les données envoyées par Centreon 
 | string | logfile     | The file in which logs are written          | /var/log/centreon-broker/influxdb2-metrics.log |
 | number | log_level   | Logging level from 1 (errors) to 3 (debug)  | 1                                              |
 
-7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à InfluxDB 2](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-influxdb2).
+7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à InfluxDB 2](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-influxdb-2).
 
 8. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 

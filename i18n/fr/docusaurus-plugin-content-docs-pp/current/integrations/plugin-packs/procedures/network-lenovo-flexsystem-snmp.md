@@ -20,28 +20,28 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="Net-Lenovo-Flexsystem-SNMP-custom" label="Net-Lenovo-Flexsystem-SNMP-custom">
 
-| Alias          | Modèle de service                                | Description |
-|:---------------|:-------------------------------------------------|:------------|
-| Cpu            | Net-Lenovo-Flexsystem-Cpu-custom                 | Contrôle permettant de vérifier l'utilisation processeur.             |
-| Environment    | Net-Lenovo-Flexsystem-Environment-custom         | Contrôle le matériel            |
-| Memory Usage   | Net-Lenovo-Flexsystem-Memory-Usage-custom        | Contrôle l'utilisation de la mémoire            |
-| Traffic-Global | Net-Lenovo-Flexsystem-Traffic-Global-SNMP-custom | Contrôle le trafic réseau            |
+| Alias          | Modèle de service                                | Description                                               |
+|:---------------|:-------------------------------------------------|:----------------------------------------------------------|
+| Cpu            | Net-Lenovo-Flexsystem-Cpu-custom                 | Contrôle permettant de vérifier l'utilisation processeur. |
+| Environment    | Net-Lenovo-Flexsystem-Environment-custom         | Contrôle le matériel                                      |
+| Memory Usage   | Net-Lenovo-Flexsystem-Memory-Usage-custom        | Contrôle l'utilisation de la mémoire                      |
+| Traffic-Global | Net-Lenovo-Flexsystem-Traffic-Global-SNMP-custom | Contrôle le trafic réseau                                 |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Lenovo-Flexsystem-SNMP-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                      | Modèle de service                                            | Description |
-|:---------------------------|:-------------------------------------------------------------|:------------|
-| Packet-Errors-Generic-Id   | Net-Lenovo-Flexsystem-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau            |
-| Packet-Errors-Generic-Name | Net-Lenovo-Flexsystem-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau            |
-| Packet-Errors-Global       | Net-Lenovo-Flexsystem-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau            |
-| Storage                    | Net-Lenovo-Flexsystem-Disk-Usage-custom                      | Contrôle l'utilisation des disques            |
-| Time                       | Net-Lenovo-Flexsystem-Time-custom                            | Contrôle le temps de connexion au serveur            |
-| Traffic-Generic-Id         | Net-Lenovo-Flexsystem-Traffic-Generic-Id-SNMP-custom         | Contrôle le trafic réseau d'une interface réseau            |
-| Traffic-Generic-Name       | Net-Lenovo-Flexsystem-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau            |
-| Uptime                     | Net-Lenovo-Flexsystem-Uptime-custom                          | Durée depuis laquelle le serveur tourne sans interruption            |
+| Alias                      | Modèle de service                                            | Description                                                                         |
+|:---------------------------|:-------------------------------------------------------------|:------------------------------------------------------------------------------------|
+| Packet-Errors-Generic-Id   | Net-Lenovo-Flexsystem-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau |
+| Packet-Errors-Generic-Name | Net-Lenovo-Flexsystem-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau         |
+| Packet-Errors-Global       | Net-Lenovo-Flexsystem-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau |
+| Storage                    | Net-Lenovo-Flexsystem-Disk-Usage-custom                      | Contrôle l'utilisation des disques                                                  |
+| Time                       | Net-Lenovo-Flexsystem-Time-custom                            | Contrôle le temps de connexion au serveur                                           |
+| Traffic-Generic-Id         | Net-Lenovo-Flexsystem-Traffic-Generic-Id-SNMP-custom         | Contrôle le trafic réseau d'une interface réseau                                    |
+| Traffic-Generic-Name       | Net-Lenovo-Flexsystem-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                                    |
+| Uptime                     | Net-Lenovo-Flexsystem-Uptime-custom                          | Durée depuis laquelle le serveur tourne sans interruption                           |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -73,10 +73,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Environment" label="Environment">
 
-| Métrique                     | Unité   |
-|:-----------------------------|:--------|
-| hardware.temperature.celsius | C |
-| faultled                     | N/A        |
+| Métrique                     | Unité |
+|:-----------------------------|:------|
+| hardware.temperature.celsius | C     |
+| faultled                     | N/A   |
 
 </TabItem>
 <TabItem value="Memory Usage" label="Memory Usage">
@@ -147,7 +147,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur :
+* Via la console CMM Web : https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.lxci_hwmp_scom.doc%2Fhwmp_enable_snmp_agent
+* Via l'interface CMM Command-Line : https://flexsystem.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.acc.cmm.doc%2Fcli_command_snmp
+
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -158,8 +164,10 @@ Centreon vers la ressource supervisée.
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -196,7 +204,7 @@ yum install centreon-pack-network-lenovo-flexsystem-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Lenovo Flexsystem Switch**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -249,7 +257,7 @@ yum install centreon-plugin-Network-Lenovo-Flexsystem-Snmp
 3. Appliquez le modèle d'hôte **Net-Lenovo-Flexsystem-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|

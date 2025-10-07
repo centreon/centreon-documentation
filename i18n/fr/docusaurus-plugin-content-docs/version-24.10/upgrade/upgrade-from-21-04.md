@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
 Centreon depuis la version 21.04 vers la version 24.10.
 
-> Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
+> Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#changement-de-version-de-bbdo).
 
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux
 > / RHEL 8, vous devez suivre la [procédure de migration](../migrate/migrate-from-el-to-el.md)
@@ -32,6 +32,8 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
+
+Si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les avant de mettre à jour Centreon](../alerts-notifications/ticketing-install.md#sauvegarder-votre-configuration-personnalisée-de-fournisseur-openticket).
 
 ### Mettre à jour la clé de signature RPM
 
@@ -73,12 +75,9 @@ Centreon 24.10 utilise PHP en version 8.2.
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
 
-Vous devez tout d'abord installer les dépôts **remi** :
-
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
@@ -90,18 +89,15 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
-Vous devez tout d'abord installer les dépôts **remi** :
-
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 ```
 
 Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.2 en exécutant les commandes suivantes et en répondant **y**
@@ -112,7 +108,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
@@ -120,31 +116,80 @@ dnf module install php:remi-8.2
 
 ### Montée de version de la solution Centreon
 
-> Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
-> la procédure de mise à jour.
+1. Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
 
-Si vous avez des extensions Business installées, mettez à jour le dépôt business en 24.10.
-Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
+2. Si vous avez des extensions Business installées, supprimez la configuration du dépôt 21.04 :
 
-Arrêter le processus Centreon Broker :
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-21.04.repo
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-21.04.repo
+```
+
+</TabItem>
+
+<TabItem value="Debian" label="Debian">
+
+```shell
+rm /etc/apt/sources.list.d/centreon-business.list
+```
+
+</TabItem>
+</Tabs>
+
+3. Installez le dépôt business en 24.10. Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
+
+4. Si votre système d'exploitation est Debian et que vous utilisez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
+
+5. Arrêtez le processus Centreon Broker :
 
 ```shell
 systemctl stop cbd
 ```
 
-Supprimer les fichiers de rétention présents :
+6. Supprimez les fichiers de rétention présents :
 
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
 
-Videz le cache :
+7. Videz le cache :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf clean all --enablerepo=*
 ```
 
-Mettez à jour l'ensemble des composants :
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+```shell
+apt clean all
+apt update
+```
+
+</TabItem>
+</Tabs>
+
+8. Mettez à jour l'ensemble des composants :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -259,7 +304,7 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec la commande suivante :
+Avant de démarrer la montée de version via l'interface web, mettez à jour [Centreon BAM avec cette procédure](../service-mapping/upgrade.md) puis rechargez le serveur Apache avec la commande suivante :
 
 ```shell
 systemctl reload httpd
@@ -294,8 +339,7 @@ accéder à la page de connexion :
 
 > La présentation de l'interface ayant été modifiée dans la version 22.10, vous devez vider le cache de votre navigateur pour afficher le nouveau thème.
 
-Si le module Centreon BAM est installé, référez-vous à la [documentation
-associée](../service-mapping/upgrade.md) pour le mettre à jour.
+Référez-vous à la documentation de mise à jour pour [Centreon MBI](../reporting/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md) pour mettre à jour ces modules.
 
 ### Actions post montée de version
 

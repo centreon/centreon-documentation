@@ -22,7 +22,7 @@ Selon votre [édition Centreon](https://www.centreon.com/editions/), votre licen
 
 Les modules suivants doivent être installés séparément et nécessitent une licence valide.
 
-- [connecteurs de supervision](../monitoring/pluginpacks.md#installation)
+- [connecteurs de supervision](../monitoring/pluginpacks.md#installer-le-pack)
 - [Auto Discovery](../monitoring/discovery/installation.md)
 - [Anomaly Detection](../monitoring/anomaly-detection.md)
 - [Service mapping (BAM)](../service-mapping/install.md)
@@ -129,3 +129,5 @@ chmod 640 /etc/centreon/license.d/*
   ```sql
   SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
   ```
+
+  > Les hôtes désactivés sont pris en compte par la licence. Assurez-vous que le total des hôtes existants (activés + désactivés) est inférieur à la limite fixée par votre licence.

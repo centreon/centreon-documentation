@@ -599,8 +599,10 @@ systemctl restart centreon-nrpe4.service
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -637,7 +639,7 @@ yum install centreon-pack-operatingsystems-linux-nrpe4
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Linux NRPE4**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -839,20 +841,22 @@ yum install nagios-plugins-nrpe
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Macro           | Description                                                                                                                                                         | Valeur par défaut            | Obligatoire |
-|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| NTPCOMMAND      | Default mode for parsing and command: 'ntpq' (default), 'chronyc' or 'all'                                                                                          | all                          |             |
-| FILTERPEERNAME  | Filter peer name (can be a regexp)                                                                                                                                  | .*                           |             |
-| FILTERPEERSTATE | Filter peer state (can be a regexp)                                                                                                                                 | .*                           |             |
-| WARNINGOFFSET   | Warning threshold offset deviation value in milliseconds                                                                                                            |                              |             |
-| CRITICALOFFSET  | Critical threshold offset deviation value in milliseconds                                                                                                           |                              |             |
-| WARNINGPEERS    | Warning threshold minimum amount of NTP-Server                                                                                                                      |                              |             |
-| CRITICALPEERS   | Critical threshold minimum amount of NTP-Server                                                                                                                     |                              |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\} |                              |             |
-| WARNINGSTRATUM  | Warning threshold                                                                                                                                                   |                              |             |
-| CRITICALSTRATUM | Critical threshold                                                                                                                                                  |                              |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                  | --use-new-perfdata --verbose |             |
+| Macro            | Description                                                                                                                                                         | Valeur par défaut            | Obligatoire |
+|:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
+| NTPCOMMAND       | Default mode for parsing and command: 'auto', 'ntpq', 'chronyc' or 'all'                                                                                            | auto                         |             |
+| FILTERPEERNAME   | Filter peer name (can be a regexp)                                                                                                                                  | .*                           |             |
+| EXCLUDEPEERNAME  | Exclude by peer name (can be a regexp)                                                                                                                              |                              |             |
+| FILTERPEERSTATE  | Filter peer state (can be a regexp)                                                                                                                                 | .*                           |             |
+| EXCLUDEPEERSTATE | Exclude by peer state (can be a regexp)                                                                                                                             |                              |             |
+| WARNINGOFFSET    | Warning threshold offset deviation value in milliseconds                                                                                                            |                              |             |
+| CRITICALOFFSET   | Critical threshold offset deviation value in milliseconds                                                                                                           |                              |             |
+| WARNINGPEERS     | Warning threshold minimum amount of NTP-Server                                                                                                                      |                              |             |
+| CRITICALPEERS    | Critical threshold minimum amount of NTP-Server                                                                                                                     |                              |             |
+| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |             |
+| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\} |                              |             |
+| WARNINGSTRATUM   | Warning threshold                                                                                                                                                   |                              |             |
+| CRITICALSTRATUM  | Critical threshold                                                                                                                                                  |                              |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                  | --use-new-perfdata --verbose |             |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">

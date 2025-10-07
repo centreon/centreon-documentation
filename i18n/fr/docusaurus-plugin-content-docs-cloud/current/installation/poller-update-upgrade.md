@@ -15,11 +15,11 @@ Votre collecteur doit toujours avoir la dernière version disponible (c'est-à-d
 
 ## Mettre à jour ou mettre à niveau un collecteur
 
-1. [Dans votre interface utilisateur](../getting-started/interface.md#accéder-à-linterface-du-serveur-central), cliquez sur la flèche à côté de **Collecteurs** dans le bandeau en haut à gauche.
+1. [Dans votre interface utilisateur](../getting-started/interface.md#accéder-à-linterface-utilisateur), cliquez sur la flèche à côté de **Collecteurs** dans le bandeau en haut à gauche.
 
 2. Dans la pop-up qui apparaît, cliquez sur **Copy install command**. La commande est copiée dans votre presse-papiers.
 
-3. Sur le collecteur, dans le terminal, copiez la commande d'installation et exécutez-la.
+3. Sur le collecteur, dans le terminal, copiez la commande d'installation et exécutez-la. Si un message vous indique que le collecteur existe déjà, choisissez l'option 1, **Update the existing poller**.
 
 4. [Déployez la configuration du collecteur](../monitoring/monitoring-servers/deploying-a-configuration.md), 
 en choisissant la méthode **Redémarrer** pour le processus Engine.

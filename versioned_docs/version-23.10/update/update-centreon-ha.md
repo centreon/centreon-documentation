@@ -142,7 +142,7 @@ The Centreon extensions are also updated *via* the WUI, from the "Administration
 
 ### Updating the Monitoring Connectors
 
-In order to maintain compatibility between the [Monitoring Connectors](../monitoring/pluginpacks.md) and the installed plugins (that have just been updated on the central server), the Monitoring Connectors must also be updated in the WUI from the **Configuration > Monitoring Connector Manager** menu.
+In order to maintain compatibility between the [Monitoring Connectors](../monitoring/pluginpacks.md) and the installed plugins (that have just been updated on the central server), the Monitoring Connectors must also be updated in the WUI from the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Exporting Engine/Broker configuration
 
@@ -160,7 +160,7 @@ In addition, the `cbd-sql` service must be restarted **on the central master ser
 service cbd-sql restart
 ```
 
-The `cbd` service must also be restarted on [Centreon Remote Servers](../installation/architectures.md#description):
+The `cbd` service must also be restarted on remote servers:
 
 ```bash
 service cbd restart

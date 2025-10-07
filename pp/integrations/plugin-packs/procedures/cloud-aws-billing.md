@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **AWS Billing** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -65,6 +65,8 @@ Configure a service account (access/secret key combo) for which the following pr
 * cloudwatch:ListMetrics
 * cloudwatch:getMetricStatistics
 
+> **Warning**: you must [enable billing alerts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/gs_monitor_estimated_charges_with_cloudwatch.html#gs_turning_on_billing_metrics) in order to receive that type of information in CloudWatch.
+ 
 ### Plugin dependencies
 
 To interact with the Amazon APIs, you can use either use the *awscli* binary provided by Amazon or *paws*, a Perl AWS SDK (recommended). You must install it on every poller expected to monitor AWS resources.
@@ -94,9 +96,12 @@ sudo ./aws/install
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -132,7 +137,7 @@ yum install centreon-pack-cloud-aws-billing
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **AWS Billing** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

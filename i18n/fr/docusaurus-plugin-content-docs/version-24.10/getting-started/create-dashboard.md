@@ -7,11 +7,11 @@ Commencez par créer des tableaux de bord et ajoutez des widgets spécialement c
 
 ## Découvrir la fonctionnalité Tableau de bord
 
-Suivez ce tutoriel (en Anglais) pour apprendre à concevoir un tableau de bord en y ajoutant un widget.
+Suivez ce tutoriel pour apprendre à concevoir un tableau de bord en y ajoutant un widget.
 
-> Il s'agit d'un tutoriel interactif qui peut nécessiter un clic pour passer à l'étape suivante.
+> Il s'agit d'un tutoriel interactif qui peut nécessiter un clic pour passer à l'étape suivante (le son est activé par défaut).
 
-<iframe width="100%" height="650" src="https://app.arcade.software/share/2KXNi8mU3bjgza3u73u9" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="650" src="https://demo.arcade.software/8tvsmop1AEy8Au0DyfOd" frameborder="0" allowfullscreen></iframe>
 
 ## En savoir plus sur la fonctionnalité
 

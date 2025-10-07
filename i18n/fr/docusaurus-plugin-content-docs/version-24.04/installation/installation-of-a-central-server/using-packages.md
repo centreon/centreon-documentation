@@ -347,7 +347,6 @@ Installez le dépôt Centreon à l'aide de la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
@@ -357,7 +356,6 @@ dnf update
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
@@ -563,4 +561,4 @@ systemctl start apache2
 </Tabs>
 
 2. Pour terminer l'installation, suivez la procédure
-d'[installation web](../web-and-post-installation.md#web-installation).
+d'[installation web](../web-and-post-installation.md#installation-web).

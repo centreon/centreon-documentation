@@ -10,7 +10,7 @@ title: Prerequisites
 The poller must be installed on a dedicated fresh Alma Linux/RHEL/Oracle Linux 8 or 9 server. Debian 12 is also supported for pollers from version 24.04. See our knowledge base articles [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759) and [OS updates & security](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136).
 
 ## Hardware
-
+ 
 The host machine must have at least the following characteristics:
 
 * To handle testing or small environments (up to 2000 services with checks every 5 minutes, or up to 500 services with checks every minute):
@@ -41,7 +41,7 @@ Perform the partitioning following these recommendations:
 | swap                       | 1 to 1.5 total size of RAM space                                      |
 | /                          | at least 20 GB                                                        |
 | /var/log                   | at least 10 GB                                                        |
-| /var/lib/centreon-broker   | at least 5 GB                                                         |
+| /var/lib/centreon-engine   | at least 5 GB                                                         |
 
 ## Network
 
@@ -65,3 +65,17 @@ AWS provides a [list of their IP ranges](https://ip-ranges.amazonaws.com/ip-rang
 curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.ipv6_prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ipv6_prefix' 
 curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ip_prefix' 
 ```
+
+
+If opening traffic to IP addresses is not suitable for you, it is also possible to open routes based on FQDNs or some specific URLs. The FQDNs/URLs that should be authorized are the following:
+
+On the network of each poller:
+- api.euwest1.prod1.centreon.cloud
+- api.a.prod.mycentreon.com
+- broker-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
+- gorgone-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud
+
+On the network of the user's browser:
+- https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/centreon/*
+- https://$\{CLOUD_ORG\}.euwest1.centreon.cloud/_centreon/centreon-map/*
+

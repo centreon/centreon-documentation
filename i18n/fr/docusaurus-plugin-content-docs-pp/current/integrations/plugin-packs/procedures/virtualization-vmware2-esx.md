@@ -5,9 +5,9 @@ title: VMware ESX
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-VMWare est une solution de virtualisation et d'infrastructure de Cloud Computing.
+VMware est une solution de virtualisation et d'infrastructure de Cloud Computing.
 
-Le connecteur de supervision Centreon s'appuie sur le SDK Centreon VMWare Connecteur pour requêter l'API du vCenter.
+Le connecteur de supervision Centreon s'appuie sur un connecteur dédié (centreon-vmware-daemon) utilisant le SDK VMware pour requêter l'API du vCenter.
 
 Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters, etc.
 
@@ -347,20 +347,126 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-### Configuration du connecteur Centreon VMWare
+Pour la supervision VMware, Centreon utilise un *daemon* pour se connecter et requêter le vCenter (ou les ESX, mais il est recommandé de passer par le vCenter).
 
-Pour la supervision VMWare, Centreon utilise un daemon pour se connecter et requêter le vCenter.
+### Téléchargement du SDK Perl
 
-Installer le daemon sur tous les collecteurs :
+Pour faire fonctionner ce connecteur, le SDK VMware Perl est nécessaire.
+Pour le télécharger, vous devez posséder un compte (non payant) chez Broadcom. À l'heure où ce document est rédigé, le téléchargement se fait depuis
+[cette page](https://developer.broadcom.com/sdks/vsphere-perl-sdk/latest/). Téléchargez la dernière version (l'archive dont la somme de contrôle MD5 vaut `f9ef0fc7a4e4983cf0ca6aea08d9a778`.
 
-```shell
-yum install centreon-plugin-Virtualization-VMWare-daemon
+Pour superviser des clusters vSAN, il vous faudra également télécharger une autre archive depuis [cette page](https://developer.broadcom.com/sdks/vsan-management-sdk-for-perl/latest/).
+
+Déposez ensuite les archives téléchargées à l'emplacement `/tmp/` de tous les serveurs où vous souhaiterez faire 
+fonctionner ce programme (généralement les collecteurs).
+
+### Installation du daemon Centreon VMware et du SDK Perl
+
+Installez le daemon sur tous les collecteurs :
+
+<Tabs groupId="sync">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+- Installation du paquet et d'outils nécessaires
+
+```bash
+apt -y install patch make unzip centreon-plugin-virtualization-vmware-daemon
 ```
+
+- Installation du SDK
+
+```bash
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+cd vmware-vsphere-cli-distrib
+patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
+--- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
++++ VICommon.pm	2025-04-24 17:18:18.690399614 +0200
+@@ -2319,6 +2319,8 @@
+    my $user_agent = $self->{user_agent};
+    $user_agent->cookie_jar->as_string
+       =~ m/(.*)vmware_soap_session=\"\\\"([0-9a-zA-Z-](.*)+)\\\"\"(.*)/;
++   $user_agent->cookie_jar->as_string
++      =~ m/(.*)vmware_soap_session=[\\\"]*([0-9a-zA-Z-]+)/ unless $2;
+    return $2;
+ }
+EOF
+
+perl Makefile.PL
+make pure_install
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+- Installation du paquet et d'outils nécessaires
+
+```bash
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
+```
+
+- Installation du SDK
+
+```bash
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+cd vmware-vsphere-cli-distrib
+perl Makefile.PL
+make pure_install
+```
+
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+- Installation du paquet et d'outils nécessaires
+
+```bash
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
+```
+
+- Installation du SDK
+
+```bash
+cd /tmp
+tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+cd vmware-vsphere-cli-distrib
+patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
+--- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
++++ VICommon.pm	2025-04-24 17:18:18.690399614 +0200
+@@ -2319,6 +2319,8 @@
+    my $user_agent = $self->{user_agent};
+    $user_agent->cookie_jar->as_string
+       =~ m/(.*)vmware_soap_session=\"\\\"([0-9a-zA-Z-](.*)+)\\\"\"(.*)/;
++   $user_agent->cookie_jar->as_string
++      =~ m/(.*)vmware_soap_session=[\\\"]*([0-9a-zA-Z-]+)/ unless $2;
+    return $2;
+ }
+EOF
+
+perl Makefile.PL
+make pure_install
+```
+
+
+</TabItem>
+</Tabs>
+
+- Installation des modules vSAN
+
+```bash
+cd /tmp
+unzip vsan-sdk-perl.zip
+mkdir -p /usr/local/share/perl5/VMware
+cp ./vsan-sdk-perl/bindings/VIM25Vsanmgmt* /usr/local/share/perl5/VMware/
+```
+
+### Configuration du connecteur Centreon VMWare
 
 <Tabs groupId="sync">
 <TabItem value="Centreon Cloud et OnPrem à partir de la 24.10" label="Centreon Cloud et OnPrem à partir de la 24.10">
 
-Allez à la page [**Configuration > Configurations supplémentaires de connecteurs**](../getting-started/how-to-guides/acc.md) pour configurer la connexion à votre vCenter.
+Allez à la page [**Configuration > Connecteurs > Configurations additionnelles**](../getting-started/how-to-guides/acc.md) pour configurer la connexion à votre vCenter.
 
 </TabItem>
 <TabItem value="Versions de Centreon OnPrem antérieures à la 24.10" label="Versions de Centreon OnPrem antérieures à la 24.10">
@@ -440,8 +546,10 @@ Les Collecteurs requêtant le Collecteur avec le connecteur VMWare doivent accé
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -478,7 +586,7 @@ yum install centreon-pack-virtualization-vmware2-esx
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **VMware ESX**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 

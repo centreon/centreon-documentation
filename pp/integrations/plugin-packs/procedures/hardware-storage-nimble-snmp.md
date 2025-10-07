@@ -244,8 +244,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: Volume 'Volume-A' Total: 40960.00 TB Used: 20480.00 TB (50.00%) Free: 20480.00 TB (50.00%) | 'used'=22517998138949632B;0:36028797019802832;0:40532396647278184;0;45035996274753536
-Volume 'Volume-A' Total: 40960.00 TB Used: 20480.00 TB (50.00%) Free: 20480.00 TB (50.00%)
+OK: Volume 'Volume-A' Total: 4.35 GB Used: 1.95 GB (44.89%) Free: 2.40 GB (55.11%) | 'used'=2097152000B;;;0;4671406080
+Volume 'Volume-A' Total: 4.35 GB Used: 1.95 GB (44.89%) Free: 2.40 GB (55.11%)
 ```
 
 ### Troubleshooting

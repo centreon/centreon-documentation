@@ -3467,11 +3467,7 @@ You may change the following parameters:
 | alias            | Alias                           |
 | comment          | Comment                         |
 | activate         | *1* when enabled, *0* otherwise |
-| notes            | Notes                           |
-| notes\_url       | Notes URL                       |
-| action\_url      | Action URL                      |
 | icon\_image      | Icon image                      |
-| map\_icon\_image | Map icon image                  |
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
@@ -3504,11 +3500,7 @@ You may edit the following parameters:
 | alias            | Alias                           |
 | comment          | Comment                         |
 | activate         | *1* when enabled, *0* otherwise |
-| notes            | Notes                           |
-| notes\_url       | Notes URL                       |
-| action\_url      | Action URL                      |
 | icon\_image      | Icon image                      |
-| map\_icon\_image | Map icon image                  |
 
 #### Getmember
 

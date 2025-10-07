@@ -786,7 +786,7 @@ Pour accéder au cluster, kubectl a besoin d'un fichier de configuration
 contenant toutes les informations nécessaires.
 
 Voici un exemple de création de fichier de configuration basé sur un compte
-de service (créé au [chapitre précédent](#creer-un-compte-de-service)).
+de service (créé au [chapitre précédent](#créer-un-compte-de-service)).
 
 Vous devrez remplir les informations suivantes et exécuter les commandes
 sur le noeud maître:
@@ -846,8 +846,10 @@ pour plus de détails.
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -884,7 +886,7 @@ yum install centreon-pack-cloud-kubernetes-api
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Kubernetes API**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -938,7 +940,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Kubernetes-Api-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro                   | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -955,7 +957,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-> Pour la découverte d'hôte : définissez le jeton [récupéré plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du compte de service,
+> Pour la découverte d'hôte : définissez le jeton [récupéré plus tôt](#récupérer-le-jeton-du-compte-de-service) à partir du compte de service,
 
 </TabItem>
 <TabItem value="Cloud-Kubernetes-Kubectl-custom" label="Cloud-Kubernetes-Kubectl-custom">
@@ -963,7 +965,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Kubernetes-Kubectl-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro                   | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -976,7 +978,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-> Pour la découverte d'hôte : définissez le chemin vers le [fichier de configuration créé](#creer-une-configuration-kubectl) (utilisez le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
+> Pour la découverte d'hôte : définissez le chemin vers le [fichier de configuration créé](#créer-une-configuration-kubectl) (utilisez le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
 
 </TabItem>
 <TabItem value="Cloud-Kubernetes-Node-Api-custom" label="Cloud-Kubernetes-Node-Api-custom">
@@ -984,7 +986,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Kubernetes-Node-Api-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro                   | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -1001,7 +1003,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-> Pour la découverte d'hôte : définissez le jeton [récupéré plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du compte de service,
+> Pour la découverte d'hôte : définissez le jeton [récupéré plus tôt](#récupérer-le-jeton-du-compte-de-service) à partir du compte de service,
 
 </TabItem>
 <TabItem value="Cloud-Kubernetes-Node-Kubectl-custom" label="Cloud-Kubernetes-Node-Kubectl-custom">
@@ -1009,7 +1011,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **Cloud-Kubernetes-Node-Kubectl-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
 | Macro                   | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -1022,7 +1024,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-> Pour la découverte d'hôte : définissez le chemin vers le [fichier de configuration créé](#creer-une-configuration-kubectl) (utilisez le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
+> Pour la découverte d'hôte : définissez le chemin vers le [fichier de configuration créé](#créer-une-configuration-kubectl) (utilisez le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
 
 </TabItem>
 </Tabs>
@@ -1220,7 +1222,7 @@ utiliser l'option `--debug` pour obtenir l'erreur exacte.
 | `UNKNOWN: CLI return error code '1' (add --debug option for detailed message)`                         | If adding `--debug` option, CLI response message says `error: error loading config file "/root/.kube/config": v1.Config.AuthInfos: []v1.NamedAuthInfo: v1.NamedAuthInfo.AuthInfo: v1.AuthInfo.ClientKeyData: decode base64: illegal base64...`. The provided configuration file is not valid.             |
 | `UNKNOWN: CLI return error code '1' (add --debug option for detailed message)`                         | If adding `--debug` option, CLI response message says `The connection to the server <hostname>:<port> was refused - did you specify the right host or port?`. The provided configuration file is not valid.             |
 
-Pour plus d'informations, rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Pour plus d'informations, rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
@@ -1335,22 +1337,22 @@ Les options spécifiques aux **custom modes** sont listées ci-dessous :
 <Tabs groupId="sync">
 <TabItem value="api" label="api">
 
-| Option            | Description                                                                                                                                                                                                                                 |
-|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --hostname        | Kubernetes API hostname.                                                                                                                                                                                                                    |
-| --port            | API port (default: 443)                                                                                                                                                                                                                     |
-| --proto           | Specify https if needed (default: 'https')                                                                                                                                                                                                  |
-| --timeout         | Set HTTP timeout                                                                                                                                                                                                                            |
-| --limit           | Number of responses to return for each list calls. See https://kubernetes.io/docs/reference/kubernetes-api/common-param eters/common-parameters/#limit                                                                                      |
-| --namespace       | Set namespace to get information.                                                                                                                                                                                                           |
-| --legacy-api-beta | If this option is set the legacy API path are set for this API calls: kubernetes\_list\_cronjobs will use this path: /apis/batch/v1beta1/namespaces/ and kubernetes\_list\_ingresses will use this path: /apis/extensions/v1beta1/namespaces/ . This ways are no longer served since K8S 1.22 see https://kubernetes.io/docs/reference/using-api/deprecation-guide/#ingress-v122   |
-| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                         |
-| --proxyurl        | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                    |
-| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                              |
-| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                            |
-| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                     |
-| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                   |
-| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                            |
+| Option            | Description                                                                                                                                                                                                                                                                                                                                                                      |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --hostname        | Kubernetes API hostname.                                                                                                                                                                                                                                                                                                                                                         |
+| --port            | API port (default: 443)                                                                                                                                                                                                                                                                                                                                                          |
+| --proto           | Specify https if needed (default: 'https')                                                                                                                                                                                                                                                                                                                                       |
+| --timeout         | Set HTTP timeout (default: 10)                                                                                                                                                                                                                                                                                                                                                   |
+| --limit           | Number of responses to return for each list calls. See https://kubernetes.io/docs/reference/kubernetes-api/common-param eters/common-parameters/#limit (default: 100)                                                                                                                                                                                                            |
+| --namespace       | Set namespace to get information.                                                                                                                                                                                                                                                                                                                                                |
+| --legacy-api-beta | If this option is set the legacy API path are set for this API calls: kubernetes\_list\_cronjobs will use this path: /apis/batch/v1beta1/namespaces/ and kubernetes\_list\_ingresses will use this path: /apis/extensions/v1beta1/namespaces/ . This ways are no longer served since K8S 1.22 see https://kubernetes.io/docs/reference/using-api/deprecation-guide/#ingress-v122 |
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                              |
+| --proxyurl        | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                   |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                 |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                          |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                                                                                                        |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                                                                                                                 |
 
 </TabItem>
 <TabItem value="kubectl" label="kubectl">

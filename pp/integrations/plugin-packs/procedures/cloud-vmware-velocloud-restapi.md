@@ -140,16 +140,20 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To use this connector, you must have the login and a password of an account allowed to use the VeloCloud Orchestrator 
-API. 
+To use this connector, you must have the login and password of an account allowed to use the VeloCloud Orchestrator 
+API.
+MSP-type accounts are not supported.
 
 ## Installing the monitoring connector
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -185,7 +189,7 @@ yum install centreon-pack-cloud-vmware-velocloud-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **VMware VeloCloud** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

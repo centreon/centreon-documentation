@@ -56,31 +56,7 @@ Les données sont envoyées vers la plateforme Centreon SaaS. Aucune donnée per
 
 - Si une machine hôte n'a pas d'accès direct à l'extérieur, deux options complémentaires l'une de l'autre se présentent : la [configuration proxy](#configuration-proxy) et la [configuration passerelle](#configuration-en-mode-passerelle).
 
-- Les fichiers RPM sont disponibles sur les dépôts Centreon officiels des versions actuellement supportées. Le dépôt Centreon officiel doit être installé :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
-dnf clean all --enablerepo=*
-dnf update
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
-dnf clean all --enablerepo=*
-dnf update
-```
-
-</TabItem>
-</Tabs>
+- Les fichiers RPM sont disponibles sur les dépôts Centreon officiels des versions actuellement supportées. Le [dépôt Centreon officiel](../installation/installation-of-a-central-server/using-packages.md#dépôt-centreon) doit être installé.
 
 - Vous devez être en possession de votre jeton unique vous permettant d'envoyer des données vers notre plateforme. Ce jeton vous est fourni par notre équipe support.
 
@@ -92,9 +68,29 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
 1. Installez Helios :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
     ```
     dnf install centreon-agent
     ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+    ```
+    dnf install centreon-agent
+    ```
+	
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+    ```
+    apt install centreon-agent
+    ```
+	
+</TabItem>
+</Tabs>
 
 2. Si vous installez Helios pour la première fois sur ce serveur, générez le fichier yaml de configuration à l'aide de la commande Shell suivante :
 
@@ -186,9 +182,27 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
 1. Installez Helios :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
     ```
     dnf install centreon-agent
     ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+    ```
+    dnf install centreon-agent
+    ```
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+    ```
+    apt install centreon-agent
+    ```
+</TabItem>
+</Tabs>
 
 2. Si vous installez Helios pour la première fois sur ce serveur, configurez le fichier `centreon-agent.yml` :
 

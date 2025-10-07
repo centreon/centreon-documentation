@@ -7,7 +7,7 @@ Les connecteurs de supervision constituent la façon la plus facile de mettre en
 
 ## Procédure
 
-1. Pour accéder au catalogue des connecteurs, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
+1. Pour accéder au catalogue des connecteurs, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
 2. Pour installer un pack, cliquez sur le bouton **+** dans la tuile correspondante.
 
 ## Dépannage

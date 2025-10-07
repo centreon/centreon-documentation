@@ -39,8 +39,8 @@ Dans cet exemple, nous avons un serveur central (sans modules Business installé
 * Il existe en réalité 2 Brokers: 1 **master Broker** et 1 **Broker RRD**.
 * Seuls le serveur central et les serveurs distants contiennent des Brokers.
 * Engine envoie les données au master Broker:
-   * Le master Broker écrit les données dans les [bases MariaDB/MySQL](#a-mariadbmysql-database).
-   * Le master Broker envoie une copie des [métriques](https://docs.centreon.com/fr/docs/monitoring/metrics) et des [statuts](https://docs.centreon.com/fr/docs/alerts-notifications/concepts) au Broker RRD afin qu'il les écrive dans la [base de données RRD](#a-rrd-databaserrd-files).
+   * Le master Broker écrit les données dans les [bases MariaDB/MySQL](#une-base-de-données-mariadbmysql).
+   * Le master Broker envoie une copie des [métriques](https://docs.centreon.com/fr/docs/monitoring/metrics) et des [statuts](https://docs.centreon.com/fr/docs/alerts-notifications/concepts) au Broker RRD afin qu'il les écrive dans la [base de données RRD](#une-base-de-données-rrd-fichiers-rrd).
 * Les données sont envoyées au [format BBDO](https://docs.centreon.com/fr/docs/developer/developer-broker-bbdo/).
 * Chaque Broker a des entrées (inputs) et des sorties (outputs) que vous pouvez configurer. Par défaut, Broker est principalement installé avec des entrées et sorties IPv4 (en réalité, une sortie IPv4 vers la base RRD et une sortie Unified SQL vers la base de données MariaDB/MySQL). Cependant, il est recommandé de configurer un client et un serveur BBDO entre Engine et le master Broker, car cette configuration est plus simple.
 * Pour configurer un Broker, utlisez la page **Configuration > Collecteurs > Configuration de Centreon Broker**.

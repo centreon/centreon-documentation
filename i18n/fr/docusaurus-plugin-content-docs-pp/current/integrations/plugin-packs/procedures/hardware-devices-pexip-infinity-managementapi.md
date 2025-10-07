@@ -66,7 +66,7 @@ Plus d'informations sont disponible sur la documentation officielle de Pexip Inf
 yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
 ```
 
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Pexip Infinity ManagementAPI* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Pexip Infinity ManagementAPI* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -83,7 +83,7 @@ yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
 yum install centreon-pack-hardware-devices-pexip-infinity-managementapi.noarch
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Pexip Infinity ManagementAPI* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Pexip Infinity ManagementAPI* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>

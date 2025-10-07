@@ -21,7 +21,7 @@ According to your [Centreon edition](https://www.centreon.com/en/editions/), you
 
 The following modules need to be installed separately and require a valid license.
 
-- [Monitoring Connectors](../monitoring/pluginpacks.md#installation)
+- [Monitoring Connectors](../monitoring/pluginpacks.md#installing-a-monitoring-connector)
 - [Auto Discovery](../monitoring/discovery/installation.md)
 - [Anomaly Detection](../monitoring/anomaly-detection.md)
 - [Service mapping (BAM)](../service-mapping/install.md)
@@ -36,7 +36,7 @@ Go to **Administration > Extensions > Manager**. All modules currently installed
 
 ## Adding a license to your Centreon platform
 
-<Tabs groupId="sync">
+<Tabs groupId="licences" queryString>
 <TabItem value="Online licenses" label="Online licenses">
 
 > Refer to the [tables of network flows](../installation/technical.md#tables-of-network-flows) to integrate your monitoring platform.
@@ -131,3 +131,5 @@ chmod 640 /etc/centreon/license.d/*
     ```sql
     SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
     ```
+
+    > Disabled hosts are taken into account by the license. Make sure that the total number of existing hosts (enabled + disabled) is below the limit set by your license.

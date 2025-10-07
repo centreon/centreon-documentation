@@ -352,16 +352,20 @@ Votre connecteur de supervision est désinstallé.
 
 #### Gestion des dépendances
 
-Si les modèles d’hôtes et de services créés par le connecteur de supervision sont utilisés par des hôtes et services actifs, le Plugin
-Pack ne pourra être désinstallé.
+Si des modèles d’hôtes ou de services fournis par le connecteur de supervision sont utilisés par un hôte, un service ou un modèle, le connecteur de supervision ne pourra pas être désinstallé. 
 
 ![image](../assets/configuration/pluginpacks/uninstall_pp_used.png)
 
-Pour pouvoir le désinstaller, soit vous :
+Si le connecteur est utilisé par un hôte ou un service, pour pouvoir le désinstaller, vous devrez :
 
-* supprimez les hôtes ou services liés aux modèles fournis par ce connecteur de supervision
-* déliez les hôtes ou services liés aux modèles fournis par ce connecteur de supervision
+* soit supprimer les hôtes ou services liés aux modèles fournis par ce connecteur de supervision
+* soit délier les hôtes liés aux modèles fournis par ce connecteur de supervision (attention, s'il s'agissait du seul modèle d'hôte appliqué à cet hôte, cela rendra celui-ci inutilisable).
 
-De plus, si vous tentez de désinstaller un pack dépendant d’un autre pack, la désinstallation ne pourra être faite que
-si et seulement si ce pack n’est pas utilisé ni le(s) pack(s) dépendant(s). De plus, les packs dépendant seront
-également supprimés.
+Si un modèle fourni par le connecteur est utilisé par autre modèle, vous devrez supprimer le lien entre modèles avant de pouvoir supprimer le connecteur, même si l'autre modèle n'est utilisé par aucun hôte ou service.
+
+De plus, si vous tentez de désinstaller un connecteur dont un autre connecteur dépend, la désinstallation ne pourra être faite que
+si et seulement si les deux connecteurs ne sont pas utilisés. 
+Exemple : le connecteur **Centreon central** utilise en dépendance le connecteur **Linux SNMP**. (Le connecteur **Centreon Central** dépend du connecteur **Linux SNMP**.)
+
+* Si vous tentez de désinstaller le connecteur **Linux SNMP**, une erreur vous signalera que celui-ci est utilisé par le connecteur **Centreon Central**.
+* Si ni le connecteur **Centreon Central** ni le connecteur **Linux SNMP** n'étaient utilisés, la désinstallation sera possible.

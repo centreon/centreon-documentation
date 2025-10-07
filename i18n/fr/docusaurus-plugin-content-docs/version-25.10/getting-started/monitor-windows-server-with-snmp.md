@@ -122,7 +122,7 @@ apt install centreon-plugin-operatingsystems-windows-snmp
 
 ### Sur le serveur central
 
-Dans l'interface Web, accédez à **Configuration > Gestionnaire de connecteurs de supervision** et installez le connecteur de supervision **Windows SNMP** :
+Dans l'interface Web, accédez à **Configuration > Connecteurs > Connecteurs de supervision** et installez le connecteur de supervision **Windows SNMP** :
 
 ![image](../assets/getting-started/prise_en_main_windows_snmp_10.gif)
 

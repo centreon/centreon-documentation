@@ -215,6 +215,8 @@ Dans cet exemple :
 
 À partir de là, votre utilisateur dédié est opérationnel et peut superviser votre serveur Windows sans nécessiter de compte administrateur local.
 
+> Remarque : Le SDDL doit donc être configuré pour `scmanager` et pour tous les services supplémentaires que vous souhaitez superviser. 
+
 </TabItem>
 <TabItem value="Configuration du domaine" label="Configuration du domaine">
 

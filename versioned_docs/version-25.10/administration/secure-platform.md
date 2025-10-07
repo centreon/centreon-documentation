@@ -37,7 +37,7 @@ You must have **/sbin/nologin** like:
 apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 ```
 
-> As a reminder, the list of users and groups can be found [here](../installation/prerequisites.md#users-and-groups)
+> As a reminder, the list of users and groups can be found [here](../installation/technical.md#users-and-groups)
 
 ## Enable SELinux
 
@@ -51,7 +51,7 @@ components by the operating system.
 
 ### SELinux Overview
 
-Security Enhanced Linux (SELinux) provides an additional layer of system security. SELinux fundamentally answers the
+Security Enhanced Linux (SELinux) provides an additional layer of system security in EL environments. SELinux fundamentally answers the
 question: `May <subject> do <action> to <object>?`, for example: May a web server access files in users' home
 directories?
 
@@ -179,45 +179,7 @@ Depending on the type of server, install the packages with the following command
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-<Tabs groupId="sync">
-<TabItem value="Central / Remote Server" label="Central / Remote Server">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-web-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Poller" label="Poller">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Map server" label="Map server">
-
-   ```shell
-   apt install centreon-map-selinux
-   ```
-
-</TabItem>
-<TabItem value="MBI server" label="MBI server">
-
-   ```shell
-   apt install centreon-mbi-selinux
-   ```
-
-</TabItem>
-</Tabs>
+SELinux only concerns EL environments.
 
 </TabItem>
 </Tabs>
@@ -342,7 +304,7 @@ systemctl start firewalld
 Then add rules for firewalld:
 
 > The list of network flows required for each type of server is defined
-> [here](../installation/architectures.md#tables-of-platform-flows).
+> [here](../installation/technical.md#tables-of-network-flows).
 
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
@@ -1306,8 +1268,7 @@ If everything is ok, you should have:
 
 Now you can access your platform with your browser in HTTPS mode.
 
-> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you must set it to HTTPS mode too, otherwise
-> recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#Configure-HTTPS/TLS-on-the-MAP-server).
+> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you must set the `centreon.url=https://<server-address>` inside the **/etc/centreon-map/map-config.properties** file to use HTTPS instead of HTTP. Otherwise recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#configure-httpstls-on-the-map-server).
 
 9. Gorgone API configuration
 
@@ -1589,7 +1550,7 @@ the management of [Access Control List](./access-control-lists.md).
 It is strongly recommended to secure communications between the different servers of the Centreon platform if some servers
 are not in a secure network.
 
-> The Table of network flows is available [here](../installation/architectures.md#table-of-network-flows).
+> The Table of network flows is available [here](../installation/technical.md#tables-of-network-flows).
 
 ### Centreon Broker communication
 

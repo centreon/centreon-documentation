@@ -150,7 +150,7 @@ SELinux n'est pas installé sur Debian 11, continuez.
 
 ### Configurer ou désactiver le pare-feu
 
-Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.md#enable-firewalld).
+Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.md#activer-firewalld).
 Vous pouvez également le désactiver le temps de l'installation :
 
 ```shell
@@ -158,7 +158,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.md#enable-firewalld)
+> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.md#activer-firewalld)
 > pour configurer le pare-feu.
 
 ### Installer les dépôts

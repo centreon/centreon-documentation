@@ -210,7 +210,7 @@ L'installation du connecteur de supervision en lui-même ne concerne que le serv
 <Tabs groupId="sync">
 <TabItem value="Licence IMP/EPP Online & IT-100 Editions" label="Licence IMP/EPP Online & IT-100 Editions">
 
-Installer le connecteur de supervision "Linux NRPE3" depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
+Installer le connecteur de supervision "Linux NRPE3" depuis la page **Configuration > Connecteurs > Connecteurs de supervision**.
 
 </TabItem>
 <TabItem value="Licence IMP/EPP Offline" label="Licence IMP/EPP Offline">
@@ -221,7 +221,7 @@ Installer le connecteur de supervision "Linux NRPE3" depuis la page **Configurat
 yum install centreon-pack-operatingsystems-linux-nrpe3
 ```
 
-2. Installer le connecteur de supervision "Linux NRPE3" depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
+2. Installer le connecteur de supervision "Linux NRPE3" depuis la page **Configuration > Connecteurs > Connecteurs de supervision**.
 
 </TabItem>
 </Tabs>

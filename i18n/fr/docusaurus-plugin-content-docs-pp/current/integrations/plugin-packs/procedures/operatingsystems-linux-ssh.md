@@ -358,8 +358,10 @@ Deux méthodes de connexion SSH sont possibles :
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -396,7 +398,7 @@ yum install centreon-pack-operatingsystems-linux-ssh
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Linux SSH**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -619,9 +621,11 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 
 | Macro           | Description                                                                                                                                                         | Valeur par défaut | Obligatoire |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NTPMODE         | Default mode for parsing and command: 'ntpq' (default), 'chronyc' or 'all'                                                                                          | ntpq              |             |
+| NTPMODE         | Default mode for parsing and command: 'auto', 'ntpq', 'chronyc' or 'all'                                                                                            | auto              |             |
 | FILTERNAME      | Filter peer name (can be a regexp)                                                                                                                                  |                   |             |
+| EXCLUDENAME     | Filter by peer name (can be a regexp)                                                                                                                               |                   |             |
 | FILTERSTATE     | Filter peer state (can be a regexp)                                                                                                                                 |                   |             |
+| EXCLUDESTATE    | Filter by peer state (can be a regexp)                                                                                                                              |                   |             |
 | UNKNOWNSTATUS   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                   |             |
 | WARNINGOFFSET   | Warning threshold offset deviation value in milliseconds                                                                                                            |                   |             |
 | CRITICALOFFSET  | Critical threshold offset deviation value in milliseconds                                                                                                           |                   |             |

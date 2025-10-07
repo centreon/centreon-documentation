@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Cisco WLC** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -176,9 +176,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Metric name         | Unit  |
-|:--------------------|:------|
-| power supply status |       |
+| Metric name         | Unit |
+|:--------------------|:-----|
+| power supply status | N/A  |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -209,9 +209,10 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your ressource.
-Please refer to the official documentation:
-* [CISCO WLC](https://www.cisco.com/c/en/us/td/docs/wireless/controller/8-5/config-guide/b_cg85/snmp.html)
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the [official documentation](https://www.cisco.com/c/en/us/td/docs/wireless/controller/8-5/config-guide/b_cg85/snmp.html) from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -222,9 +223,12 @@ SNMP port.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -260,7 +264,7 @@ yum install centreon-pack-network-cisco-wlc-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Cisco WLC** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

@@ -8,13 +8,42 @@ import TabItem from '@theme/TabItem';
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
 23.10 (c'est-à-dire le passage de 23.10.x à 23.10.y).
 
-## Sauvegarde
+## Avant la mise à jour
 
 Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
 des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
+
+Si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les avant de mettre à jour Centreon](../alerts-notifications/ticketing-install.md#sauvegarder-votre-configuration-personnalisée-de-fournisseur-openticket).
+
+
+Eliminez les paquets debuginfo avant de poursuivre à moins d'en avoir un besoin spécifique.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+  ```shell
+  dnf remove $(rpm -qa --qf "%{NAME}\n" | grep '^centreon.*debuginfo')
+  ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+  ```shell
+  dnf remove $(rpm -qa --qf "%{NAME}\n" | grep '^centreon.*debuginfo')
+  ```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+  ```shell
+ apt remove $(dpkg -l | awk '/^ii/ && $2 ~ /^centreon.*debuginfo/ { print $2 }')
+  ```
+
+</TabItem>
+</Tabs>
 
 ## Mise à jour du serveur Centreon Central
 

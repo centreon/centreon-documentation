@@ -71,7 +71,7 @@ reporting server, for performance and isolation reasons.
 
 #### Software requirements
 
-See the [software requirements](../installation/prerequisites.md#software).
+See the [software requirements](../installation/prerequisites.md#characteristics-of-the-servers).
 
 You should install the MariaDB database at the same time. We highly recommend
 installing the database on the same server, due to performance and isolation
@@ -328,14 +328,6 @@ Import the repository key:
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-Add the following external repository (for Java 8):
-
-```shell
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
 ```
 
 Then install Centreon MBI:

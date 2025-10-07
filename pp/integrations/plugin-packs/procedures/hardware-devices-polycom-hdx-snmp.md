@@ -116,7 +116,7 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Hdx-Snmp
 ```
 
 2. On the Centreon Web interface, install the *Polycom HDX SNMP* Monitoring Connector 
-through **Configuration > Monitoring Connector Manager** page.
+through **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -134,7 +134,7 @@ yum install centreon-pack-hardware-devices-polycom-hdx-snmp
 ```
 
 3. On the Centreon Web interface, install the *Polycom HDX SNMP* Monitoring Connector 
-through **Configuration > Monitoring Connector Manager** page.
+through **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 </Tabs>

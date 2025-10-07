@@ -160,7 +160,7 @@ poller, 0 = no poller added) | 0 |
 | number | add_servicegroups_dimension | Adds the service groups to the data that is sent. (1 = addition of
 service groups, 0 = no service groups added) | 0 |
 
-7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Elasticsearch](#filtering-or-adapting-the-data-you-want-to-send-to-Elasticsearch).
+7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Elasticsearch](#filtering-or-adapting-the-data-you-want-to-send-to-elasticsearch).
 
 8. [Deploy the configuration](https://docs.centreon.com/docs/monitoring/monitoring-servers/deploying-a-configuration/).
 

@@ -32,38 +32,40 @@ Due to Telegraf or Centreon constraints, the following limitations need to be co
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-1. On your central server, go to **Configuration > Monitoring Connector Manager**.
-2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the **Linux Telegraf Agent** monitoring connector.
+1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
+2. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the **Linux Telegraf Agent** monitoring connector.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. On your central server, go to **Configuration > Monitoring Connector Manager**.
-2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the **Windows Telegraf Agent** monitoring connector.
+1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
+2. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the **Windows Telegraf Agent** monitoring connector.
 
 </TabItem>
 </Tabs>
 
 ### Create the Telegraf connector
 
-Install the Open Telemetry processor for Telegraf on your central server:
+If your Centreon is on version 24.10.6 or newer, skip this step and move on to the [next one](#configure-engine). 
 
-1. Go to **Configuration > Commands > Connectors**.
-2. Create a new connector with the following values:
+If your Centreon is a version older than 24.10.6, you need to install the Open Telemetry processor for Telegraf on your central server:
 
-| Parameter             | Value                                                                                                                                                                                                                            |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connector Name        | Telegraf                                                                                                                                                                                                                         |
-| Connector Description | Telegraf                                                                                                                                                                                                                         |
-| Command Line          | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resource_metrics.scope_metrics.data.data_points.attributes.host --service_path=resource_metrics.scope_metrics.data.data_points.attributes.service` |
-| Used by command       | Type `Telegraf-Agent` and click **Select all**                                                                                                                                                                                   |
+1. Go to **Configuration > Commands > Connectors**.	
+2. Create a new connector with the following values:	
+
+| Parameter             | Value                                                                                                                                                                                                                            |	
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |	
+| Connector Name        | Telegraf Beta                                                                                                                                                                                                                         |	
+| Connector Description | Telegraf Beta                                                                                                                                                                                                                         |	
+| Command Line          | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resource_metrics.scope_metrics.data.data_points.attributes.host --service_path=resource_metrics.scope_metrics.data.data_points.attributes.service` |	
+| Used by command       | Type `Telegraf-Agent` and click **Select all**                                                                                                                                                                                   |	
 | Connector Status      | Enabled                                                                                                                                                                                                                          |
 
 ### Configure Engine
 
 Configure how the poller and the agent will communicate:
 
-<PollerAgentConfiguration />
+<PollerAgentConfiguration type="Telegraf" />
 
 5. The **Configuration provider** is the server inside the poller's engine that will send the agent its configuration. Enter the port and the file names for the certificates. The certificates must be stored in the **/etc/pki/** directory. You can use the same certificates as for the OTLP receiver.
 > If you configure several pollers at once, make sure all certificate files have the same name.
@@ -108,40 +110,6 @@ EOF
 ```bash
 dnf install -y telegraf
 ```
-
-Then:
-
-1. Stop the Telegraf service 
-
-```shell
-systemctl stop telegraf
-```
-
-2. Edit the **telegraf.service** file. 
-
-```shell
-vi /etc/systemd/system/telegraf.service
-```
-
-3. Replace:
-
-```shell
-/usr/bin/telegraf -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d $TELEGRAF_OPTS
-```
-
-By (replace the placeholders by your values):
-
-```shell
-/usr/bin/telegraf -config http(s)://<ip poller>:<port poller>/engine?host=<host to monitor>
-```
-
-4. Start the Telegraf service:
-
-
-```shell
-systemctl start telegraf
-```
-
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -166,40 +134,6 @@ EOF
 ```bash
 dnf install -y telegraf
 ```
-
-Then:
-
-1. Stop the Telegraf service 
-
-```shell
-systemctl stop telegraf
-```
-
-2. Edit the **telegraf.service** file. 
-
-```shell
-vi /etc/systemd/system/telegraf.service
-```
-
-3. Replace:
-
-```shell
-/usr/bin/telegraf -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d $TELEGRAF_OPTS
-```
-
-By (replace the placeholders by your values):
-
-```shell
-/usr/bin/telegraf -config http(s)://<ip poller>:<port poller>/engine?host=<host to monitor>
-```
-
-4. Start the Telegraf service:
-
-
-```shell
-systemctl start telegraf
-```
-
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
@@ -215,6 +149,8 @@ apt-get update
 ```bash
 apt-get -y install telegraf
 ```
+</TabItem>
+</Tabs>
 
 You must then configure the Telegraf OpenTelemetry output.
 You must uncomment this paragraph or recreate a configuration file with just the following lines:
@@ -245,10 +181,10 @@ You must uncomment this paragraph or recreate a configuration file with just the
 If the communication between Telegraf and the poller is not encrypted, you just have to enter the IP address and port of the poller in the **service_address** option (port entered in the **otel_server** field in the poller’s configuration). If not, you will also need to provide a value for at least **tls_ca**.
 
 Now you need to add the Telegraf configuration server provided by the poller.
-You must create the ***/etc/default/telegraf file** and add the following line:
+You must create the **/etc/default/telegraf file** and add the following line:
 
 ```
-TELEGRAF_OPTS=-config https://<ip poller>:<http_server port>/engine? host=<host_to_monitor>
+TELEGRAF_OPTS=-config https://<ip poller>:<http_server port>/engine?host=<host_to_monitor>
 ```
 
 The arguments of this command will allow Telegraf to know where to get the configuration of the resources it must monitor (that is to say on the poller or on the central server following the IP address defined in the command). The parameter `<host_to_monitor>` is the name of the host as entered in the **Name** field of its configuration.
@@ -258,9 +194,6 @@ You now have to restart Telegraf:
 ```
 systemctl restart telegraf
 ```
-
-</TabItem>
-</Tabs>
 
 </TabItem>
 <TabItem value="Windows" label="Windows">

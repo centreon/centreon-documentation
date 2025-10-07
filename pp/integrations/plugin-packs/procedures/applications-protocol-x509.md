@@ -51,9 +51,12 @@ The monitored resource must support HTTPS and present a X509 certificate.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -89,7 +92,7 @@ yum install centreon-pack-applications-protocol-x509
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **X509 Certificat** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -153,13 +156,13 @@ yum install centreon-plugin-Applications-Protocol-X509
 <Tabs groupId="sync">
 <TabItem value="X509-Certificate" label="X509-Certificate">
 
-| Macro          | Description                                                                                                                                                                                                                                                                                                                                                                                           | Default value       | Mandatory   |
-|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
-| CUSTOMMODE     |                                                                                                                                                                                                                                                                                                                                                                                                       | tcp                 |             |
-| PORT           | Port used by host                                                                                                                                                                                                                                                                                                                                                                                     | 443                 | X           |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. (Default: '%\{expiration\} \< 60'). Can use special variables like: %\{expiration\}, %\{subject\}, %\{issuer\}, %\{alt_subjects\}                                                                                                                                                                                                                 | %\{expiration\} \< 60 |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. (Default: '%\{expiration\} \< 30'). Can use special variables like: %\{expiration\}, %\{subject\}, %\{issuer\}, %\{alt_subjects\}.  Examples :  Raise a critical alarm if certificate expires in less than 30 days or does not cover alternative name 'my.app.com' --critical-status='%\{expiration\} \< 30 \|\| %\{alt_subjects\} !~ /my.app.com/' | %\{expiration\} \< 30 |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                                                                                                                                                                   |                     |             |
+| Macro          | Description                                                                                                                                                                                                                                                                                                                             | Default value       |             Mandatory              |
+|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:----------------------------------:|
+| CUSTOMMODE     | Set the way to get information, it can be: file, https, opensslcli or tcp                                                                                                                                                                                                                                                               | tcp                 |                                    |
+| PORT           | Port used by host                                                                                                                                                                                                                                                                                                                       | 443                 |                 X                  |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. Can use special variables like: %\{expiration\}, %\{subject\}, %\{issuer\}, %\{alt_subjects\}                                                                                                                                                                              | %\{expiration\} \< 60 |                                    |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. Can use special variables like: %\{expiration\}, %\{subject\}, %\{issuer\}, %\{alt_subjects\}.  Examples :  Raise a critical alarm if certificate expires in less than 30 days or does not cover alternative name 'my.app.com' --critical-status='%\{expiration\} \< 30 \ |\| %\{alt_subjects\} !~ /my.app.com/' | %\{expiration\} \< 30 |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                                                                          |                     |                                    |
 
 </TabItem>
 </Tabs>

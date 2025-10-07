@@ -107,7 +107,7 @@ http://download.lenovo.com/nasupdate/manuals/px2-300d/px2-300d-4.1-en.pdf#page=6
 yum install centreon-plugin-Hardware-Storage-Lenovo-Iomega-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Lenovo Iomega* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le Pack *Lenovo Iomega* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -124,7 +124,7 @@ yum install centreon-plugin-Hardware-Storage-Lenovo-Iomega-Snmp
 yum install centreon-pack-hardware-storage-lenovo-iomega-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Lenovo Iomega* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le Pack *Lenovo Iomega* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
@@ -136,7 +136,7 @@ yum install centreon-pack-hardware-storage-lenovo-iomega-snmp
 * Appliquez le Modèle d'Hôte *HW-Storage-Lenovo-Iomega-SNMP-custom*
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3). 
 
 | Mandatory   | Name                    | Description                       |
 | :---------- | :---------------------- | :---------------------------------|

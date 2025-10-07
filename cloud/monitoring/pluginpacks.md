@@ -27,13 +27,13 @@ fine-tuned later on). If you want to use a pack, you must install it through the
 ### Checking the monitoring procedure
 
 Some Monitoring Connectors require extra configuration steps. Read the monitoring procedure for each installed pack
-to understand the contents of the pack and to find out about any prerequisites. Go to page **Configuration > Monitoring Connector Manager** and click the ``i`` icon of each pack to access its documentation:
+to understand the contents of the pack and to find out about any prerequisites. Go to page **Configuration > Connectors > Monitoring Connectors** and click the ``i`` icon of each pack to access its documentation:
 
 ![image](../assets/configuration/pluginpacks/doc.png)
 
 ### Installing the pack
 
-You can access the Monitoring Connectors catalog on the **Configuration > Monitoring Connector Manager** page:
+You can access the Monitoring Connectors catalog on the **Configuration > Connectors > Monitoring Connectors** page:
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
@@ -57,11 +57,6 @@ During installation, some objects in the pack may not be installed. These object
 objects and are not required to deploy the configuration templates provided by the pack.
 
 Most of the time, it is necessary to update your Centreon platform and then reinstall your pack.
-
-In the following example, the "autodiscover" object is a discovery rule for the "Centreon Auto Discovery" module, but
-this one is only available for Centreon in version 18.10.x:
-
-![image](../assets/configuration/pluginpacks/objects_not_installed.png)
 
 ## How do I use a Monitoring Connector?
 

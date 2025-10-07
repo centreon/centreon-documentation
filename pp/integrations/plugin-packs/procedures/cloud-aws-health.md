@@ -82,7 +82,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Health-Api
 ```
 
-2. On the Centreon Web interface, install the *AWS Health* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+2. On the Centreon Web interface, install the *AWS Health* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -99,7 +99,7 @@ yum install centreon-plugin-Cloud-Aws-Health-Api
 yum install centreon-pack-cloud-aws-health.noarch
 ```
 
-3. On the Centreon Web interface, install the *AWS Health* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+3. On the Centreon Web interface, install the *AWS Health* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 </Tabs>

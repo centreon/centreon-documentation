@@ -6,7 +6,7 @@ title: Catégories et criticités
 Les catégories vous permettent :
 
 - d'organiser hôtes et services.
-- de [filtrer la vue](../alerts-notifications/resources-status.md#filtering-events) dans la page **Statut des ressources**.
+- de [filtrer la vue](../alerts-notifications/resources-status.md#filtrer-les-évènements) dans la page **Statut des ressources**.
 
 Il existe un type spécial de catégorie, nommé criticité. Les criticités vous permettent de faire la même chose que les catégories, mais également de :
 

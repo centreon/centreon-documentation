@@ -54,7 +54,7 @@ Sur votre serveur Elasticsearch, vous aurez besoin de :
     -d '{"mappings":{"properties":{"host":{"type":"keyword"},"service":{"type":"keyword"}, "output":{"type":"text"},"status":{"type":"keyword"},"state":{"type":"keyword"}, "type":{"type":"keyword"},"timestamp":{"type":"date","format":"epoch_second"}}}}'
     ```
 
-   > Si vous utilisez un **[format d'évènement personnalisé](#event-format)**, vous devrez modifier cette commande en conséquence.
+   > Si vous utilisez un **[format d'évènement personnalisé](#format-des-évènements)**, vous devrez modifier cette commande en conséquence.
 
 - Un utilisateur/mot de passe ayant les privilèges nécessaires pour effectuer des requêtes POST afin d'insérer des données dans l'index.
 
@@ -98,8 +98,6 @@ Sur votre serveur Elasticsearch, vous aurez besoin de :
    ```
 
    Elasticsearch reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector).
-
-### Filtering or adapting the data you want to send to Elasticsearch
 
 ### Filtrer ou adapter les données que vous voulez envoyer à Elasticsearch
 

@@ -46,7 +46,7 @@ récupérer des métriques au sujet des *channels*.
 yum install centreon-plugin-Blockchain-Hyperledger-Exporter
 ```
 
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Hyperledger API* depuis la page  **Configuration > Gestionnaire de connecteurs de supervision**.
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Hyperledger API* depuis la page  **Configuration > Connecteurs > Connecteurs de supervision**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -63,7 +63,7 @@ yum install centreon-plugin-Blockchain-Hyperledger-Exporter
 yum install centreon-pack-blockchain-hyperledger-exporter
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Hyperledger API* depuis la page  **Configuration > Gestionnaire de connecteurs de supervision**.
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Hyperledger API* depuis la page  **Configuration > Connecteurs > Connecteurs de supervision**.
 
 </TabItem>
 </Tabs>

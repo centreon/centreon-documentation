@@ -14,7 +14,12 @@ the Centreon command line API documentation.
 
 ## Permissions
 
-To perform API calls, you must be an administrator.
+Users can be authorized to perform API calls by configuring the corresponding fields located in the **Configuration > Users > Contacts/Users >** page, on the [**Centreon Authentication** tab](../monitoring/basic-objects/contacts-create.md#onglet-authentification-centreon).
+- The [**Configuration API**](#configuration) can only be called by administrators.
+- The [**Realtime API**](#realtime-information) can be called by non-administrator users as long as the corresponding field is checked.
+- Administrators are able to call both the [**Configuration API**](#configuration) and the [**Realtime API**](#realtime-information) even if these fields are not checked. They are also the only ones allowed to use [**CLAPI**](clapi.md) while others can only use the Rest API.
+
+Note that you need to be authenticated before you perform each [API call](#api-calls).
 
 ## Authentication
 
@@ -1857,7 +1862,7 @@ To delete more than one hostgroup, use the character '|'. Ex:
 `resourcecfg` objects allow to define macro values that apply to a set of monitoring engines.  
 A `resourcecfg` object defines a macro for one or multiple monitoring engines.  
 The same macro can be defined in multiple `resourcecfg` objects with complementary lists of monitoring engines.  
-More information here: [Resource macros](../monitoring/basic-objects/macros.md#resource-macros)
+More information here: [macros de ressources](../monitoring/basic-objects/macros.md#les-macros-de-ressources)
 
 #### List RESOURCECFG objects
 
@@ -2371,7 +2376,7 @@ For the service submission please provide the following information :
 | ------------------- | -------------------------------------------------------- |
 | host                | host name                                                |
 | service             | service description                                      |
-| status              | status id (0, 1, 2, 3) or ok, warning, critical, unknown |
+| status              | status ID (0, 1, 2, 3) or ok, warning, critical, unknown |
 | output              | a specific message                                       |
 | perfdata (optional) | all performance metric following the nagios plugin API   |
 | updatetime          | the check time (timestamp)                               |
@@ -2381,7 +2386,7 @@ For the host submission please provide the following information :
 | Fields     | Description                |
 | ---------- | -------------------------- |
 | host       | host name                  |
-| status     | status id (0, 1, 2, 3)     |
+| status     | status ID (0, 1, 2, 'up', 'down', 'unknown')     |
 | output     | a specific message         |
 | updatetime | the check time (timestamp) |
 

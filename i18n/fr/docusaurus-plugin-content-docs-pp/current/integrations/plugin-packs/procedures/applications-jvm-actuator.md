@@ -96,7 +96,7 @@ Demander à votre administrateur de le déployer et de vous fournir l'adresse.
 yum install centreon-plugin-Applications-Jvm-Actuator
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *JVM Actuator* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le Pack *JVM Actuator* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -113,7 +113,7 @@ yum install centreon-plugin-Applications-Jvm-Actuator
 yum install centreon-pack-applications-jvm-actuator
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *JVM Actuator* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le Pack *JVM Actuator* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>

@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **NetApp Ontap Rest API** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -35,12 +35,12 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                                   | Service Description | Discovery  |
-|:--------------|:---------------------------------------------------|:--------------------|:----------:|
-| Luns          | HW-Storage-NetApp-Ontap-Luns-Restapi-custom        | Check LUNs          |            |
-| Quotas        | HW-Storage-NetApp-Ontap-Quotas-Restapi-custom      | Check quotas        |            |
-| Snapmirrors   | HW-Storage-NetApp-Ontap-Snapmirrors-Restapi-custom | Check snapmirrors   |            |
-| Volumes       | HW-Storage-NetApp-Ontap-Volumes-Restapi-custom     | Check volumes       | X          |
+| Service Alias | Service Template                                   | Service Description | Discovery |
+|:--------------|:---------------------------------------------------|:--------------------|:---------:|
+| Luns          | HW-Storage-NetApp-Ontap-Luns-Restapi-custom        | Check LUNs          |           |
+| Quotas        | HW-Storage-NetApp-Ontap-Quotas-Restapi-custom      | Check quotas        |           |
+| Snapmirrors   | HW-Storage-NetApp-Ontap-Snapmirrors-Restapi-custom | Check snapmirrors   |           |
+| Volumes       | HW-Storage-NetApp-Ontap-Volumes-Restapi-custom     | Check volumes       | X         |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -67,43 +67,43 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Aggregates" label="Aggregates">
 
-| Name                                                 | Unit  |
-|:-----------------------------------------------------|:------|
-| status                                               | N/A   |
-| *aggregates*#aggregate.space.usage.bytes             | B     |
-| *aggregates*#aggregate.space.free.bytes              | B     |
-| *aggregates*#aggregate.space.usage.percentage        | %     |
-| *aggregates*#aggregate.io.read.usage.bytespersecond  | B/s   |
-| *aggregates*#aggregate.io.write.usage.bytespersecond | B/s   |
-| *aggregates*#aggregate.io.other.usage.bytespersecond | B/s   |
-| *aggregates*#aggregate.io.total.usage.bytespersecond | B/s   |
-| *aggregates*#aggregate.io.read.usage.iops            | iops  |
-| *aggregates*#aggregate.io.write.usage.iops           | iops  |
-| *aggregates*#aggregate.io.other.usage.iops           | iops  |
-| *aggregates*#aggregate.io.total.usage.iops           | iops  |
-| *aggregates*#aggregate.io.read.latency.microseconds  | µs    |
-| *aggregates*#aggregate.io.write.latency.microseconds | µs    |
-| *aggregates*#aggregate.io.other.latency.microseconds | µs    |
-| *aggregates*#aggregate.io.total.latency.microseconds | µs    |
+| Name                                                 | Unit |
+|:-----------------------------------------------------|:-----|
+| status                                               | N/A  |
+| *aggregates*#aggregate.space.usage.bytes             | B    |
+| *aggregates*#aggregate.space.free.bytes              | B    |
+| *aggregates*#aggregate.space.usage.percentage        | %    |
+| *aggregates*#aggregate.io.read.usage.bytespersecond  | B/s  |
+| *aggregates*#aggregate.io.write.usage.bytespersecond | B/s  |
+| *aggregates*#aggregate.io.other.usage.bytespersecond | B/s  |
+| *aggregates*#aggregate.io.total.usage.bytespersecond | B/s  |
+| *aggregates*#aggregate.io.read.usage.iops            | iops |
+| *aggregates*#aggregate.io.write.usage.iops           | iops |
+| *aggregates*#aggregate.io.other.usage.iops           | iops |
+| *aggregates*#aggregate.io.total.usage.iops           | iops |
+| *aggregates*#aggregate.io.read.latency.microseconds  | µs   |
+| *aggregates*#aggregate.io.write.latency.microseconds | µs   |
+| *aggregates*#aggregate.io.other.latency.microseconds | µs   |
+| *aggregates*#aggregate.io.total.latency.microseconds | µs   |
 
 </TabItem>
 <TabItem value="Cluster" label="Cluster">
 
-| Name                                             | Unit  |
-|:-------------------------------------------------|:------|
-| *clusters*~cluster.io.read.usage.bytespersecond  | B/s   |
-| *clusters*~cluster.io.write.usage.bytespersecond | B/s   |
-| *clusters*~cluster.io.other.usage.bytespersecond | B/s   |
-| *clusters*~cluster.io.total.usage.bytespersecond | B/s   |
-| *clusters*~cluster.io.read.usage.iops            | iops  |
-| *clusters*~cluster.io.write.usage.iops           | iops  |
-| *clusters*~cluster.io.other.usage.iops           | iops  |
-| *clusters*~cluster.io.total.usage.iops           | iops  |
-| *clusters*~cluster.io.read.latency.milliseconds  | ms    |
-| *clusters*~cluster.io.write.latency.milliseconds | ms    |
-| *clusters*~cluster.io.other.latency.milliseconds | ms    |
-| *clusters*~cluster.io.total.latency.milliseconds | ms    |
-| node-status                                      | N/A   |
+| Name                                             | Unit |
+|:-------------------------------------------------|:-----|
+| *clusters*~cluster.io.read.usage.bytespersecond  | B/s  |
+| *clusters*~cluster.io.write.usage.bytespersecond | B/s  |
+| *clusters*~cluster.io.other.usage.bytespersecond | B/s  |
+| *clusters*~cluster.io.total.usage.bytespersecond | B/s  |
+| *clusters*~cluster.io.read.usage.iops            | iops |
+| *clusters*~cluster.io.write.usage.iops           | iops |
+| *clusters*~cluster.io.other.usage.iops           | iops |
+| *clusters*~cluster.io.total.usage.iops           | iops |
+| *clusters*~cluster.io.read.latency.milliseconds  | ms   |
+| *clusters*~cluster.io.write.latency.milliseconds | ms   |
+| *clusters*~cluster.io.other.latency.milliseconds | ms   |
+| *clusters*~cluster.io.total.latency.milliseconds | ms   |
+| node-status                                      | N/A  |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
@@ -111,61 +111,61 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Name                 | Unit  |
 |:---------------------|:------|
 | hardware.bay.count   | count |
-| bay status           | N/A   |
+| bay-state            | N/A   |
 | hardware.disk.count  | count |
-| disk status          | N/A   |
+| disk-state           | N/A   |
 | hardware.fru.count   | count |
-| fru status           | N/A   |
+| fru-state            | N/A   |
 | hardware.shelf.count | count |
-| shelf status         | N/A   |
+| shelf-state          | N/A   |
 
 </TabItem>
 <TabItem value="Luns" label="Luns">
 
-| Name   | Unit  |
-|:-------|:------|
-| status | N/A   |
+| Name   | Unit |
+|:-------|:-----|
+| status | N/A  |
 
 </TabItem>
 <TabItem value="Quotas" label="Quotas">
 
-| Name                                  | Unit  |
-|:--------------------------------------|:------|
-| *quotas*#quota.space.usage.bytes      | B     |
-| *quotas*#quota.space.free.bytes       | B     |
-| *quotas*#quota.space.usage.percentage | %     |
+| Name                                  | Unit |
+|:--------------------------------------|:-----|
+| *quotas*#quota.space.usage.bytes      | B    |
+| *quotas*#quota.space.free.bytes       | B    |
+| *quotas*#quota.space.usage.percentage | %    |
 
 </TabItem>
 <TabItem value="Snapmirrors" label="Snapmirrors">
 
-| Name   | Unit  |
-|:-------|:------|
-| status | N/A   |
+| Name   | Unit |
+|:-------|:-----|
+| status | N/A  |
 
 </TabItem>
 <TabItem value="Volumes" label="Volumes">
 
-| Name                                           | Unit  |
-|:-----------------------------------------------|:------|
-| status                                         | N/A   |
-| *volumes*#volume.space.usage.bytes             | B     |
-| *volumes*#volume.space.free.bytes              | B     |
-| *volumes*#volume.space.usage.percentage        | %     |
-| *volumes*#volume.logicalspace.usage.bytes      | B     |
-| *volumes*#volume.logicalspace.free.bytes       | B     |
-| *volumes*#volume.logicalspace.usage.percentage | %     |
-| *volumes*#volume.io.read.usage.bytespersecond  | B/s   |
-| *volumes*#volume.io.write.usage.bytespersecond | B/s   |
-| *volumes*#volume.io.other.usage.bytespersecond | B/s   |
-| *volumes*#volume.io.total.usage.bytespersecond | B/s   |
-| *volumes*#volume.io.read.usage.iops            | iops  |
-| *volumes*#volume.io.write.usage.iops           | iops  |
-| *volumes*#volume.io.other.usage.iops           | iops  |
-| *volumes*#volume.io.total.usage.iops           | iops  |
-| *volumes*#volume.io.read.latency.milliseconds  | ms    |
-| *volumes*#volume.io.write.latency.milliseconds | ms    |
-| *volumes*#volume.io.other.latency.milliseconds | ms    |
-| *volumes*#volume.io.total.latency.milliseconds | ms    |
+| Name                                           | Unit |
+|:-----------------------------------------------|:-----|
+| status                                         | N/A  |
+| *volumes*#volume.space.usage.bytes             | B    |
+| *volumes*#volume.space.free.bytes              | B    |
+| *volumes*#volume.space.usage.percentage        | %    |
+| *volumes*#volume.logicalspace.usage.bytes      | B    |
+| *volumes*#volume.logicalspace.free.bytes       | B    |
+| *volumes*#volume.logicalspace.usage.percentage | %    |
+| *volumes*#volume.io.read.usage.bytespersecond  | B/s  |
+| *volumes*#volume.io.write.usage.bytespersecond | B/s  |
+| *volumes*#volume.io.other.usage.bytespersecond | B/s  |
+| *volumes*#volume.io.total.usage.bytespersecond | B/s  |
+| *volumes*#volume.io.read.usage.iops            | iops |
+| *volumes*#volume.io.write.usage.iops           | iops |
+| *volumes*#volume.io.other.usage.iops           | iops |
+| *volumes*#volume.io.total.usage.iops           | iops |
+| *volumes*#volume.io.read.latency.milliseconds  | ms   |
+| *volumes*#volume.io.write.latency.milliseconds | ms   |
+| *volumes*#volume.io.other.latency.milliseconds | ms   |
+| *volumes*#volume.io.total.latency.milliseconds | ms   |
 
 </TabItem>
 </Tabs>
@@ -180,9 +180,11 @@ A read-only account (login/password) is required.
 
 ### Pack
 
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -218,7 +220,7 @@ yum install centreon-pack-hardware-storage-netapp-ontap-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **NetApp Ontap Rest API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -273,13 +275,13 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 3. Apply the **HW-Storage-NetApp-Ontap-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro           | Description                                                                                          | Default value     | Mandatory   |
-|:----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| APIUSERNAME     | Netapp API username                                                                                  |                   | X           |
-| APIPASSWORD     | Netapp API password                                                                                  |                   | X           |
-| APIPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
-| APIPORT         | Port used (default: 443)                                                                             | 443               |             |
-| APIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro           | Description                                                                                                                                        | Default value | Mandatory |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| APIUSERNAME     | Netapp API username                                                                                                                                |               | X         |
+| APIPASSWORD     | Netapp API password                                                                                                                                |               | X         |
+| APIPROTO        | Specify https if needed                                                                                                                            | https         |           |
+| APIPORT         | Port used                                                                                                                                          | 443           |           |
+| APIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -291,140 +293,140 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 <Tabs groupId="sync">
 <TabItem value="Aggregates" label="Aggregates">
 
-| Macro                | Description                                                                                                                                                      | Default value           | Mandatory   |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
-| FILTERNAME           | Filter aggregates by aggregate name (can be a regexp)                                                                                                            |                         |             |
-| WARNINGOTHER         | Threshold                                                                                                                                                        |                         |             |
-| CRITICALOTHER        | Threshold                                                                                                                                                        |                         |             |
-| WARNINGOTHERIOPS     | Threshold                                                                                                                                                        |                         |             |
-| CRITICALOTHERIOPS    | Threshold                                                                                                                                                        |                         |             |
-| WARNINGOTHERLATENCY  | Threshold                                                                                                                                                        |                         |             |
-| CRITICALOTHERLATENCY | Threshold                                                                                                                                                        |                         |             |
-| WARNINGREAD          | Threshold                                                                                                                                                        |                         |             |
-| CRITICALREAD         | Threshold                                                                                                                                                        |                         |             |
-| WARNINGREADIOPS      | Threshold                                                                                                                                                        |                         |             |
-| CRITICALREADIOPS     | Threshold                                                                                                                                                        |                         |             |
-| WARNINGREADLATENCY   | Threshold                                                                                                                                                        |                         |             |
-| CRITICALREADLATENCY  | Threshold                                                                                                                                                        |                         |             |
-| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} !~ /online/i'). You can use the following variables: %\{state\}, %\{display\} | %\{state\} !~ /online/i |             |
-| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}                                       |                         |             |
-| WARNINGTOTAL         | Threshold                                                                                                                                                        |                         |             |
-| CRITICALTOTAL        | Threshold                                                                                                                                                        |                         |             |
-| WARNINGTOTALIOPS     | Threshold                                                                                                                                                        |                         |             |
-| CRITICALTOTALIOPS    | Threshold                                                                                                                                                        |                         |             |
-| WARNINGTOTALLATENCY  | Threshold                                                                                                                                                        |                         |             |
-| CRITICALTOTALLATENCY | Threshold                                                                                                                                                        |                         |             |
-| WARNINGUSAGE         | Threshold                                                                                                                                                        |                         |             |
-| CRITICALUSAGE        | Threshold                                                                                                                                                        |                         |             |
-| WARNINGUSAGEFREE     | Threshold                                                                                                                                                        |                         |             |
-| CRITICALUSAGEFREE    | Threshold                                                                                                                                                        |                         |             |
-| WARNINGUSAGEPRCT     | Threshold                                                                                                                                                        | 80                      |             |
-| CRITICALUSAGEPRCT    | Threshold                                                                                                                                                        | 90                      |             |
-| WARNINGWRITE         | Threshold                                                                                                                                                        |                         |             |
-| CRITICALWRITE        | Threshold                                                                                                                                                        |                         |             |
-| WARNINGWRITEIOPS     | Threshold                                                                                                                                                        |                         |             |
-| CRITICALWRITEIOPS    | Threshold                                                                                                                                                        |                         |             |
-| WARNINGWRITELATENCY  | Threshold                                                                                                                                                        |                         |             |
-| CRITICALWRITELATENCY | Threshold                                                                                                                                                        |                         |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                               |                         |             |
+| Macro                | Description                                                                                                                                      | Default value           | Mandatory |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:---------:|
+| FILTERNAME           | Filter aggregates by aggregate name (can be a regexp)                                                                                            |                         |           |
+| WARNINGOTHER         | Threshold                                                                                                                                        |                         |           |
+| CRITICALOTHER        | Threshold                                                                                                                                        |                         |           |
+| WARNINGOTHERIOPS     | Threshold                                                                                                                                        |                         |           |
+| CRITICALOTHERIOPS    | Threshold                                                                                                                                        |                         |           |
+| WARNINGOTHERLATENCY  | Threshold                                                                                                                                        |                         |           |
+| CRITICALOTHERLATENCY | Threshold                                                                                                                                        |                         |           |
+| WARNINGREAD          | Threshold                                                                                                                                        |                         |           |
+| CRITICALREAD         | Threshold                                                                                                                                        |                         |           |
+| WARNINGREADIOPS      | Threshold                                                                                                                                        |                         |           |
+| CRITICALREADIOPS     | Threshold                                                                                                                                        |                         |           |
+| WARNINGREADLATENCY   | Threshold                                                                                                                                        |                         |           |
+| CRITICALREADLATENCY  | Threshold                                                                                                                                        |                         |           |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{display\}                      | %\{state\} !~ /online/i |           |
+| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}                       |                         |           |
+| WARNINGTOTAL         | Threshold                                                                                                                                        |                         |           |
+| CRITICALTOTAL        | Threshold                                                                                                                                        |                         |           |
+| WARNINGTOTALIOPS     | Threshold                                                                                                                                        |                         |           |
+| CRITICALTOTALIOPS    | Threshold                                                                                                                                        |                         |           |
+| WARNINGTOTALLATENCY  | Threshold                                                                                                                                        |                         |           |
+| CRITICALTOTALLATENCY | Threshold                                                                                                                                        |                         |           |
+| WARNINGUSAGE         | Threshold                                                                                                                                        |                         |           |
+| CRITICALUSAGE        | Threshold                                                                                                                                        |                         |           |
+| WARNINGUSAGEFREE     | Threshold                                                                                                                                        |                         |           |
+| CRITICALUSAGEFREE    | Threshold                                                                                                                                        |                         |           |
+| WARNINGUSAGEPRCT     | Threshold                                                                                                                                        | 80                      |           |
+| CRITICALUSAGEPRCT    | Threshold                                                                                                                                        | 90                      |           |
+| WARNINGWRITE         | Threshold                                                                                                                                        |                         |           |
+| CRITICALWRITE        | Threshold                                                                                                                                        |                         |           |
+| WARNINGWRITEIOPS     | Threshold                                                                                                                                        |                         |           |
+| CRITICALWRITEIOPS    | Threshold                                                                                                                                        |                         |           |
+| WARNINGWRITELATENCY  | Threshold                                                                                                                                        |                         |           |
+| CRITICALWRITELATENCY | Threshold                                                                                                                                        |                         |           |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |                         |           |
 
 </TabItem>
 <TabItem value="Cluster" label="Cluster">
 
-| Macro                | Description                                                                                                                                                                        | Default value          | Mandatory   |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| UNKNOWNNODESTATUS    | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{link\_status\}, %\{display\}                                      |                        |             |
-| CRITICALNODESTATUS   | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} ne "online"'). You can use the following variables: %\{state\}, %\{link\_status\}, %\{display\} | %\{state\} ne "online" |             |
-| WARNINGNODESTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{link\_status\}, %\{display\}                                      |                        |             |
-| WARNINGREAD          | Threshold                                                                                                                                                                          |                        |             |
-| CRITICALREAD         | Threshold                                                                                                                                                                          |                        |             |
-| WARNINGREADIOPS      | Threshold                                                                                                                                                                          |                        |             |
-| CRITICALREADIOPS     | Threshold                                                                                                                                                                          |                        |             |
-| WARNINGREADLATENCY   | Threshold                                                                                                                                                                          |                        |             |
-| CRITICALREADLATENCY  | Threshold                                                                                                                                                                          |                        |             |
-| WARNINGWRITE         | Threshold                                                                                                                                                                          |                        |             |
-| CRITICALWRITE        | Threshold                                                                                                                                                                          |                        |             |
-| WARNINGWRITEIOPS     | Threshold                                                                                                                                                                          |                        |             |
-| CRITICALWRITEIOPS    | Threshold                                                                                                                                                                          |                        |             |
-| WARNINGWRITELATENCY  | Threshold                                                                                                                                                                          |                        |             |
-| CRITICALWRITELATENCY | Threshold                                                                                                                                                                          |                        |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                 | --verbose              |             |
+| Macro                | Description                                                                                                                                      | Default value          | Mandatory |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:---------:|
+| UNKNOWNNODESTATUS    | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{link\_status\}, %\{display\}    |                        |           |
+| CRITICALNODESTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{link\_status\}, %\{display\}   | %\{state\} ne "online" |           |
+| WARNINGNODESTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{link\_status\}, %\{display\}    |                        |           |
+| WARNINGREAD          | Threshold                                                                                                                                        |                        |           |
+| CRITICALREAD         | Threshold                                                                                                                                        |                        |           |
+| WARNINGREADIOPS      | Threshold                                                                                                                                        |                        |           |
+| CRITICALREADIOPS     | Threshold                                                                                                                                        |                        |           |
+| WARNINGREADLATENCY   | Threshold                                                                                                                                        |                        |           |
+| CRITICALREADLATENCY  | Threshold                                                                                                                                        |                        |           |
+| WARNINGWRITE         | Threshold                                                                                                                                        |                        |           |
+| CRITICALWRITE        | Threshold                                                                                                                                        |                        |           |
+| WARNINGWRITEIOPS     | Threshold                                                                                                                                        |                        |           |
+| CRITICALWRITEIOPS    | Threshold                                                                                                                                        |                        |           |
+| WARNINGWRITELATENCY  | Threshold                                                                                                                                        |                        |           |
+| CRITICALWRITELATENCY | Threshold                                                                                                                                        |                        |           |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose              |           |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: `bay`, `disk`, `fru`, `shelf`                    | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| COMPONENT    | Which component to check. Can be: `bay`, `disk`, `fru`, `shelf`                                                                                  | .*            |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
 
 </TabItem>
 <TabItem value="Luns" label="Luns">
 
-| Macro          | Description                                                                                                                                                                             | Default value           | Mandatory   |
-|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
-| FILTERNAME     | Filter LUN name (can be a regexp)                                                                                                                                                       |                         |             |
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{container\_state\}, %\{display\}                                       |                         |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} !~ /online/i'). You can use the following variables: %\{state\}, %\{container\_state\}, %\{display\} | %\{state\} !~ /online/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{container\_state\}, %\{display\}                                       |                         |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                      | --verbose               |             |
+| Macro          | Description                                                                                                                                        | Default value           | Mandatory |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:---------:|
+| FILTERNAME     | Filter LUN name (can be a regexp)                                                                                                                  |                         |           |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{container\_state\}, %\{display\}  |                         |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{container\_state\}, %\{display\} | %\{state\} !~ /online/i |           |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{container\_state\}, %\{display\}  |                         |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).             | --verbose               |           |
 
 </TabItem>
 <TabItem value="Quotas" label="Quotas">
 
-| Macro                  | Description                                                                                        | Default value     | Mandatory   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERINDEX            | Filter by index (identified entry in the /etc/quotas) (can be a regexp)                            |                   |             |
-| FILTERVSERVER          | Filter by Vserver name (can be a regexp)                                                           |                   |             |
-| FILTERVOLUME           | Filter by volume name (can be a regexp)                                                            |                   |             |
-| FILTERQTREE            | Filter by Qtree name (can be a regexp)                                                             |                   |             |
-| WARNINGSPACEUSAGE      | Threshold                                                                                          |                   |             |
-| CRITICALSPACEUSAGE     | Threshold                                                                                          |                   |             |
-| WARNINGSPACEUSAGEFREE  | Threshold                                                                                          |                   |             |
-| CRITICALSPACEUSAGEFREE | Threshold                                                                                          |                   |             |
-| WARNINGSPACEUSAGEPRCT  | Threshold                                                                                          |                   |             |
-| CRITICALSPACEUSAGEPRCT | Threshold                                                                                          |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro                  | Description                                                                                                                                      | Default value | Mandatory |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERINDEX            | Filter by index (identified entry in the /etc/quotas) (can be a regexp)                                                                          |               |           |
+| FILTERVSERVER          | Filter by Vserver name (can be a regexp)                                                                                                         |               |           |
+| FILTERVOLUME           | Filter by volume name (can be a regexp)                                                                                                          |               |           |
+| FILTERQTREE            | Filter by Qtree name (can be a regexp)                                                                                                           |               |           |
+| WARNINGSPACEUSAGE      | Threshold                                                                                                                                        |               |           |
+| CRITICALSPACEUSAGE     | Threshold                                                                                                                                        |               |           |
+| WARNINGSPACEUSAGEFREE  | Threshold                                                                                                                                        |               |           |
+| CRITICALSPACEUSAGEFREE | Threshold                                                                                                                                        |               |           |
+| WARNINGSPACEUSAGEPRCT  | Threshold                                                                                                                                        |               |           |
+| CRITICALSPACEUSAGEPRCT | Threshold                                                                                                                                        |               |           |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
 
 </TabItem>
 <TabItem value="Snapmirrors" label="Snapmirrors">
 
-| Macro          | Description                                                                                                                                                                                                                        | Default value                                         | Mandatory   |
-|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| FILTERNAME     | Filter SnapMirror name (can be a regexp)                                                                                                                                                                                           |                                                       |             |
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\}                                                                     |                                                       |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{healthy\} ne "true" or %\{state\} eq "broken\_off"'). You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\} | %\{healthy\} ne "true" or %\{state\} eq "broken\_off" |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\}                                                                     |                                                       |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                 | --verbose                                             |             |
+| Macro          | Description                                                                                                                                                     | Default value                                         | Mandatory |
+|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:---------:|
+| FILTERNAME     | Filter SnapMirror name (can be a regexp)                                                                                                                        |                                                       |           |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\}  |                                                       |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\} | %\{healthy\} ne "true" or %\{state\} eq "broken\_off" |           |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer\_state\}, %\{display\}  |                                                       |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                          | --verbose                                             |           |
 
 </TabItem>
 <TabItem value="Volumes" label="Volumes">
 
-| Macro                | Description                                                                                                                                                      | Default value           | Mandatory   |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
-| FILTERNAME           | Filter the API request result by volume name (can be a regexp)                                                                                                   |                         |             |
-| UNKNOWNSTATUS        | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{display\}                                       |                         |             |
-| WARNINGREAD          | Threshold                                                                                                                                                        |                         |             |
-| CRITICALREAD         | Threshold                                                                                                                                                        |                         |             |
-| WARNINGREADIOPS      | Threshold                                                                                                                                                        |                         |             |
-| CRITICALREADIOPS     | Threshold                                                                                                                                                        |                         |             |
-| WARNINGREADLATENCY   | Threshold                                                                                                                                                        |                         |             |
-| CRITICALREADLATENCY  | Threshold                                                                                                                                                        |                         |             |
-| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} !~ /online/i'). You can use the following variables: %\{state\}, %\{display\} | %\{state\} !~ /online/i |             |
-| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}                                       |                         |             |
-| WARNINGUSAGE         | Threshold                                                                                                                                                        |                         |             |
-| CRITICALUSAGE        | Threshold                                                                                                                                                        |                         |             |
-| WARNINGUSAGEFREE     | Threshold                                                                                                                                                        |                         |             |
-| CRITICALUSAGEFREE    | Threshold                                                                                                                                                        |                         |             |
-| WARNINGUSAGEPRCT     | Threshold                                                                                                                                                        | 80                      |             |
-| CRITICALUSAGEPRCT    | Threshold                                                                                                                                                        | 90                      |             |
-| WARNINGWRITE         | Threshold                                                                                                                                                        |                         |             |
-| CRITICALWRITE        | Threshold                                                                                                                                                        |                         |             |
-| WARNINGWRITEIOPS     | Threshold                                                                                                                                                        |                         |             |
-| CRITICALWRITEIOPS    | Threshold                                                                                                                                                        |                         |             |
-| WARNINGWRITELATENCY  | Threshold                                                                                                                                                        |                         |             |
-| CRITICALWRITELATENCY | Threshold                                                                                                                                                        |                         |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                               | --verbose               |             |
+| Macro                | Description                                                                                                                                      | Default value           | Mandatory |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:---------:|
+| FILTERNAME           | Filter the API request result by volume name (can be a regexp)                                                                                   |                         |           |
+| UNKNOWNSTATUS        | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{display\}                       |                         |           |
+| WARNINGREAD          | Threshold                                                                                                                                        |                         |           |
+| CRITICALREAD         | Threshold                                                                                                                                        |                         |           |
+| WARNINGREADIOPS      | Threshold                                                                                                                                        |                         |           |
+| CRITICALREADIOPS     | Threshold                                                                                                                                        |                         |           |
+| WARNINGREADLATENCY   | Threshold                                                                                                                                        |                         |           |
+| CRITICALREADLATENCY  | Threshold                                                                                                                                        |                         |           |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{display\}                      | %\{state\} !~ /online/i |           |
+| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}                       |                         |           |
+| WARNINGUSAGE         | Threshold                                                                                                                                        |                         |           |
+| CRITICALUSAGE        | Threshold                                                                                                                                        |                         |           |
+| WARNINGUSAGEFREE     | Threshold                                                                                                                                        |                         |           |
+| CRITICALUSAGEFREE    | Threshold                                                                                                                                        |                         |           |
+| WARNINGUSAGEPRCT     | Threshold                                                                                                                                        | 80                      |           |
+| CRITICALUSAGEPRCT    | Threshold                                                                                                                                        | 90                      |           |
+| WARNINGWRITE         | Threshold                                                                                                                                        |                         |           |
+| CRITICALWRITE        | Threshold                                                                                                                                        |                         |           |
+| WARNINGWRITEIOPS     | Threshold                                                                                                                                        |                         |           |
+| CRITICALWRITEIOPS    | Threshold                                                                                                                                        |                         |           |
+| WARNINGWRITELATENCY  | Threshold                                                                                                                                        |                         |           |
+| CRITICALWRITELATENCY | Threshold                                                                                                                                        |                         |           |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose               |           |
 
 </TabItem>
 </Tabs>
@@ -474,7 +476,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All volumes are ok | 'volumes1#volume.space.usage.bytes'=66159B;;;0;total_space 'volumes2#volume.space.usage.bytes'=95915B;;;0;total_space 'volumes1#volume.space.free.bytes'=12281B;;;0;total_space 'volumes2#volume.space.free.bytes'=67019B;;;0;total_space 'volumes1#volume.space.usage.percentage'=66404%;0:80;0:90;0;100 'volumes2#volume.space.usage.percentage'=87107%;0:80;0:90;0;100 'volumes1#volume.logicalspace.usage.bytes'=71683B;;;0;total_logical_space 'volumes2#volume.logicalspace.usage.bytes'=2590B;;;0;total_logical_space 'volumes1#volume.logicalspace.free.bytes'=68726B;;;0;total_logical_space 'volumes2#volume.logicalspace.free.bytes'=97233B;;;0;total_logical_space 'volumes1#volume.logicalspace.usage.percentage'=39983%;;;0;100 'volumes2#volume.logicalspace.usage.percentage'=41105%;;;0;100 'volumes1#volume.io.read.usage.bytespersecond'=7133B/s;;;; 'volumes2#volume.io.read.usage.bytespersecond'=90416B/s;;;; 'volumes1#volume.io.write.usage.bytespersecond'=93609B/s;;;0; 'volumes2#volume.io.write.usage.bytespersecond'=92864B/s;;;0; 'volumes1#volume.io.other.usage.bytespersecond'=86691B/s;;;0; 'volumes2#volume.io.other.usage.bytespersecond'=13270B/s;;;0; 'volumes1#volume.io.total.usage.bytespersecond'=58513B/s;;;0; 'volumes2#volume.io.total.usage.bytespersecond'=27731B/s;;;0; 'volumes1#volume.io.read.usage.iops'=73888iops;;;0; 'volumes2#volume.io.read.usage.iops'=32587iops;;;0; 'volumes1#volume.io.write.usage.iops'=79865iops;;;0; 'volumes2#volume.io.write.usage.iops'=47151iops;;;0; 'volumes1#volume.io.other.usage.iops'=30520iops;;;0; 'volumes2#volume.io.other.usage.iops'=88490iops;;;0; 'volumes1#volume.io.total.usage.iops'=12956iops;;;0; 'volumes2#volume.io.total.usage.iops'=97483iops;;;0; 'volumes1#volume.io.read.latency.milliseconds'=84217ms;;;0; 'volumes2#volume.io.read.latency.milliseconds'=6221ms;;;0; 'volumes1#volume.io.write.latency.milliseconds'=12290ms;;;0; 'volumes2#volume.io.write.latency.milliseconds'=88721ms;;;0; 'volumes1#volume.io.other.latency.milliseconds'=11545ms;;;0; 'volumes2#volume.io.other.latency.milliseconds'=63868ms;;;0; 'volumes1#volume.io.total.latency.milliseconds'=23807ms;;;0; 'volumes2#volume.io.total.latency.milliseconds'=49953ms;;;0; 
+OK: All volumes are ok | 'volumes1#volume.space.usage.bytes'=94808B;;;0;total_space 'volumes2#volume.space.usage.bytes'=88117B;;;0;total_space 'volumes1#volume.space.free.bytes'=71535B;;;0;total_space 'volumes2#volume.space.free.bytes'=88308B;;;0;total_space 'volumes1#volume.space.usage.percentage'=31309%;;;0;100 'volumes2#volume.space.usage.percentage'=41795%;;;0;100 'volumes1#volume.logicalspace.usage.bytes'=71022B;;;0;total_logical_space 'volumes2#volume.logicalspace.usage.bytes'=98717B;;;0;total_logical_space 'volumes1#volume.logicalspace.free.bytes'=67407B;;;0;total_logical_space 'volumes2#volume.logicalspace.free.bytes'=60739B;;;0;total_logical_space 'volumes1#volume.logicalspace.usage.percentage'=77557%;;;0;100 'volumes2#volume.logicalspace.usage.percentage'=59880%;;;0;100 'volumes1#volume.io.read.usage.bytespersecond'=1308B/s;;;; 'volumes2#volume.io.read.usage.bytespersecond'=85433B/s;;;; 'volumes1#volume.io.write.usage.bytespersecond'=66954B/s;;;0; 'volumes2#volume.io.write.usage.bytespersecond'=90563B/s;;;0; 'volumes1#volume.io.other.usage.bytespersecond'=99834B/s;;;0; 'volumes2#volume.io.other.usage.bytespersecond'=55133B/s;;;0; 'volumes1#volume.io.total.usage.bytespersecond'=94660B/s;;;0; 'volumes2#volume.io.total.usage.bytespersecond'=28313B/s;;;0; 'volumes1#volume.io.read.usage.iops'=87022iops;;;0; 'volumes2#volume.io.read.usage.iops'=70956iops;;;0; 'volumes1#volume.io.write.usage.iops'=33721iops;;;0; 'volumes2#volume.io.write.usage.iops'=79895iops;;;0; 'volumes1#volume.io.other.usage.iops'=48068iops;;;0; 'volumes2#volume.io.other.usage.iops'=8901iops;;;0; 'volumes1#volume.io.total.usage.iops'=19505iops;;;0; 'volumes2#volume.io.total.usage.iops'=58457iops;;;0; 'volumes1#volume.io.read.latency.milliseconds'=31659ms;;;0; 'volumes2#volume.io.read.latency.milliseconds'=6431ms;;;0; 'volumes1#volume.io.write.latency.milliseconds'=36364ms;;;0; 'volumes2#volume.io.write.latency.milliseconds'=20081ms;;;0; 'volumes1#volume.io.other.latency.milliseconds'=10728ms;;;0; 'volumes2#volume.io.other.latency.milliseconds'=66364ms;;;0; 'volumes1#volume.io.total.latency.milliseconds'=17484ms;;;0; 'volumes2#volume.io.total.latency.milliseconds'=561ms;;;0; 
 ```
 
 ### Troubleshooting
@@ -541,6 +543,7 @@ All generic options are listed here:
 | --change-short-output                      | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --change-long-output                       | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --change-output-adv                        | Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -556,7 +559,7 @@ All generic options are listed here:
 | --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  \<output\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --http-peer-addr                           | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --proxyurl                                 | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --proxypac                                 | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --proxypac                                 | Proxy PAC file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | --insecure                                 | Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --http-backend                             | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --hostname                                 | Netapp hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
@@ -571,7 +574,6 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-
 <TabItem value="Aggregates" label="Aggregates">
 
 | Option                   | Description                                                                                                                                                                                                                                                                   |

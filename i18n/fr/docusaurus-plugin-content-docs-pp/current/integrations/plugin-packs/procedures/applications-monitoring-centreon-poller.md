@@ -97,7 +97,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### SNMP
 
-SNMP doit être configuré sur chaque collecteur supervisé. Vous pouvez vous aider de [cette documentation](operatingsystems-linux-snmp.md#prerequis) pour mettre en place rapidement une configuration SNMP simple. 
+SNMP doit être configuré sur chaque collecteur supervisé. Vous pouvez vous aider de [cette documentation](operatingsystems-linux-snmp.md#prérequis) pour mettre en place rapidement une configuration SNMP simple. 
 
 ### Échange de clef SSH
 
@@ -125,8 +125,10 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_POLLER>
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -163,7 +165,7 @@ yum install centreon-pack-applications-monitoring-centreon-poller
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Centreon Poller**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -271,14 +273,14 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Poller
 </TabItem>
 <TabItem value="proc-ntpd" label="proc-ntpd">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                | ntpd\|chronyd     |             |
-| PROCESSPATH  | Filter process path                                                                                |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                           |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     | 1:1               |             |
-| WARNING      | Warning threshold of matching processes count                                                      |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro        | Description                                                                                        | Default value                  | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                | ntpd\|chronyd\|systemd-timesyn |             |
+| PROCESSPATH  | Filter process path                                                                                |                                |             |
+| PROCESSARGS  | Filter process arguments                                                                           |                                |             |
+| CRITICAL     | Critical threshold of matching processes count                                                     | 1:1                            |             |
+| WARNING      | Warning threshold of matching processes count                                                      |                                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="proc-sshd" label="proc-sshd">

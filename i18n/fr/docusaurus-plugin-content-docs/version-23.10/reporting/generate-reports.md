@@ -16,7 +16,7 @@ Ce chapitre décrit les fonctionnalités à utiliser afin de générer et gérer
 Une tâche planifiée est une entité qui permet de générer un rapport et sa configuration prend en compte :
 
  - Un modèle de rapport à utiliser ([voir les modèles disponibles par défaut](report-development.md)
- - Un périmètre basé sur les objets Centreon (voir [les bonnes pratiques](installation.md#bonnes-pratiques-de-supervision))
+ - Un périmètre basé sur les objets Centreon (voir [les bonnes pratiques](concepts.md#bonnes-pratiques-de-supervision))
 
  - Une période de reporting (mois en cours, mois dernier, veille etc..)
 
@@ -212,7 +212,7 @@ Il existe trois types de champs dans ce formulaire:
     -   Périodes temporelles
     -   Images à insérer au rapport ( les logos par exemple)
 
-> Dans le champ **périodes temporelles** des rapports concernant [BAM](../service-mapping/introduction.md), n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
+> Dans le champ **périodes temporelles** des rapports concernant [BAM](../service-mapping/introduction.md), n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
 
 > Une valeur doit être renseignée pour chaque champs excepté le
 > multi-select quand il s'agit d'exclusion de métriques. Dans ce cas

@@ -37,7 +37,7 @@ Vous devez avoir **/sbin/nologin** tel que :
 apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 ```
 
-> Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/prerequisites.md#utilisateurs-et-groupes)
+> Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/technical.md#utilisateurs-et-groupes)
 
 ## Activer SELinux
 
@@ -52,7 +52,7 @@ des composants par le système d'exploitation.
 
 ### Présentation de SELinux
 
-Security Enhanced Linux (SELinux) fournit une couche supplémentaire de sécurité du système. SELinux répond
+Security Enhanced Linux (SELinux) fournit une couche supplémentaire de sécurité du système pour les environnements EL. SELinux répond
 fondamentalement à la question: `Le <suject> peut-il faire cette <action> sur <object> ?`, Par exemple: un serveur Web
 peut-il accéder aux fichiers des répertoires personnels des utilisateurs ?
 
@@ -180,45 +180,7 @@ Suivant le type de serveur, installer les paquets avec la commande suivante :
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-<Tabs groupId="sync">
-<TabItem value="Central / Remote Server" label="Central / Remote Server">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-web-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Poller" label="Poller">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Map server" label="Map server">
-
-   ```shell
-   apt install centreon-map-selinux
-   ```
-
-</TabItem>
-<TabItem value="MBI server" label="MBI server">
-
-   ```shell
-   apt install centreon-mbi-selinux
-   ```
-
-</TabItem>
-</Tabs>
+SELinux ne concerne que les environnements EL.
 
 </TabItem>
 </Tabs>
@@ -343,7 +305,7 @@ systemctl start firewalld
 Ajoutez des règles pour firewalld :
 
 > La liste des flux réseau nécessaires pour chaque type de serveur est définie
-> [ici](../installation/architectures.md#tableau-des-flux-de-la-plate-forme).
+> [ici](../installation/technical.md#tableaux-des-flux-réseau).
 
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
@@ -1299,7 +1261,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 
 Vous pouvez maintenant accéder à votre plateforme via votre navigateur en mode HTTPS.
 
-> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez le configurer en mode HTTPS également. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](../graph-views/secure-your-map-platform.md#configure-httpstls-on-the-map-server).
+> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez définir l'adresse `centreon.url=https://<server-address>` dans le fichier **/etc/centreon-map/map-config.properties** pour utiliser HTTPS au lieu de HTTP. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](../graph-views/secure-your-map-platform.md#configurer-httpstls-sur-le-serveur-map).
 
 9. Configuration API de Gorgone
 
@@ -1582,7 +1544,7 @@ via la gestion de [liste de contrôle d'accès](./access-control-lists.md).
 Il est fortement recommandé de sécuriser les communications entre les différents serveurs de la plateforme Centreon si
 certains serveurs ne sont pas dans un réseau sécurisé.
 
-> Le tableau des flux réseau est disponible [ici](../installation/architectures.md#tableau-des-flux-réseau).
+> Le tableau des flux réseau est disponible [ici](../installation/technical.md#tableaux-des-flux-réseau).
 
 ### Communication Centreon Broker
 
@@ -1590,7 +1552,7 @@ certains serveurs ne sont pas dans un réseau sécurisé.
 
 Parfois, il n'est pas possible d'initialiser le flux Centreon Broker depuis le collecteur (ou Remote Server)
 vers le serveur Centreon Central ou le Remote Server.
-[Voir la configuration suivante pour inverser le flux](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-and-the-firewall).
+[Voir la configuration suivante pour inverser le flux](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-et-pare-feu).
 
 #### Authentification des flux Centreon Broker
 
