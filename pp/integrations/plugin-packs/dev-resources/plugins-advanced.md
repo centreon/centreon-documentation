@@ -38,13 +38,13 @@ different from 'ok', the output associated with 'ok' status is not printed.
 This is an example of how to manage output:
 
 ```perl
-$self->{output}->output_add(severity  => 'OK',
+$self->\{output}->output_add(severity  => 'OK',
                             short_msg => 'All is ok');
-$self->{output}->output_add(severity  => 'Critical',
+$self->\{output}->output_add(severity  => 'Critical',
                             short_msg => 'There is a critical problem');
-$self->{output}->output_add(long_msg  => 'Port 1 is disconnected');
+$self->\{output}->output_add(long_msg  => 'Port 1 is disconnected');
 
-$self->{output}->display();
+$self->\{output}->display();
 ```
 
 The displayed output is:
@@ -80,9 +80,9 @@ This is an example of how to add performance data:
 
 ```perl
 
-$self->{output}->output_add(severity  => 'OK',
+$self->\{output}->output_add(severity  => 'OK',
                             short_msg => 'Memory is ok');
-$self->{output}->perfdata_add(label    => 'memory_used',
+$self->\{output}->perfdata_add(label    => 'memory_used',
                               value    => 30000000,
                               unit     => 'B',
                               warning  => '80000000',
@@ -90,7 +90,7 @@ $self->{output}->perfdata_add(label    => 'memory_used',
                               min      => 0,
                               max      => 100000000);
 
-$self->{output}->display();
+$self->\{output}->display();
 ```
 Output displays :
 
@@ -122,10 +122,10 @@ Manage thresholds of performance data for output.
 This is an example of how to manage performance data for output:
 
 ```perl
-my $format_warning_perfdata  = $self->{perfdata}->get_perfdata_for_output(label => 'warning', total => 1000000000, cast_int => 1);
-my $format_critical_perfdata = $self->{perfdata}->get_perfdata_for_output(label => 'critical', total => 1000000000, cast_int => 1);
+my $format_warning_perfdata  = $self->\{perfdata}->get_perfdata_for_output(label => 'warning', total => 1000000000, cast_int => 1);
+my $format_critical_perfdata = $self->\{perfdata}->get_perfdata_for_output(label => 'critical', total => 1000000000, cast_int => 1);
 
-$self->{output}->perfdata_add(label    => 'memory_used',
+$self->\{output}->perfdata_add(label    => 'memory_used',
                               value    => 30000000,
                               unit     => 'B',
                               warning  => $format_warning_perfdata,
@@ -157,9 +157,9 @@ This example checks if warning threshold is correct:
 
 ```perl
 
-if (($self->{perfdata}->threshold_validate(label => 'warning', value => $self->{option_results}->{warning})) == 0) {
-  $self->{output}->add_option_msg(short_msg => "Wrong warning threshold '" . $self->{option_results}->{warning} . "'.");
-  $self->{output}->option_exit();
+if (($self->\{perfdata}->threshold_validate(label => 'warning', value => $self->\{option_results}->\{warning})) == 0) {
+  $self->\{output}->add_option_msg(short_msg => "Wrong warning threshold '" . $self->\{option_results}->\{warning} . "'.");
+  $self->\{output}->option_exit();
 }
 ```
 
@@ -184,15 +184,15 @@ Compare performance data value with threshold to determine status.
 This example checks if performance data reached thresholds:
 
 ```perl
-$self->{perfdata}->threshold_validate(label => 'warning', value => 80);
-$self->{perfdata}->threshold_validate(label => 'critical', value => 90);
+$self->\{perfdata}->threshold_validate(label => 'warning', value => 80);
+$self->\{perfdata}->threshold_validate(label => 'critical', value => 90);
 my $prct_used = 85;
 
-my $exit = $self->{perfdata}->threshold_check(value => $prct_used, threshold => [ { label => 'critical', 'exit_litteral' => 'critical' }, { label => 'warning', exit_litteral => 'warning' } ]);
+my $exit = $self->\{perfdata}->threshold_check(value => $prct_used, threshold => [ { label => 'critical', 'exit_litteral' => 'critical' }, { label => 'warning', exit_litteral => 'warning' } ]);
 
-$self->{output}->output_add(severity  => $exit,
+$self->\{output}->output_add(severity  => $exit,
                             short_msg => sprint("Used memory is %i%%", $prct_used));
-$self->{output}->display();
+$self->\{output}->display();
 ```
 Output displays :
 
@@ -220,7 +220,7 @@ This example change bytes to human readable unit:
 
 ```perl
 
-my ($value, $unit) = $self->{perfdata}->change_bytes(value => 100000);
+my ($value, $unit) = $self->\{perfdata}->change_bytes(value => 100000);
 
 print $value.' '.$unit."\n";
 ```
@@ -256,10 +256,10 @@ This is an example of how to get 2 SNMP values:
 my $oid_hrSystemUptime = '.1.3.6.1.2.1.25.1.1.0';
 my $oid_sysUpTime = '.1.3.6.1.2.1.1.3.0';
 
-my $result = $self->{snmp}->get_leef(oids => [ $oid_hrSystemUptime, $oid_sysUpTime ], nothing_quit => 1);
+my $result = $self->\{snmp}->get_leef(oids => [ $oid_hrSystemUptime, $oid_sysUpTime ], nothing_quit => 1);
 
-print $result->{$oid_hrSystemUptime}."\n";
-print $result->{$oid_sysUpTime}."\n";
+print $result->\{$oid_hrSystemUptime}."\n";
+print $result->\{$oid_sysUpTime}."\n";
 ```
 
 #### load
@@ -285,9 +285,9 @@ This is an example of how to get 4 instances of a SNMP table by using **load** m
 ```perl
 my $oid_dskPath = '.1.3.6.1.4.1.2021.9.1.2';
 
-$self->{snmp}->load(oids => [$oid_dskPercentNode], instances => [1,2,3,4]);
+$self->\{snmp}->load(oids => [$oid_dskPercentNode], instances => [1,2,3,4]);
 
-my $result = $self->{snmp}->get_leef(nothing_quit => 1);
+my $result = $self->\{snmp}->get_leef(nothing_quit => 1);
 
 use Data::Dumper;
 print Dumper($result);
@@ -300,12 +300,12 @@ my $oid_memoryDeviceLocationName = '.1.3.6.1.4.1.674.10892.1.1100.50.1.8';
 my $oid_memoryDeviceSize = '.1.3.6.1.4.1.674.10892.1.1100.50.1.14';
 my $oid_memoryDeviceFailureModes = '.1.3.6.1.4.1.674.10892.1.1100.50.1.20';
 
-my $result = $self->{snmp}->get_table(oid => $oid_memoryDeviceStatus);
-$self->{snmp}->load(oids => [$oid_memoryDeviceLocationName, $oid_memoryDeviceSize, $oid_memoryDeviceFailureModes],
+my $result = $self->\{snmp}->get_table(oid => $oid_memoryDeviceStatus);
+$self->\{snmp}->load(oids => [$oid_memoryDeviceLocationName, $oid_memoryDeviceSize, $oid_memoryDeviceFailureModes],
                     instances => [keys %$result],
                     instance_regexp => '(\d+\.\d+)$');
 
-my $result2 = $self->{snmp}->get_leef();
+my $result2 = $self->\{snmp}->get_leef();
 
 use Data::Dumper;
 print Dumper($result2);
@@ -336,7 +336,7 @@ This is an example of how to get a SNMP table:
 my $oid_rcDeviceError            = '.1.3.6.1.4.1.15004.4.2.1';
 my $oid_rcDeviceErrWatchdogReset = '.1.3.6.1.4.1.15004.4.2.1.2.0';
 
-my $results = $self->{snmp}->get_table(oid => $oid_rcDeviceError, start => $oid_rcDeviceErrWatchdogReset);
+my $results = $self->\{snmp}->get_table(oid => $oid_rcDeviceError, start => $oid_rcDeviceErrWatchdogReset);
 
 use Data::Dumper;
 print Dumper($results);
@@ -366,7 +366,7 @@ This is an example of how to get 2 SNMP tables:
 my $oid_sysDescr        = ".1.3.6.1.2.1.1.1";
 my $aix_swap_pool       = ".1.3.6.1.4.1.2.6.191.2.4.2.1";
 
-my $results = $self->{snmp}->get_multiple_table(oids => [
+my $results = $self->\{snmp}->get_multiple_table(oids => [
                                                       { oid => $aix_swap_pool},
                                                       { oid => $oid_sysDescr },
                                                 ]);
@@ -390,7 +390,7 @@ None.
 This is an example of how to get hostname parameter:
 
 ```perl
-my $hostname = $self->{snmp}->get_hostname();
+my $hostname = $self->\{snmp}->get_hostname();
 ```
 
 #### get_port
@@ -409,7 +409,7 @@ None.
 This is an example of how to get port parameter:
 
 ```perl
-my $port = $self->{snmp}->get_port();
+my $port = $self->\{snmp}->get_port();
 ```
 
 #### oid_lex_sort
@@ -429,7 +429,7 @@ Return sorted OIDs.
 This example prints sorted OIDs:
 
 ```perl
-foreach my $oid ($self->{snmp}->oid_lex_sort(keys %{$self->{results}->{$my_oid}})) {
+foreach my $oid ($self->\{snmp}->oid_lex_sort(keys %{$self->\{results}->\{$my_oid}})) {
   print $oid;
 }
 ```
@@ -542,8 +542,8 @@ Execute command remotely.
 
 | Parameter       | Type   | Default | Description                                                     |
 |-----------------|--------|---------|-----------------------------------------------------------------|
-| **output**      | Object |         | Plugin output ($self->{output}).                                |
-| **options**     | Object |         | Plugin options ($self->{option_results}) to get remote options. |
+| **output**      | Object |         | Plugin output ($self->\{output}).                                |
+| **options**     | Object |         | Plugin options ($self->\{option_results}) to get remote options. |
 | sudo            | String |         | Use sudo command.                                               |
 | **command**     | String |         | Command to execute.                                             |
 | command_path    | String |         | Command path.                                                   |
@@ -555,8 +555,8 @@ This is an example of how to use **execute** method.
 We suppose ``--remote`` option is enabled:
 
 ```perl
-my $stdout = centreon::plugins::misc::execute(output => $self->{output},
-                                              options => $self->{option_results},
+my $stdout = centreon::plugins::misc::execute(output => $self->\{output},
+                                              options => $self->\{option_results},
                                               sudo => 1,
                                               command => 'ls /home',
                                               command_path => '/bin/',
@@ -574,7 +574,7 @@ Execute command on Windows.
 
 | Parameter       | Type   | Default | Description                          |
 |-----------------|--------|---------|--------------------------------------|
-| **output**      | Object |         | Plugin output ($self->{output}).     |
+| **output**      | Object |         | Plugin output ($self->\{output}).     |
 | **command**     | String |         | Command to execute.                  |
 | command_path    | String |         | Command path.                        |
 | command_options | String |         | Command arguments.                   |
@@ -586,7 +586,7 @@ Execute command on Windows.
 This is an example of how to use **windows_execute** method.
 
 ```perl
-my $stdout = centreon::plugins::misc::windows_execute(output => $self->{output},
+my $stdout = centreon::plugins::misc::windows_execute(output => $self->\{output},
                                                       timeout => 10,
                                                       command => 'ipconfig',
                                                       command_path => '',
@@ -622,14 +622,14 @@ Read cache file.
 This is an example of how to use **read** method:
 
 ```perl
-$self->{statefile_value} = centreon::plugins::statefile->new(%options);
-$self->{statefile_value}->check_options(%options);
-$self->{statefile_value}->read(statefile => 'my_cache_file',
+$self->\{statefile_value} = centreon::plugins::statefile->new(%options);
+$self->\{statefile_value}->check_options(%options);
+$self->\{statefile_value}->read(statefile => 'my_cache_file',
                                statefile_dir => '/var/lib/centreon/centplugins'
                               );
 
 use Data::Dumper;
-print Dumper($self->{statefile_value});
+print Dumper($self->\{statefile_value});
 ```
 Output displays cache file and its parameters.
 
@@ -650,13 +650,13 @@ Get data from cache file.
 This is an example of how to use **get** method:
 
 ```perl
-$self->{statefile_value} = centreon::plugins::statefile->new(%options);
-$self->{statefile_value}->check_options(%options);
-$self->{statefile_value}->read(statefile => 'my_cache_file',
+$self->\{statefile_value} = centreon::plugins::statefile->new(%options);
+$self->\{statefile_value}->check_options(%options);
+$self->\{statefile_value}->read(statefile => 'my_cache_file',
                                statefile_dir => '/var/lib/centreon/centplugins'
                               );
 
-my $value = $self->{statefile_value}->get(name => 'property1');
+my $value = $self->\{statefile_value}->get(name => 'property1');
 print $value."\n";
 ```
 Output displays value for 'property1' of the cache file.
@@ -678,15 +678,15 @@ Write data to cache file.
 This is an example of how to use **write** method:
 
 ```perl
-$self->{statefile_value} = centreon::plugins::statefile->new(%options);
-$self->{statefile_value}->check_options(%options);
-$self->{statefile_value}->read(statefile => 'my_cache_file',
+$self->\{statefile_value} = centreon::plugins::statefile->new(%options);
+$self->\{statefile_value}->check_options(%options);
+$self->\{statefile_value}->read(statefile => 'my_cache_file',
                                statefile_dir => '/var/lib/centreon/centplugins'
                               );
 
 my $new_datas = {};
-$new_datas->{last_timestamp} = time();
-$self->{statefile_value}->write(data => $new_datas);
+$new_datas->\{last_timestamp} = time();
+$self->\{statefile_value}->write(data => $new_datas);
 ```
 Then, you can read the result in '/var/lib/centreon/centplugins/my_cache_file', timestamp is written in it.
 
@@ -735,9 +735,9 @@ We suppose these options are defined :
 * --port     = 80
 
 ```perl
-$self->{http} = centreon::plugins::http->new(output => $self->{output}, options => $self->{options});
-$self->{http}->set_options(%{$self->{option_results}});
-my $webcontent = $self->{http}->request();
+$self->\{http} = centreon::plugins::http->new(output => $self->\{output}, options => $self->\{options});
+$self->\{http}->set_options(%{$self->\{option_results}});
+my $webcontent = $self->\{http}->request();
 print $webcontent;
 ```
 Output displays content of the webpage '\http://google.com/'.
@@ -779,14 +779,14 @@ The format of the connection string can have the following forms:
 In plugin.pm:
 
 ```perl
-$self->{sqldefault}->{dbi} = ();
-$self->{sqldefault}->{dbi} = { data_source => 'mysql:host=127.0.0.1;port=3306' };
+$self->\{sqldefault}->\{dbi} = ();
+$self->\{sqldefault}->\{dbi} = { data_source => 'mysql:host=127.0.0.1;port=3306' };
 ```
 In your mode:
 
 ```perl
-$self->{sql} = $options{sql};
-my ($exit, $msg_error) = $self->{sql}->connect(dontquit => 1);
+$self->\{sql} = $options{sql};
+my ($exit, $msg_error) = $self->\{sql}->connect(dontquit => 1);
 ```
 Then, you are connected to the MySQL database.
 
@@ -807,8 +807,8 @@ Send query to database.
 This is an example of how to use **query** method:
 
 ```perl
-$self->{sql}->query(query => q{SHOW /*!50000 global */ STATUS LIKE 'Slow_queries'});
-my ($name, $result) = $self->{sql}->fetchrow_array();
+$self->\{sql}->query(query => q{SHOW /*!50000 global */ STATUS LIKE 'Slow_queries'});
+my ($name, $result) = $self->\{sql}->fetchrow_array();
 
 print 'Name : '.$name."\n";
 print 'Value : '.$value."\n";
@@ -830,8 +830,8 @@ None.
 This is an example of how to use **fetchrow_array** method:
 
 ```perl
-$self->{sql}->query(query => q{SHOW /*!50000 global */ STATUS LIKE 'Uptime'});
-my ($dummy, $result) = $self->{sql}->fetchrow_array();
+$self->\{sql}->query(query => q{SHOW /*!50000 global */ STATUS LIKE 'Uptime'});
+my ($dummy, $result) = $self->\{sql}->fetchrow_array();
 
 print 'Uptime : '.$result."\n";
 ```
@@ -852,14 +852,14 @@ None.
 This is an example of how to use **fetchrow_array** method:
 
 ```perl
-$self->{sql}->query(query => q{
+$self->\{sql}->query(query => q{
       SELECT SUM(DECODE(name, 'physical reads', value, 0)),
           SUM(DECODE(name, 'physical reads direct', value, 0)),
           SUM(DECODE(name, 'physical reads direct (lob)', value, 0)),
           SUM(DECODE(name, 'session logical reads', value, 0))
       FROM sys.v_$sysstat
 });
-my $result = $self->{sql}->fetchall_arrayref();
+my $result = $self->\{sql}->fetchall_arrayref();
 
 my $physical_reads = @$result[0]->[0];
 my $physical_reads_direct = @$result[0]->[1];
@@ -885,12 +885,12 @@ None.
 This is an example of how to use **fetchrow_hashref** method:
 
 ```perl
-$self->{sql}->query(query => q{
+$self->\{sql}->query(query => q{
   SELECT datname FROM pg_database
 });
 
-while ((my $row = $self->{sql}->fetchrow_hashref())) {
-  print $row->{datname}."\n";
+while ((my $row = $self->\{sql}->fetchrow_hashref())) {
+  print $row->\{datname}."\n";
 }
 ```
 Output displays Postgres databases.
@@ -949,10 +949,10 @@ We want to develop the following SNMP plugin:
   sub set_counters {
     my ($self, %options) = @_;
     
-    $self->{maps_counters_type} = [
+    $self->\{maps_counters_type} = [
         { name => 'global', type => 0, message_separator => ' - ' },
     ];
-    $self->{maps_counters}->{global} = [
+    $self->\{maps_counters}->\{global} = [
         { label => 'sessions', set => {
                 key_values => [ { name => 'sessions' } ],
                 output_template => 'Current sessions : %s',
@@ -982,9 +982,9 @@ We want to develop the following SNMP plugin:
       oids => [ $oid_sessions, $oid_sessions_ssl ],
       nothing_quit => 1
     );
-    $self->{global} = {
-      sessions => $result->{$oid_sessions},
-      sessions_ssl => $result->{$oid_sessions_ssl}
+    $self->\{global} = {
+      sessions => $result->\{$oid_sessions},
+      sessions_ssl => $result->\{$oid_sessions_ssl}
     };
   }
 ```
@@ -1049,11 +1049,11 @@ We want to add the current number of sessions by virtual servers.
   sub set_counters {
     my ($self, %options) = @_;
     
-    $self->{maps_counters_type} = [
+    $self->\{maps_counters_type} = [
         { name => 'global', type => 0, cb_prefix_output => 'prefix_global_output' },
         { name => 'vs', type => 1, cb_prefix_output => 'prefix_vs_output', message_multiple => 'All Virtual servers are ok' }
     ];
-    $self->{maps_counters}->{global} = [
+    $self->\{maps_counters}->\{global} = [
         { label => 'total-sessions', set => {
                 key_values => [ { name => 'sessions' } ],
                 output_template => 'current sessions : %s',
@@ -1072,7 +1072,7 @@ We want to add the current number of sessions by virtual servers.
         },
     ];
     
-    $self->{maps_counters}->{vs} = [
+    $self->\{maps_counters}->\{vs} = [
         { label => 'sessions', set => {
                 key_values => [ { name => 'sessions' }, { name => 'display' } ],
                 output_template => 'current sessions : %s',
@@ -1097,7 +1097,7 @@ We want to add the current number of sessions by virtual servers.
   sub prefix_vs_output {
     my ($self, %options) = @_;
     
-    return "Virtual server '" . $options{instance_value}->{display} . "' ";
+    return "Virtual server '" . $options{instance_value}->\{display} . "' ";
   }
   
   sub prefix_global_output {
@@ -1114,8 +1114,8 @@ We want to add the current number of sessions by virtual servers.
     
     my $result = $options{snmp}->get_leef(oids => [ $oid_sessions, $oid_sessions_ssl ],
                                           nothing_quit => 1);
-    $self->{global} = { sessions => $result->{$oid_sessions},
-                        sessions_ssl => $result->{$oid_sessions_ssl}
+    $self->\{global} = { sessions => $result->\{$oid_sessions},
+                        sessions_ssl => $result->\{$oid_sessions_ssl}
                       };
     my $oid_table_vs = '.1.2.3.10';
     my $mapping = {
@@ -1124,16 +1124,16 @@ We want to add the current number of sessions by virtual servers.
         vsSessionsSsl => { oid => '.1.2.3.10.3' },
     };
     
-    $self->{vs} = {};
+    $self->\{vs} = {};
     $result = $options{snmp}->get_table(oid => $oid_table_vs,
                                         nothing_quit => 1);
-    foreach my $oid (keys %{$result->{ $oid_table_vs }}) {
-        next if ($oid !~ /^$mapping->{vsName}->{oid}\.(.*)$/;
+    foreach my $oid (keys %{$result->\{ $oid_table_vs }}) {
+        next if ($oid !~ /^$mapping->\{vsName}->\{oid}\.(.*)$/;
         my $instance = $1;
-        my $data = $options{snmp}->map_instance(mapping => $mapping, results => $result->{$oid_table_vs}, instance => $instance);
+        my $data = $options{snmp}->map_instance(mapping => $mapping, results => $result->\{$oid_table_vs}, instance => $instance);
         
-        $self->{vs}->{$instance} = { display => $data->{vsName}, 
-                                     sessions => $data->{vsSessions}, sessions_ssl => $data->{vsSessionsSsl}};
+        $self->\{vs}->\{$instance} = { display => $data->\{vsName}, 
+                                     sessions => $data->\{vsSessions}, sessions_ssl => $data->\{vsSessionsSsl}};
     }
   }
 ```
@@ -1160,10 +1160,10 @@ The model can also be used to check strings (not only counters). So we want to c
   sub set_counters {
     my ($self, %options) = @_;
     
-    $self->{maps_counters_type} = [
+    $self->\{maps_counters_type} = [
         { name => 'vs', type => 1, cb_prefix_output => 'prefix_vs_output', message_multiple => 'All Virtual server status are ok' }
     ];    
-    $self->{maps_counters}->{vs} = [
+    $self->\{maps_counters}->\{vs} = [
         { label => 'status', threshold => 0, set => {
                 key_values => [ { name => 'status' }, { name => 'display' } ],
                 closure_custom_calc => $self->can('custom_status_calc'),
@@ -1179,7 +1179,7 @@ The model can also be used to check strings (not only counters). So we want to c
     my ($self, %options) = @_; 
     my $status = 'ok';
     
-    if ($self->{result_values}->{status} =~ /problem/) {
+    if ($self->\{result_values}->\{status} =~ /problem/) {
         $status = 'critical';
     }
     return $status;
@@ -1188,22 +1188,22 @@ The model can also be used to check strings (not only counters). So we want to c
   sub custom_status_output {
     my ($self, %options) = @_;
     
-    my $msg = sprintf("status is '%s'", $self->{result_values}->{status});
+    my $msg = sprintf("status is '%s'", $self->\{result_values}->\{status});
     return $msg;
   }
   
   sub custom_status_calc {
     my ($self, %options) = @_;
     
-    $self->{result_values}->{status} = $options{new_datas}->{$self->{instance} . '_status'};
-    $self->{result_values}->{display} = $options{new_datas}->{$self->{instance} . '_display'};
+    $self->\{result_values}->\{status} = $options{new_datas}->\{$self->\{instance} . '_status'};
+    $self->\{result_values}->\{display} = $options{new_datas}->\{$self->\{instance} . '_display'};
     return 0;
   }
   
   sub prefix_vs_output {
     my ($self, %options) = @_;
     
-    return "Virtual server '" . $options{instance_value}->{display} . "' ";
+    return "Virtual server '" . $options{instance_value}->\{display} . "' ";
   }
   
   sub check_options {
@@ -1221,16 +1221,16 @@ The model can also be used to check strings (not only counters). So we want to c
         vsStatus      => { oid => '.1.2.3.10.4' },
     };
     
-    $self->{vs} = {};
+    $self->\{vs} = {};
     my $result = $options{snmp}->get_table(oid => $oid_table_vs,
                                         nothing_quit => 1);
-    foreach my $oid (keys %{$result->{ $oid_table_vs }}) {
-        next if ($oid !~ /^$mapping->{vsName}->{oid}\.(.*)$/;
+    foreach my $oid (keys %{$result->\{ $oid_table_vs }}) {
+        next if ($oid !~ /^$mapping->\{vsName}->\{oid}\.(.*)$/;
         my $instance = $1;
-        my $data = $options{snmp}->map_instance(mapping => $mapping, results => $result->{$oid_table_vs}, instance => $instance);
+        my $data = $options{snmp}->map_instance(mapping => $mapping, results => $result->\{$oid_table_vs}, instance => $instance);
         
-        $self->{vs}->{$instance} = { display => $data->{vsName}, 
-                                     status => $data->{vsStatus} };
+        $self->\{vs}->\{$instance} = { display => $data->\{vsName}, 
+                                     status => $data->\{vsStatus} };
     }
   }
 ```
