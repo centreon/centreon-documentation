@@ -5,73 +5,115 @@ title: Netapp Santricity Restapi
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
 
-## Overview
+The following monitoring connectors will be installed when you install the **NetApp Santricity Restapi** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
 
-SANtricity is a data management software that powers and administers the NetApp E-Series storage arrays. 
-With the SANtricity operating system (OS), you can perform all your management tasks while the storage remains online, with complete read and write data access.
+## Pack assets
 
-## Monitoring Connector assets
+### Templates
 
-### Monitored Objects
+The Monitoring Connector **NetApp Santricity Restapi** brings a host template:
 
-* Hardware
-* Storage-Controllers
-* Storage-Pools
-* Storage-Systems
-* Storage-Volumes
+* **HW-Storage-NetApp-Santricity-Restapi-custom**
 
-### Monitored metrics
+The connector brings the following service templates (sorted by the host template they are attached to):
 
-Following metrics are collected from the SANtricity API:
+<Tabs groupId="sync">
+<TabItem value="HW-Storage-NetApp-Santricity-Restapi-custom" label="HW-Storage-NetApp-Santricity-Restapi-custom">
+
+| Service Alias       | Service Template                                                | Service Description                        |
+|:--------------------|:----------------------------------------------------------------|:-------------------------------------------|
+| Hardware            | HW-Storage-NetApp-Santricity-Hardware-Restapi-custom            | Check hardware state of Netapp storages    |
+| Storage-Controllers | HW-Storage-NetApp-Santricity-Storage-Controllers-Restapi-custom | Check controllers state of Netapp storages |
+| Storage-Pools       | HW-Storage-NetApp-Santricity-Storage-Pools-Restapi-custom       | Check pool state of Netapp storages        |
+| Storage-Systems     | HW-Storage-NetApp-Santricity-Storage-Systems-Restapi-custom     | Check systems state of Netapp storages     |
+| Storage-Volumes     | HW-Storage-NetApp-Santricity-Storage-Volumes-Restapi-custom     | Check volumes state of Netapp storages     |
+
+> The services listed above are created automatically when the **HW-Storage-NetApp-Santricity-Restapi-custom** host template is used.
+
+</TabItem>
+</Tabs>
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Hardware" label="Hardware">
 
-| Metric name                        | Description                                                                                              |
-| :--------------------------------- | :------------------------------------------------------------------------------------------------------- |
-| status                             | Check components operational status: battery, cbd, ctrl, drive, fan, psu, storage, thsensor. Unit: count |
-| hardware.drive.temperature.celsius | Check drives temperature. Unit: °C                                                                       |
+| Name                               | Unit  |
+|:-----------------------------------|:------|
+| hardware.battery.status            | N/A   |
+| hardware.battery.count             | count |
+| hardware.board.status              | N/A   |
+| hardware.board.count               | count |
+| hardware.cbd.status                | N/A   |
+| hardware.cbd.count                 | count |
+| hardware.cmd.status                | N/A   |
+| hardware.cmd.count                 | count |
+| hardware.ctrl.status               | N/A   |
+| hardware.ctrl.count                | count |
+| hardware.drive.status              | N/A   |
+| hardware.drive.count               | count |
+| hardware.drive.temperature.celsius | C     |
+| hardware.fan.status                | N/A   |
+| hardware.fan.count                 | count |
+| hardware.psu.status                | N/A   |
+| hardware.psu.count                 | count |
+| hardware.storage.status            | N/A   |
+| hardware.storage.count             | count |
+| hardware.thsensor.status           | N/A   |
+| hardware.thsensor.count            | count |
 
 </TabItem>
-<TabItem value="Storage Pools" label="Storage Pools">
+<TabItem value="Storage-Controllers" label="Storage-Controllers">
 
-| Metric name            | Description              |
-| :--------------------  | :----------------------- |
-| raid\_status           | Raid status information  | 
-
-</TabItem>
-<TabItem value="Storage Controllers" label="Storage Controllers">
-
-| Metric name                          | Description                          |
-| :----------------------------------- | :----------------------------------- |
-| status                               | Controller operational status        |
-| volume.cpu.utilization.percentage    | CPU volume utilization. Unit: %      |
-| volume.io.read.usage.bytespersecond  | Volume IO read usage. Unit: B/s      |
-| volume.io.write.usage.bytespersecond | Volume IO write usage. Unit: B/s     |
-| system.io.read.usage.iops            | System read IOPS usage. Unit: count  |
-| system.io.write.usage.iops           | System write IOPS usage. Unit: count |
+| Name                                                    | Unit  |
+|:--------------------------------------------------------|:------|
+| controller-status                                       | N/A   |
+| *ss*~*controllers*#volume.cpu.utilization.percentage    | %     |
+| *ss*~*controllers*#volume.io.read.usage.bytespersecond  | B/s   |
+| *ss*~*controllers*#volume.io.write.usage.bytespersecond | B/s   |
+| *ss*~*controllers*#system.io.read.usage.iops            | iops  |
+| *ss*~*controllers*#system.io.write.usage.iops           | iops  |
 
 </TabItem>
-<TabItem value="Storage Systems" label="Storage Systems">
+<TabItem value="Storage-Pools" label="Storage-Pools">
 
-| Metric name                 | Description                          |
-| :-------------------------- | :----------------------------------- |
-| status                      | System operational status            |
-| pool.space.usage.bytes      | Pool space usage. Unit: B            |
-| pool.space.usage.percentage | Pool space percentage usage. Unit: % |
-| pool.space.free.bytes       | Pool free space. Unit: B             |
+| Name                                     | Unit  |
+|:-----------------------------------------|:------|
+| pool-status                              | N/A   |
+| *ss*~*pools*#pool.space.usage.bytes      | B     |
+| *ss*~*pools*#pool.space.free.bytes       | B     |
+| *ss*~*pools*#pool.space.usage.percentage | %     |
 
 </TabItem>
-<TabItem value="Storage Volumes" label="Storage Volumes">
+<TabItem value="Storage-Systems" label="Storage-Systems">
 
-| Metric name                          | Description                          |
-| :----------------------------------- | :----------------------------------- |
-| status                               | Volume operational status            |
-| volume.io.read.usage.bytespersecond  | Volume IO read usage. Unit: B/s      |
-| volume.io.write.usage.bytespersecond | Volume IO write usage. Unit: B/s     |
-| system.io.read.usage.iops            | Volume read IOPS usage. Unit: count  |
-| system.io.write.usage.iops           | Volume write IOPS usage. Unit: count |
+| Name                             | Unit  |
+|:---------------------------------|:------|
+| status                           | N/A   |
+| *ss*#pool.space.usage.bytes      | B     |
+| *ss*#pool.space.free.bytes       | B     |
+| *ss*#pool.space.usage.percentage | %     |
+
+</TabItem>
+<TabItem value="Storage-Volumes" label="Storage-Volumes">
+
+| Name                                                 | Unit  |
+|:-----------------------------------------------------|:------|
+| volume-status                                        | N/A   |
+| *ss*~*volumes1*#volume.io.read.usage.bytespersecond  | B/s   |
+| *ss*~*volumes2*#volume.io.read.usage.bytespersecond  | B/s   |
+| *ss*~*volumes1*#volume.io.write.usage.bytespersecond | B/s   |
+| *ss*~*volumes2*#volume.io.write.usage.bytespersecond | B/s   |
+| *ss*~*volumes1*#volume.io.read.usage.iops            | iops  |
+| *ss*~*volumes2*#volume.io.read.usage.iops            | iops  |
+| *ss*~*volumes1*#volume.io.write.usage.iops           | iops  |
+| *ss*~*volumes2*#volume.io.write.usage.iops           | iops  |
 
 </TabItem>
 </Tabs>
@@ -89,134 +131,409 @@ More information about the setup steps and the service configuration can be foun
 * Installing the SANtricity Web Services software: https://library.netapp.com/ecm/ecm_download_file/ECMLP2846165
 * Configuring and using the SANtricity Rest API: https://library.netapp.com/ecmdocs/ECMLP2839901/html/v2.html 
 
-## Setup
+## Installing the monitoring connector
+
+### Pack
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor Netapp SANtricity:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
+dnf install centreon-pack-hardware-storage-netapp-santricity-restapi
 ```
-
-2. On the centreon Web interface, install the  *Netapp Santricity Restapi* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor Netapp SANtricity:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
+dnf install centreon-pack-hardware-storage-netapp-santricity-restapi
 ```
 
-2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-yum install centreon-pack-hardware-storage-netapp-santricity-restapi.noarch
+apt install centreon-pack-hardware-storage-netapp-santricity-restapi
 ```
 
-3. On the centreon Web interface, install the  *Netapp Santricity Restapi* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-hardware-storage-netapp-santricity-restapi
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+2. Whatever the license type (*online* or *offline*), install the **NetApp Santricity Restapi** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
-* Log into Centreon and add new host through "Configuration > Hosts".
-* Apply the template "HW-Storage-Netapp-Santricity-Restapi-custom" and configure all the mandatories Macros:
+### Plugin
 
-| Mandatory   | Name               | Description                                                                |
-| :---------- | :----------------- | :------------------------------------------------------------------------- |
-| X           | APIPORT            | Port used (Default: 8080)                                                  |
-| X           | APIUSERNAME        | SANtricity API username.                                                   |
-| X           | APIPASSWORD        | SANtricity API password. Password checkbox must be checked                 |
-| X           | APIPATH            | Specify api path (Default: '/devmgr/v2')                                   |
-| X           | APIPROTO           | Specify https if needed (Default: 'http')                                  |
-|             | APIEXTRAOPTIONS    | Any extra option you may want to add to the command (eg. a --verbose flag) |
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
 
-## FAQ
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-### How do I test my configuration through the CLI and what do the main parameters stand for ?
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
 
-Once the Centreon plugin installed, you can test it directly from the CLI by logging with the *centreon-engine* user:
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-hardware-storage-netapp-santricity-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
+```
+
+</TabItem>
+</Tabs>
+
+## Using the monitoring connector
+
+### Using a host template provided by the connector
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **HW-Storage-NetApp-Santricity-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro           | Description                                                                                                                              | Default value | Mandatory |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| APIUSERNAME     | Santricity API username                                                                                                                  |               |     X     |
+| APIPASSWORD     | Santricity API password                                                                                                                  |               |     X     |
+| APIPROTO        | Specify https if needed                                                                                                                  | http          |           |
+| APIPORT         | Port used                                                                                                                                | 8080          |           |
+| APIPATH         | Specify api path                                                                                                                         | /devmgr/v2    |           |
+| APIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Hardware" label="Hardware">
+
+| Macro        | Description                                                                                                                                             | Default value | Mandatory |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| COMPONENT    | Which component to check. Can be: 'storage', 'ctrl', 'battery', 'board', 'cbd', 'cmd', 'drive', 'psu', 'fan', 'thsensor'                                | .*            |           |
+| FILTER       | Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter='drive,010000005000C500C244251B0000000000000000' |               |           |
+| WARNING      | Set warning threshold for 'temperature' (syntax: type,regexp,threshold) Example: --warning='drive.temperature,.*,40'                                    |               |           |
+| CRITICAL     | Set critical threshold for 'drive.temperature' (syntax: type,regexp,threshold) Example: --critical='drive.temperature,.*,50'                            |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                  |               |           |
+
+</TabItem>
+<TabItem value="Storage-Controllers" label="Storage-Controllers">
+
+| Macro                    | Description                                                                                                                            | Default value                         | Mandatory  |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:----------:|
+| FILTERCOUNTERS           | Only display some counters (regexp can be used). Example: --filter-counters='controller-status'                                        | .*                                    |            |
+| FILTERSTORAGE            | Filter storage name (can be a regexp)                                                                                                  | .*                                    |            |
+| FILTERCONTROLLER         | Filter controller name (can be a regexp)                                                                                               | .*                                    |            |
+| WARNINGCONTROLLERSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}            | %\{status\} =~ /rpaParErr\| degraded/i |             |
+| CRITICALCONTROLLERSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}           | %\{status\} =~ /failed/i              |            |
+| WARNINGCPUUTILIZATION    | Threshold                                                                                                                              |                                       |            |
+| CRITICALCPUUTILIZATION   | Threshold                                                                                                                              |                                       |            |
+| WARNINGREAD              | Threshold                                                                                                                              |                                       |            |
+| CRITICALREAD             | Threshold                                                                                                                              |                                       |            |
+| WARNINGREADIOPS          | Threshold                                                                                                                              |                                       |            |
+| CRITICALREADIOPS         | Threshold                                                                                                                              |                                       |            |
+| WARNINGWRITE             | Threshold                                                                                                                              |                                       |            |
+| CRITICALWRITE            | Threshold                                                                                                                              |                                       |            |
+| WARNINGWRITEIOPS         | Threshold                                                                                                                              |                                       |            |
+| CRITICALWRITEIOPS        | Threshold                                                                                                                              |                                       |            |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                       |            |
+
+</TabItem>
+<TabItem value="Storage-Pools" label="Storage-Pools">
+
+| Macro              | Description                                                                                                                                    | Default value                    | Mandatory |
+|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:---------:|
+| FILTERCOUNTERS     | Only display some counters (regexp can be used). Example: --filter-counters='^pool-status$'                                                    | .*                               |           |
+| FILTERSTORAGE      | Filter storage name (can be a regexp)                                                                                                          | .*                               |           |
+| FILTERPOOL         | Filter pool name (can be a regexp)                                                                                                             | .*                               |           |
+| WARNINGPOOLSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{raid\_status\}, %\{state\}, %\{display\}  | %\{raid\_status\} =~ /degraded/i |           |
+| CRITICALPOOLSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{raid\_status\}, %\{state\}, %\{display\} | %\{raid\_status\} =~ /failed/i   |           |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).         |                                  |           |
+
+</TabItem>
+<TabItem value="Storage-Systems" label="Storage-Systems">
+
+| Macro             | Description                                                                                                                            | Default value               | Mandatory |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:---------:|
+| FILTERCOUNTERS    | Only display some counters (regexp can be used). Example: --filter-counters='status'                                                   | .*                          |           |
+| FILTERSTORAGE     | Filter storage name (can be a regexp)                                                                                                  |                             |           |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}           | %\{status\} =~ /needsAttn/i |           |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}            |                             |           |
+| WARNINGUSAGE      | Threshold                                                                                                                              |                             |           |
+| CRITICALUSAGE     | Threshold                                                                                                                              |                             |           |
+| WARNINGUSAGEFREE  | Threshold                                                                                                                              |                             |           |
+| CRITICALUSAGEFREE | Threshold                                                                                                                              |                             |           |
+| WARNINGUSAGEPRCT  | Threshold                                                                                                                              |                             |           |
+| CRITICALUSAGEPRCT | Threshold                                                                                                                              |                             |           |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                             |           |
+
+</TabItem>
+<TabItem value="Storage-Volumes" label="Storage-Volumes">
+
+| Macro                | Description                                                                                                                  | Default value              | Mandatory |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------|:---------------------------|:---------:|
+| FILTERCOUNTERS       | Only display some counters (regexp can be used). Example: --filter-counters='volume-status'                                  | .*                         |           |
+| FILTERSTORAGE        | Filter storage name (can be a regexp)                                                                                        | .*                         |           |
+| FILTERVOLUME         | Filter volume name (can be a regexp)                                                                                         | .*                         |           |
+| WARNINGREAD          | Threshold                                                                                                                    |                            |           |
+| CRITICALREAD         | Threshold                                                                                                                    |                            |           |
+| WARNINGREADIOPS      | Threshold                                                                                                                    |                            |           |
+| CRITICALREADIOPS     | Threshold                                                                                                                    |                            |           |
+| WARNINGVOLUMESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}  | %\{status\} =~ /degraded/i |           |
+| CRITICALVOLUMESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\} | %\{status\} =~ /failed/i   |           |
+| WARNINGWRITE         | Threshold                                                                                                                    |                            |           |
+| CRITICALWRITE        | Threshold                                                                                                                    |                            |           |
+| WARNINGWRITEIOPS     | Threshold                                                                                                                    |                            |           |
+| CRITICALWRITEIOPS    | Threshold                                                                                                                    |                            |           |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_netapp_santricity_restapi.pl \
 	--plugin=storage::netapp::santricity::restapi::plugin \
-	--hostname=sancitricy.int.centreon.com \
-    --port=8080 \
-    --proto=http \
-    --api-path='/devmgr/v2' \
-	--api-username='admin' \
+	--mode=storage-volumes \
+	--hostname=10.0.0.1 \
+	--port='8080' \
+	--proto='http' \
+	--api-username='xxxx' \
 	--api-password='xxxx' \
-	--mode='storage-volumes' \
-	--verbose \
-	--warning-volume-status='%{status} =~ /degraded/i'
-	--critical-volume-status='%{status} =~ /failed/i'
+	--api-path='/devmgr/v2'   \
+	--filter-counters='.*' \
+	--filter-storage-name='.*' \
+	--filter-volume-name='.*' \
+	--warning-volume-status='%\{status\} =~ /degraded/i' \
+	--critical-volume-status='%\{status\} =~ /failed/i' \
+	--warning-read='' \
+	--critical-read='' \
+	--warning-write='' \
+	--critical-write='' \
+	--warning-read-iops='' \
+	--critical-read-iops='' \
+	--warning-write-iops='' \
+	--critical-write-iops=''
 ```
 
-Expected command output is shown below:
+The expected command output is shown below:
 
-```bash 	
-OK: storage system 'SAN-XXX' volumes are ok |
-checking storage system 'SAN-XXXX'
-    volume 'Datastore_X' status: optimal
-    volume 'Datastore_Y' status: optimal
+```bash
+OK: volumes are ok | 'ss~volumes1#volume.io.read.usage.bytespersecond'=87557B/s;;;; 'ss~volumes2#volume.io.read.usage.bytespersecond'=49905B/s;;;; 'ss~volumes1#volume.io.write.usage.bytespersecond'=13740B/s;;;0; 'ss~volumes2#volume.io.write.usage.bytespersecond'=16146B/s;;;0; 'ss~volumes1#volume.io.read.usage.iops'=72629iops;;;0; 'ss~volumes2#volume.io.read.usage.iops'=93885iops;;;0; 'ss~volumes1#volume.io.write.usage.iops'=50248iops;;;0; 'ss~volumes2#volume.io.write.usage.iops'=69374iops;;;0; 
 ```
 
-The command above checks the status of the volumes (```-mode=storage-volumes```) of the SANtricity server *santricity.int.centreon.com* (```--hostname=santricity.int.centreon.com```) 
-using the API username *admin* and the related password (```--api-username='admin' --api-password='xxxx'```).
-The API connection uses the *HTTP* protocol (```--proto=http```) on the port *8080* (```--port=8080```). 
-The API path used is */devmgr/v2* (```--api-path='/devmgr/v2'```).
+### Troubleshooting
 
-This command would trigger the following alerts:
-  * WARNING if a volume is in a degraded status.
-  * CRITICAL if a volume is in a failed status.
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
 
-Some thresholds can also be set on metrics using the ```--warning-*``` and ```--critical-*``` options 
-(where \* stands for the name of the metric).
+### Available modes
 
-The available thresholds as well as all of the options that can be used with this Plugin can be displayed by adding the ```--help``` parameter to the command:               
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
 
-```
-/usr/lib/centreon/plugins/centreon_netapp_santricity_restapi.pl \
-        --plugin=storage::netapp::santricity::restapi::plugin \
-        --mode=storage-volumes \
-	--help
-```
-
-You can display all of the modes that come with the Plugin with the command below: 
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_netapp_santricity_restapi.pl \
 	--plugin=storage::netapp::santricity::restapi::plugin \
-	--list-mode                            
-``` 
+	--list-mode
+```
 
-### Why do I get the following error: 
+The plugin brings the following modes:
 
-#### ```UNKNOWN: 500 Can't connect to santricity.int.centreon.com:8080```
+| Mode                                                                                                                                                     | Linked service template                                         |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/netapp/santricity/restapi/mode/hardware.pm)]                      | HW-Storage-NetApp-Santricity-Hardware-Restapi-custom            |
+| storage-controllers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/netapp/santricity/restapi/mode/storagecontrollers.pm)] | HW-Storage-NetApp-Santricity-Storage-Controllers-Restapi-custom |
+| storage-pools [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/netapp/santricity/restapi/mode/storagepools.pm)]             | HW-Storage-NetApp-Santricity-Storage-Pools-Restapi-custom       |
+| storage-systems [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/netapp/santricity/restapi/mode/storagesystems.pm)]         | HW-Storage-NetApp-Santricity-Storage-Systems-Restapi-custom     |
+| storage-volumes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/netapp/santricity/restapi/mode/storagevolumes.pm)]         | HW-Storage-NetApp-Santricity-Storage-Volumes-Restapi-custom     |
 
-This error message means that the Centreon Plugin couldn't successfully connect to the Netapp SANtricity API.
-Check that no third party device (such as a firewall) is blocking the request.
-A proxy connection may also be necessary to connect to the API. 
-This can be done by using this option in the command: ```--proxyurl='http://proxy.mycompany:8080'```.
+### Available options
 
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
+#### Generic options
 
-When using a proxy to connect to the SANtricity API, this error message means that the Centreon Plugin library does not support
-the proxy connection protocol.
+All generic options are listed here:
 
-In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              |   Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --http-peer-addr                           |   Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxyurl                                 |   Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --hostname                                 |   Santricity hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --port                                     |   Port used (default: 8080)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --proto                                    |   Specify https if needed (default: 'http')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --api-username                             |   Santricity API username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --api-password                             |   Santricity API password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --api-path                                 |   Specify api path (default: '/devmgr/v2')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --timeout                                  |   Set timeout in seconds (default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-#### ```UNKNOWN: Cannot load module 'Net::Curl::Easy'```
+#### Modes options
 
-This error message means that a Perl library required to use the *curl* backend is missing.
+All available options for each service template are listed below:
 
-In order to fix this issue, install the 'Net::Curl::Easy' Perl library using the following command:
+<Tabs groupId="sync">
+<TabItem value="Hardware" label="Hardware">
+
+| Option               | Description                                                                                                                                                                                                              |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'storage', 'ctrl', 'battery', 'board', 'cbd', 'cmd', 'drive', 'psu', 'fan', 'thsensor'.                                                                              |
+| --filter             |   Exclude some parts (comma separated list) You can also exclude items from specific instances: --filter='drive,010000005000C500C244251B0000000000000000'                                                                |
+| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.   |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                             |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='drive,OK,preFailCopy'    |
+| --warning            |   Set warning threshold for 'temperature' (syntax: type,regexp,threshold) Example: --warning='drive.temperature,.*,40'                                                                                                   |
+| --critical           |   Set critical threshold for 'drive.temperature' (syntax: type,regexp,threshold) Example: --critical='drive.temperature,.*,50'                                                                                           |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                           |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                          |
+
+</TabItem>
+<TabItem value="Storage-Controllers" label="Storage-Controllers">
+
+| Option                       | Description                                                                                                                                                                        |
+|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters            |   Only display some counters (regexp can be used). Example: --filter-counters='controller-status'                                                                                  |
+| --filter-storage-name        |   Filter storage name (can be a regexp).                                                                                                                                           |
+| --filter-controller-name     |   Filter controller name (can be a regexp).                                                                                                                                        |
+| --unknown-controller-status  |   Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}, %\{display\}               |
+| --warning-controller-status  |   Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /rpaParErr\|degraded/i'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-controller-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /failed/i'). You can use the following variables: %\{status\}, %\{display\}               |
+| --warning-* --critical-*     |   Thresholds. Can be: 'cpu-utilization' (%), 'read' (B/s), 'write' (B/s), 'read-iops', 'write-iops'.                                                                               |
+
+</TabItem>
+<TabItem value="Storage-Pools" label="Storage-Pools">
+
+| Option                   | Description                                                                                                                                                                                     |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='^pool-status$'                                                                                                   |
+| --filter-storage-name    |   Filter storage name (can be a regexp).                                                                                                                                                        |
+| --filter-pool-name       |   Filter pool name (can be a regexp).                                                                                                                                                           |
+| --unknown-pool-status    |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{raid\_status\}, %\{state\}, %\{display\}                                                 |
+| --warning-pool-status    |   Define the conditions to match for the status to be WARNING (default: '%\{raid\_status\} =~ /degraded/i'). You can use the following variables: %\{raid\_status\}, %\{state\}, %\{display\}   |
+| --critical-pool-status   |   Define the conditions to match for the status to be CRITICAL (default: '%\{raid\_status\} =~ /failed/i'). You can use the following variables: %\{raid\_status\}, %\{state\}, %\{display\}    |
+| --warning-* --critical-* |   Thresholds. Can be: 'space-usage-prct', 'space-usage', 'space-usage-free'.                                                                                                                    |
+
+</TabItem>
+<TabItem value="Storage-Systems" label="Storage-Systems">
+
+| Option                   | Description                                                                                                                                                               |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                                    |
+| --filter-storage-name    |   Filter storage name (can be a regexp).                                                                                                                                  |
+| --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{state\}, %\{display\}                                 |
+| --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                             |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /needsAttn/i'). You can use the following variables: %\{status\}, %\{display\}   |
+| --warning-* --critical-* |   Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%).                                                                                                    |
+
+</TabItem>
+<TabItem value="Storage-Volumes" label="Storage-Volumes">
+
+| Option                   | Description                                                                                                                                                             |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='volume-status'                                                                           |
+| --filter-storage-name    |   Filter storage name (can be a regexp).                                                                                                                                |
+| --filter-volume-name     |   Filter volume name (can be a regexp).                                                                                                                                 |
+| --unknown-volume-status  |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{display\}                                           |
+| --warning-volume-status  |   Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /degraded/i'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-volume-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /failed/i'). You can use the following variables: %\{status\}, %\{display\}    |
+| --warning-* --critical-* |   Thresholds. Can be: 'read' (B/s), 'write' (B/s), 'read-iops', 'write-iops'.                                                                                           |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
 ```bash
-yum install perl-Net-Curl
+/usr/lib/centreon/plugins/centreon_netapp_santricity_restapi.pl \
+	--plugin=storage::netapp::santricity::restapi::plugin \
+	--mode=storage-volumes \
+	--help
 ```

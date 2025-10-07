@@ -129,8 +129,10 @@ Only stringified status is reported.
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Alcatel OXE**
-server. Please refer to the official documentation from the manufacturer.
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher. 
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -148,7 +150,7 @@ SNMP port.
 yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Alcatel OXE** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Connectors > Monitoring Connectors**, install the **Alcatel OXE** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -165,7 +167,7 @@ yum install centreon-plugin-Hardware-Telephony-Alcatel-OXE-Snmp
 yum install centreon-pack-hardware-telephony-alcatel-oxe-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Alcatel OXE** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Connectors > Monitoring Connectors**, install the **Alcatel OXE** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

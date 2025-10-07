@@ -55,30 +55,7 @@ The data is sent to the Centreon SaaS platform. No personal data is collected.
 
 - If a host machine does not have direct access to the outside, two options that complement each other are provided: [proxy configuration](#proxy-configuration) and [gateway configuration](#gateway-configuration).
 
-- The RPMs are available in the Centreon official repositories for the currently supported versions. The official Centreon repository must be installed:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
-dnf clean all --enablerepo=*
-dnf update
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
-dnf clean all --enablerepo=*
-dnf update
-```
-
-</TabItem>
-</Tabs>
+- The RPMs are available in the Centreon official repositories for the currently supported versions. The official [Centreon repository](../installation/installation-of-a-central-server/using-packages.md#centreon-repository) must be installed.
 
 - You must be in possession of your unique token that allows you to send data to our platform. This token is provided to you by our Support team.
 
@@ -90,9 +67,29 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
 1. Install Helios:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
     ```
     dnf install centreon-agent
     ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+    ```
+    dnf install centreon-agent
+    ```
+	
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+    ```
+    apt install centreon-agent
+    ```
+	
+</TabItem>
+</Tabs>
 
 2. If this is the first time you are installing Helios on the server, generate the yaml configuration file with the following Shell command:
 
@@ -185,9 +182,27 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
 1. Install Helios:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
     ```
     dnf install centreon-agent
     ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+    ```
+    dnf install centreon-agent
+    ```
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+    ```
+    apt install centreon-agent
+    ```
+</TabItem>
+</Tabs>
 
 2. If this is the first time you are installing Helios on the machine, configure the `centreon-agent.yml` file:
 
@@ -458,7 +473,7 @@ A default `/etc/logrotate.d/centreon-agent` file was created at installation and
 }
 ```
 
-You can leave it as such or further adjust the log rotation policy to best fit your needs using the parameters of [logrotate](https://www.unix.com/man-page/redhat/8/LOGROTATE/).
+You can leave it as such or further adjust the log rotation policy to best fit your needs using the parameters of [logrotate](https://linux.die.net/man/8/logrotate).
 
 Use the following command to apply the changes immediately:
 

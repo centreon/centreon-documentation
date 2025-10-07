@@ -77,7 +77,7 @@ using the TCP/443 HTTPS port. The plugin allows you to use a proxy if needed.
 yum install centreon-plugin-Applications-Slack-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Slack* Centreon Pack on the **Configuration > Monitoring Connector Manager** page
+2. On the Centreon Web interface, install the *Slack* Centreon Pack on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -94,7 +94,7 @@ yum install centreon-plugin-Applications-Slack-Restapi
 yum install centreon-pack-applications-slack-restapi
 ```
 
-3. On the Centreon Web interface, install the *Slack* Centreon Pack on the **Configuration > Monitoring Connector Manager** page
+3. On the Centreon Web interface, install the *Slack* Centreon Pack on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 </Tabs>
@@ -124,8 +124,8 @@ by running the following command (Some of the parameters such as ```proxyurl``` 
     --mode=services \
     --proxyurl='http://myproxy.mycompany.org:8080' \
     --filter-name='Connections|Messaging' \
-    --warning-status='%{status} eq "active" and %{type} eq "incident"' \
-    --critical-status='%{status} eq "active" and %{type} eq "outage"' \
+    --warning-status='%\{status\} eq "active" and %\{type\} eq "incident"' \
+    --critical-status='%\{status\} eq "active" and %\{type\} eq "outage"' \
     --verbose
 ```
 

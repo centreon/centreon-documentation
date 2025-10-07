@@ -4,9 +4,9 @@ import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 import { translate } from '@docusaurus/Translate';
 import {
-  findFirstCategoryLink,
+  findFirstSidebarItemLink,
   useDocById,
-} from '@docusaurus/theme-common/internal';
+} from '@docusaurus/plugin-content-docs/client';
 
 function CardContainer({
   href,
@@ -54,7 +54,7 @@ function CardCategory({
 }: {
   item: PropSidebarItemCategory;
 }): JSX.Element | null {
-  const href = findFirstCategoryLink(item);
+  const href = findFirstSidebarItemLink(item);
 
   // Unexpected: categories that don't have a link have been filtered upfront
   if (!href) {

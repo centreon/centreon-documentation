@@ -15,11 +15,11 @@ Your poller should always be in the latest available version (i.e. in the latest
 
 ## Updating or upgrading a poller
 
-1. On your central server, click the arrow next to **Pollers** at the left of the header bar.
+1. In your user interface, click the arrow next to **Pollers** at the left of the header bar.
 
 2. In the pop-up that appears, click **Copy install command**. The command is copied to your clipboard.
 
-3. On your poller, in your terminal, paste the install command and execute it.
+3. On your poller, in your terminal, paste the install command and execute it. If you are warned that the poller already exists, choose option 1, **Update the existing poller**. 
 
 4. [Deploy the poller's configuration](../monitoring/monitoring-servers/deploying-a-configuration.md),
 and choose the **Restart** method for the Engine process.

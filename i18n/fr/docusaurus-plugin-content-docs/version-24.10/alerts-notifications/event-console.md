@@ -40,7 +40,7 @@ les différentes fonctions de ces icônes :
 
 > Cette interface est **dépréciée** et remplacée par la page
 > **Statut des ressources** et la [liste des
-> évènements](resources-status.md#lister-les-evenements).
+> évènements](resources-status.md#lister-les-évènements).
 
 Pour visualiser le statut des hôtes, rendez-vous dans le menu
 **Monitoring > Status Details > Hosts**.
@@ -122,7 +122,7 @@ Pour visualiser le statut des groupes d'hôtes, rendez-vous dans le menu
 
 > Cette interface est **dépréciée** et remplacée par la page
 > **Statut des ressources** et le [panneau
-> d'hôte](resources-status.md#panneau-dhote).
+> d'hôte](resources-status.md#panneau-dhôte).
 
 Lorsque vous cliquez sur le nom d'un hôte, vous accédez à la page de
 détails de la ressource.
@@ -195,7 +195,7 @@ contacts liés à l'hôte qui recevront notifications.
 
 > Cette interface est **dépréciée** et remplacée par la page
 > **Statut des ressources** et la [liste des
-> évènements](resources-status.md#lister-les-evenements).
+> évènements](resources-status.md#lister-les-évènements).
 
 Pour visualiser le statut des services, rendez-vous dans le menu
 **Monitoring > Status Details > Services**.

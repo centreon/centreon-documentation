@@ -61,7 +61,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique        | Unité |
 |:----------------|:------|
-| devices status  |       |
+| devices status  | N/A   |
 
 </TabItem>
 <TabItem value="Load" label="Load">
@@ -77,7 +77,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique                | Unité |
 |:------------------------|:------|
-| unit and overall status |       |
+| unit and overall status | N/A   |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -93,8 +93,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent SNMP v2 ou v3
-sur la ressource comme indiqué sur la documentation officielle du constructeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la documentation officielle du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
 
 ### Flux réseau
 
@@ -105,8 +107,10 @@ Centreon vers le serveur supervisé.
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -143,7 +147,7 @@ yum install centreon-pack-hardware-sensors-rittal-cmc3-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Rittal CMC3 SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -196,7 +200,7 @@ yum install centreon-plugin-Hardware-Sensors-Rittal-Cmc-Snmp
 3. Appliquez le modèle d'hôte **HW-Sensor-Rittal-Cmc3-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                           | Valeur par défaut | Obligatoire |
 |:-----------------|:------------------------------------------------------------------------------------------------------|:------------------|:------------|
@@ -217,8 +221,8 @@ yum install centreon-plugin-Hardware-Sensors-Rittal-Cmc-Snmp
 | FILTERINDEX    |                                                                                                                                                                                 |                                                     |             |
 | FILTERNAME     | Filter device name (can be a regexp)                                                                                                                                            |                                                     |             |
 | FILTERALIAS    | Filter devices alias (can be a regexp)                                                                                                                                          |                                                     |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i'). You can use the following variables: %{status} | %{status} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /notAvail\|lost\|error/i'). You can use the following variables: %{status}                 | %{status} =~ /notAvail\|lost\|error/i                 |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i'). You can use the following variables: %\{status\} | %\{status\} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /notAvail\|lost\|error/i'). You can use the following variables: %\{status\}                 | %\{status\} =~ /notAvail\|lost\|error/i                 |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                             | --verbose                                           |             |
 
 </TabItem>
@@ -239,9 +243,9 @@ yum install centreon-plugin-Hardware-Sensors-Rittal-Cmc-Snmp
 
 | Macro          | Description                                                                                                                                                                                                                                                             | Valeur par défaut                                                       | Obligatoire |
 |:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------|:------------|
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: '%{overall\_device\_status} =~ /detected\|lost\|changed\|update/i'). You can use the following variables: %{unit\_status}, %{overall\_device\_status}, %{mode}, %{available\_devices}             | %{overall\_device\_status} =~ /detected\|lost\|changed\|update/i             |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%{unit\_status} =~ /overload/i \|\| %{overall\_device\_status} =~ /warning/i'). You can use the following variables: %{unit\_status}, %{overall\_device\_status}, %{mode}, %{available\_devices} | %{unit_status} =~ /overload/i \|\| %{overall\_device\_status} =~ /warning/i |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{unit\_status} =~ /failed/i \|\| %{overall\_device\_status} =~ /alarm/i'). You can use the following variables: %{unit\_status}, %{overall\_device\_status}, %{mode}, %{available\_devices}    | %{unit\_status} =~ /failed/i \|\| %{overall\_device\_status} =~ /alarm/i     |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: '%\{overall_device_status\}=~ /detected\|lost\|changed\|update/i'). You can use the following variables: %\{unit_status\}, %\{overall_device_status\}, %\{mode\}, %\{available_devices\}             | %\{overall_device_status\}=~ /detected\|lost\|changed\|update/i             |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%\{unit_status\} =~ /overload/i \|\| %\{overall_device_status\}=~ /warning/i'). You can use the following variables: %\{unit_status\}, %\{overall_device_status\}, %\{mode\}, %\{available_devices\} | %\{unit_status\} =~ /overload/i \|\| %\{overall_device_status\}=~ /warning/i |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{unit_status\} =~ /failed/i \|\| %\{overall_device_status\}=~ /alarm/i'). You can use the following variables: %\{unit_status\}, %\{overall_device_status\}, %\{mode\}, %\{available_devices\}    | %\{unit_status\} =~ /failed/i \|\| %\{overall_device_status\}=~ /alarm/i     |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                                                     |                                                                         |             |
 
 </TabItem>
@@ -338,7 +342,7 @@ Les options génériques aux modes sont listées ci-dessous :
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Output |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Output |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Output |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Output |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          | Output |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   | Output |
@@ -395,9 +399,9 @@ Les options spécifiques aux modes sont listées ci-dessous :
 | --filter-name     | Filter device name (can be a regexp).                                                                                                                                             | Mode |
 | --filter-alias    | Filter devices alias (can be a regexp).                                                                                                                                           | Mode |
 | --index           | Filter device index (exact match).                                                                                                                                                | Mode |
-| --unknown-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}                                                                       | Mode |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i'). You can use the following variables: %{status}   | Mode |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /notAvail\|lost\|error/i'). You can use the following variables: %{status}                   | Mode |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}                                                                       | Mode |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i'). You can use the following variables: %\{status\}   | Mode |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /notAvail\|lost\|error/i'). You can use the following variables: %\{status\}                   | Mode |
 
 </TabItem>
 <TabItem value="Load" label="Load">
@@ -411,9 +415,9 @@ Les options spécifiques aux modes sont listées ci-dessous :
 
 | Option            | Description                                                                                                                                                                                                                                                               | Type |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----|
-| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%{overall\_device\_status} =~ /detected\|lost\|changed\|update/i'). You can use the following variables: %{unit\_status}, %{overall\_device\_status}, %{mode}, %{available\_devices}               | Mode |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{unit\_status} =~ /overload/i \|\| %{overall\_device\_status} =~ /warning/i'). You can use the following variables: %{unit\_status}, %{overall\_device\_status}, %{mode}, %{available\_devices}   | Mode |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{unit\_status} =~ /failed/i \|\| %{overall\_device\_status} =~ /alarm/i'). You can use the following variables: %{unit\_status}, %{overall\_device\_status}, %{mode}, %{available\_devices}      | Mode |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%\{overall_device_status\}=~ /detected\|lost\|changed\|update/i'). You can use the following variables: %\{unit_status\}, %\{overall_device_status\}, %\{mode\}, %\{available_devices\}               | Mode |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{unit_status\} =~ /overload/i \|\| %\{overall_device_status\}=~ /warning/i'). You can use the following variables: %\{unit_status\}, %\{overall_device_status\}, %\{mode\}, %\{available_devices\}   | Mode |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{unit_status\} =~ /failed/i \|\| %\{overall_device_status\}=~ /alarm/i'). You can use the following variables: %\{unit_status\}, %\{overall_device_status\}, %\{mode\}, %\{available_devices\}      | Mode |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">

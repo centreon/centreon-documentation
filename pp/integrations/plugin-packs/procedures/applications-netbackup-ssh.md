@@ -100,7 +100,7 @@ The remote user must have enough privileges to execute system commands.
 yum install centreon-plugin-Applications-Netbackup-Ssh
 ```
 
-2. On the Centreon Web interface, install the **Netbackup SSH** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+2. On the Centreon Web interface, install the **Netbackup SSH** Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -117,7 +117,7 @@ yum install centreon-plugin-Applications-Netbackup-Ssh
 yum install centreon-pack-applications-netbackup-ssh
 ```
 
-3. On the Centreon Web interface, install the **Netbackup SSH** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
+3. On the Centreon Web interface, install the **Netbackup SSH** Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 </Tabs>
@@ -187,7 +187,7 @@ Once the Plugin is installed, log into your Poller using the **centreon-engine**
     --ssh-username=centreon \
     --ssh-password='centreon-password' \
     --ssh-backend=sshcli \
-    --critical-status='%{status} !~ /up/i' \ 
+    --critical-status='%\{status\} !~ /up/i' \ 
     --verbose
 ```
 

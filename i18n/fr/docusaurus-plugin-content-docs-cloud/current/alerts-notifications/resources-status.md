@@ -39,6 +39,20 @@ Cliquez sur le bouton dédié pour faciliter la lecture des informations contenu
 - Mode vue "compact" ![image](../assets/alerts/resources-status/compact-icon.png)
 - Mode vue "extended" ![image](../assets/alerts/resources-status/extended-icon.png)
 
+### Exporter au format CSV
+
+Vous pouvez rapidement obtenir un rapport détaillé sur l'état de vos ressources dans un fichier au format CSV, facile à utiliser. Le fichier créé contient la liste des ressources que vous avez filtrées et vous pouvez exporter jusqu'à 10 000 lignes.
+
+- Cliquez sur le bouton **Exporter en CSV** situé au-dessus de la liste des ressources.
+- Dans la fenêtre qui s'ouvre, définissez les paramètres suivants :
+  - **Sélectionner les colonnes** : **Colonnes visibles seulement** ou **Toutes les colonnes**.
+  - **Sélectionner les pages** : **Page courante seulement** ou **Toutes les pages**.
+- Cliquez sur **Exporter** pour démarrer le traitement de l'export. Vous obtiendrez un fichier téléchargé.
+
+> Notez que le traitement de l'export peut prendre un certain temps. Les données en temps réel affichées à la sortie peuvent avoir changé depuis le début du traitement.
+
+- Une fois le téléchargement terminé, récupérez le fichier dans le dossier **Téléchargements**.
+
 ## Exécuter des actions sur les évènements
 
 ### Prendre en compte un évènement
@@ -149,18 +163,25 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
 
 ### Barre de recherche
 
-Si vous entrez du texte dans la barre de recherche, par défaut la recherche se fait sur tous les champs suivants :
+#### Recherche texte libre
+
+Si vous entrez du texte dans la barre de recherche, la recherche peut se faire sur tous les champs suivants :
 
 - Nom de l'hôte
 - Alias de l'hôte
 - Adresse ou FQDN de l'hôte
 - Nom du service
+- Informations
+
+Le comportement exact dépend de ce que vous avez configuré à la page **Administration > Paramètres > Centreon web**, dans le champ **Comportement de la recherche texte libre** :
+* **Recherche restreinte** : la recherche texte libre sera effectuée uniquement dans les champs suivants : nom d'hôte, alias et adresse, et description du service (c'est-à-dire son nom). À utiliser si vous disposez d'une grande quantité de données.
+* **Recherche étendue** : la recherche texte libre sera également effectuée dans le champ **Informations**. Cette option n'est appropriée que si vous disposez d'une petite quantité de données, car elle affecte les performances.
 
 Par exemple, si vous entrez "rta", toutes les ressources contenant un "rta" dans l'un des champs ci-dessus seront affichées (par exemple, un métaservice nommé **Ping-RTA-Average**).
 
-Cependant, vous pouvez faire une recherche beaucoup plus fine en utilisant le [Centreon Query Language](#critères-cql). Celui-ci vous permet de rechercher uniquement dans un ou plusieurs champs.
-
 #### Critères CQL
+
+Vous pouvez faire une recherche beaucoup plus fine en utilisant le [Centreon Query Language](#critères-cql). Celui-ci vous permet de rechercher uniquement dans un ou plusieurs champs.
 
 - **alias** : rechercher des hôtes selon leur alias
 - **fqdn** : rechercher des hôtes selon leur adresse IP ou FQDN
@@ -236,7 +257,7 @@ Utilisez l'icône "roue dentée" à côté de **Filtre** pour :
 Une fois qu'un filtre est créé, il apparaîtra dans la liste des filtres
 sous la section **Mes filtres**.
 
-En cliquant sur le menu **Éditer les filtres**, il est possible de manipuler les filtres sauvegardés (en les renommant, ré-ordonnant et supprimant).
+En cliquant sur le menu **Gérer les filtres**, il est possible de manipuler les filtres sauvegardés (en les renommant, les ré-ordonnant et les supprimant).
 
 ## Panneau de détail
 
@@ -312,7 +333,7 @@ Les graphiques affichent l'évolution des métriques sur une période donnée. L
 
 - Des sélecteurs de date et d'heure sont disponibles pour les points de début et de fin. Ils sont mis à jour lorsque la période affichée change.
 
-- Utilisez les boutons [<] et [>] qui apparaissent sur les côtés au survol du bord du graphique pour avancer ou reculer dans le temps de la moitié de la période de temps affichée.
+- Utilisez les boutons [\<] et [>] qui apparaissent sur les côtés au survol du bord du graphique pour avancer ou reculer dans le temps de la moitié de la période de temps affichée.
 
 - Sélectionnez une période dans le graphique pour zoomer sur cette période.
 
@@ -340,4 +361,4 @@ Le graphique s'ouvre dans la page **Supervision > Informations de performance > 
 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
-Vous pouvez aussi exporter les données du graphique au format CSV. Toutes les métriques seront incluses.
+Vous pouvez aussi exporter les données du graphique au format CSV (toutes les métriques seront incluses), ou bien au format PNG en différentes tailles.

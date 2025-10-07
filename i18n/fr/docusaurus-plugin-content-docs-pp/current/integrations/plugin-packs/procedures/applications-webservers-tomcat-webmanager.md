@@ -36,7 +36,7 @@ You need to configure an account with the manage role.
 Add in */usr/share/tomcat6/conf/tomcat-users.xml* file:
 
     <user name="tomcat" password="tomcatpass" roles="manager" />
-    </tomcat-users>
+    \</tomcat-users\>
 
 Tomcat must be restarted:
 

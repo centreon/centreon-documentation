@@ -99,8 +99,10 @@ Afin de contrôler l'application Oracle VM Manager, l'API Rest doit être config
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -137,7 +139,7 @@ yum install centreon-pack-applications-oracle-ovm-api
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Oracle VM Manager API**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -230,8 +232,8 @@ yum install centreon-plugin-Applications-Oracle-Ovm-Api
 | CRITICALJOBSFAILED    | Thresholds                                                                                                                                                 |                         |             |
 | WARNINGJOBSSUCCEEDED  | Thresholds                                                                                                                                                 |                         |             |
 | CRITICALJOBSSUCCEEDED | Thresholds                                                                                                                                                 |                         |             |
-| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /running/i'). You can use the following variables: %{status}, %{name} | %{status} !~ /running/i |             |
-| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                                       |                         |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /running/i'). You can use the following variables: %\{status\}, %\{name\} | %\{status\} !~ /running/i |             |
+| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                       |                         |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                         | --verbose               |             |
 
 </TabItem>
@@ -272,8 +274,8 @@ yum install centreon-plugin-Applications-Oracle-Ovm-Api
 | CRITICALSERVERSRUNNING  | Thresholds                                                                                                                                                     |                   |             |
 | WARNINGSERVERSSTOPPED   | Thresholds                                                                                                                                                     |                   |             |
 | CRITICALSERVERSSTOPPED  | Thresholds                                                                                                                                                     |                   |             |
-| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{running\_status}, %{is\_maintenance}, %{up2date}, %{name}  |                   |             |
-| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{running\_status}, %{is\_maintenance}, %{up2date}, %{name} |                   |             |
+| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{running_status\}, %\{is_maintenance\}, %\{up2date\}, %\{name\}  |                   |             |
+| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{running_status\}, %\{is_maintenance\}, %\{up2date\}, %\{name\} |                   |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                             | --verbose         |             |
 
 </TabItem>
@@ -282,8 +284,8 @@ yum install centreon-plugin-Applications-Oracle-Ovm-Api
 | Macro             | Description                                                                                                                    | Valeur par défaut | Obligatoire |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERNAME        | Filter virtual machines by name (can be a regexp)                                                                              |                   |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %{running\_status}, %{name}  |                   |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{running\_status}, %{name} |                   |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{running_status\}, %\{name\}  |                   |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{running_status\}, %\{name\} |                   |             |
 | WARNINGVMRUNNING  | Thresholds                                                                                                                     |                   |             |
 | CRITICALVMRUNNING | Thresholds                                                                                                                     |                   |             |
 | WARNINGVMSTOPPED  | Thresholds                                                                                                                     |                   |             |
@@ -337,7 +339,7 @@ OK: running: 66 stopped: 23 All servers are ok | 'servers.running.count'=66;;;0;
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
@@ -387,7 +389,7 @@ Les options génériques sont listées ci-dessous :
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -440,9 +442,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                   | Description                                                                                                                                                  |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                         |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                                         |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                                         |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /running/i'). You can use the following variables: %{status}, %{name}   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                                         |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                         |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /running/i'). You can use the following variables: %\{status\}, %\{name\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'jobs-succeeded', 'jobs-failed'.                                                                                                         |
 
 </TabItem>
@@ -461,9 +463,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^memory-usage$'                                                                     |
 | --filter-name            | Filter servers by name (can be a regexp).                                                                                                                        |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{running\_status}, %{is\_maintenance}, %{up2date}, %{name}    |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{running\_status}, %{is\_maintenance}, %{up2date}, %{name}    |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{running\_status}, %{is\_maintenance}, %{up2date}, %{name}   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{running_status\}, %\{is_maintenance\}, %\{up2date\}, %\{name\}    |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{running_status\}, %\{is_maintenance\}, %\{up2date\}, %\{name\}    |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{running_status\}, %\{is_maintenance\}, %\{up2date\}, %\{name\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'servers-running', 'servers-stopped', 'memory-usage' (B), 'memory-usage-free' (B), 'memory-usage-prct' (%).                                  |
 
 </TabItem>
@@ -473,9 +475,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='status'                                             |
 | --filter-name            | Filter virtual machines by name (can be a regexp).                                                                               |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{running\_status}, %{name}    |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{running\_status}, %{name}    |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{running\_status}, %{name}   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{running_status\}, %\{name\}    |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{running_status\}, %\{name\}    |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{running_status\}, %\{name\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'vm-running', 'vm-stopped'.                                                                                  |
 
 </TabItem>

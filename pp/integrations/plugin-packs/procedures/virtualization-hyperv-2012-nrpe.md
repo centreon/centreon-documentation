@@ -131,9 +131,12 @@ and make sure that the **NRPE Server** configuration is correct.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -169,7 +172,7 @@ yum install centreon-pack-virtualization-hyperv-2012-nrpe
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Hyper-V 2012** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -235,13 +238,16 @@ yum install centreon-nrpe3-plugin
 3. Apply the **Virt-Hyperv-2012-Scvmm-NRPE-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro            | Description                                                                                                                              | Default value         | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| NRPEPORT         | NRPE Port of the target server                                                                                                           | 5666                  |             |
-| SCVMMPORT        | SCVMM port used                                                                                                                          | 8100                  |             |
-| NRPECLIENT       | NRPE Plugin binary to use                                                                                                                | check\_centreon\_nrpe |             |
-| NRPETIMEOUT      | Timeout value                                                                                                                            | 55                    |             |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). | -u -m 8192            |             |
+| Macro            | Description                                                                                                                              | Default value         | Mandatory |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:---------:|
+| NRPEPORT         | NRPE Port of the target server                                                                                                           | 5666                  |           |
+| SCVMMPORT        | SCVMM port used                                                                                                                          | 8100                  |           |
+| SCVMMHOSTNAME    | SCVMM hostname                                                                                                                           |                       |           |
+| SCVMMUSERNAME    | SCVMM username                                                                                                                           |                       |     X     |
+| SCVMMPASSWORD    | SCVMM password                                                                                                                           |                       |     X     |
+| NRPECLIENT       | NRPE Plugin binary to use                                                                                                                | check\_centreon\_nrpe |           |
+| NRPETIMEOUT      | Timeout value                                                                                                                            | 55                    |           |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). | -u -m 8192            |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -261,10 +267,10 @@ yum install centreon-nrpe3-plugin
 | FILTERSTATUS          | Filter virtual machine status (can be a regexp)                                                                                                                                      | Running                                              |             |
 | FILTERVM              | Filter virtual machines (can be a regexp)                                                                                                                                            |                                                      |             |
 | FILTERNOTE            | Filter by VM notes (can be a regexp)                                                                                                                                                 |                                                      |             |
-| WARNINGGLOBALSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{vm}, %{integration\_service\_state}, %{integration\_service\_version}, %{state}  | %{integration\_service\_state} =~ /Update required/i |             |
-| CRITICALGLOBALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{integration\_service\_state}, %{integration\_service\_version}, %{state} |                                                      |             |
-| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{service}, %{primary\_status}, %{secondary\_status}, %{enabled}           | not %{primary\_status} =~ /Ok/i                      |             |
-| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{vm}, %{service}, %{primary\_status}, %{secondary\_status}, %{enabled}            |                                                      |             |
+| WARNINGGLOBALSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{integration_service_state\}, %\{integration_service_version\}, %\{state\}  | %\{integration_service_state\} =~ /Update required/i |             |
+| CRITICALGLOBALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{integration_service_state\}, %\{integration_service_version\}, %\{state\} |                                                      |             |
+| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{service\}, %\{primary_status\}, %\{secondary_status\}, %\{enabled\}           | not %\{primary_status\} =~ /Ok/i                      |             |
+| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{service\}, %\{primary_status\}, %\{secondary_status\}, %\{enabled\}            |                                                      |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                               | --verbose                                            |             |
 
 </TabItem>
@@ -273,8 +279,8 @@ yum install centreon-nrpe3-plugin
 | Macro          | Description                                                                                                                            | Default value            | Mandatory   |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
 | FILTERVM       | Filter virtual machines (can be a regexp)                                                                                              |                          |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{vm}, %{state}, %{health}           | %{health} =~ /Warning/i  |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{state}, %{health}          | %{health} =~ /Critical/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{state\}, %\{health\}           | %\{health\} =~ /Warning/i  |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{state\}, %\{health\}          | %\{health\} =~ /Critical/i |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                |             |
 
 </TabItem>
@@ -298,8 +304,8 @@ yum install centreon-nrpe3-plugin
 |:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|:-----------:|
 | FILTERVM       | Filter virtual machines (can be a regexp)                                                                                                        |                                        |             |
 | FILTERNOTE     | Filter by VM notes (can be a regexp)                                                                                                             |                                        |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{state}, %{status}, %{is\_clustered}  | not %{status} =~ /Operating normally/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{vm}, %{state}, %{status}, %{is\_clustered}   |                                        |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{state\}, %\{status\}, %\{is_clustered\}  | not %\{status\} =~ /Operating normally/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{vm\}, %\{state\}, %\{status\}, %\{is_clustered\}   |                                        |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                              | --verbose                              |             |
 
 </TabItem>
@@ -311,8 +317,8 @@ yum install centreon-nrpe3-plugin
 | FILTERVM          | Filter virtual machines (can be a regexp)                                                                                              |                                  |             |
 | FILTERDESCRIPTION | Filter by description (can be a regexp)                                                                                                |                                  |             |
 | FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                                                     |                                  |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{vmaddition}, %{status}     | %{vmaddition} =~ /not detected/i |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING . You can use the following variables: %{vm}, %{vmaddition}, %{status}     |                                  |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{vmaddition\}, %\{status\}     | %\{vmaddition\} =~ /not detected/i |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING . You can use the following variables: %\{vm\}, %\{vmaddition\}, %\{status\}     |                                  |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                        |             |
 
 </TabItem>
@@ -336,8 +342,8 @@ yum install centreon-nrpe3-plugin
 | FILTERVM          | Filter virtual machines (can be a regexp)                                                                                              |                                      |             |
 | FILTERDESCRIPTION | Filter by description (can be a regexp)                                                                                                |                                      |             |
 | FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                                                     |                                      |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{status}, %{hostgroup}      | not %{status} =~ /Running\|Stopped/i |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING . You can use the following variables: %{vm}, %{status}, %{hostgroup}      |                                      |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{vm\}, %\{status\}, %\{hostgroup\}      | not %\{status\} =~ /Running\|Stopped/i |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING . You can use the following variables: %\{vm\}, %\{status\}, %\{hostgroup\}      |                                      |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                            |             |
 
 </TabItem>
@@ -361,7 +367,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--filter-description="" \
 	--filter-hostgroup="" \
 	--warning-status="" \
-	--critical-status="not %{status} =~ /Running|Stopped/i" \
+	--critical-status="not %\{status\} =~ /Running|Stopped/i" \
 	--verbose'
 ```
 
@@ -426,7 +432,7 @@ All generic options are listed here:
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -465,10 +471,10 @@ All available options for each service template are listed below:
 | --filter-vm               | Filter virtual machines (can be a regexp).                                                                                                                                                                                                              |
 | --filter-note             | Filter by VM notes (can be a regexp).                                                                                                                                                                                                                   |
 | --filter-status           | Filter virtual machine status (can be a regexp) (default: 'running').                                                                                                                                                                                   |
-| --warning-global-status   | Define the conditions to match for the status to be WARNING (default: '%{integration\_service\_state} =~ /Update required/i'). You can use the following variables: %{vm}, %{integration\_service\_state}, %{integration\_service\_version}, %{state}   |
-| --critical-global-status  | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %{vm}, %{integration\_service\_state}, %{integration\_service\_version}, %{state}                                                      |
-| --warning-service-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{vm}, %{service}, %{primary\_status}, %{secondary\_status}, %{enabled}                                                                 |
-| --critical-service-status | Define the conditions to match for the status to be CRITICAL (default: '%{primary\_status} !~ /Ok/i'). You can use the following variables: %{vm}, %{service}, %{primary\_status}, %{secondary\_status}, %{enabled}                                     |
+| --warning-global-status   | Define the conditions to match for the status to be WARNING (default: '%\{integration_service_state\} =~ /Update required/i'). You can use the following variables: %\{vm\}, %\{integration_service_state\}, %\{integration_service_version\}, %\{state\}   |
+| --critical-global-status  | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %\{vm\}, %\{integration_service_state\}, %\{integration_service_version\}, %\{state\}                                                      |
+| --warning-service-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{vm\}, %\{service\}, %\{primary_status\}, %\{secondary_status\}, %\{enabled\}                                                                 |
+| --critical-service-status | Define the conditions to match for the status to be CRITICAL (default: '%\{primary_status\} !~ /Ok/i'). You can use the following variables: %\{vm\}, %\{service\}, %\{primary_status\}, %\{secondary_status\}, %\{enabled\}                                     |
 
 </TabItem>
 <TabItem value="Node-Replication" label="Node-Replication">
@@ -483,8 +489,8 @@ All available options for each service template are listed below:
 | --ps-display      | Display powershell script.                                                                                                                                             |
 | --ps-exec-only    | Print powershell output.                                                                                                                                               |
 | --filter-vm       | Filter virtual machines (can be a regexp).                                                                                                                             |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{health} =~ /Warning/i'). You can use the following variables: %{vm}, %{state}, %{health}      |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{health} =~ /Critical/i'). You can use the following variables: %{vm}, %{state}, %{health}    |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{health\} =~ /Warning/i'). You can use the following variables: %\{vm\}, %\{state\}, %\{health\}      |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{health\} =~ /Critical/i'). You can use the following variables: %\{vm\}, %\{state\}, %\{health\}    |
 
 </TabItem>
 <TabItem value="Node-Snapshot" label="Node-Snapshot">
@@ -518,8 +524,8 @@ All available options for each service template are listed below:
 | --ps-exec-only    | Print powershell output.                                                                                                                                                                           |
 | --filter-vm       | Filter virtual machines (can be a regexp).                                                                                                                                                         |
 | --filter-note     | Filter by VM notes (can be a regexp).                                                                                                                                                              |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{vm}, %{state}, %{status}, %{is\_clustered}                                       |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /Operating normally/i'). You can use the following variables: %{vm}, %{state}, %{status}, %{is\_clustered}    |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{vm\}, %\{state\}, %\{status\}, %\{is_clustered\}                                       |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /Operating normally/i'). You can use the following variables: %\{vm\}, %\{state\}, %\{status\}, %\{is_clustered\}    |
 
 </TabItem>
 <TabItem value="Scvmm-Integration-Service" label="Scvmm-Integration-Service">
@@ -541,8 +547,8 @@ All available options for each service template are listed below:
 | --filter-description | Filter by description (can be a regexp).                                                                                                                                            |
 | --filter-vm          | Filter virtual machines (can be a regexp).                                                                                                                                          |
 | --filter-hostgroup   | Filter hostgroup (can be a regexp).                                                                                                                                                 |
-| --warning-status     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{vm}, %{vmaddition}, %{status}                                     |
-| --critical-status    | Define the conditions to match for the status to be CRITICAL (default: '%{vmaddition} =~ /not detected/i'). You can use the following variables: %{vm}, %{vmaddition}, %{status}    |
+| --warning-status     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{vm\}, %\{vmaddition\}, %\{status\}                                     |
+| --critical-status    | Define the conditions to match for the status to be CRITICAL (default: '%\{vmaddition\} =~ /not detected/i'). You can use the following variables: %\{vm\}, %\{vmaddition\}, %\{status\}    |
 
 </TabItem>
 <TabItem value="Scvmm-Snapshot" label="Scvmm-Snapshot">
@@ -586,8 +592,8 @@ All available options for each service template are listed below:
 | --filter-vm          | Filter virtual machines (can be a regexp).                                                                                                                                         |
 | --filter-hostgroup   | Filter hostgroup (can be a regexp).                                                                                                                                                |
 | --filter-description | Filter by description (can be a regexp).                                                                                                                                           |
-| --warning-status     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{vm}, %{status}, %{hostgroup}                                     |
-| --critical-status    | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /Running\|Stopped/i'). You can use the following variables: %{vm}, %{status}, %{hostgroup}    |
+| --warning-status     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{vm\}, %\{status\}, %\{hostgroup\}                                     |
+| --critical-status    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /Running\|Stopped/i'). You can use the following variables: %\{vm\}, %\{status\}, %\{hostgroup\}    |
 
 </TabItem>
 </Tabs>

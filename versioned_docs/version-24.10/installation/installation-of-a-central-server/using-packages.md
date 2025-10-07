@@ -10,9 +10,9 @@ import DatabaseRemoteInstall from '../_database-remote-install.mdx';
 import DatabaseEnableRestart from '../_database-enable-restart.mdx';
 
 Centreon provides RPM and DEB packages for its products through the Centreon Open
-Source version available free of charge in our repository.
+Source version available free of charge in our repository. 
 
-These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 11 and 12.
+These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 12.
 
 You must run the installation procedure as a privileged user.
 
@@ -72,7 +72,7 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update && apt upgrade
@@ -148,9 +148,9 @@ Disabled
 > **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
-SELinux is not installed on Debian 11 and 12, continue.
+SELinux is not installed on Debian 12, continue.
 
 </TabItem>
 </Tabs>
@@ -171,39 +171,34 @@ systemctl disable firewalld
 
 <TabItem value="Alma 8" label="Alma 8">
 
-#### Remi repository
-
-To install Centreon you will need to install the **remi** repository.
 
 Run the following commands:
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
 
-Enable PHP 8.1 using the following commands:
+Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.1
+dnf module install php:8.2
 ```
 
 </TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
 
-#### Remi and CodeReady Builder repository
+#### CodeReady Builder repository
 
-To install Centreon you will need to install the **remi** and **CodeReady Builder** repositories.
+To install Centreon you will need to install the **CodeReady Builder** repository.
 
 Run the following commands:
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
@@ -213,34 +208,33 @@ If your server is a Cloud RHEL instance, you will have to execute the following 
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
-Enable PHP 8.1 using the following commands:
+Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.1
+dnf module install php:8.2
 ```
 
 </TabItem>
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
-#### Remi and CodeReady Builder repositories
+#### CodeReady Builder repository
 
-To install Centreon you will need to install the **remi** and **CodeReady Builder** repositories.
+To install Centreon you will need to install the **CodeReady Builder** repository.
 
 Run the following commands:
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
-Enable PHP 8.1 using the following commands:
+Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.1
+dnf module install php:8.2
 ```
 
 </TabItem>
@@ -256,11 +250,11 @@ dnf install epel-release
 dnf config-manager --set-enabled crb
 ```
 
-Enable PHP 8.1 using the following commands:
+Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:8.1
+dnf module install php:8.2
 ```
 
 </TabItem>
@@ -282,11 +276,11 @@ If your server is a Cloud RHEL instance, you will have to execute the following 
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 ```
 
-Enable PHP 8.1 using the following commands:
+Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:8.1
+dnf module install php:8.2
 ```
 
 </TabItem>
@@ -302,15 +296,15 @@ dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch
 dnf config-manager --set-enabled ol9_codeready_builder
 ```
 
-Enable PHP 8.1 using the following commands:
+Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:8.1
+dnf module install php:8.2
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 #### Install dependencies
 
@@ -318,21 +312,6 @@ Install the following dependencies:
 
 ```shell
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
-```
-
-#### Add Sury APT repository for PHP 8.1
-
-To install the Sury repository, execute the following command:
-
-```shell
-echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
-```
-
-Then import the repository key:
-
-```shell
-wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
-apt update
 ```
 
 </TabItem>
@@ -352,8 +331,7 @@ Install the Centreon repository using this command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -362,19 +340,18 @@ dnf update
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -420,61 +397,6 @@ Replace **new-server-name** with the name of your choice. Example:
 hostnamectl set-hostname central
 ```
 
-### Set the PHP time zone
-
-You are required to set the PHP time zone.
-
-> Replace **Europe/Paris** with your time zone. You can find the list of
-> supported time zones [here](http://php.net/manual/en/timezones.php).
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Run the following command as `root`:
-
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
-```
-
-After saving the file, restart the PHP-FPM service:
-
-```shell
-systemctl restart php-fpm
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-Run the following command as `root`:
-
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
-```
-
-After saving the file, restart the PHP-FPM service:
-
-```shell
-systemctl restart php-fpm
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/php/8.1/mods-available/centreon.ini
-```
-
-> The PHP timezone was defined during the installation process by retrieving the timezone configured on the operating system.
-
-After saving the file, restart the PHP8.1-FPM service:
-
-```shell
-systemctl restart php8.1-fpm
-```
-
-</TabItem>
-</Tabs>
-
 ### Service startup during system bootup
 
 To make services start automatically during system bootup, run these commands
@@ -499,10 +421,10 @@ systemctl start crond
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-systemctl enable php8.1-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
+systemctl enable php8.2-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
 ```
 
 </TabItem>
@@ -559,7 +481,7 @@ systemctl start httpd
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 systemctl start apache2

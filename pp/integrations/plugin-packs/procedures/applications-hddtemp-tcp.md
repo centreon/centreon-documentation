@@ -27,7 +27,7 @@ It brings the following Service Template:
 | Metric Name                              | Unit                    |
 |:-----------------------------------------|:------------------------|
 | status                                   | string                  |
-| drive_name#drive.temperature.<temp_unit> | celsius or fahrenheit   |
+| drive_name#drive.temperature.\<temp_unit\> | celsius or fahrenheit   |
 
 </TabItem>
 </Tabs>
@@ -48,7 +48,7 @@ distributions make it available as a standard package.
 yum install centreon-plugin-Applications-Hddtemp
 ```
 
-2. On the Centreon Web interface, install the **Hddtemp TCP** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
+2. On the Centreon Web interface, install the **Hddtemp TCP** Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -65,7 +65,7 @@ yum install centreon-plugin-Applications-Hddtemp
 yum install centreon-pack-applications-hddtemp-tcp
 ```
 
-3. On the Centreon Web interface, install the **Hddtemp TCP** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
+3. On the Centreon Web interface, install the **Hddtemp TCP** Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 </Tabs>
@@ -100,7 +100,7 @@ command:
     --filter-name='' \
     --unknown-status='' \
     --warning-status='' \
-    --critical-status='%{status} !~ /ok/i' \
+    --critical-status='%\{status\} !~ /ok/i' \
     --warning-temperature='30' \
     --critical-temperature='50' \
     --verbose \

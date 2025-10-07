@@ -1,19 +1,47 @@
 ---
 id: update-centreon-platform
-title: Update a Centreon 24.04 platform
+title: Update a Centreon 24.10 platform
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to update your Centreon 24.04 platform (i.e. switch from version 24.04.x to version 24.04.y).
+This chapter describes how to update your Centreon 24.10 platform (i.e. switch from version 24.10.x to version 24.10.y).
 
-## Perform a backup
+## Before you update
 
 Make sure that you have fully backed up your environment for the following
 servers:
 
 - central server,
 - database server.
+
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
+
+Remove the debuginfo packages before the procedure unless you have a particular use for them.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+  ```shell
+  dnf remove $(rpm -qa --qf "%{NAME}\n" | grep '^centreon.*debuginfo')
+  ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+  ```shell
+  dnf remove $(rpm -qa --qf "%{NAME}\n" | grep '^centreon.*debuginfo')
+  ```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+  ```shell
+ apt remove $(dpkg -l | awk '/^ii/ && $2 ~ /^centreon.*debuginfo/ { print $2 }')
+  ```
+
+</TabItem>
+</Tabs>
 
 ## Update the Centreon central server
 
@@ -52,7 +80,7 @@ Then upgrade all the components with the following command:
   ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Clean the cache:
 
@@ -64,7 +92,7 @@ Clean the cache:
 Then upgrade all the components with the following command:
 
   ```shell
-  apt install --only-upgrade centreon
+  apt install --only-upgrade centreon*
   ```
 
 </TabItem>
@@ -111,14 +139,14 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
    - address: 10.25.XX.XX
    -  port: 80
-   -  version: 24.04
+   -  version: 24.10
    -  login: Admin
    -  password: xxxxx
 
 2. Enter the following request:
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v24.04/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v24.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -142,16 +170,8 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
 4. Then enter this request:
 
   ```shell
-  curl --location --request PATCH 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
-  --header 'X-AUTH-TOKEN: hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S' \
-  --header 'Content-Type: application/json' \
-  --data '{
-      "components": [
-          {
-              "name": "centreon-web"
-          }
-      ]
-  }'
+  curl --location --request POST 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
+  --header 'X-AUTH-TOKEN: hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S'
   ```
 
 5. This request does not return any result. To check if the update has been successfully applied, read the version number displayed on the Centreon web interface login page.
@@ -174,7 +194,7 @@ with the following:
 - Monitoring Connector Manager,
 - Auto Discovery.
 
-Then you can update all other commercial extensions.
+Then you can update all other commercial extensions (such as [MBI](../reporting/update.md) and [MAP](../graph-views/map-web-update.md)).
 
 ## Update the Remote Servers
 
@@ -216,7 +236,7 @@ This procedure is the same as to update a Centreon central server.
   ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 1. Clean the cache:
 
@@ -228,7 +248,7 @@ This procedure is the same as to update a Centreon central server.
 2. Then upgrade all the components with the following command:
 
   ```shell
-  apt-get update && apt-mark hold centreon-pack* && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*' 
+  apt-get update && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*'
   ```
 
 </TabItem>
@@ -259,10 +279,10 @@ Nothing to do for this OS.
 Nothing to do for this OS.
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
   ```shell
-  apt-mark unhold centreon-pack* && apt-mark unhold centreon-plugin*
+  apt-mark unhold centreon-plugin*
   ```
 
 </TabItem>
@@ -275,7 +295,7 @@ You can perform an unattended update of your platform using the **unattended.sh*
 1. Download the script using the following command:
 
 ```shell
-curl -L https://download.centreon.com/24.04/unattended.sh -O /tmp/unattended
+curl -L https://download.centreon.com/24.10/unattended.sh -O /tmp/unattended
 ```
 
 2. Run the script:
@@ -283,17 +303,17 @@ curl -L https://download.centreon.com/24.04/unattended.sh -O /tmp/unattended
 * For a central server:
 
 ```shell
-bash unattended.sh update -t central -v 24.04 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t central -v 24.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * For a remote server:
 
 ```shell
-bash unattended.sh update -t central -v 24.04 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t central -v 24.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * For a poller:
 
 ```shell
-bash unattended.sh update -t poller -v 24.04 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t poller -v 24.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```

@@ -46,7 +46,7 @@ La sonde permet de requêter RRDtool avec :
 yum install centreon-plugin-Applications-Databases-Rrdtool
 ```
 
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *RRDtool* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *RRDtool* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -63,7 +63,7 @@ yum install centreon-plugin-Applications-Databases-Rrdtool
 yum install centreon-pack-applications-databases-rrdtool
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *RRDtool* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *RRDtool* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>

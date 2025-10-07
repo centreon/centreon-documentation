@@ -17,6 +17,14 @@ All servers (central, remote and pollers) in your architecture must have the sam
 > If your Centreon platform includes a Centreon redundancy system, please
 > contact [Centreon support](https://support.centreon.com).
 
+Be sure that you have fully backed up your environment for the following
+servers:
+
+- Central server
+- Database server
+
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
+
 ## Migrating a platform
 
 ### Step 1: Install the new central server
@@ -78,7 +86,7 @@ dnf update
    rsync -avz -e "ssh -i /root/.ssh/id_rsa_custom" <command>
    ```
 
-   > Replace **<IP_NEW_CENTREON>** by the IP address of the new Centreon server.
+   > Replace **\<IP_NEW_CENTREON\>** by the IP address of the new Centreon server.
 
 ### Step 3: Retrieve the databases
 
@@ -149,7 +157,7 @@ create them again:
    systemctl start mariadb
    ```
 
-> Replace **<IP_NEW_CENTREON>** by the IP address of the new Centreon server.
+> Replace **\<IP_NEW_CENTREON\>** by the IP address of the new Centreon server.
 
 ### Step 4: Synchronize the plugins
 
@@ -180,6 +188,12 @@ apt install centreon-plugin-\*
 </Tabs>
 
 If you are using custom plugins, synchronize the directories that contain your custom plugins, including any necessary dependencies.
+
+Use the following command to synchronize images and media between your old server and the new one.
+
+```shell
+rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img/
+```
 
 ### Step 5: Upgrade Centreon
 
@@ -237,7 +251,7 @@ chapter for more information.
 
 9. If your old Centreon server was monitoring itself, and you have changed the username/password for the database during the migration, update the configuration of all related resources (host, services attached to that host).
 
-10. Go to **Configuration > Monitoring Connector Manager**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
+10. Go to **Configuration > Connectors > Monitoring Connectors**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
 
 ### Step 6 (older versions only): Migrate to Gorgone
 

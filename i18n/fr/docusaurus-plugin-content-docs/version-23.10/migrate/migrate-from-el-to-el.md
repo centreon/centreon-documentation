@@ -18,6 +18,13 @@ Tous les serveurs de votre architecture (serveur central, serveurs distants et c
 > Centreon, il est nécessaire de contacter le
 > [support Centreon](https://support.centreon.com).
 
+Avant toute chose, effectuez une sauvegarde de l’ensemble des serveurs de votre plateforme :
+
+- Serveur Centreon central,
+- Serveur de gestion de base de données.
+
+Si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les avant de mettre à jour Centreon](../alerts-notifications/ticketing-install.md#sauvegarder-votre-configuration-personnalisée-de-fournisseur-openticket).
+
 ## Migrer une plateforme
 
 ### Étape 1 : Installer le nouveau serveur central
@@ -72,10 +79,10 @@ apt update
 4. Depuis l'ancien serveur, synchronisez les répertoires suivants vers le nouveau serveur :
 
    ```shell
-   rsync -avz /etc/centreon root@<IP_NOUVEAU_CENTREON>:/etc
-   rsync -avz /etc/centreon-broker root@<IP_NOUVEAU_CENTREON>:/etc
-   rsync -avz /var/log/centreon-engine/archives/ root@<IP_NOUVEAU_CENTREON>:/var/log/centreon-engine
-   rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@<IP_NOUVEAU_CENTREON>:/var/lib
+   rsync -avz /etc/centreon root@\<IP_NOUVEAU_CENTREON\>:/etc
+   rsync -avz /etc/centreon-broker root@\<IP_NOUVEAU_CENTREON\>:/etc
+   rsync -avz /var/log/centreon-engine/archives/ root@\<IP_NOUVEAU_CENTREON\>:/var/log/centreon-engine
+   rsync -avz --exclude centcore/ --exclude log/ /var/lib/centreon root@\<IP_NOUVEAU_CENTREON\>:/var/lib
    rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img
    ```
 
@@ -105,8 +112,8 @@ apt update
 3. Depuis l'ancien serveur, exportez les dumps vers le nouveau serveur de base de données (assurez-vous d'avoir assez d'espace):
 
    ```shell
-   rsync -avz /tmp/centreon.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
-   rsync -avz /tmp/centreon_storage.sql root@<IP_NOUVEAU_CENTREON>:/tmp/
+   rsync -avz /tmp/centreon.sql root@\<IP_NOUVEAU_CENTREON\>:/tmp/
+   rsync -avz /tmp/centreon_storage.sql root@\<IP_NOUVEAU_CENTREON\>:/tmp/
    ```
 
 4. Sur le nouveau serveur de base de données, supprimez les bases de
@@ -187,6 +194,12 @@ apt install centreon-plugin-\*
 
 Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoires qui contiennent ceux-ci, ainsi que toutes éventuelles dépendances.
 
+Utilisez la commande suivante pour synchroniser les images et autres médias entre votre ancien serveur et le nouveau.
+
+```shell
+rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img/
+```
+
 ### Étape 5 : Montée de version de la solution Centreon
 
 1. Sur le nouveau serveur, forcez la montée de version en déplacant le contenu du répertoire
@@ -251,7 +264,7 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
 
 9. Si vous supervisiez votre ancienne machine Centreon, et que vous avez changé le nom d'utilisateur/mot de passe de la base pendant la migration, mettez à jour la configuration des ressources concernées (hôte, services dépendant de cet hôte).
 
-10. Allez à la page **Configuration > Gestionnaire de connecteurs de supervision**, puis [mettez à jour tous les connecteurs de supervision](../monitoring/pluginpacks.md#mettre-à-jour-un-ou-plusieurs-packs).
+10. Allez à la page **Configuration > Connecteurs > Connecteurs de supervision**, puis [mettez à jour tous les connecteurs de supervision](../monitoring/pluginpacks.md#mettre-à-jour-un-ou-plusieurs-packs).
 
 ### Étape 6 (anciennes versions uniquement): Migrer vers Gorgone
 

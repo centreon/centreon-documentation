@@ -1,11 +1,7 @@
-// @ts-nocheck
-// Note: type annotations allow type checking and IDEs autocompletion
+import { themes as prismThemes } from 'prism-react-renderer';
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
-const availableVersions = require('./versions.json');
-const archivedVersions = require('./archivedVersions.json');
+import availableVersions from './versions.json';
+import archivedVersions from './archivedVersions.json';
 
 const archivedVersion = process.env.ARCHIVED_VERSION ?? null;
 
@@ -43,9 +39,19 @@ const cloud = (() => {
   return true;
 })();
 
+const dem = (() => {
+  if (archivedVersion) {
+    return false;
+  }
+  if (process.env.DEM !== undefined && process.env.DEM === '0') {
+    return false;
+  }
+  return true;
+})();
+
 const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (archivedVersion ? `${archivedVersion}/` : '/');
 
-if (versions.length == 0 && !pp && !cloud) {
+if (versions.length == 0 && !pp && !cloud && !dem) {
   throw new Error('Nothing is selected for build');
 }
 
@@ -55,12 +61,17 @@ const config = {
     version: archivedVersion ?? null,
   },
 
+  future: {
+    experimental_faster: true,
+  },
+
   title: 'Centreon Documentation',
   tagline: '',
   url: 'https://docs.centreon.com',
   baseUrl,
-  onBrokenLinks: archivedVersion || !cloud || !pp ? 'log' : 'throw',
-  onBrokenMarkdownLinks: archivedVersion || !cloud || !pp  ? 'log' : 'throw',
+  onBrokenLinks: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
+  onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
+  onBrokenAnchors: archivedVersion || !cloud || !pp || !dem ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
@@ -108,7 +119,7 @@ const config = {
               (accumulator, currentValue) => {
                 accumulator[currentValue] = {
                   label: Object.keys(accumulator).length === 0 ? `⭐ ${currentValue}` : currentValue,
-                  banner: 'none',
+                  banner: currentValue.match(/^(22\.10|23\.04)$/) ? 'unmaintained' : 'none',
                 }
 
                 return accumulator;
@@ -119,7 +130,7 @@ const config = {
         },
         blog: false,
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: ['./src/css/custom.css'],
         },
         gtag: {
           trackingID: 'G-BGL69N5GPJ',
@@ -133,7 +144,41 @@ const config = {
     ],
   ],
 
-  themes: [],
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      ({
+        hashed: true,
+        indexBlog: false,
+        docsRouteBasePath: ["docs", "cloud", "pp", "dem"],
+        docsDir: ["i18n", "versioned_docs", "cloud", "pp", "dem"],
+        explicitSearchResultPath: true,
+        // searchContextByPaths: [
+        //   {
+        //     label: {
+        //       en: "monitoring connectors",
+        //       fr: "connecteurs de supervision",
+        //     },
+        //     path: "pp"
+        //   },
+        //   {
+        //     label: "cloud",
+        //     path: "cloud",
+        //   },
+        //   // {
+        //   //   label: "onPrem",
+        //   //   path: "i18n",
+        //   // },
+        //   // {
+        //   //   label: "onPrem",
+        //   //   path: "versioned_docs",
+        //   // },
+        // ],
+        language: ["en", "fr"],
+      }),
+    ],
+  ],
 
   plugins: (() => {
     let plugins = [
@@ -148,21 +193,8 @@ const config = {
           disableInDev: true,
         },
       ],
-      'plugin-image-zoom',
+      'docusaurus-plugin-image-zoom',
     ];
-
-    if (archivedVersion) {
-      plugins = [
-        ...plugins,
-        [
-          require.resolve("@cmfcmf/docusaurus-search-local"),
-          {
-            indexBlog: false,
-            language: ["en", "fr"],
-          },
-        ],
-      ];
-    }
 
     if (cloud) {
       plugins = [
@@ -173,7 +205,7 @@ const config = {
             id: 'cloud',
             path: 'cloud',
             routeBasePath: 'cloud',
-            sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
+            sidebarPath: './cloud/sidebarsCloud.js',
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
@@ -192,7 +224,26 @@ const config = {
             id: 'pp',
             path: 'pp',
             routeBasePath: 'pp',
-            sidebarPath: require.resolve('./pp/sidebarsPp.js'),
+            sidebarPath: './pp/sidebarsPp.js',
+            breadcrumbs: true,
+            editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+            editLocalizedFiles: true,
+            showLastUpdateTime: true,
+          },
+        ],
+      ];
+    }
+
+    if (dem) {
+      plugins = [
+        ...plugins,
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'dem',
+            path: 'dem',
+            routeBasePath: 'dem',
+            sidebarPath: './dem/sidebarsDem.js',
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
@@ -208,22 +259,21 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: archivedVersion
-        ? undefined
-        : {
-          appId: '3WEC6XPLDB',
-          apiKey: 'be499306058f3e54012bab278e6e6d86',
-          indexName: 'centreon',
-          contextualSearch: true,
+      zoom: {
+        selector: '.markdown img',
+        background: {
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(0, 0, 61)'
         },
-
-      zoomSelector: '.markdown :not(.authority-availability) > img',
+        config: {}
+      },
 
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
         defaultLanguage: 'shell',
         additionalLanguages: [
+          'diff',
           'java',
           'json',
           'cpp',
@@ -312,6 +362,18 @@ const config = {
             ];
           }
 
+          if (dem) {
+            items = [
+              ...items,
+              {
+                to: '/dem/getting-started/welcome',
+                label: 'Quanta by Centreon',
+                position: 'left',
+                activeBaseRegex: '/dem/',
+              },
+            ];
+          }
+
           return [
             ...items,
             {
@@ -384,26 +446,9 @@ const config = {
           alt: 'Centreon Open Source Logo',
           src: 'img/logo_centreon.png',
         },
-        copyright: `Copyright © 2005 - 2024 Centreon`,
+        copyright: `Copyright © 2005 - 2025 Centreon`,
       },
     }),
-  webpack: {
-    jsLoader: (isServer) => ({
-      loader: require.resolve('swc-loader'),
-      options: {
-        jsc: {
-          "parser": {
-            "syntax": "typescript",
-            "tsx": true
-          },
-          target: 'es2017',
-        },
-        module: {
-          type: isServer ? 'commonjs' : 'es6',
-        }
-      },
-    }),
-  }
 };
 
-module.exports = config;
+export default config;

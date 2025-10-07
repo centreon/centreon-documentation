@@ -9,7 +9,7 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, infra]
+    runs-on: infrastructure
 
     name: Deploy to production
 

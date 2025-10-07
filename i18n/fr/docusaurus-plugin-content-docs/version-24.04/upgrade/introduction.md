@@ -14,7 +14,7 @@ l'ISO ou des RPMS, et utilisez les fichiers source si vous avez installé Centre
 
 > Si vous utilisez au moins un des modules BAM, MAP ou MBI, vous devez mettre 
 > en place leur nouveau dépôt afin d'éviter les problèmes de dépendances.
-> Voir [cette page](../reporting/upgrade.md#monter-de-version-du-paquet)
+> Voir [cette page](../reporting/upgrade.md#étape-1--montée-de-version-du-paquet)
 > qui vous indique comment le récupérer.
 
 > Si vous souhaitez changer l'OS du serveur hôte, suivez la [procédure de migration](../migrate/introduction.md). (Idem en cas de migration d'une plate-forme disposant du module **[Centreon Poller

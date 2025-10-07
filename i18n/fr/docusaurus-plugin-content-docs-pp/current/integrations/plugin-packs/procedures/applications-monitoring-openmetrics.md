@@ -2,112 +2,332 @@
 id: applications-monitoring-openmetrics
 title: OpenMetrics
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Prerequisites
+## Dépendances du connecteur de supervision
 
-### Centreon Plugin
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **OpenMetrics** 
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
-Install this plugin on each needed poller:
+## Contenu du pack
 
-``` shell
+### Modèles
+
+Le connecteur de supervision **OpenMetrics** apporte 2 modèles d'hôte :
+
+* **App-Monitoring-Openmetrics-File-custom**
+* **App-Monitoring-Openmetrics-Web-custom**
+
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
+
+<Tabs groupId="sync">
+<TabItem value="App-Monitoring-Openmetrics-File-custom" label="App-Monitoring-Openmetrics-File-custom">
+
+| Alias          | Modèle de service                                     | Description                                                                                   |
+|:---------------|:------------------------------------------------------|:----------------------------------------------------------------------------------------------|
+| Scrape-Metrics | App-Monitoring-Openmetrics-Scrape-Metrics-File-custom | Permet de collecter des métriques en consultant un fichier OpenMetrics sur un serveur distant |
+| Scrape-Metrics | App-Monitoring-Openmetrics-Scrape-Metrics-Web-custom  | Permet de collecter des métriques en consultant une page web exposant des OpenMetrics         |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Openmetrics-File-custom** est utilisé.
+
+</TabItem>
+<TabItem value="App-Monitoring-Openmetrics-Web-custom" label="App-Monitoring-Openmetrics-Web-custom">
+
+| Alias          | Modèle de service                                     | Description                                                                                   |
+|:---------------|:------------------------------------------------------|:----------------------------------------------------------------------------------------------|
+| Scrape-Metrics | App-Monitoring-Openmetrics-Scrape-Metrics-File-custom | Permet de collecter des métriques en consultant un fichier OpenMetrics sur un serveur distant |
+| Scrape-Metrics | App-Monitoring-Openmetrics-Scrape-Metrics-Web-custom  | Permet de collecter des métriques en consultant une page web exposant des OpenMetrics         |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Openmetrics-Web-custom** est utilisé.
+
+</TabItem>
+</Tabs>
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
+
+<Tabs groupId="sync">
+<TabItem value="Scrape-Metrics*" label="Scrape-Metrics*">
+
+Les valeurs des métriques collectées dépendent de votre équipement Openmetrics et des filtres choisis.
+
+</TabItem>
+</Tabs>
+
+## Prérequis
+
+1. Configuration de la source de métriques OpenMetrics
+- Service compatible OpenMetrics : Vous devez disposer d'une application ou d'un service exposant 
+des métriques au format OpenMetrics, souvent via une API HTTP/HTTPS 
+(par exemple, Prometheus ou des applications exposant un endpoint `/metrics`).
+- Endpoint accessible : Assurez-vous que l'endpoint OpenMetrics est accessible depuis le 
+serveur Centreon (ou le collecteur). Testez l'accès avec des outils comme `curl` ou `wget`.
+
+2. Configuration réseau
+- Ouverture des ports : Le collecteur doit pouvoir se connecter au port utilisé par l'endpoint
+OpenMetrics (généralement le port `80` pour `HTTP` ou `443` pour `HTTPS`).
+- Pare-feu : Configurez les règles du pare-feu pour autoriser les connexions entre le collecteur et l'endpoint.
+
+3. Authentification
+Si l'endpoint OpenMetrics nécessite une authentification (par exemple, un token ou des identifiants HTTP Basic), 
+vous devez configurer ces informations dans Centreon. Stockez les informations de connexion dans les macros de l’hôte.
+
+## Installer le connecteur de supervision
+
+### Pack
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-applications-monitoring-openmetrics
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-pack-applications-monitoring-openmetrics
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-monitoring-openmetrics
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-applications-monitoring-openmetrics
+```
+
+</TabItem>
+</Tabs>
+
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **OpenMetrics**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Monitoring-Openmetrics
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Monitoring-Openmetrics
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-applications-monitoring-openmetrics
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
 yum install centreon-plugin-Applications-Monitoring-Openmetrics
 ```
 
-## Centreon Configuration
+</TabItem>
+</Tabs>
 
-### Create a host using the appropriate template
+## Utiliser le connecteur de supervision
 
-#### Checking using a web page
+### Utiliser un modèle d'hôte issu du connecteur
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+<Tabs groupId="sync">
+<TabItem value="App-Monitoring-Openmetrics-File-custom" label="App-Monitoring-Openmetrics-File-custom">
 
-| Field            | Value                          |
-| :--------------- | :----------------------------- |
-| Name             | *Name of the host*             |
-| Alias            | *Description*                  |
-| IP Address / DNS | *Can be localhost*             |
-| Monitored from   | *Poller used to monitor*       |
-| Templates        | App-Monitoring-Openmetrics-Web |
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-Monitoring-Openmetrics-File-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-The following host macros should be set as shown:
+| Macro                   | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| OPENMETRICSUSERNAME     | Endpoint username                                                                                                                                  |                   |             |
+| OPENMETRICSPASSWORD     | Endpoint password                                                                                                                                  |                   |             |
+| OPENMETRICSPROTO        | Specify https if needed (default: 'http')                                                                                                          |                   |             |
+| OPENMETRICSPORT         | Port used (default: 80)                                                                                                                            |                   |             |
+| OPENMETRICSFILEPATH     | Command options                                                                                                                                    |                   |             |
+| OPENMETRICSURLPATH      | URL to scrape metrics from (default: '/metrics')                                                                                                   |                   |             |
+| OPENMETRICSEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-| Macro               | Value                                       |
-| :------------------ | :------------------------------------------ |
-| OPENMETRICSPORT     | *OpenMetrics web page port*                 |
-| OPENMETRICSPROTO    | *OpenMetrics web page protocol*             |
-| OPENMETRICSURLPATH  | *OpenMetrics web page url path*             |
-| OPENMETRICSUSERNAME | *OpenMetrics web page username (if needed)* |
-| OPENMETRICSPASSWORD | *OpenMetrics web page password(if needed)*  |
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-Check the *Create Services linked to the Template too* box and click on the
-*Save* button.
+</TabItem>
+<TabItem value="App-Monitoring-Openmetrics-Web-custom" label="App-Monitoring-Openmetrics-Web-custom">
 
-The following service will be created:
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-Monitoring-Openmetrics-Web-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-  - Scrape-Metrics
+| Macro                   | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| OPENMETRICSUSERNAME     | Endpoint username                                                                                                                                  |                   |             |
+| OPENMETRICSPASSWORD     | Endpoint password                                                                                                                                  |                   |             |
+| OPENMETRICSPROTO        | Specify https if needed                                                                                                                            | http              |             |
+| OPENMETRICSPORT         | Port used                                                                                                                                          | 80                |             |
+| OPENMETRICSFILEPATH     | Command options                                                                                                                                    |                   |             |
+| OPENMETRICSURLPATH      | URL to scrape metrics from                                                                                                                         | /metrics          |             |
+| OPENMETRICSEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-#### Checking using a remote file
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+</TabItem>
+</Tabs>
 
-| Field            | Value                           |
-| :--------------- | :------------------------------ |
-| Name             | *Name of the host*              |
-| Alias            | *Description*                   |
-| IP Address / DNS | *Can be localhost*              |
-| Monitored from   | *Poller used to monitor*        |
-| Templates        | App-Monitoring-Openmetrics-File |
+### Utiliser un modèle de service issu du connecteur
 
-The following host macros should be set as shown:
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
-| Macro               | Value                                  |
-| :------------------ | :------------------------------------- |
-| OPENMETRICSFILEPATH | *OpenMetrics file path on remote host* |
+<Tabs groupId="sync">
+<TabItem value="Scrape-Metrics" label="Scrape-Metrics">
 
-Check the *Create Services linked to the Template too* box and click on the
-*Save* button.
+| Macro             | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERMETRICS     | Only parse some metrics (regexp can be used). Example: --filter-metrics='^status$'                                                               |                   |             |
+| INSTANCE          | Set the label from dimensions to get the instance value from                                                                                     |                   |             |
+| FILTERINSTANCE    | Only display some instances. Example: --filter-instance='0'                                                                                      |                   |             |
+| SUBINSTANCE       | Set the label from dimensions to get the subinstance value from                                                                                  |                   |             |
+| FILTERSUBINSTANCE | Only display some subinstances. Example: --filter-subinstance='idle'                                                                             |                   |             |
+| WARNING           | Set warning threshold                                                                                                                            |                   |             |
+| CRITICAL          | Set critical threshold                                                                                                                           |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
-The following service will be created:
+</TabItem>
+</Tabs>
 
-  - Scrape-Metrics
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
-### Set the service macros
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-The following service macros should be set as shown:
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
-| Macro             | Value                                                             |
-| :---------------- | :---------------------------------------------------------------- |
-| FILTERMETRICS     | *Name of the metrics to filter on*                                |
-| WARNING           | *Warning threshold*                                               |
-| CRITICAL          | *Critical threshold*                                              |
-| INSTANCE          | *Label from dimensions to get the instance value from*            |
-| FILTERINSTANCE    | *Filter on some instance*                                         |
-| SUBINSTANCE       | *Set the label from dimensions to get the subinstance value from* |
-| FILTERSUBINSTANCE | *Filter on some subinstance*                                      |
+```bash
+/usr/lib/centreon/plugins/centreon_monitoring_openmetrics.pl \
+	--plugin=apps::monitoring::openmetrics::plugin \
+	--mode=scrape-metrics \
+	--custommode='web' \
+	--hostname='10.0.0.1' \
+	--port='' \
+	--proto='' \
+	--urlpath='' \
+	--username='' \
+	--password=''  \
+	--filter-metrics='' \
+	--warning='' \
+	--critical='' \
+	--instance='' \
+	--filter-instance='' \
+	--subinstance='' \
+	--filter-subinstance='' \
+	--verbose
+```
 
-Examples on command line:
+La commande devrait retourner un message de sortie similaire à :
 
-`# perl centreon_plugins.pl --plugin=apps::monitoring::openmetrics::plugin
---mode=scrape-metrics --custommode=web --hostname=10.2.3.4 --port=9100 --verbose
---filter-metrics='node_network_up' --critical='0:0' --instance='device'
---new-perfdata`
+```bash
+OK: All metrics are ok | 'metric2'=512;;;; 'metric2'=256;;;; 'metric1'=120;;;; 'metric1'=45;;;;
+Metric 'metric2' value is '512' [Help: "This metric tracks memory usage."] [Type: 'gauge'] [Dimensions: "serviceA|heap"]
+Metric 'metric2' value is '256' [Help: "This metric tracks memory usage."] [Type: 'gauge'] [Dimensions: "serviceB|stack"]
+Metric 'metric1' value is '120' [Help: "This metric tracks the number of requests."] [Type: 'counter'] [Dimensions: "endpoint1|GET"]
+Metric 'metric1' value is '45' [Help: "This metric tracks the number of requests."] [Type: 'counter'] [Dimensions: "endpoint2|POST"]
+```
 
-`# perl centreon_plugins.pl --plugin=apps::monitoring::openmetrics::plugin
---mode=scrape-metrics --custommode=web --hostname=10.2.3.4 --port=9100 --verbose
---filter-metrics='node_cpu_seconds_total' --instance='cpu' --subinstance='mode'
---filter-subinstance='idle'`
+### Diagnostic des erreurs communes
 
-`# perl centreon_plugins.pl --plugin=apps::monitoring::openmetrics::plugin
---mode=scrape-metrics --custommode=file --command-options='/tmp/metrics'
---filter-metrics='cpu' --verbose`
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
 
-`# perl centreon_plugins.pl --plugin=apps::monitoring::openmetrics::plugin
---mode=scrape-metrics --custommode=file --hostname=10.2.3.4
---ssh-option='-l=centreon-engine' --ssh-option='-p=52'
---command-options='/my/app/path/metrics' --verbose`
+### Modes disponibles
 
-### Duplicate service to monitor more metrics
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
 
-You can now duplicate the service to monitor several metrics.
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_monitoring_openmetrics.pl \
+	--plugin=apps::monitoring::openmetrics::plugin \
+	--list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                                                     | Modèle de service associé                                                                                       |
+|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------|
+| scrape-metrics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/openmetrics/mode/scrapemetrics.pm)] | App-Monitoring-Openmetrics-Scrape-Metrics-File-custom<br />App-Monitoring-Openmetrics-Scrape-Metrics-Web-custom |
+
+### Options disponibles
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Scrape-Metrics*" label="Scrape-Metrics*">
+
+| Option               | Description                                                                            |
+|:---------------------|:---------------------------------------------------------------------------------------|
+| --filter-metrics     |   Only parse some metrics (regexp can be used). Example: --filter-metrics='^status$'   |
+| --warning            |   Set warning threshold.                                                               |
+| --critical           |   Set critical threshold.                                                              |
+| --instance           |   Set the label from dimensions to get the instance value from.                        |
+| --filter-instance    |   Only display some instances. Example: --filter-instance='0'                          |
+| --subinstance        |   Set the label from dimensions to get the subinstance value from.                     |
+| --filter-subinstance |   Only display some subinstances. Example: --filter-subinstance='idle'                 |
+| --new-perfdata       |   Replace the underscore symbol by a point in perfdata.                                |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_monitoring_openmetrics.pl \
+	--plugin=apps::monitoring::openmetrics::plugin \
+	--mode=scrape-metrics \
+	--help
+```

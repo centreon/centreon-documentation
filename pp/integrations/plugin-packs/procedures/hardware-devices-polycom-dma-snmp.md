@@ -124,7 +124,7 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Dma-Snmp
 ```
 
 2. On the Centreon Web interface, install the *Polycom DMA SNMP* Monitoring Connector 
-through **Configuration > Monitoring Connector Manager** page.
+through **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -143,7 +143,7 @@ yum install centreon-pack-hardware-devices-polycom-dma-snmp
 ```
 
 3. On the Centreon Web interface, install the *Polycom DMA SNMP* Monitoring Connector 
-through **Configuration > Monitoring Connector Manager** page.
+through **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 </Tabs>
@@ -174,8 +174,8 @@ and test the Plugin by running the following command:
     --hostname=10.0.0.1 \
     --snmp-version='2c'
     --snmp-community='mysnmpcommunity' \
-    --critical-cluster-status='%{cluster_status} =~ /outOfService/i' \
-    --critical-license-status='%{license_status} =~ /notinstalled/i' \
+    --critical-cluster-status='%\{cluster_status\} =~ /outOfService/i' \
+    --critical-license-status='%\{license_status\} =~ /notinstalled/i' \
     --warning-cluster-license-usage-prct='80' \
     --critical-cluster-license-usage-prct='90' \
     --verbose

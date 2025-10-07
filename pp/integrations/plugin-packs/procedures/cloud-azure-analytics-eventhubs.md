@@ -5,67 +5,85 @@ title: Azure Event Hubs
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Overview
-
-Azure Event Hubs is a big data streaming platform and event ingestion service. It can receive and process millions of events per
-second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters.
 
 The Centreon Monitoring Connector *Azure Event Hubs* can rely on Azure API or Azure CLI to collect the metrics related to the
 Front Door service.
 
-## Monitoring Connector Assets
+## Connector dependencies
 
-### Monitored Objects
+The following monitoring connectors will be installed when you install the **Azure Event Hubs** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
 
-* Azure *Front Door* instances, both 'namespaces' & 'clusters' types are supported
-    * Backlog
-    * Connections
-    * Errors
-    * Health
-    * Messages
-    * Requests
-    * Throughput
+## Pack assets
+
+### Templates
+
+The Monitoring Connector **Azure Event Hubs** brings a host template:
+
+* **Cloud-Azure-Analytics-EventHubs-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
+
+<Tabs groupId="sync">
+<TabItem value="Cloud-Azure-Analytics-EventHubs-custom" label="Cloud-Azure-Analytics-EventHubs-custom">
+
+| Service Alias | Service Template                                       | Service Description                |
+|:--------------|:-------------------------------------------------------|:-----------------------------------|
+| Backlog       | Cloud-Azure-Analytics-EventHubs-Backlog-Api-custom     | Check Azure Event Hubs namespaces  and clusters backlog |
+| Connections   | Cloud-Azure-Analytics-EventHubs-Connections-Api-custom | Check Azure Event Hubs namespaces  and clusters connections |
+| Errors        | Cloud-Azure-Analytics-EventHubs-Errors-Api-custom      | Check Azure Event Hubs namespaces  and clusters errors |
+| Health        | Cloud-Azure-Analytics-EventHubs-Health-Api-custom      | Check Azure Event Hubs health      |
+| Messages      | Cloud-Azure-Analytics-EventHubs-Messages-Api-custom    | Check Azure Event Hubs namespaces  and clusters messages |
+| Requests      | Cloud-Azure-Analytics-EventHubs-Requests-Api-custom    | Check Azure Event Hubs namespaces  and clusters requests |
+| Throughput    | Cloud-Azure-Analytics-EventHubs-Throughput-Api-custom  | Check Azure Event Hubs namespaces  and clusters throughput |
+
+> The services listed above are created automatically when the **Cloud-Azure-Analytics-EventHubs-custom** host template is used.
+
+</TabItem>
+</Tabs>
 
 ### Discovery rules
 
-The Centreon Monitoring Connector *Azure Event Hubs* includes a Host Discovery *provider* to automatically discover the Azure instances of a given
-subscription and add them to the Centreon configuration.
-This provider is named **Microsoft Azure Event Hubs**:
+#### Host discovery
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-analytics-eventhubs-provider.png)
+The Centreon Monitoring Connector **Azure Event Hubs** includes a Host Discovery provider to
+automatically discover the Azure instances of a given subscription and add them
+to the list of monitored hosts. This provider is named **Microsoft Azure Event Hubs**.
 
-> This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported yet.
+> This discovery feature is only compatible with the [**api** custom mode. **azcli** is not supported](../getting-started/how-to-guides/azure-credential-configuration.md).
 
-More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](/docs/monitoring/discovery/hosts-discovery)
+Go to the corresponding chapter to learn more about [discovering hosts automatically](/docs/monitoring/discovery/hosts-discovery).
 
 ### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Backlog" label="Backlog">
 
-| Metric Name                     | Description     | Unit  |
-|:--------------------------------|:----------------|:------|
-| eventhubs.backlog.capture.count | Capture Backlog | Count |
+| Name                            | Unit  |
+|:--------------------------------|:------|
+| eventhubs.backlog.capture.count | count |
 
 </TabItem>
 <TabItem value="Connections" label="Connections">
 
-| Metric Name                        | Description        | Unit  |
-|:-----------------------------------|:-------------------|:------|
-| eventhubs.connections.active.count | Active Connections | Count |
-| eventhubs.connections.closed.count | Connections Closed | Count |
-| eventhubs.connections.opened.count | Connections Opened | Count |
+| Name                               | Unit  |
+|:-----------------------------------|:------|
+| eventhubs.connections.active.count | count |
+| eventhubs.connections.closed.count | count |
+| eventhubs.connections.opened.count | count |
 
 </TabItem>
 <TabItem value="Errors" label="Errors">
 
-| Metric Name                          | Description           | Unit  |
-|:-------------------------------------|:----------------------|:------|
-| eventhubs.errors.quotaexceeded.count | Quota Exceeded Errors | Count |
-| eventhubs.errors.server.count        | Server Errors         | Count |
-| eventhubs.errors.user.count          | User Errors           | Count |
+| Name                                 | Unit  |
+|:-------------------------------------|:------|
+| eventhubs.errors.quotaexceeded.count | count |
+| eventhubs.errors.server.count        | count |
+| eventhubs.errors.user.count          | count |
 
 </TabItem>
 <TabItem value="Health" label="Health">
@@ -78,306 +96,539 @@ More information about the Host Discovery module is available in the Centreon do
 </TabItem>
 <TabItem value="Messages" label="Messages">
 
-| Metric Name                       | Description       | Unit  |
-|:----------------------------------|:------------------|:------|
-| eventhubs.messages.captured.count | Captured messages | Count |
-| eventhubs.messages.incoming.count | Incoming Messages | Count |
-| eventhubs.messages.outgoing.count | Outgoing Messages | Count |
+| Name                              | Unit  |
+|:----------------------------------|:------|
+| eventhubs.messages.captured.count | count |
+| eventhubs.messages.incoming.count | count |
+| eventhubs.messages.outgoing.count | count |
 
 </TabItem>
 <TabItem value="Requests" label="Requests">
 
-| Metric Name                         | Description         | Unit  |
-|:------------------------------------|:--------------------|:------|
-| eventhubs.requests.incoming.count   | Incoming Requests   | Count |
-| eventhubs.requests.successful.count | Successful Requests | Count |
-| eventhubs.requests.throttled.count  | Throttled Requests  | Count |
+| Name                                | Unit  |
+|:------------------------------------|:------|
+| eventhubs.requests.incoming.count   | count |
+| eventhubs.requests.successful.count | count |
+| eventhubs.requests.throttled.count  | count |
 
 </TabItem>
 <TabItem value="Throughput" label="Throughput">
 
-| Metric Name                         | Description    | Unit |
-|:------------------------------------|:---------------|:-----|
-| eventhubs.throughput.captured.bytes | Captured Bytes | B    |
-| eventhubs.throughput.incoming.bytes | Incoming Bytes | B    |
-| eventhubs.throughput.outgoing.bytes | Outgoing Bytes | B    |
+| Name                                | Unit  |
+|:------------------------------------|:------|
+| eventhubs.throughput.captured.bytes | B     |
+| eventhubs.throughput.incoming.bytes | B     |
+| eventhubs.throughput.outgoing.bytes | B     |
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-To get data from Azure Services, following methods are available:
-* Azure API ('api') 
-* Azure CLI ('azcli')
+Please find all the prerequisites needed for Centreon to get information from Azure
+on the [dedicated page](../getting-started/how-to-guides/azure-credential-configuration.md).
 
-Centreon recommends to use the API instead of the CLI for the following reasons:
-* API is much more efficient by avoiding CLI binary execution
-* API supports application authentication while CLI does not (yet)
+## Installing the monitoring connector
+
+### Pack
+
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connector Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-To use the 'api' custom mode, make sure to obtain the required information using the 
-how-to below. Keep it safe until including it in a Host or Host Template definition.
-
-* Create an *application* in Azure Active Directory:
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *App registrations*.
-    - Click on *+ Add*.
-    - Enter Centreon as the application name (or any name of your choice), select application type(api) and sign-on-url.
-    - Click on the *Create* button.
-
-* Get *Subscription ID*
-    - Log in to your Azure account.
-    - Select *Subscriptions* in the left sidebar.
-    - Select whichever subscription is needed.
-    - Click on *Overview*.
-    - **Copy the Subscription ID.**
-
-* Get *Tenant ID*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *Properties*.
-    - **Copy the directory ID.**
-
-* Get *Client ID*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *Enterprise applications*.
-    - Click on *All applications*.
-    - Select the application previously created.
-    - Click on *Properties*.
-    - **Copy the Application ID.**
-
-* Get *Client secret*
-    - Log in to your Azure account.
-    - Select *Azure Active directory* in the left sidebar.
-    - Click on *App registrations*.
-    - Select the application previously created.
-    - Click on *All settings*.
-    - Click on *Keys*.
-    - Enter the key description and select the duration.
-    - Click on *Save*.
-    - **Copy and store the key value. You won't be able to retrieve it after you leave this page.**
+```bash
+dnf install centreon-pack-cloud-azure-analytics-eventhubs
+```
 
 </TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-To use the 'azcli' custom mode, install the required packages on every Centreon poller expected to 
-monitor Azure Resources using CLI:
-
-- The CLI needs at least Python version 2.7
-(<https://github.com/Azure/azure-cli/blob/dev/doc/install_linux_prerequisites.md>).
-
-On RPM-Based distributions, use the command below to install it using *root* or 'sudo':
-
-```shell
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo
-sudo yum install azure-cli
+```bash
+dnf install centreon-pack-cloud-azure-analytics-eventhubs
 ```
 
-Then, use the *centreon-engine* account to obtain a token using command below: 
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-```shell
-su - centreon-engine
-az login
+```bash
+apt install centreon-pack-cloud-azure-analytics-eventhubs
 ```
 
-The shell will output this message including an authentication code:
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
-    *To sign in, use a web browser to open the page https://microsoft.com/devicelogin* 
-    *and enter the code CWT4WQZAD to authenticate.*
-
-Go to <https://microsoft.com/devicelogin> and enter the code. 
-
-Connect using a monitoring service account, as a result, the shell should prompt
-information below:
-
-```shell
-    [
-      {
-        "cloudName": "AzureCloud",
-        "id": "0ef83f3a-d83e-2039-d930-309df93acd93d",
-        "isDefault": true,
-        "name": "N/A(tenant level account)",
-        "state": "Enabled",
-        "tenantId": "0ef83f3a-03cd-2039-d930-90fd39ecd048",
-        "user": {
-          "name": "email@mycompany.onmicrosoft.com",
-          "type": "user"
-        }
-      }
-    ]
+```bash
+yum install centreon-pack-cloud-azure-analytics-eventhubs
 ```
-
-Credentials are now stored locally in the .accessTokens.json file so the Plugin 
-can use it. 
 
 </TabItem>
 </Tabs>
 
-## Setup 
+2. Whatever the license type (*online* or *offline*), install the **Azure Event Hubs** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Install the Centreon package on every Centreon poller expected to monitor Azure Event Hubs resources:
+```bash
+dnf install centreon-plugin-Cloud-Azure-Analytics-EventHubs-Api
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Cloud-Azure-Analytics-EventHubs-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-cloud-azure-analytics-eventhubs-api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-plugin-Cloud-Azure-Analytics-EventHubs-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Event Hubs* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
-
-</TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor Azure Event Hubs resources:
-
-```bash
-yum install centreon-plugin-Cloud-Azure-Analytics-EventHubs-Api
-```
-
-2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
-
-```bash
-yum install centreon-pack-cloud-azure-analytics-eventhubs.noarch
-```
-
-3. On the Centreon Web interface, install the *Azure Event Hubs* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
-
 </TabItem>
 </Tabs>
 
-## Configuration
+## Using the monitoring connector
 
-### Host
+### Using a host template provided by the connector
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
-* In the *IP Address/FQDN* field, set the following IP address: '127.0.0.1'.
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
+3. Apply the **Cloud-Azure-Analytics-EventHubs-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory. For example, for this connector, you must define the **AZURECUSTOMMODE** macros (possible values are **api** or **azcli**). Indeed, 2 modes of communication can be used with this resource: either using the command tool azcli, or by querying the API directly.
 
-* Select the *Cloud-Azure-Analytics-EventHubs-custom* template to apply to the Host.
-* Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
-These mandatory Macros differ regarding the custom mode used.
+| Macro              | Description                                                                                                                | Default value     | Mandatory   |
+|:-------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| AZURECLIENTID      | Set Azure client ID                                                                                                        |                   | X           |
+| AZURECLIENTSECRET  | Set Azure client secret                                                                                                    |                   | X           |
+| AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
+| AZURERESOURCE      | Set resource name or ID (required)                                                                                         |                   |             |
+| AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   |             |
+| AZURERESOURCETYPE  | Set resource group (required if resource's name is used). Can be: 'namespaces', 'clusters'                                 |                   |             |
+| AZURESUBSCRIPTION  | Set Azure subscription ID                                                                                                  |                   | X           |
+| AZURETENANT        | Set Azure tenant ID                                                                                                        |                   | X           |
+| PROXYURL           | Proxy URL. Example: http://my.proxy:3128                                                                                   |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
 
-> Two methods can be used to set the Macros:
-> * full ID of the Resource (```/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/Microsoft.EventHub/<resource_type>/<resource_name>```)
-in *AZURERESOURCE*
-> * Resource Name in *AZURERESOURCE* associated with Resource Group (in *AZURERESOURCEGROUP*) and Resource Type (in *AZURERESOURCETYPE*)
+> Two methods can be used to define the authentication:
+>
+> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`) in the **AZURERESOURCE** macro.
+> * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Azure Monitor API" label="Azure Monitor API">
+<TabItem value="Backlog" label="Backlog">
 
-| Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
-| X         | AZURECUSTOMMODE    | Custom mode 'api'                                  |
-| X         | AZURESUBSCRIPTION  | Subscription ID                                    |
-| X         | AZURETENANT        | Tenant ID                                          |
-| X         | AZURECLIENTID      | Client ID                                          |
-| X         | AZURECLIENTSECRET  | Client secret                                      |
-| X         | AZURERESOURCE      | ID or name of the Event Hub resource               |
-|           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
-|           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
+| Macro                  | Description                                                                                                                                        | Default value     | Mandatory   |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME              | Set timeframe in seconds (i.e. 3600 to check last hour)                                                                                            | 900               |             |
+| INTERVAL               | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION            | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Total             |             |
+| FILTERMETRIC           | Filter on a specific metric                                                                                                                                                   |                   |             |
+| FILTERDIMENSION        | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"               |                   |             |
+| WARNINGBACKLOGCAPTURE  | Warning threshold                                                                                                                                  |                   |             |
+| CRITICALBACKLOGCAPTURE | Critical threshold                                                                                                                                 |                   |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                 |                   |             |
 
 </TabItem>
-<TabItem value="Azure AZ CLI" label="Azure AZ CLI">
+<TabItem value="Connections" label="Connections">
 
-| Mandatory | Nom                | Description                                        |
-|:----------|:-------------------|:---------------------------------------------------|
-| X         | AZURECUSTOMMODE    | Custom mode 'azcli'                                |
-| X         | AZURESUBSCRIPTION  | Subscription ID                                    |
-| X         | AZURERESOURCE      | ID or name of the Event Hub resource               |
-|           | AZURERESOURCEGROUP | Associated Resource Group if resource name is used |
-|           | AZURERESOURCETYPE  | Associated Resource Type if resource name is used  |
+| Macro                     | Description                                                                                                                                        | Default value     | Mandatory   |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME                 | Set timeframe in seconds (i.e. 3600 to check last hour)                                                                                            | 900               |             |
+| INTERVAL                  | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION               | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Average           |             |
+| FILTERMETRIC              | Filter on a specific metric                                                                                                                                                   |                   |             |
+| FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"               |                   |             |
+| WARNINGACTIVECONNECTIONS  | Threshold                                                                                                                                          |                   |             |
+| CRITICALACTIVECONNECTIONS | Threshold                                                                                                                                          |                   |             |
+| WARNINGCLOSEDCONNECTIONS  | Threshold                                                                                                                                          |                   |             |
+| CRITICALCLOSEDCONNECTIONS | Threshold                                                                                                                                          |                   |             |
+| WARNINGOPENEDCONNECTIONS  | Threshold                                                                                                                                          |                   |             |
+| CRITICALOPENEDCONNECTIONS | Threshold                                                                                                                                          |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                 |                   |             |
+
+</TabItem>
+<TabItem value="Errors" label="Errors">
+
+| Macro                       | Description                                                                                                                                        | Default value     | Mandatory   |
+|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME                   | Set timeframe in seconds (i.e. 3600 to check last hour)                                                                                            | 900               |             |
+| INTERVAL                    | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION                 | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Total             |             |
+| FILTERMETRIC                | Filter on a specific metric                                                                                                                                                   |                   |             |
+| FILTERDIMENSION             | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"               |                   |             |
+| WARNINGQUOTAEXCEEDEDERRORS  | Threshold                                                                                                                                          |                   |             |
+| CRITICALQUOTAEXCEEDEDERRORS | Threshold                                                                                                                                          |                   |             |
+| WARNINGSERVERERRORS         | Threshold                                                                                                                                          |                   |             |
+| CRITICALSERVERERRORS        | Threshold                                                                                                                                          |                   |             |
+| WARNINGUSERERRORS           | Threshold                                                                                                                                          |                   |             |
+| CRITICALUSERERRORS          | Threshold                                                                                                                                          |                   |             |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                 |                   |             |
+
+</TabItem>
+<TabItem value="Health" label="Health">
+
+| Macro          | Description                                                                                                                                                              | Default value                  | Mandatory   |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| OKSTATUS       | Define the conditions to match for the status to be OK (default: '%\{status\} =~ /^Available$/'). You can use the following variables: %\{status\}, %\{summary\}         | %\{status\} =~ /^Available$/   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^Unavailable$/'). You can use the following variables: %\{status\}, %\{summary\} | %\{status\} =~ /^Unavailable$/ |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{summary\}                                |                                |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                       |                                |             |
+
+</TabItem>
+<TabItem value="Messages" label="Messages">
+
+| Macro                    | Description                                                                                                                                        | Default value     | Mandatory   |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME                | Set timeframe in seconds (i.e. 3600 to check last hour)                                                                                            | 900               |             |
+| INTERVAL                 | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION              | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Total             |             |
+| FILTERMETRIC             | Filter on a specific metric                                                                                                                                                   |                   |             |
+| FILTERDIMENSION          | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"               |                   |             |
+| WARNINGCAPTUREDMESSAGES  | Threshold                                                                                                                                          |                   |             |
+| CRITICALCAPTUREDMESSAGES | Threshold                                                                                                                                          |                   |             |
+| WARNINGINCOMINGMESSAGES  | Threshold                                                                                                                                          |                   |             |
+| CRITICALINCOMINGMESSAGES | Threshold                                                                                                                                          |                   |             |
+| WARNINGOUTGOINGMESSAGES  | Threshold                                                                                                                                          |                   |             |
+| CRITICALOUTGOINGMESSAGES | Threshold                                                                                                                                          |                   |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                 |                   |             |
+
+</TabItem>
+<TabItem value="Requests" label="Requests">
+
+| Macro                      | Description                                                                                                                                        | Default value     | Mandatory   |
+|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME                  | Set timeframe in seconds (i.e. 3600 to check last hour)                                                                                            | 900               |             |
+| INTERVAL                   | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION                | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Total             |             |
+| FILTERMETRIC               | Filter on a specific metric                                                                                                                                                   |                   |             |
+| FILTERDIMENSION            | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"               |                   |             |
+| WARNINGINCOMINGREQUESTS    | Threshold                                                                                                                                          |                   |             |
+| CRITICALINCOMINGREQUESTS   | Threshold                                                                                                                                          |                   |             |
+| WARNINGSUCCESSFULREQUESTS  | Threshold                                                                                                                                          |                   |             |
+| CRITICALSUCCESSFULREQUESTS | Threshold                                                                                                                                          |                   |             |
+| WARNINGTHROTTLEDREQUESTS   | Threshold                                                                                                                                          |                   |             |
+| CRITICALTHROTTLEDREQUESTS  | Threshold                                                                                                                                          |                   |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                 |                   |             |
+
+</TabItem>
+<TabItem value="Throughput" label="Throughput">
+
+| Macro                 | Description                                                                                                                                        | Default value     | Mandatory   |
+|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME             | Set timeframe in seconds (i.e. 3600 to check last hour)                                                                                            | 900               |             |
+| INTERVAL              | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION           | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Total             |             |
+| FILTERMETRIC          | Filter on a specific metric                                                                                                                                                   |                   |             |
+| FILTERDIMENSION       | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"               |                   |             |
+| WARNINGCAPTUREDBYTES  | Threshold                                                                                                                                          |                   |             |
+| CRITICALCAPTUREDBYTES | Threshold                                                                                                                                          |                   |             |
+| WARNINGINCOMINGBYTES  | Threshold                                                                                                                                          |                   |             |
+| CRITICALINCOMINGBYTES | Threshold                                                                                                                                          |                   |             |
+| WARNINGOUTGOINGBYTES  | Threshold                                                                                                                                          |                   |             |
+| CRITICALOUTGOINGBYTES | Threshold                                                                                                                                          |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                 |                   |             |
 
 </TabItem>
 </Tabs>
 
-## FAQ
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
-### How to check in the CLI that the configuration is OK and what are the main options for ?
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* 
-user account and test the Plugin by running the following command:
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor an Azure Instance using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_analytics_eventhubs_api.pl \
-    --plugin=cloud::azure::analytics::eventhubs::plugin \
-    --mode=errors \
-    --custommode=api \
-    --subscription='xxxxxxxxx' \
-    --tenant='xxxxxxxxx' \
-    --client-id='xxxxxxxxx' \
-    --client-secret='xxxxxxxxx' \
-    --resource='HUB001ABCD' \
-    --resource-group='RSG1234' \
-    --resource-type='namespaces' \
-    --timeframe='900' \
-    --interval='PT5M' \
-    --aggregation='Total' \
-    --warning-server-errors='800' \
-    --critical-server-errors='900'
+	--plugin=cloud::azure::analytics::eventhubs::plugin \
+	--mode=errors \
+	--custommode='api' \
+	--resource='HUB001ABCD' \
+	--resource-group='RSG1234' \
+	--resource-type='namespaces' \
+	--subscription='xxxxxxxxx' \
+	--tenant='xxxxxxxxx' \
+	--client-id='xxxxxxxxx' \
+	--client-secret='xxxxxxxxx' \
+	--proxyurl=''  \
+	--filter-metric='' \
+	--filter-dimension='' \
+	--timeframe='900' \
+	--interval='PT5M' \
+	--aggregation='Total' \
+	--warning-server-errors='' \
+	--critical-server-errors='' \
+	--warning-user-errors='' \
+	--critical-user-errors='' \
+	--warning-quota-exceeded-errors='' \
+	--critical-quota-exceeded-errors=''
 ```
 
-Expected command output is shown below:
+The expected command output is shown below:
 
 ```bash
 OK: Instance 'HUB001ABCD' Statistic 'total' Metrics Server Errors: 12.00, User Errors: 47.00, Quota Exceeded Errors: 0.00 |
 'HUB001ABCD~total#eventhubs.errors.server.count'=12.00;800;900;0; 'HUB001ABCD~total#eventhubs.errors.user.count'=47.00;;;0;
 'HUB001ABCD~total#eventhubs.errors.quotaexceeded.count'=0.00;;;0;
-```
 
-The command above checks the *errors* of an Azure *Event Hub* instance using the 'api' custom-mode
-(```--plugin=cloud::azure::analytics::eventhubs::plugin --mode=errors --custommode=api```).
-This Event Hub instance is identified by its id (```--resource='HUB001ABCD'```), its associated group (```--resource-group='RSG1234'```)
-and its type (```--resource-type='namespaces'```). The authentication parameters to be used with the custom mode are specified
-in the options (```--subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```).
-
-The calculated metrics are the total values (```--aggregation='Total'```) of a 900 secondes / 15 min period (```--timeframe='900'```)
-with one sample per 5 minutes (```--interval='PT5M'```).
-
-This command would trigger a WARNING alarm if the *server errors* rate is reported as over 800 (```--warning-server-errors='800'```)
-and a CRITICAL alarm over 900 errors (```--critical-server-errors='900'```).
-
-All the available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
-
-```bash
-/usr/lib/centreon/plugins/centreon_azure_analytics_eventhubs_api.pl \
-    --plugin=cloud::azure::analytics::eventhubs::plugin \
-    --mode=errors \
-    --help
 ```
 
 ### Troubleshooting
 
-#### The Azure credentials have changed and the Plugin does not work anymore
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
 
-The Plugin is using a cache file to keep connection information and avoid an authentication at each call. 
-If some of the authentication parameters change, you must delete the cache file. 
+### Available modes
 
-The cache file can be found within  ```/var/lib/centreon/centplugins/``` folder with a name similar to azure_api_`<md5>_<md5>_<md5>_<md5>`.
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
 
-#### ```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
-When I run my command I obtain the following error message:
-```UNKNOWN: Login endpoint API returns error code 'ERROR_NAME' (add --debug option for detailed message)```.
+```bash
+/usr/lib/centreon/plugins/centreon_azure_analytics_eventhubs_api.pl \
+	--plugin=cloud::azure::analytics::eventhubs::plugin \
+	--list-mode
+```
 
-It means that some parameters used to authenticate the API request are wrong. The 'ERROR_NAME' string gives 
-some hints about where the problem stands. 
+The plugin brings the following modes:
 
-As an example, if my Client ID or Client Secret are wrong, 'ERROR_DESC' value will be 'invalid_client'. 
+| Mode                                                                                                                                    | Linked service template                                |
+|:----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|
+| backlog [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/analytics/eventhubs/mode/backlog.pm)]         | Cloud-Azure-Analytics-EventHubs-Backlog-Api-custom     |
+| connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/analytics/eventhubs/mode/connections.pm)] | Cloud-Azure-Analytics-EventHubs-Connections-Api-custom |
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/analytics/eventhubs/mode/discovery.pm)]     | Used for host discovery                                |
+| errors [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/analytics/eventhubs/mode/errors.pm)]           | Cloud-Azure-Analytics-EventHubs-Errors-Api-custom      |
+| health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/analytics/eventhubs/mode/health.pm)]           | Cloud-Azure-Analytics-EventHubs-Health-Api-custom      |
+| messages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/analytics/eventhubs/mode/messages.pm)]       | Cloud-Azure-Analytics-EventHubs-Messages-Api-custom    |
+| requests [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/analytics/eventhubs/mode/requests.pm)]       | Cloud-Azure-Analytics-EventHubs-Requests-Api-custom    |
+| throughput [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/analytics/eventhubs/mode/throughput.pm)]   | Cloud-Azure-Analytics-EventHubs-Throughput-Api-custom  |
 
-#### ```UNKNOWN: 500 Can't connect to login.microsoftonline.com:443```
+### Available options
 
-This error message means that the Centreon Plugin couldn't successfully connect to the Azure Login API. Check that no third party
-device (such as a firewall) is blocking the request. A proxy connection may also be necessary to connect to the API.
-This can be done by using this option in the command: ```--proxyurl='http://proxy.mycompany:8080'```.
+#### Generic options
 
-#### ```UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values```
+All generic options are listed here:
 
-This command result means that Azure does not have any value for the requested period.
-This result can be overriden by adding the ```--zeroed``` option in the command. This will force a value of 0 when no metric has
-been collected and will prevent the UNKNOWN error message.
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[newuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --output-file                              |   Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --subscription                             |   Set Azure subscription ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --timeframe                                |   Set timeframe in seconds (i.e. 3600 to check last hour).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --interval                                 |   Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --aggregation                              |   Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --zeroed                                   |   Set metrics value to 0 if they are missing. Useful when some metrics are undefined.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --timeout                                  |   Set timeout in seconds (default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --sudo                                     |   Use 'sudo' to execute the command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --command                                  |   Command to get information (default: 'az'). Can be changed if you have output in a file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --command-path                             |   Command path (default: none).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --command-options                          |   Command options (default: none).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --proxyurl                                 |   Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --http-peer-addr                           |   Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --memcached                                |   Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --redis-server                             |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --redis-attribute                          |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --redis-db                                 |   Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --failback-file                            |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --memexpiration                            |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-dir                            |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --statefile-suffix                         |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-concat-cwd                     |   If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --statefile-format                         |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --statefile-key                            |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --statefile-cipher                         |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --tenant                                   |   Set Azure tenant ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --client-id                                |   Set Azure client ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --client-secret                            |   Set Azure client secret.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --login-endpoint                           |   Set Azure login endpoint URL (default: 'https://login.microsoftonline.com')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --management-endpoint                      |   Set Azure management endpoint URL (default: 'https://management.azure.com')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Backlog" label="Backlog">
+
+| Option                     | Description                                                                                                                              |
+|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-dimension         |   Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"   |
+| --per-sec                  |   Display the statistics based on a per-second period.                                                                                   |
+| --filter-counters          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'              |
+| --resource                 |   Set resource name or ID (required).                                                                                                    |
+| --resource-group           |   Set resource group (required if resource's name is used).                                                                              |
+| --resource-type            |   Set resource group (required if resource's name is used). Can be: 'namespaces', 'clusters'.                                            |
+| --warning-backlog-capture  |   Warning threshold.                                                                                                                     |
+| --critical-backlog-capture |   Critical threshold.                                                                                                                    |
+
+</TabItem>
+<TabItem value="Connections" label="Connections">
+
+| Option             | Description                                                                                                                              |
+|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-dimension |   Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"   |
+| --per-sec          |   Display the statistics based on a per-second period.                                                                                   |
+| --resource         |   Set resource name or ID (required).                                                                                                    |
+| --resource-group   |   Set resource group (required if resource's name is used).                                                                              |
+| --resource-type    |   Set resource group (required if resource's name is used). Can be: 'namespaces', 'clusters'.                                            |
+| --warning-*        |   Warning threshold where '*' can be: 'active-connections', 'opened-connections', 'closed-connections'.                                  |
+| --critical-*       |   Critical threshold where '*' can be: 'active-connections', 'opened-connections', 'closed-connections'.                                 |
+
+</TabItem>
+<TabItem value="Errors" label="Errors">
+
+| Option             | Description                                                                                                                              |
+|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-dimension |   Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"   |
+| --per-sec          |   Display the statistics based on a per-second period.                                                                                   |
+| --resource         |   Set resource name or ID (required).                                                                                                    |
+| --resource-group   |   Set resource group (required if resource's name is used).                                                                              |
+| --resource-type    |   Set resource group (required if resource's name is used). Can be: 'namespaces', 'clusters'.                                            |
+| --warning-*        |   Warning threshold where '*' can be: 'server-errors', 'user-errors', 'quota-exceeded-errors'.                                           |
+| --critical-*       |   Critical threshold where '*' can be: 'server-errors', 'user-errors', 'quota-exceeded-errors'.                                          |
+
+</TabItem>
+<TabItem value="Health" label="Health">
+
+| Option               | Description                                                                                                                                                                  |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters    |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                  |
+| --resource           |   Set resource name or ID (required).                                                                                                                                        |
+| --resource-group     |   Set resource group (required if resource's name is used).                                                                                                                  |
+| --resource-namespace |   Set resource namespace (required if resource's name is used).                                                                                                              |
+| --resource-type      |   Set resource type (required if resource's name is used).                                                                                                                   |
+| --warning-status     |   Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{summary\}                                  |
+| --critical-status    |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^Unavailable$/'). You can use the following variables: %\{status\}, %\{summary\}   |
+| --unknown-status     |   Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /^Unknown$/'). You can use the following variables: %\{status\}, %\{summary\}        |
+| --ok-status          |   Define the conditions to match for the status to be OK (default: '%\{status\} =~ /^Available$/'). You can use the following variables: %\{status\}, %\{summary\}           |
+
+</TabItem>
+<TabItem value="Messages" label="Messages">
+
+| Option             | Description                                                                                                                              |
+|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-dimension |   Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"   |
+| --per-sec          |   Display the statistics based on a per-second period.                                                                                   |
+| --resource         |   Set resource name or ID (required).                                                                                                    |
+| --resource-group   |   Set resource group (required if resource's name is used).                                                                              |
+| --resource-type    |   Set resource group (required if resource's name is used). Can be: 'namespaces', 'clusters'.                                            |
+| --warning-*        |   Warning threshold where '*' can be: 'captured-messages', 'outgoing-messages', 'incoming-messages'.                                     |
+| --critical-*       |   Critical threshold where '*' can be: 'captured-messages', 'outgoing-messages', 'incoming-messages'.                                    |
+
+</TabItem>
+<TabItem value="Requests" label="Requests">
+
+| Option             | Description                                                                                                                              |
+|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-dimension |   Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"   |
+| --per-sec          |   Display the statistics based on a per-second period.                                                                                   |
+| --resource         |   Set resource name or ID (required).                                                                                                    |
+| --resource-group   |   Set resource group (required if resource's name is used).                                                                              |
+| --resource-type    |   Set resource group (required if resource's name is used). Can be: 'namespaces', 'clusters'.                                            |
+| --warning-*        |   Warning threshold where '*' can be: 'incoming-requests', 'throttled-requests', 'successful-requests'.                                  |
+| --critical-*       |   Critical threshold where '*' can be: 'incoming-requests', 'throttled-requests', 'successful-requests'.                                 |
+
+</TabItem>
+<TabItem value="Throughput" label="Throughput">
+
+| Option             | Description                                                                                                                              |
+|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-dimension |   Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"   |
+| --per-sec          |   Display the statistics based on a per-second period.                                                                                   |
+| --resource         |   Set resource name or ID (required).                                                                                                    |
+| --resource-group   |   Set resource group (required if resource's name is used).                                                                              |
+| --resource-type    |   Set resource group (required if resource's name is used). Can be: 'namespaces', 'clusters'.                                            |
+| --warning-*        |   Warning threshold where '*' can be: 'outgoing-bytes', 'captured-bytes', 'incoming-bytes'.                                              |
+| --critical-*       |   Critical threshold where '*' can be: 'outgoing-bytes', 'captured-bytes', 'incoming-bytes'.                                             |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_azure_analytics_eventhubs_api.pl \
+	--plugin=cloud::azure::analytics::eventhubs::plugin \
+	--mode=errors \
+	--help
+```

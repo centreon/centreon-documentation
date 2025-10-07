@@ -3,6 +3,10 @@ id: custom-views
 title: Custom views (legacy)
 ---
 
+> Please note that the **Custom views** page will no longer be available on new installations.
+
+> You can now benefit from the [**Dashboards**](./dashboards.md) feature to create and share intuitive dashboards for the real-time monitoring of your resources.
+
 Custom views are dashboards created with widgets. You can share views with other users. See also our [tutorial](../getting-started/create-custom-view.md) on custom views.
 
 ## Creating a custom view
@@ -39,7 +43,7 @@ Custom views are dashboards created with widgets. You can share views with other
 
 On the control bar, click **Edit view**. ![image](../assets/alerts/view_edit.png)
 
-You can rename the view, change the layout of the columns, and [share the view](#sharing-a-custom-view) in read-only mode with other users. You can also edit or move widgets.
+You can rename the view, change the layout of the columns, and [share the view](#sharing-custom-views) in read-only mode with other users. You can also edit or move widgets.
 
 ### Editing a widget
 

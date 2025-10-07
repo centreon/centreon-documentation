@@ -45,7 +45,7 @@ Afin de contrôler l'application EMC PPMA, l'API Rest doit être configuré (cf:
 yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Emc PPMA Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Emc PPMA Rest API* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -62,7 +62,7 @@ yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 yum install centreon-pack-applications-emc-ppma-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Emc PPMA Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Emc PPMA Rest API* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>

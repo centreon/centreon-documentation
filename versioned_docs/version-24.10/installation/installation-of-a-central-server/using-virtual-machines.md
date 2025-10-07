@@ -5,7 +5,7 @@ title: Using a virtual machine (VM)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-On its [download page](https://download.centreon.com), Centreon provides ready-to-use virtual machines. These virtual machines are available for VMware environments and for Oracle VirtualBox. They are based on the **Alma Linux 8** and **Debian 11** operating systems and include a Centreon installation that allows you to easily start your first monitoring.
+On its [download page](https://download.centreon.com), Centreon provides ready-to-use virtual machines. These virtual machines are available for VMware environments and for Oracle VirtualBox. They are based on the **Alma Linux 9** and **Debian 12** operating systems and include a Centreon installation that allows you to easily start your first monitoring. 
 
 > Virtual machines are only suitable to use Centreon IT-100 or to test the solution.
 
@@ -61,7 +61,9 @@ The host machine must have the following characteristics:
 
 1. Import the **centreon-central.ova** file into VMWare. A terminal window opens; wait for the server to start. When it is ready, the terminal shows the following message:
 
-    ![image](../../assets/installation/VMW1.png)
+  ```shell
+  centreon-central login: _ 
+  ```
 
 2. According to how your network is set up, in the configuration of your virtual machine, add a network adapter and select the network through which the virtual machine can communicate with the resources it will monitor. Here is a configuration example in VSphere 6:
 
@@ -108,7 +110,7 @@ The host machine must have the following characteristics:
 4. The first time you connect to the server, instructions are displayed to help you complete the configuration.
    
 <Tabs groupId="sync">
-<TabItem value="Alma 8" label="Alma 8">
+<TabItem value="Alma Linux 9" label="Alma Linux 9">
    
 Change the following settings:
 
@@ -161,7 +163,7 @@ Change the following settings:
   ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 Change the following settings:
 
@@ -190,7 +192,7 @@ Change the following settings:
         1. Open the following file:
 
         ```shell
-        /etc/php/8.1/mods-available/centreon.ini
+        /etc/php/8.2/mods-available/centreon.ini
         ```
 
    2. In `date.timezone`, define the time zone you want.
@@ -198,7 +200,7 @@ Change the following settings:
    3. Restart the PHP server:
 
       ```shell
-      systemctl restart php8.1-fpm.service
+      systemctl restart php8.2-fpm.service
       ```
 
 - The hostname of your server (this is optional). The default name is `centreon-central`. To change it, use the following command:

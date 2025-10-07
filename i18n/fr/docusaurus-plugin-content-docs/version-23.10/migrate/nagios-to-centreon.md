@@ -17,6 +17,13 @@ Avant toute chose vous devez avoir une plate-forme Centreon installée et prête
 l'emploi. Se référer à la documentation
 [d'installation de Centreon](../installation/installation-of-a-central-server/using-packages.md).
 
+Avant toute chose, effectuez une sauvegarde de l’ensemble des serveurs de votre plateforme :
+
+- Serveur Centreon central,
+- Serveur de gestion de base de données.
+
+Si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les avant de mettre à jour Centreon](../alerts-notifications/ticketing-install.md#sauvegarder-votre-configuration-personnalisée-de-fournisseur-openticket).
+
 ## Installation
 
 Le script nécessite le module Perl-Nagios-Object pour lire les fichiers CFG.

@@ -134,5 +134,13 @@
   "sidebar.cloud.category.Data Visualization": {
     "message": "Visualisation des données",
     "description": "The label for category Data Visualization in sidebar cloud"
+  },
+  "sidebar.cloud.category.Managing tickets": {
+    "message": "Gérer des tickets",
+    "description": "The label for category Managing tickets in sidebar cloud"
+  },
+  "sidebar.cloud.category.Customizing tickets": {
+    "message": "Personnaliser les tickets",
+    "description": "The label for category Customizing tickets in sidebar cloud"
   }
 }

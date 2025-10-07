@@ -5,14 +5,9 @@ title: Aruba Instant SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Contenu du connecteur
 
-## Vue d'ensemble
-
-Aruba Networks est un fournisseur de solutions d'accès réseau.
-
-Le connecteur de supervision *Aruba Instant SNMP* utilise le protocole SNMP pour se connecter et récupérer des informations et des métriques relatives aux bornes d'accès sans fil de marque Aruba.
-
-## Contenu du pack
+> Depuis le rachat d'Aruba par HP, certaines MIB peuvent avoir changé. Si votre équipement Aruba n'est plus supervisé correctement par le connecteur Aruba, utilisez le connecteur [HP Procurve SNMP](network-switchs-hp-procurve-snmp.md).
 
 ### Modèles
 
@@ -83,8 +78,10 @@ La communication doit être possible sur le port UDP 161 depuis le collecteur Ce
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -121,7 +118,7 @@ yum install centreon-pack-network-aruba-instant-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Aruba Instant SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -174,7 +171,7 @@ yum install centreon-plugin-Network-Aruba-Instant-Snmp
 3. Appliquez le modèle d'hôte **Net-Aruba-Instant-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -203,8 +200,8 @@ yum install centreon-plugin-Network-Aruba-Instant-Snmp
 | CRITICALMEMUSAGEFREE | Thresholds                                                                                                                                               |                    |             |
 | WARNINGMEMUSAGEPRCT  | Thresholds                                                                                                                                               |                    |             |
 | CRITICALMEMUSAGEPRCT | Thresholds                                                                                                                                               |                    |             |
-| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /up/i'). You can use the following variables: %{status}, %{display} | %{status} !~ /up/i |             |
-| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                    |                    |             |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /up/i'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /up/i |             |
+| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                    |                    |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                       | --verbose          |             |
 
 </TabItem>
@@ -213,8 +210,8 @@ yum install centreon-plugin-Network-Aruba-Instant-Snmp
 | Macro          | Description                                                                                                                                                  | Valeur par défaut      | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
 | FILTERNAME     | Filter SSID name (can be a regexp)                                                                                                                           |                        |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /enable/i'). You can use the following variables: %{status}, %{display} | %{status} !~ /enable/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                        |                        |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /enable/i'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /enable/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                        |                        |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                           | --verbose              |             |
 
 </TabItem>
@@ -239,7 +236,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--snmp-community='my-snmp-community'  \
 	--filter-name='' \
 	--warning-status='' \
-	--critical-status='%{status} !~ /up/i' \
+	--critical-status='%\{status\} !~ /up/i' \
 	--warning-cpu='' \
 	--critical-cpu='' \
 	--warning-clients='' \
@@ -304,7 +301,7 @@ Les options génériques sont listées ci-dessous :
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on an "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      | Filter perfdata based on an "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -360,8 +357,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^cpu$'                                                                        |
 | --filter-name            | Filter access point name (can be a regexp).                                                                                                                |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                      |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /up/i'). You can use the following variables: %{status}, %{display}   |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                      |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /up/i'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'total-ap', 'cpu', 'clients', 'mem-usage' (B), 'mem-usage-free' (B), 'mem-usage-prct' (%).                                             |
 
 </TabItem>
@@ -370,8 +367,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                                                                                     |
 |:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-name     | Filter SSID name (can be a regexp).                                                                                                                             |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                           |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /enable/i'). You can use the following variables: %{status}, %{display}    |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                           |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /enable/i'). You can use the following variables: %\{status\}, %\{display\}    |
 
 </TabItem>
 </Tabs>

@@ -1,6 +1,6 @@
 ---
 id: notif-config-for-teams
-title: Integrating Microsoft Teams notifications
+title: Microsoft Teams notifications
 ---
 
 import Tabs from '@theme/Tabs';
@@ -21,7 +21,14 @@ Go to this page to see how to [migrate your connectors to Workflows](https://dev
 
 Follow this Microsoft procedure that explains how to [Post a workflow when a webhook request is received in Microsoft Teams](https://support.microsoft.com/en-us/office/post-a-workflow-when-a-webhook-request-is-received-in-microsoft-teams-8ae491c7-0394-4861-ba59-055e33f75498#:~:text=You%20can%20post%20to%20a,a%20webhook%20request%20is%20received.&text=next%20to%20the%20channel%20or,that%20best%20suits%20your%20needs). It will allow Centreon to send an alert in a Teams channel.
 
-> You will obtain a URL that you can easily copy/paste. Store the URL carefully. You will need it when you go to the service that you want to send data to your group.
+You will obtain a URL that you can easily copy/paste. Store the URL carefully. You will need it when you go to the service that you want to send data to your group.
+
+> This URL is containing special characters such as "&". As this character is preventing the notification command from running, you have to remove it from the list of illegal characters in Centreon.
+> 
+>  - Go to **Configuration > Pollers > Engine configuration**.
+>  - Click the Engine configuration to edit it. Then open the **Admin** tab.
+>  - In the **Illegal Macro Output Characters** field, remove the "&" character.
+>  - Save your changes.
 
 You should receive a Teams notification confirming the configuration of the connector.
 
@@ -66,9 +73,9 @@ To benefit from the plugin's capabilities, you need to create the following Cent
 1. To facilitate the creation of these objects, you can copy the following content from a CLAPI file, and paste it into a file on your Central server’s /tmp directory (for instance /tmp/clapi-teams.import).
  
  > Before loading the file, replace these values with yours:
-   - **<SET_CENTREON_URL>** with the URL you use to access Centreon web UI.
-   - **<SET_TEAMSWORKFLOW_URL>** with the Teams workflow URL obtained previously.
-   - **<SET_CONTACT_PASSWORD>** with the password you want for the new contact.
+   - **\<SET_CENTREON_URL\>** with the URL you use to access Centreon web UI.
+   - **\<SET_TEAMSWORKFLOW_URL\>** with the Teams workflow URL obtained previously.
+   - **\<SET_CONTACT_PASSWORD\>** with the password you want for the new contact.
  
  ``` shell
  CMD;ADD;bam-notify-by-microsoft-teams;1;$CENTREONPLUGINS$/centreon_notification_teams.pl --plugin=notification::microsoft::office365::teams::plugin --mode=alert --custommode=workflowapi --teams-workflow='$CONTACTPAGER$' --bam --service-description='$SERVICEDISPLAYNAME$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --date='$DATE$ $TIME$' --centreonurl='$CONTACTADDRESS1$'
@@ -103,14 +110,9 @@ CONTACT;setparam;notify_teams_consulting_channel;hostnotifcmd;host-notify-by-mic
 CONTACT;setparam;notify_teams_consulting_channel;svcnotifcmd;service-notify-by-microsoft-teams
  ```
 
-2. If your Teams workflow URL is longer than 200 characters, extend the size of the **contact_pager** row in the Centreon configuration database, using the following query:
- ``` shell
- ALTER TABLE centreon.contact MODIFY contact_pager VARCHAR(255);
- ```
-
-3. Use your Centreon credentials and CLAPI to load the file:
+2. Use your Centreon credentials and CLAPI to load the file:
  ``` shell
  centreon -u ‘<adminuser>’ -p ‘<password>’ -i /tmp/clapi-teams.import
  ```
 
-4. The file will create the **Microsoft-Teams-Consulting-Channel** contact. Use this contact at the [Configuring notifications](../alerts-notifications/notif-configuration.md) step so that you can receive notifications in your Teams channel.
+3. The file will create the **Microsoft-Teams-Consulting-Channel** contact. Use this contact at the [Configuring notifications](../alerts-notifications/notif-configuration.md) step so that you can receive notifications in your Teams channel.

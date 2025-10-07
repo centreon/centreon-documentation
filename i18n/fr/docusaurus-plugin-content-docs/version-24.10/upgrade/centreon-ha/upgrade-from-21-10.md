@@ -5,7 +5,7 @@ title: Montée de version de Centreon HA depuis Centreon 21.10
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 21.10 vers la version 24.04.
+Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 21.10 vers la version 24.10.
 
 ## Prérequis
 
@@ -27,7 +27,7 @@ Avant toute chose, il est préférable de s’assurer de l’état et de la cons
 ### Mettre à jour la clé de signature RPM
 
 Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021.
-Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../../security/key-rotation.md#existing-installation), afin de supprimer l'ancienne clé et d'installer la nouvelle.
+Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
 ## Processus de mise à jour
 

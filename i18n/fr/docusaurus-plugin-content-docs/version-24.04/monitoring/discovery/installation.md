@@ -46,4 +46,4 @@ Discovery**. Le module est maintenant installé :
   ![image](../../assets/monitoring/discovery/install-after.png)
 
 5. Rendez-vous dans le menu **Configuration > Gestionnaire de connecteurs de supervision** et [installez les connecteurs de supervision
-](../pluginpacks.md#installation-du-pack) correspondant aux fournisseurs de découverte désirés.
+](../pluginpacks.md#installer-le-pack) correspondant aux fournisseurs de découverte désirés.

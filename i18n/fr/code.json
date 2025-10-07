@@ -290,9 +290,6 @@
     "message": "En savoir plus sur {title}",
     "description": "The ARIA label for the link to full blog posts from excerpts"
   },
-  "theme.SearchBar.seeAll": {
-    "message": "Voir les {count} résultats"
-  },
   "theme.SearchModal.searchBox.resetButtonTitle": {
     "message": "Effacer la requête",
     "description": "The label and ARIA label for search box reset button"

@@ -37,7 +37,7 @@ Vous devez avoir **/sbin/nologin** tel que :
 apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 ```
 
-> Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/prerequisites.md#utilisateurs-et-groupes)
+> Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/technical.md#utilisateurs-et-groupes)
 
 ## Activer SELinux
 
@@ -52,7 +52,7 @@ des composants par le système d'exploitation.
 
 ### Présentation de SELinux
 
-Security Enhanced Linux (SELinux) fournit une couche supplémentaire de sécurité du système. SELinux répond
+Security Enhanced Linux (SELinux) fournit une couche supplémentaire de sécurité du système pour les environnements EL. SELinux répond
 fondamentalement à la question: `Le <suject> peut-il faire cette <action> sur <object> ?`, Par exemple: un serveur Web
 peut-il accéder aux fichiers des répertoires personnels des utilisateurs ?
 
@@ -180,45 +180,7 @@ Suivant le type de serveur, installer les paquets avec la commande suivante :
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-<Tabs groupId="sync">
-<TabItem value="Central / Remote Server" label="Central / Remote Server">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-web-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Poller" label="Poller">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Map server" label="Map server">
-
-   ```shell
-   apt install centreon-map-selinux
-   ```
-
-</TabItem>
-<TabItem value="MBI server" label="MBI server">
-
-   ```shell
-   apt install centreon-mbi-selinux
-   ```
-
-</TabItem>
-</Tabs>
+SELinux ne concerne que les environnements EL.
 
 </TabItem>
 </Tabs>
@@ -343,7 +305,7 @@ systemctl start firewalld
 Ajoutez des règles pour firewalld :
 
 > La liste des flux réseau nécessaires pour chaque type de serveur est définie
-> [ici](../installation/architectures.md#tableau-des-flux-de-la-plate-forme).
+> [ici](../installation/technical.md#tableaux-des-flux-réseau).
 
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
@@ -780,17 +742,17 @@ cp /etc/apache2/sites-available/centreon.conf{,.origin}
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la section **<VirtualHost *:443>**.
+Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la section **\<VirtualHost *:443\>**.
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la section **<VirtualHost *:443>**.
+Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la section **\<VirtualHost *:443\>**.
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-Éditez le fichier **/etc/apache2/sites-available/centreon.conf** en ajoutant la section **<VirtualHost *:443>**.
+Éditez le fichier **/etc/apache2/sites-available/centreon.conf** en ajoutant la section **\<VirtualHost *:443\>**.
 </TabItem>
 </Tabs>
 
@@ -833,11 +795,23 @@ ServerTokens Prod
     SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
     SSLHonorCipherOrder On
     SSLCompression Off
-    SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
-    SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
+    SSLCertificateFile /etc/pki/tls/certs/ca.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+
+    Header set X-Frame-Options: "sameorigin"
+    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    ServerSignature Off
+    TraceEnable Off
 
     Alias ${base_uri}/api ${install_dir}
     Alias ${base_uri} ${install_dir}/www/
+
+    <IfModule mod_brotli.c>
+        AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    </IfModule>
+
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 
     <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
         ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
@@ -900,11 +874,23 @@ ServerTokens Prod
     SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
     SSLHonorCipherOrder On
     SSLCompression Off
-    SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
-    SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
+    SSLCertificateFile /etc/pki/tls/certs/ca.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+
+    Header set X-Frame-Options: "sameorigin"
+    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    ServerSignature Off
+    TraceEnable Off
 
     Alias ${base_uri}/api ${install_dir}
     Alias ${base_uri} ${install_dir}/www/
+
+    <IfModule mod_brotli.c>
+        AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    </IfModule>
+
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 
     <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
         ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
@@ -967,11 +953,23 @@ ServerTokens Prod
     SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
     SSLHonorCipherOrder On
     SSLCompression Off
-    SSLCertificateFile /etc/ssl/certs/centreon7.crt
-    SSLCertificateKeyFile /etc/ssl/private/centreon7.key
+    SSLCertificateFile /etc/pki/tls/certs/ca.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+
+    Header set X-Frame-Options: "sameorigin"
+    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    ServerSignature Off
+    TraceEnable Off
 
     Alias ${base_uri}/api ${install_dir}
     Alias ${base_uri} ${install_dir}/www/
+
+    <IfModule mod_brotli.c>
+        AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    </IfModule>
+
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 
     <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
         ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
@@ -1263,7 +1261,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 
 Vous pouvez maintenant accéder à votre plateforme via votre navigateur en mode HTTPS.
 
-> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez le configurer en mode HTTPS également. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](../graph-views/secure-your-map-platform.md/#configure-httpstls-on-the-map-server).
+> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez définir l'adresse `centreon.url=https://<server-address>` dans le fichier **/etc/centreon-map/map-config.properties** (**/etc/centreon-studio/studio-config.properties** pour MAP Legacy) pour utiliser HTTPS au lieu de HTTP. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](https://docs.centreon.com/fr/docs/24.04/graph-views/secure-your-map-platform/#configurer-httpstls-sur-le-serveur-map-ou-map-legacy).
 
 9. Configuration API de Gorgone
 
@@ -1546,7 +1544,7 @@ via la gestion de [liste de contrôle d'accès](./access-control-lists.md).
 Il est fortement recommandé de sécuriser les communications entre les différents serveurs de la plateforme Centreon si
 certains serveurs ne sont pas dans un réseau sécurisé.
 
-> Le tableau des flux réseau est disponible [ici](../installation/architectures.md#tableau-des-flux-réseau).
+> Le tableau des flux réseau est disponible [ici](../installation/technical.md#tableaux-des-flux-réseau).
 
 ### Communication Centreon Broker
 
@@ -1554,7 +1552,7 @@ certains serveurs ne sont pas dans un réseau sécurisé.
 
 Parfois, il n'est pas possible d'initialiser le flux Centreon Broker depuis le collecteur (ou Remote Server)
 vers le serveur Centreon Central ou le Remote Server.
-[Voir la configuration suivante pour inverser le flux](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-and-the-firewall).
+[Voir la configuration suivante pour inverser le flux](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-et-pare-feu).
 
 #### Authentification des flux Centreon Broker
 
@@ -1583,6 +1581,29 @@ Vous pouvez [configurer SSL](https://github.com/centreon/centreon-collect/blob/d
 Puis configurez gorgone à la page **Administration > Paramètres > Gorgone**.
 
 Le fichier **/etc/centreon-gorgone/config.d/whitelist.conf.d/centreon.yaml** (sur votre serveur central, vos serveurs distants et vos collecteurs) contient les listes blanches pour Gorgone. Si vous souhaitez personnaliser les commandes autorisées, n'éditez pas ce fichier. Créez un nouveau fichier dans le même dossier, par exemple **/etc/centreon-gorgone/config.d/whitelist.conf.d/custom.yaml**.
+
+## Centreon Gorgone autodiscovery
+
+Par défaut, Gorgone autorise les commandes du module autodiscovery à interpréter les métacaractères bash lorsqu'elles sont exécutées. Cela peut constituer un risque de sécurité si un utilisateur disposant des privilèges nécessaires pour effectuer une découverte d'hôte est compromis.
+
+Pour désactiver ce comportement, vous pouvez définir le paramètre **no_shell_interpolation** à **true** dans le fichier **/etc/centreon-gorgone/config.d/41-autodiscovery.yaml**, comme suit : 
+
+**vi /etc/centreon-gorgone/config.d/41-autodiscovery.yaml**
+
+```yaml
+gorgone:
+  modules:
+    - name: autodiscovery
+      package: "gorgone::modules::centreon::autodiscovery::hooks"
+      enable: true
+      no_shell_interpretation: true
+```
+
+Redémarrez ensuite Gorgone pour que le nouveau paramètre prenne effet :
+
+```shell
+systemctl restart gorgoned
+```
 
 ## Gestion de l'information et des événements de sécurité (SIEM)
 

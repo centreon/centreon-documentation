@@ -26,7 +26,7 @@ Our provider requires the following parameters:
 
 | Parameter | Example of value                                |
 | --------- | ----------------------------------------------- |
-| Endpoint  | <http://192.168.0.5/gsoap/gsoap_ssl.dll?XXXXXX> |
+| Endpoint  | \<http://192.168.0.5/gsoap/gsoap_ssl.dll?XXXXXX\> |
 | Namespace | xxxxxxx                                         |
 | Username  | centreon                                        |
 | Password  | MyPassword                                      |

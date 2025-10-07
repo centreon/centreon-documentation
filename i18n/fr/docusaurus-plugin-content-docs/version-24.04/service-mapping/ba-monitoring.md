@@ -3,9 +3,9 @@ id: ba-monitoring
 title: Supervision
 ---
 
-Après avoir créer / modifier / supprimer des objets liés à Centreon BAM,
-rendez vous dans **Configuration > Poller**, générer la configuration et
-relancer le moteur du poller **Central**.
+Après avoir créé / modifié / supprimé des objets liés à Centreon BAM,
+rendez vous dans **Configuration > Poller**, générez la configuration et
+relancez le moteur du poller **Central**.
 
 Une fois la configuration rechargée et les **services liés aux KPIs
 contrôlés au moins 1 fois**, les BA sont à jour et peuvent être

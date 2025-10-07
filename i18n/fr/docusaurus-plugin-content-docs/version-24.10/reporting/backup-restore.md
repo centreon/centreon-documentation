@@ -111,8 +111,8 @@ Trois types de sauvegarde sont exécutés dans la semaine :
 
 > **Important**
 > 
-> Bien s'assurer que pendant la sauvegarde du serveur de repoting, les
-> scipts ETL ne doivent pas être en cours d'execution. De plus, aucun
+> Bien s'assurer que pendant la sauvegarde du serveur de reporting, les
+> scripts ETL ne soient pas en cours d'exécution. De plus, aucun
 > rapport ne doit être en cours de génération.
 
 #### Périodicité des sauvegardes
@@ -163,29 +163,21 @@ dnf install centreon-bi-server-x.y.z
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
-Install **gpg**:
+Installez **gpg** :
 
 ```shell
 apt install gpg
 ```
 
-Import the repository key:
+Importez la clé du dépôt :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
 
-Add the following external repository (for Java 8):
-
-```shell
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
-```
-
-Then install Centreon MBI:
+Puis installez Centreon MBI :
 
 ```shell
 apt update && apt install centreon-bi-server-x.y.z

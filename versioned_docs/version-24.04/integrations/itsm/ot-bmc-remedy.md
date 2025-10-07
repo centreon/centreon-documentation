@@ -27,7 +27,7 @@ Our provider requires the following parameters:
 
 | Parameter | Example of value                                                                                      |
 | --------- | ----------------------------------------------------------------------------------------------------- |
-| Endpoint  | <http://192.168.0.33/arsys/services/ARService?server=XXXX&webService=HPD_IncidentInterface_Create_WS> |
+| Endpoint  | \<http://192.168.0.33/arsys/services/ARService?server=XXXX&webService=HPD_IncidentInterface_Create_WS\> |
 | Namespace | IncidentInterface\_Create\_WS                                                                         |
 | Username  | centreon                                                                                              |
 | Password  | MyPassword                                                                                            |

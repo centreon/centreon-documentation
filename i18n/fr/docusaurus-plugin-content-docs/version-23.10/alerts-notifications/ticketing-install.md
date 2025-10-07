@@ -60,3 +60,10 @@ Le module est maintenant installé.
 
 ![image](../assets/alerts/open_tickets_install_02.png)
 
+## Sauvegarder votre configuration personnalisée de fournisseur OpenTicket
+
+Si vous devez [mettre à jour](../update/update-centreon-platform.md) ou [monter de version](../upgrade/introduction.md) Centreon, sauvegardez d'abord vos configurations personnalisées de fournisseurs Open Ticket afin de ne pas les perdre.
+
+* Faites une sauvegarde des dossiers **/usr/share/centreon/www/modules/centreon-open-tickets** et **/usr/share/centreon/www/widgets/open-tickets**.
+* Après avoir fait la mise à jour, copiez-collez le(s) fichier(s) **register.php** dans le répertoire **/usr/share/centreon/www/modules/centreon-open-tickets/providers/**.
+

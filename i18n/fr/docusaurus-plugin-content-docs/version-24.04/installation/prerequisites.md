@@ -9,7 +9,7 @@ Cette page vous donne des recommandations générales afin de déterminer la tai
 
 ## Architecture
 
-Utilisez d'abord les recommandations de la page [Architectures](./architectures.md#de-quel-type-darchitecture-avez-vous-besoin) pour déterminer le type d'architcture dont vous avez besoin.
+Utilisez d'abord les recommandations de la page [Architectures](./architectures.md#de-quel-type-darchitecture-avez-vous-besoin-) pour déterminer le type d'architcture dont vous avez besoin.
 
 ## Caractéristiques des serveurs
 
@@ -32,7 +32,7 @@ Les données ci-après sont des estimations en fonction des critères suivants :
 
 Adaptez les chiffres suivants à vos valeurs réelles. Au cours du temps, vous serez peut-être amenés à ajuster la taille de votre plateforme au fur et à mesure que vous ajoutez plus d'hôtes.
 
-<Tabs groupId="sync">
+<Tabs groupId="sizing" queryString>
 <TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
 
 Serveur central seul :
@@ -54,7 +54,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 | vg_data | /var/lib/centreon-broker   | contient les fichiers de rétention de Broker | 5 Go                           |
 | vg_data | /var/lib/centreon-engine   | contient les fichiers de rétention d'Engine  | 5 Go                           |
 | vg_data | /var/lib/mysql (seulement si le SGBD est situé sur le serveur central)          | base de données | 106 Go        |
-| vg_data | /var/cache/centreon/backup | répertoire de sauvegarde | 10 Go <p>Si vous utilisez la fonctionnalité de sauvegarde, prévoyez les caractéristiques suivantes : <ul><li>taille de la partition /var/lib/mysql * 0,6</li><li>valable pour 1 sauvegarde complète et 6 partielles</li><li>attention, cela reste une estimation et n'exclut pas un contrôle humain</li></ul></p> |
+| vg_data | /var/cache/centreon/backup | répertoire de sauvegarde | 10 Go <br/>Si vous utilisez la fonctionnalité de sauvegarde, prévoyez les caractéristiques suivantes : <ul><li>taille de la partition /var/lib/mysql * 0,6</li><li>valable pour 1 sauvegarde complète et 6 partielles</li><li>attention, cela reste une estimation et n'exclut pas un contrôle humain</li></ul> |
 | vg_data || Espace libre (non alloué) | 5 Go |
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
@@ -88,7 +88,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 | vg_data | /var/lib/centreon-broker   | contient les fichiers de rétention de Broker | 10 Go                           |
 | vg_data | /var/lib/centreon-engine   | contient les fichiers de rétention d'Engine  | 5 Go                           |
 | vg_data | /var/lib/mysql (seulement si le SGBD est situé sur le serveur central)          | base de données | 213 Go        |
-| vg_data | /var/cache/centreon/backup | répertoire de sauvegarde |  10 Go <p>Si vous utilisez la fonctionnalité de sauvegarde, prévoyez les caractéristiques suivantes : <ul><li>taille de la partition /var/lib/mysql * 0,6</li><li>valable pour 1 sauvegarde complète et 6 partielles</li><li>attention, cela reste une estimation et n'exclut pas un contrôle humain</li></ul></p>   |
+| vg_data | /var/cache/centreon/backup | répertoire de sauvegarde |  10 Go <br/>Si vous utilisez la fonctionnalité de sauvegarde, prévoyez les caractéristiques suivantes : <ul><li>taille de la partition /var/lib/mysql * 0,6</li><li>valable pour 1 sauvegarde complète et 6 partielles</li><li>attention, cela reste une estimation et n'exclut pas un contrôle humain</li></ul>   |
 | vg_data | | Espace libre (non alloué) | 5 Go |
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
@@ -152,7 +152,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 | vg_data | /var/lib/centreon-broker   | contient les fichiers de rétention de Broker | 25 Go                           |
 | vg_data | /var/lib/centreon-engine   | contient les fichiers de rétention d'Engine  | 5 Go                           |
 | vg_data | /var/lib/mysql (seulement si le SGBD est situé sur le serveur central)          | base de données | 538 Go        |
-| vg_data | /var/cache/centreon/backup | répertoire de sauvegarde |  10 Go <p>Si vous utilisez la fonctionnalité de sauvegarde, prévoyez les caractéristiques suivantes : <ul><li>taille de la partition /var/lib/mysql * 0,6</li><li>valable pour 1 sauvegarde complète et 6 partielles</li><li>attention, cela reste une estimation et n'exclut pas un contrôle humain</li></ul></p>   |
+| vg_data | /var/cache/centreon/backup | répertoire de sauvegarde |  10 Go <br/>Si vous utilisez la fonctionnalité de sauvegarde, prévoyez les caractéristiques suivantes : <ul><li>taille de la partition /var/lib/mysql * 0,6</li><li>valable pour 1 sauvegarde complète et 6 partielles</li><li>attention, cela reste une estimation et n'exclut pas un contrôle humain</li></ul>   |
 | vg_data | | Espace libre (non alloué) | 5 Go |
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
@@ -216,7 +216,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 | vg_data | /var/lib/centreon          | contient en majorité des fichiers RRD | 339 Go       |
 | vg_data | /var/lib/centreon-broker   | contient les fichiers de rétention de Broker | 50 Go                           |
 | vg_data | /var/lib/centreon-engine   | contient les fichiers de rétention d'Engine  | 5 Go                           |
-| vg_data | /var/cache/centreon/backup | répertoire de sauvegarde |  10 Go <p>Si vous utilisez la fonctionnalité de sauvegarde, prévoyez les caractéristiques suivantes : <ul><li>taille de la partition /var/lib/mysql * 0,6</li><li>valable pour 1 sauvegarde complète et 6 partielles</li><li>attention, cela reste une estimation et n'exclut pas un contrôle humain</li></ul></p>   |
+| vg_data | /var/cache/centreon/backup | répertoire de sauvegarde |  10 Go <br/>Si vous utilisez la fonctionnalité de sauvegarde, prévoyez les caractéristiques suivantes : <ul><li>taille de la partition /var/lib/mysql * 0,6</li><li>valable pour 1 sauvegarde complète et 6 partielles</li><li>attention, cela reste une estimation et n'exclut pas un contrôle humain</li></ul>   |
 
 **Serveur de bases de données**
 
@@ -297,7 +297,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 | vg_data | /var/lib/centreon          | contient en majorité des fichiers RRD | 677 Go       |
 | vg_data | /var/lib/centreon-broker   | contient les fichiers de rétention de Broker | 50 Go                           |
 | vg_data | /var/lib/centreon-engine   | contient les fichiers de rétention d'Engine  | 5 Go                           |
-| vg_data | /var/cache/centreon/backup | répertoire de sauvegarde |  10 Go <p>Si vous utilisez la fonctionnalité de sauvegarde, prévoyez les caractéristiques suivantes : <ul><li>taille de la partition /var/lib/mysql * 0,6</li><li>valable pour 1 sauvegarde complète et 6 partielles</li><li>attention, cela reste une estimation et n'exclut pas un contrôle humain</li></ul></p>   |
+| vg_data | /var/cache/centreon/backup | répertoire de sauvegarde |  10 Go <br/>Si vous utilisez la fonctionnalité de sauvegarde, prévoyez les caractéristiques suivantes : <ul><li>taille de la partition /var/lib/mysql * 0,6</li><li>valable pour 1 sauvegarde complète et 6 partielles</li><li>attention, cela reste une estimation et n'exclut pas un contrôle humain</li></ul>   |
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
 

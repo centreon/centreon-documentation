@@ -176,8 +176,9 @@ wmic useraccount where name="@USERNAME@" get name,sid
 ```
 
 Output:
-><p>Name&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;SID</p>
->@USRNAME@&ensp;&ensp;S-1-5-21-3051596711-3341658857-577043467-1000
+> Name&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;SID
+>
+> @USRNAME@&ensp;&ensp;S-1-5-21-3051596711-3341658857-577043467-1000
 
 #### Retrieve current SDDL for Service Control Manager
 
@@ -212,6 +213,8 @@ In this example:
 >sc sdset scmanager "D:(A;;CC;;;AU)(A;;CCLCRPRC;;;IU)(A;;CCLCRPRC;;;SU)(A;;CCLCRPWPRC;;;SY)(A;;KA;;;BA)(A;;CC;;;AC)(A;;CC;;;S-1-15-3-1024-528118966-3876874398-709513571-1907873084-3598227634-3698730060-278077788-3990600205)(A;;CCLCRPRC;;;S-1-5-21-3051596711-3341658857-577043467-1000)S:(AU;FA;KA;;;WD)(AU;OIIOFA;GA;;;WD)"
 
 Your dedicated user is now working and can monitor your Windows server without requiring a local Administrator account.
+
+> Note: The SDDL must be configured for `scmanager` and for all the extra services that you want to monitor.
 
 </TabItem>
 <TabItem value="Domain Configuration" label="Domain Configuration">
@@ -399,17 +402,17 @@ $Thumbprint=Invoke-Command -ComputerName $FQDN `
 
 
 Set-WSManInstance -ResourceURI winrm/config/Listener `
-                  -SelectorSet @{Address="*";Transport="HTTPS"} `
+                  -SelectorSet @\{Address="*";Transport="HTTPS"\} `
                   -ComputerName $FQDN `
-                  -ValueSet @{CertificateThumbprint=$Thumbprint}
+                  -ValueSet @\{CertificateThumbprint=$Thumbprint\}
 
-winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@{Hostname=".$FQDN.".;CertificateThumbprint=".$Thumbprint."}"
+winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@\{Hostname=".$FQDN.".;CertificateThumbprint=".$Thumbprint."\}"
 ```
 
 * Copy this script in the following location to be able to deploy it massively:
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 In our case it looks like this:
@@ -625,7 +628,7 @@ $RootSecurity.PsBase.InvokeMethod("SetSd",$SdList)
 * Copy this script to the following location to be able to deploy this script massively.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 * Go back to your **Enable WinRM** policy.
@@ -718,7 +721,7 @@ Invoke-Expression -Command:$SetPermissionsCommand
 * Copy this script to the following location to be able to massively deploy it.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 * Go back to your **Enable WinRM** policy.
@@ -818,7 +821,7 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 * Copy this script to the following location to be able to deploy it massively.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 * Go back to the **Enable WinRM** policy.
@@ -905,6 +908,13 @@ On the Centreon server, run the following command:
 
 ``` bash
 yum install sssd realmd oddjob oddjob-mkhomedir adcli samba-common samba-common-tools krb5-workstation openldap-clients policycoreutils-python -y
+realm join --user=administrator <YOUR_DOMAIN>
+```
+
+> If you are using Debian 12:
+
+``` bash
+apt -y install realmd sssd sssd-tools libnss-sss libpam-sss adcli samba-common-bin oddjob oddjob-mkhomedir packagekit krb5-user 
 realm join --user=administrator <YOUR_DOMAIN>
 ```
 

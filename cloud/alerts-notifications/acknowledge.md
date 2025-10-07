@@ -50,10 +50,12 @@ To acknowledge an alert:
     resource has been acknowledged (if the contact
     possesses the activity acknowledgment notification filter).
 
-    -   If the **Sticky** box is checked, the acknowledgment will be
+    -   If the **Sticky for any non-OK status** box is checked, the acknowledgment will be
     maintained in case of a change of Not-OK status (e.g.: DOWN to
     UNREACHABLE or WARNING to CRITICAL). Otherwise, the acknowledgment
     disappears and the notification process is reactivated.
+
+    - If, for a host, the **Acknowledge services attached to host** box is checked, acknowledging the alert on the host will acknowledge all services for this host automatically.
 
 ### Disacknowledging resources
 

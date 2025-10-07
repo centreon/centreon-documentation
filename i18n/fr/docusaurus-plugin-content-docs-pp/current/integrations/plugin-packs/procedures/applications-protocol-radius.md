@@ -53,7 +53,7 @@ Pour faire fonctionner le connecteur de supervision, il est nécessaire d'avoir 
 yum install centreon-plugin-Applications-Protocol-Radius
 ```
 
-2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Radius Service* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Radius Service* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -70,7 +70,7 @@ yum install centreon-plugin-Applications-Protocol-Radius
 yum install centreon-pack-applications-protocol-radius
 ```
 
-3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Radius Service* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Radius Service* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
@@ -107,7 +107,7 @@ yum install centreon-pack-applications-protocol-radius
     --username=''  \
     --password=''   \
     --warning-status=''  \
-    --critical-status='%{status} ne "accepted"'  \
+    --critical-status='%\{status\} ne "accepted"'  \
     --warning-time='2'  \
     --critical-time='3'  \
     --use-new-perfdata 

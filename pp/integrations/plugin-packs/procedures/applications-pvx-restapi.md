@@ -91,7 +91,7 @@ The connector has been tested with the following versions: \* PVX version 5.1.1
 
 To query PVX API, you need to generate an access key. This key will never expire
 and the procedure below is an extract from the 
-[official documentation](<http://docs.performancevision.com/api_use.html>). In 
+[official documentation](http://docs.performancevision.com/api_use.html). In 
 each step replace the value of the macros enclosed by '< \>' with yours.
 
 ```bash 
@@ -135,7 +135,7 @@ In this example the API key is "secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0".
 yum install centreon-plugin-Applications-Pvx-Restapi
 ```
 
-2. On the Centreon Web interface, install the **PVX** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
+2. On the Centreon Web interface, install the **PVX** Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -152,7 +152,7 @@ yum install centreon-plugin-Applications-Pvx-Restapi
 yum install centreon-pack-applications-pvx-restapi
 ```
 
-3. On the Centreon Web interface, install the **PVX** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
+3. On the Centreon Web interface, install the **PVX** Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
 </Tabs>

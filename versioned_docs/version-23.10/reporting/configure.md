@@ -177,7 +177,7 @@ The ETL integrated in Centreon is used to
 
 It is configured at installation and will probably not need any modification later.
 
-Before proceeding, you should read [the best practice parts](installation.md#best-practices-for-monitoring) to ensure
+Before proceeding, you should read [the best practice parts](concepts.md#best-practices) to ensure
 that the objects (e.g., groups, categories) are configured according to Centreon MBI requirements.
 
 In the Centreon menu **Reporting > Business Intelligence > General Options > ETL options**,

@@ -177,8 +177,9 @@ wmic useraccount where name="@USERNAME@" get name,sid
 ```
 
 Output:
-><p>Name&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;SID</p>
->@USRNAME@&ensp;&ensp;S-1-5-21-3051596711-3341658857-577043467-1000
+> Name&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;SID
+>
+> @USRNAME@&ensp;&ensp;S-1-5-21-3051596711-3341658857-577043467-1000
 
 #### Récupérer le SDDL actuel pour Service Control Manager
 
@@ -213,6 +214,8 @@ Dans cet exemple :
 >sc sdset scmanager "D:(A;;CC;;;AU)(A;;CCLCRPRC;;;IU)(A;;CCLCRPRC;;;SU)(A;;CCLCRPWPRC;;;SY)(A;;KA;;;BA)(A;;CC;;;AC)(A;;CC;;;S-1-15-3-1024-528118966-3876874398-709513571-1907873084-3598227634-3698730060-278077788-3990600205)(A;;CCLCRPRC;;;S-1-5-21-3051596711-3341658857-577043467-1000)S:(AU;FA;KA;;;WD)(AU;OIIOFA;GA;;;WD)"
 
 À partir de là, votre utilisateur dédié est opérationnel et peut superviser votre serveur Windows sans nécessiter de compte administrateur local.
+
+> Remarque : Le SDDL doit donc être configuré pour `scmanager` et pour tous les services supplémentaires que vous souhaitez superviser. 
 
 </TabItem>
 <TabItem value="Configuration du domaine" label="Configuration du domaine">
@@ -396,17 +399,17 @@ $Thumbprint=Invoke-Command -ComputerName $FQDN `
 
 
 Set-WSManInstance -ResourceURI winrm/config/Listener `
-                  -SelectorSet @{Address="*";Transport="HTTPS"} `
+                  -SelectorSet @\{Address="*";Transport="HTTPS"\} `
                   -ComputerName $FQDN `
-                  -ValueSet @{CertificateThumbprint=$Thumbprint}
+                  -ValueSet @\{CertificateThumbprint=$Thumbprint\}
 
-winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@{Hostname=".$FQDN.".;CertificateThumbprint=".$Thumbprint."}"
+winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@\{Hostname=".$FQDN.".;CertificateThumbprint=".$Thumbprint."\}"
 ```
 
 * Copiez ce script à l'emplacement suivant pour pouvoir le déployer massivement :
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 Dans notre cas, voilà le résultat :
@@ -619,7 +622,7 @@ $RootSecurity.PsBase.InvokeMethod("SetSd",$SdList)
 * Copiez ce script à l'emplacement suivant pour pouvoir déployer massivement ce script.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 Dans notre cas, le résultat est le suivant :
@@ -720,7 +723,7 @@ Invoke-Expression -Command:$SetPermissionsCommand
 * Copiez ce script à l'emplacement suivant pour pouvoir le déployer massivement.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 * Retournez dans votre politique **Enable WinRM**.
@@ -822,7 +825,7 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 * Copiez ce script à l'emplacement suivant pour pouvoir le déployer massivement.
 
 ``` bash
-\\<DOMAIN_NAME>\SYSVOL\<DOMAIN_NAME>\scripts
+<DOMAIN_NAME>\SYSVOL<DOMAIN_NAME>\scripts
 ```
 
 * Retournez dans votre politique **Enable WinRM**.
@@ -865,9 +868,9 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 * Spécifiez les paramètres suivants :
     * Action : **Start a program**
     * Programme/script : **PowerShell.exe**
-    * Ajouter arguments : **-file C:\Windows\Temp\RootSDDL-Permision.ps1**<span style={{color:'#FF0000'}}>**@SERVICE_USERNAME@**</span>
+    * Ajouter arguments : **-file C:\Windows\Temp\RootSDDL-Permision.ps1**\<span style=\{\{color:'#FF0000'\}\}\>**@SERVICE_USERNAME@**\</span\>
         * Ajustez ce paramètre pour qu'il corresponde au paramètre "Destination du fichier" précédemment configuré
-        * Dans notre exemple, l'argument est **-file C:\Windows\Temp\RootSDDL-Permision.ps1<span style={{color:'#FF0000'}}>sa_centreon</span>**.
+        * Dans notre exemple, l'argument est **-file C:\Windows\Temp\RootSDDL-Permision.ps1\<span style=\{\{color:'#FF0000'\}\}\>sa_centreon\</span\>**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-rootsddl-2.png)
 
@@ -909,6 +912,13 @@ Sur le serveur Centreon, exécutez la commande suivante :
 
 ``` bash
 yum install sssd realmd oddjob oddjob-mkhomedir adcli samba-common samba-common-tools krb5-workstation openldap-clients policycoreutils-python -y
+realm join --user=administrator <YOUR_DOMAIN>
+```
+
+> Dans le cas de Debian 12 :
+
+``` bash
+apt -y install realmd sssd sssd-tools libnss-sss libpam-sss adcli samba-common-bin oddjob oddjob-mkhomedir packagekit krb5-user 
 realm join --user=administrator <YOUR_DOMAIN>
 ```
 

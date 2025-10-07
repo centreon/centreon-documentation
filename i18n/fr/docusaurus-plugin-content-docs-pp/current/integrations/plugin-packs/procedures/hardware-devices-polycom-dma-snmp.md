@@ -115,7 +115,7 @@ yum install centreon-plugin-Hardware-Devices-Polycom-Dma-Snmp
 ```
 
 2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Polycom DMA SNMP* 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** 
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** 
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -133,7 +133,7 @@ yum install centreon-pack-hardware-devices-polycom-dma-snmp
 ```
 
 3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Polycom DMA SNMP* 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
@@ -145,7 +145,7 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 * Appliquez le Modèle d'Hôte *HW-Device-Polycom-Dma-SNMP-Custom*
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3). 
 
 | Mandatory   | Name                    | Description                       |
 | :---------- | :---------------------- | :---------------------------------|
@@ -165,8 +165,8 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     --hostname=10.0.0.1 \
     --snmp-version='2c'
     --snmp-community='mysnmpcommunity' \
-    --critical-cluster-status='%{cluster_status} =~ /outOfService/i' \
-    --critical-license-status='%{license_status} =~ /notinstalled/i' \
+    --critical-cluster-status='%\{cluster_status\} =~ /outOfService/i' \
+    --critical-license-status='%\{license_status\} =~ /notinstalled/i' \
     --warning-cluster-license-usage-prct='80' \
     --critical-cluster-license-usage-prct='90' \
     --verbose

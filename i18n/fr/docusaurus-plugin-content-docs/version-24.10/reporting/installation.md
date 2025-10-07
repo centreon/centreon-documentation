@@ -73,14 +73,14 @@ performances & d'isolation.
 
 #### Prérequis logiciels
 
-Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
+Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiques-des-serveurs).
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 24.04
+- Centreon Web 24.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php.d/50-centreon.ini` (même que celui retourné par la commande
+  `/etc/php.d/50-centreon.ini` ou `/etc/php.d/20-timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
 - Evitez l'utilisation des variables ci-dessous dans le fichier de
   configuration MariaDB `/etc/my.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
@@ -95,9 +95,9 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-- Centreon Web 24.04
+- Centreon Web 24.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php.d/50-centreon.ini` (même que celui retourné par la commande
+  `/etc/php.d/50-centreon.ini` ou `/etc/php.d/20-timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
 - Evitez l'utilisation des variables ci-dessous dans le fichier de
   configuration MariaDB `/etc/my.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
@@ -110,11 +110,11 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 | apache (existant)    | centreonBI                 |
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
-- Centreon Web 24.04
+- Centreon Web 24.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php/8.1/mods-available/centreon.ini` (même que celui retourné par la commande
+  `/etc/php/8.2/mods-available/centreon.ini` ou `/etc/php/8.2/mods-available/timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
 - Evitez l'utilisation des variables ci dessous dans le fichier de
   configuration MariaDB `/etc/mysql/mariadb.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
@@ -260,8 +260,8 @@ vgdisplay vg_data | grep -i free*
 
 - OS : voir la compatibilité [ici](../installation/compatibility.md#système-dexploitation)
 - SGBD : voir la compatibilité [ici](../installation/compatibility.md#sgbd)
-- Firewalld : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Configurer-ou-désactiver-le-pare-feu))
-- SELinux : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Désactiver-SELinux))
+- Firewalld : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#configurer-ou-désactiver-le-pare-feu))
+- SELinux : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#désactiver-selinux))
 
 > Assurez-vous que le fuseau horaire du serveur de reporting est le même que celui du serveur central, sinon les publications de rapports échoueront (lien vers le téléchargement manquant).
 > Le même fuseau horaire doit être affiché avec la commande `timedatectl`.
@@ -314,7 +314,7 @@ dnf install centreon-bi-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Installez **gpg**:
 
@@ -328,18 +328,10 @@ Importez la clé du dépôt :
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
 
-Ajoutez le dépôt externe suivant (pour Java 8):
-
-```shell
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
-```
-
 Puis installez Centreon MBI:
 
 ```shell
-apt update && apt install centreon-bi-server
+apt install centreon-bi-server
 ```
 
 </TabItem>
@@ -372,23 +364,42 @@ Téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer 
 <Tabs groupId="sync">
 <TabItem value="Base de supervision locale au central" label="Base de supervision locale au central">
 
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB">
 
-La base de données de supervision MariaDB/MySQL est hébergée sur le serveur de supervision central.
+La base de données de supervision MariaDB est hébergée sur le serveur de supervision central.
 
-Lancez la commande ci-dessous pour autoriser le serveur de reporting à se connecter
-aux bases de données du serveur de supervision. Utilisez l'option suivante :
+Lancez la commande ci-dessous pour autoriser le serveur de reporting à se connecter aux bases de données du serveur de supervision. Utilisez l'option suivante :
 
 ```shell
-/usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 ```
 
-**@ROOTPWD@** : Mot de passe root de la base MariaDB/MySQL de supervision.
-S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option **root-password**.
+**@ROOTPWD@**: Mot de passe root de la base MariaDB de supervision. S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option **root-password**.
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+La base de données de supervision MySQL est hébergée sur le serveur de supervision central.
+
+Lancez la commande ci-dessous pour autoriser le serveur de reporting à se connecter aux bases de données du serveur de supervision. Utilisez l'option suivante :
+
+```shell
+perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+```
+
+**@ROOTPWD@**: Mot de passe root de la base MySQL de supervision. S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option **root-password**.
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 <TabItem value="Base de supervision déportée par rapport au central" label="Base de supervision déportée par rapport au central">
 
-La base de données de supervision MariaDB/MySQL est hébergée sur un serveur dédié.
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB">
+
+La base de données de supervision MariaDB est hébergée sur un serveur dédié.
 
 Connectez-vous par SSH au serveur de la base de données, et exécutez les commandes suivantes :
 
@@ -398,15 +409,33 @@ GRANT ALL PRIVILEGES ON centreon.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 ```
 
-**$BI_ENGINE_IP$** : Adresse IP du serveur de reporting.
+**$BI_ENGINE_IP$**: IP address of the reporting server.
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+La base de données de supervision MySQL est hébergée sur un serveur dédié.
+
+Connectez-vous par SSH au serveur de la base de données, et exécutez les commandes suivantes :
+
+```SQL
+CREATE USER 'centreonbi'@'$BI_ENGINE_IP$' IDENTIFIED BY 'centreonbi';
+GRANT ALL PRIVILEGES ON centreon.* TO 'centreonbi'@'$BI_ENGINE_IP$';
+GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
+```
+
+**$BI_ENGINE_IP$**: IP address of the reporting server.
 
 </TabItem>
 </Tabs>
 
-Si vous utilisez la réplication MariaDB pour vos **bases de données de supervision**,
-certaines vues sont créées lors de l'installation de Centreon MBI.
-Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le
-fichier **my.cnf** du serveur esclave ou mariadb.cnf sur Debian 11.
+</TabItem>
+</Tabs>
+
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB">
+
+Si vous utilisez la réplication MariaDB pour vos **bases de données de supervision**, certaines vues sont créées lors de l'installation de Centreon MBI. Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le fichier **my.cnf** du serveur esclave ou mariadb.cnf sur Debian 12.
 
 ```shell
 replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
@@ -416,13 +445,13 @@ Ensuite, créez les vues manuellement sur le serveur esclave :
 
 1. Téléchargez [le fichier suivant](../assets/reporting/installation/view_creation.sql) dans un répertoire temporaire (ici, **/tmp**), par exemple en utilisant **wget**.
 
-2. Exécutez la commande suivante (changez le nom de votre répertoire temporaire si besoin):
+2. Exécutez la commande suivante (changez le nom de votre répertoire temporaire si besoin) :
 
 ```bash
 mysql centreon < /tmp/view_creation.sql
 ```
 
-#### Configuration spécifique à Debian 11
+#### Configuration spécifique à Debian 12
 
 MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant :
 
@@ -436,6 +465,42 @@ Donnez au paramètre **bind-address** la valeur **0.0.0.0** et redémarrez **mar
 systemctl restart mariadb
 ```
 
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+Si vous utilisez la réplication MySQL pour vos bases de données de supervision, certaines vues sont créées lors de l'installation de Centreon MBI. Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le fichier my.cnf du serveur esclave ou mysql.cnf sur Debian 12.
+
+```shell
+replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
+```
+
+Ensuite, créez les vues manuellement sur le serveur esclave :
+
+1. Téléchargez [le fichier suivant](../assets/reporting/installation/view_creation.sql) dans un répertoire temporaire (ici, **/tmp**), par exemple en utilisant **wget**.
+
+2. Exécutez la commande suivante (changez le nom de votre répertoire temporaire si besoin) :
+
+```bash
+mysql centreon < /tmp/view_creation.sql
+```
+
+#### Configuration spécifique à Debian 12
+
+MySQL doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant ::
+
+```shell
+/etc/mysql/mysql.conf.d/mysqld.cnf
+```
+
+Donnez au paramètre **bind-address** la valeur **0.0.0.0** et redémarrez **mysql**.
+
+```shell
+systemctl restart mysql
+```
+
+</TabItem>
+</Tabs>
+
 ### Donner des droits à l'utilisateur cbis
 
 Lorsque vous installez Centreon MBI, un [utilisateur](../monitoring/basic-objects/contacts.md) nommé **cbis** est créé automatiquement. Il permet au moteur de génération de rapports d'extraire les données de Centreon (en utilisant les APIs) afin de les insérer dans le rapport. Cet utilisateur doit [avoir accès à toutes les ressources supervisées par Centreon](../administration/access-control-lists.md) afin de pouvoir extraire les graphes de performance pour les rapports suivants :
@@ -443,14 +508,14 @@ Lorsque vous installez Centreon MBI, un [utilisateur](../monitoring/basic-object
 - Host-Graph-v2
 - Hostgroup-Graph-v2.
 
-Pour tester la connexion entre le serveur de reporting MBI et l'API Centreon, utilisez la commande suivante pour télécharger un graphique. Remplacez les paramètres du graphique et les timestamps, et remplacez XXXXXXXXX par le jeton d'autologin de l'utilisateur **cbis**:
+Pour tester la connexion entre le serveur de reporting MBI et l'API Centreon, utilisez la commande suivante pour télécharger un graphique. Remplacez les paramètres du graphique et les timestamps, et remplacez XXXXXXXXX par le jeton d'autologin de l'utilisateur **cbis** :
 
 ```bash
-curl -XGET 'https://IP_CENTRAL/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=XXXXXXXXX&username=CBIS&hostname=<nom_hôte>&service=<description-service>&start=<date_début>&end=<date_fin>' --output /tmp/image.png
+curl -XGET 'https://IP_CENTRAL/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=XXXXXXXXX&username=CBIS&hostname=<host_name>&service=<service_description>&start=<start_date>&end=<end_date>' --output /tmp/image.png
 
 ```
 
-Exemple :
+Exemple:
 
 ```bash
 curl -XGET 'https://10.1.1.1/centreon/include/views/graphs/generateGraphs/generateImage.php?akey=otmw3n1hu03bvt9e0caphuf50ph8sdthcsk8ofdk&username=CBIS&hostname=my-poller&service=Cpu&start=1623016800&end=1623621600' --output /tmp/image.png
@@ -468,8 +533,7 @@ Le résultat devrait ressembler au code ci-dessous, et l'image du graphe désir�
 
 ### Installer les paquets
 
-Vous devez disposer des informations suivantes avant de procéder au
-processus d'installation :
+Vous devez disposer des informations suivantes avant de procéder au processus d'installation :
 
 - IP/DNS de la base de données de supervision
 - IP/DNS de l'interface web Centreon
@@ -486,7 +550,7 @@ processus d'installation :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -496,16 +560,16 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -537,6 +601,9 @@ apt update
    sudo update-alternatives --config java
    ```
 
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB">
+
 4. Installez le dépôt MariaDB :
 
 <Tabs groupId="sync">
@@ -554,16 +621,16 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
 </Tabs>
 
-5. Puis lancez la commande suivante:
+5. Puis lancez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -574,7 +641,7 @@ Installez le dépôt **epel** :
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ```
 
-Activer les dépôts codeready-builder :
+Activer les dépôts **codeready-builder** :
 
 ```shell
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
@@ -586,12 +653,12 @@ Puis lancer l'installation :
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
+Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
 
 ```shell
 cd /etc/pki/rpm-gpg/
 wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
 ```
 
 </TabItem>
@@ -603,7 +670,7 @@ Installez le dépôt **epel** :
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ```
 
-Activer les dépôts codeready-builder :
+Activer les dépôts **codeready-builder** :
 
 ```shell
 dnf config-manager --set-enabled ol8_codeready_builder
@@ -615,12 +682,12 @@ Puis lancer l'installation :
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
+Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
 
 ```shell
 cd /etc/pki/rpm-gpg/
 wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
 ```
 
 </TabItem>
@@ -632,24 +699,24 @@ Installez le dépôt **epel** :
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ```
 
-Activer les dépôts powertools :
+Activez les dépôts powertools :
 
 ```shell
 dnf config-manager --set-enabled 'powertools'
 ```
 
-Puis lancer l'installation :
+Puis lancez l'installation :
 
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
+Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
 
 ```shell
 cd /etc/pki/rpm-gpg/
 wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
 ```
 
 </TabItem>
@@ -661,7 +728,7 @@ Installez le dépôt **epel** :
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
-Activer les dépôts codeready-builder :
+Activer les dépôts **codeready-builder** :
 
 ```shell
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
@@ -673,12 +740,12 @@ Puis lancer l'installation :
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
+Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
 
 ```shell
 cd /etc/pki/rpm-gpg/
 wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
 ```
 
 </TabItem>
@@ -690,24 +757,24 @@ Installez le dépôt **epel** :
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
-Activer les dépôts codeready-builder :
+Activez les dépôts **codeready-builder** :
 
 ```shell
 dnf config-manager --set-enabled ol9_codeready_builder
 ```
 
-Puis lancer l'installation :
+Puis lancez l'installation :
 
 ```shell
 dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
 ```
 
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
+Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
 
 ```shell
 cd /etc/pki/rpm-gpg/
 wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
 ```
 
 </TabItem>
@@ -728,26 +795,19 @@ dnf config-manager --set-enabled 'crb'
 Puis lancer l'installation :
 
 ```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
+dnf install centreon-bi-reporting-server mariadb-server MariaDB-client
 ```
 
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
+Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
 
 ```shell
 cd /etc/pki/rpm-gpg/
 wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-Installez le dépôt Centreon :
-
-```shell
-echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-```
-
+<TabItem value="Debian 12" label="Debian 12">
 
 Installez les paquets prérequis :
 
@@ -755,26 +815,406 @@ Installez les paquets prérequis :
 apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
 ```
 
-Ajouter le dépôt externe suivant (pour Java 8):
+Installez le dépôt Centreon :
 
 ```shell
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
+echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ```
 
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
+Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
 
-Puis lancer l'installation :
+Puis lancez l'installation :
 
 ```shell
 apt update
 apt install centreon-bi-reporting-server mariadb-server mariadb-client
+```
+
+</TabItem>
+</Tabs>
+
+Activez le service **cbis** :
+
+```shell
+systemctl enable cbis
+```
+
+Démarrez et activez **gorgoned** :
+
+```shell
+systemctl start gorgoned && systemctl enable gorgoned
+```
+
+### Configurer le serveur de reporting
+
+#### Optimisations MariaDB
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
+
+```shell
+systemctl restart mariadb
+```
+
+Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
+
+```shell
+mkdir -p  /etc/systemd/system/mariadb.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+Si le service MariaDB échoue lors du démarrage, supprimer les fichiers *ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à nouveau MariaDB :
+
+```shell
+rm -f /var/lib/mysql/ib_logfile*
+systemctl start mariadb
+```
+
+Si vous utilisez un fichier de socket spécifique pour MariaDB, modifiez le fichier `/etc/my.cnf` et dans la section [client], ajoutez :
+
+```shell
+socket=$PATH_TO_SOCKET$
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
+
+```shell
+systemctl restart mariadb
+```
+
+Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
+
+```shell
+mkdir -p  /etc/systemd/system/mariadb.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+Si le service MariaDB échoue lors du démarrage, supprimer les fichiers *ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à nouveau MariaDB :
+
+```shell
+rm -f /var/lib/mysql/ib_logfile*
+systemctl start mariadb
+```
+
+Si vous utilisez un fichier de socket spécifique pour MariaDB, modifiez le fichier `/etc/my.cnf` et dans la section [client], ajoutez :
+
+```shell
+socket=$PATH_TO_SOCKET$
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
+
+Renommez le fichier en `80-centreon.cnf`:
+
+```shell
+mv centreon.cnf 80-centreon.cnf
+```
+
+MariaDB doit écouter toutes les interfaces au lieu de localhost/127.0.0.1, qui est la valeur par défaut. Éditez le fichier suivant :
+
+```shell
+/etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Définissez le paramètre **bind-address** à **0.0.0.0** et redémarrez mariadb.
+
+```shell
+systemctl restart mariadb
+```
+
+Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/mysql/mariadb.cnf` NE fonctionnera PAS.
+
+```shell
+mkdir -p  /etc/systemd/system/mariadb.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+Si le service MariaDB échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrez à nouveau MariaDB :
+
+```shell
+rm -f /var/lib/mysql/ib_logfile*
+systemctl start mariadb
+```
+
+Si vous utilisez un fichier de socket spécifique pour MariaDB, modifiez le fichier `/etc/mysql/mariadb.cnf` et dans la section [client], ajoutez :
+
+```shell
+socket=$PATH_TO_SOCKET$
+```
+
+</TabItem>
+</Tabs>
+
+### Sécuriser la base de données
+
+Il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central, sinon sur le serveur de base de données :
+
+```shell
+mariadb-secure-installation
+```
+
+- Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?"
+- Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
+
+> Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+4. Installez le dépôt MySQL :
+
+Selon votre système d'exploitation, vous devrez peut-être ajouter le dépôt MySQL :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+Vous n'avez rien à faire car MySQL 8.0 est déjà disponible dans le dépôt officiel.
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+Vous n'avez rien à faire car MySQL 8.0 est déjà disponible dans le dépôt officiel.
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+wget -P /tmp/ https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
+apt install /tmp/mysql-apt-config_0.8.29-1_all.deb
+```
+
+Sélectionnez OK pour valider l'installation de **MySQL Tools & Connectors**. Entrez ensuite la commande suivante :
+
+```shell
+apt update
+```
+
+</TabItem>
+</Tabs>
+
+5. Puis lancez la commande suivante :
+
+<Tabs groupId="sync">
+<TabItem value="RHEL 8" label="RHEL 8">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+Activez les dépôts **codeready-builder** :
+
+```shell
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+Puis lancez l'installation :
+
+```shell
+dnf install centreon-bi-reporting-server
+```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+Activez les dépôts **codeready-builder** :
+
+```shell
+dnf config-manager --set-enabled ol8_codeready_builder
+```
+
+Puis lancez l'installation :
+
+```shell
+dnf install centreon-bi-reporting-server
+```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
+```
+
+</TabItem>
+<TabItem value="Alma 8" label="Alma 8">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+```
+
+Activez les dépôts powertools :
+
+```shell
+dnf config-manager --set-enabled 'powertools'
+```
+
+Puis lancez l'installation :
+
+```shell
+dnf install centreon-bi-reporting-server
+```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
+```
+
+</TabItem>
+<TabItem value="RHEL 9" label="RHEL 9">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+```
+
+Activez les dépôts **codeready-builder** :
+
+```shell
+subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+```
+
+Puis lancez l'installation :
+
+```shell
+dnf install centreon-bi-reporting-server
+```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 9" label="Oracle Linux 9">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+```
+
+Activez les dépôts **codeready-builder** :
+
+```shell
+dnf config-manager --set-enabled ol9_codeready_builder
+```
+
+Puis lancez l'installation :
+
+```shell
+dnf install centreon-bi-reporting-server
+```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
+```
+
+</TabItem>
+<TabItem value="Alma 9" label="Alma 9">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+```
+
+Puis lancez la commande suivante :
+
+```shell
+dnf config-manager --set-enabled 'crb' 
+```
+
+Puis lancez l'installation :
+
+```shell
+dnf install centreon-bi-reporting-server
+```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+Installez les paquets prérequis :
+
+```shell
+apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+```
+
+Installez le dépôt Centreon :
+
+```shell
+echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+```
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la clé GPG :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Puis lancez l'installation :
+
+```shell
+apt update && apt install centreon-bi-reporting-server
 ```
 
 </TabItem>
@@ -794,40 +1234,34 @@ systemctl start gorgoned && systemctl enable gorgoned
 
 ### Configurer le serveur de reporting
 
-#### Optimisations MariaDB
+#### Optimisations MySQL
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration
-optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez
-le service MariaDB :
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MySQL :
 
 ```shell
-systemctl restart mariadb
+systemctl restart mysql
 ```
 
-Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette
-option dans `/etc/my.cnf` NE fonctionnera PAS.
+Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
 
 ```shell
-mkdir -p  /etc/systemd/system/mariadb.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+mkdir -p  /etc/systemd/system/mysql.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mariadb
+systemctl restart mysql
 ```
 
-Si le service MariaDB échoue lors du démarrage, supprimer les fichiers
-*ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à
-nouveau MariaDB:
+Si le service MySQL échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MySQL doit absolument être stoppé) puis redémarrez à nouveau MySQL :
 
 ```shell
 rm -f /var/lib/mysql/ib_logfile*
-systemctl start mariadb
+systemctl start mysql
 ```
 
-Si vous utilisez un fichier de socket spécifique pour MariaDB, modifiez le
-fichier `/etc/my.cnf` et dans la section [client], ajoutez :
+Si vous utilisez un fichier de socket spécifique pour MySQL, modifiez le fichier `/etc/my.cnf` et dans la section [client], ajoutez :
 
 ```shell
 socket=$PATH_TO_SOCKET$
@@ -836,86 +1270,75 @@ socket=$PATH_TO_SOCKET$
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration
-optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez
-le service MariaDB :
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MySQL :
 
 ```shell
-systemctl restart mariadb
+systemctl restart mysql
 ```
 
-Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette
-option dans `/etc/my.cnf` NE fonctionnera PAS.
+Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
 
 ```shell
-mkdir -p  /etc/systemd/system/mariadb.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+mkdir -p  /etc/systemd/system/mysql.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mariadb
+systemctl restart mysql
 ```
 
-Si le service MariaDB échoue lors du démarrage, supprimer les fichiers
-*ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à
-nouveau MariaDB:
+Si le service MySQL échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MySQL doit absolument être stoppé) puis redémarrez à nouveau MySQL :
 
 ```shell
 rm -f /var/lib/mysql/ib_logfile*
-systemctl start mariadb
+systemctl start mysql
 ```
 
-Si vous utilisez un fichier de socket spécifique pour MariaDB, modifiez le
-fichier `/etc/my.cnf` et dans la section [client], ajoutez :
+Si vous utilisez un fichier de socket spécifique pour MySQL, modifiez le fichier `/etc/my.cnf` et dans la section [client], ajoutez :
 
 ```shell
 socket=$PATH_TO_SOCKET$
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
-Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration
-optimisé fourni dans les pré-requis est bien présent dans `/etc/mysql/mariadb.conf.d/`.
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf)
+de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/mysql/mysql.conf.d/`.
 
-Renommez le fichier en `80-centreon.cnf` :
+Renommez le fichier en `80-centreon.cnf`:
 
 ```shell
 mv centreon.cnf 80-centreon.cnf
 ```
 
-MariaDB doit écouter toutes les interfaces au lieu de localhost/127.0.0.1, qui est la valeur par défaut.
-Éditez le fichier suivant :
+MySQL doit écouter toutes les interfaces au lieu de localhost/127.0.0.1, qui est la valeur par défaut. Éditez le fichier suivant :
 
 ```shell
-/etc/mysql/mariadb.conf.d/50-server.cnf
+/etc/mysql/mysql.conf.d/mysqld.cnf
 ```
 
-Définissez le paramètre **bind-address** à **0.0.0.0** et redémarrez mariadb.
+Définissez le paramètre **bind-address** à **0.0.0.0** et redémarrez mysql.
 
 ```shell
-systemctl restart mariadb
+systemctl restart mysql
 ```
 
-Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette
-option dans `/etc/mysql/mariadb.cnf` ne fonctionnera pas.
+Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/mysql/mysql.cnf` NE fonctionnera PAS.
 
 ```shell
-mkdir -p  /etc/systemd/system/mariadb.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+mkdir -p  /etc/systemd/system/mysql.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mariadb
+systemctl restart mysql
 ```
 
-Si le service MariaDB échoue lors du démarrage, supprimer les fichiers
-*ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à
-nouveau MariaDB:
+Si le service MySQL échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MySQL doit absolument être stoppé) puis redémarrez à nouveau MySQL :
 
 ```shell
 rm -f /var/lib/mysql/ib_logfile*
-systemctl start mariadb
+systemctl start mysql
 ```
 
-Si vous utilisez un fichier de socket spécifique pour MariaDB, modifiez le
-fichier `/etc/mysql/mariadb.cnf` et dans la section [client], ajoutez :
+Si vous utilisez un fichier de socket spécifique pour MySQL, modifiez le fichier `/etc/mysql/mysql.cnf` et dans la section [client], ajoutez :
 
 ```shell
 socket=$PATH_TO_SOCKET$
@@ -926,30 +1349,17 @@ socket=$PATH_TO_SOCKET$
 
 ### Sécuriser la base de données
 
-Il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon.
-Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central, sinon sur le serveur de base de données :
-
-<Tabs groupId="sync">
-<TabItem value="MariaDB" label="MariaDB"> 
+Il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central, sinon sur le serveur de base de données :
 
 ```shell
-mariadb-secure-installation
+mysql-secure-installation
 ```
-
-</TabItem>
-<TabItem value="MySQL" label="MySQL"> 
-
-```shell
-mysql_secure_installation
-```
-
-</TabItem>
-</Tabs>
 
 - Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?"
 - Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
 
-> Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
+</TabItem>
+</Tabs>
 
 #### Commencer à configurer
 
@@ -1100,7 +1510,7 @@ systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Redémarrez le service cron :
 
@@ -1159,7 +1569,7 @@ systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Redémarrez le service cron sur le serveur de reporting :
 

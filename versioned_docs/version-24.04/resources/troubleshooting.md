@@ -5,6 +5,7 @@ title: Troubleshooting your Centreon platform
 
 This page lists the troubleshooting items available in this documentation. Click an item to access more detailed content.
 
+* [Debugging](../administration/parameters/debug.md)
 * [Troubleshooting Plugin errors](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
 * [Troubleshooting MAP](../graph-views/map-web-troubleshooting.md)
 * [Troubleshooting MAP Legacy](../graph-views/troubleshooter.md)

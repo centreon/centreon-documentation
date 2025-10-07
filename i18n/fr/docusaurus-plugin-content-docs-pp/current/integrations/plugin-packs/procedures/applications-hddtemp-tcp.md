@@ -102,7 +102,7 @@ l'utilisateur **centreon-engine**:
     --filter-name='' \
     --unknown-status='' \
     --warning-status='' \
-    --critical-status='%{status} !~ /ok/i' \
+    --critical-status='%\{status\} !~ /ok/i' \
     --warning-temperature='30' \
     --critical-temperature='50' \
     --verbose \

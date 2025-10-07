@@ -2,6 +2,8 @@
 id: migrate-from-3-4
 title: Migrate from a Centreon 3.4 platform
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
@@ -14,6 +16,14 @@ Here are the system requirements:
 | Centreon Web    | 2.8.x   |
 | Centreon Broker | 3.0.x   |
 | Centreon Engine | 1.8.x   |
+
+Be sure that you have fully backed up your environment for the following
+servers:
+
+- Central server
+- Database server
+
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
 
 ## Migrate
 
@@ -77,7 +87,7 @@ rsync -avz /var/spool/centreon/.ssh root@<IP_NEW_CENTREON>:/var/spool/centreon
 rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/centreon/www/img
 ```
 
-> Replace **<IP_NEW_CENTREON>** with the IP of the new Centreon server.
+> Replace **\<IP_NEW_CENTREON\>** with the IP of the new Centreon server.
 
 ### Retrieve databases
 
@@ -147,7 +157,7 @@ create them again:
     systemctl start mariadb
     ```
 
-> Replace **<IP_NEW_CENTREON>** with the IP of the new Centreon server.
+> Replace **\<IP_NEW_CENTREON\>** with the IP of the new Centreon server.
 
 ### Synchronize the plugins
 

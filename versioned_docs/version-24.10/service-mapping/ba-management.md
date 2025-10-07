@@ -75,7 +75,7 @@ be less than 80%.
 
 ![image](../assets/service-mapping/guide/business-activity-ratio-tree.png)
 
-The configuration is as follow:
+The configuration is as follows:
 
 ![image](../assets/service-mapping/guide/business-activity-ratio.png)
 

@@ -70,8 +70,7 @@ The different data sets defined in a report will contain all the
 available data to build the visuals in the report (e.g., tables and
 charts).
 
-![100000000000053D00000175C278E199_png](../assets/reporting/dev-guide/100000000000053D00000175C278E199.png){width="18.401cm"
-height="5.117cm"}
+![100000000000053D00000175C278E199_png](../assets/reporting/dev-guide/100000000000053D00000175C278E199.png)\{width="18.401cm" height="5.117cm"\}
 
 ### Data binding
 

@@ -27,14 +27,6 @@
     "message": "Configurer les serveurs de supervision",
     "description": "The label for category Configuring monitoring servers in sidebar docs"
   },
-  "sidebar.docs.category.Installation of Centreon HA": {
-    "message": "Installer Centreon HA",
-    "description": "The label for category Installation of Centreon HA in sidebar docs"
-  },
-  "sidebar.docs.category.Installation of a manual Centreon HA": {
-    "message": "Installation de Centreon HA manuelle",
-    "description": "The label for category Installation of a manual Centreon HA in sidebar docs"
-  },
   "sidebar.docs.category.Secure your platform": {
     "message": "Sécuriser la plateforme",
     "description": "The label for category Secure your platform in sidebar docs"
@@ -115,8 +107,8 @@
     "message": "Administrer",
     "description": "The label for category Administrate in sidebar docs"
   },
-  "sidebar.docs.category.Graphical views": {
-    "message": "Vues graphiques",
+  "sidebar.docs.category.Graphical views (maps)": {
+    "message": "Vues graphiques (cartes)",
     "description": "The label for category Graphical views in sidebar docs"
   },
   "sidebar.docs.category.Reporting": {
@@ -259,10 +251,6 @@
     "message": "Connecteurs de supervision",
     "description": "The label for link Plugin Packs in sidebar docs, linking to /pp/integrations/plugin-packs/getting-started/introduction"
   },
-  "sidebar.docs.category.Graphical views.link.generated-index.description": {
-    "message": "Les capacités de visualisation graphique de Centreon reposent sur le module Centreon MAP.",
-    "description": "The generated-index page description for category Graphical views in sidebar docs"
-  },
   "sidebar.docs.category.Centreon MAP": {
     "message": "Centreon MAP",
     "description": "The label for category Centreon MAP in sidebar docs"
@@ -271,13 +259,17 @@
     "message": "Centreon MAP (Legacy)",
     "description": "The label for category Centreon MAP (Legacy) in sidebar docs"
   },
-  "sidebar.docs.category.Installing Centreon HA": {
+    "sidebar.docs.category.Installing Centreon HA": {
     "message": "Installer Centreon HA",
     "description": "The label for category Installing Centreon HA in sidebar docs"
   },
-  "sidebar.docs.category.Installing a manual Centreon HA": {
-    "message": "Installer un Centreon HA à basculement manuel",
-    "description": "The label for category Installing a manual Centreon HA in sidebar docs"
+  "sidebar.docs.category.Completing your Centreon HA setup": {
+    "message": "Finaliser votre installation Centreon HA",
+    "description": "The label for category Completing your Centreon HA setup in sidebar docs"
+  },
+  "sidebar.docs.category.Completing your Centreon HA setup.link.generated-index.description": {
+    "message": "Votre plateforme HA a été installée par Centreon Professional Services. Que pouvez-vous faire ensuite ?",
+    "description": "The generated-index page description for category Completing your Centreon HA setup in sidebar docs"
   },
   "sidebar.docs.category.Operating Centreon HA": {
     "message": "Faire fonctionner Centreon HA",
@@ -302,5 +294,17 @@
   "sidebar.docs.category.Data Visualization": {
     "message": "Visualisation des données",
     "description": "The label for category Data Visualization in sidebar docs"
+  },
+  "sidebar.docs.category.Information for MAP Legacy users": {
+    "message": "Informations pour les utilisateurs de MAP Legacy",
+    "description": "The label for category Information for MAP Legacy users in sidebar docs"
+  },
+  "sidebar.docs.category.Types of notifications": {
+    "message": "Types de notifications",
+    "description": "The label for category Types of notifications in sidebar docs"
+},
+  "sidebar.docs.category.Graphical views (maps).link.generated-index.description": {
+    "message": "Les vues graphiques dans Centreon sont fournies par le module Centreon MAP.",
+    "description": "The generated-index page description for category Graphical views (maps). in sidebar docs"
   }
 }

@@ -58,12 +58,12 @@ Exemple:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
 
-> Remplacer **<IP_TARGET_NODE>** par l'adresse IP du serveur Centreon Central vue par votre collecteur.
+> Remplacer **\<IP_TARGET_NODE\>** par l'adresse IP du serveur Centreon Central vue par votre collecteur.
 
-> Le compte **<API_ACCOUNT>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
+> Le compte **\<API_ACCOUNT\>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
 
 > Vous pouvez changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
-> HTTPS://<IP_TARGET_NODE>:PORT
+> HTTPS://\<IP_TARGET_NODE\>:PORT
 
 Suivre ensuite les instructions
 
@@ -140,19 +140,19 @@ Vous recevrez la validation du serveur Centreon Central :
 2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
 ```
 
-> Vos informations d'identification sont incorrectes pour le compte **<API_ACCOUNT>**.
+> Vos informations d'identification sont incorrectes pour le compte **\<API_ACCOUNT\>**.
 
 ``` shell
 2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
 ```
 
-> L'utilisateur **<API_ACCOUNT>** n'a pas accès à l'API de configuration.
+> L'utilisateur **\<API_ACCOUNT\>** n'a pas accès à l'API de configuration.
 
 ``` shell
 Failed connect to 192.168.0.1:444; Connection refused
 ```
 
-> Impossible d'accéder à l'API. Contrôler les valeurs **<IP_TARGET_NODE>**, méthode et port.
+> Impossible d'accéder à l'API. Contrôler les valeurs **\<IP_TARGET_NODE\>**, méthode et port.
 
 ``` shell
 2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login

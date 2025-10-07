@@ -6,6 +6,8 @@ title: Montée de version de l'extension
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **À partir de Centreon 24.10, MAP Legacy ne sera plus disponible.** Si vous utilisez encore MAP Legacy, consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/).
+
 Ce chapitre décrit comment monter de version votre extension Centreon MAP. Pour ce faire, vous devez mettre à niveau les quatre principaux composants :
 
 - le serveur Centreon MAP
@@ -25,7 +27,7 @@ Assurez-vous de lire les notes de version pour une explication des fonctionnalit
 ### Mise à jour de la clé de signature du RPM
 
 Pour des raisons de sécurité, les clés utilisées pour signer les RPM Centreon sont régulièrement renouvelées. Le dernier changement a eu lieu le 14 octobre 2021.
-Lorsque vous effectuez une mise à jour à partir d'une ancienne version, vous devez passer par la [procédure de rotation des clés](../security/key-rotation.md#existing-installation), pour supprimer l'ancienne clé et installer la nouvelle.
+Lorsque vous effectuez une mise à jour à partir d'une ancienne version, vous devez passer par la [procédure de rotation des clés](../security/key-rotation.md#installation-existante), pour supprimer l'ancienne clé et installer la nouvelle.
 
 ## Étape 1 : serveur Centreon MAP
 

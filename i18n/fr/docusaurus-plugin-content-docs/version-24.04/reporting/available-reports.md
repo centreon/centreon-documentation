@@ -117,7 +117,7 @@ soit bien définie dans la configuration des activités métier en tant que
 plage horaire par défaut ou supplémentaire. Dans le cas contraire, les
 activités métier n'apparaîtront pas dans le rapport*
 
-> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
 
 #### Pré-requis
 
@@ -180,7 +180,7 @@ soit bien définie dans les paramètres de l'application métier dans
 Configuration > Business Activiy > XXXXX | onglet "Information
 étendues" en plage horaire par défaut ou supplémentaire*
 
-> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
 
 #### Pre-requis
 
@@ -234,7 +234,7 @@ soit bien définie dans la configuration des activités métier en tant que
 plage horaire par défaut ou supplémentaire. Dans le cas contraire, elle
 n'apparaîtront pas dans le rapport*
 
-> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
 
 #### Pre-requis
 
@@ -274,7 +274,7 @@ soit bien définie dans les paramètres de l'application métier dans
 Configuration > Business Activiy > XXXXX | onglet "Information
 étendues" en plage horaire par défaut ou supplémentaire*
 
-> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
 
 #### Pre-requis
 
@@ -323,7 +323,7 @@ Configuration > Business Activiy > XXXXX | onglet "Information
 étendues" en plage horaire par défaut ou supplémentaire. Dans le cas
 contraire seule les données temps réelles seront affichées.*
 
-> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
 
 #### Pre-requis
 
@@ -393,7 +393,7 @@ soit bien définie dans la configuration des activités métier en tant que
 plage horaire par défaut ou supplémentaire. Dans le cas contraire, elle
 n'apparaîtront pas dans le rapport*
 
-> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-calendar-legende.png)
 

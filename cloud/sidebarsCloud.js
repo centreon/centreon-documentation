@@ -12,6 +12,10 @@ module.exports = {
           type: 'doc',
           id: 'getting-started/about-centreon-cloud',
         },
+         {
+          type: 'doc',
+          id: 'getting-started/centreon-cloud-trial',
+        },
         {
           "collapsed": true,
           "type": "category",
@@ -115,7 +119,7 @@ module.exports = {
             },
             {
               type: 'doc',
-              id: 'getting-started/create-custom-view',
+              id: 'getting-started/create-dashboard',
             },
           ],
         },
@@ -150,6 +154,10 @@ module.exports = {
           type: 'doc',
           id: 'administration/ram',
         },
+        {
+          type: 'doc',
+          id: 'ciam/cloud-saml',
+        },
       ],
     },
     {
@@ -175,6 +183,26 @@ module.exports = {
           type: 'doc',
           id: 'installation/poller-secure',
         },
+        {
+          type: 'doc',
+          id: 'installation/poller-monitor',
+        },
+        {
+          type: 'doc',
+          id: 'installation/poller-troubleshoot',
+        },
+        {
+          type: 'doc',
+          id: 'installation/poller-migrate',
+        },
+        {
+          type: 'doc',
+          id: 'installation/poller-remove',
+        },
+        {
+          "type": "doc",
+          "id": "installation/poller-versions"
+        }
       ],
     },
     {
@@ -252,6 +280,10 @@ module.exports = {
             {
               "type": "doc",
               "id": "monitoring/basic-objects/services-templates"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/meta-services"
             }
           ]
         },
@@ -331,6 +363,10 @@ module.exports = {
             }
           ]
         },
+        {
+          "type": "doc",
+          "id": "monitoring/event-handler"
+        }
       ]
     },
     {
@@ -386,6 +422,62 @@ module.exports = {
           "type": "doc",
           "id": "alerts-notifications/notif-configuration"
         },
+        {
+          "type": "doc",
+          "id": "alerts-notifications/notif-flapping"
+        },
+        {
+          "type": "category",
+          "label": "Managing tickets",
+          "link": {
+            "type": "doc",
+            "id": "alerts-notifications/ticketing-overview"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing-install"
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing"
+            },
+            {
+              "type": "category",
+              "label": "Customizing tickets",
+              "link": {
+                "type": "doc",
+                "id": "alerts-notifications/ticketing/ticketing-advanced-body"
+            },
+            "items": [
+              {
+                "type": "doc",
+                "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
+              },
+              {
+                "type": "doc",
+                "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
+              },
+              {
+                "type": "doc",
+                "id": "alerts-notifications/ticketing/ticketing-advanced-mapping"
+              },
+              {
+                "type": "doc",
+                "id": "alerts-notifications/ticketing/glossary"
+              },
+            ]
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing-use"
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing/ticketing-advanced-architecture"
+            },
+          ]
+        }
       ]
     },
     {
@@ -542,7 +634,57 @@ module.exports = {
         {
           "type": "doc",
           "id": "integrations/stream-connectors-cloud"
-        }
+        },
+        {
+          "type": "category",
+          "label": "ITSM",
+          "link": {
+            "type": "doc",
+            "id": "integrations/itsm/itsm-overview"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-bmc-footprints"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-easyvista"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-easyvista-rest-api"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-glpi"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-glpi-restapi"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-itop"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-jira"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-otrs-restapi"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-request-tracker-restapi"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-servicenow"
+            }
+          ]
+        },
       ]
     },
     {

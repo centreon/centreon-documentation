@@ -13,10 +13,10 @@ To create a host manually:
 
 ### General information
 
-* The **Name** field defines the host name that will be used by the Monitoring Engine. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
+* The **Name** field defines the host name that will be used by the Monitoring Engine. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces. Using names containing `/` can also have technical impacts on SQL queries, on the interface or cause other compatibility problems with third-party tools. We recommend that you only use `_-.` for host names.
 * The **Alias** field shows the alias of the host.
 * The **Address** field defines the IP address or DNS name of the host. The **Resolve** button enables us to
-  resolve the domain name by questioning the DNS server configured on the central server.
+  resolve the domain name by questioning the DNS server configured on the SaaS platform.
 * The **Templates** field enables us to associate one or more host templates with this object.
 
   In case of conflicts between settings present on multiple templates, the host template above overwrites the identical properties
@@ -58,7 +58,7 @@ defined in the host templates below.
 
 ### Classification
 
-* The **Host Groups** list defines the host groups to which the host belongs.
+* The **Host Groups** list defines the host groups to which the host belongs. You must link at least one hostgroup (mandatory field for ACL management purpose).
 * The **Host Categories** list defines the categories to which the host belongs.
 * The **Host severity** field indicates the severity level of the host.
 

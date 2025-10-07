@@ -90,9 +90,9 @@ Sélectionnez ensuite **Accepter les paquets SNMP de ces hôtes** et ajoutez l'a
 
   ![image](../assets/getting-started/prise_en_main_windows_snmp_5.png)
 
-### Sur le serveur central
+### Dans l'interface utilisateur
 
-Dans l'interface Web, accédez à **Configuration > Gestionnaire de connecteurs de supervision** et installez le connecteur de supervision **Windows SNMP** :
+Dans l'interface Web, accédez à **Configuration > Connecteurs > Connecteurs de supervision** et installez le connecteur de supervision **Windows SNMP** :
 
 ![image](../assets/getting-started/prise_en_main_windows_snmp_10.gif)
 

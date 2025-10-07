@@ -16,6 +16,14 @@ interface.
 First of all, you need a Centreon server installed and ready to use. Please see
 the documentation [to install a Centreon server](../installation/installation-of-a-central-server/using-packages.md).
 
+Be sure that you have fully backed up your environment for the following
+servers:
+
+- Central server
+- Database server
+
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
+
 ## Installation
 
 This script uses the Perl-Nagios-Object library to read CFG files. To install it,
@@ -105,4 +113,4 @@ server:
 /usr/share/centreon/bin/centreon -u admin -p <PASSWORD> -i /tmp/centreon_clapi_import_commands.txt
 ```
 
-Replace **<PASSWORD\>** with the password of the **admin** Centreon web user.
+Replace **\<PASSWORD\>** with the password of the **admin** Centreon web user.

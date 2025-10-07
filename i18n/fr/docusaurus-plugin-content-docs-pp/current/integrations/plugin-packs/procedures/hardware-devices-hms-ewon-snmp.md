@@ -42,7 +42,7 @@ Afin de contrôler vos équipements HMS Ewon, le SNMP doit être configuré.
 yum install centreon-plugin-Hardware-Devices-Hms-Ewon-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *HMS Ewon SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *HMS Ewon SNMP* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -59,7 +59,7 @@ yum install centreon-plugin-Hardware-Devices-Hms-Ewon-Snmp
 yum install centreon-pack-hardware-devices-hms-ewon-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *HMS Ewon SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *HMS Ewon SNMP* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
@@ -71,7 +71,7 @@ Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *HW-Device-H
 Il est nécessaire de remplir les valeurs des champs "SNMP Community" et "SNMP Version".
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3). 
 
 | Mandatory   | Name                    | Description        |
 | :---------- | :---------------------- | :----------------- |

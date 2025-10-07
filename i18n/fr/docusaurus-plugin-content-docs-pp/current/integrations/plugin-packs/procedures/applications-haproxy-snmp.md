@@ -68,7 +68,7 @@ https://www.haproxy.com/documentation/hapee/latest/observability/metrics/snmp/
 yum install centreon-plugin-Applications-Haproxy-Snmp
 ```
 
-2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Haproxy SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Haproxy SNMP* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -85,7 +85,7 @@ yum install centreon-plugin-Applications-Haproxy-Snmp
 yum install centreon-pack-applications-haproxy-snmp
 ```
 
-3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Haproxy SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Integration de Centreon, installer le connecteur de supervision *Haproxy SNMP* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
@@ -99,7 +99,7 @@ yum install centreon-pack-applications-haproxy-snmp
 * Appliquez le Modèle d'Hôte *Applications-Haproxy-Snmp-custom* 
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Mandatory | Name             | Description                                 |
 |:----------|:-----------------|:--------------------------------------------|
@@ -120,7 +120,7 @@ yum install centreon-pack-applications-haproxy-snmp
     --snmp-community='my-snmp-community'   \
     --filter-name=''  \
     --warning-status=''  \
-    --critical-status='%{status} !~ /OPEN/i'  \
+    --critical-status='%\{status\} !~ /OPEN/i'  \
     --warning-total-sessions=''  \
     --critical-total-sessions=''  \
     --warning-current-sessions=''  \

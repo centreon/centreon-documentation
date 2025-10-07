@@ -5,13 +5,13 @@ title: Déployer une configuration
 
 Lorsque vous créez, supprimez ou modifiez des objets via le menu
 **Configuration**, les changements effectués ne sont pas appliqués de manière
-automatique (ni sur le serveur central sur lequel vous avez créé, supprimé ou modifié l'objet, ni sur aucun collecteur qui en dépendrait). Pour que les modifications soient prises en compte, il est nécessaire d'exporter la configuration.
+automatique. Pour que les modifications soient prises en compte, il est nécessaire d'exporter la configuration.
 
 ## Exporter la configuration
 
-1. Allez à la page **Configuration > Collecteurs > Collecteurs**. La page affiche l'état de votre serveur central et de tous les collecteurs qui y sont reliés : les changements sont signalés dans la colonne **Changement de configuration**.
+1. Allez à la page **Configuration > Collecteurs > Collecteurs**. La page affiche l'état de votre plateforme SaaS (collecteur **Central**) et de tous les collecteurs qui y sont reliés : les changements sont signalés dans la colonne **Changement de configuration**.
 
-2. Sélectionnez le serveur central ou le collecteur dont la configuration a changé.
+2. Sélectionnez le collecteur dont la configuration a changé.
 
     ![image](../../assets/monitoring/monitoring-servers/export_conf.png)
 
@@ -23,7 +23,7 @@ automatique (ni sur le serveur central sur lequel vous avez créé, supprimé ou
     - **Déplacer les fichiers générés**
     - **Redémarrer l'ordonnanceur**. Utilisez la méthode : 
       - **Recharger** : lorsque vous avez créé, supprimé ou modifié des objets supervisés
-      - **Redémarrer** : lorsque vous avez apporté des changements à la communication entre un collecteur et le serveur central, ou à la configuration du moteur de collecte. Un redémarrage prend plus de temps qu'un rechargement.
+      - **Redémarrer** : lorsque vous avez apporté des changements à la communication entre un collecteur et la plateforme SaaS, ou à la configuration du moteur de collecte. Un redémarrage prend plus de temps qu'un rechargement.
 
 5. Cliquez sur **Exporter**. Un log de l'export s'affiche.
 

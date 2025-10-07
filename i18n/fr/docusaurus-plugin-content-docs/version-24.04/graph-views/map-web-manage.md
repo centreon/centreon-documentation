@@ -9,7 +9,7 @@ Cette page décrit comment créer et gérer les cartes à partir de l'interface 
 
 > Les options disponibles dans l'interface MAP dépendent des permissions qui vous ont été attribuées par votre administrateur. Voir la page [Gérer les droits d'accès dans MAP](map-web-access.md) pour plus d'informations sur les privilèges et permissions.
 
-L'affichage du bouton **Add a Map** et du bouton **Add a Geographic view** signifie que vous êtes autorisé à créer une carte et que vous appartenez à un groupe d'accès auquel est attribué le rôle de créateur.
+L'affichage du bouton **Ajouter une carte** et du bouton **Ajouter une vue géographique** signifie que vous êtes autorisé à créer une carte et que vous appartenez à un groupe d'accès auquel est attribué le rôle de créateur.
 
 ## Information sur le statut d'une carte
 

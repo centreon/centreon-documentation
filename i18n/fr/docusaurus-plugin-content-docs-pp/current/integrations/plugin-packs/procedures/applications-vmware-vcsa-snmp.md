@@ -53,8 +53,8 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 <TabItem value="Interfaces" label="Interfaces">
 
 | Metric name                                               | Unit |
-|:--------------------------------------------------------- |:---- |
-| status                                                    |      |
+|:--------------------------------------------------------- |:-----|
+| status                                                    | N/A  |
 | *interface_name*#interface.traffic.in.bitspersecond       | b/s  |
 | *interface_name*#interface.traffic.out.bitspersecond      | b/s  |
 | *interface_name*#interface.packets.in.error.percentage    | %    |
@@ -75,10 +75,10 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 <TabItem value="Storage" label="Storage">
 
 | Metric name                                | Unit  |
-| :----------------------------------------- |:----- |
-| storage.partitions.count                   |       |
+| :----------------------------------------- |:------|
+| storage.partitions.count                   | count |
 | *partition_name*#storage.space.usage.bytes | B     |
-| *partition_name*#storage.access.count      |       |
+| *partition_name*#storage.access.count      | count |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -94,8 +94,10 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ### Configuration SNMP
 
-Afin de superviser votre **VMware VCSA** en SNMP, il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle :
-* https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcsa.doc/GUID-3695CE84-C6DF-497E-BA4E-2B341CC366C5.html
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Veuillez vous référer à la [documentation officielle](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcsa.doc/GUID-3695CE84-C6DF-497E-BA4E-2B341CC366C5.html) du constructeur/éditeur. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien. 
 
 ### Flux réseau
 
@@ -104,10 +106,12 @@ Centreon vers le serveur supervisé.
 
 ## Installation
 
-### Pack de supervision
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md). de supervision
 
 Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le pack dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquet
@@ -138,7 +142,7 @@ yum install centreon-pack-applications-vmware-vcsa-snmp
 </Tabs>
 
 Quel que soit le type de la licence (*online* ou *offline*), installez le Pack **VMware VCSA SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -155,7 +159,7 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="RHEL, Oracle Linux, Alma Linux 8" label="RHEL, Oracle Linux, Alma Linux 8">
 
 ```bash
-dnf install centreon-plugin-Applications-Vmware-Vcsa-SNMP
+dnf install centreon-plugin-Applications-Vmware-Vcsa-Snmp
 ```
 
 </TabItem>
@@ -184,7 +188,7 @@ yum install centreon-plugin-Applications-Vmware-Vcsa-SNMP
 * Appliquez le modèle d'hôte **App-Vmware-Vcsa-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Obligatoire | Macro            | Description                                  |
 |:------------|:-----------------|:---------------------------------------------|

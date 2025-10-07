@@ -46,7 +46,7 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 #### Logiciel
 
-Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
+Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiques-des-serveurs).
 
 #### Matériel
 
@@ -171,7 +171,7 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 #### Compatibilité
 
-Notez que l'interface web de MAP a les mêmes prérequis que l'interface web Centreon. Voir les prérequis pour la compatibilité des navigateurs web [ici](../installation/prerequisites.md).
+Notez que l'interface web de MAP a les mêmes prérequis que l'interface web Centreon. Voir les prérequis pour la compatibilité des navigateurs web [ici](../installation/compatibility.md#interface-web-de-centreon).
 
 ## Pré-installation
 
@@ -595,6 +595,8 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 </Tabs>
 
 Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 17) sera automatiquement installé, si nécessaire.
+
+> Suivez cette procédure de dépannage si OpenJDK 17 cause un incident [empêchant l'installation de centreon-map-engine](./map-web-troubleshooting.md#centreon-map-engine-et-toutes-ses-dépendances-ne-peuvent-pas-être-installés-sur-alma-linux-8).
 
 #### Prérequis Java
   > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.

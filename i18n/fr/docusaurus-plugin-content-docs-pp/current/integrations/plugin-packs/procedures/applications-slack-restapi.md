@@ -77,7 +77,7 @@ Il est possible de spécifier un proxy à utiliser le cas échéant.
 yum install centreon-plugin-Applications-Slack-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Slack* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le Pack *Slack* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -94,7 +94,7 @@ yum install centreon-plugin-Applications-Slack-Restapi
 yum install centreon-pack-applications-slack-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Slack* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le Pack *Slack* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
@@ -124,8 +124,8 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     --mode=services \
     --proxyurl='http://myproxy.mycompany.org:8080' \
     --filter-name='Connections|Messaging' \
-    --warning-status='%{status} eq "active" and %{type} eq "incident"' \
-    --critical-status='%{status} eq "active" and %{type} eq "outage"' \
+    --warning-status='%\{status\} eq "active" and %\{type\} eq "incident"' \
+    --critical-status='%\{status\} eq "active" and %\{type\} eq "outage"' \
     --verbose
 ```
 

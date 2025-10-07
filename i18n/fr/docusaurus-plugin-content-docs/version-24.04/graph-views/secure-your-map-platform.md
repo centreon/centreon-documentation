@@ -182,7 +182,13 @@ centreon-map.keystore-pass=xxx
     RUN_ARGS="--spring.profiles.active=prod,tls"
     ```
 
-3. Redémarrez le service Centreon MAP :
+3. Définissez le paramètre `centreon.url` dans **/etc/centreon-map/map-config.properties** pour activer le protocole de communication HTTPS avec le serveur Centreon :
+
+```shell
+centreon.url=https://<server-address>
+```
+
+4. Redémarrez le service Centreon MAP :
 
     ```shell
     systemctl start centreon-map-engine
@@ -203,7 +209,13 @@ centreon-map.keystore-pass=xxx
     RUN_ARGS="--spring.profiles.active=prod,tls"
     ```
 
-3. Redémarrez le service Centreon MAP :
+3. Définissez le paramètre `centreon.url` dans **/etc/centreon-studio/studio-config.properties** pour activer le protocole de communication HTTPS avec le serveur Centreon :
+
+```shell
+centreon.url=https://<server-address>
+```
+
+4. Redémarrez le service Centreon MAP :
 
     ```shell
     systemctl start centreon-map
@@ -256,7 +268,7 @@ mv broker_private.key /etc/centreon/broker_cert/
 mv broker_public.crt /etc/centreon/broker_cert/
 ```
 
-> Le champ "Trusted CA's certificate" est facultatif. Si vous activez l'authentification client de Broker en définissant ce "ca\_certificate.crt", vous devez alors configurer un [keystore pour le serveur MAP](#configurer-httpstls-sur-le-serveur-map)
+> Le champ "Trusted CA's certificate" est facultatif. Si vous activez l'authentification client de Broker en définissant ce "ca\_certificate.crt", vous devez alors configurer un [keystore pour le serveur MAP](#configurer-httpstls-sur-le-serveur-map-ou-map-legacy)
 >
 > Vous devez pousser la nouvelle configuration du broker et redémarrer le broker après la configuration.
 
