@@ -1,287 +1,22 @@
 ---
-id: develop-with-centreon-plugins
-title: Develop with centreon-plugins
+id: tutorial-api
+title: API plugin tutorial
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+# API plugin tutorial
 
-## Set up your environment
+All files showed in this section can be found on the centreon-plugins GitHub in 
+the [tutorial](https://github.com/centreon/centreon-plugins/tree/develop/src/contrib/tutorial) **contrib** 
+section.
 
-To use the centreon-plugins framework, you'll need the following:
+> You have to move the contents of `contrib/tutorial/apps/` to `apps/` if you want to run it for testing purposes.
+>
+> `cp -R src/contrib/tutorial/apps/* src/apps/`
 
-- A Linux operating system, Debian 11 or 12 or RHEL/RHEL-like >= 8
-- The [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) command line utility
-- A [GitHub](https://github.com/) account.
-
-### Enable our plugins repository
-
-This repository will provide you our packaged plugins as well as **the dependencies that are not available in the
-standard distribution repositories**.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```bash
-cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
-[centreon-plugins-stable]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/$basearch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-stable-noarch]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/noarch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-EOF
-
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```bash
-cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
-[centreon-plugins-stable]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/$basearch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-stable-noarch]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/noarch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-EOF
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```bash
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
-apt-get update
-```
-
-</TabItem>
-</Tabs>
-
-Install the following dependencies:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```bash
-dnf config-manager --set-enabled powertools
-dnf install -y git 'perl(Digest::MD5)' 'perl(Pod::Find)' 'perl-Net-Curl' 'perl(URI::Encode)' \
-    'perl(LWP::UserAgent)' 'perl(LWP::Protocol::https)' 'perl(IO::Socket::SSL)' 'perl(URI)' \
-    'perl(HTTP::ProxyPAC)' 'perl-CryptX' 'perl(MIME::Base64)' 'perl(JSON::XS)' 'perl-JSON-Path' \
-    'perl-KeePass-Reader' 'perl(Storable)' 'perl(POSIX)' 'perl(Encode)'
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```bash
-dnf config-manager --set-enabled crb
-dnf install -y git 'perl(Digest::MD5)' 'perl(Pod::Find)' 'perl-Net-Curl' 'perl(URI::Encode)' \
-    'perl(LWP::UserAgent)' 'perl(LWP::Protocol::https)' 'perl(IO::Socket::SSL)' 'perl(URI)' \
-    'perl(HTTP::ProxyPAC)' 'perl-CryptX' 'perl(MIME::Base64)' 'perl(JSON::XS)' 'perl-JSON-Path' \
-    'perl-KeePass-Reader' 'perl(Storable)' 'perl(POSIX)' 'perl(Encode)'
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```bash
-apt-get install -y git 'libpod-parser-perl' 'libnet-curl-perl' 'liburi-encode-perl' 'libwww-perl' \
-    'liblwp-protocol-https-perl' 'libhttp-cookies-perl' 'libio-socket-ssl-perl' 'liburi-perl' \
-    'libhttp-proxypac-perl' 'libcryptx-perl' 'libjson-xs-perl' 'libjson-path-perl' \
-    'libcrypt-argon2-perl' 'libkeepass-reader-perl'
-```
-
-</TabItem>
-</Tabs>
-
-### Fork and clone the centreon-plugins repository
-
-Within GitHub UI, on the top left, click on the **Fork** button:
-
-![image](../../../assets/integrations/plugin-packs/dev-resources/00_dev-resources_centreon-plugins-fork.png)
-
-Use the git utility to fetch your repository fork:
-
-```bash
-git clone https://<githubusername>@github.com/<githubusername>/centreon-plugins
-```
-
-Create a branch:
-
-```bash
-cd centreon-plugins
-git checkout -b 'my-first-plugin'
-```
-
-## Understand project organization
-
-### Layout and concepts
-
-The project content is made of a main binary (`centreon_plugins.pl`), and a logical
-directory structure allowing to separate plugins and modes files across the domain they
-are referring to.
-
-You can display it using the command `tree -L 1`.
-
-```bash
-.
-├── apps
-├── blockchain
-├── centreon
-├── centreon_plugins.pl
-├── changelog
-├── cloud
-├── contrib
-├── database
-├── doc
-├── example
-├── hardware
-├── Jenkinsfile
-├── LICENSE.txt
-├── network
-├── notification
-├── os
-├── README.md
-├── snmp_standard
-├── sonar-project.properties
-└── storage
-```
-
-Let's take a deeper look at the layout of the directory containing modes to monitor Linux
-systems through the command-line (`tree os/linux/local/ -L 1`).
-
-```bash
-os/linux/local/
-├── custom      # Type: Directory. Contains code that can be used by several modes (e.g authentication, token management, ...).
-│   └── cli.pm  # Type: File. *Custom mode* defining common methods
-├── mode        # Type: Directory. Contains all **modes**.
-[...]
-│   └── cpu.pm  # Type: File. **Mode** containing the code to monitor the CPU
-[...]
-└── plugin.pm   # Type: File. **Plugin** definition.
-```
-
-Note the os/linux/**local**. The project offers other ways to monitor Linux, SNMP for example. To avoid
-mixing modes using different protocols in the same directory and face some naming collisions, we split
-them across several directories making it clear what protocol they rely on.
-
-Now, let's see how these concepts combine to build a command line:
-
-```bash
-# <perl interpreter> <main_binary> --plugin=<perl_normalized_path_to_plugin_file> --mode=<mode_name>
-perl centreon_plugins.pl --plugin=os::linux::local::plugin --mode=cpu
-```
-
-### Shared directories
-
-Some specific directories are not related to a domain (os, cloud...) and are used
-across all plugins.
-
-#### The **centreon** directory
-
-The **centreon** directory is specific, it contains:
-
-- Project libraries/packages. This is all the code that will help you to develop faster
-by avoiding coding protocol-related things (SNMP, HTTPx, SSH...) or common things like
-options or cache management from scratch. You can read the perl modules if you're an experienced developer
-but there is very little chance that you would have to modify anything in it.
-- Common files shared by multiple plugins. This is to avoid duplicating code across the
-directory tree and ease the maintenance of the project.
-
-#### The **snmp_standard/mode** directory
-
-The **snmp_standard/mode** exists since the beginning when SNMP monitoring was much more used
-than it is today. All the modes it contains use standard OIDs, which means that many plugins are
-relying on these when the manufacturer supports standard MIBs on their devices.
-
-## Tutorial - How to create a plugin for *my-awesome-app*
-
-### Context: simple JSON health API
+**Context: simple JSON health API**
 
 In this tutorial, we will create a very simple probe checking an application's health
 displayed in JSON through a simple API.
@@ -289,9 +24,9 @@ displayed in JSON through a simple API.
 You can mockup an API with the free [mocky](https://designer.mocky.io/) tool.
 We created one for this tutorial, test it with `curl https://run.mocky.io/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656`
 
-It returns the following output:
+It returns the following output: 
 
-```json title="my-awesome-app health JSON"
+```json title="my-awesome-app health JSON" 
 {
     "health": "yellow",
     "db_queries":{
@@ -322,15 +57,7 @@ It returns the following output:
 }
 ```
 
-All files showed in this tutorial can be found on the centreon-plugins GitHub in the
-[tutorial](https://github.com/centreon/centreon-plugins/tree/master/contrib/tutorial/)
-**contrib** section.
-
-> You have to move the contents of `contrib/tutorial/apps/` to `apps/` if you want to run it for testing purposes.
->
-> `cp -R contrib/tutorial/apps/* apps/`
-
-### Understand the data
+## Understand the data
 
 Understanding the data is very important as it will drive the way you will design
 the **mode** internals. This is the **first thing to do**, no matter what protocol you
@@ -351,28 +78,22 @@ In our example, the most common things are present. We can summarize it like tha
 
 Understanding this will be important to code it correctly.
 
-### Create directories for a new plugin
+## Create directories for a new plugin
 
-Create directories and files required for your **plugin** and **modes**.
+Create directories and files required for your **plugin** and **modes**. 
 
 Go to your centreon-plugins local git and create the appropriate directories and files:
 
-```bash
+```shell
 # path to the main directory and the subdirectory containing modes
-mkdir -p apps/myawesomeapp/api/mode/
+mkdir -p src/apps/myawesomeapp/api/mode/
 # path to the main plugin file
-touch apps/myawesomeapp/api/plugin.pm
-# path to the specific mode(s) file(s)
-touch apps/myawesomeapp/api/mode/appsmetrics.pm
+touch src/apps/myawesomeapp/api/plugin.pm
+# path to the specific mode(s) file(s) => for example appsmetrics.pm
+touch src/apps/myawesomeapp/api/mode/appsmetrics.pm
 ```
 
-### Create the plugin.pm file
-
-The `plugin.pm` is the first thing to create, it contains:
-
-- A set of instructions to load required libraries and compilation options
-- A list of all **mode(s)** and path(s) to their associated files/perl packages
-- A description that will display when you list all plugins or display this plugin's help.
+## Create the plugin file : plugin.pm
 
 Here is the commented version of the plugin.pm file:
 
@@ -388,7 +109,7 @@ use warnings;
 # Load the base for your plugin, here we don't do SNMP, SQL or have a custom directory, so we use the _simple base
 use base qw(centreon::plugins::script_simple);
 
-# Global sub to create and return the perl object. Don't bother understand what each instruction is doing.
+# Global sub to create and return the perl object. Don't bother understand what each instruction is doing. 
 sub new {
     my ($class, %options) = @_;
     my $self = $class->SUPER::new(package => __PACKAGE__, %options);
@@ -396,7 +117,7 @@ sub new {
 
     # A version, we don't really use it but could help if your want to version your code
     $self->{version} = '0.1';
-    # Important part!
+    # Important part! 
     #    On the left, the name of the mode as users will use it in their command line
     #    On the right, the path to the file (note that .pm is not present at the end)
     $self->{modes} = {
@@ -450,7 +171,7 @@ Modes Available:
    app-metrics
 ```
 
-### Create the appmetrics.pm file
+## Create the mode file : appmetrics.pm
 
 The `appmetrics.pm` file will contain your code, in other words, all the instructions to:
 
@@ -461,10 +182,10 @@ The `appmetrics.pm` file will contain your code, in other words, all the instruc
 
 Let's build it iteratively.
 
-> Important note: function (sub) names must not be modified. For example, you cannot
-> choose to rename `check_options` to `option_check`.
+> Important note: function (sub) names must not be modified. For example, you cannot 
+> choose to rename `check_options` to `option_check`. 
 
-#### Common declarations and subs
+### Common declarations and subs
 
 ```perl
 # Path to your package. '::' instead of '/', and no .pm at the end.
@@ -476,7 +197,7 @@ use warnings;
 # We want to connect to an HTTP server, let's use the common module
 use centreon::plugins::http;
 # Use the counter module. It will save you a lot of work and will manage a lot of things for you.
-# Consider this as mandatory when writing a new mode.
+# Consider this as mandatory when writing a new mode. 
 use base qw(centreon::plugins::templates::counter);
 # Import some functions that will make your life easier
 use centreon::plugins::templates::catalog_functions qw(catalog_status_threshold_ng);
@@ -484,7 +205,7 @@ use centreon::plugins::templates::catalog_functions qw(catalog_status_threshold_
 use JSON::XS;
 ```
 
-Add a `new` function (sub) to initialize the mode:
+Add a `new` function (sub) to initialize the mode: 
 
 ```perl
 sub new {
@@ -498,16 +219,16 @@ sub new {
     # All options here stick to what the centreon::plugins::http module needs to establish a connection
     # You don't have to specify all options from the http module, only the one that the user may want to tweak for its needs
     $options{options}->add_options(arguments => {
-        # One the left it's the option name that will be used in the command line. The ':s' at the end is to
-        # define that this options takes a value.
-        # On the right, it's the code name for this option, optionnaly you can define a default value so the user
+        # On the left it's the option name that will be used in the command line. The ':s' at the end is to 
+        # define that this options takes a value.  
+        # On the right, it's the code name for this option, optionally you can define a default value so the user 
         # doesn't have to set it
          'hostname:s'           => { name => 'hostname' },
          'proto:s'              => { name => 'proto', default => 'https' },
          'port:s'               => { name => 'port', default => 443 },
          'timeout:s'            => { name => 'timeout' },
         # These options are here to defined conditions about which status the plugin will return regarding HTTP response code
-         'unknown-status:s'     => { name => 'unknown_status', default => '%\{http_code\} < 200 or %\{http_code\} >= 300' },
+         'unknown-status:s'     => { name => 'unknown_status', default => '%{http_code} < 200 or %{http_code} >= 300' },
          'warning-status:s'     => { name => 'warning_status' },
          'critical-status:s'    => { name => 'critical_status', default => '' }
     });
@@ -521,7 +242,7 @@ sub new {
 ```
 
 Add a `check_options` function. This sub will execute right after `new` and allow you to check that the user passed
- mandatory parameter(s) and in some case check that the format is correct.
+ mandatory parameter(s) and in some case check that the format is correct. 
 
 ```perl
 sub check_options {
@@ -529,11 +250,11 @@ sub check_options {
     $self->SUPER::check_options(%options);
 
     # Check if the user provided a value for --hostname option. If not, display a message and exit
-    if (!defined($self->{option_results}-\{hostname\}) || $self->{option_results}-\{hostname\} eq '') {
+    if (!defined($self->{option_results}->{hostname}) || $self->{option_results}->{hostname} eq '') {
         $self->{output}->add_option_msg(short_msg => 'Please set hostname option');
         $self->{output}->option_exit();
     }
-    # Set parameters for http module, note that the $self->{option_results} is a hash containing
+    # Set parameters for http module, note that the $self->{option_results} is a hash containing 
     # all your options key/value pairs.
     $self->{http}->set_options(%{$self->{option_results}});
 }
@@ -550,12 +271,12 @@ outputs this message:
 
 Now let's do some monitoring thanks to centreon-plugins.
 
-#### Declare your counters
+### Declare your counters
 
 This part essentially maps the data you want to get from the API with the internal
 counter mode structure.
 
-Remember how we categorized the data in a previous [section](#understand-the-data).
+Remember how we categorized the data in the previous section understand-the-data.
 
 The `$self->{maps_counters_type}` data structure describes these data while the `$self->{maps_counters}->{global}` one defines
 their properties like thresholds and how they will be displayed to the users.
@@ -565,14 +286,14 @@ sub set_counters {
     my ($self, %options) = @_;
 
     $self->{maps_counters_type} = [
-        # health and queries are global metric, they don't refer to a specific instance.
+        # health and queries are global metric, they don't refer to a specific instance. 
         # In other words, you cannot get several values for health or queries
         # That's why the type is 0.
         { name => 'health', type => 0, cb_prefix_output => 'prefix_health_output' },
         { name => 'queries', type => 0, cb_prefix_output => 'prefix_queries_output' },
         # app_metrics groups connections and errors and each will receive value for both instances (my-awesome-frontend and my-awesome-db)
         # the type => 1 explicits that
-        # as above, you can define a callback (cb) function to manage the output prefix. This function is called
+        # as above, you can define a callback (cb) function to manage the output prefix. This function is called 
         # each time a value is passed to the counter and can be shared across multiple counters.
         { name => 'app_metrics', type => 1, cb_prefix_output => 'prefix_app_output' }
     ];
@@ -584,9 +305,9 @@ sub set_counters {
             # All properties below (before et) are related to the catalog_status_ng catalog function imported at the top of our mode
             type => 2,
             # These properties allow you to define default thresholds for each status but not mandatory.
-            warning_default => '%\{health\} =~ /yellow/',
-            critical_default => '%\{health\} =~ /red/',
-            # To simplify, manage things related to how get value in the counter, what to display and specific threshold
+            warning_default => '%{health} =~ /yellow/', 
+            critical_default => '%{health} =~ /red/', 
+            # To simplify, manage things related to how get value in the counter, what to display and specific threshold 
             # check because of the type of the data (string)
             set => {
                 key_values => [ { name => 'health' } ],
@@ -600,9 +321,9 @@ sub set_counters {
     $self->{maps_counters}->{queries} = [
         # The label defines options name, a --warning-select and --critical-select will be added to the mode
         # The nlabel is the name of your performance data / metric that will show up in your graph
-        {
-            label => 'select',
-            nlabel => 'myawesomeapp.db.queries.select.count',
+        { 
+            label => 'select', 
+            nlabel => 'myawesomeapp.db.queries.select.count', 
             set => {
             # Key value name is the name we will use to pass the data to this counter. You can have several ones.
                 key_values => [ { name => 'select' } ],
@@ -664,7 +385,7 @@ sub set_counters {
 The mode compiles. Run the command
 supplying a value to the `--hostname` option to see what it displays:
 
-```bash
+```shell
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=fakehost
 OK: status : skipped (no value(s)) - select : skipped (no value(s)), update : skipped (no value(s)), delete : skipped (no value(s))
 ```
@@ -672,7 +393,7 @@ OK: status : skipped (no value(s)) - select : skipped (no value(s)), update : sk
 You can see some of your counters with the `skipped (no value(s))`, it's normal, this is because we
 just created the counters definition and structure but didn't push any values into it.
 
-#### Create prefix callback functions
+### Create prefix callback functions
 
 These functions are not mandatory but help to make the output more readable for a human. We will create
 it now but as you have noticed the mode compiles so you can choose to keep those for the polishing moment.
@@ -709,16 +430,16 @@ sub prefix_app_output {
 1;
 ```
 
-Execute your command and check that the output matches the one below:
+Execute your command and check that the output matches the one below: 
 
-```bash
+```shell
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=fakehost
 OK: My-awesome-app: status : skipped (no value(s)) - Queries: select : skipped (no value(s)), update : skipped (no value(s)), delete : skipped (no value(s))
-```
+``` 
 
 The output is easier to read and separators are visible between global counters.
 
-#### Get raw data from API and understand the data structure
+### Get raw data from API and understand the data structure
 
 It's the moment to write the main sub (`manage_selection`) - the most complex, but also the one that
 will transform your mode to something useful and alive.
@@ -749,7 +470,7 @@ sub manage_selection {
 1;
 ```
 
-Run this command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io`.
+Run this command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io`. 
 
 The output should be:
 
@@ -797,7 +518,7 @@ sub manage_selection {
     # We have already loaded all things required for the http module
     # Use the request method from the imported module to run the GET request against the URL path of our API
     my ($content) = $self->{http}->request(url_path => '/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656');
-
+    
     # Declare a scalar deserialize the JSON content string into a perl data structure
     my $decoded_content;
     eval {
@@ -806,9 +527,9 @@ sub manage_selection {
     # Catch the error that may arise in case the data received is not JSON
     if ($@) {
         $self->{output}->add_option_msg(short_msg => "Cannot encode JSON result");
-        $self->{output}->option_exit();
+        $self->{output}->option_exit();    
     }
-    use Data::Dumper;
+    use Data::Dumper; 
     print Dumper($decoded_content);
     print "My App health is '" . $decoded_content->{health} . "'\n";
 }
@@ -823,7 +544,7 @@ You now have your JSON deserialized into a perl `$VAR1` which represents your `$
 
 You can also note the result of the latest print and how we accessed the `yellow` value.
 
-```perl tile="Perl data structure from JSON"
+```shell tile="Perl data structure from JSON"
 $VAR1 = {
           'connections' => [
                              {
@@ -855,7 +576,7 @@ $VAR1 = {
 My App health is 'yellow'
 ```
 
-#### Push data to global counters (type => 0)
+### Push data to global counters (type => 0)
 
 Now that we know our data structure and how to access the values, we have to assign this
 value to the counters we initially defined. Pay attention to the comments above
@@ -878,22 +599,22 @@ sub manage_selection {
     # Catch the error that may arise in case the data received is not JSON
     if ($@) {
         $self->{output}->add_option_msg(short_msg => "Cannot encode JSON result");
-        $self->{output}->option_exit();
+        $self->{output}->option_exit();    
     }
     # Uncomment the lines below when you reached this part of the tutorial.
-    # use Data::Dumper;
+    # use Data::Dumper; 
     # print Dumper($decoded_content);
     # print "My App health is '" . $decoded_content->{health} . "'\n";
 
     # Here is where the counter magic happens.
-
+    
     # $self->{health} is your counter definition (see $self->{maps_counters}->{<name>})
     # Here, we map the obtained string $decoded_content->{health} with the health key_value in the counter.
-    $self->{health} = {
+    $self->{health} = { 
         health => $decoded_content->{health}
     };
 
-    # $self->{queries} is your counter definition (see $self->{maps_counters}->{<name>})
+    # $self->{queries} is your counter definition (see $self->{maps_counters}->{<name>}) 
     # Here, we map the obtained values from the db_queries nodes with the key_value defined in the counter.
     $self->{queries} = {
         select => $decoded_content->{db_queries}->{select},
@@ -927,7 +648,7 @@ Behind the scenes, it manages a lot of things for you:
 
 Now, you probably understand better why the preparation work about understanding collected data and the counter definition part is essential: simply because it's the bigger part of the job.
 
-#### Push data to counters having an instance (type => 1)
+### Push data to counters having an instance (type => 1)
 
 Now let's deal with counters with instances. That means that the same counters will
 receive multiple data, each of these data refering to a specific dimension.
@@ -955,22 +676,22 @@ sub manage_selection {
     # Catch the error that may arise in case the data received is not JSON
     if ($@) {
         $self->{output}->add_option_msg(short_msg => "Cannot encode JSON result");
-        $self->{output}->option_exit();
+        $self->{output}->option_exit();    
     }
     # Uncomment the lines below when you reached this part of the tutorial.
-    # use Data::Dumper;
+    # use Data::Dumper; 
     # print Dumper($decoded_content);
     # print "My App health is '" . $decoded_content->{health} . "'\n";
 
     # Here is where the counter magic happens.
-
+    
     # $self->{health} is your counter definition (see $self->{maps_counters}->{<name>})
     # Here, we map the obtained string $decoded_content->{health} with the health key_value in the counter.
-    $self->{health} = {
+    $self->{health} = { 
         health => $decoded_content->{health}
     };
 
-    # $self->{queries} is your counter definition (see $self->{maps_counters}->{<name>})
+    # $self->{queries} is your counter definition (see $self->{maps_counters}->{<name>}) 
     # Here, we map the obtained values from the db_queries nodes with the key_value defined in the counter.
     $self->{queries} = {
         select => $decoded_content->{db_queries}->{select},
@@ -981,16 +702,16 @@ sub manage_selection {
     # Initialize an empty app_metrics counter.
     $self->{app_metrics} = {};
     # Loop in the connections array of hashes
-    foreach my $entry (@\{ $decoded_content->{connections\} }) {
-        # Same logic than type => 0 counters but an extra key $entry->{component} to associate the value
+    foreach my $entry (@{ $decoded_content->{connections} }) {
+        # Same logic than type => 0 counters but an extra key $entry->{component} to associate the value 
         # with a specific instance
         $self->{app_metrics}->{ $entry->{component} }->{display} = $entry->{component};
         $self->{app_metrics}->{ $entry->{component} }->{connections} = $entry->{value};
     };
 
     # Exactly the same thing with errors
-    foreach my $entry (@\{ $decoded_content->{errors\} }) {
-        # Don't need to redefine the display key, just assign a value to the error key_value while
+    foreach my $entry (@{ $decoded_content->{errors} }) {
+        # Don't need to redefine the display key, just assign a value to the error key_value while 
         # keeping the $entry->{component} key to associate the value with the good instance
         $self->{app_metrics}->{ $entry->{component} }->{errors} = $entry->{value};
     };
@@ -1010,23 +731,23 @@ additional parameters:
 as a parameter will automatically override the hardcoded default code value
 - `--verbose` will display the long output and the details for each `type => 1` counters
 
-```bash
+```shell
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io --warning-health='%{health} eq "care"' --verbose
 ```
 
-Here is the expected output:
+Here is the expected output: 
 
-```bash
+```shell
 OK: My-awesome-app status: yellow - Queries: select: 1230, update: 640, delete: 44 | 'myawesomeapp.db.queries.select.count'=1230;;;0; 'myawesomeapp.db.queries.update.count'=640;;;0; 'myawesomeapp.db.queries.delete.count'=44;;;0; 'my-awesome-db#myawesomeapp.connections.count'=92;;;0; 'my-awesome-db#myawesomeapp.errors.count'=27;;;0; 'my-awesome-frontend#myawesomeapp.connections.count'=122;;;0; 'my-awesome-frontend#myawesomeapp.errors.count'=32;;;0;
 'my-awesome-db' connections: 92, errors: 27
 'my-awesome-frontend' connections: 122, errors: 32
 ```
 
 You now get metrics displayed for both components `'my-awesome-db'` and `'my-awesome-frontend'` and also performance data
-for your graphs. Note how the counter template automatically added the instance dimension on the left of the `nlabel` defined
-for each counters: `**my-awesome-frontend#**myawesomeapp.errors.count'=32;;;0;`
+for your graphs. Note how the counter template automatically added the instance dimension on the left of the `nlabel` defined 
+for each counters: **my-awesome-frontend#** myawesomeapp.errors.count'=32;;;0;
 
-#### Help section and assistant to build your centreon objects
+### Help section and assistant to build your centreon objects
 
 Last but not least, you need to write a help section to explain users what your mode is
 doing and what options they can use.
@@ -1037,20 +758,19 @@ and options.
 Run this command to obtain a summary that will simplify the work of creating Centreon commands and write
 the mode's help:
 
-```bash
-perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname='anyvalue' --list-coun
-ters --verbose
+```shell
+perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname='anyvalue' --list-counters --verbose
 ```
 
 Get information from its output (shown below) to start building your mode's help:
 
-```bash
+```shell
 counter list: select update delete health connections errors
 configuration:  --warning-select='$_SERVICEWARNINGSELECT$' --critical-select='$_SERVICECRITICALSELECT$' --warning-update='$_SERVICEWARNINGUPDATE$' --critical-update='$_SERVICECRITICALUPDATE$' --warning-delete='$_SERVICEWARNINGDELETE$' --critical-delete='$_SERVICECRITICALDELETE$' --warning-health='$_SERVICEWARNINGHEALTH$' --critical-health='$_SERVICECRITICALHEALTH$' --warning-connections='$_SERVICEWARNINGCONNECTIONS$' --critical-connections='$_SERVICECRITICALCONNECTIONS$' --warning-errors='$_SERVICEWARNINGERRORS$' --critical-errors='$_SERVICECRITICALERRORS$'
 ```
 
 Here is how you can write the help, note that this time you will add the content after the `1;` and add the same
-`__END__` instruction like you did in the `plugin.pm` file.
+`__END__` instruction like you did in the `plugin.pm` file. 
 
 
 ```perl title="Help section"
@@ -1064,9 +784,9 @@ Check my-awesome-app metrics exposed through its API
 
 =item B<--warning/critical-health>
 
-Warning and critical threshold for application health string.
+Warning and critical threshold for application health string. 
 
-Defaults values are: --warning-health='%\{health\} eq "yellow"' --critical-health='%\{health\} eq "red"'
+Defaults values are: --warning-health='%{health} eq "yellow"' --critical-health='%{health} eq "red"'
 
 =item B<--warning/critical-select>
 
@@ -1091,11 +811,11 @@ Warning and critical threshold for errors
 =back
 ```
 
-You're done! You can enjoy a complete plugin and mode and the help now displays in a specific
-mode section:
+You're done! You can enjoy a complete plugin and mode and the help now displays in a specific 
+mode section: 
 
 
-```bash
+```shell
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --help
 [..
    All global options from the centreon-plugins framework that your plugin benefits from
@@ -1106,8 +826,8 @@ Mode:
     --warning/critical-health
             Warning and critical threshold for application health string.
 
-            Defaults are: --warning-health='%\{health\} eq "yellow"' &
-            --critical-health='%\{health\} eq "red"'
+            Defaults are: --warning-health='%{health} eq "yellow"' &
+            --critical-health='%{health} eq "red"'
 
     --warning/critical-select
             Warning and critical threshold for select queries
@@ -1123,4 +843,267 @@ Mode:
 
     --warning/critical-errors
             Warning and critical threshold for errors
+```
+
+## Convert in custom mode
+
+Custom mode is a well established type of plugin. Then it can be useful to understand the way to build and use it.
+Custom is a mode made for when you may have different way to collect plugin input. More broadly, plugins using custom mode afford flexibility if later you have to add a new way to give input in a plugin. This is the main reason why most of latest plugins are in custom mode baseline.
+
+Most of the time the way to collect input use api and this is the most common custom mode you will find in plugins.
+There are also cli file for command line or tcp, etc.
+
+In our example case of tutoral it's an api case.
+
+### Create custom file 
+
+First we need to create the custom file : api.pm
+
+```shell
+mkdir -p src/apps/myawesomeapp/api/custom/
+touch src/apps/myawesomeapp/api/custom/api.pm
+```
+### Changes in plugin.pm
+
+First we need to change plugins script libraririe :
+```perl
+centreon::plugins::script_simple
+```
+replace by 
+```perl
+centreon::plugins::script_custom
+```
+Then in new constructor a new line calling for the custom is needed
+```perl
+sub new {
+    my ($class, %options) = @_;
+    my $self = $class->SUPER::new(package => __PACKAGE__, %options);
+        'app-metrics' => 'apps::myawesomeapp::api::mode::appmetrics'
+    };
+
+    $self->{custom_modes}->{api} = 'apps::myawesomeapp::api::custom::api';
+    return $self;
+}
+```
+### Changes in mode.pm
+
+Custom mode allows to change the way to obtain input, thus all that concern input and the way to process it is push to the custom file. The mode file will contain all needed functions for processing input to give the output needed.
+
+First the new constructor will change :
+```perl
+sub new {
+    my ($class, %options) = @_;
+    my $self = $class->SUPER::new(package => __PACKAGE__, %options, force_new_perfdata => 1);
+    bless $self, $class;
+    
+    $options{options}->add_options(arguments => {});
+    return $self;
+}
+```
+
+The check_options function is push into the custom file because it was usefull for the input formating
+
+The manage_selection function is updated to remove all that concern the input management.
+
+```perl
+sub manage_selection {
+    my ($self, %options) = @_;
+    
+    #This line replace the input section previously available here
+    my $results = $options{custom}->request_api();
+    
+    # $self->{health} is your counter definition (see $self->{maps_counters}->{<name>})
+    # Here, we map the obtained string $decoded_content->{health} with the health key_value in the counter.
+    $self->{health} = {
+        health => $results->{health}
+    };
+    
+    # $self->{queries} is your counter definition (see $self->{maps_counters}->{<name>})
+    # Here, we map the obtained values from the db_queries nodes with the key_value defined in the counter.
+    $self->{queries} = {
+        select => $results->{db_queries}->{select},
+        update => $results->{db_queries}->{update},
+        delete => $results->{db_queries}->{delete}
+    };
+    
+    # Initialize an empty app_metrics counter.
+    $self->{app_metrics} = {};
+    # Loop in the connections array of hashes
+    foreach my $entry (@{ $results->{connections} }) {
+        # Same logic than type => 0 counters but an extra key $entry->{component} to associate the value
+        # with a specific instance
+        $self->{app_metrics}->{ $entry->{component} }->{display} = $entry->{component};
+        $self->{app_metrics}->{ $entry->{component} }->{connections} = $entry->{value}
+    };
+    
+     # Exactly the same thing with errors
+    foreach my $entry (@{ $results->{errors} }) {
+        # Don't need to redefine the display key, just assign a value to the error key_value while
+        # keeping the $entry->{component} key to associate the value with the good instance
+        $self->{app_metrics}->{ $entry->{component} }->{errors} = $entry->{value};
+    };
+}
+```
+
+### New file : api.pm
+
+As explained in the previous section, the custom file will contain all needed functions about input and the way to process it.
+
+This new file needs to contains the packages and libraries declarations :
+
+```perl
+package apps::myawesomeapp::api::custom::api;
+
+use strict;
+use warnings;
+
+use centreon::plugins::http;
+use centreon::plugins::templates::catalog_functions qw(catalog_status_threshold_ng);
+use JSON::XS;
+```
+
+It also contains the following functions :
+* new constructor : construct the object in the same way than in mode file previously
+* set_options
+* set_defaults
+* check_options
+* settings
+* request_api
+
+#### new constructor
+
+```perl
+sub new {
+    my ($class, %options) = @_;
+    my $self  = {};
+    bless $self, $class;
+
+    # Check if an output option is available
+    if (!defined($options{output})) {
+        print "Class Custom: Need to specify 'output' argument.\n";
+        exit 3;
+    }
+    # Check if options are avaliable
+    if (!defined($options{options})) {
+        $options{output}->add_option_msg(short_msg => "Class Custom: Need to specify 'options' argument.");
+        $options{output}->option_exit();
+    }
+
+    if (!defined($options{noptions})) {
+        # Adding options legacy from appsmetrics.pm in single mode
+        $options{options}->add_options(arguments => {
+            'hostname:s'           => { name => 'hostname' },
+            'proto:s'              => { name => 'proto', default => 'https' },
+            'port:s'               => { name => 'port', default => 443 },
+            'timeout:s'            => { name => 'timeout' },
+            'unknown-status:s'     => { name => 'unknown_status', default => '%{http_code} < 200 or %{http_code} >= 300' },
+            'warning-status:s'     => { name => 'warning_status' },
+            'critical-status:s'    => { name => 'critical_status', default => '' }
+        });
+    }
+    # Adding Help structure to the object
+    $options{options}->add_help(package => __PACKAGE__, sections => 'REST API OPTIONS', once => 1);
+    # Adding output structure to the object
+    $self->{output} = $options{output};
+    # Command line legacy from appsmetrics.pm in single mode
+    $self->{http} = centreon::plugins::http->new(%options);
+
+    return $self;
+}
+```
+
+#### set_options
+
+This function overwrite the set_options function in http module
+
+```perl
+sub set_options {
+    my ($self, %options) = @_;
+
+    $self->{option_results} = $options{option_results};
+}
+```
+
+#### set_defaults
+
+This function is empty.
+
+```perl
+sub set_defaults {}
+```
+
+#### check_options
+
+```perl
+sub check_options {
+    my ($self, %options) = @_;
+
+    # Check if options are propely define
+    $self->{hostname} = (defined($self->{option_results}->{hostname})) ? $self->{option_results}->{hostname} : '';
+    $self->{proto} = (defined($self->{option_results}->{proto})) ? $self->{option_results}->{proto} : 'https';
+    $self->{port} = (defined($self->{option_results}->{port})) ? $self->{option_results}->{port} : 443;
+    $self->{timeout} = (defined($self->{option_results}->{timeout})) ? $self->{option_results}->{timeout} : 10;
+    $self->{unknown_status} = (defined($self->{option_results}->{unknown_status})) ? $self->{option_results}->{unknown_status} : '';
+    $self->{warning_status} = (defined($self->{option_results}->{warning_status})) ? $self->{option_results}->{warning_status} : '';
+    $self->{critical_status} = (defined($self->{option_results}->{critical_status})) ? $self->{option_results}->{critical_status} : '';
+
+    # Check if the user provided a value for --hostname option. If not, display a message and exit
+    if (!defined($self->{hostname}) || $self->{hostname} eq '') {
+        $self->{output}->add_option_msg(short_msg => 'Please set hostname option');
+        $self->{output}->option_exit();
+    }
+
+    return 0;
+}
+```
+
+#### settings
+
+This function allows to initialize api object options structure and feed it calling set_options
+
+```perl
+sub settings {
+    my ($self, %options) = @_;
+
+    # Initialize options structure
+    $self->{option_results}->{hostname} = $self->{hostname};
+    $self->{option_results}->{proto} = $self->{proto};
+    $self->{option_results}->{port} = $self->{port};
+    $self->{option_results}->{timeout} = $self->{timeout};
+    $self->{option_results}->{unknown_status} = $self->{unknown_status};
+    $self->{option_results}->{warning_status} = $self->{warning_status};
+    $self->{option_results}->{critical_status} = $self->{critical_status};
+
+    # Feed options structure using set_options 
+    $self->{http}->set_options(%{$self->{option_results}});
+}
+```
+
+#### request_api
+
+```perl
+sub request_api {
+    my ($self, %options) = @_;
+    
+    # Define APi options needed for request
+    $self->settings();
+
+    my ($content) = $self->{http}->request(url_path => '/v3/da8d5aa7-abb4-4a5f-a31c-6700dd34a656');
+
+    if (!defined($content) || $content eq '') {
+        $self->{output}->add_option_msg(short_msg => "API returns empty content [code: '" . $self->{http}->get_code() . "'] [message: '" . $self->{http}->get_message() . "']");
+        $self->{output}->option_exit();
+    }
+
+    my $decoded;
+    eval {
+        $decoded = JSON::XS->new->decode($content);
+    };
+    if ($@) {
+        $self->{output}->add_option_msg(short_msg => "Cannot encode JSON result");
+        $self->{output}->option_exit();
+    }
+
+    return $decoded;
+}
 ```

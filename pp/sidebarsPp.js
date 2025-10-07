@@ -105,11 +105,23 @@ module.exports = {
             },
             {
               type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/plugins-guidelines'
+              id: 'integrations/plugin-packs/dev-resources/plugins-global'
             },
             {
               type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/develop-with-centreon-plugins'
+              id: 'integrations/plugin-packs/dev-resources/plugins-advanced'
+            }
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/dev-resources/tutorial-api'
+            },
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/dev-resources/tutorial-snmp'
+            }
+            {
+              type: 'doc',
+              id: 'integrations/plugin-packs/dev-resources/tutorial-service-discovery'
             }
           ]
         }
