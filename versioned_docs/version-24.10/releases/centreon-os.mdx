@@ -23,11 +23,81 @@ Read more about version 24.10 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 24.10.13
+
+Release date: `October 7, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Enhanced Agent configuration endpoints documentation.
+- [Configuration] ACC - vCenter/ESC names are now unique.
+- [configuration] Cleaned up labels in Agent configuration screens.
+- [Custom Views] "Global Health" and "Top 10" widgets - Improved display and fixed issue with MySQL8.
+
+</details>
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- A default Token has been generated and applied to existing agent configuration.
+- Added missing French translations for help messages.
+- [Administration] Fixed an error message when a CMA token was copied.
+- [API v1] Fixed creation of services by CLAPI with a non-administrator user.
+- [API v1] Forbid creation of host and host groups with an empty name.
+- [Authentication] Fixed an issue that prevented users logged in via OIDC from logging out of the interface.
+- [Authentication] LDAP user with no mail can now authenticate on Centreon with LDAP auto import.
+- [CLAPI] Fixed host creation form to accept spaces in name.
+- [Configuration] Fixed a circular dependencies issue for service template inheritance (UI + API).
+- [Configuration] Fixed an issue on Additional Configuration where configuration were lost if name are just numbers.
+- [Configuration] Fixed an issue where non explicit error message were displayed when saving host configuration if geo-coordinates are too long.
+- [Configuration] Fixed host alias not properly handling quotes in input.
+- [Configuration] Fixed an issue on "configuration changed" flag which was not updated when changing extended info using CLAPI.
+- [Configuration] Increased contact_pager property to enable longer tokens (e.g. Microsoft Teams).
+- [Configuration] The creation of metaservices no longer fails for users with several ACL rules on resources.
+- [Custom Views] Host Monitoring - Fixed the export functionality for all resources.
+- [Dashboards] Metrics Graph widget - Fixed display issue when changing graph display type.
+- [Dashboards] Fixed contact search when sharing a dashboard or a playlist.
+- [Dashboards] Fixed saving issue when leaving dashboards to a legacy page.
+- [Dashboards] Reduced the minimum size for MAP and Resource table widgets.
+- [Dashboards] Status Grid - Fixed link to Resource Status page.
+- [Event Logs] Pagination was not working properly.
+- Fixed an issue where service deploy endpoint was adding the command line to the service.
+- Fixed an issue where exported Tokens was ignored by engine.
+- [LDAP] Fixed an issue on Users & Groups filters validation.
+- [Packaging] Removed obsolete dependencies for database related centreon packages.
+- [Resource Status] Fixed an issue on notification tab where same user was displayed multiple times.
+- [Resource Status] Fixed notification tab to display the contact set on service template rather than on the host.
+- [Resource Status] Removed deleted resources from search results.
+- [Resource Status] The pipe “|” character is now handled correctly in the command section of a resource.
+- [Resource Status] View by host - Fixed issue preventing resources from being displayed when filtering on a resource that has no metric.
+- [Update] Fixed an issue on modules routes which were no longer up to date.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Administration] Fixed XSS in Administration > ACL > Action Access.
+- [Configuration] Fixed XSS in Configuration > SNMP Traps form.
+- [Security] The current password is now required when modifying a user password.
+- [Vulnerability] Custom Views - Fixed XSS in the HTTP Loader widget "Website" field.
+- [Vulnerability] Fixed insecure direct object reference allowing private widget retrieval.
+- [Vulnerability] Fixed XSS vulnerability on Hosts templates.
+- [Vulnerability] Fixed XSS vulnerability on Recurrent downtimes.
+- [Vulnerability]	Fixed XSS vulnerability on Connectors.
+- [Vulnerability]	Fixed XSS vulnerability on Resources Access parameters.
+- [Vulnerability] Fixed XSS vulnerability on SNMP traps.
+- [Vulnerability] Securized Poller configuration commands to avoid RCE vulnerability.
+- [Vulnerability] Upgraded select2 dependency.
+
+</details>
+
 ### 24.10.12
 
 Release date: `August 28, 2025`
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - A default token has been generated and applied to existing agent configurations.
@@ -39,7 +109,7 @@ Release date: `August 28, 2025`
 
 Release date: `August 21, 2025`
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] The current password is now required when modifying a user's password.
@@ -50,7 +120,7 @@ Release date: `August 21, 2025`
 
 Release date: `August 11, 2025`
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - [UI] Fixed missing French translations in menus
@@ -88,7 +158,7 @@ Release date: `August 6, 2025`
 
 </details>
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - [Administration] Fixed an issue on user groups and templates that occurred when importing non-admin users from LDAP.
@@ -110,7 +180,7 @@ Release date: `August 6, 2025`
 
 </details>
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Vulnerability] Fixed vulnerabilities on several pages.
@@ -937,6 +1007,18 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon DSM
+
+### 24.10.3
+
+Release date: `October 7, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] sql files are now correctly packaged on centreon-dsm.
+- [Packaging] Updated permissions of dsm purge log file.
+
+</details>
 
 ### 24.10.2
 
