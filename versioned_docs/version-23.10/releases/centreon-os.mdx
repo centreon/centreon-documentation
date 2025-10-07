@@ -23,6 +23,201 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 23.10.28
+
+Release date: `September 24, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API v1] Fixed an issue affecting the creation of services by CLAPI by non-administrator users.
+- [Configuration] Fixed a circular dependency issue for service template inheritance (interface + API).
+- [Configuration] Fixed an issue where host aliases were not handling quotes in inputs properly.
+- [Custom Views] Host Monitoring - Fixed the export feature for all resources.
+- [Install] Added **monitoring-plugins-basic** dependency for installation on Debian platforms.
+- [Resource Status] Fixed a notification tab issue that occurred when using the “Inherit only contacts/contacts group from host” parameter.
+- [Resource Status] The pipe “|” character is now handled correctly in the command section of a resource.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] The current password is now required when modifying a user's password.
+- [Vulnerability] Upgraded select2 dependency.
+- [Vulnerability] Fixed multiple XSS vulnerabilities.
+- Securized Poller configuration commands to avoid RCE vulnerability.
+
+</details>
+
+### 23.10.27
+
+Release date: `August 21, 2025`
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] The current password is now required when modifying a user's password.
+
+</details>
+
+### 23.10.26
+
+Release date: `July 24, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Authentication] Improved SAML configuration by adding a "Requested Authentication Context" parameter.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Custom Views] Servicegroup monitoring widget - Fixed issue preventing non admin users from seeing widget data.
+- [Metaservices] Fixed SQLi issues. Fixed several issues occuring when using MySQL 8.
+- [Upgrade] Fixed migration script for version 23.10.8.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed vulnerability on notification escalation pages.
+- [Security] Fixed SQLi vulnerabilities on Configuration > Users > Contact templates.
+- [Vulnerability] Fixed SQL injection in Monitoring > Event Logs page.
+- [Vulnerability] Fixed SQL injection on meta-service configuration page.
+- [Vulnerability] SQL injections are now prevented on Host Category configuration page.
+- [Vulnerability] SQL injections are now prevented on the Host dependency field, in the Host configuration page.
+
+</details>
+
+### 23.10.25
+
+Release date: `June 16, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Added missing update file for version 23.10.24.
+
+</details>
+
+### 23.10.24
+
+Release date: `June 4, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Cron] The script that deletes expired tokens is now run with the **apache** user to avoid invalid permissions on a web log file.
+- [Install] Fixed incorrect rights on a database configuration file.
+- [Resource Status] Searching for an item containing a slash character is now handled correctly.
+- [Resource Status] The **Select all** checkbox in the view by host now works correctly.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed XSS in host listing.
+- [Vulnerability] Upgraded axios to version 1.8.1.
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+</details>
+
+### 23.10.23
+
+Release date: `March 31, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed ACL checks on contact/user configuration page.
+- [Configuration] Fixed an issue where the notification period field was not saved in some cases.
+- [Custom Views] Fixed an issue preventing non admin users from seeing host groups in the Host group Monitoring widget and service groups in the Service group Monitoring widget.
+- [Downtimes] Fixed an issue where non admin users could not display the downtimes page.
+- [Downtimes] Fixed an issue where loading the downtimes page resulted in a gateway timeout error.
+- [Web] Fixed an issue where some password managers were preventing users from accessing legacy pages.
+
+</details>
+
+### 23.10.22
+
+Release date: `February 27, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added missing configuration change logs for command configuration (ADD).
+- [API] Added missing configuration change logs for host categories configuration.
+- [API] Added missing configuration change logs for service categories configuration.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Media - Image Synchronization] Fixed an issue with the case sensitivity of file extensions.
+- [Media - Image Synchronization] SVG files are now supported.
+- [Resource Status] Fixed an issue preventing some services from being listed in the filters.
+- [Translation] Fixed a translation issue on menu & breadcrumb and added a "Connectors" submenu that includes Monitoring Connectors and Additional configurations.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Image upload] Fixed a security vulnerability on image upload.
+- [Security] Fixed extends-tag vulnerability in Smarty.
+- [Security] Updated the version used for Smarty (CVE-2023-28447).
+
+</details>
+
+### 23.10.21
+
+Release date: `February 10, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Event Logs] Fixed access issue with non admin users.
+
+</details>
+
+### 23.10.20
+
+Release date: `January 27, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added missing configuration change logs for host severities configuration.
+- [API] Added missing configuration change logs for service severities configuration.
+- [API] Added missing configuration change logs for host template configuration.
+- [API] Added missing configuration change logs written when the configuration of services is deployed.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Authentication] Fixed an issue preventing LDAP users with more than one email address to log in to Centreon.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed a vulnerability in the contact creation form.
+- [Security] Fixed SQLi in "Host Monitoring" widget in Custom Views, for authenticated users having sufficient rights to export data in CSV.
+- [Security] Fixed SQLi in "Hostgroup Monitoring" widget in Custom Views, for authenticated users having sufficient rights to export data in CSV.
+- [Security] Fixed SQLi in "Service Monitoring" widget in Custom Views, for authenticated users having sufficient rights to edit the widget.
+- [Security] Updated Symfony **Security-Http** component.
+
+</details>
+
 ### 23.10.19
 
 Release date: `January 9, 2025`
@@ -79,7 +274,7 @@ Release date: `November 21, 2024`
 - [Administration] The names of the metaservices are now correctly displayed in the "Administration > Parameters > Data" menu.
 - [API] Fixed ACLs allowing access to a resource (host or service) upon its creation via the APIs by a non-administrator user.
 - [API] The is_notifications_enabled value in the host configuration endpoint of the API is now correctly updated when notifications are enabled.
-- [API Token] Fixed an issue with the expiration date of tokens in the API tokens page.
+- [API Token] Fixed an issue with the expiration date of API-generated tokens.
 - [Configuration] Custom macros are now correctly exported to the Remote Server when the configuration is deployed.
 - [Configuration] Engine log options are now correctly displayed, regardless of the user's language and the selected log level.
 - [Configuration] Fixed incorrect links in the Export configuration page.
@@ -603,6 +798,53 @@ Release date: `October 30, 2023`
 
 ## Centreon Collect
 
+### 23.10.17
+
+Release date: `September 29, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Engine] Engine no longer crashes when users delete a host during downtime notification.
+- [Packaging] Fixed package dependency issue with centreon-broker-caching-sha2-password that could block a broker update.
+
+</details>
+
+### 23.10.16
+
+Release date: `July 16, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Resource status] Fixed issues on tags (filters on host groups, host categories, service groups, service categories).
+
+</details>
+
+### 23.10.15
+
+Release date: `April 8, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue where acknowledgements did not appear in the logs table.
+- [Configuration] Fixed an issue where password parameters were incorrectly saved when creating several output-type stream connectors.
+
+</details>
+
+### 23.10.14
+
+Release date: `March 5, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue where the wrong service state was restored when engine re-established its connection to broker after a disconnection.
+- [Packaging] Fixed centreon-engine restart issue affecting pollers, caused by a missing service binary.
+
+</details>
+
 ### 23.10.13
 
 Release date: `December 19, 2024`
@@ -839,6 +1081,69 @@ Release date: `October 30, 2023`
 
 ## Centreon Gorgone
 
+### 23.10.15
+
+Release date: `September 29, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed centreontrapd configuration file permissions applied when exporting poller configuration.
+- [MBI] Fixed an issue where the ETL would never finish executing if some service templates were referencing themselves.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Gorgone] Added an option to make discovery commands less permissive.
+
+</details>
+
+### 23.10.14
+
+Release date: `August 11, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Gorgone] Added option to disable bash interpolation in discovery commands.
+
+</details>
+
+### 23.10.13
+
+Release date: `July 16, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue on Alma 9 where plugins were not installed because yum did not exist anymore.
+
+</details>
+
+### 23.10.12
+
+Release date: `May 21, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Fixed missing part on the Poller-Performances report.
+
+</details>
+
+### 23.10.11
+
+Release date: `March 5, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+[Configuration] Fixed a bug where the Gorgone API could not use a password containing a UTF-8 character.
+
+</details>
+
 ### 23.10.10
 
 Release date: `September 30, 2024`
@@ -970,6 +1275,17 @@ Release date: `October 30, 2023`
 
 ## Centreon High Availability
 
+### 23.10.1
+
+Release date: `July 24, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [HA] Fixed an issue on cron for outdated token removal.
+
+</details>
+
 ### 23.10.0
 
 Release date: `October 30, 2023`
@@ -982,6 +1298,41 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon DSM
+
+### 23.10.4
+
+Release date: `July 24, 2025`
+
+No changes for this module in this version.
+
+### 23.10.3
+
+Release date: `February 27, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [DSM] Fixed an issue where new pool configurations were disabled, without any possibility to enable them.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Updated the version used for Smarty (CVE-2023-28447).
+
+</details>
+
+### 23.10.2
+
+Release date: `January 27, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [DSM] Fixed an issue where a blank page could be displayed when accessing the "Administration > Extensions > Configure" menu.
+
+</details>
 
 ### 23.10.1
 
@@ -1006,6 +1357,17 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Open Tickets
+
+### 23.10.3
+
+Release date: `February 27, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Updated the version used for Smarty (CVE-2023-28447).
+
+</details>
 
 ### 23.10.2
 

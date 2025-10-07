@@ -71,9 +71,12 @@ and make sure that the **Webserver / RESTApi** configuration is correct.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -109,7 +112,7 @@ yum install centreon-pack-infrastructure-active-directory-nsclient-05-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Active Directory API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -176,7 +179,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | LANGUAGE     | Set the language used in config file                                                                                                                  | en                |             |
 | CONFIGFILE   | The command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file. |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).      |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).      |                   |             |
 
 </TabItem>
 <TabItem value="Dfsr-Backlog" label="Dfsr-Backlog">

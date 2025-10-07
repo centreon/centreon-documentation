@@ -163,7 +163,7 @@ Message that warns a user that an incident has occurred. You can configure notif
 
 ## One-peer retention mode
 
-Advanced configuration for Centreon [Broker](#broker) that activates the retention mechanism in [Broker inverted flow mode](#broker-inverted-flow-mode). This mode is commonly used for monitoring servers ([pollers](#poller) or [remote servers](#remote-server)) located in demilitarized zones (DMZ).
+Advanced configuration for Centreon [Broker](#broker) that activates the retention mechanism in [Broker reverse mode](#broker-reverse-mode). This mode is commonly used for monitoring servers ([pollers](#poller) or [remote servers](#remote-server)) located in demilitarized zones (DMZ).
 
 ## Pack
 
@@ -223,7 +223,7 @@ Time period, in days, during which you want to keep the data from your RRD and M
 
 ## RRD files
 
-An RRD file contains the data for a [metric](#metric). RRD files are used to build performance [graph](#graphs). If there are no RRD files, graphs cannot be displayed. Because of the way RRD works, the data displayed in the graphs shows a trend rather than the exact data that was measured.
+An RRD file contains the data for a [metric](#metric). RRD files are used to build performance [graph](#graph). If there are no RRD files, graphs cannot be displayed. Because of the way RRD works, the data displayed in the graphs shows a trend rather than the exact data that was measured.
 
 ## Scheduler
 

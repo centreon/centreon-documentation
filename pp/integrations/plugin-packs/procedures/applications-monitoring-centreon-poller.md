@@ -124,9 +124,12 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_POLLER>
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -272,13 +275,13 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Poller
 </TabItem>
 <TabItem value="proc-ntpd" label="proc-ntpd">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                | ntpd\|chronyd     |             |
-| PROCESSPATH  | Filter process path                                                                                |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                           |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     | 1:1               |             |
-| WARNING      | Warning threshold of matching processes count                                                      |                   |             |
+| Macro        | Description                                                                                        | Default value                  | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                | ntpd\|chronyd\|systemd-timesyn |             |
+| PROCESSPATH  | Filter process path                                                                                |                                |             |
+| PROCESSARGS  | Filter process arguments                                                                           |                                |             |
+| CRITICAL     | Critical threshold of matching processes count                                                     | 1:1                            |             |
+| WARNING      | Warning threshold of matching processes count                                                      |                                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>

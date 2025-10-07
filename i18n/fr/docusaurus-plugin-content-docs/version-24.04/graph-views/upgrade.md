@@ -27,7 +27,7 @@ Assurez-vous de lire les notes de version pour une explication des fonctionnalit
 ### Mise à jour de la clé de signature du RPM
 
 Pour des raisons de sécurité, les clés utilisées pour signer les RPM Centreon sont régulièrement renouvelées. Le dernier changement a eu lieu le 14 octobre 2021.
-Lorsque vous effectuez une mise à jour à partir d'une ancienne version, vous devez passer par la [procédure de rotation des clés](../security/key-rotation.md#existing-installation), pour supprimer l'ancienne clé et installer la nouvelle.
+Lorsque vous effectuez une mise à jour à partir d'une ancienne version, vous devez passer par la [procédure de rotation des clés](../security/key-rotation.md#installation-existante), pour supprimer l'ancienne clé et installer la nouvelle.
 
 ## Étape 1 : serveur Centreon MAP
 

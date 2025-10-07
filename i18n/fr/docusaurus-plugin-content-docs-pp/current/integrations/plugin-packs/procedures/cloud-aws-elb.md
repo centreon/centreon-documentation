@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **AWS ELB** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -30,12 +30,12 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias              | Modèle de service                                   | Description                             | Découverte |
 |:-------------------|:----------------------------------------------------|:----------------------------------------|:----------:|
-| Elb-Connections    | Cloud-Aws-Elb-Application-Connections-Api-custom    | Contrôle les statistiques de connexion |            |
+| Elb-Connections    | Cloud-Aws-Elb-Application-Connections-Api-custom    | Contrôle les statistiques de connexion  |            |
 | Elb-Http-Codes     | Cloud-Aws-Elb-Http-Codes-Api-custom                 | Contrôle le nombre de codes retour HTTP |            |
 | Elb-Http-Codes     | Cloud-Aws-Elb-Application-Http-Codes-Api-custom     | Contrôle le nombre de codes retour HTTP |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Contrôle la santé des instances cibles  |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Contrôle la santé des instances cibles  |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles  | X          |
+| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles  |     X      |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Aws-Elb-Application-LoadBalancer-custom** est utilisé.
 
@@ -52,7 +52,7 @@ Le connecteur apporte les modèles de service suivants
 | Elb-Queues         | Cloud-Aws-Elb-Queues-Api-custom                     | Contrôle la file d'attente              |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Contrôle la santé des instances cibles  |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Contrôle la santé des instances cibles  |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles  | X          |
+| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles  |     X      |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Aws-Elb-AvailabilityZone-custom** est utilisé.
 
@@ -69,7 +69,7 @@ Le connecteur apporte les modèles de service suivants
 | Elb-Queues         | Cloud-Aws-Elb-Queues-Api-custom                     | Contrôle la file d'attente              |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Contrôle la santé des instances cibles  |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Contrôle la santé des instances cibles  |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles  | X          |
+| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles  |     X      |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Aws-Elb-LoadBalancer-custom** est utilisé.
 
@@ -87,7 +87,7 @@ Ce modèle d'hôte n'a pas de modèle de service associé.
 |:-------------------|:----------------------------------------------------|:---------------------------------------|:----------:|
 | Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Contrôle la santé des instances cibles |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Contrôle la santé des instances cibles |            |
-| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles | X          |
+| Elb-Targets-Health | Cloud-Aws-Elb-Network-Targets-Health-Api-custom     | Contrôle la santé des instances cibles |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -213,8 +213,10 @@ sudo ./aws/install
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -251,7 +253,7 @@ yum install centreon-pack-cloud-aws-elb
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **AWS ELB**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -268,28 +270,28 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Cloud-Aws-Elb-Api
+dnf install centreon-plugin-Cloud-Aws-Elb-Api centreon-plugin-Cloud-Aws-Elb-Application-Api centreon-plugin-Cloud-Aws-Elb-Network-Api
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Cloud-Aws-Elb-Api
+dnf install centreon-plugin-Cloud-Aws-Elb-Api centreon-plugin-Cloud-Aws-Elb-Application-Api centreon-plugin-Cloud-Aws-Elb-Network-Api
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-plugin-cloud-aws-elb-api
+apt install centreon-plugin-cloud-aws-elb-api centreon-plugin-cloud-aws-elb--application-api centreon-plugin-cloud-aws-elb-network-api
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Cloud-Aws-Elb-Api
+yum install centreon-plugin-Cloud-Aws-Elb-Api centreon-plugin-Cloud-Aws-Elb-Application-Api centreon-plugin-Cloud-Aws-Elb-Network-Api
 ```
 
 </TabItem>

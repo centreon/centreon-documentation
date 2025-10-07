@@ -66,8 +66,7 @@ systemctl restart mariadb
 
 ## Configuration
 
-La durée de rétention des données est programmée dans le menu `Administration
-> Paramètres > Options` :
+La durée de rétention des données est programmée dans le menu **Administration > Paramètres > Options** :
 
 ![image](../assets/administration/partitioning-configuration.png)
 

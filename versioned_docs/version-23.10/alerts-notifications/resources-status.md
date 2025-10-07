@@ -320,7 +320,7 @@ The graph opens on the **Monitoring > Performances > Graphs** page, allowing you
 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
-You can also export the data for the graph as a CSV file. This will include all metrics.
+You can also export the data for the graph as a CSV file (this will include all metrics), or as a PNG file in various sizes.
 
 ### Notification tab
 

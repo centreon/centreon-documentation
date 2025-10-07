@@ -5,15 +5,9 @@ title: Aruba Instant SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-## Overview
-
-Aruba Networks is a provider of network access solutions for enterprises.
-
-The Centreon Monitoring Connector *Aruba Instant SNMP* relies on the SNMP protocol to query and collect status and metrics for the Aruba Wireless Access Point devices.
-
-
 ## Pack assets
+
+> Since HP acquired Aruba, some MIBs may have changed. If your Aruba device is no longer correcty monitored by the Aruba connector, use the [HP Procurve SNMP](network-switchs-hp-procurve-snmp.md) connector instead.
 
 ### Templates
 
@@ -87,9 +81,12 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Aruba dev
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 

@@ -534,6 +534,10 @@
                 },
                 {
                   "type": "doc",
+                  "id": "integrations/notifications/sms-notifications"
+                },
+                {
+                  "type": "doc",
                   "id": "integrations/notifications/slack-notifications"
                 },
                 {
@@ -673,10 +677,6 @@
             },
             {
               "type": "doc",
-              "id": "service-mapping/migrate"
-            },
-            {
-              "type": "doc",
               "id": "service-mapping/remote-server"
             }
           ]
@@ -802,6 +802,10 @@
             },
             {
               "type": "doc",
+              "id": "graph-views/map-web-backup-restore"
+            },
+            {
+              "type": "doc",
               "id": "graph-views/map-web-known-issues"
             },
             {
@@ -827,6 +831,10 @@
         "type": "generated-index"
       },
       "items": [
+        {
+          "type": "doc",
+          "id": "alerts-notifications/availability"
+        },
         {
           "type": "doc",
           "id": "reporting/introduction"
@@ -1207,7 +1215,7 @@
             },
             {
               "type": "doc",
-              "id": "integrations/event-management/sc-opsgenie"
+              "id": "integrations/event-management/sc-opsgenie-events"
             },
             {
               "type": "doc",
@@ -1437,8 +1445,119 @@
       ]
     },
     {
-      "type": "doc",
-      "id": "installation/installation-of-centreon-ha/overview"
+      "type": "category",
+      "label": "Centreon HA",
+      "link": {
+        "type": "doc",
+        "id": "installation/installation-of-centreon-ha/centreon-ha"
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/ha-faq"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/cluster-elements"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/overview"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/ha-prerequisites"
+        },
+        {
+          "type": "doc",
+          "id": "installation/installation-of-centreon-ha/ha-small"
+        },
+        {
+          "type": "category",
+          "label": "Completing your Centreon HA setup",
+          "link": {
+            "type": "generated-index",
+            "description": "Your HA platform has been installed by Centreon Professional Services. What can you do next?"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "installation/installation-of-centreon-ha/integrating-pollers"
+            },
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/monitoring-guide"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Operating Centreon HA",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/operating-guide"
+            },
+            {
+              "type": "doc",
+              "id": "administration/centreon-ha/troubleshooting-guide"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Updating Centreon HA",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "update/update-centreon-ha"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Upgrading Centreon HA",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-24-04"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-23-10"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
+            }
+          ]
+        }
+      ]
     },
     {
       "type": "category",
@@ -1535,6 +1654,10 @@
         {
           "type": "doc",
           "id": "resources/troubleshooting"
+        },
+        {
+          "type": "doc",
+          "id": "resources/logs"
         },
         {
           "type": "doc",

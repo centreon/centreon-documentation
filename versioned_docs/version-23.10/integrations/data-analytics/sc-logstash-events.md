@@ -78,7 +78,7 @@ You may need to configure your Logstash equipment so that it can receive data fr
 | string | logfile   | the file in which logs are written                                                             | /var/log/centreon-broker/logstash-events.log |
 | number | log_level | logging level from 1 (errors) to 3 (debug)                                                     | 1                                            |
 
-7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Logstash](#filtering-or-adapting-the-data-you-want-to-send-to-Logstash).
+7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Logstash](#filtering-or-adapting-the-data-you-want-to-send-to-logstash).
 
 8. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 

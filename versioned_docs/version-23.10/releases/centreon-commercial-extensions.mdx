@@ -22,6 +22,182 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 23.10.23
+
+Release date: `October 6, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Config] Fixed an issue where the configure.sh script was not starting the mysql service anymore.
+- [Editor] Fixed an issue that caused links to be positioned differently in the editor when migrating from MAP Legacy to MAP.	
+- [Editor] Fixed issues occurring when copying/pasting elements.
+- [Viewer] Fixed issue that prevented pie chart widgets from being displayed in percentage per status.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Server] Fixed ownership of configuration files.
+- [Vulnerability] Upgraded crypto-js to version 4.2.0.
+- [Vulnerability] Upgraded Tomcat to version 10.1.44.
+
+</details>
+
+### 23.10.22
+
+Release date: `July 24, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] A new updated version of the API documentation is now available.
+- [Server] Modified SQL user rights to grant only necessary ones.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Avoided possibility to have a rectangle shape with width or height of 0 pixel, which caused error when saving a map.
+- [Editor] Fixed missing host selection when configuring a status link.
+- Fixed naming issue when modifying resources to be displayed.
+- [Installation] Fixed my.cnf path for Debian.
+- [Map list] Fixed pagination.
+- [Map list] Fixed search bar behavior.
+- [Migration] Added multiple information logs when migrating from MAP Legacy.
+- [Server] Fixed an issue preventing resources from being displayed when configuration contained a host without any service associated to it.
+- [Server] Fixed an issue that may prevent user from duplicating a map.
+- [Viewer] Fixed an issue where links to triangle shapes were shifted in view mode.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded axios to version 1.8.4.
+
+</details>
+
+### 23.10.21
+
+Release date: `June 17, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Editor] You can now use a "Display icons" option for MAP containers and resources. If checked, custom and state icons are displayed on the shape.
+- [Geoviews] You can now define privileges for geographic views.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed issue with the "Display label" option that was not saved correctly for MAP containers.
+- [Editor] Fixed missing host selection when configuring a status link.
+- [Geoviews] Fixed an issue that could occur when creating a new geographic view.
+- [Map Legacy] Fixed issue preventing user from creating a new geographic view.
+- [Viewer] Fixed issue that caused the gauge widget to disappear.
+- [Viewer] Fixed several issues preventing details from being correctly displayed when hovering over a BA.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed tomcat CVE-2025-24813 vulnerability.
+
+</details>
+
+### 23.10.20
+
+Release date: `May 15, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Server] Fixed issue preventing MAP from being started when loading a service by host group.
+
+</details>
+
+### 23.10.19
+
+Release date: `April 28, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Added missing macros to the Output widget.
+- [Editor] Fixed issue preventing service groups from being available in the bulk resource selection.
+- [Editor] Removed deleted service relations on the detailed view of a host.
+- [Geoviews] Fixed a display issue preventing a large list of hostgroups from being displayed correctly when selecting the resources to add.
+- [Release] Updated MAP extension to the correct version (23.10.19).
+- [Server] Fixed an issue that could duplicate unwanted elements.
+- [Server] Fixed an issue that may prevent user from duplicating a map.
+- [Viewer] Fixed broken link to the Resource Status page for resources containing a slash ("/") in their name.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded spring security web dependency to version 6.2.8.
+
+</details>
+
+### 23.10.18
+
+Release date: `March 12, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Gauge widget] Added an option to display the name of the parent resource.
+
+</details>
+
+### 23.10.17
+
+Release date: `February 10, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [URL widget]
+  - Links are now always opened in a dedicated tab.
+  - Labels are now centered vertically.
+  - Fixed an issue that prevented border from being removed.
+  - Fixed an issue that made the URL accessible only when clicking two times, instead of one.
+  - Added a pointer cursor when hovering the widget, to clearly identify that the link is clickable.
+- [Viewer] You can now display the status as the background color for a resource in weather or icon style.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed issue that prevented user from editing data of the status link.
+- [Geoviews] Fixed an issue that ignored ACLs when listing Business Activities.
+- [Metric links] Fixed an issue that could prevent graph metrics from loading.
+- [Migration from Legacy] Fixed an incorrect value in identifier generation.
+- [Migration from Legacy] Fixed an issue with deleted resources that were still appearing when migrating from MAP Legacy.
+- [Upgrade] Fixed a crash that could occur after upgrading the MAP version.
+- [Viewer] Fixed an issue where links to triangle shapes were shifted in view mode.
+- [Viewer] Fixed wrong call to get the details of a resource.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Removed commons-logging (including Log4j).
+- [Security] Upgraded DOM purify.
+- [Security] Upgraded Apache Tomcat version.
+
+</details>
+
 ### 23.10.16
 
 Release date: `January 13, 2025`
@@ -389,6 +565,40 @@ Release date: `October 30, 2023`
 
 ## Centreon MAP Legacy
 
+### 23.10.22
+
+Release date: `July 24, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Migration] Added multiple information logs when migrating from MAP Legacy.
+
+</details>
+
+### 23.10.21
+
+Release date: `June 17, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Map Legacy] Fixed issue preventing user from creating a new geographic view.
+
+</details>
+
+### 23.10.17
+
+Release date: `February 10, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Migration from Legacy] Fixed an incorrect value in identifier generation.
+- [Migration from Legacy] Fixed an issue with deleted resources that were still appearing when migrating from MAP Legacy.
+
+</details>
+
 ### 23.10.16
 
 Release date: `January 13, 2025`
@@ -414,6 +624,45 @@ Release date: `November 22, 2023`
 </details>
 
 ## Centreon BAM
+
+### 23.10.14
+
+Release date: `July 24, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+</details>
+
+### 23.10.13
+
+Release date: `June 17, 2025`
+
+- No changes for this module in this version.
+
+### 23.10.12
+
+Release date: `April 28, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BAM] Fixed issue preventing a BA from being added to a remote server if one of its KPI was a BA itself.
+
+</details>
+
+### 23.10.11
+
+Release date: `March 12, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Monitoring] Deactivated Business Views are not displayed anymore.
+
+</details>
 
 ### 23.10.10
 
@@ -530,6 +779,80 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon MBI
+
+### 23.10.15
+
+Release date: `October 6, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ETL] Fixed an issue occurring when metric names exceeded 255 characters.
+- [MBI] Fixed an issue causing ACLs not to be applied to report designs.
+- [MBI] Fixed upload of report templates.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Engine] Fixed ownership of configuration files.
+- [MBI] Fixed an issue causing potential privilege escalation.
+- [Vulnerability] Upgraded JDOM version.
+- [Vulnerability] Upgraded versions of Apache Commons and TemporaryFolder dependencies.
+
+</details>
+
+### 23.10.14
+
+Release date: `July 24, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dependencies] Added missing dependency of Tie/File.pm on Alma 9.
+
+</details>
+
+### 23.10.13
+
+Release date: `June 17, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded Apache Derby to version 10.17.1.0.
+
+</details>
+
+### 23.10.12
+
+Release date: `April 28, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Fixed issue preventing reports from being exported in XLSX format.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded Apache Derby to version 10.17.1.0.
+
+</details>
+
+### 23.10.11
+
+Release date: `March 12, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Updated the version used for Smarty (CVE-2023-28447).
+
+</details>
 
 ### 23.10.10
 
@@ -679,6 +1002,41 @@ Release date: `October 30, 2023`
 
 ## Centreon Auto Discovery
 
+### 23.10.8
+
+Release date: `July 24, 2025`
+
+- No changes for this module in this version.
+
+### 23.10.7
+
+Release date: `June 17, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed an issue on Host discovery that could not be saved.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed a security issue on Centreon Auto Discovery.
+
+</details>
+
+### 23.10.6
+
+Release date: `April 28, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Discovery] Fixed an issue where manually scanned services could not be saved by users with ACL.
+
+</details>
+
 ### 23.10.5
 
 Release date: `November 28, 2024`
@@ -748,6 +1106,34 @@ Release date: `October 30, 2023`
 
 ## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
 
+### 23.10.7
+
+Release date: `June 17, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Monitoring Connectors] You can now access the **Monitoring Connector Manager** page using dedicated ACLs.
+
+</details>
+
+### 23.10.6
+
+Release date: `April 28, 2025`
+
+- No changes for this module in this version.
+
+### 23.10.5
+
+Release date: `March 12, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a translation issue on menu & breadcrumb and added a submenu for Monitoring Connectors and Additional configuration.
+
+</details>
+
 ### 23.10.4
 
 Release date: `November 28, 2024`
@@ -805,6 +1191,29 @@ Release date: `October 30, 2023`
 
 ## Centreon License Manager
 
+### 23.10.6
+
+Release date: `July 24, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded DOMPurify dependency.
+
+</details>
+
+### 23.10.5
+
+Release date: `June 17, 2025`
+
+- No changes for this module in this version.
+
+### 23.10.4
+
+Release date: `April 28, 2025`
+
+- No changes for this module in this version.
+
 ### 23.10.3
 
 Release date: `January 13, 2025`
@@ -850,6 +1259,29 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Anomaly Detection
+
+### 23.10.7
+
+Release date: `July 24, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+</details>
+
+### 23.10.6
+
+Release date: `June 17, 2025`
+
+- No changes for this module in this version.
+
+### 23.10.5
+
+Release date: `April 28, 2025`
+
+- No changes for this module in this version.
 
 ### 23.10.4
 
@@ -988,6 +1420,23 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon IT Edition Extensions
+
+### 23.10.8
+
+Release date: `June 17, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Updated axios dependency on centreon it-edition.
+
+</details>
+
+### 23.10.7
+
+Release date: `April 28, 2025`
+
+- No changes for this module in this version.
 
 ### 23.10.6
 

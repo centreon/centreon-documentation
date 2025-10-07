@@ -5,11 +5,9 @@ title: Linux Centreon Monitoring Agent
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Centreon Monitoring Agent is an observability tool implementing the OpenTelemetry protocol.
+The **Linux Centreon Monitoring Agent** connector supplies templates and commands to be used with the Centreon Monitoring Agent (this is an observability agent implementing the OpenTelemetry protocol).
 
-> At the moment, the Centreon Monitoring Agent is in beta version.
-
-You may refer to [this page](../getting-started/how-to-guides/cma.md) for more information about Centreon Monitoring Agent.
+Read [this page](../getting-started/how-to-guides/cma/cma.md) for more information about the Centreon Monitoring Agent itself.
 
 ## Pack assets
 
@@ -24,39 +22,39 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="OS-Linux-Centreon-Monitoring-Agent-custom" label="OS-Linux-Centreon-Monitoring-Agent-custom">
 
-| Service Alias | Service Template                                 | Service Description                                                                                                                                  |
-|:--------------|:-------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom    | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
-| Load          | OS-Linux-Load-Centreon-Monitoring-Agent-custom   | Check the server load average                                                                                                                        |
-| Memory        | OS-Linux-Memory-Centreon-Monitoring-Agent-custom | Check the rate of the utilization of memory                                                                                                          |
-| Ntp           | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom    | Check system time synchronization with an NTP server                                                                                                 |
-| Swap          | OS-Linux-Swap-Centreon-Monitoring-Agent-custom   | Check virtual memory usage                                                                                                                           |
-| Uptime        | OS-Linux-Uptime-Centreon-Monitoring-Agent-custom | Time since the server has been working and available                                                                                                 |
+| Service Alias | Service Template                                 | Service Description                                                                                                                                  | Type of check |
+|:--------------|:-------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------| --- |
+| Cpu           | OS-Linux-Cpu-Centreon-Monitoring-Agent-custom    | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs | native |
+| Load          | OS-Linux-Load-Centreon-Monitoring-Agent-custom   | Check the server load average                                                                                                                        | non-native |
+| Memory        | OS-Linux-Memory-Centreon-Monitoring-Agent-custom | Check the rate of the utilization of memory                                                                                                          | non-native |
+| Ntp           | OS-Linux-Ntp-Centreon-Monitoring-Agent-custom    | Check system time synchronization with an NTP server                                                                                                 | non-native |
+| Swap          | OS-Linux-Swap-Centreon-Monitoring-Agent-custom   | Check virtual memory usage                                                                                                                           | non-native |
+| Uptime        | OS-Linux-Uptime-Centreon-Monitoring-Agent-custom | Time since the server has been working and available                                                                                                 | non-native |
 
 > The services listed above are created automatically when the **OS-Linux-Centreon-Monitoring-Agent-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias       | Service Template                                              | Service Description                                                                                                                                           | Discovery |
-|:--------------------|:--------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------:|
-| Cmd-Generic         | OS-Linux-Cmd-Generic-Centreon-Monitoring-Agent-custom         | Check exit code for Linux commands                                                                                                                            |           |
-| Connections-Generic | OS-Linux-Connections-Generic-Centreon-Monitoring-Agent-custom | Check TCP/UDP connections                                                                                                                                     |           |
-| Cpu-Detailed        | OS-Linux-Cpu-Detailed-Centreon-Monitoring-Agent-custom        | Check the detailed rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |           |
-| Disk-IO             | OS-Linux-Disk-IO-Centreon-Monitoring-Agent-custom             | Check I/O counters of disks                                                                                                                                   |           |
-| Disks               | OS-Linux-Disks-Centreon-Monitoring-Agent-custom               | Check the rate of free space on disks. For each check the mount point of disks will appear                                                                    |     X     |
-| File-Date-Generic   | OS-Linux-File-Date-Generic-Centreon-Monitoring-Agent-custom   | Check file or/and directory modification/creation/access times                                                                                                |           |
-| File-Size-Generic   | OS-Linux-File-Size-Generic-Centreon-Monitoring-Agent-custom   | Check file or/and directory sizes                                                                                                                             |           |
-| Inodes              | OS-Linux-Inodes-Centreon-Monitoring-Agent-custom              | Check the rate of free inodes on disks                                                                                                                        |           |
-| Is-File-Generic     | OS-Linux-Is-File-Generic-Centreon-Monitoring-Agent-custom     | Check if file 'xxx' is present                                                                                                                                |           |
-| Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-Centreon-Monitoring-Agent-custom | Check if file 'xxx' is not present                                                                                                                            |           |
-| Open-Files          | OS-Linux-Open-Files-Centreon-Monitoring-Agent-custom          | Check file or/and directory modification/creation/access times                                                                                                |           |
-| Packet-Errors       | OS-Linux-Packet-Errors-Centreon-Monitoring-Agent-custom       | Check packets in error/discarded from multiple network interfaces                                                                                             |           |
-| Pending-Updates     | OS-Linux-Pending-Updates-Centreon-Monitoring-Agent-custom     | Check systemd services status                                                                                                                                 |           |
-| Process-Generic     | OS-Linux-Process-Generic-Centreon-Monitoring-Agent-custom     | Check Linux processes                                                                                                                                         |           |
-| Systemd-Journal     | OS-Linux-Systemd-Journal-Centreon-Monitoring-Agent-custom     | Count journal entries using the `journalctl` command.                                                                                                         |           |
-| Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-Centreon-Monitoring-Agent-custom   | Check systemd services status                                                                                                                                 |           |
-| Traffic             | OS-Linux-Traffic-Centreon-Monitoring-Agent-custom             | Check the bandwidth of interfaces.                                                                                                                            |     X     |
+| Service Alias       | Service Template                                              | Service Description                                                                                                                                           | Discovery | Type of check |
+|:--------------------|:--------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------:| --- |
+| Cmd-Generic         | OS-Linux-Cmd-Generic-Centreon-Monitoring-Agent-custom         | Check exit code for Linux commands                                                                                                                            |           | non-native |
+| Connections-Generic | OS-Linux-Connections-Generic-Centreon-Monitoring-Agent-custom | Check TCP/UDP connections                                                                                                                                     |           | non-native |
+| Cpu-Detailed        | OS-Linux-Cpu-Detailed-Centreon-Monitoring-Agent-custom        | Check the detailed rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |           | non-native |
+| Disk-IO             | OS-Linux-Disk-IO-Centreon-Monitoring-Agent-custom             | Check I/O counters of disks                                                                                                                                   |           | non-native |
+| Disks               | OS-Linux-Disks-Centreon-Monitoring-Agent-custom               | Check the rate of free space on disks. For each check the mount point of disks will appear                                                                    |     X     | non-native |
+| File-Date-Generic   | OS-Linux-File-Date-Generic-Centreon-Monitoring-Agent-custom   | Check file or/and directory modification/creation/access times                                                                                                |           | non-native |
+| File-Size-Generic   | OS-Linux-File-Size-Generic-Centreon-Monitoring-Agent-custom   | Check file or/and directory sizes                                                                                                                             |           | non-native |
+| Inodes              | OS-Linux-Inodes-Centreon-Monitoring-Agent-custom              | Check the rate of free inodes on disks                                                                                                                        |           | non-native |
+| Is-File-Generic     | OS-Linux-Is-File-Generic-Centreon-Monitoring-Agent-custom     | Check if file 'xxx' is present                                                                                                                                |           | non-native |
+| Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-Centreon-Monitoring-Agent-custom | Check if file 'xxx' is not present                                                                                                                            |           | non-native |
+| Open-Files          | OS-Linux-Open-Files-Centreon-Monitoring-Agent-custom          | Check file or/and directory modification/creation/access times                                                                                                |           | non-native |
+| Packet-Errors       | OS-Linux-Packet-Errors-Centreon-Monitoring-Agent-custom       | Check packets in error/discarded from multiple network interfaces                                                                                             |           | non-native |
+| Pending-Updates     | OS-Linux-Pending-Updates-Centreon-Monitoring-Agent-custom     | Check systemd services status                                                                                                                                 |           | non-native |
+| Process-Generic     | OS-Linux-Process-Generic-Centreon-Monitoring-Agent-custom     | Check Linux processes                                                                                                                                         |           | non-native |
+| Systemd-Journal     | OS-Linux-Systemd-Journal-Centreon-Monitoring-Agent-custom     | Count journal entries using the `journalctl` command.                                                                                                         |           | non-native |
+| Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-Centreon-Monitoring-Agent-custom   | Check systemd services status                                                                                                                                 |           | non-native |
+| Traffic             | OS-Linux-Traffic-Centreon-Monitoring-Agent-custom             | Check the bandwidth of interfaces.                                                                                                                            |     X     | non-native |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -312,179 +310,28 @@ Only one TCP flow must be open from the host to the poller.
 |----------------|-------------|----------|------|--------------------------------------------------|
 | Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval OpenTelemetry data flow. |
 
-### System prerequisites on the poller
+### System prerequisites for the poller
 
-> To be able to use the Centreon Monitoring agent, you must use a poller with at least version `24.09.0` for Centreon Cloud users and version `24.04.6` or `24.10.0` for *On Premices* users of `centreon-engine`. The Centreon Monitoring agent will configure itself by connecting to Centreon Engine.
+> To be able to use the Centreon Monitoring Agent, you must use a poller with at least version <!--`24.09.0` for Centreon Cloud users and version--> `24.04.6` or `24.10.0` for OnPrem users of `centreon-engine`. The Centreon Monitoring agent will retrieve its configuration by connecting to Centreon Engine.
 
-### Configure Engine
+### Configure poller/agent communication
 
-[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma.md#configure-engine).
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma-setup.md#configure-polleragent-communication).
 
-### System prerequisites on the monitored host
+### System prerequisites for the monitored host
 
-The prerequisites below have to be applied to the Linux servers to be monitored.
-
-#### Installing the Centreon Monitoring Agent
-
-The installation and configuration procedure of Centreon Monitoring Agent for Linux is detailed in 
-[this dedicated page](../getting-started/how-to-guides/cma.md#step-2-prepare-the-host).
-
-#### Installing the Centreon Linux local plugin
-
-The prerequisites below must be applied to the Linux servers to be monitored for the monitoring connector to function.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-1. Add the Centreon plugins' repository
-
-```bash
-cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
-[centreon-plugins-stable]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/$basearch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-stable-noarch]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/noarch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/$basearch/ 
-enabled=0 
-gpgcheck=1 
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
-module_hotfixes=1 
- 
-[centreon-plugins-unstable-noarch] 
-name=Centreon plugins repository. (UNSUPPORTED) 
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/noarch/ 
-enabled=0 
-gpgcheck=1 
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
-module_hotfixes=1 
-EOF
-```
-
-2. Install the plugin
-
-```bash
-dnf install centreon-plugin-Operatingsystems-Linux-Local.noarch
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-1. Add the Centreon plugins' repository
-
-```bash
-cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
-[centreon-plugins-stable]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/$basearch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-stable-noarch]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/noarch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-EOF
-```
-
-2. Install the plugin
-
-```bash
-dnf install centreon-plugin-Operatingsystems-Linux-Local.noarch
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-1. Add the Centreon plugins' repository
-
-```bash
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
-apt-get update
-```
-
-2. Install the plugin
-
-```bash
-apt-get install centreon-plugin-operatingsystems-linux-Local
-```
-
-</TabItem>
-</Tabs>
+The installation and configuration procedure of Centreon Monitoring Agent for Linux is detailed in
+[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host). (This includes installing the agent, and installing the plugins that will execute the non-native checks.)
 
 ## Installing the monitoring connector
 
 ### Pack
 
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -518,19 +365,33 @@ apt-get install centreon-pack-operatingsystems-linux-centreon-monitoring-agent
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Linux Centreon Monitoring Agent** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
-3. Add the new connector.
+3. According to your version of Centreon, skip to the next step or create a connector on your central server.
 
-In the **Configuration > Commands > Connectors** menu, click **Add** and fill the form as detailed below.
+<Tabs groupId="sync">
+<TabItem value="OnPrem version 24.10.6 or newer" label="OnPrem version 24.10.6 or newer">
+
+For this version, no configuration is needed. Move on to the [next step](#plugin).
+
+</TabItem>
+<TabItem value="OnPrem version older than 24.10.6" label="OnPrem version older than 24.10.6">
+
+If your Centreon is in a version older than 24.10.6, you need to create the CMA connector on your central server:
+
+1. Go to **Configuration > Commands > Connectors**.
+2. Create a new connector with the following values:
 
 | Parameter             | Value                                                                                                                                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Connector Name        | Centreon Monitoring Agent                                                                                                                                                                     |
-| Connector Description | Centreon Monitoring Agent                                                                                                                                                                     |
+| Connector Name        | Centreon Monitoring Agent Beta                                                                                                                                                                     |
+| Connector Description | Centreon Monitoring Agent Beta                                                                                                                                                                    |
 | Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
 | Used by command       | Select all the commands whose names match `OS-Linux-Centreon-Monitoring-Agent-*`                                                                                                              |
 | Connector Status      | Enabled                                                                                                                                                                                       |
+
+</TabItem>
+</Tabs>
 
 ### Plugin
 
@@ -545,11 +406,11 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 3. Apply the **OS-Linux-Centreon-Monitoring-Agent-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                     | Description                                                                                                                                        | Valeur par défaut           | Obligatoire |
+| Macro                     | Description                                                                                                                                        | Default value           | Mandatory |
 |:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
 | CENTREONAGENTPLUGINS      | Path where the Centreon Plugins can be found.                                                                                                      | `/usr/lib/centreon/plugins` |      X      |
 | CENTREONAGENTSTATEFILEDIR | Define the cache directory.                                                                                                                        | `/dev/shm/`                 |      X      |
-| CENTREONAGENTEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                             |             |
+| CENTREONAGENTEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                             |             |
 
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -700,20 +561,22 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Macro           | Description                                                                                                                                                         | Default value                | Mandatory   |
-|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| NTPCOMMAND      | Default mode for parsing and command: 'ntpq', 'chronyc' or 'all'                                                                                          | all                          |             |
-| FILTERPEERNAME  | Filter peer name (can be a regexp)                                                                                                                                  | .*                           |             |
-| FILTERPEERSTATE | Filter peer state (can be a regexp)                                                                                                                                 | .*                           |             |
-| WARNINGOFFSET   | Warning threshold offset deviation value in milliseconds                                                                                                            |                              |             |
-| CRITICALOFFSET  | Critical threshold offset deviation value in milliseconds                                                                                                           |                              |             |
-| WARNINGPEERS    | Warning threshold minimum amount of NTP-Server                                                                                                                      |                              |             |
-| CRITICALPEERS   | Critical threshold minimum amount of NTP-Server                                                                                                                     |                              |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |             |
+| Macro            | Description                                                                                                                                                         | Default value                | Mandatory   |
+|:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
+| NTPCOMMAND       | Default mode for parsing and command: 'auto', 'ntpq', 'chronyc' or 'all'                                                                                            | auto                         |             |
+| FILTERPEERNAME   | Filter peer name (can be a regexp)                                                                                                                                  | .*                           |             |
+| EXCLUDEPEERNAME  | Exclude by peer name (can be a regexp)                                                                                                                              |                              |             |
+| FILTERPEERSTATE  | Filter peer state (can be a regexp)                                                                                                                                 | .*                           |             |
+| EXCLUDEPEERSTATE | Exclude by peer state (can be a regexp)                                                                                                                             |                              |             |
+| WARNINGOFFSET    | Warning threshold offset deviation value in milliseconds                                                                                                            |                              |             |
+| CRITICALOFFSET   | Critical threshold offset deviation value in milliseconds                                                                                                           |                              |             |
+| WARNINGPEERS     | Warning threshold minimum amount of NTP-Server                                                                                                                      |                              |             |
+| CRITICALPEERS    | Critical threshold minimum amount of NTP-Server                                                                                                                     |                              |             |
+| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |             |
 | CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\} |                              |             |
-| WARNINGSTRATUM  | Warning threshold                                                                                                                                                   |                              |             |
-| CRITICALSTRATUM | Critical threshold                                                                                                                                                  |                              |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  | --use-new-perfdata --verbose |             |
+| WARNINGSTRATUM   | Warning threshold                                                                                                                                                   |                              |             |
+| CRITICALSTRATUM  | Critical threshold                                                                                                                                                  |                              |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  | --use-new-perfdata --verbose |             |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">

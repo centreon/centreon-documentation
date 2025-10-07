@@ -30,7 +30,7 @@ que les prérequis nécessaires à son fonctionnement. Cliquez sur l'icône ``i`
 
 ### Installer le pack
 
-Vous pouvez accéder au catalogue des connecteurs de supervision à la page **Configuration > Gestionnaire de connecteurs de supervision** :
+Vous pouvez accéder au catalogue des connecteurs de supervision à la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
@@ -56,11 +56,6 @@ objets de configuration additionnels et ne sont pas obligatoires pour déployer 
 le pack.
 
 La plupart du temps, il est nécessaire de mettre à jour votre plate-forme Centreon, puis de réinstaller votre pack.
-
-Dans l’exemple ci-dessus, l’objet “autodiscover” concerne une règle de découverte pour le module “Centreon Auto Discovery”,
-mais celles-ci ne sont disponibles que pour Centreon en version 18.10.x :
-
-![image](../assets/configuration/pluginpacks/objects_not_installed.png)
 
 ## Comment utiliser un connecteur de supervision?
 

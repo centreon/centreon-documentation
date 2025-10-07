@@ -81,8 +81,10 @@ lors de l'ajout de l'Hôte dans Centreon.
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -119,7 +121,7 @@ yum install centreon-pack-applications-monitoring-iplabel-newtest-restapi
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **IP-Label Newtest Rest API**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -179,7 +181,7 @@ yum install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 | IPLABELNEWTESTAPIPASSWORD     | API password            |                   |             |
 | IPLABELNEWTESTAPIPORT         | Port used               | 443               |             |
 | IPLABELNEWTESTAPIPROTO        | Specify HTTPS if needed | https             |             |
-| IPLABELNEWTESTAPIEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options)            |              |             |
+| IPLABELNEWTESTAPIEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#options-disponibles)            |              |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 

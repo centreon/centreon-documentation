@@ -89,7 +89,7 @@ https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_REST_API_Refere
 yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 ```
 
-2. Sur l'interface Web de Centreon, rendez-vous sur la page **Configuration > Gestionnaire de connecteurs de supervision** et installer le connecteur de supervision *Nimble Rest API*
+2. Sur l'interface Web de Centreon, rendez-vous sur la page **Configuration > Connecteurs > Connecteurs de supervision** et installer le connecteur de supervision *Nimble Rest API*
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -106,7 +106,7 @@ yum install centreon-plugin-Hardware-Storage-Nimble-Restapi.noarch
 yum install centreon-pack-hardware-storage-nimble-restapi.noarch
 ```
 
-3. Sur l'interface Web de Centreon, rendez-vous sur la page **Configuration > Gestionnaire de connecteurs de supervision** et installer le connecteur de supervision *Nimble Rest API*
+3. Sur l'interface Web de Centreon, rendez-vous sur la page **Configuration > Connecteurs > Connecteurs de supervision** et installer le connecteur de supervision *Nimble Rest API*
 
 </TabItem>
 </Tabs>

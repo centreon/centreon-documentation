@@ -286,9 +286,6 @@
     "message": "Fetching new results...",
     "description": "The paragraph for fetching new search results"
   },
-  "theme.SearchBar.seeAll": {
-    "message": "See all {count} results"
-  },
   "theme.SearchBar.label": {
     "message": "Search",
     "description": "The ARIA label and placeholder for search button"

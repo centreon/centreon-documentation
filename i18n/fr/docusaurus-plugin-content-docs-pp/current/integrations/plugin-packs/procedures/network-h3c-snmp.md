@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **H3C Network SNMP** 
-depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
 ## Contenu du pack
@@ -36,11 +36,11 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                | Modèle de service                        | Description                                               | Découverte |
-|:---------------------|:-----------------------------------------|:----------------------------------------------------------|:----------:|
+| Alias                | Modèle de service                        | Description                                              | Découverte |
+|:---------------------|:-----------------------------------------|:---------------------------------------------------------|:----------:|
 | Traffic-Generic-Id   | Net-H3C-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau         |            |
 | Traffic-Generic-Name | Net-H3C-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau         |            |
-| Traffic-Global       | Net-H3C-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau | X          |
+| Traffic-Global       | Net-H3C-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau |      X     |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -84,10 +84,33 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Nom               | Unité |
-|:------------------|:------|
-| count_component | count |
-| temp_instance   | C     |
+| Nom                                 | Unité |
+|:------------------------------------|:------|
+| fan.status                          | N/A   |
+| psu.status                          | N/A   |
+| other.status                        | N/A   |
+| unknown.status                      | N/A   |
+| sensor.status                       | N/A   |
+| chassis.status                      | N/A   |
+| backplane.status                    | N/A   |
+| container.status                    | N/A   |
+| module.status                       | N/A   |
+| port.status                         | N/A   |
+| stack.status                        | N/A   |
+| cpu.status                          | N/A   |
+| fan.count                           | N/A   |
+| psu.count                           | N/A   |
+| other.count                         | N/A   |
+| unknown.count                       | N/A   |
+| sensor.count                        | N/A   |
+| chassis.count                       | N/A   |
+| backplane.count                     | N/A   |
+| container.count                     | N/A   |
+| module.count                        | N/A   |
+| port.count                          | N/A   |
+| stack.count                         | N/A   |
+| cpu.count                           | N/A   |
+| hardware.sensor.temperature.celsius | C     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -153,8 +176,10 @@ Centreon vers la ressource supervisée.
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -191,7 +216,7 @@ yum install centreon-pack-network-h3c-snmp
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **H3C Network SNMP**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -244,7 +269,7 @@ yum install centreon-plugin-Network-H3c-Snmp
 3. Appliquez le modèle d'hôte **Net-H3C-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -269,10 +294,10 @@ yum install centreon-plugin-Network-H3c-Snmp
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                                                                                           | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'psu', 'other', 'unknown', 'sensor', 'chassis', 'backplane', 'container', 'module', 'port', 'stack', 'cpu'   | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                      | --verbose         |             |
+| Macro        | Description                                                                                                                                         | Valeur par défaut | Obligatoire |
+|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'fan', 'psu', 'other', 'unknown', 'sensor', 'chassis', 'backplane', 'container', 'module', 'port', 'stack', 'cpu' | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).    | --verbose         |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -310,15 +335,15 @@ yum install centreon-plugin-Network-H3c-Snmp
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
-| Macro          | Description                                                                                                                                                                                                         | Valeur par défaut | Obligatoire |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                           | .*                |             |
-| CRITICALIN     | Threshold                                                                                                                                                                                                           | 90                |             |
-| WARNINGIN      | Threshold                                                                                                                                                                                                           | 80                |             |
-| CRITICALOUT    | Threshold                                                                                                                                                                                                           | 90                |             |
-| WARNINGOUT     | Threshold                                                                                                                                                                                                           | 80                |             |
+| Macro          | Description                                                                                                                                                                                                                     | Valeur par défaut | Obligatoire |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER         | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                                       | .*                |             |
+| CRITICALIN     | Threshold                                                                                                                                                                                                                       | 90                |             |
+| WARNINGIN      | Threshold                                                                                                                                                                                                                       | 80                |             |
+| CRITICALOUT    | Threshold                                                                                                                                                                                                                       | 90                |             |
+| WARNINGOUT     | Threshold                                                                                                                                                                                                                       | 80                |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                    | --verbose         |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                | --verbose         |             |
 
 </TabItem>
 </Tabs>

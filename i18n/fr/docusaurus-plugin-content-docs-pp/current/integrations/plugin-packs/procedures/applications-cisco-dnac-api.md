@@ -58,7 +58,7 @@ Afin de contrôler l'application Cisco DNA Center, l'API Rest doit être configu
 yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 ```
 
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco DNA Center Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco DNA Center Rest API* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -75,7 +75,7 @@ yum install centreon-plugin-Applications-Cisco-Dnac-Restapi
 yum install centreon-pack-applications-cisco-dnac-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco DNA Center Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco DNA Center Rest API* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>

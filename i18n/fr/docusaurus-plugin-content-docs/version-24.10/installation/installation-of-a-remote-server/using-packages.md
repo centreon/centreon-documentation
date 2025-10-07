@@ -152,7 +152,7 @@ SELinux n'est pas installé sur Debian 12, continuez.
 
 ### Configurer ou désactiver le pare-feu
 
-Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.md#enable-firewalld).
+Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.md#activer-firewalld).
 Vous pouvez également le désactiver le temps de l'installation :
 
 ```shell
@@ -160,7 +160,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.md#enable-firewalld)
+> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.md#activer-firewalld)
 > pour configurer le pare-feu.
 
 ### Installer les dépôts
@@ -168,16 +168,11 @@ systemctl disable firewalld
 <Tabs groupId="sync">
 <TabItem value="Alma 8" label="Alma 8">
 
-#### Dépôt remi
-
-Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
-
 Exécutez les commandes suivantes :
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
 
@@ -185,22 +180,21 @@ Activez PHP 8.2 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
 
-#### Dépôt remi et CodeReady Builder
+#### Dépôt CodeReady Builder
 
-Afin d'installer les logiciels Centreon, les dépôts **remi** et **CodeReady Builder** doivent être installés.
+Afin d'installer les logiciels Centreon, le dépôt **CodeReady Builder** doit être installé.
 
 Exécutez les commandes suivantes :
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
@@ -214,23 +208,22 @@ Activez PHP 8.2 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
 
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
-#### Dépôt remi et CodeReady Builder
+#### Dépôt CodeReady Builder
 
-Afin d'installer les logiciels Centreon, les dépôts **remi** et **CodeReady Builder** doivent être installés.
+Afin d'installer les logiciels Centreon, le dépôt **CodeReady Builder** doit être installé.
 
 Exécutez les commandes suivantes :
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
@@ -238,7 +231,7 @@ Activez PHP 8.2 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>

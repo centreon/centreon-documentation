@@ -86,7 +86,7 @@ Un connecteur de supervision s'installe en 4 étapes :
 
 ### Accéder au catalogue des connecteurs de supervision
 
-* Si vous avez une [licence](../administration/licenses.md) **en ligne**, le catalogue des connecteurs de supervision est déjà disponible sur votre plateforme à la page **Configuration > Gestionnaire de connecteurs de supervision**.
+* Si vous avez une [licence](../administration/licenses.md) **en ligne**, le catalogue des connecteurs de supervision est déjà disponible sur votre plateforme à la page **Configuration > Connecteurs > Connecteurs de supervision**.
 * Si vous avez une licence **hors ligne** :
   - installez le dépôt des connecteurs de supervision (rendez-vous sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en obtenir l'adresse)
   - installez ou mettez à jour le catalogue des connecteurs de supervision
@@ -137,7 +137,7 @@ apt install --only-upgrade centreon-pack-\*
 
 ### Installer le pack
 
-Vous avez maintenant accès au catalogue des connecteurs de supervision, à la page **Configuration > Gestionnaire de connecteurs de supervision** :
+Vous avez maintenant accès au catalogue des connecteurs de supervision, à la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
@@ -164,11 +164,6 @@ le pack.
 
 La plupart du temps, il est nécessaire de mettre à jour votre plate-forme Centreon, puis de réinstaller votre pack.
 
-Dans l’exemple ci-dessus, l’objet “autodiscover” concerne une règle de découverte pour le module “Centreon Auto Discovery”,
-mais celles-ci ne sont disponibles que pour Centreon en version 18.10.x :
-
-![image](../assets/configuration/pluginpacks/objects_not_installed.png)
-
 ### Vérifier la procédure de supervision
 
 Certains connecteurs de supervision demandent des étapes de configuration supplémentaires. Consultez la procédure de supervision associée à chaque pack installé pour comprendre le contenu du pack ainsi
@@ -182,7 +177,7 @@ que les prérequis nécessaires à son fonctionnement. Cliquez sur l'icône ``i`
 
 1. [Installez le pack](#installer-le-pack).
 2. Vérifiez dans la [procédure de supervision](#vérifier-la-procédure-de-supervision) si des étapes de configuration supplémentaires sont requises.
-3. À la page **Configuration > Gestionnaire de connecteurs de supervision**, réglez **Installation automatique des plugins** sur **ON**.
+3. À la page **Configuration > Connecteurs > Connecteurs de supervision**, réglez **Installation automatique des plugins** sur **ON**.
 4. Utilisez un modèle fourni par le pack pour mettre en supervision un hôte ou un service.
 5. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) des collecteurs qui superviseront cet hôte ou ce service : les plugins correspondants seront installés automatiquement sur ces collecteurs.
 
@@ -289,7 +284,7 @@ Attention, vous devrez quand même [mettre à jour les plugins](#mettre-à-jour-
 
 ### Mettre à jour les plugins
 
-À la page **Configuration > Gestionnaire de connecteurs de supervision**, si **Installation automatique des plugins** est à **ON**, les plugins seront mis à jour automatiquement lorsque vous déploierez la configuration d'un collecteur qui supervise un hôte ou un service qui utilise ce plugin.
+À la page **Configuration > Connecteurs > Connecteurs de supervision**, si **Installation automatique des plugins** est à **ON**, les plugins seront mis à jour automatiquement lorsque vous déploierez la configuration d'un collecteur qui supervise un hôte ou un service qui utilise ce plugin.
 
 Si **Installation automatique des plugins** est à **OFF**, utilisez la commande suivante pour mettre à jour les plugins :
 
@@ -352,16 +347,20 @@ Votre connecteur de supervision est désinstallé.
 
 #### Gestion des dépendances
 
-Si les modèles d’hôtes et de services créés par le connecteur de supervision sont utilisés par des hôtes et services actifs, le Plugin
-Pack ne pourra être désinstallé.
+Si des modèles d’hôtes ou de services fournis par le connecteur de supervision sont utilisés par un hôte, un service ou un modèle, le connecteur de supervision ne pourra pas être désinstallé. 
 
 ![image](../assets/configuration/pluginpacks/uninstall_pp_used.png)
 
-Pour pouvoir le désinstaller, soit vous :
+Si le connecteur est utilisé par un hôte ou un service, pour pouvoir le désinstaller, vous devrez :
 
-* supprimez les hôtes ou services liés aux modèles fournis par ce connecteur de supervision
-* déliez les hôtes ou services liés aux modèles fournis par ce connecteur de supervision
+* soit supprimer les hôtes ou services liés aux modèles fournis par ce connecteur de supervision
+* soit délier les hôtes liés aux modèles fournis par ce connecteur de supervision (attention, s'il s'agissait du seul modèle d'hôte appliqué à cet hôte, cela rendra celui-ci inutilisable).
 
-De plus, si vous tentez de désinstaller un pack dépendant d’un autre pack, la désinstallation ne pourra être faite que
-si et seulement si ce pack n’est pas utilisé ni le(s) pack(s) dépendant(s). De plus, les packs dépendant seront
-également supprimés.
+Si un modèle fourni par le connecteur est utilisé par autre modèle, vous devrez supprimer le lien entre modèles avant de pouvoir supprimer le connecteur, même si l'autre modèle n'est utilisé par aucun hôte ou service.
+
+De plus, si vous tentez de désinstaller un connecteur dont un autre connecteur dépend, la désinstallation ne pourra être faite que
+si et seulement si les deux connecteurs ne sont pas utilisés. 
+Exemple : le connecteur **Centreon central** utilise en dépendance le connecteur **Linux SNMP**. (Le connecteur **Centreon Central** dépend du connecteur **Linux SNMP**.)
+
+* Si vous tentez de désinstaller le connecteur **Linux SNMP**, une erreur vous signalera que celui-ci est utilisé par le connecteur **Centreon Central**.
+* Si ni le connecteur **Centreon Central** ni le connecteur **Linux SNMP** n'étaient utilisés, la désinstallation sera possible.

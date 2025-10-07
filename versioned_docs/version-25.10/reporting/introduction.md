@@ -1,86 +1,50 @@
 ---
 id: introduction
-title: Introduction to Centreon MBI
+title: Introduction to MBI
 ---
 
-## Complete reporting with Centreon MBI
+## What is Centreon MBI?
 
-The reporting capabilities in Centreon rely on the **Centreon Monitoring Business Intelligence (MBI)** extension.
-You also have simple reporting capabilities described below.
+Centreon Monitoring Business Intelligence (MBI) is an extension that is used to generate reports on host groups, host categories and service categories. MBI requires users to [prepare their data](preparing-data.md) carefully so that reports can be generated.
+We highly recommend you read our documentation to avoid running into issues. You can start with our [concepts](concepts.md) page.
 
-> Centreon MBI is a Centreon **extension** that requires a valid [license](../administration/licenses.md). To
-> purchase one and retrieve the necessary repositories, contact
+> Centreon MBI is a Centreon **extension** that requires a valid [license](https://docs-next-int.centreon.com/docs/administration/licenses/).
+> To purchase one and retrieve the necessary repositories, contact
 > [Centreon](mailto:sales@centreon.com).
 
-Centreon Monitoring Business Intelligence (MBI) is a software tool
-designed to help business users make critical decisions and to
-facilitate management of an IT environment. Centreon MBI analyzes data
-from monitored events, performance counters and capacity accessed from
-the Centreon Enterprise Monitoring Solution (EMS), providing you with
-full visibility of your infrastructures and application activities
-through *ITIL compliant* reporting.
+## What does MBI do?
 
-
-Generate insightful statistics using our 30+ reports designs\...
+Centreon MBI runs [jobs](concepts.md#jobs) to generate reports. MBI has more than 30 different ready-to-use templates (report "designs").
 
 ![image](../assets/reporting/first_page.png)
 
-Centreon MBI provides a full package of standard reports that address:
+Reports address:
 
--   Capacity planning and management
--   Availability management
--   SLA (Service Level Agreement) management
--   Performance management.
+* Capacity planning and management
+* Availability management
+* SLA (Service Level Agreement) management
+* Performance management.
 
-**Here are some examples of reports available in Centreon MBI**: [Reports examples](../assets/reporting/Centreon-MBI-Sample-Reports.pdf)
+ This allows for an overview of the performance of the selected resources over a given period of time. These reports can be configured to be generated once or on a regular basis (i.e. once per day, week, month...). This will help you keep track of your IT environment with monthly uptime reports, weekly infrastructure performance summaries...
 
-or simply create your own reporting dashboard using our widgets.
+## What kind of data can appear on the reports ?
 
-![image](../assets/reporting/dashboard.png)
+Reports can display data about:
+- Host groups
+- Host categories
+- Service categories
+- Business views
+- Business activities
 
-Main features:
+Although data [must be organized into groups and categories](preparing-data.md#making-your-resources-available-to-mbi), some reports allow you to see the details of statuses and metrics for hosts and services.
 
--   Scheduling and generation of standalone reports in PDF, Excel, Word
-    and Powerpoint formats
--   Visualization of web & interactive statistics using reporting
-    widgets that are Centreon-compatible
--   Publication of reports by e-mail and other standard protocols (FTP,
-    CIFS, etc.)
--   Access control to reports
--   Administration and user interface integrated into Centreon
--   Report development libraries
+MBI also creates reports on availability by converting checks into [events](concepts.md#event). Note that MBI only takes into account [HARD statuses](https://docs-next-int.centreon.com/docs/alerts-notifications/concepts/#status-types) when calculating availability.
 
-## Simple reporting
+Note that reports only contain data up to the previous day. The data for each day is [aggregated by the ETL the following day](how-mbi-works.md#phase-2-the-etl-is-launched-data-is-copied-to-mbi-and-aggregated).
 
-The availability reports concerning objects monitored via the Centreon Web interface 
-can display the availability rates of hosts, a hostgroup, or a servicegroup over a selected period.
-
-To access the availability reports:
-
-- Go to **Reporting > Dashboard**.
-- In the left menu, click **Host**.
-- Select a host from the **Host** list.
-
-![image](../assets/reporting/os-reporting/os-host-reporting.png)
-
-- The **Reporting Period** lets you select a predefined period or define it manually using **From** to **to** fields.
-- The **Host state** table displays the availability rates of objects.
-- The **State Breakdowns For Host Services** table displays the availability of linked objects.
-- The timeline provides a quick and intuitive overview of the status of the object.
-
-![image](../assets/reporting/os-reporting/os-host-timeline.png)
-
-Click a day in the timeline to obtain the report for that day:
-
-![image](../assets/reporting/os-reporting/os-host-tooltip.png)
-
-It is also possible to view web reports:
-
-* The groups of hosts: Click **Host Groups** in the left menu
-* The groups of services: Click **Service Groups** in the left menu
-
-The CSV icon is used to export data to a CSV file.
-
-![image](../assets/reporting/os-reporting/os-csv.png)
-
-> You can also see the availability of a service by clicking the service name in the host or servicegroup report.
+## What are the possible output formats?
+  
+* MBI generates reports in different formats: PDF, CSV, XLSX, DOCX, PPTX, ODT, ODS, ODP.
+* Not all reports can be exported to every format: check our [list of available reports](available-reports/available-reports.md) to learn more about the specifics of each report.
+* By default, these reports can be downloaded from the **Reports view** page, but they can also be [configured to be sent to specific people when generated](reports-publication-rule.md).
+* Report data can also be displayed in your Centreon [custom views](https://docs-next-int.centreon.com/docs/alerts-notifications/custom-views/) using dedicated [widgets](widgets.md).

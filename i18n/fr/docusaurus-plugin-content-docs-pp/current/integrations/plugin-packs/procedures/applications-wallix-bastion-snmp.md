@@ -57,7 +57,7 @@ Afin de contrôler votre application Wallix Bastion, le SNMP doit être configur
 yum install centreon-plugin-Applications-Wallix-Bastion-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Wallix Bastion SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le Pack *Wallix Bastion SNMP* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -74,7 +74,7 @@ yum install centreon-plugin-Applications-Wallix-Bastion-Snmp
 yum install centreon-pack-applications-wallix-bastion-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Wallix Bastion SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le Pack *Wallix Bastion SNMP* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
@@ -86,7 +86,7 @@ yum install centreon-pack-applications-wallix-bastion-snmp
 * Appliquez le Modèle d'Hôte *App-Wallix-Bastion-SNMP-custom*
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3). 
 
 | Mandatory   | Name                    | Description                       |
 | :---------- | :---------------------- | :---------------------------------|
@@ -132,4 +132,4 @@ en ajoutant le paramètre ```--help``` à la commande:
 
 ## Diagnostique
 
-[Diagnostique des plugins](../getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp)
+[Diagnostique des plugins](../getting-started/how-to-guides/troubleshooting-plugins.md#dépannage-de-snmp)

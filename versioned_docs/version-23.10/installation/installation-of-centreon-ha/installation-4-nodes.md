@@ -15,7 +15,7 @@ Before applying this procedure, you should have a good knowledge of Linux OS, of
 
 ### Network Flows
 
-In addition to the necessary flows described in the [official documentation](../architectures.md#tables-of-network-flows),
+In addition to the necessary flows described in the [official documentation](../technical.md#tables-of-network-flows),
 you will need to open the following flows:
 
 | From                           | Destination                    | Protocol | Port     | Application                                                                                |
@@ -951,7 +951,7 @@ chmod 775 /tmp/centreon-autodisco/
 
 Centreon's application services will no longer be launched at boot time; they will be managed by the clustering tools. These services must therefore be stopped and disabled:
 
-For ** Central nodes **
+For **Central nodes**
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -1151,7 +1151,7 @@ COROSYNC_QNETD_OPTIONS="-4"
 
 #### Authenticating to the cluster's members
 
-For the sake of simplicity, the `hacluster` user will be assigned the same password on ** all nodes, `@QDEVICE_NAME@` included**.
+For the sake of simplicity, the `hacluster` user will be assigned the same password on **all nodes, `@QDEVICE_NAME@` included**.
 
 ```bash
 passwd hacluster
@@ -1358,8 +1358,8 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -1370,8 +1370,8 @@ pcs resource promotable ms_mysql \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
@@ -1382,8 +1382,8 @@ pcs resource promotable ms_mysql \
 
 ```bash
 pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
+    promoted-node-max="1" \
+    clone-max="2" \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"

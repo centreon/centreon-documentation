@@ -36,6 +36,8 @@ servers:
 - Central server
 - Database server
 
+If you use Open Ticket providers with custom configurations, [make a backup of these before updating Centreon](../alerts-notifications/ticketing-install.md#creating-a-backup-of-your-custom-open-ticket-provider-configurations).
+
 ### Update the RPM signing key
 
 > For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation) to remove the old key and install the new one.
@@ -67,7 +69,7 @@ dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
-> If you have an [offline license](../administration/licenses.md#types-of-licenses), also remove the old Monitoring Connectors repository, then install the new one.
+> If you have an [offline license](../administration/licenses.md#types-of-license), also remove the old Monitoring Connectors repository, then install the new one.
 >
 > If you have a Business edition, do the same with the Business repository.
 >
@@ -139,29 +141,80 @@ dnf module install php:remi-8.1
 
 ### Upgrade the Centreon solution
 
-> Make sure all users are logged out from the Centreon web interface
-> before starting the upgrade procedure.
+1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
 
-If you have installed Business extensions, update the Business repository to version 24.04.
-Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+2. If you have installed Business extensions, delete the configuration of the 20.10 repository: 
 
-Stop the Centreon Broker process:
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-20.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-20.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Debian" label="Debian">
+
+```shell
+rm /etc/apt/sources.list.d/centreon-business.list
+```
+
+</TabItem>
+</Tabs>
+
+3. Install the 24.04 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+
+4. If your OS is Debian and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
+
+5. Stop the Centreon Broker process:
+
 ```shell
 systemctl stop cbd
 ```
 
-Delete existing retention files:
+6. Delete existing retention files:
+
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
 
-Clean the cache:
+7. Clean the cache:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+   
 ```shell
 dnf clean all --enablerepo=*
 ```
 
-Then upgrade all the components with the following command:
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+   
+```shell
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+   
+```shell
+apt clean all
+apt update
+```
+
+</TabItem>
+</Tabs>
+
+8. Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -382,7 +435,7 @@ systemctl enable mariadb
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Before starting the web upgrade process, reload the Apache server with the
+Before starting the web upgrade process, upgrade the [Centreon BAM module](../service-mapping/upgrade.md) and reload the Apache server with the
 following command:
 ```shell
 systemctl reload httpd
@@ -416,8 +469,7 @@ page:
 
 > As the interface layout has changed in version 23.04, you need to clear your browser cache to display the new theme.
 
-If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade.md).
+Refer to the [Centreon MBI](../reporting/update.md) and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
 
 ### Post-upgrade actions
 

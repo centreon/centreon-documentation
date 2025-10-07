@@ -41,22 +41,26 @@ En plus de leur statut, les ressources peuvent avoir différents états :
     compte par un utilisateur. Les ressources acquittées ont un fond jaune.
 - [En maintenance](downtimes.md) : indique que les notifications sont temporairement suspendues pour cette ressource. Une plage de maintenance peut être [planifiée à l'avance](downtimes.md#les-temps-darrêt-récurrents) pour éviter de recevoir des alertes pendant une opération de maintenance. Elle peut également être définie suite à un incident. Les ressources en maintenance ont un fond violet.
 
-- [Flapping](notif-flapping.md) (bagotement) : le pourcentage de
+- [Flapping](notif-flapping.md) (bagotement) : indique que le pourcentage de
 changement de statut de la ressource est très élevé. Ce pourcentage est
-obtenu à partir de calculs effectués par le moteur de supervision. Les ressources dans un état de bagotement affichent l'icône suivante dans leur panneau **Détails** :
+obtenu à partir de calculs effectués par le moteur de supervision. Dans la page **Statut des ressources**, les ressources dans un état de bagotement ont un fond vert, et l'icône suivante dans leur panneau **Détails** et dans la colonne **État** :
     ![image](../assets/alerts/flapping_icon.png)
+
+    Si vous avez configuré des notifications de bagotement pour la ressource, une notification est envoyée lorsque la ressource commence à bagoter, et une autre est envoyée lorsqu'elle arrête de bagoter. Les notifications d'alerte et de reprise sont temporairement désactivées.
+
+Vous pouvez filtrer la page [Statut des ressources](resources-status.md) suivant l'état des ressources. Les filtres incluent les **Alertes non traitées**, c'est-à-dire les ressources dans un état non-OK status et qui n'ont pas été acquittées ni mises en maintenance.
 
 ## Types de statuts
 
 Le statut d'une ressource peut avoir deux types :
 
--   SOFT : Signifie qu'un incident vient d'être détecté et que ce
+* **SOFT** : Signifie qu'un incident vient d'être détecté et que ce
     dernier doit être confirmé.
--   HARD : Signifie que le statut de l'incident est confirmé. Lorsque le
+* **HARD** : Signifie que le statut de l'incident est confirmé. Lorsque le
     statut est confirmé, le processus de notification est enclenché
     (envoi d'un mail, SMS, …).
 
-Vous pouvez filtrer la page [Resources Status](resources-status.md) suivant le type de statut.
+Vous pouvez filtrer la page [Resources Status](resources-status.md) suivant le type de statut des ressources.
 
 ### Explication
 

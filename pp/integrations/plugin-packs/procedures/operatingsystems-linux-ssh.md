@@ -350,9 +350,12 @@ setting your unique user and password directly in the host macros.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -388,7 +391,7 @@ yum install centreon-pack-operatingsystems-linux-ssh
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Linux SSH** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -613,9 +616,11 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 
 | Macro           | Description                                                                                                                                                         | Default value     | Mandatory   |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NTPMODE         | Default mode for parsing and command: 'ntpq' (default), 'chronyc' or 'all'                                                                                          | ntpq              |             |
+| NTPMODE         | Default mode for parsing and command: 'auto', 'ntpq', 'chronyc' or 'all'                                                                                            | auto              |             |
 | FILTERNAME      | Filter peer name (can be a regexp)                                                                                                                                  |                   |             |
+| EXCLUDENAME     | Filter by peer name (can be a regexp)                                                                                                                               |                   |             |
 | FILTERSTATE     | Filter peer state (can be a regexp)                                                                                                                                 |                   |             |
+| EXCLUDESTATE    | Filter by peer state (can be a regexp)                                                                                                                              |                   |             |
 | UNKNOWNSTATUS   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                   |             |
 | WARNINGOFFSET   | Warning threshold offset deviation value in milliseconds                                                                                                            |                   |             |
 | CRITICALOFFSET  | Critical threshold offset deviation value in milliseconds                                                                                                           |                   |             |

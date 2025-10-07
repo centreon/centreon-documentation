@@ -100,6 +100,16 @@ The users you have just added now have access to your dashboard sharing, accordi
 
 > Use the **Copy link** feature to share the dashboard URL directly with users who have access to your platform.
 
+### Add a dashboard to favorites
+
+You can add dashboards to favorites so you can easily retrieve them. Favorites are managed with the heart-shaped icon, colored green when the dashboard is marked as a favorite, colored gray when it is not.
+
+> Note that favorites are specific to the user, this list is not visible to other users.
+
+- Click the **Add to favorites** (heart-shaped) icon associated to the dashboard you want. The icon becomes green.
+- Click again to **Remove from favorites**. The icon becomes gray.
+- Check the **Show only dashboards added to favorites** box to display only your favorites.
+
 ## Managing playlists
 
 Playlists are lists of selected dashboards to be broadcast in the order of your choice. This feature is useful for instance when you want to display your dashboards on a full-screen TV in public spaces.
@@ -161,6 +171,7 @@ The three dots action menu at the end of a playlist row allows you to edit prope
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Business Activity Diagram           | Displays graphically a business activity hierarchy of KPIs and lets you navigate through it.   |
+| Business Activity status timeline           | Displays the distribution of current statuses on a Business Activity, as a chronological timeline for a given time period.   |
 | Clock/Timer           | Displays the time according to the selected time zone, or a timer.   |
 | Generic text           | Allows you to add free text to your dashboards (section titles, information, etc.).   |
 | Group monitoring	|  Displays the distribution of current statuses on selected groups of resources, as a table.   |

@@ -9,7 +9,7 @@ Cette page vous donne des recommandations générales afin de déterminer la tai
 
 ## Architecture
 
-Utilisez d'abord les recommandations de la page [Architectures](./architectures.md#de-quel-type-darchitecture-avez-vous-besoin) pour déterminer le type d'architcture dont vous avez besoin.
+Utilisez d'abord les recommandations de la page [Architectures](./architectures.md#de-quel-type-darchitecture-avez-vous-besoin-) pour déterminer le type d'architcture dont vous avez besoin.
 
 ## Caractéristiques des serveurs
 

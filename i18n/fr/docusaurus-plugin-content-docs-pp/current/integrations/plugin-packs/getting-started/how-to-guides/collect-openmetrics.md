@@ -23,7 +23,7 @@ d'InfluxData, InfluxDB, et Google Cloud Platform.
     yum install centreon-plugin-Applications-Monitoring-Openmetrics
     ```
 
-2.  Installer le pack depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
+2.  Installer le pack depuis la page **Configuration > Connecteurs > Connecteurs de supervision**.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -42,7 +42,7 @@ d'InfluxData, InfluxDB, et Google Cloud Platform.
     yum install centreon-pack-applications-monitoring-openmetrics
     ```
 
-3.  Installer le pack depuis la page **Configuration > Gestionnaire de connecteurs de supervision**.
+3.  Installer le pack depuis la page **Configuration > Connecteurs > Connecteurs de supervision**.
 
 </TabItem>
 </Tabs>

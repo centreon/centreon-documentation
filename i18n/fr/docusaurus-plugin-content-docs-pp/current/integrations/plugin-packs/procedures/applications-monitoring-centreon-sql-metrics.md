@@ -21,13 +21,13 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="App-Monitoring-Centreon-SQL-Metrics-custom" label="App-Monitoring-Centreon-SQL-Metrics-custom">
 
-| Alias                | Modèle de service                                       | Description                                                                              |
-|:---------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------------|
-| Notifications-Count  | App-Monitoring-Centreon-SQL-Notifications-Count-custom  | Contrôle le nombre de nouvelles notifications                                            |
+| Alias                | Modèle de service                                       | Description                                                                                         |
+|:---------------------|:--------------------------------------------------------|:----------------------------------------------------------------------------------------------------|
+| Notifications-Count  | App-Monitoring-Centreon-SQL-Notifications-Count-custom  | Contrôle le nombre de nouvelles notifications                                                       |
 | Poller-Delay         | App-Monitoring-Centreon-SQL-Poller-Delay-custom         | Contrôle le temps écoulé depuis la dernière communication entre le collecteur et le serveur central |
-| Problems-Count       | App-Monitoring-Centreon-SQL-Problems-Count-custom       | Contrôle le nombre de nouveaux problèmes                                                 |
-| Resources-Count      | App-Monitoring-Centreon-SQL-Resources-Count-custom      | Contrôle le nombre de services                                                           |
-| Storage-Partitioning | App-Monitoring-Centreon-SQL-Storage-Partitioning-custom | Contrôle l'état des partitions MySQL/MariaDB                                             |
+| Problems-Count       | App-Monitoring-Centreon-SQL-Problems-Count-custom       | Contrôle le nombre de nouveaux problèmes                                                            |
+| Resources-Count      | App-Monitoring-Centreon-SQL-Resources-Count-custom      | Contrôle le nombre de services                                                                      |
+| Storage-Partitioning | App-Monitoring-Centreon-SQL-Storage-Partitioning-custom | Contrôle l'état des partitions MySQL/MariaDB                                                        |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Centreon-SQL-Metrics-custom** est utilisé.
 
@@ -52,10 +52,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="DSMQueue-Count" label="DSMQueue-Count">
 
-| Métrique                                   | Unité |
-|:-------------------------------------------|:------|
-| centreon.dsm.queue.cache.count             | count |
-| centreon.dsm.queue.lock.count              | count |
+| Métrique                                                   | Unité |
+|:-----------------------------------------------------------|:------|
+| centreon.dsm.queue.cache.count                             | count |
+| centreon.dsm.queue.lock.count                              | count |
 | *hostname~pool_prefix*#centreon.dsm.host.queue.cache.count | count |
 
 </TabItem>
@@ -69,9 +69,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Notifications-Count" label="Notifications-Count">
 
-| Métrique                 | Unité |
-|:-------------------------|:------|
-| notifications.sent.count | count |
+| Métrique                               | Unité |
+|:---------------------------------------|:------|
+| notifications.sent.count               | count |
 | *poller_name*#notifications.sent.count | count |
 
 </TabItem>
@@ -132,8 +132,10 @@ Pour le service **Virtual-Service**, le fichier de configuration associé doit p
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -170,7 +172,7 @@ yum install centreon-pack-applications-monitoring-centreon-sql-metrics
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Centreon SQL Metrics**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -223,12 +225,12 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 3. Appliquez le modèle d'hôte **App-Monitoring-Centreon-SQL-Metrics-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                    | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CENTREONDATABASEUSER     | User name used to connect to the database                                                            | centreon          |       X      |
-| CENTREONDATABASEPASSWORD | Password for the defined user name                                                                   | PASSWORD          |       X      |
-| CENTREONDATABASE         |                                                                                                      | centreon          |             |
-| CENTREONSTORAGEDATABASE  | Centreon storage database name (default: 'centreon\_storage')                                        | centreon\_storage |             |
+| Macro                    | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CENTREONDATABASEUSER     | User name used to connect to the database                                                                                                          | centreon          |      X      |
+| CENTREONDATABASEPASSWORD | Password for the defined user name                                                                                                                 | PASSWORD          |      X      |
+| CENTREONDATABASE         | Centreon database name                                                                                                                             | centreon          |             |
+| CENTREONSTORAGEDATABASE  | Centreon storage database name                                                                                                                     | centreon\_storage |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -241,99 +243,99 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 <Tabs groupId="sync">
 <TabItem value="DSMQueue-Count" label="DSMQueue-Count">
 
-| Macro                   | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERCOUNTERS          | Only display some counters (regexp can be used). Example: --filter-counters='^total-queue-cache$'  |                   |             |
-| FILTERHOSTQUEUE         | Filter by host and pool prefix name (regexp can be used). Example: host1.queue1                    |                   |             |
-| WARNINGHOSTQUEUECACHE   | Warning threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                   |                   |             |
-| CRITICALHOSTQUEUECACHE  | Critical threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                  |                   |             |
-| WARNINGTOTALQUEUECACHE  | Warning threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                   |                   |             |
-| CRITICALTOTALQUEUECACHE | Critical threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                  |                   |             |
-| WARNINGTOTALQUEUELOCK   | Warning threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                   |                   |             |
-| CRITICALTOTALQUEUELOCK  | Critical threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                  |                   |             |
+| Macro                   | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCOUNTERS          | Only display some counters (regexp can be used). Example: --filter-counters='^total-queue-cache$'                                                |                   |             |
+| FILTERHOSTQUEUE         | Filter by host and pool prefix name (regexp can be used). Example: host1.queue1                                                                  |                   |             |
+| WARNINGHOSTQUEUECACHE   | Warning threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                                                                 |                   |             |
+| CRITICALHOSTQUEUECACHE  | Critical threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                                                                |                   |             |
+| WARNINGTOTALQUEUECACHE  | Warning threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                                                                 |                   |             |
+| CRITICALTOTALQUEUECACHE | Critical threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                                                                |                   |             |
+| WARNINGTOTALQUEUELOCK   | Warning threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                                                                 |                   |             |
+| CRITICALTOTALQUEUELOCK  | Critical threshold. : 'total-queue-cache', 'total-queue-lock', 'host-queue-cache'                                                                |                   |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Execution-Time" label="Execution-Time">
 
-| Macro         | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXECUTIONTIME | Set the number of seconds which defines the limit of execution time (default: '20')                | 20                |             |
-| FILTERPOLLER  | Filter by poller name (regexp can be used)                                                         |                   |             |
-| WARNINGCOUNT  | Thresholds on the number of services exceeding defined execution time                              |                   |             |
-| CRITICALCOUNT | Thresholds on the number of services exceeding defined execution time                              |                   |             |
+| Macro         | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| EXECUTIONTIME | Set the number of seconds which defines the limit of execution time                                                                              | 20                |             |
+| FILTERPOLLER  | Filter by poller name (regexp can be used)                                                                                                       |                   |             |
+| WARNINGCOUNT  | Thresholds on the number of services exceeding defined execution time                                                                            |                   |             |
+| CRITICALCOUNT | Thresholds on the number of services exceeding defined execution time                                                                            |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Notifications-Count" label="Notifications-Count">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                  |                   |             |
-| CRITICAL     | Critical threshold                                                                                 |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold                                                                                                                                |                   |             |
+| CRITICAL     | Critical threshold                                                                                                                               |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Poller-Delay" label="Poller-Delay">
 
-| Macro         | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERPOLLER  | Filter by poller name (can be a regexp)                                                            | .*                |             |
-| WARNINGDELAY  | Warning threshold in seconds                                                                       | 180               |             |
-| CRITICALDELAY | Critical threshold in seconds                                                                      | 300               |             |
+| Macro         | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERPOLLER  | Filter by poller name (can be a regexp)                                                                                                          | .*                |             |
+| WARNINGDELAY  | Warning threshold in seconds                                                                                                                     | 180               |             |
+| CRITICALDELAY | Critical threshold in seconds                                                                                                                    | 300               |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Problems-Count" label="Problems-Count">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                  |                   |             |
-| CRITICAL     | Critical threshold                                                                                 |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold                                                                                                                                |                   |             |
+| CRITICAL     | Critical threshold                                                                                                                               |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Resources-Count" label="Resources-Count">
 
-| Macro                        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-----------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERCOUNTERS               | Only display some counters (regexp can be used). Example: --filter-counters='service'              |                   |             |
-| FILTERPOLLER                 | Filter by poller name (regexp can be used)                                                         |                   |             |
-| WARNINGHOSTDOWNCOUNT         | Thresholds                                                                                         |                   |             |
-| CRITICALHOSTDOWNCOUNT        | Thresholds                                                                                         |                   |             |
-| WARNINGHOSTUNREACHABLECOUNT  | Thresholds                                                                                         |                   |             |
-| CRITICALHOSTUNREACHABLECOUNT | Thresholds                                                                                         |                   |             |
-| WARNINGSVCWARNINGCOUNT       | Thresholds                                                                                         |                   |             |
-| WARNINGSVCCRITICALCOUNT      | Thresholds                                                                                         |                   |             |
-| CRITICALSVCWARNINGCOUNT      | Thresholds                                                                                         |                   |             |
-| CRITICALSVCCRITICALCOUNT     | Thresholds                                                                                         |                   |             |
-| WARNINGSVCUNKNOWNCOUNT       | Thresholds                                                                                         |                   |             |
-| CRITICALSVCUNKNOWNCOUNT      | Thresholds                                                                                         |                   |             |
+| Macro                        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCOUNTERS               | Only display some counters (regexp can be used). Example: --filter-counters='service'                                                            |                   |             |
+| FILTERPOLLER                 | Filter by poller name (regexp can be used)                                                                                                       |                   |             |
+| WARNINGHOSTDOWNCOUNT         | Thresholds                                                                                                                                       |                   |             |
+| CRITICALHOSTDOWNCOUNT        | Thresholds                                                                                                                                       |                   |             |
+| WARNINGHOSTUNREACHABLECOUNT  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALHOSTUNREACHABLECOUNT | Thresholds                                                                                                                                       |                   |             |
+| WARNINGSVCWARNINGCOUNT       | Thresholds                                                                                                                                       |                   |             |
+| WARNINGSVCCRITICALCOUNT      | Thresholds                                                                                                                                       |                   |             |
+| CRITICALSVCWARNINGCOUNT      | Thresholds                                                                                                                                       |                   |             |
+| CRITICALSVCCRITICALCOUNT     | Thresholds                                                                                                                                       |                   |             |
+| WARNINGSVCUNKNOWNCOUNT       | Thresholds                                                                                                                                       |                   |             |
+| CRITICALSVCUNKNOWNCOUNT      | Thresholds                                                                                                                                       |                   |             |
 | EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Storage-Partitioning" label="Storage-Partitioning">
 
-| Macro        | Description                                                                                        | Valeur par défaut                       | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:----------------------------------------|:-----------:|
-| TABLENAME1   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                   | centreon\_storage.data\_bin             | X           |
-| TABLENAME2   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                   | centreon\_storage.logs                  | X           |
-| TABLENAME3   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                   | centreon\_storage.log\_archive\_host    | X           |
-| TABLENAME4   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                   | centreon\_storage.log\_archive\_service | X           |
-| WARNING      | Warning threshold (number of retention forward days)                                               | 10:                                     |             |
-| CRITICAL     | Critical threshold (number of retention forward days)                                              | 5:                                      |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut                       | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|:-----------:|
+| TABLENAME1   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.data\_bin             |      X      |
+| TABLENAME2   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.logs                  |      X      |
+| TABLENAME3   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.log\_archive\_host    |      X      |
+| TABLENAME4   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.log\_archive\_service |      X      |
+| WARNING      | Warning threshold (number of retention forward days)                                                                                             | 10:                                     |             |
+| CRITICAL     | Critical threshold (number of retention forward days)                                                                                            | 5:                                      |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                         |             |
 
 </TabItem>
 <TabItem value="Virtual-Service" label="Virtual-Service">
 
-| Macro          | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:---------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CONFIG         |                                                                                                    |                   |             |
-| WARNINGGLOBAL  | Warning threshold (can be 'unique' or 'global') (Override config\_file if set)                     |                   |             |
-| CRITICALGLOBAL | Critical threshold (can be 'unique' or 'global') (Override config\_file if set)                    |                   |             |
-| WARNINGMETRIC  |                                                                                                    |                   |             |
-| CRITICALMETRIC |                                                                                                    |                   |             |
+| Macro          | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CONFIG         | Specify the full path to a json config file                                                                                                      |                   |             |
+| WARNINGGLOBAL  | Warning threshold (Override config\_file if set)                                                                                                 |                   |             |
+| CRITICALGLOBAL | Critical threshold (Override config\_file if set)                                                                                                |                   |             |
+| WARNINGMETRIC  | Warning threshold (Override config\_file if set)                                                                                                 |                   |             |
+| CRITICALMETRIC | Critical threshold(Override config\_file if set)                                                                                                 |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>

@@ -19,28 +19,28 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Net-Lenovo-Flexsystem-SNMP-custom" label="Net-Lenovo-Flexsystem-SNMP-custom">
 
-| Service Alias  | Service Template                                 | Service Description |
-|:---------------|:-------------------------------------------------|:--------------------|
-| Cpu            | Net-Lenovo-Flexsystem-Cpu-custom                 | Check CPU usage                    |
-| Environment    | Net-Lenovo-Flexsystem-Environment-custom         | Check hardware                    |
-| Memory Usage   | Net-Lenovo-Flexsystem-Memory-Usage-custom        | Check memory usage                    |
-| Traffic-Global | Net-Lenovo-Flexsystem-Traffic-Global-SNMP-custom | Check network traffic                    |
+| Service Alias  | Service Template                                 | Service Description   |
+|:---------------|:-------------------------------------------------|:----------------------|
+| Cpu            | Net-Lenovo-Flexsystem-Cpu-custom                 | Check CPU usage       |
+| Environment    | Net-Lenovo-Flexsystem-Environment-custom         | Check hardware        |
+| Memory Usage   | Net-Lenovo-Flexsystem-Memory-Usage-custom        | Check memory usage    |
+| Traffic-Global | Net-Lenovo-Flexsystem-Traffic-Global-SNMP-custom | Check network traffic |
 
 > The services listed above are created automatically when the **Net-Lenovo-Flexsystem-SNMP-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias              | Service Template                                             | Service Description |
-|:---------------------------|:-------------------------------------------------------------|:--------------------|
-| Packet-Errors-Generic-Id   | Net-Lenovo-Flexsystem-Packet-Errors-Generic-Id-SNMP-custom   | Check packets in error and discarded packets for multiple network interfaces                    |
-| Packet-Errors-Generic-Name | Net-Lenovo-Flexsystem-Packet-Errors-Generic-Name-SNMP-custom | Check packets in error and discarded packets for a network interface                    |
-| Packet-Errors-Global       | Net-Lenovo-Flexsystem-Packet-Errors-Global-SNMP-custom       | Check packets in error and discarded packets for multiple network interfaces                    |
-| Storage                    | Net-Lenovo-Flexsystem-Disk-Usage-custom                      | Check the disk usage                    |
-| Time                       | Net-Lenovo-Flexsystem-Time-custom                            | Check the connection time to the server                    |
-| Traffic-Generic-Id         | Net-Lenovo-Flexsystem-Traffic-Generic-Id-SNMP-custom         | Check traffic of a network interface                    |
-| Traffic-Generic-Name       | Net-Lenovo-Flexsystem-Traffic-Generic-Name-SNMP-custom       | Check traffic of a network interface                    |
-| Uptime                     | Net-Lenovo-Flexsystem-Uptime-custom                          | Time since the server has been working and available                    |
+| Service Alias              | Service Template                                             | Service Description                                                          |
+|:---------------------------|:-------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| Packet-Errors-Generic-Id   | Net-Lenovo-Flexsystem-Packet-Errors-Generic-Id-SNMP-custom   | Check packets in error and discarded packets for multiple network interfaces |
+| Packet-Errors-Generic-Name | Net-Lenovo-Flexsystem-Packet-Errors-Generic-Name-SNMP-custom | Check packets in error and discarded packets for a network interface         |
+| Packet-Errors-Global       | Net-Lenovo-Flexsystem-Packet-Errors-Global-SNMP-custom       | Check packets in error and discarded packets for multiple network interfaces |
+| Storage                    | Net-Lenovo-Flexsystem-Disk-Usage-custom                      | Check the disk usage                                                         |
+| Time                       | Net-Lenovo-Flexsystem-Time-custom                            | Check the connection time to the server                                      |
+| Traffic-Generic-Id         | Net-Lenovo-Flexsystem-Traffic-Generic-Id-SNMP-custom         | Check traffic of a network interface                                         |
+| Traffic-Generic-Name       | Net-Lenovo-Flexsystem-Traffic-Generic-Name-SNMP-custom       | Check traffic of a network interface                                         |
+| Uptime                     | Net-Lenovo-Flexsystem-Uptime-custom                          | Time since the server has been working and available                         |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -72,10 +72,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Environment" label="Environment">
 
-| Metric name                  | Unit    |
-|:-----------------------------|:--------|
-| hardware.temperature.celsius | C |
-| faultled                     | N/A        |
+| Metric name                  | Unit |
+|:-----------------------------|:-----|
+| hardware.temperature.celsius | C    |
+| faultled                     | N/A  |
 
 </TabItem>
 <TabItem value="Memory Usage" label="Memory Usage">
@@ -144,11 +144,13 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To use this pack, the SNMP service must be properly configured on your
-Flex System blade server. Lenovo provides an official documentation
-to achieve this:
+The SNMP agent must be enabled and configured on the resource. 
+Please refer to the official documentation from the manufacturer/publisher:
 * Through the CMM Web console : https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.lxci_hwmp_scom.doc%2Fhwmp_enable_snmp_agent
 * Through the CMM Command-Line Interface : https://flexsystem.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.acc.cmm.doc%2Fcli_command_snmp
+
+Your resource may require a list of addresses authorized to query it to be set up. 
+Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
@@ -159,9 +161,12 @@ on the UDP/161 SNMP port.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -197,7 +202,7 @@ yum install centreon-pack-network-lenovo-flexsystem-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Lenovo Flexsystem Switch** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Stormshield API** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -37,10 +37,11 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                      | Service Description     | Discovery |
-|:--------------|:--------------------------------------|:------------------------|:---------:|
-| Ha            | Net-Stormshield-Ha-Api-custom         | Check high availability |           |
-| Interfaces    | Net-Stormshield-Interfaces-Api-custom | Check interfaces        |     X     |
+| Service Alias | Service Template                       | Service Description                  | Discovery |
+|:--------------|:---------------------------------------|:-------------------------------------|:---------:|
+| Ha            | Net-Stormshield-Ha-Api-custom          | Check high availability              |           |
+| Interfaces    | Net-Stormshield-Interfaces-Api-custom  | Check interfaces                     |     X     |
+| Vpn-Tunnels   | Net-Stormshield-Vpn-Tunnels-Api-custom | Check VPN tunnels status and traffic |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -56,6 +57,7 @@ The connector brings the following service templates (sorted by the host templat
 | Rule name                              | Description                                                   |
 |:---------------------------------------|:--------------------------------------------------------------|
 | Net-Stormshield-Api-Interface-Username | Discover network interfaces and monitor bandwidth utilization |
+| Net-Stormshield-Api-Vpn-Tunnels-Name   | Discover VPN tunnels and monitor status and traffic           |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -134,6 +136,22 @@ Here is the list of services for this connector, detailing all metrics and statu
 | system.uptime.seconds | s     |
 
 </TabItem>
+<TabItem value="Vpn-Tunnels" label="Vpn-Tunnels">
+
+| Name                                            | Unit  |
+|:------------------------------------------------|:------|
+| vpn.tunnels.total.count                         | count |
+| status                                          | N/A   |
+| *tunnels1*#vpn.tunnel.traffic.in.bitspersecond  | b/s   |
+| *tunnels2*#vpn.tunnel.traffic.in.bitspersecond  | b/s   |
+| *tunnels1*#vpn.tunnel.traffic.out.bitspersecond | b/s   |
+| *tunnels2*#vpn.tunnel.traffic.out.bitspersecond | b/s   |
+| *tunnels1*#vpn.tunnel.packets.in.count          | count |
+| *tunnels2*#vpn.tunnel.packets.in.count          | count |
+| *tunnels1*#vpn.tunnel.packets.out.count         | count |
+| *tunnels2*#vpn.tunnel.packets.out.count         | count |
+
+</TabItem>
 </Tabs>
 
 ## Prerequisites
@@ -144,9 +162,11 @@ To monitor, a user with read privileges on the API is required.
 
 ### Pack
 
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -182,7 +202,7 @@ yum install centreon-pack-network-stormshield-api
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Stormshield API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -237,13 +257,13 @@ yum install centreon-plugin-Network-Stormshield-Api
 3. Apply the **Net-Stormshield-Api-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                      | Description                                                                                                                              | Default value     | Mandatory |
-|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:---------:|
-| STORMSHIELDAPIUSERNAME     | API username                                                                                                                             |                   |     X     |
-| STORMSHIELDAPIPASSWORD     | API password                                                                                                                             |                   |     X     |
-| STORMSHIELDAPIPROTO        | Specify https if needed                                                                                                                  | https             |           |
-| STORMSHIELDAPIPORT         | Port used                                                                                                                                | 443               |           |
-| STORMSHIELDAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |           |
+| Macro                      | Description                                                                                                                              | Default value    | Mandatory |
+|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------|:---------:|
+| STORMSHIELDAPIUSERNAME     | API username                                                                                                                             |                  |     X     |
+| STORMSHIELDAPIPASSWORD     | API password                                                                                                                             |                  |     X     |
+| STORMSHIELDAPIPROTO        | Specify https if needed                                                                                                                  | https            |           |
+| STORMSHIELDAPIPORT         | Port used                                                                                                                                | 443              |           |
+| STORMSHIELDAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                  |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -255,14 +275,14 @@ yum install centreon-plugin-Network-Stormshield-Api
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro           | Description                                                                                                                            | Default value     | Mandatory   |
-|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERCORE      | Core CPU to monitor (can be a regexp)                                                                                                  |                   |             |
-| WARNINGAVERAGE  | Threshold                                                                                                                              |                   |             |
-| CRITICALAVERAGE | Threshold                                                                                                                              |                   |             |
-| WARNINGCORE     | Threshold                                                                                                                              |                   |             |
-| CRITICALCORE    | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro           | Description                                                                                                                            | Default value | Mandatory |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERCORE      | Core CPU to monitor (can be a regexp)                                                                                                  |               |           |
+| WARNINGAVERAGE  | Threshold                                                                                                                              |               |           |
+| CRITICALAVERAGE | Threshold                                                                                                                              |               |           |
+| WARNINGCORE     | Threshold                                                                                                                              |               |           |
+| CRITICALCORE    | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Ha" label="Ha">
@@ -301,70 +321,91 @@ yum install centreon-plugin-Network-Stormshield-Api
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'disk', 'fan', 'psu', 'temperature'                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'disk', 'fan', 'psu', 'temperature'                                                  |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Health" label="Health">
 
-| Macro                 | Description                                                                                                                            | Default value           | Mandatory   |
-|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
-| FILTERSERIAL          | Filter by firewalls by serial (can be a regexp)                                                                                        |                         |             |
-| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{health\}, %\{service\}            | %\{health\} =~ /minor/i |             |
-| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{health\}, %\{service\}           | %\{health\} =~ /major/i |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose               |             |
+| Macro                 | Description                                                                                                                            | Default value           | Mandatory |
+|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:---------:|
+| FILTERSERIAL          | Filter by firewalls by serial (can be a regexp)                                                                                        |                         |           |
+| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{health\}, %\{service\}            | %\{health\} =~ /minor/i |           |
+| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{health\}, %\{service\}           | %\{health\} =~ /major/i |           |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose               |           |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro                   | Description                                                                                                                                                   | Default value        | Mandatory   |
-|:------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
-| FILTERUSERNAME          | Filter interfaces by user name (regexp can be used)                                                                                                           |                      |             |
-| FILTERREALNAME          | Filter interfaces by real name (regexp can be used)                                                                                                           |                      |             |
-| WARNINGINTRAFFIC        | Threshold                                                                                                                                                     |                      |             |
-| CRITICALINTRAFFIC       | Threshold                                                                                                                                                     |                      |             |
-| WARNINGOUTTRAFFIC       | Threshold                                                                                                                                                     |                      |             |
-| CRITICALOUTTRAFFIC      | Threshold                                                                                                                                                     |                      |             |
-| WARNINGPACKETSACCEPTED  | Threshold                                                                                                                                                     |                      |             |
-| CRITICALPACKETSACCEPTED | Threshold                                                                                                                                                     |                      |             |
-| WARNINGPACKETSBLOCKED   | Threshold                                                                                                                                                     |                      |             |
-| CRITICALPACKETSBLOCKED  | Threshold                                                                                                                                                     |                      |             |
-| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{plugged\}, %\{user\_name\}, %\{real\_name\} | %\{state\} eq "down" |             |
-| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{plugged\}, %\{user\_name\}, %\{real\_name\}  |                      |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                        | --verbose            |             |
+| Macro                   | Description                                                                                                                                                   | Default value        | Mandatory |
+|:------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:---------:|
+| FILTERUSERNAME          | Filter interfaces by user name (regexp can be used)                                                                                                           |                      |           |
+| FILTERREALNAME          | Filter interfaces by real name (regexp can be used)                                                                                                           |                      |           |
+| WARNINGINTRAFFIC        | Threshold                                                                                                                                                     |                      |           |
+| CRITICALINTRAFFIC       | Threshold                                                                                                                                                     |                      |           |
+| WARNINGOUTTRAFFIC       | Threshold                                                                                                                                                     |                      |           |
+| CRITICALOUTTRAFFIC      | Threshold                                                                                                                                                     |                      |           |
+| WARNINGPACKETSACCEPTED  | Threshold                                                                                                                                                     |                      |           |
+| CRITICALPACKETSACCEPTED | Threshold                                                                                                                                                     |                      |           |
+| WARNINGPACKETSBLOCKED   | Threshold                                                                                                                                                     |                      |           |
+| CRITICALPACKETSBLOCKED  | Threshold                                                                                                                                                     |                      |           |
+| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{plugged\}, %\{user\_name\}, %\{real\_name\} | %\{state\} eq "down" |           |
+| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{plugged\}, %\{user\_name\}, %\{real\_name\}  |                      |           |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                        | --verbose            |           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro              | Description                                                                                                                            | Default value     | Mandatory   |
-|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCONN        | Threshold                                                                                                                              |                   |             |
-| CRITICALCONN       | Threshold                                                                                                                              |                   |             |
-| WARNINGDTRACK      | Threshold                                                                                                                              |                   |             |
-| CRITICALDTRACK     | Threshold                                                                                                                              |                   |             |
-| WARNINGDYN         | Threshold                                                                                                                              |                   |             |
-| CRITICALDYN        | Threshold                                                                                                                              |                   |             |
-| WARNINGETHERSTATE  | Threshold                                                                                                                              |                   |             |
-| CRITICALETHERSTATE | Threshold                                                                                                                              |                   |             |
-| WARNINGFRAG        | Threshold                                                                                                                              |                   |             |
-| CRITICALFRAG       | Threshold                                                                                                                              |                   |             |
-| WARNINGHOST        | Threshold                                                                                                                              |                   |             |
-| CRITICALHOST       | Threshold                                                                                                                              |                   |             |
-| WARNINGICMP        | Threshold                                                                                                                              |                   |             |
-| CRITICALICMP       | Threshold                                                                                                                              |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro              | Description                                                                                                                            | Default value | Mandatory |
+|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGCONN        | Threshold                                                                                                                              |               |           |
+| CRITICALCONN       | Threshold                                                                                                                              |               |           |
+| WARNINGDTRACK      | Threshold                                                                                                                              |               |           |
+| CRITICALDTRACK     | Threshold                                                                                                                              |               |           |
+| WARNINGDYN         | Threshold                                                                                                                              |               |           |
+| CRITICALDYN        | Threshold                                                                                                                              |               |           |
+| WARNINGETHERSTATE  | Threshold                                                                                                                              |               |           |
+| CRITICALETHERSTATE | Threshold                                                                                                                              |               |           |
+| WARNINGFRAG        | Threshold                                                                                                                              |               |           |
+| CRITICALFRAG       | Threshold                                                                                                                              |               |           |
+| WARNINGHOST        | Threshold                                                                                                                              |               |           |
+| CRITICALHOST       | Threshold                                                                                                                              |               |           |
+| WARNINGICMP        | Threshold                                                                                                                              |               |           |
+| CRITICALICMP       | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro          | Description                                                                                                                               | Default value     | Mandatory   |
-|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| UNIT           | Select the unit for performance data and thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. | s                 |             |
-| WARNINGUPTIME  | Threshold                                                                                                                                 |                   |             |
-| CRITICALUPTIME | Threshold                                                                                                                                 |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).    |                   |             |
+| Macro          | Description                                                                                                                               | Default value | Mandatory |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| UNIT           | Select the unit for performance data and thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. | s             |           |
+| WARNINGUPTIME  | Threshold                                                                                                                                 |               |           |
+| CRITICALUPTIME | Threshold                                                                                                                                 |               |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).    |               |           |
+
+</TabItem>
+<TabItem value="Vpn-Tunnels" label="Vpn-Tunnels">
+
+| Macro                    | Description                                                                                                                            | Default value                  | Mandatory |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:---------:|
+| FILTERNAME               | Filter name (can be a regexp)                                                                                                          |                                |           |
+| FILTERCOUNTERS           | Only display some counters (regexp can be used). Example: --filter-counters='tunnels-total'                                            |                                |           |
+| WARNINGSTATUS            | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ikeStatus\}, %\{name\}            | %\{ikeStatus\} =~ /connecting/ |           |
+| CRITICALSTATUS           | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ikeStatus\}, %\{name\}           |                                |           |
+| WARNINGTUNNELPACKETSIN   | Threshold                                                                                                                              |                                |           |
+| CRITICALTUNNELPACKETSIN  | Threshold                                                                                                                              |                                |           |
+| WARNINGTUNNELPACKETSOUT  | Threshold                                                                                                                              |                                |           |
+| CRITICALTUNNELPACKETSOUT | Threshold                                                                                                                              |                                |           |
+| WARNINGTUNNELSTOTAL      | Threshold                                                                                                                              |                                |           |
+| CRITICALTUNNELSTOTAL     | Threshold                                                                                                                              |                                |           |
+| WARNINGTUNNELTRAFFICIN   | Threshold                                                                                                                              |                                |           |
+| CRITICALTUNNELTRAFFICIN  | Threshold                                                                                                                              |                                |           |
+| WARNINGTUNNELTRAFFICOUT  | Threshold                                                                                                                              |                                |           |
+| CRITICALTUNNELTRAFFICOUT | Threshold                                                                                                                              |                                |           |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                |           |
 
 </TabItem>
 </Tabs>
@@ -431,16 +472,18 @@ the command:
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                                   | Linked service template               |
-|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/cpu.pm)]                        | Net-Stormshield-Cpu-Api-custom        |
-| ha [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/ha.pm)]                          | Net-Stormshield-Ha-Api-custom         |
-| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/hardware.pm)]              | Net-Stormshield-Hardware-Api-custom   |
-| health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/health.pm)]                  | Net-Stormshield-Health-Api-custom     |
-| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/interfaces.pm)]          | Net-Stormshield-Interfaces-Api-custom |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/listinterfaces.pm)] | Used for service discovery            |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/memory.pm)]                  | Net-Stormshield-Memory-Api-custom     |
-| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/uptime.pm)]                  | Net-Stormshield-Uptime-Api-custom     |
+| Mode                                                                                                                                    | Linked service template                |
+|:----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/cpu.pm)]                         | Net-Stormshield-Cpu-Api-custom         |
+| ha [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/ha.pm)]                           | Net-Stormshield-Ha-Api-custom          |
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/hardware.pm)]               | Net-Stormshield-Hardware-Api-custom    |
+| health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/health.pm)]                   | Net-Stormshield-Health-Api-custom      |
+| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/interfaces.pm)]           | Net-Stormshield-Interfaces-Api-custom  |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/listinterfaces.pm)]  | Used for service discovery             |
+| list-vpn-tunnels [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/listvpntunnels.pm)] | Used for service discovery             |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/memory.pm)]                   | Net-Stormshield-Memory-Api-custom      |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/uptime.pm)]                   | Net-Stormshield-Uptime-Api-custom      |
+| vpn-tunnels [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/api/mode/vpntunnels.pm)]          | Net-Stormshield-Vpn-Tunnels-Api-custom |
 
 ### Available options
 
@@ -472,6 +515,7 @@ All generic options are listed here:
 | --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on an "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -568,20 +612,20 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Option                   | Description                                                                                                                                                                                   |
-|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                     |
-| --filter-real-name       | Filter interfaces by real name (regexp can be used).                                                                                                                                          |
-| --filter-user-name       | Filter interfaces by user name (regexp can be used).                                                                                                                                          |
-| --add-status             | Check interface status.                                                                                                                                                                       |
-| --add-traffic            | Check interface traffic.                                                                                                                                                                      |
-| --add-errors             | Check interface errors.                                                                                                                                                                       |
-| --units-traffic          | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                         |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{plugged\}, %\{user\_name\}, %\{real\_name\}                                  |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{plugged\}, %\{user\_name\}, %\{real\_name\}                                  |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: "%\{state\} eq 'down'"). You can use the following variables: %\{state\}, %\{plugged\}, %\{user\_name\}, %\{real\_name\} |
-| --warning-* --critical-* | Thresholds. Can be: 'in-traffic', 'out-traffic', 'packets-accepted', 'packets-blocked',                                                                                                       |
-| --speed                  | Set interface speed (in Mb).                                                                                                                                                                  |
+| Option                   | Description                                                                                                                                                                                        |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                        |
+| --filter-real-name       |   Filter interfaces by real name (regexp can be used).                                                                                                                                             |
+| --filter-user-name       |   Filter interfaces by user name (regexp can be used).                                                                                                                                             |
+| --add-status             |   Check interface status.                                                                                                                                                                          |
+| --add-traffic            |   Check interface traffic.                                                                                                                                                                         |
+| --add-errors             |   Check interface errors.                                                                                                                                                                          |
+| --units-traffic          |   Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                            |
+| --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{plugged\}, %\{user\_name\}, %\{real\_name\}                                     |
+| --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{plugged\}, %\{user\_name\}, %\{real\_name\}                                     |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: "%\{state\} eq 'down'") You can use the following variables: %\{state\}, %\{plugged\}, %\{user\_name\}, %\{real\_name\}   |
+| --warning-* --critical-* |   Thresholds. Can be: 'in-traffic', 'out-traffic', 'packets-accepted', 'packets-blocked',                                                                                                          |
+| --speed                  |   Set interface speed (in Mb).                                                                                                                                                                     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -602,6 +646,18 @@ All available options for each service template are listed below:
 | --warning-* --critical-* |   Thresholds. Can be: 'uptime'.                                                                                                                                  |
 
 </TabItem>
+<TabItem value="Vpn-Tunnels" label="Vpn-Tunnels">
+
+| Option                   | Description                                                                                                                                                                |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='tunnels-total'                                                                              |
+| --filter-name            |   Filter name (can be a regexp).                                                                                                                                           |
+| --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{ikeStatus\}, %\{name\}                                              |
+| --warning-status         |   Define the conditions to match for the status to be WARNING (default: '%\{ikeStatus\} =~ /connecting/'. You can use the following variables: %\{ikeStatus\}, %\{name\}   |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ikeStatus\}, %\{name\}                                             |
+| --warning-* --critical-* |   Thresholds. Can be: 'tunnels-total', 'tunnel-traffic-in', 'tunnel-traffic-out', 'tunnel-packets-in', 'tunnel-packets-out'.                                               |
+
+</TabItem>
 </Tabs>
 
 All available options for a given mode can be displayed by adding the
@@ -610,6 +666,6 @@ All available options for a given mode can be displayed by adding the
 ```bash
 /usr/lib/centreon/plugins/centreon_stormshield_api.pl \
 	--plugin=network::stormshield::api::plugin \
-	--mode=memory \
+	--mode=vpn-tunnels \
 	--help
 ```

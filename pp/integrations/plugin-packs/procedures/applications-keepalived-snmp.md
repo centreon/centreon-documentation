@@ -48,8 +48,6 @@ Here is the list of services for this connector, detailing all metrics linked to
 |:--------------|:------|
 | *vrrp*#status | N/A   |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
 </TabItem>
 </Tabs>
 
@@ -68,9 +66,12 @@ SNMP port.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -106,7 +107,7 @@ yum install centreon-pack-applications-keepalived-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Keepalived SNMP** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

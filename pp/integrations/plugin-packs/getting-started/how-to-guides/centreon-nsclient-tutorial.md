@@ -38,7 +38,7 @@ An updated version of the **centreon-nsclient** installer (for new installations
 a montlhy basis.
 
 > On existing installations, you will only have to update the Plugins, not the agent itself.
-> To do so, read the [Update](#Update) chapter of this tutorial.
+> To do so, read the [Update](#update) chapter of this tutorial.
 
 ## Download
 

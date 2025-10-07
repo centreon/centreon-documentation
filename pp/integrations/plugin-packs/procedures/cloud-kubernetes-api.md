@@ -839,9 +839,12 @@ for more details.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -877,7 +880,7 @@ yum install centreon-pack-cloud-kubernetes-api
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Kubernetes API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -966,7 +969,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).                       |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 > For the host discovery: set the path to the [created configuration file](#create-a-kubectl-configuration) (prefer using relative path to make it work for both discovery and monitoring, i.e. `~/.kube/config`).
@@ -1011,7 +1014,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).                       |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 > For the host discovery: set the path to the [created configuration file](#create-a-kubectl-configuration) (prefer using relative path to make it work for both discovery and monitoring, i.e. `~/.kube/config`).
@@ -1325,22 +1328,22 @@ All **custom modes** specific options are listed here:
 <Tabs groupId="sync">
 <TabItem value="api" label="api">
 
-| Option            | Description                                                                                                                                                                                                                                 |
-|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --hostname        | Kubernetes API hostname.                                                                                                                                                                                                                    |
-| --port            | API port (default: 443)                                                                                                                                                                                                                     |
-| --proto           | Specify https if needed (default: 'https')                                                                                                                                                                                                  |
-| --timeout         | Set HTTP timeout                                                                                                                                                                                                                            |
-| --limit           | Number of responses to return for each list calls. See https://kubernetes.io/docs/reference/kubernetes-api/common-param eters/common-parameters/#limit                                                                                      |
-| --namespace       | Set namespace to get information.                                                                                                                                                                                                           |
+| Option            | Description                                                                                                                                                                                                                                                                                                                                                                      |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --hostname        | Kubernetes API hostname.                                                                                                                                                                                                                                                                                                                                                         |
+| --port            | API port (default: 443)                                                                                                                                                                                                                                                                                                                                                          |
+| --proto           | Specify https if needed (default: 'https')                                                                                                                                                                                                                                                                                                                                       |
+| --timeout         | Set HTTP timeout (default: 10).                                                                                                                                                                                                                                                                                                                                                  |
+| --limit           | Number of responses to return for each list calls. See https://kubernetes.io/docs/reference/kubernetes-api/common-param eters/common-parameters/#limit (fefault: 100)                                                                                                                                                                                                            |
+| --namespace       | Set namespace to get information.                                                                                                                                                                                                                                                                                                                                                |
 | --legacy-api-beta | If this option is set the legacy API path are set for this API calls: kubernetes\_list\_cronjobs will use this path: /apis/batch/v1beta1/namespaces/ and kubernetes\_list\_ingresses will use this path: /apis/extensions/v1beta1/namespaces/ . This ways are no longer served since K8S 1.22 see https://kubernetes.io/docs/reference/using-api/deprecation-guide/#ingress-v122 |
-| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                         |
-| --proxyurl        | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                    |
-| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                              |
-| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                            |
-| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                     |
-| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                   |
-| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                            |
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                              |
+| --proxyurl        | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                   |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                 |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                          |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                                                                                                        |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                                                                                                                 |
 
 </TabItem>
 <TabItem value="kubectl" label="kubectl">

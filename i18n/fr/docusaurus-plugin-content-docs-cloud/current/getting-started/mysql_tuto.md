@@ -26,7 +26,7 @@ GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 ### Dans l'interface utilisateur
 
 La base de données sera supervisée à l'aide du connecteur de supervision **MySQL/MariaDB**.
-Rendez-vous dans le menu **Configuration > Gestionnaire de connecteurs de supervision** et installez le connecteur de supervision **MySQL/MariaDB** :
+Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervision** et installez le connecteur de supervision **MySQL/MariaDB** :
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 

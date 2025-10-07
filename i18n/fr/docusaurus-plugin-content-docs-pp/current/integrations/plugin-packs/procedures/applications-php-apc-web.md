@@ -51,7 +51,7 @@ Il apporte les Modèles de Services suivants :
 
 La page Web PHP APC doit être joignable depuis le collecteur Centreon sur le 
 port spécifié dans la Macro d'Hôte *PHPAPCWEBPORT*. Plus d'information sur 
-les Macros d'Hôte dans la partie [Configuration](#Configuration).
+les Macros d'Hôte dans la partie [Configuration](#configuration).
 
 ## Installation
 

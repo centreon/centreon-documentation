@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Huawei WLC SNMP** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                       | Service Description                             |
 |:--------------|:---------------------------------------|:------------------------------------------------|
-| Cpu           | Net-Huawei-Wlc-Cpu-SNMP-custom         | Monitor the CPU utilization rate         |
+| Cpu           | Net-Huawei-Wlc-Cpu-SNMP-custom         | Monitor the CPU utilization rate                |
 | Hardware      | Net-Huawei-Wlc-Hardware-SNMP-custom    | Check the state of hardware components          |
-| Memory        | Net-Huawei-Wlc-Memory-SNMP-custom      | Check the memory utilization rate     |
+| Memory        | Net-Huawei-Wlc-Memory-SNMP-custom      | Check the memory utilization rate               |
 | Uptime        | Net-Huawei-Wlc-Uptime-SNMP-custom      | Check uptime                                    |
 | Wlan-Global   | Net-Huawei-Wlc-Wlan-Global-SNMP-custom | Check the state of the wireless networks (WLAN) |
 
@@ -37,12 +37,12 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                      | Service Description                                      | Discovery  |
-|:--------------|:--------------------------------------|:---------------------------------------------------------|:----------:|
-| Ap-Health     | Net-Huawei-Wlc-Ap-Health-SNMP-custom  | Check the health state of an access point (AP)           | X          |
-| Ap-Radio      | Net-Huawei-Wlc-Ap-Radio-SNMP-custom   | Monitor the radio communications of an access point (AP) |            |
-| Ap-Status     | Net-Huawei-Wlc-Ap-Status-SNMP-custom  | Monitor the status of an access point (AP)               | X          |
-| Interfaces    | Net-Huawei-Wlc-Interfaces-SNMP-custom | Check interfaces                                         | X          |
+| Service Alias | Service Template                      | Service Description                                      | Discovery |
+|:--------------|:--------------------------------------|:---------------------------------------------------------|:---------:|
+| Ap-Health     | Net-Huawei-Wlc-Ap-Health-SNMP-custom  | Check the health state of an access point (AP)           |     X     |
+| Ap-Radio      | Net-Huawei-Wlc-Ap-Radio-SNMP-custom   | Monitor the radio communications of an access point (AP) |           |
+| Ap-Status     | Net-Huawei-Wlc-Ap-Status-SNMP-custom  | Monitor the status of an access point (AP)               |     X     |
+| Interfaces    | Net-Huawei-Wlc-Interfaces-SNMP-custom | Check interfaces                                         |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -65,9 +65,9 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                          | Description                                                   |
 |:-----------------------------------|:--------------------------------------------------------------|
-| Net-Huawei-Wlc-SNMP-Ap-Health-Name | Discover access points and monitor their health.              |
-| Net-Huawei-Wlc-SNMP-Ap-Radio-Name  | Discover access points and monitor their radios.              |
-| Net-Huawei-Wlc-SNMP-Ap-Status-Name | Discover access points and monitor their status.              |
+| Net-Huawei-Wlc-SNMP-Ap-Health-Name | Discover access points and monitor their health               |
+| Net-Huawei-Wlc-SNMP-Ap-Radio-Name  | Discover access points and monitor their radios               |
+| Net-Huawei-Wlc-SNMP-Ap-Status-Name | Discover access points and monitor their status               |
 | Net-Huawei-Wlc-SNMP-Traffic-Name   | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
@@ -80,30 +80,30 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Ap-Health" label="Ap-Health">
 
-| Metric name                                               | Unit  |
-|:----------------------------------------------------------|:------|
-| *ap_name*#status                                   | N/A   |
-| *ap_name*#ap.temperature.celsius       | C   |
-| *ap_name*#ap.online.time       |     |
-| *ap_name*#ap.boot.total.count       |     |
-| *ap_name*#ap.memory.used.percentage       | %   |
-| *ap_name*#ap.cpu.used.percentage       | %   |
-| *ap_name*#ap.up.port.bitspersecond       | b/s   |
-| *ap_name*#ap.up.port.package.error.percentage       | %   |
-| *ap_name*#ap.online.user.count       |     |
+| Name                                          | Unit  |
+|:----------------------------------------------|:------|
+| *ap_name*#status                              | N/A   |
+| *ap_name*#ap.temperature.celsius              | C     |
+| *ap_name*#ap.online.time                      | s     |
+| *ap_name*#ap.boot.total.count                 | count |
+| *ap_name*#ap.memory.used.percentage           | %     |
+| *ap_name*#ap.cpu.used.percentage              | %     |
+| *ap_name*#ap.up.port.bitspersecond            | b/s   |
+| *ap_name*#ap.up.port.package.error.percentage | %     |
+| *ap_name*#ap.online.user.count                | count |
 
 </TabItem>
 <TabItem value="Ap-Radio" label="Ap-Radio">
 
-| Metric name                                               | Unit  |
-|:----------------------------------------------------------|:------|
-| *radio_name*#status                                   | N/A   |
-| *radio_name*#ap.radio.packageerror.percentage       | %   |
-| *radio_name*#ap.radio.noise.dbm       | dBm   |
-| *radio_name*#ap.radio.channel.utilization.percentage       | %   |
-| *radio_name*#ap.radio.channel.interference.percentage       | %   |
-| *ap_name*#ap.radio.receive.bitspersecond       | b/s   |
-| *ap_name*#ap.radio.send.bitspersecond       | b/s   |
+| Name                                                  | Unit |
+|:------------------------------------------------------|:-----|
+| *radio_name*#status                                   | N/A  |
+| *radio_name*#ap.radio.packageerror.percentage         | %    |
+| *radio_name*#ap.radio.noise.dbm                       | dBm  |
+| *radio_name*#ap.radio.channel.utilization.percentage  | %    |
+| *radio_name*#ap.radio.channel.interference.percentage | %    |
+| *ap_name*#ap.radio.receive.bitspersecond              | b/s  |
+| *ap_name*#ap.radio.send.bitspersecond                 | b/s  |
 
 </TabItem>
 <TabItem value="Ap-Status" label="Ap-Status">
@@ -132,9 +132,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Name        | Unit  |
-|:------------|:------|
-| *cpu*#usage | %     |
+| Name        | Unit |
+|:------------|:-----|
+| *cpu*#usage | %    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -149,32 +149,32 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Metric name                                               | Unit  |
-|:----------------------------------------------------------|:------|
-| *interface_name*#status                                   | N/A   |
-| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
-| *interface_name*#interface.packets.in.discard.percentage  | %     |
-| *interface_name*#interface.packets.in.error.percentage    | %     |
-| *interface_name*#interface.packets.out.discard.percentage | %     |
-| *interface_name*#interface.packets.out.error.percentage   | %     |
+| Name                                                      | Unit |
+|:----------------------------------------------------------|:-----|
+| *interface_name*#status                                   | N/A  |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s  |
+| *interface_name*#interface.packets.in.discard.percentage  | %    |
+| *interface_name*#interface.packets.in.error.percentage    | %    |
+| *interface_name*#interface.packets.out.discard.percentage | %    |
+| *interface_name*#interface.packets.out.error.percentage   | %    |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Name           | Unit  |
-|:---------------|:------|
-| *memory1*#used | B     |
-| *memory2*#used | B     |
+| Name           | Unit |
+|:---------------|:-----|
+| *memory1*#used | B    |
+| *memory2*#used | B    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Name                  | Unit  |
-|:----------------------|:------|
-| system.uptime.seconds | s     |
+| Name                  | Unit |
+|:----------------------|:-----|
+| system.uptime.seconds | s    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -214,9 +214,12 @@ SNMP port.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -252,7 +255,7 @@ yum install centreon-pack-network-huawei-wlc-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Huawei WLC SNMP** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 

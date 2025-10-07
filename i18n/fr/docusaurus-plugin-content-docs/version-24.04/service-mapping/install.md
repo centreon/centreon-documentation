@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
-Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
+Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiques-des-serveurs).
 
 Installez BAM sur le serveur central.
 Le serveur central et Centreon BAM doivent être dans la même version majeure (c'est-à-dire tous les deux en 24.04.x).

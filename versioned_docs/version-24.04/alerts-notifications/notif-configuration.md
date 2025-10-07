@@ -50,7 +50,7 @@ option.
     
         If it is set to **Default**, the value applied will be that defined on the host or service template (see [Template Inheritance Rules](#template-inheritance-rules)). If no value is defined on any parent template, the default value is **No**.
 
-    - In **Linked Contacts/Linked Contact Groups**, define which contacts will receive notifications. Notifications must be enabled for these contacts (see [Step 3](#step-3:enabling-notifications-for-the-contacts-you-have-defined)).
+    - In **Linked Contacts/Linked Contact Groups**, define which contacts will receive notifications. Notifications must be enabled for these contacts (see [Step 3](#step-3-enabling-notifications-for-the-contacts-you-have-defined)).
 
         > If notifications are enabled for a host and a contact is defined, notifications will also be enabled for the host's services (unless their **notification Enabled** option is set to **No**).
 

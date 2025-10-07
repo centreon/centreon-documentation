@@ -335,7 +335,7 @@ Le graphique s'ouvre dans la page **Supervision > Informations de performance > 
 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
-Vous pouvez aussi exporter les données du graphique au format CSV. Toutes les métriques seront incluses.
+Vous pouvez aussi exporter les données du graphique au format CSV (toutes les métriques seront incluses), ou bien au format PNG en différentes tailles.
 
 ### Onglet Notification
 

@@ -23,6 +23,7 @@ jobs:
       build_next_version: ${{ steps.filters.outputs.build_next_version }}
       build_pp: ${{ steps.filters.outputs.build_pp }}
       build_cloud: ${{ steps.filters.outputs.build_cloud }}
+      build_dem: ${{ steps.filters.outputs.build_dem }}
 
     steps:
       - name: Checkout sources
@@ -41,7 +42,7 @@ jobs:
               - package.json
               - versions.json
               - nextVersion.json
-              - yarn.lock
+              - pnpm-lock.yaml
               - 'src/**'
               - 'static/**'
               - 'i18n/**/(code|footer|navbar).json'
@@ -49,6 +50,9 @@ jobs:
             cloud:
               - 'cloud/**'
               - 'i18n/**/docusaurus-plugin-content-docs-cloud/**'
+            dem:
+              - 'dem/**'
+              - 'i18n/**/docusaurus-plugin-content-docs-dem/**'
             pp:
               - 'pp/**'
               - 'i18n/**/docusaurus-plugin-content-docs-pp/**'
@@ -70,6 +74,7 @@ jobs:
             }
             let build_pp = '1';
             let build_cloud = '1';
+            let build_dem = '1';
 
             if ('${{ github.event_name }}' === 'pull_request' && ${{ steps.changes.outputs.global }} === false) {
               if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.pp }} === false) {
@@ -78,6 +83,10 @@ jobs:
 
               if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.cloud }} === false) {
                 build_cloud = '0';
+              }
+
+              if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.dem }} === false) {
+                build_dem = '0';
               }
 
               build_versions = [];
@@ -97,7 +106,7 @@ jobs:
                 build_versions = [...new Set(build_versions)].sort().reverse(); // remove duplicates and sort desc
               }
 
-              if (build_versions.length === 0 && (build_pp === '1' || build_cloud === '1')) {
+              if (build_versions.length === 0 && (build_pp === '1' || build_cloud === '1' || build_dem === '1')) {
                 build_versions.push(available_versions[0]);
               }
             }
@@ -106,6 +115,7 @@ jobs:
             console.log(`next version will${build_next_version === null ? ' not' : ''} be built`);
             console.log(`pp section will${build_pp === '0' ? ' not' : ''} be built`);
             console.log(`cloud section will${build_cloud === '0' ? ' not' : ''} be built`);
+            console.log(`dem section will${build_dem === '0' ? ' not' : ''} be built`);
 
             const build_environments = [];
             if (build_versions.length) {
@@ -120,6 +130,7 @@ jobs:
             core.exportVariable('build_next_version', build_next_version);
             core.exportVariable('build_pp', build_pp);
             core.exportVariable('build_cloud', build_cloud);
+            core.exportVariable('build_dem', build_dem);
 
       - name: Manage versions to build
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
@@ -138,6 +149,7 @@ jobs:
             core.exportVariable('build_next_version', require('./nextVersion.json').version);
             core.exportVariable('build_pp', '1');
             core.exportVariable('build_cloud', '1');
+            core.exportVariable('build_dem', '1');
 
       - name: Manage versions to build
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
@@ -149,6 +161,7 @@ jobs:
             core.setOutput('build_next_version', '${{ env.build_next_version }}');
             core.setOutput('build_pp', '${{ env.build_pp }}');
             core.setOutput('build_cloud', '${{ env.build_cloud }}');
+            core.setOutput('build_dem', '${{ env.build_dem }}');
 
   build:
     if: ${{ needs.get-versions.outputs.build_environments != '[]' }}
@@ -164,6 +177,7 @@ jobs:
             next_version: ${{ needs.get-versions.outputs.build_next_version }}
             pp: ${{ needs.get-versions.outputs.build_pp }}
             cloud: ${{ needs.get-versions.outputs.build_cloud }}
+            dem: ${{ needs.get-versions.outputs.build_dem }}
 
     name: Build ${{ matrix.environment }}
 
@@ -173,13 +187,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
         with:
           version: 9
           run_install: false
 
       - name: Set up Node
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
           cache: pnpm
@@ -190,7 +204,7 @@ jobs:
         shell: bash
 
       - name: Restore docusaurus build from cache
-        uses: actions/cache/restore@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
+        uses: actions/cache/restore@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
           path: |
             .docusaurus
@@ -204,6 +218,7 @@ jobs:
         env:
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
+          DEM: ${{ matrix.dem }}
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 
@@ -217,7 +232,7 @@ jobs:
         shell: bash
 
       - name: Store docusaurus build cache in cache
-        uses: actions/cache/save@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
+        uses: actions/cache/save@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
           path: |
             .docusaurus
@@ -227,7 +242,7 @@ jobs:
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
     needs: [get-versions, build]
-    runs-on: [self-hosted, infra]
+    runs-on: infrastructure
 
     strategy:
       fail-fast: false
@@ -241,7 +256,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Restore build from cache
-        uses: actions/cache/restore@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
+        uses: actions/cache/restore@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
           path: |
             .docusaurus
@@ -291,7 +306,7 @@ jobs:
             core.exportVariable('preview_urls',preview_urls.join('\n'));
 
       - name: Leave a comment after deployment
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@773744901bac0e8cbb5a0dc842800d45e9b2b405 # v2.9.4
         with:
           header: pr-preview
           message: "\
@@ -310,7 +325,7 @@ jobs:
   deploy-staging:
     if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'staging') }}
     needs: [get-versions, build]
-    runs-on: [self-hosted, infra]
+    runs-on: infrastructure
 
     name: Deploy to staging
 
@@ -323,7 +338,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Restore build from cache
-        uses: actions/cache/restore@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
+        uses: actions/cache/restore@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
           path: |
             .docusaurus
@@ -333,6 +348,9 @@ jobs:
 
       - name: Deploy to https://docs-staging.int.centreon.com
         run: |
+          sudo apt-get update
+          sudo apt-get install -y rsync
+
           # Prepare ssh-key
           eval `ssh-agent`
           ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
@@ -344,7 +362,7 @@ jobs:
   deploy-next:
     if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'next') }}
     needs: [get-versions, build]
-    runs-on: [self-hosted, infra]
+    runs-on: infrastructure
 
     name: Deploy to next
 
@@ -357,7 +375,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Restore build from cache
-        uses: actions/cache/restore@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
+        uses: actions/cache/restore@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
           path: |
             .docusaurus

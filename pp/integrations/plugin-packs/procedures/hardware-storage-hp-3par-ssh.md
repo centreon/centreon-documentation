@@ -173,9 +173,12 @@ setting your unique user and password directly in the host macros.
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -211,7 +214,7 @@ yum install centreon-pack-hardware-storage-hp-3par-ssh
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **HP 3PAR SSH** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -332,7 +335,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 | WARNINGPSUSTATUS            | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{cage_id\}, %\{psu_id\}                                                                                                                  |                         |             |
 | CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{cage_id\}                                                  | %\{status\} !~ /Normal/i  |             |
 | WARNINGSTATUS               | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{cage_id\}                                                                                                                 |                         |             |
-| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                           | --verbose               |             |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).                           | --verbose               |             |
 
 </TabItem>
 <TabItem value="Capacity" label="Capacity">
@@ -419,7 +422,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 | WARNINGFANSTATUS               | Set warning threshold for fan status. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                                    |                    |             |
 | CRITICALSTATUS                 | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}            | %\{status\} !~ /ok/i |             |
 | WARNINGSTATUS                  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}             |                    |             |
-| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose          |             |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). | --verbose          |             |
 
 </TabItem>
 <TabItem value="Time" label="Time">

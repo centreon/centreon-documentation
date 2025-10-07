@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Le connecteur de supervision Centreon Central permet de faciliter la mise en place de la supervision pour le serveur central.
 
-> Nous recommandons fortement que le serveur central soit supervisé par un collecteur, si votre architecture en dispose d'un. Dans le cas contraire, vous devrez ajouter l'option `--hostname=''` à la macro `EXTRAOPTIONS` de l'hôte pour éviter d'avoir des erreurs de vérification de la clef de l'hôte.
+> Nous recommandons fortement que le serveur central soit supervisé par un collecteur, si votre architecture en dispose d'un. Dans le cas contraire, vous devrez ajouter l'option `--hostname=''` à la macro `EXTRAOPTIONS` du service pour éviter d'avoir des erreurs de vérification de la clef de l'hôte.
 
 ### Modèles
 
@@ -184,7 +184,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP de l'équipement
 
-SNMP doit être configuré sur le serveur central. Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp.md#prerequisites) pour mettre en place rapidement une simple configuration SNMP.
+L'agent SNMP doit être activé et configuré sur le serveur central. 
+Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp.md#prérequis) pour mettre en place rapidement une simple configuration SNMP.
 
 ### Configuration de la connexion SSH sans mot de passe
 
@@ -235,14 +236,16 @@ L'utilisateur `centreon-engine` du collecteur est alors capable d'ouvrir une ses
 
 ### Serveur central auto-supervisé
 
-Si votre serveur central se supervise lui-même, vous devrez ajouter l'option `--hostname=''` à la macro `EXTRAOPTIONS` de l'hôte pour éviter d'avoir des erreurs de vérification de la clef de l'hôte. (La meilleure pratique consiste cependant à superviser son central avec un collecteur.)
+Si votre serveur central se supervise lui-même, vous devrez ajouter l'option `--hostname=''` à la macro `EXTRAOPTIONS` du service pour éviter d'avoir des erreurs de vérification de la clef de l'hôte. (La meilleure pratique consiste cependant à superviser son central avec un collecteur.)
 
 ## Installer le connecteur de supervision
 
 ### Pack
 
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
 1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
 sur le **serveur central** via la commande correspondant au gestionnaire de paquets
 associé à sa distribution :
@@ -279,7 +282,7 @@ yum install centreon-pack-applications-monitoring-centreon-central
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Centreon Central**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
@@ -461,14 +464,14 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Central
 </TabItem>
 <TabItem value="proc-ntpd" label="proc-ntpd">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                 | ntpd\|chronyd     |             |
-| PROCESSPATH  | Filter process path                                                                                 |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                            |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                      | 1:1               |             |
-| WARNING      | Warning threshold of matching processes count                                                       |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                        | Default value                  | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                | ntpd\|chronyd\|systemd-timesyn |             |
+| PROCESSPATH  | Filter process path                                                                                |                                |             |
+| PROCESSARGS  | Filter process arguments                                                                           |                                |             |
+| CRITICAL     | Critical threshold of matching processes count                                                     | 1:1                            |             |
+| WARNING      | Warning threshold of matching processes count                                                      |                                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="proc-snmptrapd" label="proc-snmptrapd">

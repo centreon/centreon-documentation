@@ -19,8 +19,8 @@ Utilisez la fonctionnalité [notification](../alerts-notifications/notif-configu
 
 Ajoutez automatiquement de nouveaux hôtes et services à votre plateforme en utilisant un mécanisme de découverte. Informez-vous sur le module [Auto Discovery](../monitoring/discovery/introduction.md).
 
-## Découvrir les fonctionnalités de la Business Edition
+## Découvrir les fonctionnalités des modules complémentaires
 
-La plateforme Centreon propose également des modules Business (tels que le service mapping, les vues graphiques) permettant de superviser des flux informatiques plus complexes. Ces modules vous aident à gérer les incidents informatiques plus efficacement et à respecter vos accords de niveaux de service (SLA).
+La plateforme Centreon propose également des modules tels que le service mapping, les vues graphiques, permettant de superviser des flux informatiques plus complexes. Ces modules vous aident à gérer les incidents informatiques plus efficacement et à respecter vos accords de niveaux de service (SLA).
 
 Visitez la [page Éditions Centreon](https://www.centreon.com/fr/editions-centreon/) pour plus d'informations.

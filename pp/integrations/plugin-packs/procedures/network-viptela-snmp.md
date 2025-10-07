@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Viptela SNMP** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+**Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -37,11 +37,11 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias       | Service Template                            | Service Description       | Discovery  |
-|:--------------------|:--------------------------------------------|:--------------------------|:----------:|
-| Control-Connections | Net-Viptela-Control-Connections-SNMP-custom | Check control connections |            |
-| Gre-Tunnels         | Net-Viptela-Gre-Tunnels-SNMP-custom         | Check GRE tunnels         | X          |
-| Interfaces          | Net-Viptela-Interfaces-SNMP-custom          | Check interfaces          | X          |
+| Service Alias       | Service Template                            | Service Description       | Discovery |
+|:--------------------|:--------------------------------------------|:--------------------------|:---------:|
+| Control-Connections | Net-Viptela-Control-Connections-SNMP-custom | Check control connections |           |
+| Gre-Tunnels         | Net-Viptela-Gre-Tunnels-SNMP-custom         | Check GRE tunnels         |     X     |
+| Interfaces          | Net-Viptela-Interfaces-SNMP-custom          | Check interfaces          |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -64,7 +64,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                        | Description                                                   |
 |:---------------------------------|:--------------------------------------------------------------|
-| Net-Viptela-SNMP-Gre-Tunnel-Name | Discover GRE tunnels and monitor their utilization                  |
+| Net-Viptela-SNMP-Gre-Tunnel-Name | Discover GRE tunnels and monitor their utilization            |
 | Net-Viptela-SNMP-Interface-Name  | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
@@ -85,18 +85,18 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Name                       | Unit  |
-|:---------------------------|:------|
-| cpu.utilization.percentage | %     |
+| Name                       | Unit |
+|:---------------------------|:-----|
+| cpu.utilization.percentage | %    |
 
 </TabItem>
 <TabItem value="Disk" label="Disk">
 
-| Name                  | Unit  |
-|:----------------------|:------|
-| disk.usage.bytes      | B     |
-| disk.free.bytes       | B     |
-| disk.usage.percentage | %     |
+| Name                  | Unit |
+|:----------------------|:-----|
+| disk.usage.bytes      | B    |
+| disk.free.bytes       | B    |
+| disk.usage.percentage | %    |
 
 </TabItem>
 <TabItem value="Gre-Tunnels" label="Gre-Tunnels">
@@ -115,15 +115,15 @@ Here is the list of services for this connector, detailing all metrics and statu
 <TabItem value="Hardware" label="Hardware">
 
 | Name                                      | Unit |
-|:------------------------------------------|:------|
-| fan status                                | N/A   |
-| led status                                | N/A   |
-| nim status                                | N/A   |
-| pem status                                | N/A   |
-| pim status                                | N/A   |
-| usb status                                | N/A   |
-| temperature status                        | N/A   |
-| *probe_name*#hardware.temperature.celsius | C     |
+|:------------------------------------------|:-----|
+| fan status                                | N/A  |
+| led status                                | N/A  |
+| nim status                                | N/A  |
+| pem status                                | N/A  |
+| pim status                                | N/A  |
+| usb status                                | N/A  |
+| temperature status                        | N/A  |
+| *probe_name*#hardware.temperature.celsius | C    |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
@@ -141,20 +141,20 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Name                    | Unit  |
-|:------------------------|:------|
-| memory.usage.bytes      | B     |
-| memory.free.bytes       | B     |
-| memory.usage.percentage | %     |
-| memory.buffer.bytes     | B     |
-| memory.cached.bytes     | B     |
+| Name                    | Unit |
+|:------------------------|:-----|
+| memory.usage.bytes      | B    |
+| memory.free.bytes       | B    |
+| memory.usage.percentage | %    |
+| memory.buffer.bytes     | B    |
+| memory.cached.bytes     | B    |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Metric name           | Description   | Unit  |
-|:----------------------|:--------------|:------|
-| system.uptime.seconds | System uptime | s     |
+| Metric name           | Description   | Unit |
+|:----------------------|:--------------|:-----|
+| system.uptime.seconds | System uptime | s    |
 
 </TabItem>
 </Tabs>
@@ -176,9 +176,12 @@ The target resource must be reachable from the Centreon poller on the UDP/161 SN
 
 ### Pack
 
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
+**Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -214,7 +217,7 @@ yum install centreon-pack-network-viptela-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Viptela SNMP** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
@@ -271,9 +274,9 @@ yum install centreon-plugin-Network-Viptela-Snmp
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                          | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro            | Description                                                                                                                              | Default value | Mandatory |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -285,137 +288,137 @@ yum install centreon-plugin-Network-Viptela-Snmp
 <Tabs groupId="sync">
 <TabItem value="Control-Connections" label="Control-Connections">
 
-| Macro                            | Description                                                                                                                                                                              | Default value              | Mandatory   |
-|:---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
-| FILTERPUBLICIP                   | Filter connections by public ip address                                                                                                                                                  |                            |             |
-| FILTERPRIVATEIP                  | Filter connections by private ip address                                                                                                                                                 |                            |             |
-| FILTERTYPE                       | Filter connections by type                                                                                                                                                               |                            |             |
-| WARNINGCONNECTIONSCHALLENGE      | Threshold                                                                                                                                                                                |                            |             |
-| CRITICALCONNECTIONSCHALLENGE     | Threshold                                                                                                                                                                                |                            |             |
-| WARNINGCONNECTIONSCHALLENGEACK   | Threshold                                                                                                                                                                                |                            |             |
-| CRITICALCONNECTIONSCHALLENGEACK  | Threshold                                                                                                                                                                                |                            |             |
-| WARNINGCONNECTIONSCHALLENGERESP  | Threshold                                                                                                                                                                                |                            |             |
-| CRITICALCONNECTIONSCHALLENGERESP | Threshold                                                                                                                                                                                |                            |             |
-| WARNINGCONNECTIONSCONNECT        | Threshold                                                                                                                                                                                |                            |             |
-| CRITICALCONNECTIONSCONNECT       | Threshold                                                                                                                                                                                |                            |             |
-| WARNINGCONNECTIONSDOWN           | Threshold                                                                                                                                                                                |                            |             |
-| CRITICALCONNECTIONSDOWN          | Threshold                                                                                                                                                                                |                            |             |
-| WARNINGCONNECTIONSHANDSHAKE      | Threshold                                                                                                                                                                                |                            |             |
-| CRITICALCONNECTIONSHANDSHAKE     | Threshold                                                                                                                                                                                |                            |             |
-| WARNINGCONNECTIONSTEARDOWN       | Threshold                                                                                                                                                                                |                            |             |
-| CRITICALCONNECTIONSTEARDOWN      | Threshold                                                                                                                                                                                |                            |             |
-| WARNINGCONNECTIONSTRYING         | Threshold                                                                                                                                                                                |                            |             |
-| CRITICALCONNECTIONSTRYING        | Threshold                                                                                                                                                                                |                            |             |
-| WARNINGCONNECTIONSUP             | Threshold                                                                                                                                                                                |                            |             |
-| CRITICALCONNECTIONSUP            | Threshold                                                                                                                                                                                |                            |             |
-| WARNINGCONNNECTIONSDETECTED      | Threshold                                                                                                                                                                                |                            |             |
-| CRITICALCONNNECTIONSDETECTED     | Threshold                                                                                                                                                                                |                            |             |
-| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /up\|connect/'). You can use the following variables: %\{status\}, %\{type\}, %\{privateIp\}, %\{publicIp\} | %\{status\} !~ /up\|connect/ |             |
-| WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{type\}, %\{privateIp\}, %\{publicIp\}                                          |                            |             |
-| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                       | --verbose                  |             |
+| Macro                            | Description                                                                                                                                              | Default value       | Mandatory |
+|:---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:---------:|
+| FILTERPUBLICIP                   | Filter connections by public ip address                                                                                                                  |                     |           |
+| FILTERPRIVATEIP                  | Filter connections by private ip address                                                                                                                 |                     |           |
+| FILTERTYPE                       | Filter connections by type                                                                                                                               |                     |           |
+| WARNINGCONNECTIONSCHALLENGE      | Threshold                                                                                                                                                |                     |           |
+| CRITICALCONNECTIONSCHALLENGE     | Threshold                                                                                                                                                |                     |           |
+| WARNINGCONNECTIONSCHALLENGEACK   | Threshold                                                                                                                                                |                     |           |
+| CRITICALCONNECTIONSCHALLENGEACK  | Threshold                                                                                                                                                |                     |           |
+| WARNINGCONNECTIONSCHALLENGERESP  | Threshold                                                                                                                                                |                     |           |
+| CRITICALCONNECTIONSCHALLENGERESP | Threshold                                                                                                                                                |                     |           |
+| WARNINGCONNECTIONSCONNECT        | Threshold                                                                                                                                                |                     |           |
+| CRITICALCONNECTIONSCONNECT       | Threshold                                                                                                                                                |                     |           |
+| WARNINGCONNECTIONSDOWN           | Threshold                                                                                                                                                |                     |           |
+| CRITICALCONNECTIONSDOWN          | Threshold                                                                                                                                                |                     |           |
+| WARNINGCONNECTIONSHANDSHAKE      | Threshold                                                                                                                                                |                     |           |
+| CRITICALCONNECTIONSHANDSHAKE     | Threshold                                                                                                                                                |                     |           |
+| WARNINGCONNECTIONSTEARDOWN       | Threshold                                                                                                                                                |                     |           |
+| CRITICALCONNECTIONSTEARDOWN      | Threshold                                                                                                                                                |                     |           |
+| WARNINGCONNECTIONSTRYING         | Threshold                                                                                                                                                |                     |           |
+| CRITICALCONNECTIONSTRYING        | Threshold                                                                                                                                                |                     |           |
+| WARNINGCONNECTIONSUP             | Threshold                                                                                                                                                |                     |           |
+| CRITICALCONNECTIONSUP            | Threshold                                                                                                                                                |                     |           |
+| WARNINGCONNNECTIONSDETECTED      | Threshold                                                                                                                                                |                     |           |
+| CRITICALCONNNECTIONSDETECTED     | Threshold                                                                                                                                                |                     |           |
+| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{type\}, %\{privateIp\}, %\{publicIp\} | %\{status\} !~ /up\ | connect/  |             |
+| WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{type\}, %\{privateIp\}, %\{publicIp\}  |                     |           |
+| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                   | --verbose           |           |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro                  | Description                                                                                        | Default value     | Mandatory   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCPUUTILIZATION  | Threshold                                                                                          |                   |             |
-| CRITICALCPUUTILIZATION | Threshold                                                                                          |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                  | Description                                                                                                                            | Default value | Mandatory |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGCPUUTILIZATION  | Threshold                                                                                                                              |               |           |
+| CRITICALCPUUTILIZATION | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Disk" label="Disk">
 
-| Macro             | Description                                                                                        | Default value     | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGE      | Threshold                                                                                          |                   |             |
-| CRITICALUSAGE     | Threshold                                                                                          |                   |             |
-| WARNINGUSAGEFREE  | Threshold                                                                                          |                   |             |
-| CRITICALUSAGEFREE | Threshold                                                                                          |                   |             |
-| WARNINGUSAGEPRCT  | Threshold                                                                                          |                   |             |
-| CRITICALUSAGEPRCT | Threshold                                                                                          |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro             | Description                                                                                                                            | Default value | Mandatory |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGUSAGE      | Threshold                                                                                                                              |               |           |
+| CRITICALUSAGE     | Threshold                                                                                                                              |               |           |
+| WARNINGUSAGEFREE  | Threshold                                                                                                                              |               |           |
+| CRITICALUSAGEFREE | Threshold                                                                                                                              |               |           |
+| WARNINGUSAGEPRCT  | Threshold                                                                                                                              |               |           |
+| CRITICALUSAGEPRCT | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Gre-Tunnels" label="Gre-Tunnels">
 
-| Macro                       | Description                                                                                                                                                                                                        | Default value                                  | Mandatory   |
-|:----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|:-----------:|
-| FILTERDESTIP                | Filter tunnels by destination ip address                                                                                                                                                                           |                                                |             |
-| FILTERSRCIP                 | Filter tunnels by source ip address                                                                                                                                                                                |                                                |             |
-| WARNINGGRETUNNELPACKETSIN   | Threshold                                                                                                                                                                                                          |                                                |             |
-| CRITICALGRETUNNELPACKETSIN  | Threshold                                                                                                                                                                                                          |                                                |             |
-| WARNINGGRETUNNELPACKETSOUT  | Threshold                                                                                                                                                                                                          |                                                |             |
-| CRITICALGRETUNNELPACKETSOUT | Threshold                                                                                                                                                                                                          |                                                |             |
-| WARNINGGRETUNNELSDETECTED   | Threshold                                                                                                                                                                                                          |                                                |             |
-| CRITICALGRETUNNELSDETECTED  | Threshold                                                                                                                                                                                                          |                                                |             |
-| WARNINGGRETUNNELSDOWN       | Threshold                                                                                                                                                                                                          |                                                |             |
-| CRITICALGRETUNNELSDOWN      | Threshold                                                                                                                                                                                                          |                                                |             |
-| WARNINGGRETUNNELSINVALID    | Threshold                                                                                                                                                                                                          |                                                |             |
-| CRITICALGRETUNNELSINVALID   | Threshold                                                                                                                                                                                                          |                                                |             |
-| WARNINGGRETUNNELSUP         | Threshold                                                                                                                                                                                                          |                                                |             |
-| CRITICALGRETUNNELSUP        | Threshold                                                                                                                                                                                                          |                                                |             |
-| CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL (default: '%\{adminState\} eq "up" and %\{operState\} ne "up"'). You can use the following variables: %\{adminState\}, %\{operState\}, %\{sourceIp\}, %\{destIp\} | %\{adminState\} eq "up" and %\{operState\} ne "up" |             |
-| WARNINGSTATUS               | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{adminState\}, %\{operState\}, %\{sourceIp\}, %\{destIp\}                                                              |                                                |             |
-| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                 | --verbose                                      |             |
+| Macro                       | Description                                                                                                                                                    | Default value                                      | Mandatory |
+|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:---------:|
+| FILTERDESTIP                | Filter tunnels by destination ip address                                                                                                                       |                                                    |           |
+| FILTERSRCIP                 | Filter tunnels by source ip address                                                                                                                            |                                                    |           |
+| WARNINGGRETUNNELPACKETSIN   | Threshold                                                                                                                                                      |                                                    |           |
+| CRITICALGRETUNNELPACKETSIN  | Threshold                                                                                                                                                      |                                                    |           |
+| WARNINGGRETUNNELPACKETSOUT  | Threshold                                                                                                                                                      |                                                    |           |
+| CRITICALGRETUNNELPACKETSOUT | Threshold                                                                                                                                                      |                                                    |           |
+| WARNINGGRETUNNELSDETECTED   | Threshold                                                                                                                                                      |                                                    |           |
+| CRITICALGRETUNNELSDETECTED  | Threshold                                                                                                                                                      |                                                    |           |
+| WARNINGGRETUNNELSDOWN       | Threshold                                                                                                                                                      |                                                    |           |
+| CRITICALGRETUNNELSDOWN      | Threshold                                                                                                                                                      |                                                    |           |
+| WARNINGGRETUNNELSINVALID    | Threshold                                                                                                                                                      |                                                    |           |
+| CRITICALGRETUNNELSINVALID   | Threshold                                                                                                                                                      |                                                    |           |
+| WARNINGGRETUNNELSUP         | Threshold                                                                                                                                                      |                                                    |           |
+| CRITICALGRETUNNELSUP        | Threshold                                                                                                                                                      |                                                    |           |
+| CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{adminState\}, %\{operState\}, %\{sourceIp\}, %\{destIp\} | %\{adminState\} eq "up" and %\{operState\} ne "up" |           |
+| WARNINGSTATUS               | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{adminState\}, %\{operState\}, %\{sourceIp\}, %\{destIp\}  |                                                    |           |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                         | --verbose                                          |           |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Macro        | Description                                                                                               | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'led', 'nim', 'pem', 'pim', 'temperature', 'usb' |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).        | --verbose         |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'led', 'nim', 'pem', 'pim', 'temperature', 'usb'                              |               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro              | Description                                                                                                                                                                                                         | Default value                                         | Mandatory   |
-|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| OIDFILTER          | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                          | ifname                                                |             |
-| OIDDISPLAY         | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                 | ifname                                                |             |
-| INTERFACENAME      | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                           |                                                       |             |
-| WARNINGINDISCARD   | Threshold                                                                                                                                                                                                           |                                                       |             |
-| CRITICALINDISCARD  | Threshold                                                                                                                                                                                                           |                                                       |             |
-| WARNINGINERROR     | Threshold                                                                                                                                                                                                           |                                                       |             |
-| CRITICALINERROR    | Threshold                                                                                                                                                                                                           |                                                       |             |
-| WARNINGINTRAFFIC   | Threshold                                                                                                                                                                                                           |                                                       |             |
-| CRITICALINTRAFFIC  | Threshold                                                                                                                                                                                                           |                                                       |             |
-| WARNINGOUTDISCARD  | Threshold                                                                                                                                                                                                           |                                                       |             |
-| CRITICALOUTDISCARD | Threshold                                                                                                                                                                                                           |                                                       |             |
-| WARNINGOUTERROR    | Threshold                                                                                                                                                                                                           |                                                       |             |
-| CRITICALOUTERROR   | Threshold                                                                                                                                                                                                           |                                                       |             |
-| WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                                                                           |                                                       |             |
-| CRITICALOUTTRAFFIC | Threshold                                                                                                                                                                                                           |                                                       |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\|dormant/ |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                            |                                                       |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                  | --verbose                                             |             |
+| Macro              | Description                                                                                                                                                       | Default value                                    | Mandatory |
+|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:---------:|
+| OIDFILTER          | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                          | ifname                                           |           |
+| OIDDISPLAY         | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                 | ifname                                           |           |
+| INTERFACENAME      | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                         |                                                  |           |
+| WARNINGINDISCARD   | Threshold                                                                                                                                                         |                                                  |           |
+| CRITICALINDISCARD  | Threshold                                                                                                                                                         |                                                  |           |
+| WARNINGINERROR     | Threshold                                                                                                                                                         |                                                  |           |
+| CRITICALINERROR    | Threshold                                                                                                                                                         |                                                  |           |
+| WARNINGINTRAFFIC   | Threshold                                                                                                                                                         |                                                  |           |
+| CRITICALINTRAFFIC  | Threshold                                                                                                                                                         |                                                  |           |
+| WARNINGOUTDISCARD  | Threshold                                                                                                                                                         |                                                  |           |
+| CRITICALOUTDISCARD | Threshold                                                                                                                                                         |                                                  |           |
+| WARNINGOUTERROR    | Threshold                                                                                                                                                         |                                                  |           |
+| CRITICALOUTERROR   | Threshold                                                                                                                                                         |                                                  |           |
+| WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                         |                                                  |           |
+| CRITICALOUTTRAFFIC | Threshold                                                                                                                                                         |                                                  |           |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\ | dormant/  |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}  |                                                  |           |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                            | --verbose                                        |           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro             | Description                                                                                        | Default value     | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGBUFFER     | Threshold                                                                                          |                   |             |
-| CRITICALBUFFER    | Threshold                                                                                          |                   |             |
-| WARNINGCACHED     | Threshold                                                                                          |                   |             |
-| CRITICALCACHED    | Threshold                                                                                          |                   |             |
-| WARNINGUSAGE      | Warning threshold on used memory (in B)                                                            |                   |             |
-| CRITICALUSAGE     | Critical threshold on used memory (in B)                                                           |                   |             |
-| WARNINGUSAGEFREE  | Warning threshold on free memory (in B)                                                            |                   |             |
-| CRITICALUSAGEFREE | Critical threshold on free memory (in B)                                                           |                   |             |
-| WARNINGUSAGEPRCT  | Warning threshold on used memory (in %)                                                            |                   |             |
-| CRITICALUSAGEPRCT | Critical threshold on percentage used memory (in %)                                                |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro             | Description                                                                                                                            | Default value | Mandatory |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGBUFFER     | Threshold                                                                                                                              |               |           |
+| CRITICALBUFFER    | Threshold                                                                                                                              |               |           |
+| WARNINGCACHED     | Threshold                                                                                                                              |               |           |
+| CRITICALCACHED    | Threshold                                                                                                                              |               |           |
+| WARNINGUSAGE      | Warning threshold on used memory (in B)                                                                                                |               |           |
+| CRITICALUSAGE     | Critical threshold on used memory (in B)                                                                                               |               |           |
+| WARNINGUSAGEFREE  | Warning threshold on free memory (in B)                                                                                                |               |           |
+| CRITICALUSAGEFREE | Critical threshold on free memory (in B)                                                                                               |               |           |
+| WARNINGUSAGEPRCT  | Warning threshold on used memory (in %)                                                                                                |               |           |
+| CRITICALUSAGEPRCT | Critical threshold on percentage used memory (in %)                                                                                    |               |           |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro          | Description                                                                                        | Default value     | Mandatory   |
-|:---------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUPTIME  | Warning threshold                                                                                  |                   |             |
-| CRITICALUPTIME | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro          | Description                                                                                                                            | Default value    | Mandatory |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------|:---------:|
+| WARNINGUPTIME  | Warning threshold                                                                                                                      |                  |           |
+| CRITICALUPTIME | Critical threshold                                                                                                                     |                  |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --check-overload |           |
 
 </TabItem>
 </Tabs>

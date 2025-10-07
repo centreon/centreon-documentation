@@ -5,182 +5,498 @@ title: Azure InsightsMetrics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Overview
 
 > This Pack is in an experimental state (version 2.x.X).
 
-The Centreon Pack *Azure InsightsMetrics* aims to monitor additional indicators that are not available on the Azure Monitor feature.
+The Centreon **Azure InsightsMetrics** connector aims to monitor additional indicators that are not available on the Azure Monitor feature.
 For this, it runs KustoQL based queries on the InsightsMetrics database reachable through the Azure LogAnalytics API.
-For example, using this Pack will allow you to monitor system indicators of Azure Virtual Machines resources (CPU, memory, disks...).
+For example, using this connector will allow you to monitor system indicators of Azure Virtual Machines resources (CPU, memory, disks...).
 
-> The associated Plugin is only compatible with the 'api' *custom-mode*. 'azcli' is not supported for this usage.
+## Connector dependencies
 
-## Pack Assets
+The following monitoring connectors will be installed when you install the **Azure InsightsMetrics** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
 
-### Monitored Objects
+## Pack assets
 
-Available indicators and metrics:
-* Azure Virtual Machines
-     * CPU
-     * Memory
-     * Logical-Disks
+### Templates
 
-### Collected metrics & status
+The Monitoring Connector **Azure InsightsMetrics** brings a host template:
+
+* **Cloud-Azure-Management-InsightsMetrics-VirtualMachine-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Cloud-Azure-Management-InsightsMetrics-VirtualMachine-custom" label="Cloud-Azure-Management-InsightsMetrics-VirtualMachine-custom">
 
-| Metric Name                                                   | Description                    | Unit |
-|:--------------------------------------------------------------|:-------------------------------|:-----|
-| *instance*#azure.insights.cpu.average.utilization.percentage  | Average utilization percentage | %    |
-| *instance\~ID*#azure.insights.cpu.core.utilization.percentage | Current utilization per core   | %    |
+| Service Alias | Service Template                                                        | Service Description                       |
+|:--------------|:------------------------------------------------------------------------|:------------------------------------------|
+| Cpu           | Cloud-Azure-Management-InsightsMetrics-VirtualMachine-Cpu-Api-custom    | Check Azure VM CPU via InsightsMetrics    |
+| Memory        | Cloud-Azure-Management-InsightsMetrics-VirtualMachine-Memory-Api-custom | Check Azure VM memory via InsightsMetrics |
 
-</TabItem>
-<TabItem value="Logical-Disks" label="Logical-Disks">
-
-| Metric Name                                                               | Description                            | Unit    |
-|:--------------------------------------------------------------------------|:---------------------------------------|:--------|
-| *instance\~mount_point*#azure.insights.logicaldisk.used.bytes             | Logical Disk current usage             | B       |
-| *instance\~mount_point*#azure.insights.logicaldisk.used.percentage        | Logical Disk current usage percentage  | %       |
-| *instance\~mount_point*#azure.insights.logicaldisk.free.percentage        | Logical Disk current free percentage   | %       |
-| *instance\~mount_point*#azure.insights.logicaldisks.io.readspersecond     | Logical Disk current IO/s reads rate   | count/s |
-| *instance\~mount_point*#azure.insights.logicaldisks.io.readbytespersecond | Logical Disk current IO B/s reads rate | B/s     |
-| *instance\~mount_point*#azure.insights.logicaldisks.io.writespersecond    | Logical Disk current IO writes rate    | count/s |
-| *instance\~mount_point*#azure.insights.logicaldisks.io.transferspersecond | Logical Disk current IO transfers rate | count/s |
+> The services listed above are created automatically when the **Cloud-Azure-Management-InsightsMetrics-VirtualMachine-custom** host template is used.
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Metric Name                                           | Description                         | Unit |
-|:------------------------------------------------------|:------------------------------------|:-----|
-| *instance*#azure.insights.memory.usage.bytes          | Current memory usage                | B    |
-| *instance*#azure.insights.memory.usage.percentage     | Current memory usage percentage     | %    |
-| *instance*#azure.insights.memory.usage.percentage     | Current memory usage percentage     | %    |
-| *instance*#azure.insights.memory.available.percentage | Current memory available percentage | %    |
+| Service Alias        | Service Template                                                                      | Service Description                              | Discovery  |
+|:---------------------|:--------------------------------------------------------------------------------------|:-------------------------------------------------|:----------:|
+| Logical-Disks-Global | Cloud-Azure-Management-InsightsMetrics-VirtualMachine-Logical-Disks-Global-Api-custom | Check Azure VM logical disks via InsightsMetrics | X          |
+
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
 </TabItem>
 </Tabs>
 
 ### Discovery rules
 
-<Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+#### Service discovery
 
-| Rule name                                                                    | Description                                                 |
-|:-----------------------------------------------------------------------------|:------------------------------------------------------------|
-| Cloud-Azure-Management-InsightsMetrics-Api-VirtualMachine-Logical-Disks-Name | Discover logical disks associated to Azure Virtual Machines |
+| Rule name                                                                    | Description                                               |
+|:-----------------------------------------------------------------------------|:----------------------------------------------------------|
+| Cloud-Azure-Management-InsightsMetrics-Api-VirtualMachine-Logical-Disks-Name | Discover the disk partitions and monitor space occupation |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
+
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
+
+| Name                                                                 | Unit  |
+|:---------------------------------------------------------------------|:------|
+| *computer*~azure.insights.cpu.average.utilization.percentage         | %     |
+| *computer*~*cpu_core*#azure.insights.cpu.core.utilization.percentage | %     |
+
+</TabItem>
+<TabItem value="Logical-Disks-Global" label="Logical-Disks-Global">
+
+| Name                                                                       | Unit  |
+|:---------------------------------------------------------------------------|:------|
+| status                                                                     | N/A   |
+| status                                                                     | N/A   |
+| *computer*~*disk_name1*#azure.insights.logicaldisk.used.bytes              | B     |
+| *computer*~*disk_name2*#azure.insights.logicaldisk.used.bytes              | B     |
+| *computer*~*disk_name1*#azure.insights.logicaldisk.used.percentage         | %     |
+| *computer*~*disk_name2*#azure.insights.logicaldisk.used.percentage         | %     |
+| *computer*~*disk_name1*#azure.insights.logicaldisk.free.percentage         | %     |
+| *computer*~*disk_name2*#azure.insights.logicaldisk.free.percentage         | %     |
+| reads-persecond                                                            | N/A   |
+| reads-persecond                                                            | N/A   |
+| *computer*~*disk_name1*#azure.insights.logicaldisks.io.readbytespersecond  | B/s   |
+| *computer*~*disk_name2*#azure.insights.logicaldisks.io.readbytespersecond  | B/s   |
+| writes-persecond                                                           | N/A   |
+| writes-persecond                                                           | N/A   |
+| *computer*~*disk_name1*#azure.insights.logicaldisks.io.writebytespersecond | B/s   |
+| *computer*~*disk_name2*#azure.insights.logicaldisks.io.writebytespersecond | B/s   |
+| transfers-persecond                                                        | N/A   |
+| transfers-persecond                                                        | N/A   |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Name                                                  | Unit  |
+|:------------------------------------------------------|:------|
+| *computer*~azure.insights.memory.usage.bytes          | B     |
+| *computer*~azure.insights.memory.usage.percentage     | %     |
+| *computer*~azure.insights.memory.available.percentage | %     |
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-Please find all the prerequisites needed for Centreon to get information from Azure on the [dedicated page](../getting-started/how-to-guides/azure-credential-configuration.md).
+Please find all the prerequisites needed for Centreon to get information from Azure
+on the [dedicated page](../getting-started/how-to-guides/azure-credential-configuration.md).
 
-## Setup
+## Installing the monitoring connector
+
+### Pack
+
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon Plugin on every Centreon Poller expected to monitor Azure resources based on InsightsMetrics:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
+dnf install centreon-pack-cloud-azure-management-insightsmetrics
 ```
-
-2. On the Centreon Web interface, install the *Azure InsightsMetrics* Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon Plugin on every Centreon Poller expected to monitor Azure resources based on InsightsMetrics:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
+dnf install centreon-pack-cloud-azure-management-insightsmetrics
 ```
 
-2. Install the Centreon Pack RPM on the Centreon Central server:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-yum install centreon-pack-cloud-azure-management-insightsmetrics.noarch
+apt install centreon-pack-cloud-azure-management-insightsmetrics
 ```
 
-3. On the Centreon Web interface, install the *Azure InsightsMetrics* Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-cloud-azure-management-insightsmetrics
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+2. Whatever the license type (*online* or *offline*), install the **Azure InsightsMetrics** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
-### Host
+### Plugin
 
-* Log into Centreon and add a new Host through **Configuration > Hosts**.
-* In the *IP Address/FQDN* field, set the following IP address: '127.0.0.1'.
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
 
-* Select the appropriate *Cloud-Azure-Management-InsightsMetrics-XXX-custom* template to apply to the Host
-(for example, choose *Cloud-Azure-Management-InsightsMetrics-VirtualMachine-custom* for an Azure VM resource).
-* Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-| Mandatory | Nom                       | Description                                                    |
-|:----------|:--------------------------|:---------------------------------------------------------------|
-| X         | AZURECUSTOMMODE           | Custom mode 'api'                                              |
-| X         | AZURELOGANALYTICSENDPOINT | LogAnalytics endpoint (default: `https://api.loganalytics.io`) |
-| X         | AZURESUBSCRIPTION         | Subscription ID                                                |
-| X         | AZUREWORKSPACEID          | LogAnalytics workspace ID                                      |
-| X         | AZURETENANT               | Tenant ID                                                      |
-| X         | AZURECLIENTID             | Client ID                                                      |
-| X         | AZURECLIENTSECRET         | Client secret                                                  |
-| X         | AZURERESOURCE             | full ID of the resource to monitor                             |
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
 
+Use the commands below according to your operating system's package manager:
 
-## How to check in the CLI that the configuration is OK and what are the main options for ?
-
-Once the Plugin installed, log into your Centreon Poller CLI using the *centreon-engine* 
-user account and test the Plugin by running the following command:
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-/usr/lib/centreon/plugins//centreon_azure_management_insightsmetrics_api.pl \
-    --plugin=cloud::azure::management::insightsmetrics::plugin \
-    --mode=cpu --custommode='api' --management-endpoint='https://api.loganalytics.io' \
-    --subscription='xxxxxxxxx' --tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx' \
-    --workspace-id='xxxxxxxxxxxxxxx' \
-    --filter-resourceid='/subscriptions/XXXX/resourcegroups/my_resourcegroup1/providers/microsoft.compute/virtualmachines/my_vm1' \
-    --warning-average-utilization-percentage='90' \
-    --critical-average-utilization-percentage='95'
+dnf install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
 ```
 
-Expected command output is shown below:
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-OK: 2 CPU(s) average utilization: 2.18 % - All CPUs are ok | 'azure.insights.cpu.average.utilization.percentage'=2.18%;0:90;0:95;0;100
-'1#azure.insights.cpu.core.utilization.percentage'=2.12%;;;0;100 '2#azure.insights.cpu.core.utilization.percentage'=2.25%;;;0;100
-Computer 'my_vm1'
-2 CPU(s) average utilization: 2.18 %
-CPU #1 usage : 2.12 %
-CPU #2 usage : 2.25 %
+dnf install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
 ```
 
-The command above checks the *CPU* of an Azure *Virtual Machine* account using the 'api' custom-mode
-targetting the *LogAnalytics* API (```--plugin=cloud::azure::management::insightsmetrics::plugin --mode=cpu --custommode=api 
---management-endpoint='https://api.loganalytics.io'```).
-The authentication parameters to be used with the custom mode are specified in the options (```--subscription='xxxxxxxxx'
---tenant='xxxxxxx' --client-id='xxxxxxxx' --client-secret='xxxxxxxxxx'```). The Resource ID of the Azure VM *my_vm1* is specified in the filter 
-(```--filter-resourceid='/subscriptions/XXXX/resourcegroups/my_resourcegroup1/providers/microsoft.compute/virtualmachines/my_vm1'```).
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-This command would trigger a WARNING alarm if the *average utilization* is reported as over 90% (```--warning-average-utilization-percentage='90'```)
-and a CRITICAL alarm over 95% (```--critical-average-utilization-percentage='95'```).
+```bash
+apt install centreon-plugin-cloud-azure-management-insightsmetrics-api
+```
 
-All the available options for a given mode can be displayed by adding the ```--help``` parameter to the command:
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Cloud-Azure-Management-InsightsMetrics-Api
+```
+
+</TabItem>
+</Tabs>
+
+## Using the monitoring connector
+
+### Using a host template provided by the connector
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
+3. Apply the **Cloud-Azure-Management-InsightsMetrics-VirtualMachine-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory. For example, for this connector, you must define the **AZURECUSTOMMODE** macros (possible values are **api** or **azcli**). Indeed, 2 modes of communication can be used with this resource: either using the command tool azcli, or by querying the API directly.
+
+| Macro                     | Description                                                                                                                                                                                                                                    | Default value               | Mandatory   |
+|:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
+| AZURECLIENTID             | Set Azure client ID                                                                                                                                                                                                                            |                             | X           |
+| AZURECLIENTSECRET         | Set Azure client secret                                                                                                                                                                                                                        |                             | X           |
+| AZURECUSTOMMODE           | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                                                                                                                     | api                         |             |
+| AZURELOGANALYTICSENDPOINT | Set Azure management endpoint URL (default: 'https://management.azure.com')                                                                                                                                                                    | https://api.loganalytics.io |             |
+| AZURERESOURCE             | Filter on a specific Azure "computer" based on the full resource ID. Example: --filter-resourceid='/subscriptions/1234abcd-5678-defg-9012-3456789abcde/resourcegroups/my\_resourcegroup/providers/microsoft.compute/virtualmachines/azure-vm1' |                             |             |
+| AZURESUBSCRIPTION         | Set Azure subscription ID                                                                                                                                                                                                                      |                             | X           |
+| AZURETENANT               | Set Azure tenant ID                                                                                                                                                                                                                            |                             | X           |
+| AZUREWORKSPACEID          | (mandatory) Specify the Azure Log Analytics Workspace ID                                                                                                                                                                                       |                             |             |
+| PROXYURL                  | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                       |                             |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                           |                             |             |
+
+> Two methods can be used to define the authentication:
+>
+> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`) in the **AZURERESOURCE** macro.
+> * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
+
+| Macro                                | Description                                                                                        | Default value     | Mandatory   |
+|:-------------------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCPUID                          | Filter on specific CPU ID                                                                          |                   |             |
+| WARNINGAVERAGEUTILIZATIONPERCENTAGE  | Threshold                                                                                          | 90                |             |
+| CRITICALAVERAGEUTILIZATIONPERCENTAGE | Threshold                                                                                          | 95                |             |
+| WARNINGCOREUTILIZATIONPERCENTAGE     | Threshold                                                                                          |                   |             |
+| CRITICALCOREUTILIZATIONPERCENTAGE    | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS                         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+
+</TabItem>
+<TabItem value="Logical-Disks-Global" label="Logical-Disks-Global">
+
+| Macro                       | Description                                                                                        | Default value           | Mandatory   |
+|:----------------------------|:---------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
+| FILTERDISK                  | Filter on specific logical(s) disk(s)                                                              | .*                      |             |
+| WARNINGFREEPERCENTAGE       | Threshold                                                                                          |                         |             |
+| CRITICALFREEPERCENTAGE      | Threshold                                                                                          |                         |             |
+| WARNINGREADBYTESPERSECOND   | Threshold                                                                                          |                         |             |
+| CRITICALREADBYTESPERSECOND  | Threshold                                                                                          |                         |             |
+| WARNINGREADSPERSECOND       | Threshold                                                                                          |                         |             |
+| CRITICALREADSPERSECOND      | Threshold                                                                                          |                         |             |
+| CRITICALSTATUS              | Critical threshold on logical disk status (default: '%\{status\} eq "NOT OK"')                     | %\{status\} eq "NOT OK" |             |
+| WARNINGSTATUS               | Warning threshold on logical disk status (default: none)                                           |                         |             |
+| WARNINGTRANSFERSPERSECOND   | Threshold                                                                                          |                         |             |
+| CRITICALTRANSFERSPERSECOND  | Threshold                                                                                          |                         |             |
+| WARNINGUSAGE                | Threshold                                                                                          |                         |             |
+| CRITICALUSAGE               | Threshold                                                                                          |                         |             |
+| WARNINGUSAGEPERCENTAGE      | Threshold                                                                                          | 90                      |             |
+| CRITICALUSAGEPERCENTAGE     | Threshold                                                                                          | 95                      |             |
+| WARNINGWRITEBYTESPERSECOND  | Threshold                                                                                          |                         |             |
+| CRITICALWRITEBYTESPERSECOND | Threshold                                                                                          |                         |             |
+| WARNINGWRITESPERSECOND      | Threshold                                                                                          |                         |             |
+| CRITICALWRITESPERSECOND     | Threshold                                                                                          |                         |             |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose               |             |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Macro                       | Description                                                                                        | Default value     | Mandatory   |
+|:----------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGAVAILABLEPERCENTAGE  | Threshold                                                                                          |                   |             |
+| CRITICALAVAILABLEPERCENTAGE | Threshold                                                                                          |                   |             |
+| WARNINGUSAGE                | Threshold                                                                                          |                   |             |
+| CRITICALUSAGE               | Threshold                                                                                          |                   |             |
+| WARNINGUSAGEPERCENTAGE      | Threshold                                                                                          | 90                |             |
+| CRITICALUSAGEPERCENTAGE     | Threshold                                                                                          | 95                |             |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor an Azure Instance using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_azure_management_insightsmetrics_api.pl \
-    --plugin=cloud::azure::management::insightsmetrics::plugin \
-    --mode=cpu
-    --help
+	--plugin=cloud::azure::management::insightsmetrics::plugin \
+	--mode=logical-disks \
+	--custommode='api' \
+	--management-endpoint='https://api.loganalytics.io' \
+	--subscription='xxxxxx' \
+	--tenant='xxxxxx' \
+	--client-id='xxxxxx' \
+	--client-secret='xxxxxx' \
+	--workspace-id='xxxxxx' \
+	--filter-resourceid='' \
+	--proxyurl=''  \
+	--filter-disk='.*' \
+	--warning-status='' \
+	--critical-status='%\{status\} eq "NOT OK"' \
+	--warning-usage='' \
+	--critical-usage='' \
+	--warning-usage-percentage='90' \
+	--critical-usage-percentage='95' \
+	--warning-free-percentage='' \
+	--critical-free-percentage='' \
+	--warning-reads-persecond='' \
+	--critical-reads-persecond='' \
+	--warning-read-bytes-persecond='' \
+	--critical-read-bytes-persecond='' \
+	--warning-writes-persecond='' \
+	--critical-writes-persecond='' \
+	--warning-write-bytes-persecond='' \
+	--critical-write-bytes-persecond='' \
+	--warning-transfers-persecond='' \
+	--critical-transfers-persecond='' \
+	--verbose
+```
+
+The expected command output is shown below:
+
+```bash
+OK: All logical disks are ok | 'computer~disk_name1#azure.insights.logicaldisk.used.bytes'=89131B;;;0; 'computer~disk_name2#azure.insights.logicaldisk.used.bytes'=10393B;;;0; 'computer~disk_name1#azure.insights.logicaldisk.used.percentage'=425%;0:90;0:95;0;100 'computer~disk_name2#azure.insights.logicaldisk.used.percentage'=59588%;0:90;0:95;0;100 'computer~disk_name1#azure.insights.logicaldisk.free.percentage'=22084%;;;0;100 'computer~disk_name2#azure.insights.logicaldisk.free.percentage'=65395%;;;0;100 'computer~disk_name1#azure.insights.logicaldisks.io.readspersecond'=62496;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.readspersecond'=2683;;;0; 'computer~disk_name1#azure.insights.logicaldisks.io.readbytespersecond'=79647B/s;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.readbytespersecond'=49971B/s;;;0; 'computer~disk_name1#azure.insights.logicaldisks.io.writespersecond'=47277;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.writespersecond'=59012;;;0; 'computer~disk_name1#azure.insights.logicaldisks.io.writebytespersecond'=82857B/s;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.writebytespersecond'=76189B/s;;;0; 'computer~disk_name1#azure.insights.logicaldisks.io.transferspersecond'=53698;;;0; 'computer~disk_name2#azure.insights.logicaldisks.io.transferspersecond'=58393;;;0;
 ```
 
 ### Troubleshooting
 
-Please find all the troubleshooting documentation for the API-based Plugins in the [dedicated chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
-of the Centreon documentation.
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_azure_management_insightsmetrics_api.pl \
+	--plugin=cloud::azure::management::insightsmetrics::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                                                                       | Linked service template                                                               |
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------|
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/management/insightsmetrics/mode/cpu.pm)]                             | Cloud-Azure-Management-InsightsMetrics-VirtualMachine-Cpu-Api-custom                  |
+| list-logical-disks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/management/insightsmetrics/mode/listlogicaldisks.pm)] | Used for service discovery                                                            |
+| logical-disks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/management/insightsmetrics/mode/logicaldisks.pm)]          | Cloud-Azure-Management-InsightsMetrics-VirtualMachine-Logical-Disks-Global-Api-custom |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/management/insightsmetrics/mode/memory.pm)]                       | Cloud-Azure-Management-InsightsMetrics-VirtualMachine-Memory-Api-custom               |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[newuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --output-file                              |   Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --http-peer-addr                           |   Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --proxyurl                                 |   Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --memcached                                |   Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --redis-server                             |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --redis-attribute                          |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --redis-db                                 |   Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --failback-file                            |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --memexpiration                            |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-dir                            |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --statefile-suffix                         |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-concat-cwd                     |   If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --statefile-format                         |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --statefile-key                            |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --statefile-cipher                         |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --subscription                             |   Set Azure subscription ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --tenant                                   |   Set Azure tenant ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --client-id                                |   Set Azure client ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --client-secret                            |   Set Azure client secret.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --login-endpoint                           |   Set Azure login endpoint URL (default: 'https://login.microsoftonline.com')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --management-endpoint                      |   Set Azure management endpoint URL (default: 'https://management.azure.com')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --timeframe                                |   Set timeframe in seconds (i.e. 3600 to check last hour).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --interval                                 |   Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --aggregation                              |   Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --zeroed                                   |   Set metrics value to 0 if they are missing. Useful when some metrics are undefined.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --timeout                                  |   Set timeout in seconds (default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
+
+| Option              | Description                                                                                                                                                                                                                                        |
+|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --workspace-id      |  (mandatory) Specify the Azure Log Analytics Workspace ID.                                                                                                                                                                                         |
+| --filter-computer   |   Filter on a specific Azure "computer" name. Example: --filter-name='azure-vm1'                                                                                                                                                                   |
+| --filter-resourceid |   Filter on a specific Azure "computer" based on the full resource ID. Example: --filter-resourceid='/subscriptions/1234abcd-5678-defg-9012-3456789abcde/resourcegroups/my\_resourcegroup/providers/microsoft.compute/virtualmachines/azure-vm1'   |
+| --filter-cpu        |   Filter on specific CPU ID.                                                                                                                                                                                                                       |
+| --warning-*         |   Warning threshold where '*' can be: 'average-utilization-percentage', 'core-utilization-percentage'                                                                                                                                              |
+| --critical-*        |   Critical threshold where '*' can be: 'average-utilization-percentage', 'core-utilization-percentage'                                                                                                                                             |
+
+</TabItem>
+<TabItem value="Logical-Disks-Global" label="Logical-Disks-Global">
+
+| Option              | Description                                                                                                                                                                                                                                        |
+|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --workspace-id      |  (mandatory) Specify the Azure Log Analytics Workspace ID.                                                                                                                                                                                         |
+| --filter-computer   |   Filter on a specific Azure "computer" name. Example: --filter-name='azure-vm1'                                                                                                                                                                   |
+| --filter-resourceid |   Filter on a specific Azure "computer" based on the full resource ID. Example: --filter-resourceid='/subscriptions/1234abcd-5678-defg-9012-3456789abcde/resourcegroups/my\_resourcegroup/providers/microsoft.compute/virtualmachines/azure-vm1'   |
+| --filter-disk       |   Filter on specific logical(s) disk(s).                                                                                                                                                                                                           |
+| --warning-status    |   Warning threshold on logical disk status (default: none).                                                                                                                                                                                        |
+| --critical-status   |   Critical threshold on logical disk status (default: '%\{status\} eq "NOT OK"').                                                                                                                                                                  |
+| --warning-*         |   Warning threshold where '*' can be: 'usage', 'usage-percentage', 'free-percentage', 'reads-persecond', 'read-bytes-persecond', 'writes-persecond', 'write-bytes-persecond', 'transfers-persecond'                                                |
+| --critical-*        |   Critical threshold where '*' can be: 'usage', 'usage-percentage', 'free-percentage', 'reads-persecond', 'read-bytes-persecond', 'writes-persecond', 'write-bytes-persecond', 'transfers-persecond'                                               |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Option              | Description                                                                                                                                                                                                                                        |
+|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --workspace-id      |  (mandatory) Specify the Azure Log Analytics Workspace ID.                                                                                                                                                                                         |
+| --filter-computer   |   Filter on a specific Azure "computer" name. Example: --filter-name='azure-vm1'                                                                                                                                                                   |
+| --filter-resourceid |   Filter on a specific Azure "computer" based on the full resource ID. Example: --filter-resourceid='/subscriptions/1234abcd-5678-defg-9012-3456789abcde/resourcegroups/my\_resourcegroup/providers/microsoft.compute/virtualmachines/azure-vm1'   |
+| --warning-*         |   Warning threshold where '*' can be: 'usage', 'usage-percentage', 'available-percentage'                                                                                                                                                          |
+| --critical-*        |   Critical threshold where '*' can be: 'usage', 'usage-percentage', 'available-percentage'                                                                                                                                                         |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_azure_management_insightsmetrics_api.pl \
+	--plugin=cloud::azure::management::insightsmetrics::plugin \
+	--mode=logical-disks \
+	--help
+```

@@ -62,6 +62,8 @@ To acknowledge an alert, there are several solutions:
     UNREACHABLE or WARNING to CRITICAL). Otherwise, the acknowledgment
     disappears and the notification process is reactivated.
 
+    - If, for a host, the **Acknowledge services attached to host** box is checked, acknowledging the alert on the host will acknowledge all services for this host automatically.
+
 </TabItem>
 <TabItem value="From real time monitoring" label="From real time monitoring">
 

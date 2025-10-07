@@ -49,7 +49,7 @@ https://www.supermicro.com/en/solutions/management-software/superdoctor
 yum install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Pack *Supermicro SuperDoctor SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+2. Sur l'interface Web de Centreon, installer le Pack *Supermicro SuperDoctor SNMP* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -66,7 +66,7 @@ yum install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
 yum install centreon-pack-hardware-servers-supermicro-superdoctor-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Supermicro SuperDoctor SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+3. Sur l'interface Web de Centreon, installer le Pack *Supermicro SuperDoctor SNMP* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
 </Tabs>
@@ -78,7 +78,7 @@ yum install centreon-pack-hardware-servers-supermicro-superdoctor-snmp
 * Appliquez le Modèle d'Hôte *HW-Server-Supermicro-Superdoctor-SNMP-custom*
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3). 
 
 | Mandatory   | Name                    | Description                       |
 | :---------- | :---------------------- | :---------------------------------|
