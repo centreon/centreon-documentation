@@ -149,7 +149,7 @@ This time, let's take the example of a Centreon server that is monitored by a po
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=processcount --hostname=127.0.0.1 --snmp-version='2c' --snmp-community='public'  --process-name='php-fpm' --process-path='' --process-args='' --regexp-name --regexp-path --regexp-args --warning=''
 ```
 
-For the service to switch to CRITICAL when there are more than 5 workers, we use the **--critical='5'** option:
+For the service to switch to CRITICAL when there are **strictly** more than 5 workers, we use the **--critical='5'** option:
 
 Command:
 
@@ -179,7 +179,7 @@ CRITICAL: Number of current processes running: 11 | 'nbproc'=11;;0:5;0;
 
 ### Invert the threshold: alert when values are below the threshold
 
-It is also possible to set the service to CRITICAL when the number returned is less than a certain value. Use the following syntax: **--critical='5:'**.
+It is also possible to set the service to CRITICAL when the number returned is **strictly** less than a certain value. Use the following syntax: **--critical='5:'**.
 
 Command:
 
@@ -195,7 +195,7 @@ CRITICAL: Number of current processes running: 4 | 'nbproc'=4;;5:;0;
 
 ### Ranges of values
 
-In the following example, the service switches to CRITICAL status when the metric is within a range of values (between 0 and 5):
+In the following example, the service switches to CRITICAL status when the metric is within a range of values (between 0 and 5 **includes**):
 
 Command:
 
@@ -209,7 +209,7 @@ Results:
 CRITICAL: Number of current processes running: 4 | 'nbproc'=4;;@0:5;0;
 ```
 
-And in this case, the service switches to CRITICAL when the metric is outside a range of values:
+And in this case, the service switches to CRITICAL when the metric is outside a range of values (outside of 5 and 15 **includes**):
 
 Command:
 
