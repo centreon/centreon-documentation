@@ -22,6 +22,69 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 24.10.13
+
+Release date: `October 7, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Enhanced agent configuration endpoints documentation.
+- [Configuration] ACC: vCenter/ESC names are now unique.
+- [configuration] Cleaned up labels in agent configuration screens.
+- [Custom Views] "Global Health" and "Top 10" widgets: improved display and fixed issue with MySQL8.
+
+</details>
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- A default token has been generated and applied to existing agent configurations.
+- Added missing French translations for help messages.
+- [Administration] Fixed an error occurring when a CMA token was copied.
+- [API v1] Fixed an issue with the creation of services by CLAPI with a non-administrator user.
+- [API v1] Creating hosts and host groups with an empty name is now forbidden.
+- [Authentication] Fixed an issue that prevented users logged in via OIDC from logging out of the interface.
+- [Authentication] LDAP users with no email can now authenticate to Centreon using LDAP auto import.
+- [CLAPI] Spaces in host names are now replaced by an underscore, making CLAPI's behavior consistent with that of the interface.
+- [Configuration] Fixed a circular dependency issue affecting service template inheritance (interface + API).
+- [Configuration] Fixed an issue with Additional Configurations where configuration were lost if the name of the vCenter contained only numbers.
+- [Configuration] Fixed an issue where non explicit error messages were displayed when saving host configuration when geographic coordinates were too long.
+- [Configuration]  Fixed an issue where host aliases were not handling quotes in inputs properly.
+- [Configuration] Fixed an issue where the "configuration changed" flag was not updated when changing extended info using CLAPI.
+- [Configuration] Increased contact_pager property to allow for longer tokens (e.g. Microsoft Teams tokens)
+- [Configuration] The creation of metaservices no longer fails for users with several ACL rules on resources.
+- [Custom Views] Host Monitoring: fixed the export functionality for all resources.
+- [Dashboards] Metrics Graph widget: fixed a display issue occurring when changing the graph display type.
+- [Dashboards] Fixed some issues with contact search when sharing a dashboard or a playlist.
+- [Dashboards] Fixed a saving issue occurring when leaving dashboards for a legacy page.
+- [Dashboards] Reduced the minimum size for MAP and Resource table widgets.
+- [Dashboards] Status Grid: fixed link to Resource Status page.
+- [Event Logs] Fixed pagination that was not working properly.
+- Fixed an issue where the service deployment endpoint was adding the command line to the service.
+- Fixed an issue where exported tokens were ignored by Engine.
+- [LDAP] User & Group filters now work correctly when editing an LDAP configuration.
+- [Packaging] Removed obsolete dependencies for database-related Centreon packages.
+- [Resource Status] Fixed an issue on the notification tab where the same user was displayed multiple times.
+- [Resource Status] Fixed the notification tab to display the contact defined on the service template rather than on the host.
+- [Resource Status] Deleted resources no longer appear in search results.
+- [Resource Status] The pipe “|” character is now handled correctly in the command section of a resource.
+- [Resource Status] View by host: fixed an issue preventing resources from being displayed when filtering on a resource that had no metrics.
+- [Update] Fixed an issue on modules routes which were no longer up to date.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] The current password is now required when modifying a user password.
+- [Vulnerability] Fixed insecure direct object reference allowing private widget retrieval.
+- [Vulnerability] Fixed multiple XSS vulnerabilities.
+- [Vulnerability] Securized poller configuration commands to avoid RCE vulnerability.
+- [Vulnerability] Upgraded select2 dependency.
+
+</details>
+
 ### 24.10.12
 
 Release date: `August 28, 2025`
@@ -49,7 +112,7 @@ Release date: `August 21, 2025`
 
 Release date: `August 11, 2025`
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - [UI] Fixed missing French translations in menus
@@ -938,6 +1001,18 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon DSM
+
+### 24.10.3
+
+Release date: `October 7, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] SQL files are now correctly packaged for centreon-dsm.
+- [Packaging] Updated permissions for DSM purge and cron files.
+
+</details>
 
 ### 24.10.2
 
