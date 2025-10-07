@@ -199,13 +199,13 @@ This connector communicates with the AS400 servers on TCP port 449.
 update-alternatives --config java
 ```
 
-This instructions allows to started and enabled the daemon:
+Use the following instructions to start and enable the daemon:
 
 ```shell
 systemctl status centreon-as400
 ```
 
-Returns :
+This command returns:
 
 ```shell
 ○ centreon-as400.service - Centreon AS400
@@ -213,7 +213,7 @@ Returns :
      Active: inactive (dead)
 ```
 
-Then do this : 
+Then, execute the following commands: 
 
 ```shell
 systemctl start centreon-as400

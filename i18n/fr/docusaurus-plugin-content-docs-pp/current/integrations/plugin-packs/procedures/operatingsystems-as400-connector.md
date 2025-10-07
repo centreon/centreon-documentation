@@ -205,7 +205,7 @@ Voici les instructions pour démarrer et activer le daemon :
 systemctl status centreon-as400
 ```
 
-Retourne :
+Cette commande retourne :
 
 ```shell
 ○ centreon-as400.service - Centreon AS400
@@ -213,7 +213,7 @@ Retourne :
      Active: inactive (dead)
 ```
 
-Ensuite faire : 
+Exécutez ensuite les commandes suivantes: 
 
 ```shell
 systemctl start centreon-as400
