@@ -36,7 +36,7 @@ Release date: `October 7, 2025`
 
 </details>
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - A default token has been generated and applied to existing agent configurations.
@@ -74,7 +74,7 @@ Release date: `October 7, 2025`
 
 </details>
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] The current password is now required when modifying a user password.
@@ -89,7 +89,7 @@ Release date: `October 7, 2025`
 
 Release date: `August 28, 2025`
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - A default token has been generated and applied to existing agent configurations.
@@ -101,7 +101,7 @@ Release date: `August 28, 2025`
 
 Release date: `August 21, 2025`
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] The current password is now required when modifying a user's password.
@@ -150,7 +150,7 @@ Release date: `August 6, 2025`
 
 </details>
 
-<details open>
+<details>
   <summary>Bug fixes</summary>
 
 - [Administration] Fixed an issue on user groups and templates that occurred when importing non-admin users from LDAP.
@@ -172,7 +172,7 @@ Release date: `August 6, 2025`
 
 </details>
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Vulnerability] Fixed vulnerabilities on several pages.
@@ -574,6 +574,29 @@ Release date: `October 31, 2024`
 
 ## Centreon Collect
 
+### 24.10.13
+
+Release date: `October 8, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Engine] Added TLS insecure connection mode for CMA.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed a segfault on Broker that was occurring when Engine stopped or was restarted, when Engine's version was older than 24.04.
+- [CORE] Fixed compatibility of Engine with older versions of the Linux kernel.
+- [Engine] Fixed a segmentation fault in Engine that could occur if checks were still running when a shutdown was requested.
+- [Engine] Engine no longer crashes when a host is deleted while downtime notifications are processed.
+- The "Name" attribute is now managed in CMA tokens.
+- [Packaging] Fixed package dependency issue with centreon-broker-caching-sha2-password that could block a Broker update.
+
+</details>
+
 ### 24.10.12
 
 Release date: `September 9, 2025`
@@ -801,6 +824,19 @@ Release date: `October 31, 2024`
 
 ## Centreon Monitoring Agent
 
+### 24.10.11
+
+Release date: `October 8, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] Added a native Files check for Windows & Linux.	
+- [CMA] Added TLS insecure connection mode for CMA.
+- [CMA] CMA installer and CLI wording have been harmonized to fit with new UI labels.
+
+</details>
+
 ### 24.10.10
 
 Release date: `September 9, 2025`
@@ -884,6 +920,27 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.10.8
+
+Release date: `October 8, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed centreontrapd configuration file permissions that were applied when exporting poller configuration.
+- [Gorgone] Fixed a bug in MBI where hostnames with semicolons would break database insertion.
+- [MBI]  Fixed an issue where the ETL would never finish executing if some service templates were referencing themselves.
+- [Gorgone] Gorgone now raises an error if the ETL configuration file doesn't exist.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Gorgone] Added an option to restrict discovery commands that were too permissive.
+
+</details>
 
 ### 24.10.7
 
