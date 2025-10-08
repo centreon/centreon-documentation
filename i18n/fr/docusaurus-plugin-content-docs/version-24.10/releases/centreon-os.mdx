@@ -588,12 +588,12 @@ Release date: `October 8, 2025`
 <details>
   <summary>Bug fixes</summary>
 
-- [Broker] Fixed a segfault on Broker that was occuring when Engine stopped or was restarted, when Engine's version was older than 24.04.
-- [CORE] Fixed compatibility of engine with older versions of Linux kernel.
+- [Broker] Fixed a segfault on Broker that was occurring when Engine stopped or was restarted, when Engine's version was older than 24.04.
+- [CORE] Fixed compatibility of Engine with older versions of the Linux kernel.
 - [Engine] Fixed a segmentation fault in Engine that could occur if checks were still running when a shutdown was requested.
-- [Engine] Fixed Engine crash when deleting a host during downtime notification.
-- "Name" attribute is now managed in CMA Tokens.
-- [Packaging] Fixed package dependency issue with centreon-broker-caching-sha2-password that could block a broker update.
+- [Engine] Engine no longer crashes when a host is deleted while downtime notifications are processed.
+- The "Name" attribute is now managed in CMA tokens.
+- [Packaging] Fixed package dependency issue with centreon-broker-caching-sha2-password that could block a Broker update.
 
 </details>
 
@@ -833,7 +833,7 @@ Release date: `October 8, 2025`
 
 - [CMA] Added a native Files check for Windows & Linux.	
 - [CMA] Added TLS insecure connection mode for CMA.
-- [CMA] CMA installer and CLI wording has been harmonized to fit with new UI labels.
+- [CMA] CMA installer and CLI wording have been harmonized to fit with new UI labels.
 
 </details>
 
@@ -928,10 +928,10 @@ Release date: `October 8, 2025`
 <details>
   <summary>Bug fixes</summary>
 
-- [Gorgone] Fix centreontrapd configuration file permissions when exporting poller configuration.
-- [Gorgone] Fixed a bug in MBI where hostname with semicolon will break database insertion.
-- [MBI] Fixed an issue where ETL would never finish if some service templates were referencing themselfes.
-- [Gorgone] Raise an error if ETL configuration file don't exist.
+- [Gorgone] Fixed centreontrapd configuration file permissions that were applied when exporting poller configuration.
+- [Gorgone] Fixed a bug in MBI where hostnames with semicolons would break database insertion.
+- [MBI]  Fixed an issue where the ETL would never finish executing if some service templates were referencing themselves.
+- [Gorgone] Gorgone now raises an error if the ETL configuration file doesn't exist.
 
 </details>
 
