@@ -527,7 +527,7 @@ To help users to understand the most popular plugins you can find several tutori
 
 * [API plugin tutorial](../dev-resources/tutorial-api.md)
 * [SNMP plugin tutorial](../dev-resources/tutorial-snmp.md)
-* [Service discovery tutorial](../dev-resources/tutorial-servicediscovery.md)
+* [Service discovery tutorial](../dev-resources/tutorial-service-discovery.md)
 
 ## Commit and Fatpack generation
 
