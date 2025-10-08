@@ -17,7 +17,7 @@ section.
 > `cp -R src/contrib/tutorial/network/* src/network/`
 
 You also need to be able to use linux standard snmpwalk in your development environment.
-If you can't, you can use [this snmpwalk](https://github.com/centreon/centreon-plugins/blob/develop/tests/resources/snmp/os_linux_snmp_plugin.snmpwalk) 
+If you can't, you can use [this snmpwalk](https://github.com/centreon/centreon-plugins/blob/develop/tests/resources/snmp/os_linux_snmp_plugin_2.snmpwalk) 
 coupled with snmpsim (in Docker for example)
 
 **Description**
