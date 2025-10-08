@@ -246,7 +246,32 @@ run whenever a resource state change occurs. When such a command is configured,
 an **event handler** event is emitted by Centreon Engine. These BBDO events are
 usually sent when Centreon Engine is restarted or reloaded.
 
-The event is the same as in BBDO v2. There is no Protobuf event.
+#### NEB::EventHandler
+
+| Category | element | ID    |
+| -------- | ------- | ----- |
+| 1        | 6       | 65542 |
+
+The content of this message is serialized as follows:
+
+| Property        | Type             | Description                                                                                                                                      |
+| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| early\_timeout  | boolean          | True if the event handler timed out.                                                                                                             |
+| end\_time       | time             | Time at which the event handler execution ended.                                                                                                 |
+| execution\_time | real             | Execution time in seconds.                                                                                                                       |
+| handler\_type   | short integer    | 0 for host-specific event handler, 1 for service-specific event handler, 2 for global host event handler and 3 for global service event handler. |
+| host\_id        | unsigned integer | Host ID.                                                                                                                                         |
+| return\_code    | short integer    | Value returned by the event handler.                                                                                                             |
+| service\_id     | unsigned integer | Service ID. 0 if this is a host event handler.                                                                                                   |
+| start\_time     | time             | Time at which the event handler started.                                                                                                         |
+| state           | short integer    | Host / service state.                                                                                                                            |
+| state\_type     | short integer    | 0 for SOFT, 1 for HARD.                                                                                                                          |
+| timeout         | short integer    | Event handler timeout in seconds.                                                                                                                |
+| command\_args   | string           | Event handler arguments.                                                                                                                         |
+| command\_line   | string           | Event handler command line.                                                                                                                      |
+| output          | string           | Output returned by the event handler.                                                                                                            |
+| source\_id      | unsigned integer | The id of the source instance of this event.                                                                                                     |
+| destination\_id | unsigned integer | The id of the destination instance of this event.                                                                                                |
 
 ### Flapping status
 
