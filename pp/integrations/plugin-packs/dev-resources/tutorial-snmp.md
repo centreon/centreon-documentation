@@ -37,7 +37,7 @@ There are several important properties for a piece of data:
 - Data layout, in other words anticipate the kind of **data structure** to manipulate.
 
 Here we use a very simple example with only one oid value : `hrProcessorLoad` = `.1.3.6.1.2.1.25.3.3.1.2`
-If you use [this snmpwalk](https://github.com/centreon/centreon-plugins/blob/develop/tests/resources/snmp/os_linux_snmp_plugin.snmpwalk) you have this values :
+If you use [this snmpwalk](https://github.com/centreon/centreon-plugins/blob/develop/tests/resources/snmp/os_linux_snmp_plugin_2.snmpwalk) you have this values :
 ```
 .1.3.6.1.2.1.25.3.3.1.2.768 = INTEGER: 6
 .1.3.6.1.2.1.25.3.3.1.2.769 = INTEGER: 16
