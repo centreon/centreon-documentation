@@ -218,10 +218,10 @@ You can generate, revoke, and regenerate your API key on your profile.
 > The default base URI value *api.meraki.com* used in `MERAKIAPIHOSTNAME` macro will work for most of the world.
 > However, for organizations hosted in the following country, you need to override this value and specify the respective base URI instead:
 >
-> - Canada: *https://api.meraki.ca/api/v1*
-> - China: *https://api.meraki.cn/api/v1*
-> - India: *https://api.meraki.in/api/v1*
-> - United States FedRAMP: *https://api.gov-meraki.com/api/v1*
+> - Canada: https://api.meraki.ca/api/v1
+> - China: https://api.meraki.cn/api/v1
+> - India: https://api.meraki.in/api/v1
+> - United States FedRAMP: https://api.gov-meraki.com/api/v1
 >
 > Using the wrong base URI value might cause this connector to not work properly.
 > Please refer to Meraki API documentation https://developer.cisco.com/meraki/api-v1/getting-started/#base-uri for more details.
