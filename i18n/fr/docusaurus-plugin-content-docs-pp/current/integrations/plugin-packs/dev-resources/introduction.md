@@ -1,21 +1,21 @@
 ---
 id: introduction
-title: Getting started - Plugin development
+title: Pour commencer - Développement de plugins
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This section aims to give an overview of the centreon-plugins philosophy and how
-you can leverage the centreon-plugins perl framework (or not) and create Packs on top
-of it.
+Cette section vise à donner un aperçu de la philosophie des plugins Centreon et de la manière dont
+vous pouvez exploiter (ou non) le framework Perl des plugins Centreon et créer des connecteurs à partir de celui-ci.
 
-The recommended path is the following:
+Le chemin recommandé est le suivant :
+- [Basics & main guidelines](../dev-resources/plugins-global.md) - Comprenez les principaux
+concepts et fonctionnalités que vous devez connaître avant de développer des plugins.
+- [Advanced plugins development concepts](../dev-resources/plugins-advanced.md) - Trouvez des ressources pour des fonctionnalités plus avancées des plugins.
+- [How to develop a plugin to monitor a REST API](../dev-resources/tutorial-api.md) - Tutoriel pour développer un plugin API.
+- [How to develop a plugin to monitor a device supporting SNMP](../dev-resources/tutorial-snmp.md) - Tutoriel pour développer un plugin SNMP.
+- [Coming soon][How to develop a Service Discovery mode](../dev-resources/tutorial-service-discovery.md) - Tutoriel pour développer un mode de découverte de service.
 
-- [Plugins guidelines](https://docs.centreon.com/pp/integrations/plugin-packs/dev-resources/plugins-guidelines) - Understand the major
-concepts and features you need to know before developing any plugins.
-- [Plugins quickstart guide](https://docs.centreon.com/pp/integrations/plugin-packs/dev-resources/plugins-guidelines/develop-with-centreon-plugins) - Get the
-big picture and understand patterns that will enable you to code with our framework.
-
-Need some help? Unanswered questions? Smoggy concepts? Just reach out to us on our community platform
-[The Watch](https://thewatch.centreon.com). Feel free to submit an idea if you would like to see a specific topic covered within this section.
+Besoin d'aide ? Des questions sans réponse ? Des concepts flous ? N'hésitez pas à nous contacter sur [Github Issues](https://github.com/centreon/centreon-plugins/issues) 
+et sur notre plateforme communautaire [The Watch](https://thewatch.centreon.com). N'hésitez pas à nous soumettre vos idées si vous souhaitez voir un sujet spécifique abordé dans cette section.

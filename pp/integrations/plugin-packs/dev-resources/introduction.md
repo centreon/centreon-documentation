@@ -7,8 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This section aims to give an overview of the centreon-plugins philosophy and how
-you can leverage the centreon-plugins perl framework (or not) and create Packs on top
-of it.
+you can leverage the centreon-plugins perl framework (or not) and create Connectors on top of it.
 
 The recommended path is the following:
 - [Basics & main guidelines](../dev-resources/plugins-global.md) - Understand the major
