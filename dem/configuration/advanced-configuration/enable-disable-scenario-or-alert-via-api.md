@@ -1,22 +1,23 @@
 ---
 id: enable-disable-scenario-or-alert-via-api
-title: Automatiser l’activation/désactivation d’un scénario ou d’une alerte par API
+title: Automate enabling/disabling a scenario or an alert via API
 --- 
 
-# Automatiser l’activation/désactivation d’un scénario ou d’une alerte par API
 
-# Préambule
+# Automate enabling/disabling a scenario or an alert via API
 
-Dans certains cas, il peut être utile de modifier la configuration de Quanta de façon automatisée. Les cas d’usage sont très nombreux, mais les plus fréquents vont être :
+## Preamble
 
-- de désactiver ou réactiver le fonctionnement d’un scénario (typiquement pour le désactiver lors d’une mise en maintenance du site, afin d’exclure la plage de maintenance des statistiques d’indisponibilité)
-- de modifier une variable à l’intérieur de la configuration du scénario (par exemple pour changer le parcours suite à une mise en production d’une nouvelle version du site), ou bien pour modifier l’adresse email à utiliser dans un scénario de création de compte utilisateur.
+In some situations it can be useful to modify Quanta's configuration automatically. Use cases are many, but the most common are:
 
-# Exemple avec une requête REST simple
+- disabling or re-enabling a journey (for example disabling it during a site maintenance window so the maintenance period is excluded from downtime statistics)
+- changing a variable inside a journey configuration (for instance swapping the journey after a new site release), or changing the e-mail address used by an account creation scenario.
 
-Dans Quanta, l’ensemble des fonctionnalités sont accessibles par API, il est donc possible d’effectuer des requêtes vers Quanta avec des outils comme “*curl*” ou “*wget*” en spécifiant l’ID du site, l’ID du Parcours Utilisateurs ainsi que les paramètres d’authentification (*x-csrf-token* et *_qm3k_session*).
+## Example with a simple REST request
 
-Exemple de requête REST pour désactiver un scénario dont l’URL du panel de modification dans Quanta est https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913 :
+In Quanta, all features are accessible through the API, so you can send requests to Quanta using tools such as curl or wget by specifying the site ID, the User Journey ID and the authentication parameters (*x-csrf-token* and *_qm3k_session*).
+
+Example REST request to disable a journey where the Quanta UI edit panel URL is https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913:
 
 ```bash
 curl "https://app.quanta.io/api/sites/29274/uj/journeys/2913" -X 'PUT' \
@@ -29,35 +30,35 @@ curl "https://app.quanta.io/api/sites/29274/uj/journeys/2913" -X 'PUT' \
   --data-raw '{"user_journey":{id:"**29274**","enabled":**false**}}'
 ```
 
-# Mise en oeuvre en script Shell
+## Implementation as a shell script
 
-Pour + de souplesse, nous proposons ici un exemple de script Shell qui permet d’effectuer ces différents types de modifications.
+For more flexibility, here is an example shell script that performs these types of modifications.
 
 ```bash
 #!/bin/bash
 
-# Définir les variables CSRF-Token et _qm3k_session
+# Define CSRF token and _qm3k_session variables
 csrf_token="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX="
 qm3k_session="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
-# Fonction pour afficher l'aide du script
+# Show help for the script
 function show_help {
-  echo "Utilisation : ./modif-uj.sh <id_site> <id_journey> [--set-variable <nom_variable>=<valeur>] [--enable <valeur>]"
-  echo "Exemple : ./modif-uj.sh 4028 2830 --set-variable example=42 --enable true"
+  echo "Usage: ./modif-uj.sh <site_id> <journey_id> [--set-variable <var_name>=<value>] [--enable <value>]"
+  echo "Example: ./modif-uj.sh 4028 2830 --set-variable example=42 --enable true"
 }
 
-# Vérifier si les IDs du site et du Journey sont passés en paramètre
+# Ensure site and journey IDs are provided
 if [ $# -lt 2 ]; then
   show_help
   exit 1
 fi
 
-# Récupérer les IDs du site et du Journey
+# Read site and journey IDs
 site_id="$1"
 journey_id="$2"
 shift 2
 
-# Traiter les paramètres en ligne de commande
+# Parse command-line options
 while [[ $# -gt 0 ]]; do
   case $1 in
     --set-variable)
@@ -79,10 +80,10 @@ while [[ $# -gt 0 ]]; do
   shift
 done
 
-# Définir l'URL de l'API
+# API URL
 api_url="https://app.quanta.io/api/sites/$site_id/uj/journeys/$journey_id"
 
-# Construire le corps de la requête "request_body" en fonction des paramètres
+# Build request body based on provided options
 request_body="{\"user_journey\":{\"id\":$journey_id"
 if [ "$enable_value" == "true" ]; then
   request_body+=",\"enabled\":true"
@@ -94,7 +95,7 @@ if [ -n "${variable_name+set}" ]; then
 fi
 request_body+='}}'
 
-# Effectuer la requête PUT à l'API en utilisant curl
+# Perform the PUT request using curl
 curl "$api_url" -X 'PUT' \
   -H "authority: app.quanta.io" \
   -H "accept: application/json" \
@@ -105,30 +106,30 @@ curl "$api_url" -X 'PUT' \
   --data-raw "$request_body"
 ```
 
-# Token d’authentification
+## Authentication tokens
 
-Ces requêtes ayant besoin des droits d’administration sur le site concerné dans Quanta, il sera nécessaire d’utiliser des tokens d’authentification et de les spécifier en haut du script : 
+These requests require administrative rights on the targeted site in Quanta, so you must provide authentication tokens at the top of the script:
 
 ```bash
-# Définir les variables CSRF-Token et _qm3k_session
+# Define CSRF token and _qm3k_session variables
 csrf_token="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX="
 qm3k_session="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 ```
 
-Pour récupérer ces paramètres, il suffit d’ouvrir la console “Network” dans Chrome au moment du chargement d’une page de l’interface Quanta, puis d’aller chercher les paramètres **csrf_token** et **qm3k_session** dans la requête HTTP effectuée par le navigateur web, comme ici :
+To obtain these values, open Chrome DevTools > Network while loading a Quanta UI page and look for the **csrf_token** and **qm3k_session** parameters in the browser's HTTP request, like in the screenshot below:
 
 ![image](../../assets/configuration/advanced-config/scenario-or-alert-via-api-1.png)
 
-Pour assurer une bonne sécurité des données du site dans Quanta, il est fortement conseillé de créer un compte utilisateur dédié à cet usage dans Quanta.
+For security, we strongly recommend creating a dedicated Quanta user account for API usage.
 
-Par exemple : monlogin+api@mondomaine.com
+Example: mylogin+api@mydomain.com
 
-# Exemple d’utilisation du script
+## Example usage
 
-Dans notre script d’exemple les 2 premiers chiffres à passer en paramètre correspondent à l’ID du site, et l’ID du Parcours Utilisateur. Ils sont tous les deux présents dans l’URL d’accès au scénario quand on accède à la configuration du scénario en question dans Quanta :
+In the sample script the first two arguments are the site ID and the User Journey ID. Both IDs appear in the journey edit URL in Quanta:
 https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913
 
-Une fois ces paramètres récupérés, on utilise le script de modification automatique comme ceci :
+Once you have these values, use the script like this:
 
 ```bash
 $ ./modif-uj.sh 29274 2913 --enable false
@@ -138,6 +139,6 @@ $ ./modif-uj.sh 29274 2913 --set-variable variable-to-change=50 --enable true
 $
 ```
 
-# Pour aller plus loin
+## Next steps
 
-La même logique s’applique à l’ensemble des fonctionnalités de Quanta, qui sont toutes accessibles par API. N’hésitez pas à observer le fonctionnement des requêtes et à reproduire une variante de ce même script selon vos besoins.
+The same logic applies to all Quanta features, which are accessible via the API. Feel free to inspect requests and adapt this script to your needs.

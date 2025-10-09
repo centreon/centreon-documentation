@@ -5,38 +5,36 @@ title: Speed Index
 
 # Speed Index
 
-# Qu’est ce que le Speed Index mesure
+## What Speed Index measures
 
-Le Speed Index mesure à quelle vitesse le contenu est affiché pendant le chargement de la page.
+Speed Index measures how quickly the page's visual content is displayed during load.
 
-Une page qui commence à afficher des éléments au bout d’une seconde et charge en 5s aura un score de Speed Index meilleur que la même page qui affiche des éléments au bout de 4s et s’affiche en 5s.
+A page that begins rendering elements after 1s and finishes at 5s will have a better Speed Index than a page that also finishes at 5s but only starts rendering at 4s.
 
-**Le Speed Index s’exprime en secondes mais il s’agit d’un score.** Il ne se place pas dans une timeline, et ne correspond pas à un évènement précis à un instant donné.
+**Speed Index is expressed in seconds but should be treated as a score.** It doesn't correspond to a single event on a timeline.
 
-# Comment améliorer le Speed Index
+## How to improve Speed Index
 
-Tout ce que vous faites pour améliorer la vitesse de chargement devrait améliorer le Speed Index.
+Anything you do to improve overall load speed will generally improve Speed Index. Two factors have a particularly strong impact:
 
-A part cela, 2 autres éléments ont un impact fort sur le Speed Index :
+### TTFB
 
-## Le TTFB
+[TTFB (Time To First Byte)](./time-to-first-byte.md)
 
-[TTFB (”Time To First Byte”)](./time-to-first-byte.md)
+Reducing the wait for the first byte brings forward the moment when visual elements can appear.
 
-En réduisant le temps d’attente du premier octet, vous rapprochez dans le temps le moment où les éléments s’affichent.
+### JavaScript and secondary loads
 
-## Javascript et les chargements “secondaires”
+Work on:
 
-Vous devriez travailler à:
+- Reducing JavaScript execution time
+- Reducing the browser's work to render the page (DOM complexity, CSS classes, etc.)
 
-- Réduire le temps d’exécution du Javascript
-- Réduire le travail pour le navigateur à afficher la page (complexité, classes CSS, etc…)
+## Scoring
 
-# Notation
+Scoring guideline:
 
-La notation pour cet indicateur est:
-
-| Bon | < à 2s |
+| Good | < 2s |
 | --- | --- |
-| Moyen | de 2s à 5s |
-| Mauvais | > à 5 secondes |
+| Fair | 2s to 5s |
+| Poor | > 5s |

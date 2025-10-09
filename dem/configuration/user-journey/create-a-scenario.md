@@ -1,362 +1,362 @@
 ---
 id: create-a-scenario
-title: Création d’un scénario (”Parcours Utilisateur”)
+title: Creation of a scenario ("User Journey")
 --- 
 
-# Création d’un scénario (”Parcours Utilisateur”)
+# Creation of a scenario ("User Journey")
 
 <aside>
-⚠️ Vous pouvez vérifier qu’il vous reste suffisamment d’étapes dans la page Organisation
+⚠️ You can check that you have enough remaining steps on the Organization page
 
 ![image](../../assets/configuration/user-journey/create-scenario-1.png)
 
 </aside>
 
 <aside>
-⚠️ Vous devez disposer des droits Propriétaire ou Administrateur pour modifier vos scénarios. Vous pouvez vérifier dans votre page Profil
+⚠️ You must have Owner or Administrator rights to edit your scenarios. You can check this on your Profile page
 
 ![image](../../assets/configuration/user-journey/create-scenario-2.png)
 
-Pour les modifier, consultez:
+To manage them, see:
 
-[Gérez vos utilisateurs et leurs droits](../manage-users-and-rights.md)
+[Manage your users and rights](../manage-users-and-rights.md)
 
 </aside>
 
-# Entrer en mode création/édition de parcours
+# Entering scenario creation/edit mode
 
-Le mode édition de parcours vous permet de modifier vos parcours ou d’en créer de nouveau. Dans la barre du menu à gauche, cliquez sur ***Parcours Utilisateurs***. A ce stade, il y a 2 possibilités:
+The scenario edit mode lets you modify existing user journeys or create new ones. In the left menu bar, click on ***User Journeys***. At this point there are two possibilities:
 
-## Vous n’avez pas encore de parcours
+## You don't have any journeys yet
 
-Si le site n’a pas de Parcours Utilisateur configuré, alors ce message s’affiche :
+If the site has no User Journey configured, this message will appear:
 
 ![image](../../assets/configuration/user-journey/create-scenario-3.png)
 
-Vous pouvez cliquer sur *“Configurez votre parcours utilisateur maintenant !”* pour entrer en mode édition.
+You can click *"Configure your user journey now!"* to enter edit mode.
 
-## Vous avez déjà au moins un parcours
+# You already have at least one journey
 
-Si un parcours existe**,** vous verrez un écran semblable à celui-ci:
+If a journey exists, you will see a screen similar to this:
 
 ![image](../../assets/configuration/user-journey/create-scenario-4.png)
 
-Cliquez sur les 3 points et sur *Configurer* pour entrer en mode édition/création.
+Click the three dots and choose *Configure* to enter edit/create mode.
 
-# Créer un parcours
+# Create a journey
 
-En bas de la page d’édition, vous trouverez un bouton pour créer un nouveau parcours:
+At the bottom of the edit page, you'll find a button to create a new journey:
 
 ![image](../../assets/configuration/user-journey/create-scenario-5.png)
 
-Bouton d’action en mode édition
+Action button in edit mode
 
-Quanta génère un nouveau parcours avec une seule étape: la navigation vers la racine de votre nom de domaine.
+Quanta generates a new journey with a single step: navigating to the root of your domain.
 
-## Activer le parcours
+# Activate the journey
 
-Pour activer votre parcours, vous devez le sauvegarder. Pour cela, cliquer sur l’icône *Sauvegarder* ou sur le bouton au pied de votre parcours:
+To activate your journey, you must save it. Click the *Save* icon or the button at the bottom of your journey:
 
 ![image](../../assets/configuration/user-journey/create-scenario-6.png)
 
-Options pour sauvegarder un parcours utilisateur
+Options to save a user journey
 
-Vous verrez un symbole de chargement dans le coin supérieur droit qui indique que votre parcours fonctionne mais que la sonde n’est pas encore passée depuis les dernières modifications
+You will see a loading indicator in the top-right corner that means your journey is saved but the probe hasn't run since the last changes:
 
 ![image](../../assets/configuration/user-journey/create-scenario-7.png)
 
-Indicateur de changements sauvegardés mais pas encore exécuté par la sonde
+Indicator showing changes saved but not yet executed by the probe
 
-Lorsque que la sonde passe, le contenu est mis à jour automatiquement. Vous verrez alors les captures d’écran.
+When the probe runs, the content is updated automatically. You will then see the screenshots.
 
-# Configurer des étapes
+# Configure steps
 
 <aside>
-💡 **Une étape contient au moins une action** et s’arrête nécessairement en cas de navigation. **Vous pouvez configurer plusieurs actions dans une étape**, mais une étape ne peut pas contenir plusieurs navigations.
+💡 **A step contains at least one action** and always ends if a navigation occurs. **You can configure multiple actions in a step**, but a step cannot contain multiple navigation actions.
 
-Par exemple, vous pouvez remplir un formulaire, ajouter au panier un produit puis cliquer pour naviguer vers le panier en une étape.
+For example, you can fill out a form, add a product to the cart, and then click to navigate to the cart all within a single step.
 
 </aside>
 
-## Configurer une action
+## Configure an action
 
-Il existe 5 actions possibles:
+There are 5 possible actions:
 
-### Naviguer
+### Navigate
 
-Choisissez une URL vers laquelle naviguer. Cette action est équivalente à entrer une URL dans la barre d’adresse et y aller.
+Choose a URL to navigate to. This action is equivalent to entering a URL in the address bar and going there.
 
-L’URL doit faire partie du domaine autorisé pour votre licence Quanta.
+The URL must be within the domain authorized for your Quanta license.
 
-### Cliquer
+### Click
 
-Pour choisir sur quoi cliquer vous avez 2 choix:
+To choose what to click you have two options:
 
-- Chercher un texte
-- Chercher un élément par son sélecteur CSS
+- Search for text
+- Search for an element by its CSS selector
 
-Si vous cherchez un texte, celui-ci doit faire partie d’une seule balise HTML. Un texte peut sembler visuellement cohérent mais être séparé par une balise.
+If you search by text, the text must belong to a single HTML tag. Text that appears visually as a single phrase can be split across tags.
 
 ```html
-<p>Cliquez <span class="emphasis">vite</span> pour découvrir la suite</p>
+<p>Click <span class="emphasis">quickly</span> to see what comes next</p>
 ```
 
 ```html
-<p>Cliquez vite pour découvrir la suite</p>
+<p>Click quickly to see what comes next</p>
 ```
 
-Par défaut, Quanta cliquera sur la première occurence détectée. Vous pouvez choisir de:
+By default, Quanta will click the first occurrence found. You can choose to:
 
-- cliquer sur la première occurence (par défaut)
-- cliquer sur la deuxième, la troisième, etc
-- cliquer au hasard parmi toutes les occurrences
+- click the first occurrence (default)
+- click the second, third, etc.
+- click randomly among all occurrences
 
-### Survoler
+### Hover
 
-Survoler utilise exactement les mêmes conditions que Cliquer mais se limite à passer la souris sur le texte ou l’élément CSS choisi.
+Hover uses exactly the same conditions as Click but only moves the mouse over the chosen text or CSS element.
 
-Cette action est utile si des éléments ne se chargent pas tant que la souris n’a pas survolé une zone de l’écran.
+This action is useful if elements only load after the mouse has hovered over a portion of the screen.
 
-### Remplir un formulaire
+### Fill a form
 
-La complétion d’un formulaire est possible dans Quanta. La sonde s’appuie sur les standards HTML.
+Filling out a form is possible in Quanta. The probe relies on HTML standards.
 
-**Sélecteur CSS du formulaire**
+**Form CSS selector**
 
-Si une page contient plusieurs formulaires, cette option permettra de bien limiter la sonde au formulaire choisie.
+If a page contains multiple forms, this option will limit the probe to the chosen form.
 
-**Remplir les champs**
+**Fill fields**
 
-Les champs peuvent être sélectionnés par leurs noms (attribut *name*), leurs placeholders, le texte de leurs labels, ou par des sélecteurs CSS.
+Fields can be selected by their names (the *name* attribute), their placeholders, their label text, or by CSS selectors.
 
-**Soumettre le formulaire**
+**Submit the form**
 
-Par défaut, Quanta envoie le formulaire une fois rempli. Mais vous pouvez modifier ce comportement. Vos options sont:
+By default, Quanta submits the form once filled. But you can modify this behavior. Your options are:
 
-- Soumettre automatiquement (par défaut): équivalent à taper la touche Entrée dans un formulaire
-- Désactivé: ne rien faire une fois le formulaire rempli
-- Cliquer sur un texte: utile si l’envoi du formulaire se fait ailleurs dans la page
-- Cliquer sur un élément CSS: idem
+- Submit automatically (default): equivalent to pressing Enter in a form
+- Disabled: do nothing once the form is filled
+- Click a text: useful if the form is submitted elsewhere on the page
+- Click a CSS element: same idea
 
-### Attendre
+### Wait
 
-Parfois, vous n’avez pas de solution plus simple que d’attendre qu’une action se passe. Par exemple, si les éléments s’affichent en fondu après 1s, alors attendre 1s vous permet d’avoir des captures d’écrans avec ces éléments affichés.
+Sometimes there is no better solution than to wait for an action to happen. For example, if elements fade in after 1s, then waiting 1s lets you capture screenshots with those elements visible.
 
-C’est une solution de dernier recours qui ne devrait être que rarement utilisé.
+This should be a last-resort option and used rarely.
 
-## Configurer une vérification
+## Configure a verification
 
-Lorsqu’une action est effectuée, vous pouvez ajouter des vérifications de succès.
+After an action is performed, you can add success verifications.
 
-**La dernière action doit avoir au moins une vérification.**
+**The last action must have at least one verification.**
 
-### Confirmer qu’une navigation a été effectuée
+### Confirm that navigation occurred
 
 <aside>
-💡 Cette vérification ne peut pas être retirée pour une action Naviguer.
+💡 This verification cannot be removed for a Navigate action.
 
 </aside>
 
-La sonde va vérifier qu’un nouveau document HTML a été chargé correctement, c’est-à-dire:
+The probe will check that a new HTML document was loaded correctly, meaning:
 
-- Le document HTML a été chargé complètement
-- Le code de retour est 200
+- The HTML document fully loaded
+- The response status code is 200
 
-Aucune vérification du contenu n’est faite.
+No content verification is performed.
 
-### Trouver le texte
+### Find text
 
 <aside>
-💡 Nous vous recommandons d’utiliser des sélecteurs CSS car moins sensible aux changements du site.
-Si vous ne savez pas comment créer vos sélecteurs CSS, contactez votre agence ou le support Quanta (support@quanta.io ou le point d’interrogation en bas à droite dans Quanta) pour que nous vous configurions votre parcours.
+💡 We recommend using CSS selectors because they are less sensitive to site changes.
+If you don't know how to create CSS selectors, contact your agency or Quanta support (support@quanta.io or the question mark at the bottom-right in Quanta) so we can help configure your journey.
 
 </aside>
 
-Cette vérification utilise la même logique que les actions Cliquer et Survoler. Si le texte que vous cherchez existe sur la page après l’action, alors la vérification est acceptée
+This verification uses the same logic as the Click and Hover actions. If the text you search for exists on the page after the action, the verification passes.
 
-### Trouver l’élément CSS
+### Find the CSS element
 
-Cette vérification cherche un élément par son sélecteur CSS. **S’il s’agit d’une image, la sonde vérifie également que l’image charge correctement.**
+This verification finds an element using its CSS selector. **If it's an image, the probe also verifies that the image loads correctly.**
 
-### Faire une requête
+### Make a request
 
-Cette vérification valide qu’une requête vers une adresse a été fait à un moment après l’action. La requête doit être un succès également, les redirections sont possibles.
+This verification validates that a request to an address was made at some point after the action. The request must be successful; redirects are allowed.
 
-Vous pouvez utiliser le joker * pour chercher les requêtes. Par exemple, si vous devez appeler une URL pour ajouter un élément au panier qui aurait la forme *https://mon-site.com/add-to-cart?id=id-de-mon-produit* alors vous pouvez remplacer par *https://mon-site.com/add-to-cart** pour éviter que la vérification échoue si l’ID du produit change ou si un autre paramètre vient s’ajouter avant ou après l’ID.
+You can use the * wildcard to match requests. For example, if you need to call a URL to add an item to the cart that looks like *https://my-site.com/add-to-cart?id=my-product-id* you can replace it with *https://my-site.com/add-to-cart** to avoid the verification failing if the product ID changes or if another parameter is added before or after the ID.
 
-## Configuration avancée de l’étape
+# Advanced step configuration
 
-Les étapes ont également des paramètres propres, qui influenceront les actions à l’intérieur. Pour accéder à cette configuration avancée, cliquer sur les trois petits points au bout de la ligne de l’étape souhaitée et cliquer sur *Avancé*.
+Steps also have their own parameters that influence the actions within. To access this advanced configuration, click the three dots at the end of the desired step line and choose *Advanced*.
 
-### Activée/Désactivée: supprimer l’étape du parcours sans perdre la configuration
+### Enabled/Disabled: remove the step from the journey without losing its configuration
 
-Vous pouvez décider de retirer une étape sans la supprimer. La sonde ignorera cette étape et ne la jouera pas
+You can choose to remove a step without deleting it. The probe will ignore this step and will not play it.
 
-### Mesurée/Non mesurée: jouer l’étape mais ne pas vérifier les résultats
+### Measured/Unmeasured: play the step but do not verify results
 
-Retirer cette option permet d’exécuter cette étape sans la mesurer ou la montrer ailleurs dans l’interface. Un exemple de l’utilité de cette option serait de fermer un formulaire de demande d’avis qui se produit aléatoirement sur une partie de votre trafic. Parfois la sonde va le rencontrer et le fermera, les autres fois la sonde ignorera l’erreur provoquée par le fait de ne pas avoir rencontré le formulaire.
+Unchecking this option lets the step execute without being measured or shown elsewhere in the interface. An example use case would be closing a feedback request form that appears randomly for part of your traffic. Sometimes the probe will encounter and close it; other times the probe will ignore the error caused by not encountering the form.
 
-### Timeout d’étape
+### Step timeout
 
-Vous pouvez définir que cette étape à un timeout différent, soit plus court, soit plus long que la configuration générale du parcours.
+You can set a different timeout for this step, either shorter or longer than the journey's global configuration.
 
-# Configuration générale d’un parcours
+# General journey configuration
 
-Chaque étape a des actions, et l’ensemble de parcours a des options de configuration à définir. Pour accéder à ces configurations, en mode édition, cliquer sur les 3 petits points de votre parcours, puis *Avancé* pour accéder au menu.
+Each step has actions, and the journey as a whole has configuration options to set. To access these configurations in edit mode, click the three dots on your journey and choose *Advanced* to open the menu.
 
-### Nom
+### Name
 
-Choisissez un nom pour désigner ce parcours dans les rapports et dans les différents écrans de Quanta.
+Choose a name to identify this journey in reports and across Quanta screens.
 
-Nous vous recommandons d’utiliser des noms bien distincts, et d’utiliser un système de numérotation. Par exemple:
+We recommend using distinct names and a numbering system. For example:
 
-- 1- Commande invitée
-- 2- Connexion compte perso
+- 1- Guest checkout
+- 2- Personal account login
 
-### Profilage PHP
+### PHP profiling
 
 <aside>
-💡 Par défaut, Quanta l’active s’il reçoit des données PHP.
+💡 By default, Quanta enables it when it receives PHP data.
 
 </aside>
 
-Permet d’activer / désactiver le profilage PHP sur ce parcours si vous avez l’agent système Quanta et le module PHP installé sur vos serveurs.
+Allows enabling/disabling PHP profiling for this journey if you have the Quanta system agent and the PHP module installed on your servers.
 
-Vous pouvez retrouver la procédure d’installation des agents sur cette page: 
+You can find the agent installation procedure on this page:
 
-[Checklist d’installation de Quanta](../../installation/installation-checklist.md)
+[Quanta installation checklist](../../installation/installation-checklist.md)
 
-### Vérifier le certificat SSL
+### Check SSL certificate
 
 <aside>
-💡 Activé par défaut.
+💡 Enabled by default.
 
 </aside>
 
-Permet d’activer / désactiver la vérification de conformité du certificat TLS/SSL.
+Allows enabling/disabling TLS/SSL certificate validation.
 
-Lorsque qu’un site n’est pas sécurisé, les clients peuvent voir un écran équivalent à celui-ci.
+When a site is not secure, users may see a page similar to this:
 
 ![image](../../assets/configuration/user-journey/create-scenario-8.png)
 
-Exemple de page d’échec SSL
+Example of an SSL failure page
 
-Par défaut, Quanta considère que le parcours est en échec en cas de problème de sécurité de ce type. Désactivez l’option pour ignorer ces erreurs.
+By default, Quanta considers the journey failed in case of such a security issue. Disable this option to ignore these errors.
 
-### Authentification HTTP Basic (.htaccess)
+### HTTP Basic authentication (.htaccess)
 
-Certains sites, notamment les environnements de préproduction, utilisent des authentifications HTTP Basic (ou .htaccess) pour protéger le site des accès externes, en plus de l’authentification des utilisateurs.
+Some sites, especially preproduction environments, use HTTP Basic authentication (or .htaccess) to protect the site from external access, in addition to user authentication.
 
-Renseignez un nom d’utilisateur et un mot de passe pour activer cette option d’authentification. Si les champs sont vides, la sonde n’enverra pas de requête utilisant l’authentification HTTP Basic.
+Provide a username and password to enable this authentication option. If the fields are empty, the probe will not send requests using HTTP Basic authentication.
 
-### Paramètres du navigateur utilisé (réseau fibre/4G, ordinateur ou téléphone, etc)
+### Browser settings (fiber/4G network, desktop or mobile, etc.)
 
-**Activer le cache navigateur**
+**Enable browser cache**
 
 <aside>
-💡 Par défaut, activé
+💡 Enabled by default
 
 </aside>
 
-Les navigateurs “cachent” le contenu. Par exemple, le logo de votre site n’est pas chargé à chaque fois que l’utilisateur ouvre une nouvelle page de votre site. Le navigateur reconnait qu’il s’agit de la même image et l’affiche depuis la mémoire plutôt que de la télécharger.
+Browsers "cache" content. For example, your site's logo isn't downloaded every time a user opens a new page. The browser recognizes it's the same image and displays it from memory instead of downloading it.
 
-Désactivez pour que la sonde télécharge tous les contenus à chaque interaction.
+Disable this so the probe downloads all content on each interaction.
 
 **User Agent**
 
 <aside>
-💡 Par défaut, la sonde s’identifie comme un navigateur Google Chrome
+💡 By default, the probe identifies as a Google Chrome browser
 
 </aside>
 
-Le User Agent est une information donnée par le navigateur à votre site pour indiquer quel navigateur il utilise afin de pouvoir adapter les contenus si besoin.
+The User Agent is information the browser sends to your site to indicate which browser it uses so the site can adapt content if needed.
 
-Il peut être utile de le changer pour identifier la sonde différemment du trafic classique.
+It can be useful to change it to identify the probe differently from regular traffic.
 
-**Limite de bande passante**
+**Bandwidth limit**
 
-Choisissez une bande passante représentative de votre trafic. Choisissez 3G ou 4G quand vous utilisez un format téléphone, et ADSL ou Fibre quand vous utilisez un format ordinateur
+Choose a bandwidth representative of your traffic. Choose 3G or 4G when using a mobile format, and ADSL or Fiber when using a desktop format.
 
-**Simuler un appareil**
+**Simulate a device**
 
-Choisissez un type d’appareil comme un ordinateur, une tablette, ou un téléphone parmi la liste.
+Choose a device type such as desktop, tablet, or phone from the list.
 
 <aside>
-💡 Modifier le type d’appareil ne modifie pas le navigateur ou le matériel utilisé mais simule la taille d’écran de l’appareil choisi
+💡 Changing the device type does not change the browser or hardware used but simulates the screen size of the chosen device
 
 </aside>
 
 **Orientation**
 
-Choisissez si le téléphone ou la tablette est utilisé en mode portrait ou paysage.
+Choose whether the phone or tablet is used in portrait or landscape mode.
 
 **Cookies**
 
-Ajoutez des cookies personnalisés pour stocker des données ou des sessions au lancement du parcours
+Add custom cookies to store data or sessions at journey start
 
-**En-têtes HTTP**
+**HTTP headers**
 
-Vous pouvez ajouter des headers HTTP personnalisés
+You can add custom HTTP headers
 
-### Paramètres de la sonde (intervalle de mesure, timeout)
+### Probe settings (measurement interval, timeout)
 
-**Attendre le chargement complet**
+**Wait for full load**
 
 <aside>
-💡 Par défaut, activé
+💡 Enabled by default
 
 </aside>
 
-Par défaut, la sonde attend l’évènement OnLoad avant de passer à l’étape suivante, même si les vérifications sont réussies. Vous pouvez désactiver ce comportement et forcer la sonde à avancer dès que les vérifications sont finies, même si la page n’est pas chargée.
+By default, the probe waits for the OnLoad event before moving to the next step, even if verifications are successful. You can disable this behavior and force the probe to advance as soon as verifications complete, even if the page hasn't fully loaded.
 
-**Intervalle de mesure**
+**Measurement interval**
 
 <aside>
-💡 Si le parcours dure plus longtemps que l’intervalle de mesure, la sonde ne finira pas le parcours et reprendra au début.
+💡 If the journey takes longer than the measurement interval, the probe will not finish the journey and will restart from the beginning.
 
 </aside>
 
 <aside>
-🌳 Un intervalle de mesure plus grand, c’est moins de données qui transitent sur le réseau et moins de travail pour vos serveurs.
+🌳 A larger measurement interval means less data sent over the network and less work for your servers.
 
 </aside>
 
-Choisissez tous les combien de temps la sonde doit passer sur le parcours
+Choose how often the probe should run the journey
 
-**Timeout d’étape**
+**Step timeout**
 
-Si la sonde passe ce temps sur une étape, la considérer en échec. Un temps trop court pose le risque d’avoir des faux positifs. Un temps trop grand pose le risque de ne pas avoir d’erreur et d’alertes pour des chargements lents.
+If the probe spends this time on a step, consider it failed. A timeout that's too short risks false positives. A timeout that's too long risks missing errors and alerts for slow loads.
 
-### URLs en liste noire (exclure Quanta des statistiques de mesure de trafic)
+### Blacklisted URLs (exclude Quanta from traffic measurement statistics)
 
 <aside>
-💡 Par défaut, nous excluons les fournisseurs suivants:
+💡 By default we exclude the following providers:
 
 - DoubleClick
 - Hotjar
 - Google Analytics
-- Notre propre RUM
+- Our own RUM
 - Google Ads
 - Google Maps
 </aside>
 
-Pour éviter que la sonde ne compte dans certains de vos outils, vous pouvez lui demander de ne pas envoyer de requête vers des domaines personnalisés.
+To prevent the probe from being counted in some of your tools, you can tell it not to send requests to custom domains.
 
-Cela a 2 intérêts:
+This has two benefits:
 
-- Ne pas compter la sonde dans les statistiques de trafic
-- Empêcher la sonde de charger des éléments avec un prix à l’affichage
-    - Par exemple, Google Maps vous facture un prix basé sur le nombre de requête. Si la sonde accède à une page contenant une carte, vous serez facturé pour cela. Désactiver ce domaine permet de faire des économies.
+- Not counting the probe in traffic statistics
+- Preventing the probe from loading elements that incur a cost per view
+    - For example, Google Maps charges based on the number of requests. If the probe accesses a page containing a map, you will be billed for that. Disabling that domain can save costs.
 
-Vous pouvez utiliser le joker * pour définir facilement une expression régulière. Par exemple, si vous excluez *https://mon-analyseur-de-trafic.fr/api/v*/**  alors les requêtes, qu’elles soient faites sur la v1, la v2, la v3, etc de cette API, et quelqu’en soit le contenu, seront bloquées par la sonde.
+You can use the * wildcard to easily define a pattern. For example, if you exclude *https://my-traffic-analyzer.fr/api/v*/** then requests to v1, v2, v3, etc. of that API, regardless of content, will be blocked by the probe.
 
-### Liste des variables
+### Variables list
 
-Les variables permettent de donner des informations à la sonde comme des mots de passe, ou des textes à envoyer lors du passage.
+Variables allow you to provide information to the probe such as passwords, or texts to send during the run.
 
-Par exemple, vous pouvez définir des variables *login* et *password* à insérer sur la page de connexion pour accéder à un espace.
+For example, you can define *login* and *password* variables to insert on the login page to access an area.
 
-Vous ne pouvez pas faire varier ces variables dans la partie “Parcours Utilisateur”, les variables sont utiles dans 2 cas:
+You cannot vary these variables within the "User Journey" section; variables are useful in two cases:
 
-- Vous avez besoin de valeurs différentes entre les mesures régulières et les audits de recommandations journaliers
-- Vous avez besoin de valeurs différentes entres les différents navigateurs pendant un test de montée en charge (simuler plusieurs utilisateurs avec des logins différents)
+- You need different values between regular measurements and daily recommendation audits
+- You need different values across different browsers during a load test (simulate multiple users with different logins)

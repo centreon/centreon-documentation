@@ -5,11 +5,11 @@ title: OnLoad
 
 # OnLoad
 
-L’OnLoad mesure à quel moment la page est chargée, en excluant les chargements asynchrones et différés.
+OnLoad measures when the page is loaded, excluding asynchronous and deferred loads.
 
-Cet évènement se produit lorsque la page et toutes ses ressources dépendantes (telles que des feuilles de style CSS et des images) sont complètement chargées.
+This event occurs when the page and all its dependent resources (such as CSS stylesheets and images) are fully loaded.
 
-| Bon | < à 3s |
+| Good | < 3s |
 | --- | --- |
-| Moyen | entre 3s et 5s |
-| Mauvais | > à 5s |
+| Fair | between 3s and 5s |
+| Poor | > 5s |

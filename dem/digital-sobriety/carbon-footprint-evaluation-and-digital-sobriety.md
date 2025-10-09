@@ -1,71 +1,70 @@
 ---
 id: carbon-footprint-evaluation-and-digital-sobriety
-title: Approche d’évaluation carbone et sobriété numérique dans Quanta
+title: Carbon footprint evaluation and digital sobriety approach in Quanta
 --- 
 
-# Approche d’évaluation carbone et sobriété numérique dans Quanta
+# Carbon footprint evaluation and digital sobriety approach in Quanta
 
-Mesurer l’empreinte environnementale du numérique liée à l’activité d’un site Internet nécessite de prendre de nombreux paramètres en compte et de se tenir à jour sur les meilleurs méthodes de calculs car le domaine d’étude est récent et par conséquent l’état de l’art sur le sujet est en perpétuelle évolution.
+Measuring the environmental footprint of digital activity for a website requires many factors and ongoing updates to calculation methods: the field is relatively new and the state of the art evolves rapidly.
 
-Bien que ce domaine évolue rapidement, Quanta s’attache dès aujourd’hui à fournir des mesures actionnables permettant de respecter les principes du [GHG Protocol](https://www.greenly.earth/blog-fr/ghg-protocol-quest-ce-que-cest-comment-ca-marche) (Pertinence, Exhaustivité, Permanence, Transparence et Exactitude). Ces critères sont particulièrement importants à suivre afin de permettre aux entreprises qui le souhaite d’intégrer les données d’impact de leurs sites Internet dans leur bilan carbone global d’entreprise.
+Although the domain is changing fast, Quanta already aims to provide actionable measures that follow the principles of the [GHG Protocol](https://www.greenly.earth/blog-fr/ghg-protocol-quest-ce-que-cest-comment-ca-marche) (Relevance, Completeness, Consistency, Transparency, and Accuracy). These criteria are important to allow companies that wish to include their website impact in their corporate carbon accounting.
 
-Pour respecter ces principes et fournir une mesure d’impact carbone la plus proche de la réalité pour les sites Internet étudiés, Quanta s’appuie donc sur plusieurs algorithmes faisant références sur le marché :
+To respect these principles and provide carbon impact estimates as close to reality as possible, Quanta relies on several market-recognized algorithms:
 
-- Le Score de Sobriété Numérique pour le score d’éco-conception, représenté par un score par page sur un total de 100 points
+- The Digital Sobriety Score for eco-design scoring, represented as a per-page score out of 100
     
     ![Image](../assets/digital-sobriety/carbon-footprint-1.png)
     
-    Mesure du score d’éco-conception dans Quanta pour un parcours utilisateur donné
+    Eco-design score measurement in Quanta for a given user journey
     
-- La méthode [Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/) pour l’estimation du coût en CO2eq émis par le téléchargement d’une page sur le réseau
+- The [Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/) method to estimate CO2e emissions for downloading a page over the network
     
     ![Image](../assets/digital-sobriety/carbon-footprint-2.png)
     
-    Mesure de l’impact carbone, en CO2eq, réalisé via des requêtes synthétiques pour un parcours utilisateur donné
+    Carbon impact measurement (in CO2e) performed via synthetic requests for a given user journey
     
-- La base de donnée d’impact open source de Boavizta pour les calculs d’impact de fabrication et fin de vie des serveurs (mesure à paraitre dans Quanta au Q2 2023).
+- The open-source Boavizta impact database for manufacturing and end-of-life impact calculations for servers (measurement to be published in Quanta in Q2 2023).
 
-Selon les fonctionnalités concernées, que cela soit pour la mesure d’impact carbone d’un parcours utilisateur donné sur le site, pour la mesure d’impact carbone de chacune des pages du site pondérées à leur fréquentation, ou encore l’affichage des pages ayant les plus gros leviers d’optimisations d’éco-conception à réaliser, Quanta va utiliser l’une ou l’autre de ces méthodes, et toujours de façon transparente.
+Depending on the feature — whether it's measuring the carbon impact of a specific user journey, weighting per-page carbon impact by page traffic, or highlighting pages with the biggest eco-design optimization potential — Quanta will use one or another of these methods, always transparently.
 
   ![Image](../assets/digital-sobriety/carbon-footprint-3.png)
 
-Mesure globale d’un site Internet (score d’éco-conception et empreinte carbone) calculé sur la base du **trafic réel** dans le module Real User Monitoring de Quanta
+Global site measurement (eco-design score and carbon footprint) calculated based on **real traffic** in Quanta's Real User Monitoring module
 
-Enfin, au delà de l’utilisation de ces méthodes qui font aujourd’hui référence, Quanta contribue à affiner ces méthodes de calculs par des échanges réguliers avec les professionnels de cette discipline, en particulier :
+Beyond using established methods, Quanta contributes to refining calculation methods through regular exchanges with industry professionals, notably:
 
-- l’éco-système des signataires de [Planet’Tech Care](https://planet-techcare.green/) (dont Quanta est membre actif)
-- le groupe de travail inter-entreprise [Boavizta](https://www.boavizta.org/)
-- l’association [La Fresque du Numérique](https://www.fresquedunumerique.org/)
+- the ecosystem of [Planet’Tech Care](https://planet-techcare.green/) signatories (of which Quanta is an active member)
+- the cross-company working group [Boavizta](https://www.boavizta.org/)
+- the association [La Fresque du Numérique](https://www.fresquedunumerique.org/)
 
-L’objectif de ces échanges est de faire avancer l’état de l’art sur la mesure d’impact du numérique, et de confronter les résultats avec d’autres professionnels pour s’assurer de la bonne cohérence des mesures prises par chacune des parties (cf. critères de Pertinence et Exactitude imposées par le GHG Protocol).
+The goal of these collaborations is to advance the state of the art in digital impact measurement and cross-validate results with other professionals to ensure coherence (see GHG Protocol criteria: Relevance and Accuracy).
 
-Pour en savoir + sur la décarbonation du numérique et sur les outils de mesure qui en découlent, vous pouvez également consulter cette interview de Laurent Eskenazi (cofondateur de Boavizta) et Guillaume Thibaux (cofondateur de Quanta) pour BSmart TV :
+For more on digital decarbonization and measurement tools, see the interview with Laurent Eskenazi (co-founder of Boavizta) and Guillaume Thibaux (co-founder of Quanta) on BSmart TV:
 
 [https://www.youtube.com/watch?v=UELsTjTDMag](https://www.youtube.com/watch?v=UELsTjTDMag)
 
-# Les dimensions du calcul
+## Calculation dimensions
 
-Pour mesurer l’impact carbone global d’un site Internet, 2 grandes dimensions doivent être prise en compte, notamment :
+To measure a website's total carbon impact, two major dimensions must be considered:
 
-1. Les 3 types de “Scope” (ou périmètre en français) :
-    - les émissions directes produites par l’entreprise (Scope 1);
-    - les émissions indirectes liées à la consommation d’énergie (Scope 2);
-    - les émissions indirectes qui concernent tout le reste (Scope 3);
-2. Mais également la partie de la chaîne d’équipements numériques considérée :
-    - Datacenter (donc notamment les serveurs hébergeant le site);
-    - Réseau (routeurs, firewall, antennes 4G, fibre sous-marine, etc.);
-    - Matériel utilisé par l’internaute (ordinateur, tablette ou téléphone);
+1. The three types of "Scopes":
+    - direct emissions produced by the company (Scope 1);
+    - indirect emissions from energy consumption (Scope 2);
+    - other indirect emissions (Scope 3);
+2. The portion of the digital equipment chain considered:
+    - Datacenter (including servers hosting the site);
+    - Network (routers, firewalls, 4G antennas, submarine fiber, etc.);
+    - End-user devices (computer, tablet, or phone);
 
-Comme on peut le voir dans ce tableau c-dessous en 2 dimensions, Quanta permet aujourd’hui de mesurer précisément les émissions liées à “l’usage” du site, sur l’ensemble de la chaîne (datacenter, réseau et matériel de l’internaute). Cette mesure représente très généralement la partie la plus émettrice de gaz à effet de serre, et c’est également sur cette mesure que les principes d’éco-conception du site auront le plus d’impact lors de leur mise en oeuvre.
+As shown in the two-dimensional table below, Quanta can measure emissions related to site "usage" across the entire chain (datacenter, network, and end-user devices). This measurement generally represents the largest portion of greenhouse gas emissions, and eco-design measures typically have the greatest impact on this metric when implemented.
 
-Voici le détail à date du périmètre fonctionnel de Quanta :
+Here is the current functional scope of Quanta:
 
 |  | Scope 1 | Scope 2 | Scope 3 |  |
 | --- | --- | --- | --- | --- |
-|  | Emissions directes par l'usage | Emissions indirectes lors de l'usage | Emissions en amont et aval de l'utilisation |  |
-| Datacenter | OUI | OUI | OUI (précision à paraître sur données [Boavizta.org](http://Boavizta.org) au Q4 2023) |  |
-| Réseau | OUI | OUI | OUI |  |
-| Devices des internautes | OUI | OUI | n/a
- |  |
+|  | Direct emissions from usage | Indirect emissions during usage | Upstream and downstream emissions |  |
+| Datacenter | YES | YES | YES (details to be published using [Boavizta.org](http://Boavizta.org) data in Q4 2023) |  |
+| Network | YES | YES | YES |  |
+| End-user devices | YES | YES | n/a |  |
 
-Pour + de détails sur les algorithmes de calcul utilisés pour chacun de ces périmètres, n’hésitez pas à prendre contact avec l’équipe support via l’email [support@quanta.io](mailto:support@quanta.io).
+For more details about the algorithms used for each scope, contact the support team at [support@quanta.io](mailto:support@quanta.io).

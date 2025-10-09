@@ -1,42 +1,42 @@
 ---
 id: network-tab-indicators
-title: Comprendre les indicateurs de l’onglet Réseau
+title: Understanding the Network tab indicators
 --- 
 
-# Comprendre les indicateurs de l’onglet Réseau
+# Understanding the Network tab indicators
 
-# Qu’est ce que le ping ?
+## What is a ping?
 
-Un ping, c’est un test réseau. L’idée est d’envoyer une requête sur un serveur pour vérifier si l’on a une réponse et mesurer en combien de temps nous recevons cette réponse.
+A ping is a network test. The idea is to send a request to a server to check for a response and measure how long it takes to receive that response.
 
-Le but est de vérifier qu’il n’y a pas de problème de communication avec les serveurs via internet.
+The goal is to verify there are no communication issues with the servers over the Internet.
 
-# Différence entre **TCP Ping et ICMP Ping**
+## Difference between TCP Ping and ICMP Ping
 
-Dans les deux cas, il s’agit d’un test réseau. Ce qui change, c’est le protocole utilisé. (ce ne sont pas les mêmes systèmes de communication qui seront testés entre le TCP ping et l’ICMP ping).
+Both are network tests. What changes is the protocol used — TCP or ICMP — so different communication layers are exercised by each test.
 
-- L’ICMP ping permet de mesurer la connectivité au serveur via le réseau internet. Néanmoins, il n’est pas rare que les machines de production ne répondent pas à l’ICMP, non pas à cause d’un incident technique mais par choix délibéré de fermer ce système de communication. Pour pallier à l’éventualité où le test ICMP ne serait pas concluant, nous effectuons un 2e test avec un serveur qui est obligé de répondre : le TCP ping.
-- Le TCP ping fonctionne donc selon le même principe que l’ICMP mais via un protocole TCP, sur le port 80 : c’est le moyen de communication de vos serveurs web. Ce port 80 est forcément ouvert, car le fermer reviendrait à rendre votre site indisponible.
+- ICMP ping measures basic network connectivity to the server over the Internet. It is common for production machines to be configured to ignore ICMP (not as a result of an incident but deliberately). To cover cases where ICMP is not allowed, we run a second test that targets a service which is required to respond: a TCP ping.
+- TCP ping works on the same principle as ICMP but uses TCP on port 80, which is the protocol used by your web servers. Port 80 must be open for your site to be reachable, so a TCP ping is a reliable fallback when ICMP is blocked.
 
-# **Analyse**
+## Analysis
 
-## **Que signifient les barres rouges ?**
+### What do the red bars mean?
 
-Si vous voyez du rouge ponctuellement sur ce graphique, cela signifie que votre site est indisponible à cause d’un problème de réseau. Le temps de réponse du ping dépend à la fois de la bande passante et du chemin à parcourir entre la sonde QUANTA et l’endroit où est hébergé votre site. Dans un souci de clarté nous allons dissocier ce qui n’est pas grave, ce qui mérite votre attention et ce qui nécessite une intervention d’urgence.
+If you see occasional red on this chart, it means your site was unreachable due to a network problem. Ping response time depends on both bandwidth and the route between the QUANTA probe and your hosting location. For clarity we separate what is harmless, what requires attention, and what requires an urgent intervention.
 
-Il est a noter qu'à l'heure actuelle, toutes les mesures sont réalisées depuis notre infrastructure en Europe. Donc si votre site est hébergé sur un autre continent, il se peut que la latence soit plus élevée.
+Note: at the moment all measurements are performed from our infrastructure in Europe. If your site is hosted on another continent, latency may be higher.
 
-### **Quand intervenir d’urgence ?**
+#### When should you act urgently?
 
-Une barre rouge sur les deux graphiques signifie qu’il est impossible de se connecter sur votre site à cause d’un problème de réseau. Dans ce cas là, escaladez l’information à votre hébergeur ou administrateur réseau immédiatement, votre site n'est plus joignable.
+A red bar on both charts indicates the site cannot be reached due to a network issue. In that case, escalate to your host or network administrator immediately — your site is unreachable.
 
-### **La situation qui mérite votre attention**
+#### Situations that deserve your attention
 
-Une augmentation conséquente du temps de réponse ou des pics récurrents sur les graphes traduisent un souci de bande passante ou une modification dans le chemin parcouru par notre sonde sur internet pour arriver sur votre site. Nous vous conseillons dans ce cas d’escalader cette information à votre hébergeur ou administrateur réseau.
+A significant increase in response time or recurring spikes on the charts indicates a bandwidth issue or a change in the route taken by the probe to reach your site. We recommend escalating this information to your host or network administrator.
 
-### **Les situations qui ne doivent pas vous inquiéter**
+#### Situations that are usually not a concern
 
-Un pic isolé sur l’un des deux graphiques n’est pas grave, le temps d’une seule mesure il est fort probable que les utilisateurs du site n’aient pas été perturbés.
+An isolated spike on one of the charts is not necessarily serious — a single measurement spike often does not affect end users.
 
-- Une barre rouge continue depuis que QUANTA est installé sur le graphe ICMP signifie que ce système de communication est fermé délibérément, cela ne constitue pas une anomalie mais pour une meilleure visibilité sur la qualité du réseau, nous vous invitons à demander à votre administrateur réseau (ou hébergeur) d’ouvrir l’accès au Ping.
-- Si une barre rouge apparaît subitement sur le graphique ICMP, mais que le test TCP fonctionne toujours, pas de panique votre site est encore disponible. Cela signifie que le système de communication ICMP a probablement été coupé délibérément.
+- A persistent red bar on the ICMP chart since QUANTA was installed usually means ICMP has been intentionally disabled; this is not an incident. For better visibility you can ask your network administrator (or hosting provider) to enable ICMP ping.
+- If a red bar suddenly appears on the ICMP chart but the TCP test still succeeds, don’t panic: your site remains available. This typically means ICMP has been deliberately blocked while the web service remains reachable via TCP.

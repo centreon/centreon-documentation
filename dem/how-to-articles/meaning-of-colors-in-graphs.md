@@ -1,47 +1,48 @@
 ---
 id: meaning-of-colors-in-graphs
-title: Que signifient les barres vertes-jaunes-rouges et grises dans les graphes ?
+title: Meaning of green/yellow/red and gray bars in graphs
 --- 
 
-# Que signifient les barres vertes-jaunes-rouges et grises dans les graphes ?
 
-# Préambule
+# Meaning of green/yellow/red and gray bars in graphs
 
-Il peut vous arriver de constater, en naviguant sur vos graphes Quanta, de voir apparaître des barres ou parfois des zones rouges ou grises avec des données incomplète. Mais qu'est-ce que ça peut bien vouloir dire ?
+## Preamble
 
-# Barres supérieures
+While browsing Quanta graphs you may sometimes see colored bars or shaded areas — red or gray — indicating incomplete data. What do they mean?
+
+## Top summary bar
 
 ![Image](../assets/how-to-articles/color-meaning-in-graphs-1.png)
 
-Au-dessus de la plupart des graphs, vous trouverez une barre supérieure de couleur verte, jaune, ou rouge. Chaque couleur a sa signification:
+Above most graphs you’ll find a top summary bar colored green, yellow, or red. Each color has the following meaning:
 
-- Vert: le résultat est bon
-- Jaune: le résultat est bon mais le site peut être amélioré
-- Rouge: le résultat doit être amélioré
+- Green: result is good
+- Yellow: result is acceptable but the site can be improved
+- Red: result needs improvement
 
-Dans cette exemple, le Speed Index peut être amélioré.
+In the example above, the Speed Index could be improved.
 
-En passant votre souris sur les quartiers dans cette bande supérieure, Quanta mettra en surbrillance les quartiers de même couleur.
+Hovering over segments in this top bar highlights matching segments in the chart.
 
-# Barres verticales
+## Vertical bars
 
-## Barres rouges
+### Red bars
 
 ![Image](../assets/how-to-articles/color-meaning-in-graphs-2.png)
 
-Ces barres rouges qui peuvent s'afficher sur vos scénarios mettent en évidence des erreurs qui ont pu se produire lors de l'exécution de celui-ci.
+Red vertical bars that appear on your scenarios highlight errors that occurred during execution.
 
-Pour connaitre la nature de l'erreur, vous pouvez tout simplement pointer la barre rouge, ce qui vous indiquera à quelle étape le scénario s'est arrêté et pour quelle raison.
+To learn the error details, hover the red bar — Quanta will indicate at which step the scenario stopped and why.
 
-En cliquant dessus, on vous proposera également de visionner une capture d'écran de la page au moment de l'erreur, ce qui est souvent utile pour comprendre ce qui s'est passé.
+Clicking the bar also often offers a screenshot of the page at the time of the error, which is useful to understand what happened.
 
-## Barres grises
+### Gray bars
 
-Vous retrouverez parfois sur les différents graphiques de Quanta des barres grises comme ci-dessus, celles-ci indiquent simplement que les données n'ont pas pu être reçues au moment de la mesure.
+You may also see gray bars on some Quanta charts. These simply indicate that data could not be received at the measurement time.
 
-Cela peut se produire principalement dans 2 cas:
+This typically happens for two main reasons:
 
-- vous visualisez une période où la sonde n’était pas configuré pour passer (scénario pas encore créée ou désactivée par exemple)
-- le site ne répond pas du tout. (Vous redémarrez un serveur, ou que celui-ci est tellement saturé qu'il n'arrive plus à faire de remontées de données)
+- you are viewing a period when the probe was not scheduled to run (e.g. scenario not yet created or temporarily disabled)
+- the site did not respond at all (for example during a server restart or if the server is so overloaded it cannot send data)
 
-Globalement, ces barres grises apparaissent quand l'infrastructure n'a pas été en mesure de produire les données.
+In general, gray bars appear when the infrastructure was unable to produce measurement data.

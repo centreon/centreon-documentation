@@ -1,16 +1,16 @@
----
+--- 
 id: gray-areas-on-charts
-title: Que signifie une zone grise sur mon graphique ?
+title: What does a gray area on my chart mean?
 --- 
 
-# Que signifie une zone grise sur mon graphique ?
+## What does a gray area on my chart mean?
 
-Une zone grise sur le graphique indique que Quanta n’a pas pu récupérer de donnée durant cette période ou que les données étaient nulles ou inexistantes.
+A gray area on the chart indicates that Quanta could not collect data during that period, or that the data was null or non-existent.
 
-Cela peut être le cas si :
+This can happen when:
 
-- un scénario a été désactivé manuellement par un administrateur du site pendant une période donnée (auquel cas des évènements doivent l’indiquer au début et la fin de la période grise)
-- un serveur dans la section Système a cessé de nous envoyer ses données (exemple : problème réseau ou arrêt momentané d’un serveur hébergeant le site monitoré)
-- on observe les données du profiler Quanta (section “Applications” dans le cas où l’application est en PHP) et si la page a été mise en cache à 100% (par exemple par un Varnish). Dans ce cas précis, il n’y aura aucune execution du code PHP, et donc pas de données à enregistrer.
+- a scenario was manually disabled by a site administrator for a given period (in which case events should mark the start and end of the gray area)
+- a server in the System section stopped sending data (for example: a network issue or a temporary shutdown of the server hosting the monitored site)
+- you're viewing profiler data in the Applications section (for PHP applications) and the page was served from a full-page cache (for example Varnish). In that case there is no PHP execution and therefore no profiler data to record.
 
-Enfin, il peut également arriver, dans des cas relativement rares, que les sondes STM de Quanta soient non-fonctionnelles pendant quelques minutes. Dans le but de ne pas fausser l'analyse en donnant l’impression que le site était inaccessible, Quanta affiche également une zone grise (rouge étant la couleur indiquant un incident sur le site observé).
+Finally, in rare situations Quanta's STM probes may be non-functional for a few minutes. To avoid skewing analysis by making it appear the site was unreachable, Quanta displays a gray area (red indicates a detected incident on the monitored site).

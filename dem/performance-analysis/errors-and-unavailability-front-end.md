@@ -1,73 +1,73 @@
 ---
 id: errors-and-unavailability-front-end
-title: Comprendre les erreurs & indisponibilités dans Quanta
+title: Understanding errors & unavailability in Quanta
 --- 
 
-# Comprendre les erreurs & indisponibilités dans Quanta
+ # Understanding errors & unavailability in Quanta
 
 <aside>
-💡 Le HAR de toutes les étapes peut être trouvé sous le screenshot d’incident afin d’aider vos développeurs à comprendre d’où venait les incidents.
+💡 The HAR for all steps can be found under the incident screenshot to help your developers understand where the incident originated.
 
 </aside>
 
-# **Comment visualiser la capture d’écran de l’incident ?**
+## How to view the incident screenshot?
 
-Le meilleur moyen pour déterminer l’anomalie est de vérifier la capture d’écran prise au moment de l’erreur, celle-ci est disponible en cliquant sur la partie rouge au dessus du scénario et en sélectionnant « Détails de l’incident »:
+The easiest way to determine what went wrong is to check the screenshot captured at the time of the error. This is available by clicking the red area above the scenario and selecting "Incident details".
 
-Lorsque les sondes Quanta détectent un incident sur votre scénario web, elles tentent d'enregistrer un screenshot de la page renvoyée pour vous permettre de diagnostiquer plus facilement.
+When QUANTA probes detect an incident on your web scenario, they attempt to capture a screenshot of the returned page to help you diagnose the issue.
 
-Vous pouvez visualiser ce screenshot en cliquant sur le graph dans la zone rouge et en sélectionnant l'option "voir le screenshot".
+You can view that screenshot by clicking the graph in the red area and selecting the "view screenshot" option.
 
 ![image](../assets/performance-analysis/errors-and-unavailability-1.png)
 
-Une fenêtre s'ouvre alors et vous montrera la page renvoyée lors de l'incident.
+A modal will open and show you the page returned during the incident.
 
 ![image](../assets/performance-analysis/errors-and-unavailability-2.png)
 
-## **Pourquoi n’ai-je pas de screenshot dans les détails de l’un de mes incidents ?**
+### Why don't I have a screenshot for one of my incidents?
 
-Nos sondes ne sont pas parvenues à prendre le screenshot. Cela arrive notamment lorsque le serveur n'a pas renvoyé de contenu (par exemple lors de l'erreur "Temps de l'étape expirée").
+Our probes were not able to capture the screenshot. This commonly happens when the server returned no content (for example during the "Step timed out" error).
 
-# Les types d’erreurs
+## Error types
 
-## **Chaîne / élément attendue non trouvée**
+### Expected string/element not found
 
-À chaque étape du scénario, il est possible de paramétrer une chaine de caractère attendue sur la page, cela permet de vérifier que c’est bien la page attendue qui est ouverte par le scénario.
+At each step of a scenario you can configure an expected string on the page to verify that the scenario opened the correct page.
 
-L’erreur « Chaîne attendue non trouvée » se produit quand la chaîne de caractère paramétrée n’est pas retrouvée sur la page.
+The "Expected string not found" error occurs when the configured string cannot be found on the page.
 
-Quelques raisons possibles:
+Possible reasons:
 
-- La page a été modifiée et la chaîne de caractère vérifiée n’existe plus dessus, il faut dans ce cas modifier la chaîne de caractère attendue pour que celle ci corresponde à un élément sur la page.
-- La page n’existe plus et le scénario a été redirigé vers une page différente (produit qui n’existe plus par exemple), il faut dans ce cas mettre à jour le scénario pour qu’il appelle bien une page existante, et mettre à jour la chaîne attendue pour qu’elle corresponde à un élément sur la nouvelle page
-- Plus rare, il se peut que la page ne se soit pas chargée entièrement.
+- The page has changed and the string no longer exists on it — update the expected string to match an element on the page.
+- The page no longer exists and the scenario was redirected to a different page (e.g. a removed product) — update the scenario to point to an existing page and update the expected string to match the new page.
+- Less commonly, the page may not have fully loaded.
 
-## **Timeout du parcours utilisateurs**
+### User journey timeout
 
-Cela signifie que le parcours utilisateurs a mis plus de temps que le temps qui lui était accordé. Un scénario qui passe toutes les 3 minutes a 3 minutes maximum pour faire le parcours entier.
+This means the user journey took longer than the allotted time. A scenario that runs every 3 minutes has a maximum of 3 minutes to complete the entire journey.
 
-Il n’y a donc pas forcément d’erreur dans les actions, seulement pas assez de temps.
+There is therefore not necessarily an error in the actions — simply not enough time.
 
-## **Timeout de l’étape**
+### Step timeout
 
-Cela signifie que l’étape a pris plus de temps que le temps maximum qui lui est accordé.
+This means the step took longer than the maximum time allowed for it.
 
-Cela peut venir de plusieurs problèmes:
+This can be caused by several issues:
 
-- Le temps de chargement est trop long
-- Le temps de l’étape est trop court
-- La vérification a faire est mal configurée: l’étape ne la trouvera jamais et donc attendra indéfiniment.
+- The page load time is too long
+- The step timeout is too short
+- The verification is misconfigured: the step will never find it and will wait indefinitely.
 
-## **Code de retour invalide**
+### Invalid return code
 
-Lorsqu’une page web se charge, elle envoie un code pour confirmer qu’elle a été chargée correctement; le plus souvent le code 200. Ce code est vérifié par Quanta lors de l’execution du scénario.
+When a web page loads, it sends a status code to confirm it loaded correctly; most commonly this is 200. Quanta verifies that code during scenario execution.
 
-Ainsi, si la page renvoie un code différent (404 pour page introuvable ou 503 service non disponible par exemple), le scénario se met en erreur en précisant le code obtenu.
+If the page returns a different code (404 for not found or 503 service unavailable, for example), the scenario fails and the received code is displayed.
 
-Il se peut que la page n'existe plus tout simplement (produit retiré de la vente par exemple) auquel cas il faut mettre à jour le scénario pour qu'il utilise une page encore fonctionnelle.
+It may be that the page simply no longer exists (for example a removed product) — in that case update the scenario to use a still-functioning page.
 
-S’il s'agit bien d'une erreur et que la page ne s'affiche pas correctement, il faut alors investiguer le cas.
+If it's an actual error and the page does not render correctly, further investigation is required.
 
-## **Impossible de résoudre l'hôte**
+### Unable to resolve host
 
-Assez rare, cela indique qu'il n'a pas été possible de récupérer l'IP du site, ce qui est le plus souvent révélateur d'un problème au niveau du DNS qui est sensé la fournir.
+Relatively rare, this indicates that it was not possible to resolve the site's IP, which usually points to a DNS issue that failed to provide it.

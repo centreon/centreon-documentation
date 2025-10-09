@@ -1,27 +1,27 @@
 ---
 id: measurement-interval
-title: Intervalle de mesure
+title: Measurement interval
 --- 
 
-# Intervalle de mesure
+# Measurement interval
 
-# **Définition**
+## Definition
 
-### L'intervalle de mesure d'un parcours utilisateur définit le temps entre chaque passage de la sonde Quanta sur votre site.
+The measurement interval of a user journey defines the time between each Quanta probe run on your site.
 
-**Par exemple :** Si votre intervalle de mesure est de 3 minutes, la sonde effectuera donc un passage complet du parcours toutes les 3 minutes.
+For example: if your measurement interval is 3 minutes, the probe will perform a full run of the journey every 3 minutes.
 
-**Attention :** cela signifie aussi que le temps total de l'exécution de votre parcours utilisateur ne doit pas dépasser cet intervalle de temps.
+Note: the total execution time of your user journey must not exceed this interval.
 
-# **Configuration**
+## Configuration
 
-L'intervalle de mesure d'un parcours utilisateur est configurable dans les paramètres avancés de chaque parcours.
+The measurement interval for a user journey can be configured in the advanced settings of each journey.
 
-[Création d’un scénario (”Parcours Utilisateur”)](../configuration/user-journey/create-a-scenario.md)
+[Create a scenario ("User journey")](../configuration/user-journey/create-a-scenario.md)
 
-# **Implications**
+## Implications
 
-Modifier l'intervalle de mesure a plusieurs implications :
+Changing the measurement interval has several implications:
 
-- Si l'intervalle est réduit, certaines zones grises apparaitrons sur vos anciennes données car le nombre de points affichés dans les graphiques ne sera pas le même que précédemment
-- La configuration des alertes de ce parcours sera automatiquement changée pour prendre en compte ce nouvel intervalle de mesure
+- If the interval is reduced, some gray areas may appear in your historical data because the number of points shown in charts will differ from before.
+- The alert configuration for that journey will be automatically adjusted to take the new measurement interval into account.

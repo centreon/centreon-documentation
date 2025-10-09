@@ -1,10 +1,11 @@
 ---
 id: quanta-probes-in-google-analytics
-title: Checklist d'installation
+title: Are Quanta probes counted in Google Analytics?
 --- 
 
-# Les sondes QUANTA sont-elles comptabilisées dans Google Analytics ?
 
-Non, QUANTA n'est pas repéré par Google Analytics. En effet, nous ne requêtons pas le tag Google Analytics présent sur les pages de votre site.
+# Are Quanta probes counted in Google Analytics?
 
-Ainsi, vos statistiques ne seront pas affectées par les visites effectuées par nos sondes.
+No — Quanta is not detected by Google Analytics. We do not trigger the Google Analytics tag present on your site pages.
+
+Therefore, your analytics data will not be affected by visits performed by our probes.

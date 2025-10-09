@@ -1,46 +1,45 @@
 ---
 id: largest-contentful-paint
-title: LCP - Largest Contentful Paint (Web Vital)
+title: LCP - Largest Contentful Paint (Web Vitals)
 --- 
 
 # LCP - Largest Contentful Paint (Web Vital)
 
-> Le Largest Contentful Paint est documenté sur le site [Web Dev de Google](https://web.dev/lcp/). Cette page traduit en français et résume l’essentiel du contenu
-> 
+> The Largest Contentful Paint is documented on Google's Web Dev site: [https://web.dev/lcp/]. This page summarizes and localizes the core information.
 
 <aside>
-💡 Le Largest Contentful Paint (LCP, qui peut se traduire par impression du plus grand contenu) est une métrique importante, qui se concentre sur la perception de vitesse de chargement de l’utilisateur car elle marque le moment du chargement où le contenu principal de la page a probablement chargé. Un LCP rapide assure l’utilisateur que la page est utilisable.
+💡 Largest Contentful Paint (LCP) focuses on perceived loading speed for users because it marks when the page's main content has likely loaded. A fast LCP reassures the user that the page is usable.
 
 </aside>
 
-# Qu’est ce que le LCP ?
+## What is LCP?
 
-Le Largest Contentful Paint ou LCP ou impression du plus grand contenu est un métrique qui mesure le temps de rendu du plus grand texte ou de la plus grande image visible depuis le début du chargement de la page.
+Largest Contentful Paint (LCP) measures the render time of the largest image or text block visible in the viewport from the start of page load.
 
-# Qu’est ce qu’un bon score LCP ?
+## What is a good LCP score?
 
-Pour donner une bonne expérience, les sites internet devrait avoir un LCP inférieur à 2,5 secondes. Pour être certain que vous atteignez cet objectif pour la majorité de vos utilisateurs, vous pouvez vérifier que 75% de vos utilisateurs (sur mobile et sur ordinateur) ont ce score. Le Real User Monitoring de Quanta permet de faire cela.
+For a good user experience, sites should aim for an LCP below 2.5 seconds. To ensure this target is met for most users, check that 75% of your users (on both mobile and desktop) achieve this score. Quanta's Real User Monitoring can help you verify this.
 
 ![](https://web-dev.imgix.net/image/eqprBhZUGfb8WYnumQ9ljAxRrA72/8ZW8LQsagLih1ZZoOmMR.svg)
 
-# Quels éléments peuvent être considéré comme contenu le plus grand ?
+## Which elements can be considered the largest content?
 
-Les types d’éléments considérés sont:
+Elements considered include:
 
 - `<img>`
-- `<image>` dans un élément `<svg>`
-- `<video>` via l’image d’illustration
-- Un élément avec une image de fond chargé via [`url`](https://developer.mozilla.org/docs/Web/CSS/url()) (à l’inverse des gradients CSS)
-- Des éléments de bloc contenant des noeuds de texte ou des textes inline.
+- `<image>` inside an `<svg>` element
+- `<video>` via its poster image
+- An element with a background image loaded via [`url`](https://developer.mozilla.org/docs/Web/CSS/url()) (as opposed to CSS gradients)
+- Block-level elements containing text nodes or inline text
 
-Des éléments additionnels (ex: `<svg>`, `<video>`) sont envisagés dans le standard à l’avenir.
+Additional element types (e.g., `<svg>`, `<video>`) are considered in the evolving standard.
 
-# Comment la taille d’un élément est déterminé ?
+## How is an element's size determined?
 
-La taille de l'élément signalée plus gros contenu correspond généralement à la taille visible par l'utilisateur dans la fenêtre d'affichage. Si l'élément s'étend en dehors de la fenêtre d'affichage, ou si l'un des éléments est tronqué ou présente un débordement non visible, ces portions ne comptent pas pour la taille de l'élément.
+The size reported for the largest content element is generally the visible size in the viewport. If the element extends outside the viewport, or if parts of it are clipped or overflow-hidden, those portions don't count toward the element's size.
 
-Pour les éléments d'image qui ont été redimensionnés à partir de leur taille intrinsèque, la taille signalée est soit la taille visible, soit la taille intrinsèque, selon la valeur la plus petite. Par exemple, les images qui sont réduites à une taille beaucoup plus petite que leur taille intrinsèque ne rapporteront que la taille à laquelle elles sont affichées, tandis que les images qui sont étirées ou agrandies à une taille plus grande ne rapporteront que leurs tailles intrinsèques.
+For image elements that have been scaled from their intrinsic size, the reported size is the smaller of the visible size and the intrinsic size. For example, images that are displayed much smaller than their intrinsic size will report only the display size; images that are stretched larger will report their intrinsic size.
 
-Pour les éléments de texte, seule la taille de leurs nœuds de texte est prise en compte (le plus petit rectangle qui englobe tous les nœuds de texte).
+For text elements, only the size of their text nodes is considered (the smallest rectangle enclosing all text nodes).
 
-Pour tous les éléments, toute marge, remplissage ou bordure appliqué via CSS n'est pas pris en compte.
+For all elements, margins, padding, and borders applied via CSS are not included in the size calculation.

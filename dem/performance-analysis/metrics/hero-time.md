@@ -5,32 +5,32 @@ title: Hero Time
 
 # Hero Time
 
-## Principe
+## Concept
 
-Le Hero Time est une mesure propre à Quanta. Elle n’existe nul part ailleurs. Il s’agit du temps que la sonde Quanta va mettre entre le début et la fin d’une étape.
+Hero Time is a Quanta-specific measurement. It doesn't exist elsewhere. It measures the time the Quanta probe takes between the start and the end of a step.
 
-Une étape débute au moment de l’action, comme cliquer sur un lien, remplir un formulaire, ajouter un objet au panier, etc. Cette action se termine quand toutes les vérifications de succès sont atteintes. Ces vérifications peuvent être par exemple l’affichage d’une popup, la navigation vers une nouvelle page, ou une requête vers un de vos serveurs. Le Hero Time mesure le temps entre ces 2 évènements. 
+A step begins when an action is performed, such as clicking a link, filling a form, adding an item to the cart, etc. The step ends when all success verifications are met. These verifications can be, for example, the appearance of a popup, navigation to a new page, or a request to one of your servers. Hero Time measures the time between these two events.
 
 ## Exemples
 
-### Chargement d’une page web
+### Loading a web page
 
-La sonde arrive sur la page d’accueil du site et doit cliquer sur un lien vers une des catégories. En cliquant, une nouvelle page doit se charger. Le Hero Time mesurera le temps entre le clic sur ce lien et la fin de la réception du document HTML. L’affichage de la page se poursuivra au-delà du Hero Time mais la sonde a déjà pu confirmer que la navigation est un succès.
+The probe arrives on the site's homepage and must click a link to one of the categories. By clicking, a new page should load. Hero Time will measure the time between the click and the completion of the HTML document download. The page rendering will continue after Hero Time ends, but the probe has already confirmed that the navigation succeeded.
 
-### Ajout d’un objet au panier
+### Adding an item to the cart
 
-En considérant un objet simple (pas besoin de choisir de taille ou de couleur), la sonde doit simplement cliquer sur “Ajouter au panier”. Quand un utilisateur ajoute un objet au panier, il ne navigue pas vers une autre page, mais une popup doit l’informer que l’objet est bien ajouté à son panier et le logo du panier change pour afficher le nombre d’objet dedans.
+For a simple product (no need to choose size or color), the probe will simply click "Add to cart". When a user adds an item to the cart, they don't navigate to another page, but a popup should inform them that the item was added and the cart icon updates to show the new item count.
 
-Dans ce cas, les vérifications de succès attendues sont multiples:
+In this case, the expected success verifications are multiple:
 
-- Une requête vers /add-to-cart?id=id-de-mon-objet doit être faite et réussie
-- La popup doit s’afficher
-- Le chiffre dans le panier doit changer
+- A request to /add-to-cart?id=my-item-id must be made and succeed
+- The popup must appear
+- The number in the cart must update
 
-La sonde clique sur “Ajouter au panier”. La requête vers /add-to-cart?id=id-de-mon-objet se lance. Le Hero Time continue d’augmenter car la requête est lancée mais le serveur n’a pas encore répondu.
+The probe clicks "Add to cart." The request to /add-to-cart?id=my-item-id is initiated. Hero Time continues while the request is pending because the server hasn't responded yet.
 
-Le serveur répond, la requête est validée. La première vérification est donc réussie mais le Hero Time continue d’augmenter car les autres vérifications ne sont pas validées.
+When the server responds, the request is validated. The first verification is therefore satisfied, but Hero Time continues because the other verifications are still pending.
 
-Une fois la requête validée, la popup s’affiche quasiment instantanément. La deuxième vérification est validée
+Once the request is validated, the popup appears almost instantly. The second verification is satisfied.
 
-Mais le chiffre dans le panier ne se met à jour que toutes les 10 secondes. La sonde attend donc de voir le chiffre changer. Au bout de quelques secondes, il change. La dernière vérification est validée, le Hero Time s’arrête.
+However, the cart count only updates every 10 seconds. The probe waits to see the count change. After a few seconds it changes. The final verification is satisfied and Hero Time stops.

@@ -1,17 +1,18 @@
 ---
 id: navigate-in-quanta
-title: Naviguer dans Quanta
---- 
+title: Navigate in Quanta
+---
 
-# Naviguer dans Quanta
+# Navigate in Quanta
 
-Dans Quanta il est possible de se déplacer dans plusieurs dimensions : en changeant de fonction, en changeant de site ou en modifiant la période de temps sélectionnée.
+Quanta lets you move across several dimensions: switching modules, changing the selected site, or modifying the time range being analyzed.
 
-En se loguant pour la 1ère fois dans Quanta, on va se retrouver par défaut sur la Vue d’Ensemble. Puis, quand on sélectionne dans le menu “[*Parcours Utilisateurs*](../../getting-started/synthetic-monitoring.md)”, on remarque sur cet écran :
+When you first log into Quanta you land on the Overview page by default. If you then select "[*User Journeys*](../../getting-started/synthetic-monitoring.md)" from the menu, you'll notice this screen includes:
 
-- **la barre de navigation horizontale** (en haut), permettant de naviguer dans chacun des modules de Quanta (”[Parcours Utilisateurs”](../../getting-started/synthetic-monitoring.md), “[Système](../../getting-started/system-view.md)”, “[Real User Monitoring](../../getting-started/real-user-monitoring.md)”, etc.)
-- **un sélecteur de site** (en haut à gauche), permettant à un utilisateur ayant accès à plusieurs sites dans Quanta de passer de site en site (ex: utilisation de Quanta avec une licence Enterprise, utilisation de Quanta par une agence ayant accès aux comptes Quanta de plusieurs clients, etc.).
-En cas d’utilisation de Quanta en mode “multi-site”, il est également possible de comparer les données de performance en sélectionnant plusieurs sites en même temps, ou encore de construire un tableau de bord personnalisé regroupant des indicateurs de plusieurs sites.
-- **un sélecteur de période de temps** (en haut à droite), permettant de modifier à tout instant la période qui est analysée. Cette fonction est importante pour constater l’évolution des temps de réponse d’un site, parfois sur plusieurs semaines ou mois. Par défaut, Quanta montre les dernières 24h et actualise la page chaque minute afin de remonter les dernières mesures en temps réel.
+- **the horizontal navigation bar** (at the top), which lets you switch between Quanta modules ("[User Journeys](../../getting-started/synthetic-monitoring.md)", "[System](../../getting-started/system-view.md)", "[Real User Monitoring](../../getting-started/real-user-monitoring.md)", etc.)
+- **a site selector** (top-left) that allows a user with access to multiple sites to switch between them (for example: an Enterprise license or an agency managing multiple clients' Quanta accounts).
+
+	When using Quanta in multi-site mode you can compare performance data across several sites at once or create a custom dashboard that aggregates metrics from multiple sites.
+- **a time range selector** (top-right) that lets you change the analyzed period at any time. This is useful to observe how a site's response times evolve over days, weeks, or months. By default Quanta shows the last 24 hours and refreshes every minute to surface the latest measurements in near real time.
 
 ![image](../../assets/performance-analysis/basic-actions/navigate-1.png)

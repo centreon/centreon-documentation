@@ -1,45 +1,46 @@
 ---
 id: event-tracking
-title: Suivez et ajoutez les évènements de votre site dans Quanta
+title: Track and add events from your site in Quanta
 --- 
 
-# Suivez et ajoutez les évènements de votre site dans Quanta
+
+# Track and add events from your site in Quanta
 
 <aside>
-💡 Cette page décrit comment ajouter vos propres commentaires via l’interface, mais il est également possible de les ajouter automatiquement (par exemple à chaque mise à jour). Rendez-vous sur cette page pour utiliser notre API:
+💡 This page explains how to add your own annotations via the UI; you can also add them automatically (for example at each deployment). See:
 
-[Suivre automatiquement les événements de mise en production](../../installation/monitor-production-events.md)
+[Automatically track production events](../../installation/monitor-production-events.md)
 
 </aside>
 
-Vous avez la possibilité d'ajouter des évènements personnalisés dans QUANTA de manière à ajouter de l'information sur les différents graphes.
+You can add custom events in QUANTA to provide contextual information on various charts.
 
-Il est possible de remonter des évènements de différents types, et notamment:
+You can report many types of events, including:
 
-- Commentaire: Ils permettent de commenter un graphique, par exemple pour fournir une potentielle explication lors d'un pic de temps de chargement.
-- Déploiement de code: Ces évènements vous permettront de repérer visuellement les moments ou le code de votre site à été mis à jour
-- Modification de configuration serveur: Grâce à ces informations, vous serez en mesure d'interpréter les graphes en prenant en compte les modifications effectuées sur l'infrastructure de votre site.
+- Comment: Add commentary to a chart, for example to explain a spike in load time.
+- Code deployment: Visually mark when site code was deployed.
+- Server configuration change: Use these events to interpret charts while accounting for infrastructure changes.
 
-En outre, pour Magento, des évènements sont créés de manière automatique lorsque nous détectons des évènements ou lorsque qu'une modification des paramètres de vos serveurs ou scénarios web est effectuée.
+Additionally, for Magento sites, events are created automatically when we detect changes in your servers or web scenarios.
 
-Enfin, si vous avez besoin d'ajouter des évènements qui ne correspondent à aucune de ces catégories, vous pouvez utiliser le type d'évènement "custom" qui correspond à quelque chose de générique.
+If you need an event type that doesn't match the above, use the "custom" event type for generic annotations.
 
-En bref, les évènements vous permettront de mieux travailler avec vos différents partenaires et vous aideront à utiliser l'outil au maximum de ses possibilités.
+In short, events help you collaborate with partners and get more value from the tool.
 
-# **Visualisez les évènements qui ont lieu sur votre site**
+## View events that occur on your site
 
 ![](https://support.quanta.io/hc/fr/article_attachments/204355185/commentaires.png)
 
-Les évènements de votre site s'affichent au dessus des graphes (voir image ci-dessus), quelqu'ils soient. Afin de faciliter la lisibilité, seuls les évènements potentiellement en lien avec le graphe sont affichés (par exemple les évènements de modification des étapes d'un scénario ne s'afficheront pas dans les graphes système).
+Events appear above charts (see image). To keep charts readable, only events potentially related to the chart are shown (for example, scenario step changes do not appear on system charts).
 
-L'icône qui est affichée représente le type d'évènement (ou l'icône liée au Token API qui l'a ajouté s'il y a lieu), lorsque des évènements de différentes catégories sont présents, une icône générique est utilisée (petit drapeau).
+The displayed icon represents the event type (or the API Token icon if the event was added by a token). If events of different categories are present, a generic icon (small flag) is shown.
 
-En passant votre souris sur un des évènements, vous verrez apparaître le nombre d'évènement de chaque type. En cliquant sur l'icône, vous aurez alors le détail de chacun des évènements (avec l'heure exacte, l'auteur et le message associé à chaque fois), comme dans l'image ci-dessous.
+Hovering an event shows the count of events by type. Clicking an icon opens the details for each event (timestamp, author, and message), as shown below.
 
 ![](https://support.quanta.io/hc/fr/article_attachments/204321109/commentaires_2.png)
 
-# **Ajoutez des commentaires**
+## Add annotations (comments)
 
-Pour ajouter un commentaire, il vous suffit de cliquer sur le graphe à l'endroit où vous voulez ajouter un commentaire, de cliquer sur *Laisser un commentaire,* d'entrer votre message, et de cliquer sur *Envoyer* pour terminer l'ajout.
+To add an annotation, click the chart where you want to add it, choose *Leave a comment*, enter your message, and click *Send*.
 
 ![](https://support.quanta.io/hc/fr/article_attachments/204321479/commentaires_3.png)

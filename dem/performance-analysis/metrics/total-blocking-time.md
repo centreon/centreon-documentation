@@ -1,43 +1,43 @@
 ---
 id: total-blocking-time
-title: TTB - Total Blocking Time (Web Vital)
+title: TBT - Total Blocking Time (Web Vitals)
 --- 
 
 # TTB - Total Blocking Time (Web Vital)
 
 <aside>
-🌐 Le TBT est documenté [sur le site Web Dev de Google ici](https://web.dev/tbt/). Cette page traduit et résume cette documentation.
+🌐 TBT is documented on Google's Web Dev: [https://web.dev/tbt/]. This page summarizes that documentation.
 
 </aside>
 
 <aside>
-💡 Total Blocking Time (TBT) ou temps total de blocage est une mesure synthétique importante pour mesurer le réactivité de la page lors du chargement. Il quantifie à quel point une page est non-interactive avant de devenir interactive de façon fiable.
+💡 Total Blocking Time (TBT) is an aggregated metric measuring how non-interactive a page is during loading. It quantifies how long the main thread remains blocked before the page becomes reliably interactive.
 
 </aside>
 
-# Qu’est ce que le TBT
+## What is TBT
 
-Le Total Blocking Time ou temps total de blocage en français, est une métrique qui mesure le total des temps où le thread principal est bloqué suffisamment longtemps pour qu’une interaction de l’utilisateur de ne crée pas de réaction.
+Total Blocking Time measures the total amount of time the main thread is blocked long enough that a user interaction would not produce a timely response.
 
-Ses temps se situent entre le First Contentful Paint(FCP) et le Time to Interactive (TTI), c’est à dire entre l’affichage du premier élément de contenu et le moment où la page est interactive.
+These periods are measured between First Contentful Paint (FCP) and Time to Interactive (TTI) — that is, from when the first content appears to when the page becomes interactive.
 
-Le thread principal est considéré comme “bloqué” quand une tâche dure plus de 50ms. Si l’utilisateur interagit à ce moment là, le site ne répondra pas avant la fin de la tâche, et cela pourrait être perçu.
+The main thread is considered "blocked" when a task runs longer than 50ms. If the user interacts at that moment, the site won't respond until the task finishes, which is perceivable.
 
-Le temps bloquant est le temps de la tâche au-delà de ces 50ms. Le TBT est la somme de tous les temps bloquants.
+The blocking time for a task is the portion of its duration beyond 50ms. TBT is the sum of all blocking times.
 
-Par exemple, considérons ce thread principal:
+For example, consider this main thread:
 
 ![image](https://web-dev.imgix.net/image/admin/clHG8Yv239lXsGWD6Iu6.svg)
 
-Parmi les 5 tâches, 3 sont bloquantes: les 2 premières et la dernière.
+Among five tasks, three are blocking: the first two and the last one.
 
-La première dure 250ms et génère donc 200ms de temps bloquant. La seconde dure 90ms, et génère 40ms de temps bloquant. La dernière dure 155ms et génère 105ms de temps bloquant.
+The first lasts 250ms and therefore contributes 200ms of blocking time. The second lasts 90ms and contributes 40ms. The last lasts 155ms and contributes 105ms.
 
 ![image](https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xKxwKagiz8RliuOI2Xtc.svg)
 
-Le TBT est de 345ms (la somme des temps bloquants), alors que le thread principal a duré 560ms (la somme de tous les temps).
+TBT is 345ms (the sum of blocking times), while the main thread total duration is 560ms (the sum of all task durations).
 
-| Bon | < à 300ms |
+| Good | < 300ms |
 | --- | --- |
-| Moyen | entre 300ms et 600ms |
-| Mauvais | > à 600ms |
+| Fair | between 300ms and 600ms |
+| Poor | > 600ms |

@@ -1,76 +1,79 @@
 ---
 id: how-alerts-work
-title: Comprendre le fonctionnement des alertes dans Quanta
---- 
+title: Understanding how alerts work in Quanta
+---
 
-# Comprendre le fonctionnement des alertes dans Quanta
+# Understanding how alerts work in Quanta
 
-# Préambule
+## Preamble
 
-Quanta peut vous alerter sur de nombreux sujets, si vous n'avez pas encore souscrit aux alertes, rendez-vous ici:
+Quanta can alert you about many different events. If you haven't enabled alerts yet, see:
 
-[Recevoir et configurer les alertes](../../configuration/receive-and-configure-alerts.md)
+[Receive and configure alerts](../../configuration/receive-and-configure-alerts.md)
 
-Cet article vise à être exhaustif sur les alertes que vous pouvez recevoir afin de bien les comprendre et vous permettre une meilleure analyse de ces dernières.
+This article explains the types of alerts you may receive so you can understand and analyze them effectively.
 
-# Alertes liées aux scénarios
+## Scenario-related alerts
 
-*Disponible par email sur toutes les licences, néanmoins, les alertes Slack, Chat et SMS ne sont disponible sur les licences d’entrée de gamme.*
+*Available by email on all licenses. Slack, Chat, and SMS alerts may depend on your plan.*
 
-Ces alertes se déclenchent lorsque nos sondes détectent une anomalie sur l'un de vos scénarios. On en distingue deux types :
+These alerts trigger when our probes detect an anomaly in one of your user journeys (scenarios). There are two main categories.
 
-## Alertes sur le statut du scenario
+### Alerts on scenario status
 
-Ces alertes se produisent dès lors qu'un de vos scénarios suivi se trouve en erreur pendant plusieurs minutes, par défaut 3 échecs sur une période de 5 minutes.
-Une notification de résolution vous est ensuite envoyée une fois que le scénario fonctionne normalement pendant plusieurs minutes, par défaut 5 succès sur une période de 5 minutes. On considère alors que l'alerte est clôturée.
-Ces notifications vous sont envoyées via le canal de votre choix (mail, sms ou Slack.).
+These alerts fire when a monitored scenario is failing for several minutes — by default, 3 failures within a 5-minute window.
 
-Voici une liste des alertes que nous pouvons vous envoyer:
+A resolution notification is sent once the scenario returns to normal for several minutes — by default, 5 successes within a 5-minute window. At that point the alert is considered closed.
 
-- Chaîne attendue non trouvée
-- Temps de l'étape expiré
-- Temps du scénario expiré
-- Code de retour invalide
+Notifications are sent via your chosen channel (email, SMS, or Slack).
+
+Example alerts we can send:
+
+- Expected string/element not found
+- Step timeout
+- Scenario timeout
+- Invalid return code
 - Dynamic selector not found
-- Erreur réseau durant la réception des données
-- Erreur lors de la négociation SSL
+- Network error while receiving data
+- SSL negotiation error
 
-Ces alertes sont également visualisables sur vos scénarios, vous verrez apparaître des barres rouges sur vos graphiques.
+These alerts are also visible on your scenarios; red bars appear on charts when they occur.
 
-## Alertes sur le temps d'exécution du scénario
+### Alerts on scenario execution time
 
-Ces alertes sont envoyées quand nos sondes identifient une variation du temps d'exécution du scénario supérieure au seuil que vous avez défini.
+These alerts are sent when our probes detect a variation in scenario execution time that exceeds the threshold you configured.
 
-Le temps actuel de parcours du scénario est comparé chaque minute à une période de référence équivalente selon vos préférences. Vous pouvez ainsi choisir parmi jour, semaine ou mois la période de référence.
+Each minute, the scenario's current execution time is compared to a reference period according to your preference (daily, weekly, or monthly baselines).
 
-Si vous êtes un mardi 12 à 16h:
+Examples:
 
-- Que vous choisissez de comparer avec la valeur journalière, alors votre temps moyen à 16h sera comparé à la moyenne des X derniers jours à 16h.
-- Par contre si vous vous choisissez de comparer avec la valeur hebdomadaire, cette fois votre temps moyen du mardi 16h sera comparé au temps moyen des X derniers mardi à 16.
-- Enfin si vous choisissez de comparer mensuellement alors ce sera les X derniers 12 du mois.
+- Comparing to a daily baseline compares the current time at 16:00 to the average of the last X days at 16:00.
+- Comparing to a weekly baseline compares the current Tuesday 16:00 to the average of the last X Tuesdays at 16:00.
+- Comparing to a monthly baseline uses the last X instances of the same day of the month.
 
-Il est également possible d'alerter une fois qu'un temps arbitraire que vous aurez défini est dépassé par le scénario.
+You can also trigger an alert when a scenario exceeds a fixed duration you set.
 
-Ces alertes vous sont envoyées par défaut quand nous constatons un écart au moins 15 fois sur une période de 25 minutes, et résolu une fois que cet écart n'est plus constaté pendant au moins 20 minutes sur 25.
+By default these alerts are sent when the deviation is observed at least 15 times within a 25-minute window, and are considered resolved once the deviation is not observed for at least 20 of the 25 minutes.
 
-# Alertes liées à vos données business
+## Business data alerts
 
-*Disponible par défaut sur les licences Business et Full, en option sur les autres.*
+*Available by default on Business and Full licenses; optional on other plans.*
 
-Les scénarios peuvent souvent permettre d'identifier les problèmes de manière très réactives, mais il est difficile de mettre en place un scénario qui pourra prendre en compte toutes les anomalies possibles. C'est pourquoi nous vous proposons de surveiller les conséquences de ces éventuelles anomalies et non plus uniquement une liste finie de causes possibles.
+Scenarios help detect many site issues, but it's difficult to cover every possible anomaly with a scenario. Business alerting monitors the impact (for example drops in traffic or conversion) rather than a predefined list of causes.
 
-L'alerting business vous permet de déceler toute baisse anormale de votre trafic ou de votre conversion, et vous permet d'analyser finement les périodes pendant lesquelles une baisse est enregistrée.
+Business alerts detect abnormal drops in traffic or conversion and let you analyze precisely when those drops occurred.
 
-Les données étant récupérées depuis Google Analytics, celles-ci sont analysées avec un décalage de 4 heures par défaut (car les données fournies par Google Analytics s'affinent avec le temps)
+Because this data comes from Google Analytics, it is processed with a default 4-hour delay (GA data is refined over time).
 
-## Alertes sur le taux de conversion
+### Conversion rate alerts
 
-On regarde ici si la moyenne de votre taux de conversion moyen sur une période donnée, 2 heures par défaut, est plus basse par rapport à la même période où alors en comparaison de la moyenne sur les semaines précédentes ou les mois précédents.
+This checks whether your conversion rate average over a given period (2 hours by default) is lower compared to the same period historically (daily, weekly, or monthly baselines).
 
-Cette alerte se déclenche lorsque cette comparaison donne un écart de 30 % de la conversion habituelle par défaut. Une notification de résolution est envoyée quand cette comparaison aboutit à un taux de 75 % de la conversion habituelle.
+By default this alert triggers when the conversion rate drops by 30% compared to the usual value. A resolution notification is sent when the metric returns to 75% of the usual conversion rate.
 
-Il est également possible de choisir une valeur fixe du taux de conversion au-dessous de laquelle vous souhaitez être alerté.
+You can also set a fixed conversion-rate threshold below which you want to be alerted.
 
-## Alertes sur les pages vues
+### Page view alerts
 
-C'est exactement le même principe que pour les alertes sur le taux de conversion, mais appliqué aux pages vues par minute.
+This works the same way as conversion-rate alerts but is applied to page views per minute.
+

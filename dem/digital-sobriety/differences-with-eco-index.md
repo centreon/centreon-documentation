@@ -1,35 +1,36 @@
 ---
 id: differences-with-eco-index
-title: Quelles sont les différences entre le Score de Sobriété Numérique et l’Eco Index (c)
+title: Differences between the Digital Sobriety Score and the Eco Index
 --- 
 
-# Quelles sont les différences entre le Score de Sobriété Numérique et l’Eco Index (c)
 
-La distinction entre le Score de Sobriété Numérique de Quanta et l'Eco Index développé par le collectif GreenIT repose sur plusieurs points fondamentaux, reflétant des approches variées de l'évaluation de l'empreinte environnementale des sites web.
+# Differences between the Digital Sobriety Score and the Eco Index
+
+The distinction between Quanta’s Digital Sobriety Score and the Eco Index developed by the GreenIT collective rests on several fundamental points, reflecting different approaches to evaluating the environmental footprint of websites.
 
 ### Eco Index
 
-**Critères d'Évaluation** : L'Eco Index se fonde sur trois critères principaux pour évaluer l'empreinte environnementale d'un site web : la taille du Document Object Model (DOM), le poids de la page, et le nombre de requêtes HTTP. Ces critères sont évalués dans la formule de l’Eco Index avec un poids respectif de 3, 1 et 2, donnant une importance prépondérante à la taille du DOM et au nombre de requêtes HTTP effectuées dans l'évaluation :
+Evaluation criteria: The Eco Index is based on three main criteria to assess a website’s environmental footprint: DOM size, page weight, and number of HTTP requests. In the Eco Index formula these criteria are weighted 3, 1 and 2 respectively, giving particular emphasis to DOM size and the number of HTTP requests:
 
 ![Image](../assets/digital-sobriety/difference-score-and-eco-index-1.png)
 
-**Objectif** : En se concentrant sur ces trois critères, l'Eco Index vise à encourager des améliorations ciblées sur des aspects techniques précis des sites web pour réduire leur impact environnemental. Ce focus offre une simplicité d'approche, qui est un bon point de départ pour commencer à approcher l’éco-conception d’un site internet, mais qui montre aussi des limites pour évaluer les impacts environnementaux de l’usage des serveurs et des terminaux utilisateurs visitant le site.
+Purpose: By focusing on these three criteria, the Eco Index encourages targeted technical improvements to reduce a website’s environmental impact. This simplicity is a useful starting point for adopting eco-design practices during development, but it has limitations when it comes to assessing environmental impacts related to server usage and end-user devices.
 
-### Score de Sobriété Numérique de Quanta
+### Quanta’s Digital Sobriety Score
 
-**Critères d'Évaluation** : Le Score de Sobriété Numérique de Quanta intègre un éventail plus large d'indicateurs, réalisé  sur un panel moyen de 10 pages de référence par site, soit jusqu’à 60 points de mesures en tout. Le Score de Sobriété Numérique inclu non seulement le poids de la page, le nombre de requêtes HTTP et la taille du DOM, mais aussi le Time To First Byte (TTFB), le temps d’exécution Frontend et l’empreinte carbone par clic. Cette approche plus globale prend en compte à la fois les aspects front-end et back-end des sites web, ainsi que leur impact environnemental sur les gaz à effet de serre au travers l’empreinte carbone par clic.
+Evaluation criteria: Quanta’s Digital Sobriety Score covers a broader set of indicators, typically measured on a representative panel of 10 reference pages per site, totaling up to 60 measurement points. The Digital Sobriety Score includes page weight, number of HTTP requests, and DOM size, but also Time To First Byte (TTFB), frontend execution time, and carbon footprint per click. This more holistic approach captures both front-end and back-end aspects of websites and their greenhouse gas impacts via the carbon footprint per click.
 
-Voici l’algorithme de calcul du Score de Sobriété Numérique avec ses poids sur chaque critère d’évaluation menant jusqu’à la note globale :
+Here is the calculation algorithm for the Digital Sobriety Score showing the weighting of each evaluation criterion leading to the overall score:
 
 ![Image](../assets/digital-sobriety/difference-score-and-eco-index-2.png)
 
-**Avantages** : En valorisant un spectre d'indicateurs plus large et en analysant un “panel représentatif de pages” plutôt qu’une seule URL, le Score de Sobriété Numérique de Quanta permet une évaluation plus globale de l'empreinte environnementale d'un site. Ces indicateurs permettent une prise en compte :
+Advantages: By valuing a wider spectrum of indicators and analyzing a representative panel of pages rather than a single URL, Quanta’s Digital Sobriety Score provides a more comprehensive assessment of a site’s environmental footprint. These indicators account for:
 
-- de l'optimisation du code backend pour évaluer le coût environnemental de l’utilisation des serveurs dans le centre d’hébergement du site;
-- du travail de sobriété effectué par l’équipe de développement sur l’exécution du code “frontend” (typiquement le code Javascript) par le terminal de l’internaute. Ce temps est particulièrement intéressant à prendre en compte pour évaluer si le site tend à rendre les téléphones anciens obsolètes de part leur comportement (énergivore ou au contraire frugal).
+- backend code optimization to assess the environmental cost of server usage at the hosting datacenter;
+- frontend efficiency work performed by development teams (typically JavaScript execution) on end-user devices. This metric is particularly useful to evaluate whether a site tends to make older phones obsolete by being energy-intensive or, conversely, frugal.
 
-**Objectif** : L’initiative de Quanta avec la création de ce score est d'offrir gratuitement à l’ensemble des parties prenantes une vision globale de l'empreinte environnementale d’un site web, avec un score comparable entre 2 sites n’ayant pas nécessairement le même niveau de trafic. Cette initiative vise à encourager une optimisation la plus exhaustive possible et soutenir les efforts visant à réduire de manière significative l'impact écologique du numérique à tous les niveaux :   utilisation des serveurs, utilisation du réseau, et propension du site à favoriser le prolongement de la durée de vie des terminaux).
+Purpose: Quanta’s initiative aims to offer all stakeholders a free, global view of a website’s environmental footprint, with a score comparable between two sites that may not have the same traffic level. The initiative encourages extensive optimization efforts and supports reductions in digital ecological impact across servers, networks, and by promoting longer device lifetimes.
 
-### Quel indicateur suivre ?
+### Which indicator should you follow?
 
-A vous d’en décider ! A notre sens, les 2 approches sont très complémentaires : alors que l'Eco Index met l'accent sur une simplicité d'évaluation à travers trois critères techniques sur une URL donnée, ce qui est très utile en phase développement, le Score de Sobriété Numérique de Quanta adopte une approche plus englobante et apparait plutôt comme une solution d’audit externalisé lorsque le site est en ligne.
+That depends on your goals. Both approaches are complementary: the Eco Index emphasizes simple evaluation based on three technical criteria for a given URL — very useful during development — while Quanta’s Digital Sobriety Score adopts a broader, audit-style approach more suited to sites already in production.

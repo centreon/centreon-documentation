@@ -1,36 +1,37 @@
 ---
 id: unable-to-connect
-title: Connexion impossible
+title: Unable to connect
 --- 
 
-# Connexion impossible
 
-# Préambule
+# Unable to connect
 
-Vous avez des difficultés à vous connecter depuis notre [page d'accueil](https://app.quanta.io/welcome/login) ?
+## Preamble
 
-# Mot de passe oublié
+Having trouble signing in from our [homepage](https://app.quanta.io/welcome/login)?
 
-Peut-être avez-vous tout simplement oublié votre mot de passe, auquel cas vous pouvez cliquer depuis la [page d'accueil](https://app.quanta.io/welcome/login) sur "Mot de passe oublié ?" puis "Retrouver son mot de passe" après avoir renseigné votre mail.
+## Forgot your password
 
-Un mail vous sera alors envoyé vous permettant de configurer un nouveau mot de passe que vous pourrez utiliser pas la suite.
+If you have forgotten your password, click "Forgot password?" on the [homepage](https://app.quanta.io/welcome/login), enter your email address, then choose "Recover your password".
 
-# Mail oublié
+An email will be sent to you allowing you to set a new password that you can use afterwards.
 
-Si vous avez oublié le mail que vous utilisez pour vous connecter à Quanta, vous pouvez demander à un administrateur de votre organisation de le vérifier dans la vue "Organisation" accessible comme suit dans Quanta :
+## Forgot which email you used
 
-- Se rendre dans l'onglet "Configuration"  ** (en haut à droite de l'écran)
-- Sélectionner le site concerné
-- Aller dans l'onglet  *Organisation*
+If you don’t remember the email address you use to sign in to Quanta, ask an administrator in your organization to check it in the "Organization" view in Quanta as follows:
 
-# Je n'ai pas de compte sur Quanta
+- Go to the "Configuration" tab (top right of the screen)
+- Select the relevant site
+- Open the *Organization* tab
 
-Il est également possible que vous n'ayez pas encore de compte sur notre outil, auquel cas un administrateur de votre organisation (sur Quanta) pourra vous envoyer une invitation par mail, si besoin, la démarche à suivre est disponible ici :
+## I don't have a Quanta account
 
-[Gérez vos utilisateurs et leurs droits](../configuration/manage-users-and-rights.md)
+It is also possible you don't yet have an account. In that case, an administrator of your organization (within Quanta) can send you an invitation by email. Instructions are available here:
 
-# Nous contacter
+[Manage users and rights](../configuration/manage-users-and-rights.md)
 
-Si malgré cela vous éprouvez toujours des difficultés, n'hésitez pas à prendre directement contact avec notre support:
+## Contact us
 
-[Contacter le support Quanta](../getting-started/contact-support.md)
+If you still experience difficulties after trying the steps above, please contact our support directly:
+
+[Contact Quanta support](../getting-started/contact-support.md)

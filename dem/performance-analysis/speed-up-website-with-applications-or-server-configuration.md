@@ -1,35 +1,35 @@
 ---
 id: speed-up-website-with-applications-or-server-configuration
-title: Accélérez votre site avec applicatifs ou configuration serveurs
+title: Speed up your website with application or server configuration
 --- 
 
-# Accélérez votre site avec applicatifs ou configuration serveurs
+# Speed up your website with application or server configuration
 
-**Décomposition du waiting time**
+**Breakdown of waiting time**
 
-Le waiting time correspond au temps passé à attendre le serveur (contient le temps passé dans Magento). QUANTA le décompose ensuite en deux étapes grâce au module de profiling que vous avez fait installer par votre intégrateur.
+Waiting time corresponds to the time spent waiting for the server (it includes the time spent inside Magento). QUANTA breaks this down into two parts thanks to the profiling module installed by your integrator.
 
-- **Magento Time** : temps pris par Magento pour générer la pageNB : L’optimisation de ce facteur est à réaliser en collaboration avec votre agence (ou votre développeur)
-- **Other** : temps de traitement en dehors de l’applicatif MagentoNB : L’optimisation de ce facteur est à réaliser en collaboration avec votre hébergeur dans la plupart des cas
+- **Magento Time**: time taken by Magento to generate the page — Note: optimizing this is typically done with your agency or developer
+- **Other**: processing time outside the Magento application — Note: optimizing this is usually done with your hosting provider
 
-Si le plus gros du temps est passé dans le « Magento time », alors cliquez une nouvelle fois sur « Plus de détails » pour analyser le temps passé par Magento dans chaque fonctionnalité.
+If most of the time is spent in "Magento time", click "More details" again to analyze Magento's time per feature.
 
-**Analyse du code Magento**
+**Magento code analysis**
 
-Quanta détaille le temps de génération de la page au sein de Magento en différentes étapes.
+Quanta breaks down page generation time within Magento into several steps.
 
-- Trouvez la source des optimisations de votre site en commençant par les étapes qui sont les plus consommatrices de temps.
-- Vous pouvez zommer sur deux étapes particulières : l'étape de "Chargement de Magento" et l'étape de "Rendu des blocs". Pour cela, cliquez sur les boutons « Plus de détails ».
-- Dans cet exemple nous allons zoomer au sein du Layout Rendering Time.
+- Start investigating the largest time-consuming steps to find optimization opportunities.
+- You can zoom into two particular steps: "Magento Loading" and "Layout Rendering". Click the "More details" buttons to do so.
+- In this example we will zoom into the Layout Rendering Time.
 
-## **Focus sur les blocs Magento**
+## Focus on Magento blocks
 
 ![](https://support.quanta.io/hc/fr/article_attachments/204388989/accelerez_2.png)
 
-Quanta identifie automatiquement les blocs du code Magento représentant le plus de temps ou bien ayant représenté la plus grande variation.
+Quanta automatically identifies the Magento code blocks that take the most time or that showed the largest variation.
 
 ![](https://support.quanta.io/hc/fr/article_attachments/204424925/accelerez.png)
 
-Sélectionnez les blocs qui vous intéressent (de préférence les blocs qui ont été les plus longs à se générer, soit en haut de la liste) et cliquez sur « Voir les détails des blocs ».
+Select the blocks that interest you (preferably the top ones that took the longest to render) and click "See block details".
 
-Chaque bloc peut-être analysé/comparé sous forme de graphiques afin d’en constater l’évolution au fil du temps (la timeline est ici intéressante pour constater la possible récurrence d’un problème).
+Each block can be analyzed/compared as charts to view its evolution over time (the timeline is useful to identify recurring issues).

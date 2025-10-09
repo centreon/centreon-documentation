@@ -1,295 +1,282 @@
 ---
 id: digital-sobriety-score
-title: Score de Sobriété Numérique
+title: Digital Sobriety Score
 --- 
 
-# Score de Sobriété Numérique
+# Digital Sobriety Score
 
-Spécifications v1.1 (Avril 2023)
+Specifications v1.1 (April 2023)
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-1.png)
 
-## Contexte : l**a raison d’être du Score de Sobriété Numérique**
+## Context: the purpose of the Digital Sobriety Score
 
-Chez Quanta, nous sommes convaincus que la transition écologique passe par une prise de conscience et une responsabilisation du secteur du numérique dans son impact environnemental.
+At Quanta, we believe the ecological transition requires awareness and accountability from the digital sector regarding its environmental impact.
 
-Aujourd’hui le numérique représente 4% des gaz à effet de serre à l’échelle mondiale avec une tendance **en hausse de +8% par an**. Or dans le même temps, l’accord de Paris pour le climat exige d’engager une baisse annuelle de nos émissions, tous secteurs confondus, **de -7%** :
+Today, digital technologies account for roughly 4% of global greenhouse gas emissions and are growing at approximately **+8% per year**. At the same time, the Paris Agreement requires a global annual emissions reduction across sectors of **-7%**:
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-2.png)
 
-Bien qu’il soit utile pour décarboner d’autres industries, le numérique ne pourra donc pas échapper à une nécessaire baisse de ses propres émissions. Mais pour pouvoir s’améliorer, encore faut-il avoir **une mesure fiable et partagée**.
+Although digital technologies can help decarbonize other industries, the digital sector itself cannot avoid a necessary reduction in its own emissions. To improve, however, we first need **reliable and shared measurements**.
 
-Pour pouvoir accompagner cette transition du numérique et le rendre compatible avec les limites planétaires, il nous a donc semblé essentiel d’avoir un guide standardisé et partagé par l’ensemble des acteurs du numérique, c’est la raison d’être du Score de Sobriété Numérique.
+To support this transition and align digital activity with planetary limits, we considered it essential to provide a standardized guide shared across the digital ecosystem — this is the purpose of the Digital Sobriety Score.
 
-Le Score de Sobriété Numérique est une notation générale qui permet de mesurer l'empreinte environnementale d’un site internet ou d’une application web. Ce score peut être utilisé sans connaissance technique préalable, tout en permettant aux spécialistes du numérique et de la responsabilité environnementale des entreprises de suivre avec davantage de précisions l’ensemble des sous-indicateurs qui constituent le score global.
+The Digital Sobriety Score is a general rating that measures the environmental footprint of a website or web application. It can be used without technical expertise while enabling digital and sustainability specialists to inspect the sub-indicators that compose the overall score in greater detail.
 
-Avec ce score unifié, Quanta s’est donné pour mission de sensibiliser et d’accompagner l’ensemble des acteurs du numérique vers des choix plus responsables, en leur donnant les outils pour se comparer et améliorer progressivement l'impact environnemental de leurs applications actuelles et futures.
+With this unified score, Quanta’s mission is to raise awareness and guide digital stakeholders toward more responsible choices by providing tools to compare and progressively improve the environmental impact of their current and future applications.
 
-## **Introduction à la méthodologie**
+## Introduction to the methodology
 
-Les quelques indicateurs existants dans le domaine de la mesure de l’empreinte environnementale du numérique sont pour la plupart assez complexes à lire sans faire partie des spécialistes du sujet et ils se limitent par ailleurs à quelques critères ce qui peine à faire progresser les acteurs sur l’ensemble des éléments qui constitue l’impact de leurs activités numériques.
+Existing indicators for measuring the digital environmental footprint are often difficult to interpret without specialist knowledge and tend to cover a limited set of criteria, which makes it hard for organizations to improve across all impact dimensions.
 
-Le Score de Sobriété Numérique est donc une **notation globale** qui regroupe l’ensemble des impacts environnementaux liés à l’usage d’un site internet ou d’une application mobile avec une notation simplifiée sous forme d’un score sur 100, également exprimé de A à E, comme un produit alimentaire :
+The Digital Sobriety Score is therefore a **composite rating** that aggregates the environmental impacts associated with using a website or mobile application into a simplified score out of 100, also expressed as a grade from A to E, similar to food labeling:
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-5.png)
 
-Pour davantage de précision, il convient de lire le score sous sa forme numérique. Voici le tableau de correspondance entre le score numérique et la notation en lettre :
+For more precision, the numerical score should be consulted. The correspondence between numeric score and letter grade is:
 
-| Score de Sobriété Numérique | Notation en lettre |
+| Digital Sobriety Score | Letter grade |
 | --- | --- |
-| 0 à 45 | E |
-| 45 à 60 | D |
-| 60 à 75 | C |
-| 75 à 90 | B |
-| 90 à 100 | A |
+| 0 to 45 | E |
+| 45 to 60 | D |
+| 60 to 75 | C |
+| 75 to 90 | B |
+| 90 to 100 | A |
 
-Cette notation a la vertu de prendre en compte le champ d’impacts le plus large possible, tout en donnant une visibilité simplifiée aux directions digitales et directions RSE afin :
+This grading captures a broad set of impacts while providing simplified visibility for digital and CSR teams so they can:
 
-- de leur permettre de comparer plusieurs sites entre eux, comme plusieurs sites d’une même enseigne, ou encore un site versus ses concurrents.
-- de leur permettre de mettre en place un plan d’action visant à rendre leurs applications davantage soutenables.
-- d'être guidés sur le respect des bonnes pratiques d’éco-conception dès la construction de futurs projets numériques, que les développements soient menés par des équipes internes ou externes.
+- compare multiple sites (for example, several sites within the same brand or versus competitors);
+- implement action plans to make their applications more sustainable;
+- be guided on eco-design best practices when building new digital projects, whether developed internally or externally.
 
-Dans le cadre du Score de Sobriété Numérique, Quanta s’engage à fournir des mesures actionnables permettant de respecter les principes du [GHG Protocol](https://www.greenly.earth/fr-fr/blog/guide-entreprise/ghg-protocol-quest-ce-que-cest-comment-ca-marche) : Pertinence, Exhaustivité, Permanence, Transparence et Exactitude.
+As part of the Digital Sobriety Score, Quanta commits to delivering actionable measures that respect the principles of the [GHG Protocol](https://www.greenly.earth/fr-fr/blog/guide-entreprise/ghg-protocol-quest-ce-que-cest-comment-ca-marche): Relevance, Completeness, Consistency, Transparency, and Accuracy.
 
-En d’autres termes, la méthode de calcul et les méthodes de mesures utilisées **resteront transparentes et ouvertes** sous licence Creative Commons ([CC BY-NC-ND 4.0 DEED](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr)), afin de permettre à toutes les équipes, et en particulier les plus spécialistes du numérique responsable, de comparer les résultats donnés par Quanta avec leurs propres calculs et outils de mesure.
+In other words, the calculation methods and measurement processes **will remain transparent and open** under a Creative Commons license ([CC BY-NC-ND 4.0 DEED](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr)), allowing teams — especially specialists in responsible digital practices — to compare Quanta’s results with their own calculations and tools.
 
-Cette transparence permet à toutes les parties prenantes :
+This transparency enables stakeholders to:
 
-- d’effectuer elles-même des mesures de Score de Sobriété Numérique, y compris dans des contextes où Quanta ne pourrait pas avoir accès à leurs applications.
-- de pouvoir suggérer des améliorations afin de faire évoluer positivement la méthode de calcul au fil de l’évolution des travaux de recherche dans le domaine du GreenIT.
+- perform their own Digital Sobriety Score measurements, including in contexts where Quanta cannot directly access the application;
+- propose improvements to evolve the calculation method as research in GreenIT progresses.
 
-## **Méthode de calcul**
+## Calculation method
 
-Le calcul de l'empreinte environnementale du numérique est un domaine relativement nouveau et en constante évolution. De nouvelles informations sur les impacts de l’usage, de la fabrication et de la fin de vie du matériel numérique peuvent apparaître, par conséquent les algorithmes de calcul de ces impacts sont amenés à s’affiner chaque année.
+Calculating the digital environmental footprint is a relatively new and evolving field. New information on the impacts of use, manufacturing, and end-of-life of digital equipment may emerge, so the algorithms estimating these impacts are expected to be refined over time.
 
-Pour cette raison, Quanta a décidé de “versionner” la méthode de calcul pour garantir sa pertinence, de permettre aux utilisateurs de bénéficier des évolutions, sans pénaliser ses capacités de comparaison entre sites ou applications ayant été préalablement audités.
+For this reason, Quanta versions the calculation method to ensure its continued relevance and to allow users to benefit from improvements without impairing comparability between sites audited at different times.
 
-Sans modification des méthodes de mesures, il est également probable (et souhaitable !) que les valeurs médianes du marché s’améliorent d’année en année, ce qui amènera naturellement Quanta à ajuster les quantiles utilisés pour chaque paramètre dans le calcul du Score de Sobriété Numérique.
+Even without changes to measurement methods, median market values are likely to improve over time; Quanta will naturally update the quantiles used for each parameter in the Digital Sobriety Score calculation to reflect market progress.
 
-Dans ce document, nous décrivons l’algorithme de calcul actualisé au mois d’Avril 2023 (**version 1.1**), qui est la première version publique.
+This document describes the calculation algorithm updated in April 2023 (**version 1.1**), which is the first public release.
 
-### **Comment est calculé le Score de Sobriété Numérique ?**
+### How is the Digital Sobriety Score calculated?
 
-Tout d’abord, il est à noter que le **Score de Sobriété Numérique** peut être évalué via 2 types d’audits :
+The Digital Sobriety Score can be evaluated with two types of audits:
 
-1. la méthode simple
-2. la méthode “audit complet”
+1. the simple method
+2. the "full audit" method
 
-L’un des gros avantages de ces 2 types d’audit, c’est qu’il s’adapte aux moyens et exigences de précision de chacun, tout en donnant des scores totalement comparables entre eux. En réalité, la seule différence entre ces 2 méthodes est l’approximation qui est faite des impacts dans la méthode simple.
+One major advantage of these two audit types is they adapt to different resource levels and precision requirements while producing fully comparable scores. The only real difference between the methods is the level of approximation used in the simple method.
 
-Comparatif entre les 2 méthodes et de leurs avantages :
+Comparison of the two methods and their advantages:
 
-|  | Méthode simple
-(cf. site [quanta.green](http://quanta.green)) | Méthode “audit complet” |
+|  | Simple method (see [quanta.green](http://quanta.green)) | Full audit method |
 | --- | --- | --- |
-| Durée | 3 à 5 minutes | minimum de 7 jours pour que les données collectées soient suffisamment exhaustives |
-| Précision | Moyenne basée sur les 10 pages les plus fréquentées du site | Prise en compte de 100% des pages avec une pondération précise de la représentation de chaque page sur le trafic total du site |
-| Installation nécessaire | Aucune | Nécessite l’installation d’un tag de Real User Monitoring (NB : le tag de Real User Monitoring de Quanta permet l’audit complet sans être soumis à la RGPD) |
-| Coût nécessaire | Gratuit sur le site quanta.green | Nécessite une souscription à Quanta ou autre outil capable de calculer le Score de Sobriété Numérique |
-| Comparaison dans le temps | Oui, mais avec une précision trimestrielle (le site quanta.green garde en mémoire le score pour 3 mois). Au bout de 3 mois une nouvelle analyse permet d’obtenir l’évolution dans le temps. | Oui, en temps réel et de façon historisée automatiquement sur plusieurs années dans Quanta |
-| Certification | Certification “audit simple”, contenant un visuel récapitulatif pouvant être apposé sur le site concerné pour décrire son impact environnemental. | Certification “audit complet” contenant un visuel récapitulatif pouvant être apposé sur le site concerné pour décrire son impact environnemental.
+| Duration | 3 to 5 minutes | minimum of 7 days so collected data is sufficiently comprehensive |
+| Precision | Average based on the 10 most visited pages of the site | Considers 100% of pages, weighted by each page's share of total site traffic |
+| Installation required | None | Requires installing a Real User Monitoring tag (Note: Quanta’s RUM tag enables full audits while remaining GDPR-compatible) |
+| Cost | Free on quanta.green | Requires a Quanta subscription or another tool capable of calculating the Digital Sobriety Score |
+| Time-series comparison | Yes, but at quarterly precision (quanta.green stores scores for 3 months). After 3 months, a new analysis shows evolution over time. | Yes, in real time and historized automatically over multiple years in Quanta |
+| Certification | "Simple audit" certification includes a summary visual that can be displayed on the site to describe its environmental impact. | "Full audit" certification includes a summary visual that can be displayed on the site to describe its environmental impact. |
 
-Le calcul d’empreinte carbone du site étant exhaustif et représentatif de l’ensemble du trafic, il peut être repris dans un bilan carbone global d’entreprise pour apporter + de précision sur la partie numérique. |
+Because the site carbon footprint calculation is exhaustive and representative of the site's traffic, it can be included in a company’s global carbon inventory to provide more accurate data for the digital portion.
 
-Afin de pouvoir permettre une comparaison dans les impacts environnementaux des applications web d’entreprise de différentes tailles, le choix a été fait de rapporter l’empreinte du site à son trafic.
+To enable comparisons between enterprise web applications of different sizes, the footprint is normalized by site traffic.
 
-Le Score de Sobriété Numérique est **un résumé de nombreux critères d’évaluation**, par conséquent son score pris individuellement ne peut pas répondre à la question “quelle est l’empreinte carbone de mon site internet ?”. Sa vocation est d’offrir une notation à la fois plus large que la simple empreinte carbone, mais aussi de rendre toutes les applications web comparables entre elles, qu’elles soient utilisées par 100 personnes ou 100 000 personnes.
+The Digital Sobriety Score is a **summary of many evaluation criteria**; taken alone, it does not answer the question "what is my site's carbon footprint?" Its goal is to provide a broader rating than carbon footprint alone and to make web applications comparable regardless of their audience size (100 users or 100,000 users).
 
-Pour les équipes RSE souhaitant néanmoins obtenir une mesure de l’empreinte carbone de leur site, typiquement pour affiner leur bilan carbone d’entreprise avec une mesure précise en CO2eq correspondant à l’activité du site internet, elles pourront le faire via l’empreinte carbone exprimée “en absolue” et disponible dans un sous-indicateur du Score de Sobriété Numérique (voir “Empreinte carbone globale du site” pour plus bas pour plus de détails).
+Teams focused on CSR who still want an absolute carbon footprint of their site (to refine corporate carbon accounting with a precise CO2e measure corresponding to site activity) can obtain this via the absolute carbon footprint sub-indicator of the Digital Sobriety Score (see "Global carbon footprint of the site" below for details).
 
-### Algor**ithme détaillé du Score de Sobriété Numérique via la méthode d’audit complet (version 1.1 - avril 2023)**
+### Detailed algorithm for the Digital Sobriety Score (full audit method, version 1.1 - April 2023)
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-3.png)
 
-Le Score de Sobriété Numérique repose sur plusieurs critères, avec un système de pondération en arborescence permettant de valoriser chacun d’entre eux dans la notation globale.
+The Digital Sobriety Score is composed of multiple criteria with a tree-like weighting system that assigns importance to each in the overall score.
 
-Il est à noter que plusieurs de ces sous-critères, pris individuellement, ont leur intérêt propre dans le cadre d’une amélioration de l’empreinte environnementale d’une application. Il est donc conseillé aux équipes dédiées à l’amélioration de l’empreinte environnementale pour leur entreprise d’intégrer ces sous-indicateurs dans leurs comités de suivi et dans leurs rapports.
+Many sub-criteria have independent value for improving an application’s environmental footprint. We recommend that teams include these sub-indicators in their monitoring committees and reports.
 
-Le score global aura lui plutôt vocation à être suivi et partagé par les directions et à être utilisé dans les communications externes comme lors de l’affichage d’un certificat sur le site internet.
+The overall score is intended for executive reporting and external communication, such as displaying a certificate on a website.
 
-Pour expliquer le schéma ci-dessus, voici la liste exhaustive des indicateurs sous-jacents du Score de Sobriété Numérique :
+To explain the diagram above, here is the exhaustive list of underlying indicators used in the Digital Sobriety Score:
 
-## **Le Score d'éco-conception (ou EDS pour “Eco-Design Score”)**
+## The Eco-Design Score (EDS)
 
-Ce score compte pour 50% sur le Score de Sobriété Numérique. Il est lui-même noté de 0 à 100 et peut se mesurer pour une page donnée en fonction de 5 sous-critères permettant d’évaluer si les principes de l’éco-conception ont été suivi :
+This score accounts for 50% of the Digital Sobriety Score. It is rated 0 to 100 and can be measured for a page using five sub-criteria that evaluate adherence to eco-design principles:
 
-- **Le Time To First Byte** (également appelé “TTFB”, soit le temps de réception du premier Octet de la page)
-    
-    Souvent mesuré et optimisé pour favoriser un affichage plus rapide, cet indicateur se retrouve particulièrement révélateur du temps d'exécution dépensé côté serveur. Résultat, plus le TTFB est long, et plus la dépense énergétique au niveau du centre d’hébergement est importante.
-    
-    Le TTFB vaut pour 30% du score d’éco-conception.
-    
-- **Le poids de la page**
-    
-    On entend ici par “poids de la page” la quantité totale de données qui est téléchargée par l’internaute lorsqu’il navigue vers une page, ou qu’il effectue un clic sur le site entraînant un changement de contexte sur le site.
-    
-    Le transfert, contenant l’ensemble des éléments (code HTML, feuilles de styles CSS, images, etc.) a un impact particulièrement important sur les équipements réseaux entre le centre de données et l’internaute.
-    
-    Le poids de la page vaut pour 30% du score d’éco-conception.
-    
-- **Le temps d’exécution “Frontend”**
-    
-    Une fois la page téléchargée dans le navigateur de l’internaute, le terminal de l’internaute (mobile, tablette ou ordinateur) va très généralement exécuter du code Javascript localement. L'exécution de ce code est assez invisible pour les administrateurs du site internet car la charge induite n'apparaît pas au niveau du centre de données mais est au contraire déportée sur le terminal de l’internaute. Pourtant, l’énergie dépensée est bien réelle et les émissions carbones qui en découlent également.
-    
-    Pour estimer au mieux ce temps d'exécution “frontend”, il est possible d’utiliser l’indicateur “OnLoad” (temps de chargement complet de la page) qui correspond au moment où le navigateur passe en mode repos après avoir exécuté tout le code Javascript, auquel nous pouvons soustraire le Time To First Byte. En effet, tant que le code HTML n’est pas reçu par l’internaute, aucun élément n’est chargé, et le navigateur de l’internaute est donc en attente.
-    
-    Une bonne estimation du temps d’exécution Frontend est donc le temps entre le Time To First Byte et le OnLoad.
-    
-    Le temps d’exécution Frontend vaut pour 20% du score d’éco-conception.
-    
-- **Le nombre de requêtes HTTP(s)**
-    
-    Ce nombre est important car la gestion de chaque requête HTTP (ou HTTPs) nécessite des échanges de données supplémentaires entre le serveur et le terminal de l'utilisateur, ce qui peut représenter un surcoût d’énergie sur le réseau. Par ailleurs, le traitement de nombreuses requêtes génère également du temps de traitement dans le terminal de l’internaute, soit un autre surcoût de dépense énergétique.
-    
-    L’enjeu de la réduction du nombre de requêtes est donc d’optimiser les pages en utilisant au maximum le système de cache des navigateurs, mais aussi en combinant des fichiers pour réduire le nombre de requêtes ou en utilisant des techniques telles que l'inlining pour éviter les requêtes supplémentaires.
-    
-    Le nombre de requêtes HTTP vaut pour 10% du score d’éco-conception.
-    
-- **La taille du DOM**
-    
-    Le DOM (Document Object Model) est une représentation hiérarchique des éléments HTML d'une page web qui peut être manipulée en utilisant des langages de script tels que JavaScript. Le DOM est important pour le fonctionnement des sites web modernes, mais sa taille peut avoir un impact significatif sur la consommation d'énergie du site. Les raisons principales sont qu’un DOM de taille importante va nécessiter plus d'éléments HTML à charger, à analyser et à afficher, par conséquent cela représente une quantité de mémoire plus importante dans le terminal de l’internaute, et nécessite des calculs plus longs (et donc plus consommateurs de ressources) lors de chaque opération.
-    
-    La taille du DOM vaut pour 10% du score d’éco-conception.
-    
+- Time To First Byte (TTFB)
 
-Une fois l’ensemble des indicateurs mesuré, une pondération est effectuée en fonction de l’importance donnée à chaque critère d’un point de vue environnemental :
+  Often measured and optimized to speed up rendering, this indicator is particularly reflective of server-side execution time. The longer the TTFB, the greater the energy consumption at the hosting center.
+
+  TTFB accounts for 30% of the Eco-Design Score.
+
+- Page weight
+
+  "Page weight" refers to the total amount of data downloaded by a user when navigating to a page or when an interaction triggers a context change in the site.
+
+  Transfers — including HTML, CSS, images, etc. — have a significant impact on network equipment between the datacenter and the user.
+
+  Page weight accounts for 30% of the Eco-Design Score.
+
+- Frontend execution time
+
+  After the page is downloaded, the user’s device (mobile, tablet, or computer) typically executes JavaScript locally. This execution is often invisible to site administrators because the load occurs on the client device rather than in the datacenter; nevertheless, it consumes energy and results in emissions.
+
+  A good estimate of frontend execution time is the interval between Time To First Byte and the OnLoad event (total page load). OnLoad represents when the browser becomes idle after executing JavaScript.
+
+  Frontend execution time accounts for 20% of the Eco-Design Score.
+
+- Number of HTTP(s) requests
+
+  Each HTTP(S) request requires additional data exchanges between server and client, which increases network energy use. Processing many requests also generates additional CPU time on the client device.
+
+  Reducing the number of requests involves optimizing caching, bundling files, or using inlining to avoid extra requests.
+
+  Number of requests accounts for 10% of the Eco-Design Score.
+
+- DOM size
+
+  The DOM (Document Object Model) is the hierarchical representation of page HTML elements. While essential for modern websites, a large DOM increases memory usage and processing time on the client device, leading to higher energy consumption.
+
+  DOM size accounts for 10% of the Eco-Design Score.
+
+Once all indicators are measured, a weighting is applied based on each criterion’s environmental importance:
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-6.png)
 
-Pour obtenir la note correspondante à chaque sous-indicateur du score d'éco-conception, des tableaux de correspondance sont utilisés pour convertir les mesures en score (exemple : 28 points sur le score d’éco-conception pour 90ms dans la mesure du “Time To First Byte”). Ces tableaux de correspondance sont publiquement disponibles afin de permettre à chacun de calculer de bout en bout le Score de Sobriété Numérique. La source ayant permis l’établissement de ces tableaux de correspondance sont les base de données [HTTP Archive](https://httparchive.org/) et [Chrome UX report](https://developer.chrome.com/docs/crux/). et la méthode celle des quantiles de valeurs (par exemple : pour obtenir 30 points sur 30 sur la valeur “Time To First Byte”, le site doit se situer dans les 5% de l’ensemble du web ayant les valeurs les plus rapides sur cet indicateur).
+To convert each sub-indicator into a score (for example: 28 points on the Eco-Design Score for 90 ms TTFB), mapping tables are used. These tables are publicly available so anyone can compute the Digital Sobriety Score end-to-end. Sources for these mapping tables include the [HTTP Archive](https://httparchive.org/) and the [Chrome UX Report](https://developer.chrome.com/docs/crux/). The method uses value quantiles (for instance, to get the full 30 points for TTFB, a site must be within the top 5% fastest sites for that metric).
 
-## **Le score d’éco-conception moyen (ou “Average EDS”, pour Average Eco-Design Score)**
+## Average Eco-Design Score (Average EDS)
 
-Pour calculer le score d’éco-conception moyen d’un site, il y a 2 cas de figure :
+To compute a site's average Eco-Design Score, there are two cases:
 
-1. Le cas d’un audit simple
-    
-    Dans le cas d’un audit simple, nous prenons les 10 pages les plus populaires du site et chacune d’entre elles doit obtenir un score d’éco-conception. La moyenne de l’ensemble des 10 mesures donne le score d’éco-conception moyen (Average EDS).
-    
-2. Le cas d’un audit complet
-    
-    Dans ce cas, le score d’éco-conception moyen prendra en compte toutes les pages consultées du site et pondérées par leur importance sur le trafic global, ce qui donnera une mesure plus précise. Ainsi une page isolée générant peu de trafic et ayant un très mauvais score d’éco-conception ne viendra finalement presque pas impacter le score global. A l’inverse, si cette page se met à absorber beaucoup de trafic, alors son score d’éco-conception pondéré par sa représentation parmi le trafic utilisateur fera nettement baisser le score d’éco-conception moyen du site.
-    
+1. Simple audit
 
-## **L’empreinte carbone (ou “CF” pour Carbon Footprint)**
+   For a simple audit, we take the site's 10 most popular pages and compute an Eco-Design Score for each. The average of these 10 scores is the Average EDS.
 
-Un indicateur de base pour mesurer l’empreinte environnementale d’une application est déjà de calculer l’empreinte carbone de l’accès à une page web ou bien d'un clic. Pour cette évaluation, Quanta a implémenté un algorithme reconnu et transparent : [la méthode Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/).
+2. Full audit
 
-Cette méthode permet de mesurer l’impact carbone d’une page en fonction de son poids et de l’intensité carbone de l’électricité utilisée par la plateforme d’hébergement.
+   In this case, the Average EDS considers all pages viewed on the site and weights them by their share of total traffic, providing a more precise measure. A low-scoring page with little traffic will have minimal impact on the overall score, while a high-traffic low-scoring page will significantly lower the Average EDS.
 
-Grâce à cette méthode, une même page web consultée en France, en Irlande ou aux USA n’aura pas le même impact du fait de la grande disparité des sources d’énergies électriques. Pour prendre en compte le mix électrique du pays d’hébergement, Quanta se base sur la base de données [Ember Climate](https://ember-climate.org/insights/research/global-electricity-review-2022/) (plus connue comme la source du site [Our World In Data](https://ourworldindata.org/grapher/carbon-intensity-electricity)).
+## Carbon Footprint (CF)
 
-Le résultat qui en découle du calcul, exprimé en CO2eq permet également de distinguer la part des différents périmètres (centre de données, réseau et terminaux des utilisateurs).
+A basic indicator for measuring an application's environmental footprint is the carbon footprint of accessing a web page or performing a click. For this evaluation, Quanta implements a recognized and transparent algorithm: the [Sustainable Web Design method](https://sustainablewebdesign.org/calculating-digital-emissions/).
+
+This method estimates a page’s carbon impact based on its weight and the carbon intensity of the electricity used by the hosting platform.
+
+Thanks to this method, the same web page accessed in France, Ireland, or the USA will have different impacts due to differences in electricity generation. To account for a host country’s electricity mix, Quanta relies on the [Ember Climate](https://ember-climate.org/insights/research/global-electricity-review-2022/) dataset (also used by [Our World In Data](https://ourworldindata.org/grapher/carbon-intensity-electricity)).
+
+The resulting calculation, expressed in CO2e, also allows distinguishing contributions from different scopes (datacenter, network, and end-user devices).
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-7.png)
 
 ---
 
-**Empreinte Carbone Par Clic** (ou “Average CFPC” pour Average Carbon Footprint Per Clic)
+**Average Carbon Footprint Per Click (Average CFPC)**
 
-L’empreinte carbone par clic compte pour 50% sur le Score de Sobriété Numérique. Il s’agit de l’empreinte environnementale rapporté à une page vue ou clic effectué par l’internaute sur l’application web.
+Average carbon footprint per click accounts for 50% of the Digital Sobriety Score. It represents the environmental footprint per page view or click-triggered context change in the web application.
 
-Pourquoi mesurer des clics et non seulement des pages vues ?
+Why measure clicks instead of only page views?
 
-On parle ici de “clics” car les sites en “SPA” (Single Page Application) sont de plus en plus populaires et représentés sur le web. Or dans un contexte d’application “SPA”, un clic peut transformer la page en cours, mais sans nécessairement entraîner de navigation vers une nouvelle page. Pour autant, chacune de ces interactions a un coût écologique et doit être prise en compte dans l’évaluation environnementale.
+We use "clicks" because Single Page Applications (SPAs) are increasingly common. In an SPA, a click may change the current view without triggering a full page navigation. Each interaction still has an ecological cost and should be included in the environmental assessment.
 
 ---
 
-NB : Le calcul d’impact dans la version 1.1 du Score de Sobriété Numérique est basé sur les émissions carbone, qui sont utilisées dans la plupart des entreprises comme la boussole la plus importante du pilotage de la réduction d’impact environnemental du numérique. Néanmoins il est à noter que plusieurs autres critères d’impact comme les ressources en eau consommées, les ressources abiotiques consommées ou l’énergie primaire utilisée ont également un intérêt à être suivis. La méthodologie de calcul du Score de Sobriété Numérique est donc conçue pour être prête à accueillir d’autres critères environnementaux dans les versions suivantes.
+Note: Version 1.1 of the Digital Sobriety Score focuses on carbon emissions, the most commonly used metric for corporate environmental management. Other impact criteria (water use, abiotic resource depletion, primary energy consumption) are also relevant and may be incorporated in future versions of the methodology.
 
-Pour calculer l’empreinte carbone par clic (Average CFPC), il y a 2 cas de figure :
+To calculate Average CFPC, there are two cases:
 
-1. Le cas d’un audit simple
-    
-    Dans le cas d’un audit simple, il s’agit de prendre les 10 pages les plus populaires du site et chacune d’entre elles doit obtenir un calcul d’empreinte carbone (CF). La moyenne de l’ensemble des 10 mesures donne l’empreinte carbone par clic l’average EFPC.
-    
-2. Le cas d’un audit complet
-    
-    Dans ce cas, l’empreinte carbone par clic prendra en compte toutes les pages consultées du site et pondérées par leur importance sur le trafic global, ce qui donnera une mesure plus précise. Ainsi une forte empreinte carbone sur une page isolée générant très peu de trafic ne viendra finalement presque pas impacter le score global. A l’inverse, si cette page se met à absorber beaucoup de trafic, alors son empreinte carbone pondérée par sa représentation parmi le trafic utilisateur fera nettement augmenter l’empreinte carbone par clic du site.
-    
+1. Simple audit
 
-Bien que dans le cas d’un audit complet, le trafic soit pris en compte page par page pour préciser l’impact “moyen” d’une page, l’objectif de l’empreinte carbone par clic est bien ici de rapporter l’empreinte à une seule page vue ou clic ayant généré un changement de contexte du site, c’est à dire un indicateur totalement indépendant du trafic et donc comparable d’un mois sur l’autre malgré des variations de trafic.
+   For a simple audit, take the site's 10 most popular pages and compute the carbon footprint (CF) for each. The average of these 10 measures gives the Average CFPC.
 
-Pour donner un exemple, si l’on compare les mois de Novembre et Décembre et que le trafic sur Décembre a été nettement plus important du fait du calendrier des fêtes de fin d’année, l’empreinte carbone par clic tiendra compte de cette variation de trafic et permettra de continuer d’évaluer l’empreinte pour un clic “moyen” sur le site mois par mois. Cette vue permet donc aux équipes numérique responsable de garder un cap fiable sur les efforts réalisés sur l’éco-conception du site, sans que leur boussole ne soit perturbée par les activités marketing du site.
+2. Full audit
 
-## **Empreinte carbone globale du site (“Global CF” pour Carbon Footprint for Global website activity)**
+   For a full audit, Average CFPC accounts for all pages viewed on the site, weighted by their share of total traffic, producing a more accurate measure. A high CF on a low-traffic page will have little overall effect, but if that page receives more traffic, its weighted CF will increase the site’s Average CFPC accordingly.
 
-Pour calculer l’empreinte carbone globale du site, il faut prendre en compte 2 critères principaux :
+Although full audits weight pages by traffic, the Average CFPC is intended to express the footprint of a single page view or click independent of overall traffic, enabling month-to-month comparability despite traffic variations.
 
-- l’empreinte carbone par clic (CFPC) soit l’empreinte carbone moyenne d’une page vue ou d’un clic ayant généré un changement de contexte sur le site, pour une période donnée
-- le nombre de pages vues effectuées par les internautes pour cette même période
+For example, comparing November and December, if December traffic spikes due to holidays, Average CFPC accounts for this variation and still allows teams to track the average footprint per click month over month. This view helps responsible digital teams maintain a reliable gauge of eco-design efforts, independent of marketing-driven traffic changes.
 
-Il y a là aussi, 2 cas de figure :
+## Global Carbon Footprint of the site (Global CF)
 
-1. Le cas d’un audit simple
-    
-    Dans le cas d’un audit simple, il s’agit de multiplier l’empreinte carbone par clic (CFPC) par le nombre de pages vues sur le site, ce qui donne une bonne mesure de l’empreinte environnementale liée à l’ensemble du trafic.
-    
-2. Le cas d’un audit complet
-    
-    Dans ce cas, il convient de **pondérer individuellement** l’empreinte carbone de chaque page. En effet, la fréquentation précise de chaque page, et leurs empreintes carbones (CF) respectives étant connues, il est bien plus précis de multiplier l’empreinte carbone de chaque page par le nombre de fois où ces pages ont été consultées sur une période donnée.
-    
-    Quanta peut réaliser ces mesures et calculs en temps réel en se basant sur les données de son tag de Real User Monitoring qui trace l’ensemble des pages vues par les internautes. Ces données amènent une précision importante dans l’évaluation de l’empreinte carbone globale du site.
-    
+To compute the global carbon footprint of a site, consider two main factors:
 
-Dans les 2 cas, nous obtenons l’empreinte carbone globale de l’activité du site pour une période donnée.
+- the Average CFPC for a given period
+- the number of page views during that same period
 
-## **Le Score de Sobriété Numérique**
+There are two cases:
 
-Enfin, la notation globale sur 100 du Score de Sobriété Numérique prend en compte les 2 sous-indicateurs principaux :
+1. Simple audit
 
-- l’empreinte carbone par clic
-- le score d’éco-conception moyen
+   Multiply Average CFPC by the number of page views to get a good estimate of the site's traffic-related footprint.
 
-Chacun de ces 2 sous-indicateurs compte pour 50% de la note globale, de sorte à valoriser à la fois une faible empreinte carbone par clic, mais également le bon respect des règles de l’éco-conception :
+2. Full audit
+
+   Weight each page’s carbon footprint by its individual view count. Since Quanta’s RUM tag tracks all page views in real time, Quanta can perform these calculations for high precision.
+
+In both cases, you obtain the site's global carbon footprint for the selected period.
+
+## The Digital Sobriety Score
+
+The overall Numeric Digital Sobriety Score (out of 100) combines the two main sub-indicators:
+
+- Average carbon footprint per click (Average CFPC)
+- Average Eco-Design Score (Average EDS)
+
+Each sub-indicator is weighted at 50% to balance low carbon footprints per click with good eco-design practices:
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-8.png)
 
-NB : Bien que la méthode de calcul et les pondérations soient identiques dans le cas d’un audit simple ou d’un audit complet, il est à noter que dans le cas de l’audit simple les calculs de Score d’éco-conception moyen et de l’Empreinte carbone moyenne par clic ne prennent en compte que les 10 principales pages du site. Se référer au premier chapitre “Comment est calculé le Score de Sobriété Numérique” pour plus d’informations.
+Note: While calculation methods and weightings are the same for simple and full audits, the simple audit considers only the site’s 10 main pages for Average EDS and Average CFPC. See the section "How is the Digital Sobriety Score calculated?" for more information.
 
-**Condition d'obtention du label Quanta**
+**Conditions for obtaining the Quanta label**
 
-Quanta permet de fournir un Score de Sobriété Numérique sous une forme certifiée contenant un visuel récapitulatif pouvant être utilisé sur le site lui-même et/ou dans d’autres communications. Ce certificat est accompagné d’un rapport plus détaillé et contenant l’ensemble des mesures clés ayant donné lieu au calcul du score global.
+Quanta can issue a certified Digital Sobriety Score with a summary visual suitable for use on the site or in communications. This certificate is accompanied by a detailed report containing the measurements behind the overall score.
 
 ![Image](../assets/digital-sobriety/digital-sobriety-score-4.png)
 
-Le rapport fourni sert à la fois à prouver l’origine de la mesure et du calcul ayant donné lieu à la fourniture du Score de Sobriété Numérique, mais également à guider les équipes digitales ou numérique responsable dans le choix des prochaines optimisations du site qui pourront améliorer son score.
+The report both proves the origin of the measurement and guides digital and responsible teams on optimizations to improve the score.
 
-Pour obtenir un score certifié :
+To obtain a certified score:
 
-- une licence Quanta Sobriété Numérique doit être connectée au site concerné avec l’option Real User Monitoring. Le Score de Sobriété Numérique y est dans ce cas calculé en temps réel.
-- une analyse est réalisée par un expert afin de rédiger le rapport complet.
+- a Quanta Digital Sobriety license must be connected to the target site with Real User Monitoring enabled. The Digital Sobriety Score is then calculated in real time.
+- an expert analysis is carried out to produce the full report.
 
-Le premier certificat généré pour un site donné peut être effectué en se basant sur les mesures des 30 derniers jours. Il est valable un an, et sera renouvelé par un certificat basé sur les mesures des 12 mois suivants. Ainsi, dès la 2ème année de certification, le Score de Sobriété Numérique délivré par Quanta prendra en compte l’empreinte précise liée au trafic constaté pendant toute l’année.
+The first certificate for a given site can be based on the previous 30 days of data. It is valid for one year and will be renewed with a certificate based on the following 12 months. From the second year onward, the certificate will reflect the site's full-year traffic and may include the change in score versus the previous year.
 
-Le certificat émis à partir de la 2ème année pourra par ailleurs faire figurer la variation de la note versus l’année précédente.
+## Optional indicator: Carbon Footprint per € of turnover (CFPT)
 
-## Indicateur optionnel : l’**Empreinte Carbone par € de chiffre d’affaires (“CFPT” pour Carbon Footprint Per Turnover)**
+Not included in the Digital Sobriety Score, the carbon footprint per euro of turnover is an optional metric that relates the site’s carbon footprint to one euro of online revenue. It can be useful to compare the environmental efficiency of e-commerce sites of different sizes.
 
-Non répercuté dans le Score de Sobriété Numérique, l’empreinte carbone par unité de chiffre d’affaire est un **calcul optionnel** de l’empreinte carbone du site Internet rapporté à 1 euro de chiffre d'affaires réalisé en ligne. Il peut être utile pour comparer l’impact environnemental de 2 sites e-commerce de tailles différentes.
+To compute CFPT, consider:
 
-Pour calculer l’empreinte carbone par € de chiffre d’affaires, il faut prendre en compte 2 critères principaux :
+- the site’s global carbon footprint (Global CF) for a period
+- the site’s revenue (€) for that same period
 
-- l’empreinte carbone globale du site (Global CF) pour une période donnée
-- le chiffre d’affaires en € du site pour cette même période
+Like Average CFPC, CFPT enables comparisons between sites of different scales, such as comparing different brand sites, competitors, or regionalized versions of the same site hosted in multiple countries.
 
-De la même manière que l’empreinte carbone par clic permet de comparer l’empreinte environnementale de 2 sites aux tailles très diverses, l’empreinte carbone par € de chiffre d'affaires permet de comparer l’efficacité carbone de 2 e-commerçants de tailles radicalement différentes.
+## Further reading
 
-Avec cet indicateur, un groupe peut par exemple comparer les sites de ses différentes enseignes, de ses concurrents ou encore les versions régionalisées d’un même site hébergé dans plusieurs pays.
-
-## **Sources pour aller plus loin**
-
-Plus d’information concernant certains des calculs évoqués dans ce document :
+More information on calculations mentioned in this document:
 
 - Calculating Digital Emissions (Sustainable Web Design) [https://sustainablewebdesign.org/calculating-digital-emissions/](https://sustainablewebdesign.org/calculating-digital-emissions/)
 - Lean ICT - Pour une sobriété numérique (The Shift Project) [https://theshiftproject.org/wp-content/uploads/2018/05/2018-05-17_Rapport-interm%C3%A9diaire_Lean-ICT-Pour-une-sobri%C3%A9t%C3%A9-num%C3%A9rique.pdf](https://theshiftproject.org/wp-content/uploads/2018/05/2018-05-17_Rapport-interm%C3%A9diaire_Lean-ICT-Pour-une-sobri%C3%A9t%C3%A9-num%C3%A9rique.pdf)
-- **Calculer le Score de Sobriété Numérique gratuitement (méthode audit simple) sur [quanta.green](http://quanta.green)**
-- Intensité carbone de l’électricité : [https://app.electricitymaps.com/map](https://app.electricitymaps.com/map)
+- **Calculate the Digital Sobriety Score for free (simple audit) on [quanta.green](http://quanta.green)**
+- Electricity carbon intensity: [https://app.electricitymaps.com/map](https://app.electricitymaps.com/map)
 
-## Licence
+## License
 
-L’algorithme et la méthode de calcul, ainsi que les quantiles utilisées pour produire le Score de Sobriété Numérique sont communiquées de façon transparente et gratuite afin de servir au plus grand nombre sans nécessité d’utiliser les services de Quanta. La licence utilisée est la [Creative Commons Attribution-NonCommercial-NoDerivatives 2.0 France (CC BY-NC-ND 2.0 FR)](https://creativecommons.org/licenses/by-nc-nd/2.0/fr/), qui autorise l’utilisation par tous, particuliers, associations et entreprise sans être revendus.
+The algorithm, calculation method, and quantiles used to produce the Digital Sobriety Score are published transparently and freely to serve the public without requiring Quanta services. The license is [Creative Commons Attribution-NonCommercial-NoDerivatives 2.0 France (CC BY-NC-ND 2.0 FR)](https://creativecommons.org/licenses/by-nc-nd/2.0/fr/), which permits use by individuals, associations, and companies as long as it is not resold.
 
-## Annexe - Quantiles utilisés
+## Appendix - Quantiles used
 
-Pour traduire chacune des mesures réalisées sur un site Internet en score, **l’utilisation de tableaux de correspondance est nécessaire**. Afin que chacun puisse calculer son propre Score de Sobriété Numérique, en dehors du site [quanta.green](http://quanta.green) ou des services proposés par Quanta, l’ensemble des tableaux de correspondance sont disponibles sur simple demande via [hello@quanta.io](mailto:hello@quanta.io).
+To convert each measured value on a website into a score, **mapping tables are required**. So that anyone can calculate their own Digital Sobriety Score outside of [quanta.green](http://quanta.green) or Quanta's services, the complete mapping tables are available on request via [hello@quanta.io](mailto:hello@quanta.io).

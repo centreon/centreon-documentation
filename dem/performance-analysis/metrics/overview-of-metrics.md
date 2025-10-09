@@ -1,56 +1,56 @@
 ---
 id: overview-of-metrics
-title: Vue d'ensemble des métriques
+title: Overview of metrics
 --- 
 
-# Vue d'ensemble des métriques
+# Overview of metrics
 
-Quanta présente plusieurs métriques de performance, cette page les présente **très brièvement**. En cliquant sur chacun, vous accéderez à une page détaillant plus la métrique.
+Quanta presents several performance metrics; this page describes them **very briefly**. Click any metric to open a dedicated page with more details.
 
-# [Hero Time](./hero-time.md)
+## [Hero Time](./hero-time.md)
 
-Le Hero Time est une mesure propre à Quanta. Elle n’existe nul part ailleurs. Il s’agit du temps que la sonde Quanta va mettre entre le début de l’interaction et le moment ou la vérification de succès survient (exemples: la page est chargée, la pop-up pour les cookies s’est affichée, etc)
+Hero Time is a Quanta-specific metric. It doesn't exist anywhere else. It measures the time the Quanta probe takes from the start of the interaction until the success verification occurs (examples: the page is loaded, the cookie consent popup appears, etc.).
 
-L’amélioration de cette métrique signifie que l’interactivité est meilleure: les clics produisent plus vite des résultats sur la page.
+Improving this metric means interactivity is better: clicks produce visible results faster.
 
-# [TTFB (Time To First Byte ou temps de premier octet)](./time-to-first-byte.md)
+## [TTFB (Time To First Byte)](./time-to-first-byte.md)
 
-Lorsque l’utilisateur demande la page au site internet, il doit attendre un certain temps avant de recevoir la réponse: sa requête traverse internet, le serveur la reçoit, la vérifie, crée la page, puis la page retraverse internet dans l’autre sens. Le TTFB mesure le temps d’attente avant la réception du tout premier octet de la réponse.
+When a user requests a page, there is some waiting before the response arrives: the request traverses the Internet, the server receives and processes it, generates the page, and the response traverses back. TTFB measures the waiting time before receiving the very first byte of the response.
 
-Pendant ce temps, la page est blanche. Améliorer le TTFB signifie que la page s’affichera plus vite et améliorera toutes les autres métriques de performances.
+During this time the page is blank. Improving TTFB makes the page show up faster and benefits all other performance metrics.
 
-# [Speed Index](./speed-index.md)
+## [Speed Index](./speed-index.md)
 
-Le Speed Index est un score évaluant la vitesse de remplissage de la page web. Une page web qui s’affiche en 5s en restant toute blanche pendant 4s aura un Speed Index moins bon qu’une page web qui s’affiche aussi en 5s mais qui commence à afficher des éléments dès la première seconde.
+Speed Index is a score that evaluates how quickly a page visually completes. A page that loads in 5s but stays blank for 4s will have a worse Speed Index than a page that also finishes in 5s but starts rendering elements on the first second.
 
-Le Speed Index est un indicateur complexe. Il est exprimé en secondes mais il s’agit plutôt d’un score que d’une mesure de temps. L’améliorer signifie que l’impression de vitesse d’affichage est meilleur pour l’utilisateur.
+Speed Index is a complex indicator: it’s expressed in seconds but should be treated as a score rather than a pure time measurement. Improving it means the perceived rendering speed is better for users.
 
-# [Onload](./on-load.md)
+## [Onload](./on-load.md)
 
-L’Onload est le moment où la page a fini de charger.
+Onload is the moment when the page has finished loading.
 
-Un Onload long signifie que la page est potentiellement trop lourde ou complexe.
+A long Onload may indicate the page is too heavy or complex.
 
-# [LCP (Largest Contentful Paint)](./largest-contentful-paint.md)
+## [LCP (Largest Contentful Paint)](./largest-contentful-paint.md)
 
-Le LCP mesure le moment où l’élément le plus visuellement impactant s’affiche. Il peut s’agir d’une image ou d’un texte. Sur la page d’accueil d’un site ecommerce, il s’agit généralement de la bannière principale. Sur la page produit d’un site ecommerce, il s’agit généralement de l’image du produit.
+LCP measures when the most visually significant element appears. This can be an image or a text block. On an ecommerce homepage it is often the main banner; on a product page it is usually the product image.
 
-Le LCP est un “Core Web Vitals”, c’est à dire un des indicateurs de performance surveillé par Google pour évaluer la performance. En l’améliorant, l’impression de vitesse d’affichage s’améliore ainsi que le SEO.
+LCP is a Core Web Vitals metric monitored by Google. Improving LCP enhances perceived rendering speed and can improve SEO.
 
-# [TBT (Total Blocking Time)](./total-blocking-time.md)
+## [TBT (Total Blocking Time)](./total-blocking-time.md)
 
-Le Total Blocking Time quantifie à quel point une page est inutilisable avant qu’elle soit stable et fluide.
+Total Blocking Time quantifies how unusable a page is before it becomes stable and smooth.
 
-Lors du chargement d’une page web, de nombreux fichiers sont lus et interprétés par le navigateur. Ces chargements peuvent être bloquants (c’est à dire que l’utilisateur ne peut pas interagir avec la page pendant ce temps ET peut le percevoir). Le TBT mesure le cumul de tout ces blocages entre le moment où le premier élément visuel s’affiche, et le moment où la page devient parfaitement interactive.
+During page load many files are parsed and executed by the browser. These executions can block the main thread (i.e. the user cannot interact with the page during that time and may perceive it). TBT measures the cumulative duration of such blocking between the time the first visual element appears and the time the page becomes fully interactive.
 
-L’améliorer permet de s’assurer que la page est utilisable, même avant d’être parfaitement chargée.
+Improving TBT helps ensure the page is usable even before it is fully loaded.
 
-# [CLS (Cumulative Layout Shift)](./cumulative-layout-shift.md)
+## [CLS (Cumulative Layout Shift)](./cumulative-layout-shift.md)
 
-Le CLS mesure la stabilité visuelle de la page. Si un élément visuel s’affiche, puis qu’il change de place pendant le chargement, le client peut être frustré (exemple: la croix pour fermer une pop-up qui change de place). Un score de 0 est un score parfait: rien ne bouge une fois affiché.
+CLS measures visual stability. If an element appears and then shifts during loading, users may be frustrated (for example: the close button for a popup moving). A CLS score of 0 is perfect: nothing moves after rendering.
 
-Le CLS est un “Core Web Vitals”, c’est à dire un des indicateurs de performance surveillé par Google pour évaluer la performance. En l’améliorant, la frustration diminue et le SEO s’améliore.
+CLS is a Core Web Vitals metric monitored by Google. Improving it reduces frustration and benefits SEO.
 
-# Score de performance
+## Performance score
 
-Ce score de performance de 1 à 100 (pour le chargement complet d’une page), permet de représenter la performance générale de la page sur tous les sujets précédents.
+This performance score, from 1 to 100 (for full page load), represents the overall page performance across the metrics above.

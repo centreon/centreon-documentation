@@ -1,20 +1,20 @@
 ---
 id: system-tab-indicators
-title: Comprendre les indicateurs de l’onglet Système
+title: Understanding the System tab indicators
 --- 
 
-# Comprendre les indicateurs de l’onglet Système
+# Understanding the System tab indicators
 
-# Qu’est-ce que l’interface réseau ?
+## What is the network interface?
 
-L’interface réseau correspond à la bande passante. C’est grâce à cet indicateur que vous pourrez savoir la quantité de données reçues et émises par votre serveur, appelées respectivement incoming traffic et outgoing traffic dans Quanta. Par exemple, lorsque quelqu’un se connecte sur votre site il s’agit d’incoming traffic, ou de flux entrant.
+The network interface corresponds to bandwidth. This indicator shows the amount of data received and sent by your server, referred to in Quanta as incoming traffic and outgoing traffic. For example, when someone visits your site that is incoming traffic.
 
-# Qu’est-ce que la mémoire ?
+## What is memory?
 
-La mémoire sert à stocker des informations à court terme. A titre d’illustration, c’est cet élément qui provoque des latences sur un ordinateur lorsque de nombreuses tâches sont exécutées en même temps. Le graphique de mémoire n’est pas sensé varier de manière importante, et d’expérience, la mémoire est raremen un élément qui provoque des problèmes.
+Memory stores short-term information. For example, it is the resource that causes latency on a computer when many tasks run simultaneously. The memory graph should not vary significantly, and in our experience memory rarely causes issues.
 
-# Qu’est-ce que le disque ?
+## What is the disk?
 
-Le disque sert à stocker les informations à long terme. C’est ici que sont stockées vos images notamment.
+The disk stores long-term information; this is where assets such as images are kept.
 
-De manière analogue à la mémoire, cet élément ne doit pas sensiblement varier dans le temps et ne représente pas un facteur risquant de faire exploser vos temps de chargement ni de rendre votre site indisponible.
+Like memory, disk usage should not vary dramatically over time and is not typically a factor that would cause large increases in load times or make your site unavailable.

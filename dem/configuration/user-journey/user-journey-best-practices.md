@@ -1,15 +1,15 @@
 ---
 id: user-journey-best-practices
-title: Bonnes pratiques des Parcours Utilisateurs
+title: User Journey Best Practices
 --- 
 
-# Configuration avancée des Parcours Utilisateurs & bonnes pratiques (pro tips)
+# User Journey Best Practices
 
-# Gestion des iframes
+# Managing iframes
 
-Vu la façon dont Quanta gère la possible présence d’iframes dans une page, un point important est à prendre en compte dans ce cas de figure précis. Si des iframes sont présentes et que nous souhaitons manipuler des sélecteurs CSS, il est nécessaire de choisir des selecteurs CSS qui sont soit à l'intérieur d'une iframe, soit à l'extérieur, mais **PAS** des selecteurs qui "traversent" les 2 contextes, ce qui ne fonctionnera pas. 
+Because of the way Quanta handles possible iframes on a page, one important point must be considered in this specific case. If iframes are present and you want to manipulate CSS selectors, you must choose selectors that are either inside an iframe or outside it — **NOT** selectors that "cross" the two contexts, which will not work.
 
-Voici un exemple explicatif, imaginons que le code HTML est architecturé comme ceci :
+Here is an explanatory example. Imagine the HTML is structured like this:
 
 ```html
 <div class="main">
@@ -27,274 +27,258 @@ Voici un exemple explicatif, imaginons que le code HTML est architecturé comme 
 .main iframe
 ```
 
-✅  ⇒ renvoie bien l'iframe
+✅  ⇒ returns the iframe
 
 ```css
 #my-form
 ```
 
-✅  ⇒ renvoie le 1er my-form (celui qui n'est pas dans l'iframe)
+✅  ⇒ returns the first `my-form` (the one that's not inside the iframe)
 
 ```
 .main iframe .frame-content
 ```
 
-❌  ⇒ ne fonctionne pas, car `.frame-content` appartient au document de l'iframe
+❌  ⇒ doesn't work, because `.frame-content` belongs to the iframe's document
 
 ```
 .frame-content #my-form
 ```
 
-✅  ⇒renvoie bien le form qui se trouve à l'intérieur de l'iframe cette fois-ci
+✅  ⇒ returns the form that is inside the iframe this time
 
 ```
 iframe #my-form
 ```
 
-❌  ⇒ ne fonctionne pas car #my-form est déja dans le document de l'iframe.
+❌  ⇒ doesn't work because `#my-form` is already inside the iframe document.
 
-⚠️ **Quand on veut un élément qui est à l'intérieur d'une iframe, on doit faire comme si TOUT ce qu'il y a en dehors du CONTENU de l'iframe n'existait pas.**
+⚠️ **When you want an element that is inside an iframe, you must act as if EVERYTHING outside the iframe's CONTENT does not exist.**
 
-# Bonnes Pratiques
+# Best Practices
 
-- Privilégier les sélecteurs CSS au texte
+- Prefer CSS selectors over text
     
-    L'avantage des sélecteurs par texte est qu'il suffit de copier coller un texte de la page. L'inconvénient c'est que ce texte peut parfois être trouvé ailleurs dans la page même s'il n'est pas forcément visible et donc ne pas fonctionner comme attendu.
+    The advantage of choosing by text is that you can copy-paste visible text from the page. The downside is that the same text can appear elsewhere in the page — sometimes hidden — and therefore not work as expected.
     
-    Évidemment, plus le texte est spécifique, plus il a de chances d'être unique.
+    Of course, the more specific the text, the likelier it is to be unique.
     
-    Attention : une phrase visible à l’écran sur le site peut en réalité être fragmentée dans le code HTML. C’est systématiquement le cas typiquement si un ou plusieurs mots sont dans un style différent (bold ou autre couleur). Or dans son attente d’une chaine de caractère spécifiée dans le scénario, Quanta ira rechercher à l’intérieur du code HTML ⇒ en clair, si le texte est fractionné, il pourrait ne pas être trouvé.
+    Note: a phrase visible on the site can actually be fragmented in the HTML. This commonly happens when one or more words have different styling (bold or a different color). Since Quanta searches inside the HTML for the specified string, if the text is split, it may not be found.
     
-    Pour être certain que la chaîne spécifiée comme élément attendu dans Quanta est bien celle qui est présente dans le code HTML, nous vous conseillons d’effectuer un “Clic-droit” puis “Inspecter dans le code HTML” pour copier/coller la chaine directement depuis le code HTML, ce qui évite toute erreur. Enfin, les espaces avant et après le texte sont également à éviter, il est préférable de les supprimer manuellement.
-    
+    To be sure the string you add in Quanta matches exactly what's in the HTML, we recommend right-clicking and choosing "Inspect" to copy the string directly from the HTML — this avoids errors. Also remove any leading or trailing spaces manually.
 
-- Spécifier un sélecteur CSS pour les formulaires
+- Specify a CSS selector for forms
     
-    Si vous ne spécifiez pas de sélecteur CSS sur un formulaire, la sonde essaiera de remplir les champs correspondants partout dans la page. De même sans sélecteur, l'envoi automatique soumettra le premier form trouvé.
+    If you don't provide a CSS selector for a form, the probe will try to fill matching fields everywhere on the page. Similarly, without a form selector, automatic submission will submit the first form found.
     
-    **Mettre un sélecteur CSS permet donc de garantir que les bons champs soient remplis et que le formulaire soit correctement envoyé.**
-    
+    **Specifying a CSS selector ensures the correct fields are filled and the form is submitted properly.**
 
-- Nettoyer les classes utilitaires ou générées des sélecteurs CSS
+- Clean utility or generated classes from CSS selectors
     
-    Lorsque vous utilisez la fonction "Copy CSS selector" de Chrome, le sélecteur généré comporte généralement beaucoup de classes CSS (notation .nom-de-la-classe) dont la plupart peuvent être superflues. On pense notamment aux classes utilitaires (par exemple .alert-danger) ou aux classes générées par le framework (par exemple .menu-item-x823ds83sa9c). Ces classes n'apportent rien à la précision du sélecteur CSS, ce qui au mieux complique la maintenabilité (le moindre changement de classe utilitaire d'un élément causera une erreur "*Element not found*") et pourra même empêcher le sélecteur de fonctionner (dans le cas des classes générées aléatoirement à chaque chargement de la page).
+    When you use Chrome's "Copy CSS selector" feature, the generated selector often contains many CSS classes (notation `.class-name`) that may be unnecessary. Think of utility classes (e.g. `.alert-danger`) or framework-generated classes (e.g. `.menu-item-x823ds83sa9c`). These classes don't improve selector precision and can hurt maintainability (a minor change to a utility class will cause an "Element not found" error) and may even break the selector if classes are randomly generated on each load.
     
-    De la même manière, il peut être pertinent d'assouplir la notion "d'enfant" directement dans les sélecteurs CSS (décrite par le symbole ">") car l'insertion d'un élément entre les 2 demandera une modification du CSS sélecteur. Le retrait du symbole ">" conserve la notion de hiérarchie entre les éléments mais n'impose pas une relation "d'enfant" direct.
-    
-- Éviter l'action "wait"
-    
-    L'action wait est le dernier recours lorsqu'il n'est pas possible d'ajouter une vérification sur l'action précédente.
-    
-    **Il est toujours préférable de choisir une vérification** car elle ne demandera pas de micro-réglage de la durée pour conserver le parcours utilisateur stable elle n'impactera pas les mesures de l'interaction (le wait est décompté dans le Hero Time)
-    
-    Il existe certains cas ou l'action wait est nécessaire car il n'est pas possible d'ajouter une vérification, par exemple :
-    
-    - La page ajoute des event handlers après le onLoad : l'action souhaitée peut donc être déclenchée avant d'être prête à être traitée par la page (c'est un bug du site mais cela peut se produire plus facilement avec la sonde puisque celle-ci est bien plus rapide qu'un utilisateur)
-    - Une action modifie la page mais il n'est pas possible de mettre une vérification sur cette modification. Par exemple si la modification concerne un attribut autre que "id" ou "class", qui n'est donc pas monitoré, on pourra recourir au wait (mais il conviendra de se demander d'abord si cette action à un quelconque intérêt)
-    
-    Pour éviter d'impacter les mesures, il est recommandé dans la mesure du possible d'isoler l'action wait dans une interaction à part et non mesurée (NB: les vérifications ne sont pas obligatoires pour les interactions non mesurées).
-    
-- Éviter le random
-    
-    Le random peut-être utile pour les tests de charge notamment mais peut aussi introduire des variations de performance qui rendront alors les mesures difficilement comparables.
-    
-    **Il est préférable de choisir une cible fixe ou bien de sélectionner systématiquement le premier élément.** Cela permet aussi de mettre des vérifications plus précises, spécifique à la page visitée.
-    
+    Likewise, consider loosening strict child relationships (`>`). Removing `>` preserves hierarchical context without enforcing a direct parent-child relation, which makes the selector more resilient if an element is inserted between.
 
-- Choisir intelligemment les éléments à vérifier
+- Avoid the "wait" action
     
-    Les vérifications servent à mesurer le *Hero Time* — un indicateur clé de la perception de performance par l'utilisateur. Il est donc essentiel de sélectionner des éléments réellement représentatifs de l'expérience utilisateur, tout en évitant les vérifications redondantes qui alourdiraient inutilement la configuration.
+    The wait action should be a last resort when you cannot add a verification on the previous action.
     
-    **Notre recommandation : identifier 2 à 3 éléments clés** (par exemple, la plus grande image ou *background-image*, un texte structurant comme le titre principal, et le *call-to-action* principal). Cela permet d’avoir une mesure pertinente et maintenable, sans surcharger le scénario avec des vérifications superflues.
+    **It's always preferable to choose a verification** because it avoids fine-tuning durations to keep the user journey stable, and it doesn't affect interaction measurements (wait is counted in the Hero Time).
     
+    There are cases where wait is necessary because no verification is possible, for example:
+    
+    - The page adds event handlers after onLoad: the intended action may be triggered before the page is ready to handle it (this is a site bug but can happen more often with the probe because it's faster than a human).
+    - An action modifies the page but it's not possible to verify that modification. For example, if the change concerns an attribute other than `id` or `class` (which are monitored), you may need to use wait (but first question whether the action is meaningful).
+    
+    To avoid affecting measurements, isolate wait actions in a separate, unmeasured interaction where possible (note: verifications are not mandatory for unmeasured interactions).
 
-- Ajouter des vérifications sur les cibles des actions
+- Avoid randomness
     
-    Lorsqu'une action cible un texte ou un sélecteur CSS, il est bénéfique d'ajouter une vérification sur cet élément **lors de l'action précédente** pour s'assurer que la cible soit bien apparue (et la cible est de-facto un élément important qui mérite d'être compté dans le Hero Time).
+    Random selection may be useful for load testing but can introduce performance variations that make measurements hard to compare.
     
-    **Exemple :** La 4e action de mon parcours est *Cliquer sur le bouton 'Ajouter au panier'.* J'ajoute donc une vérification dans ma 3e action de type *Le text "Ajouter au panier" a été inséré dans la page.*
-    
+    **Prefer a fixed target or consistently select the first element.** This also enables more precise verifications tailored to the visited page.
 
-- Ajouter une vérification de navigation pour les interactions qui naviguent
+- Choose verification targets wisely
     
-    La vérification de navigation permet non seulement d'inclure le temps de la requête de navigation dans le Hero Time mais également:
-    - D'en vérifier le code de retour
-    - D'attendre (sans le compter dans le Hero Time) l'évènement de load de la page (ce qui permet aussi de récupérer un speedIndex)
+    Verifications are used to measure the *Hero Time* — a key indicator of perceived performance. It's essential to pick elements that truly represent the user experience while avoiding redundant checks that add maintenance overhead.
     
-- Ajouter des vérifications sur les requêtes AJAX importantes
-    
-    Cela permet d'une part de valider le code de retour de l'appel AJAX, mais aussi de s'assurer que le Hero Time est bien représentatif des éléments les plus importants de la page.
-    
-- Nettoyer les vérification de requête des paramètres superflus
-    
-    Certaines requêtes incluent des paramètres qui peuvent varier :
-    
-    - soit de temps à autre, ex: ID produit sur une étape dynamique
-    - soit systématiquement (ex: bypass de cache de type "?_=&lt;timestamp&gt;")
-    
-    Ce type de paramètres diminue la maintenabilité (voire peut causer des erreurs en cas de paramètre qui change à chaque fois). **L'idéal est de n'inclure que les paramètres qui sont nécessaires pour identifier spécifiquement la requête de la page,** auquel cas la sonde ne sera pas sensible aux paramètres supplémentaires qui pourraient être présents
-    
-    Exemple : si nous spécifions comme requête attendue “*/addToCart?qty=1”, alors toutes les requêtes finissant par “/addToCart” vont matcher si le paramètre qty=1 est présent, y compris si d’autres paramètres sont présents (avant ou après dans la chaine de l’URL).
-    
-- Filtrer certains tags 3rd party (*mais pas trop*)
-    
-    Les sites web ont souvent de nombreuses solutions tierces intégrées à leur page. Il est souvent de bon usage de “blacklister” les trackers de solutions d'analytics pour éviter de fausser les stats de l’équipe digital marketing.
-    
-    Pour répondre à cette problématique, Quanta contient une blacklist par défaut configurée dans tout nouveau scénario. Cette blacklist filtre par exemple par défaut les requêtes vers Google Analytics, mais d’autres outils de tracking spécifique au site peuvent encore passer. Il peut donc être judicieux d’évoquer ce point avec l’équipe marketing digital pour s’assurer qu’il n’y a pas de contre-indication à ce que Quanta requête leurs autres tags.
-    
-    A garder en tête également que certains tags 3rd party sont nécessaires au bon fonctionnement de la page. Dans ce cas il sera donc important de ne pas les bloquer.
-    
-    # Protips sur l’usage des sélecteurs CSS
-    
-    ### Rendre vos sélecteurs CSS robustes et fiables
-    
-    Pour garantir la fiabilité des scénarios de monitoring, il est essentiel d’utiliser des sélecteurs CSS à la fois explicites et résilients aux évolutions du code HTML. Voici les bonnes pratiques à suivre :
-    
-    **1. Préférez les identifiants uniques ou les classes explicites**
-    
-    Un sélecteur comme `div.modal-add-to-cart` est préférable à un générique `div.w-full`, car il est beaucoup plus spécifique à une fonctionnalité métier. Les classes purement stylistiques (souvent courtes, génériques ou issues de frameworks CSS) risquent d’être réutilisées ailleurs sur la page et de provoquer des collisions.
-    
-    *Règle simple : plus un nom est lisible et fonctionnel, plus il est fiable.*
-    
-    **2. Utilisez les identifiants (ID) quand ils sont disponibles**
-    
-    Les sélecteurs basés sur un `id` HTML (`#add-to-cart-btn`) sont souvent les plus sûrs car ils sont censés être uniques sur la page. Si le bouton ou l’élément que vous ciblez possède un ID, privilégiez-le.
-    
-    **3. Désambigüisez avec des sélecteurs "en cascade"**
-    
-    Lorsque plusieurs éléments partagent le même sélecteur (ex : plusieurs `button.qty`), précisez leur contexte pour éviter les erreurs. Par exemple :
-    
-    ```css
-    div.modal-add-to-cart button.qty
-    ```
-    
-    Ce sélecteur ne cible que les boutons `.qty` présents dans une modale spécifique. Cela permet de restreindre la recherche à une zone précise du DOM, rendant votre scénario plus stable face aux évolutions.
-    
-    **4. Favorisez les sélecteurs hiérarchiques avec un ou plusieurs espaces**
-    
-    Un sélecteur CSS comme `section.product-detail div.buy-zone button.cta` offre un bon compromis entre spécificité et flexibilité. Il reste robuste même si un nouveau niveau de balise est inséré dans le HTML (ce qui casserait un sélecteur trop strict ou exact).
-    
-    ### Exemple utiles de sélecteur CSS avancés
-    
-    Voici ici quelques exemples de sélecteur CSS avancés qui peuvent se révéler très utiles dans certaines situations :
-    
-    **:not()**
-    
-    Exemple 1 :
-    **.counter.qty:not(.empty)** : Class .qty sans la class empty (&lt;div class="qty"&gt;)
-    
-    L'usage du :not() est particulièrement utile dans l'exemple ci-dessus pour indiquer que le panier n'est plus vide. On se rend d'ailleurs compte que le :not(...) peut servir à détecter la **disparition** d'une classe sur un élément ! Il faut alors bien penser le test de manière inversée.
-    
-    Exemple 2 : 
-    
-    Un autre exemple assez fréquent, il s'agit d'un bouton qui est grisé au départ et possède une classe ".disabled". Disons que le bouton a comme ID "product-addtocart-button". Dans le code HTML initial de la page, le bouton va ressembler à ça :
+    **Our recommendation: identify 2–3 key elements** (for example, the largest image or *background-image*, a structuring text like the main heading, and the primary call-to-action). This yields a meaningful, maintainable metric without overloading the scenario with unnecessary verifications.
 
-    ```css
-    <button id="product-addtocart-button" class="add-to-cart **disabled**">
-    ```
+- Add verifications on action targets
+    
+    When an action targets a text or a CSS selector, it's beneficial to add a verification for that element **in the previous action** to ensure the target has appeared (the target is by definition an important element that should be included in the Hero Time).
+    
+    **Example:** The 4th action in my journey is *Click the 'Add to cart' button.* I therefore add a verification in my 3rd action of type *The text "Add to cart" was inserted into the page.*
 
-    ****Suite à une action sur le site (ex: choix d'une taille d'un produit), le bouton va se dégriser en se voyant supprimer sa classe "disabled", il devient :
+- Add a navigation verification for actions that navigate
+    
+    A navigation verification not only includes the navigation request time in the Hero Time but also:
+    - Verifies the response status code
+    - Waits for the page load event (without counting it in the Hero Time), which also allows capturing a speedIndex
 
-    ```css
-    <button id="product-addtocart-button" class="add-to-cart">
-    ```
+- Add verifications on important AJAX requests
+    
+    This validates the response code of the AJAX call and ensures the Hero Time reflects the page's most important elements.
 
-    On peut alors insérer un test dans le scénario qui vérifie l'apparition du sélecteur CSS suivant : **#product-addtocart-button:not(.disabled)**
+- Clean request verifications from superfluous parameters
     
-    En effet, si on teste cette chaine avec la console de Chrome, alors que le bouton est grisé on voit que le sélecteur CSS ne renvoi rien. Par contre, dès que la taille du produit a été sélectionnée et que la classe .disabled disparait, alors le sélecteur CSS va renvoyer l'objet. Au sens du scénario Quanta, cet élément **#product-addtocart-button:not(.disabled)** apparait ! C'est donc un parfait test pour vérifier que le bouton d'ajout au panier est désormais dé-grisé, avant d'envisager de le cliquer.
+    Some requests include parameters that can vary:
     
-    Exemple 3 :
-    La formulation :not() peut s'appliquer à d'autres éléments que les classes. En l'occurence, Quanta surveille également l'apparition et la disparition des paramètres "disabled" ou "disable" au sein des objets du DOM, car il est fréquent que l'aspect "grisé" d'un bouton soit stocké sous forme d'un paramètre et non d'une classe (attention à ces subtilités qui sont spécifique à chaque site !).
-    Vous pouvez donc avoir un bouton qui ressemble à ça :
+    - Sometimes, e.g. a product ID on a dynamic step
+    - Or systematically (e.g. cache-bypass like `?_=<timestamp>`)
+    
+    Such parameters reduce maintainability (or can cause errors when parameters change). **Ideally include only the parameters necessary to identify the page request**, so the probe won't be sensitive to additional parameters.
+    
+    Example: if you specify the expected request as `*/addToCart?qty=1`, then any request ending with `/addToCart` will match when `qty=1` is present, even if other parameters are present before or after in the URL.
 
-    ```css
-    <button id="product-addtocart-button" class="add-to-cart" **disabled**>
-    ```
+- Filter certain 3rd-party tags (but not too much)
+    
+    Websites often integrate many third-party solutions. It's common to blacklist analytics trackers to avoid skewing marketing statistics.
+    
+    To address this, Quanta includes a default blacklist for new scenarios (it filters requests to Google Analytics, for example), but some site-specific trackers may still pass. It's a good idea to check this with the digital marketing team to ensure there is no objection to Quanta requesting their other tags.
+    
+    Keep in mind that some third-party tags are necessary for the page to function correctly. In such cases, do not block them.
 
-    Vous remarquez ici que le disabled est extérieur aux classes, c'est un autre "paramètre".
-    Pour constater la disparition de ce paramètre "disabled", on peut donc attendre l'apparition de la chaine CSS suivante : 
-    
-    **#product-addtocart-button:not([disabled])**
-    
-    Attention, ce paramètre peut être également rempli avec une chaine, comme ceci : 
-    
-    ```css
-    <button id="product-addtocart-button" class="add-to-cart" **disabled="disabled"**>
-    ```
-    
-    Si c'est le cas, on peut imaginer que le site ne supprime pas le paramètre, mais le remplisse avec une chaine "false" quand il se dégrise, comme ceci :
-    
-    ```css
-    <button id="product-addtocart-button" class="add-to-cart" **disabled="false"**>
-    ```
+## Protips on using CSS selectors
 
-    Auquel cas, il conviendra de bien préciser la valeur du paramètre dans le not() dans notre chaine attendue comme ceci : 
-    
-    **#product-addtocart-button:not([disabled="disabled"])**
-    
-    Dans ce cas, le sélecteur CSS va "apparaitre" dans les cas où le paramètre "disabled" disparaitrait complètement OU BIEN si sa valeur devient n'importe quoi d'autre que "disabled". Dans le cas d'un passage à un état disabled="false", alors le chaine sera bien vérifiée et notre objectif de scénario rempli 👍
-    
-    **a[href="https://www.xxxxx.com/"]**
-    
-    Ce sélecteur permet de dire : je veux l'élément cliquable ("a") dont l'URL de destination est "https://www.xxxxx.com/".
-    Cela peut être utile dans certains cas, mais attention tout de même, car utiliser cette formule revient un peu à naviguer sur une URL spécifique. En effet, si l'URL de la page de destination devait être ne serait-ce que très légèrement modifiée, alors le scénario sera en échec.
-    Quand les boutons ont des classes ou des ID bien explicites, il est préférable de les utiliser pour réaliser les actions clics, ainsi en cas de léger changement d'URL, le scénario Quanta va s'adapter et faire sa navigation toujours correctement comme le ferait un internaute.
-    Notre recommandation est d'utiliser cette formule pour :
-    
-    - aller sur des URLs dont la formulation n'est pas amené a changer, exemple : "www.site.com/checkout/cart/".
-    - ou bien, quand les ID, classes et autres éléments de la page rendent la sélection du bon lien trop incertaine. Dans ce cas il y a un compromis à faire. Exemple, si vous souhaitez cliquer sur une catégorie spécifique au sein d'un menu et que votre sélecteur CSS revient à cliquer sur le 8ème élément d'une liste... dites-vous qu'il est probable qu'un micro-changement sur le site décale votre clic et envoi votre scénario sur la mauvaise page. Dans ce cas, n'hésitez pas à utiliser la formulation a[href="https://www.xxxxx.com/"]**.**
-    
-    **button[data-role="change-store"]**
-    
-    Il est possible de désigner des objets en fonction des paramètres spécifiques qui les composent. Cette chaine permettra de cliquer sur l'élément de ce type : &lt;button data-role="change-store"&gt;
-    
-    ⚠️ Attention néanmoins, il est important de savoir que Quanta ne vérifie pas systématiquement **les changements d'états des paramètres** des objets de la page après avoir récupéré le code HTML initial. En effet, un compromis a du être fait en matière de performance lors de l'exécution des scénarios, et il a été choisi de surveiller les changements suivants :
-    
-    - changement sur les classes (apparition, disparition)
-    - changement sur les paramètres "disabled" ou "disable"
-    
-    En dehors de ces éléments, les **changements** peuvent ne pas être détectés ! Dans l'exemple ci-dessus, si suite à l'exécution d'un Javascript dans la page, le bouton **button[data-role="change-store"]** devient **button[data-role="checkout"]** alors il ne faudra pas utiliser ce changement dans une vérification.
-    
-    Cette expression est donc réservée aux interactions avec des objets dont les paramètres **n'ont pas changé** depuis le chargement du code HTML initial. Si vous avez un doute sur le fait que le paramètre soit bien présent dans le code HTML initial, vous pouvez vous rendre dans la console de Chrome, dans l'onglet Network, puis cliquer sur la toute première requête de la page, puis cliquer dans l'onglet "Response". Vous verrez alors s'afficher le code HTML initial, tel qu'il a été transmis à votre navigateur avant d'éventuelles modifications réalisés par le code javascript. Un "CTRL-F" pour rechercher l'élément vous amènera directement au bon endroit.
-    
-    Il peut être par exemple tentant de vouloir détecter un changement sur le paramètre "display" (exemple : un objet qui mais ce paramètre malheureusement beaucoup trop de changement pour être surveillé sans une très forte dégradation des performances.
-    
-    **button[id^="checkout-"]**
-    
-    Ce sélecteur permet de dire "je souhaite récupérer les boutons de la page, dont l'ID **commence par** "checkout-". Cela permet par exemple de récupérer un bouton de ce type : &lt;button id="checkout-920284853"&gt;
-    
-    On aurait pu mettre dans le scénario le sélecteur CSS "button#checkout-920284853", mais voyant le très grand chiffre qui figure sur la fin de cette ID, on peut largement supposer qu'il s'agit d'un paramètre généré automatiquement. La mention d'un objet comprenant un grand chiffre ou une chaine de caractère ayant l'air aléatoire est à éviter, car si ce chiffre est re-généré au moment d'une nouvelle mise en production sur le site, le scénario Quanta se mettra en erreur. Par exemple, si suite à la mise en production le bouton devient &lt;button id="checkout-946202742"&gt;, alors notre chaine de sélection ne correspondra plus et ne trouvera pas le bouton.
-    A l'inverse, si nous avons utilisé la chaine **button[id^="checkout-"]** alors le scénario continuera d'identifier le bon bouton avec son chiffre pourtant modifié.
-    Ces subtilités sont importantes pour éviter d'avoir à mener des maintenances trop récurrentes sur un scénario. Il y a une balance à trouver entre :
-    
-    - être suffisamment restrictif dans le scénario pour détecter les erreurs
-    - mais en même temps savoir insérer un peu de souplesse dans les sélecteurs CSS utilisés, les requêtes et les chaines vérifiées dans chaque action, afin que le scénario continue de tourner correctement lors de changement mineurs sur le site.
-    
-    **a.action-button,a.action-checkout**
-    
-    La virgule au milieu d'un sélecteur CSS dans l'exemple ci-dessus veut dire : "je veux l'objet 'a' qui a la classe "action-button" OU BIEN (dans le cas où le premier n'existe pas) l'objet 'a' qui a la classe "action-checkout".
-    
-    Les possibilités via ce caractère "," sont assez puissantes, car on peut tout à fait l'utiliser pour créer **une condition** dans Quanta.
-    
-    Exemple : j'ai un site Ecommerce à surveiller, et je créé un scénario assez classique qui, depuis la homepage va cliquer sur la première catégorie disponible, puis sur le premier produit de cette catégorie pour ensuite faire un ajout au panier.
-    Il peut arriver assez souvent que certains produits du catalogue soit "**configurables"** et d'autres non. Configurable veut dire qu'il y a une option à choisir avant de pouvoir ajouter au panier, des options comme :
-    - une pointure pour une paire de chaussures
-    - une couleur- un motif de tissu
-    - etc.
-    Sur certains sites, si l'option n'a pas été choisie (cliquée) par l'utilisateur alors le bouton d'ajout au panier va rester grisé.
-    La difficulté ici sera donc de faire un scénario adaptatif, qui sait gérer plusieurs types de produits distincts qui ne sont pas configurables de la même manière, c'est là que notre "," devient une précieuse arme ;-)
-    
-    Exemple, pour cliquer sur la première couleur proposée OU sur la première pointure proposée OU le premier motif proposé, je vais pouvoir faire un clic sur un sélecteur qui ressemble à ça :
-    
-    select.choose-color,select.choose-size,select.choose-pattern
-    
-    Dans ce cas, Quanta va cliquer sur le premier élément existant dans l'ordre de la gauche vers la droite. De cette façon, qu'il faille configurer le produit par sa couleur, sa taille ou son motif, Quanta saura alors cliquer celui qui est existant sur la page, ce qui va dégriser le bouton d'ajout au panier. Ceci est un bon exemple de scénario adaptatif.
-    
-    **Pour aller plus loin**
-    
-    Comme vous avez pu le voir par ces exemples, les sélecteurs CSS regorgent de fonctions, qui vont donner une immense flexibilité aux scénarios créés dans Quanta.
-    
-    Nous avons regroupé ci-dessus les cas d'utilisation les plus fréquents, mais la liste est non exhaustive. Pour aller plus loin, n'hésitez pas à consulter la "bible", le site w3schools.com :D
-    
-    [https://www.w3schools.com/cssref/css_selectors.asp](https://www.w3schools.com/cssref/css_selectors.asp)
-    
+### Make your CSS selectors robust and reliable
+
+To ensure monitoring scenarios are reliable, use CSS selectors that are explicit yet resilient to HTML changes. Follow these best practices:
+
+**1. Prefer unique IDs or explicit classes**
+
+A selector like `div.modal-add-to-cart` is better than a generic `div.w-full` because it's more specific to a business function. Purely stylistic classes (often short, generic, or from CSS frameworks) are likely to be reused elsewhere and cause collisions.
+
+*Simple rule: the more readable and functional a name is, the more reliable it will be.*
+
+**2. Use IDs when available**
+
+Selectors based on an HTML `id` (like `#add-to-cart-btn`) are often safest because they're supposed to be unique on the page. If the target has an ID, prefer it.
+
+**3. Disambiguate with cascading selectors**
+
+When multiple elements share the same selector (e.g. several `button.qty`), specify their context to avoid errors. For example:
+
+```css
+div.modal-add-to-cart button.qty
+```
+
+This selector targets only `.qty` buttons inside that specific modal, restricting the search to a precise DOM area and making your scenario more stable against changes.
+
+**4. Favor hierarchical selectors with one or more spaces**
+
+A selector like `section.product-detail div.buy-zone button.cta` strikes a good balance between specificity and flexibility. It remains robust even if an extra tag level is inserted in the HTML (which would break an overly strict selector).
+
+### Useful examples of advanced CSS selectors
+
+Here are some advanced CSS selector examples that can be very useful in certain situations:
+
+**:not()**
+
+Example 1:
+**.counter.qty:not(.empty)** : `.qty` class without the `.empty` class (`<div class="qty">`)
+
+Using `:not()` is particularly useful to indicate that the cart is no longer empty. The `:not(...)` can also detect the **disappearance** of a class on an element — think of the test in reverse.
+
+Example 2:
+
+Another common example is a button that starts disabled and has a `.disabled` class. Suppose the button has the ID `product-addtocart-button`. In the page's initial HTML, the button may look like:
+
+```html
+<button id="product-addtocart-button" class="add-to-cart disabled">
+```
+
+After an action (e.g. selecting a product size), the button will be enabled by removing the `.disabled` class, becoming:
+
+```html
+<button id="product-addtocart-button" class="add-to-cart">
+```
+
+You can then add a test that checks for the selector: **#product-addtocart-button:not(.disabled)**
+
+If you test that selector in Chrome's console while the button is disabled, it returns nothing. Once the size is selected and `.disabled` disappears, the selector returns the element. In Quanta, the selector **#product-addtocart-button:not(.disabled)** thus "appears" — a perfect test to verify the add-to-cart button is enabled before clicking it.
+
+Example 3:
+The `:not()` syntax applies to attributes as well. Quanta also monitors the appearance and disappearance of `disabled` attributes because a button's "grayed" state is frequently represented by an attribute rather than a class (site-specific subtlety!).
+
+You can encounter a button like:
+
+```html
+<button id="product-addtocart-button" class="add-to-cart" disabled>
+```
+
+Notice `disabled` is an attribute, not a class. To detect the removal of this attribute, wait for the selector:
+
+**#product-addtocart-button:not([disabled])**
+
+Be aware the attribute can also be set to a string, e.g.:
+
+```html
+<button id="product-addtocart-button" class="add-to-cart" disabled="disabled">
+```
+
+If the site doesn't remove the attribute but sets it to "false" when enabling the button:
+
+```html
+<button id="product-addtocart-button" class="add-to-cart" disabled="false">
+```
+
+Then specify the expected value in the `:not()` selector like:
+
+**#product-addtocart-button:not([disabled="disabled"])**
+
+In that case, the selector will "appear" when the `disabled` attribute is removed OR when its value changes to anything other than "disabled" (e.g. `disabled="false"`). This still achieves the goal of detecting when the button becomes enabled.
+
+**a[href="https://www.xxxxx.com/"]**
+
+This selector targets an anchor (`a`) whose destination URL is `https://www.xxxxx.com/`. It can be useful but be cautious: using this is akin to navigating to a very specific URL. If the destination URL changes even slightly, the scenario will fail.
+When buttons have clear classes or IDs, prefer those for click actions; then Quanta will adapt to small destination-URL changes like a real user.
+We recommend this pattern for:
+
+- URLs unlikely to change, e.g. `www.site.com/checkout/cart/`.
+- Or when IDs/classes don't allow reliable selection and you need a fallback. For example, if you want to click a specific category in a menu and your selector ends up clicking the 8th item in a list, a small site change could break the scenario — then using `a[href="https://www.xxxxx.com/"]` is acceptable.
+
+**button[data-role="change-store"]**
+
+You can target elements by specific attributes. This selector clicks a button like `<button data-role="change-store">`.
+
+⚠️ Note: Quanta doesn't systematically monitor **all attribute state changes** after capturing the initial HTML. For performance reasons, Quanta focuses on monitoring:
+
+- class changes (appearance/disappearance)
+- `disabled` or `disable` attribute changes
+
+Other changes may not be detected. In the example above, if a JavaScript execution changes `button[data-role="change-store"]` to `button[data-role="checkout"]`, you should not rely on that change in a verification.
+
+This selector is therefore intended for interactions with elements whose attributes **don't change** after initial HTML load. If in doubt, open Chrome's Network tab, click the first request of the page, then look at the Response to view the initial HTML. Use CTRL-F to search for the element.
+
+It may be tempting to monitor a `display` attribute change, but such attributes often fluctuate too frequently to monitor without a major performance hit.
+
+**button[id^="checkout-"]**
+
+This selector matches buttons whose ID **starts with** `checkout-`. For example: `<button id="checkout-920284853">`.
+
+You could have used `button#checkout-920284853` in the scenario, but the long numeric suffix suggests the ID is generated dynamically. If that number is regenerated on deployment, your selector will break (e.g. `checkout-946202742`). Using **button[id^="checkout-"]** keeps the selector resilient to that change.
+
+These subtleties help avoid frequent maintenance. There's a balance between being restrictive enough to detect errors and flexible enough so minor site changes don't break the scenario.
+
+**a.action-button,a.action-checkout**
+
+The comma in the selector above means: target the `a` element with class `action-button` OR (if not present) the `a` element with class `action-checkout`.
+
+The comma is powerful because it can implement **a conditional** in Quanta.
+
+Example: On an e-commerce site, a common scenario clicks the first available category from the homepage, then the first product, then adds it to the cart. Some products are **configurable** (require options) while others are not. Configurable products require choosing an option like size or color before adding to cart, leaving the add-to-cart button disabled until configured.
+
+To make a scenario adaptive across product types, use a selector like:
+
+`select.choose-color,select.choose-size,select.choose-pattern`
+
+Quanta will click the first existing element from left to right. Whether the product needs a color, size, or pattern, Quanta will click the available control, enabling the add-to-cart button. This is a good example of an adaptive scenario.
+
+**To go further**
+
+As these examples show, CSS selectors offer many features that provide great flexibility for Quanta scenarios.
+
+We've gathered the most common use cases above, but the list isn't exhaustive. For deeper reference, consult the canonical resource: w3schools.
+
+[https://www.w3schools.com/cssref/css_selectors.asp](https://www.w3schools.com/cssref/css_selectors.asp)
