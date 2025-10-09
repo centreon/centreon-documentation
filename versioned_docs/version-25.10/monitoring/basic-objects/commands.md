@@ -69,6 +69,17 @@ $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode
 
 > Good practice requires replacing the arguments by *[custom macros](macros.md#custom-macros)*.
 
+## Testing a command
+
+To make sure that a command works, you can test it in the command line on your poller.
+
+1. On your central server, on the **Resource status** page, select the host or service whose check command you want to test.
+2. Copy the check command at the bottom of the **Details** panel.
+3. Log in to your poller as user **centreon-engine** (`su - centreon-engine`).
+4. Run the command you copied (for password macros, replace *** with the actual password).
+
+The command returns the same information as the **Information column** in the **Resource status** page (i.e., output, metrics and extended output provided by stdout), plus the messages for the error output (stderr). The solution to any problem is likely to be indicated there.
+
 ## Connectors
 
 ### SSH connector
