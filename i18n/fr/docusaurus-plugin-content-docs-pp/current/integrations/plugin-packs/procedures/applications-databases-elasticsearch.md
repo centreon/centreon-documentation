@@ -8,6 +8,12 @@ import TabItem from '@theme/TabItem';
 
 Elasticsearch est un moteur de recherche et d'analyse distribué et open source pour tout type de données, y compris les données textuelles, numériques, géospatiales, structurées et non structurées.
 
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Elasticsearch**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
+
 ## Contenu du pack
 
 ### Modèles
@@ -34,6 +40,15 @@ Le connecteur apporte les modèles de service suivants
 > Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+
+| Alias | Modèle de service                 | Description                                                                                             |
+|:------|:----------------------------------|:--------------------------------------------------------------------------------------------------------|
+| Query | App-DB-Elasticsearch-Query-custom | Contrôle permettant d'exécuter des requêtes et d'utiliser le résultat pour définir des seuils d'alarmes |
+
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+
+</TabItem>
 </Tabs>
 
 ### Règles de découverte
@@ -50,12 +65,12 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ### Métriques & statuts collectés
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et status rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Cluster-Statistics" label="Cluster-Statistics">
 
-| Métrique                  | Unité |
+| Nom                       | Unité |
 |:--------------------------|:------|
 | status                    | N/A   |
 | nodes.total.count         | count |
@@ -77,7 +92,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Indice-Statistics" label="Indice-Statistics">
 
-| Métrique                                   | Unité |
+| Nom                                        | Unité |
 |:-------------------------------------------|:------|
 | *indices*#status                           | N/A   |
 | *indices*#indice.documents.total.count     | count |
@@ -89,20 +104,28 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="License" label="License">
 
-| Métrique    | Unité |
+| Nom         | Unité |
 |:------------|:------|
 | status      | N/A   |
 
 </TabItem>
 <TabItem value="Node-Statistics" label="Node-Statistics">
 
-| Métrique                               | Unité |
+| Nom                                    | Unité |
 |:---------------------------------------|:------|
 | *nodes*#node.jvm.heap.usage.percentage | %     |
 | *nodes*#node.jvm.heap.usage.bytes      | B     |
 | *nodes*#node.disk.free.bytes           | B     |
 | *nodes*#node.documents.total.count     | count |
 | *nodes*#node.data.size.bytes           | B     |
+
+</TabItem>
+<TabItem value="Query" label="Query">
+
+| Nom               | Unité |
+|:------------------|:------|
+| query.match.count | count |
+| value             | N/A   |
 
 </TabItem>
 </Tabs>
@@ -214,7 +237,7 @@ yum install centreon-plugin-Applications-Databases-Elasticsearch
 |:--------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | ELASTICSEARCHUSERNAME     | Elasticsearch username                                                                               |                   |             |
 | ELASTICSEARCHPASSWORD     | Elasticsearch password                                                                               |                   |             |
-| ELASTICSEARCHPROTO        | Specify https if needed (default: 'http')                                                            | http              |             |
+| ELASTICSEARCHPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
 | ELASTICSEARCHPORT         | Port used (default: 9200)                                                                            | 9200              |             |
 | ELASTICSEARCHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
@@ -306,6 +329,21 @@ yum install centreon-plugin-Applications-Databases-Elasticsearch
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
+<TabItem value="Query" label="Query">
+
+| Macro          | Description                                                                                                                                                                                                                                                                                                                                                            | Valeur par défaut     | Obligatoire |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
+| LOOKUP         | Set the JSONPath expression to extract values from the query result.  You might have to adjust the lookup value depending on the query.  'count' and 'value' metrics are based on values extracted using this expression.  Please refer to https://goessner.net/articles/JsonPath/ for more information about JSONPath syntax                                          | $.hits.hits\[*\].\_id |             |
+| FILTERCOUNTERS | Only display some counters (regexp can be used). Example: --filter-counters='^count$'                                                                                                                                                                                                                                                                                  |                       |             |
+| QUERY          | Set query to execute (required).  Please refer to https://www.elastic.co/docs/api/doc/elasticsearch/group/endpoint-search for more information about query syntax.  If the query starts with '@', it is considered as a file name to read the query from.  Values returned by the query are displayed when '--verbose' is set                                          |                       | X           |
+| INDEX          | Specify the index to query. Leave blank to query all indices                                                                                                                                                                                                                                                                                                           |                       |             |
+| WARNINGCOUNT   | Threshold on the number of results                                                                                                                                                                                                                                                                                                                                     |                       |             |
+| CRITICALCOUNT  | Threshold on the number of results                                                                                                                                                                                                                                                                                                                                     |                       |             |
+| WARNINGVALUE   | Threshold. Define the warning threshold based on values. Variables %\{index\} and %\{value\} can be used. Example: --warning-value='%\{value\} !~ /OK/'                                                                                                                                                                                                                      |                       |             |
+| CRITICALVALUE  | Threshold. Define the critical threshold based on values. Variables %\{index\} and %\{value\} can be used. Example: --critical-value='%\{value\} =~ /FAILED/'                                                                                                                                                                                                                |                       |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                                                                                     |                       |             |
+
+</TabItem>
 </Tabs>
 
 3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
@@ -324,7 +362,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--mode=node-statistics \
 	--hostname=10.0.0.1 \
 	--port='9200' \
-	--proto='http' \
+	--proto='https' \
 	--username='' \
 	--password=''  \
 	--filter-name='' \
@@ -375,6 +413,7 @@ Le plugin apporte les modes suivants :
 | list-indices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/elasticsearch/restapi/mode/listindices.pm)]             | Used for service discovery                     |
 | list-nodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/elasticsearch/restapi/mode/listnodes.pm)]                 | Used for service discovery                     |
 | node-statistics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/elasticsearch/restapi/mode/nodestatistics.pm)]       | App-DB-Elasticsearch-Node-Statistics-custom    |
+| query [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/elasticsearch/restapi/mode/query.pm)]                          | App-DB-Elasticsearch-Query-custom              |
 
 ### Options disponibles
 
@@ -473,6 +512,20 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='heap'                                           |
 | --warning-*       | Warning threshold. Can be: 'data-size', 'disk-free', 'documents-total', 'jvm-heap-usage' (in %), 'jvm-heap-usage-bytes'.     |
 | --critical-*      | Critical threshold. Can be: 'data-size', 'disk-free', 'documents-total', 'jvm-heap-usage' (in %), 'jvm-heap-usage-bytes'.    |
+
+</TabItem>
+<TabItem value="Query" label="Query">
+
+| Option            | Description                                                                                                                                                                                                                                                                                                                                                                 |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). Example: --filter-counters='^count$'                                                                                                                                                                                                                                                                                     |
+| --query           |   Set query to execute (required).  Please refer to https://www.elastic.co/docs/api/doc/elasticsearch/group/endpoint-search for more information about query syntax.  If the query starts with '@', it is considered as a file name to read the query from.  Values returned by the query are displayed when '--verbose' is set.                                            |
+| --index           |   Specify the index to query. Defaults to '' (searches all index).                                                                                                                                                                                                                                                                                                          |
+| --lookup          |   Set the JSONPath expression to extract values from the query result. (default: '$.hits.hits\[*\].\_id')  You might have to adjust the lookup value depending on the query.  'count' and 'value' metrics are based on values extracted using this expression.  Please refer to https://goessner.net/articles/JsonPath/ for more information about JSONPath syntax.   |
+| --warning-count   |   Threshold on the number of results.                                                                                                                                                                                                                                                                                                                                       |
+| --critical-count  |   Threshold on the number of results.                                                                                                                                                                                                                                                                                                                                       |
+| --warning-value   |   Threshold. Define the warning threshold based on values. Variables %\{index\} and %\{value\} can be used. Example: --warning-value='%\{value\} !~ /OK/'                                                                                                                                                                                                                   |
+| --critical-value  |   Threshold. Define the critical threshold based on values. Variables %\{index\} and %\{value\} can be used. Example: --critical-value='%\{value\} =~ /FAILED/'                                                                                                                                                                                                             |
 
 </TabItem>
 </Tabs>
