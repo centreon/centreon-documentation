@@ -215,6 +215,19 @@ Vous pouvez générer, révoquer et regénérer une API Key pour votre profil.
 > Sauvegardez votre *API Key* en lieu sûr puisqu'elle contient des informations d'authentification pour toute votre organisation.
 > Il est possible de regénérer l'*API Key* à tout moment, cela révoquera la clé existante.
 
+> ***Informations sur l'URI de base***
+>
+> La valeur par défaut de l'URI de base *api.meraki.com* utilisée dans la macro `MERAKIAPIHOSTNAME` est correcte pour la plupart des régions.
+> Cependant, pour les organisations hébergées dans les pays suivants, il faut remplacer cette valeur par l'URI correspondante :
+>
+> - Canada: *https://api.meraki.ca/api/v1*
+> - Chine: *https://api.meraki.cn/api/v1*
+> - Inde: *https://api.meraki.in/api/v1*
+> - États-Unis (FedRAMP): *https://api.gov-meraki.com/api/v1*
+>
+> L'utilisation d'une mauvaise URI peut empêcher ce connecteur de fonctionner correctement.
+> Veuillez consulter la documentation de l'API Meraki à l'adresse https://developer.cisco.com/meraki/api-v1/getting-started/#base-uri pour plus de détails.
+
 ## Installer le connecteur de supervision
 
 ### Pack
