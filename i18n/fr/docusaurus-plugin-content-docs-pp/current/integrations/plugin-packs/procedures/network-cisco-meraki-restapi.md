@@ -215,7 +215,7 @@ Vous pouvez générer, révoquer et regénérer une API Key pour votre profil.
 > Sauvegardez votre *API Key* en lieu sûr puisqu'elle contient des informations d'authentification pour toute votre organisation.
 > Il est possible de regénérer l'*API Key* à tout moment, cela révoquera la clé existante.
 
-> ***Informations sur l'URI de base***
+> **Informations sur l'URI de base**
 >
 > La valeur par défaut de l'URI de base *api.meraki.com* utilisée dans la macro `MERAKIAPIHOSTNAME` est correcte pour la plupart des régions.
 > Cependant, pour les organisations hébergées dans les pays suivants, il faut remplacer cette valeur par l'URI correspondante :

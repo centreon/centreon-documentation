@@ -213,7 +213,7 @@ You can generate, revoke, and regenerate your API key on your profile.
 > Keep your API key safe as it provides authentication to all of your organizations with the API enabled. 
 > If your API key is shared, you can regenerate your API key at any time. This will revoke the existing API key.
 
-> ***Base URI Notice***
+> **Base URI Notice**
 >
 > The default base URI value *api.meraki.com* used in `MERAKIAPIHOSTNAME` macro will work for most of the world.
 > However, for organizations hosted in the following country, you need to override this value and specify the respective base URI instead:
