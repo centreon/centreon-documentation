@@ -35,8 +35,8 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                | Modèle de service                      | Description                                                                                                    |
-|:---------------------|:---------------------------------------|:---------------------------------------------------------------------------------------------------------------|
+| Alias                | Modèle de service                      | Description                                                                                                                                                              |
+|:---------------------|:---------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Query-Matches-Number | App-Monitoring-Splunk-Query-Api-custom | Contrôle le nombre de résultats pour une requête donnée. La requête doit commencer par "search ". Par exemple : 'search host="prod-server" "ERROR" earliest=-150000min'  |
 | Query-Numeric-Value  | App-Monitoring-Splunk-Numeric-Value-Api-custom | Contrôle permettant de récupérer des valeurs numériques à partir d'une requête                                                                                   |
 | Query-String-Value   | App-Monitoring-Splunk-String-Value-Api-custom  | Contrôle permettant de récupérer des valeurs alphanumériques à partir d'une requête                                                                              |
@@ -71,7 +71,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:---------------------------|:------|
 | splunk.event.count         | count |
 
-Les autres métriques obtenues dépendent entièrement de la requête.
+Les autres métriques obtenues dépendent de la requête.
 
 </TabItem>
 <TabItem value="Query-String-Value" label="Query-String-Value">
@@ -80,10 +80,9 @@ Les autres métriques obtenues dépendent entièrement de la requête.
 |:---------------------------|:------|
 | splunk.event.count         | count |
 
-Les autres métriques obtenues dépendent entièrement de la requête.
+Les autres métriques obtenues dépendent de la requête.
 
 </TabItem>
-
 <TabItem value="Splunkd-Health" label="Splunkd-Health">
 
 | Status Name         |
