@@ -1,39 +1,38 @@
 ---
 id: faq
 title: FAQ
---- 
+---
 
-# Foire aux questions
+# Frequently Asked Questions
 
-### **Quels sont les ports de firewall à ouvrir pour l'agent Quanta ?**
+### **Which firewall ports should be opened for the Quanta agent?**
 
-Il est nécessaire pour que l'agent fonctionne, d'autoriser en sortie les connections HTTPS [vers nos IPs](../installation/quanta-ip-addresses.md).
+To ensure the agent works, outgoing HTTPS connections [to our IPs](../installation/quanta-ip-addresses.md) must be allowed.
 
-Pour l'installation des paquets il faudra également autoriser votre serveur à se connecter en HTTP à apt.quanta.io
+For package installation, your server must also be allowed to connect via HTTP to apt.quanta.io.
 
-Vous pouvez également mettre en place un proxy HTTP si votre serveur n'à pas d'accès direct à Internet. Vous pouvez ajouter l'URL de votre proxy dans la configuration de l'agent (*/etc/quanta/agent.yml*) en ajoutant une ligne de la forme "proxy_url: http://user:password@1.2.3.4" sous la catégorie "server".
+You can also set up an HTTP proxy if your server does not have direct Internet access. Add your proxy URL in the agent configuration (*/etc/quanta/agent.yml*) by adding a line like "proxy_url: http://user:password@1.2.3.4" under the "server" category.
 
-### **Je ne vois pas les données remonter, où puis-je trouver des informations pour résoudre le problème ?**
+### **I don't see data coming in, where can I find information to troubleshoot?**
 
-L'agent utilise syslog pour générer des logs, vous les trouverez généralement dans le fichier */var/log/daemon.log* ou */var/log/syslog*. Si vous ne trouvez pas la source de l'erreur, nous vous invitons à nous contacter.
+The agent uses syslog for logging; you will generally find logs in */var/log/daemon.log* or */var/log/syslog*. If you can't find the source of the error, please contact us.
 
-Vous pouvez envoyer les logs dans un autre fichier en remplacant la variable **file** sous la section **logger** dans le fichier */etc/quanta/agent.yml* (pensez néanmoins à mettre en place un mécanisme de rotation de logs).
+You can send logs to another file by changing the **file** variable under the **logger** section in */etc/quanta/agent.yml* (make sure to set up log rotation).
 
-**J'ai Varnish sur mon serveur et j'ai installé le module Varnish mais je ne vois pas de données remonter, comment résoudre cela ?**
+**I have Varnish on my server and installed the Varnish module but see no data, how to fix?**
 
-Il est probable que l'instance Varnish que vous utilisez ne soit pas l'instance par défaut, c'est à dire que vous utilisez le flag -n &lt;nom&gt; pour lancer Varnish ainsi que pour utiliser les différentes commandes d'administration.
-
-Si c'est bien le cas, il vous suffit d'ajouter la configuration suivante dans le fichier /etc/quanta/modules.d/varnish.yml:
+It's likely that your Varnish instance is not the default one, meaning you use the -n `name` flag to start Varnish and for admin commands.
+If so, just add the following configuration in /etc/quanta/modules.d/varnish.yml:
 
 *varnish:*
 
-*instance: nom_de_votre_instance*
+*instance: your_instance_name*
 
-### **J'ai plusieurs instances de Redis, Memcached ou Varnish, est-ce possible de toutes les monitorer ?**
+### **I have multiple Redis, Memcached, or Varnish instances, can I monitor them all?**
 
-Oui, c'est possible à partir de la version 1.1.0 de l'agent.
+Yes, from agent version 1.1.0.
 
-Il vous faudra pour cela spécifier un fichier de configuration par instance dans le dossier /etc/quanta/agent.yml. Par exemple pour suivre 2 instances redis différentes (une instance pour les sessions qui écoute sur le port 6379 et une autre pour le cache qui écoute sur le port 6378) on peut avoir 2 fichiers comme suit.
+You need to specify a configuration file per instance in /etc/quanta/agent.yml. For example, to monitor 2 different Redis instances (one for sessions on port 6379 and one for cache on port 6378):
 
 - /etc/quanta/modules.d/redis_sessions.yml
 
@@ -59,79 +58,79 @@ Il vous faudra pour cela spécifier un fichier de configuration par instance dan
 
 *port: 6378*
 
-Ce type de configuration fonctionne de la même manière avec Memcached et Varnish, il ne faut pas oublier de remplacer le paramêtre "module" qui permet à l'agent de savoir quel module charger ainsi que la clef de configuration.
+This configuration works the same for Memcached and Varnish. Don't forget to change the "module" parameter and the configuration key.
 
-Pour varnish, le paramètre "instance" est également utilisé comme nom d'instance Varnish, il faut donc veiller à ce que cela corresponde (équivalent de l'argument "-n" en ligne de commande).
+For Varnish, the "instance" parameter is also used as the Varnish instance name, so make sure it matches (equivalent to the "-n" argument in the command line).
 
-### **Est-il possible de monitorer des services qui ne sont pas sur la même machine ?**
+### **Can I monitor services not on the same machine?**
 
-Nous recommandons d'installer l'agent sur l'ensemble des serveurs de votre infrastructure, néanmoins si vous ne pouvez pas le faire sur certains de vos serveurs (base de données par exemple) et que vous souhaitez tout de même monitorer le service MySQL, vous pouvez changer le paramètre **host** dans la configuration de l'agent (*/etc/quanta/modules.d/service.yml*)
+We recommend installing the agent on all servers in your infrastructure. However, if you can't on some servers (e.g., database) and still want to monitor MySQL, you can change the **host** parameter in the agent configuration (*/etc/quanta/modules.d/service.yml*).
 
-### **Mon serveur est mutualisé entre plusieurs sites qui ont chacun un abonnement Quanta, comment faire pour que les données soient visibles dans les 2 sites ?**
+### **My server is shared between several sites, each with a Quanta subscription. How can data be visible on both sites?**
 
-Pour rattacher un serveur à plusieurs sites, vous pouvez renseigner dans le fichier de configuration */etc/quanta/agent.yml* plusieurs tokens (un pour chaque site) en les séparent par des virgules, cela donne par exemple "quanta_token: tokensite1,tokensite2".
+To link a server to multiple sites, you can specify several tokens (one per site) in */etc/quanta/agent.yml*, separated by commas, e.g., "quanta_token: tokensite1,tokensite2".
 
-Le serveur sera alors crée sur les 2 sites et les données système remonteront donc sur les 2 sites.
+The server will be created on both sites and system data will be sent to both.
 
-Il y a quelques limitations à ce système si vos 2 sites utilisent également le module PHP:
+There are some limitations if both sites use the PHP module:
 
-- Les évènements Magento seront remontés sur les 2 sites, quelque soit le site qui les a généré.
-- Les informations qui remonteront dans la partie Magento de l'interface de configuration dans Quanta seront celles de l'un ou l'autre site (et du coup ne seront pas forcément les bonnes).
+- Magento events will be sent to both sites, regardless of which site generated them.
+- Information in the Magento section of the Quanta interface will be from one site or the other (and may not be correct).
 
-### **J'ai déjà installé l'agent Zabbix auparavant, comment gérer la mise à jour ?**
+### **I already installed the Zabbix agent, how do I handle the update?**
 
-La mise à jour se fait de manière automatique lors de l'installation de l'agent Quanta, nous arrêterons de requêter l'agent Zabbix dès lors que nous recevrons des métriques du nouvel agent.
+The update is automatic during Quanta agent installation; we stop querying the Zabbix agent as soon as we receive metrics from the new agent.
 
-Vous pourrez vérifier que votre serveur remonte bien des données via le nouvel agent en vérifiant la présence du flag "Nouvel agent" dans la configuration de vos serveurs dans Quanta.
+You can check that your server is sending data via the new agent by looking for the "New agent" flag in your server configuration in Quanta.
 
-Une fois que vous avez validé que les métriques remontent bien via le nouvel agent, vous pouvez désinstaller complètement Zabbix.
+Once you confirm metrics are sent via the new agent, you can uninstall Zabbix completely.
 
-### **J'ai déjà installé le module Magento auparavant, comment se passe la mise à jour ?**
+### **I already installed the Magento module, how does the update work?**
 
-La mise à jour se fait de manière automatique, lorsque nous recevrons les premières métriques de la nouvelle extension PHP, nous arrêterons de requêter l'ancien module Magento. Lorsqu'un scénario utilise bien le nouveau module PHP, vous verrez un flag "nouveau module" dans la configuration de vos scénarios.
+The update is automatic; when we receive the first metrics from the new PHP extension, we stop querying the old Magento module. When a scenario uses the new PHP module, you will see a "new module" flag in your scenario configuration.
 
-Nous vous recommandons de désinstaller l'ancien module lorsque le nouveau est installé.
+We recommend uninstalling the old module once the new one is installed.
 
-### **Ai-je besoin de créer mon serveur dans Quanta ?**
+### **Do I need to create my server in Quanta?**
 
-Non, la création est automatique et se fait la première fois que nous recevons des données. Si votre serveur existait déjà dans Quanta sa configuration sera mise à jour automatiquement.
+No, creation is automatic the first time we receive data. If your server already existed in Quanta, its configuration will be updated automatically.
 
-Vous devrez néanmoins supprimer le serveur dans Quanta manuellement si vous le retirez de votre infrastructure.
+You must manually delete the server in Quanta if you remove it from your infrastructure.
 
-### **Je suis concerné par la sécurité de mon serveur, pouvez-vous m'expliquer un peu plus en détail comment l'agent Quanta et le module PHP fonctionnent ?**
+### **I'm concerned about my server's security, can you explain how the Quanta agent and PHP module work?**
 
-Nous nous sentons tout aussi concernés que vous de la sécurité des outils que nous vous proposons, voici une description technique de leur fonctionnement.
+We care as much as you do about the security of our tools. Here is a technical description:
 
-Tout les paquets que nous fournissons sont signés avec une clef GPG qu'il vous faut installer dans votre système de paquets et qui permet de vérifier la provenance de ces paquets.
+All packages we provide are signed with a GPG key you must install in your package system to verify their origin.
 
-*L'agent Quanta:*
+*Quanta agent:*
 
-L'agent Quanta est un service qui tourne en tache de fond sur votre serveur (daemon) et qui effectue plusieurs opérations:
+The Quanta agent is a background service (daemon) on your server that performs several operations:
 
-- Collecte de données système via lecture des fichiers présents dans */proc*.
-- Collecte de données sur les services actifs de votre server (Apache, Nginx, Varnish, Memcached, Redis, MySQL), via une connection au service généralement. Dans tout les cas, il n'est jamais nécéssaire de créer un utilisateur privilégié pour que l'agent puisse accéder à ces données.
-- Réception des données du module PHP via une socket Unix (les droits étant configurables si besoin)
-- Envoi des données collectées à Quanta via le protocole sécurisé HTTPS (il est possible d'utiliser un proxy si besoin).
+- Collects system data by reading files in */proc*.
+- Collects data on active services (Apache, Nginx, Varnish, Memcached, Redis, MySQL), usually via a service connection. No privileged user is ever needed for the agent to access this data.
+- Receives data from the PHP module via a Unix socket (permissions are configurable).
+- Sends collected data to Quanta via secure HTTPS (proxy possible).
 
-Tout les modules de l'agent Quanta sont désactivables indépendamment si vous le souhaitez.
+All Quanta agent modules can be disabled independently.
 
-L'agent se lance en root pour sa phase d'initialisation (ouverture de sa socket, chargement de la configuration, etc) mais change en utilisateur standard pour toutes les opérations de collecte (l'utilisateur et le groupe sont configurables).
+The agent starts as root for initialization (socket opening, config loading, etc.) but switches to a standard user for all collection operations (user and group are configurable).
 
-Les données récoltées par l'agent sont stockées en mémoire avant d'être envoyées à Quanta mais ne jamais stockées ailleurs.
+Data collected by the agent is stored in memory before being sent to Quanta and is never stored elsewhere.
 
-*Le module PHP*:
+*PHP module:*
 
-Le module PHP est une extension PHP (sous forme de bibliothèque dynamique) qui sera donc chargée par PHP lors de l'execution de PHP sur votre serveur.
+The PHP module is a PHP extension (dynamic library) loaded by PHP during execution.
 
-Il collecte ses données uniquement:
+It collects data only:
 
-- Lorsque vous effectuez des actions dans votre backoffice
-- Lors des requêtes effectuées par nos sondes (identifiées via un header particulier dans la requête)
+- When you perform actions in your back office
+- During requests made by our probes (identified by a specific header)
 
-Le module n'altère pas le fonctionnement de l'application, il se contente de récupérer différentes informations de profiling sur le fonctionnement de Magento.
+The module does not alter application behavior; it only collects profiling information about Magento.
 
-Le module dispose également d'un mode "xhprof" (profiling complet de l'exécution), qui fonctionne sur le même principe mais n'est jamais activé par Quanta sans action de l'utilisateur.
+The module also has an "xhprof" mode (full execution profiling), which works similarly but is never activated by Quanta without user action.
 
-Les données sont transmises à l'agent via la socket Unix prévue à cet effet et ne seront jamais stockées ou envoyées autre part.
+Data is sent to the agent via the designated Unix socket and is never stored or sent elsewhere.
 
-Si vous avez d'autres questions précises, n'hésitez pas à contacter le support à ce sujet, nous serons ravis de vous répondre.
+If you have further questions, feel free to contact support; we will be happy to help.

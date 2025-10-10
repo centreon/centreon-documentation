@@ -1,35 +1,35 @@
 ---
 id: using-charts
-title: Utiliser les graphiques
---- 
+title: Using Charts
+---
 
-# Utiliser les graphiques
+# Using Charts
 
-# **Zoomer sur les graphs**
+## **Zooming on graphs**
 
-Les graphs Quanta sont interactifs. Zoomez facilement sur la période qui vous intéresse : en utilisant l’action « glisser/déplacer » de la gauche vers la droite sur le graphique (et inversement pour dézoomer).
+Quanta graphs are interactive. Easily zoom in on the period you are interested in by using the "click and drag" action from left to right on the graph (and the opposite to zoom out).
 
 ![Image](../assets/how-to-articles/using-charts-1.png)
 
-# Isoler et cacher les statistiques dans un graphique
+## Isolate and hide statistics in a chart
 
-Un graphique peut être composé de plusieurs statistiques qui se cumule. Par exemple, ici, on retrouve les détails des temps réseaux du chargement d’une page:
+A chart can be composed of several cumulative statistics. For example, here you can see the details of network times for loading a page:
 
 ![Image](../assets/how-to-articles/using-charts-2.png)
 
-Pour y voir plus clair, vous pouvez:
+To make things clearer, you can:
 
-- cacher une statistique (ne pas l’afficher)
-- isoler une statistique (cacher toutes les autres)
+- hide a statistic (do not display it)
+- isolate a statistic (hide all others)
 
-Pour se faire, cliquer sur la statistique que vous voulez isoler ou cacher dans la légende, ou sur le graphique.
+To do this, click on the statistic you want to isolate or hide in the legend, or on the chart.
 
 ![Image](../assets/how-to-articles/using-charts-3.png)
 
-Choisissez ce que vous souhaitez faire avec cette statistique. Dans cet exemple, si l’on isole la statistique, nous verrons:
+Choose what you want to do with this statistic. In this example, if you isolate the statistic, you will see:
 
 ![Image](../assets/how-to-articles/using-charts-4.png)
 
-Rendez-vous dans l'article suivant pour aller plus loin:
+See the next article to go further:
 
-[Accélérez votre site: applicatif ou configuration serveurs ?](../performance-analysis/speed-up-website-with-applications-or-server-configuration.md)
+[Speed up your site: application or server configuration?](../performance-analysis/speed-up-website-with-applications-or-server-configuration.md)

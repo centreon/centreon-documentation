@@ -1,14 +1,14 @@
 ---
 id: password-reset
-title: Comment réinitialiser mon mot de passe ?
---- 
+title: How do I reset my password?
+---
 
-# Comment réinitialiser mon mot de passe ?
+# How do I reset my password?
 
-Si vous avez oublié votre mot de passe, ou vous voulez changer votre mot de passe, rendez-vous sur [https://app.quanta.io/](https://app.quanta.io/) et cliquez sur "Mot de passe oublié".
+If you have forgotten your password or want to change it, go to [https://app.quanta.io/](https://app.quanta.io/) and click on "Forgot password".
 
 ![Image](../assets/how-to-articles/password-reset-1.png)
 
-Rentrez ensuite votre adresse e-mail et cliquez sur “Retrouver son mot de passe”. Un e-mail vous sera alors envoyé contenant un lien pour générer un nouveau mot de passe.
+Then enter your email address and click on “Retrieve password”. You will receive an email containing a link to generate a new password.
 
 ![Image](../assets/how-to-articles/password-reset-2.png)

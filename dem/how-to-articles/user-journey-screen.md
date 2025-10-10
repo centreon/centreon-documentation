@@ -1,23 +1,23 @@
 ---
 id: user-journey-screen
-title: L’écran Parcours Utilisateurs
---- 
+title: User Journey Screen
+---
 
-# L’écran Parcours Utilisateurs
+# User Journey Screen
 
-Sur la page "Parcours utilisateurs" vous retrouvez tous les scénarios qui ont été créés pour votre site.
+On the "User Journey" page, you will find all the scenarios that have been created for your site.
 
-Cette première page est une vue d'ensemble de tous vos scénarios. Elle vous permet d'analyser de manière rapide et efficace la performance de votre site.
+This first page is an overview of all your scenarios. It allows you to quickly and efficiently analyze your site's performance.
 
 ![Image](../assets/how-to-articles/user-journey-screen-1.png)
 
-Vous y trouverez d'abord, la **disponibilité** (uptime, downtime) ainsi que le nombre incidents par scénario sur la période que vous avez sélectionnée.
+First, you will find the **availability** (uptime, downtime) as well as the number of incidents per scenario for the selected period.
 
-Puis on y voit apparaître la **moyenne**, le **grade** (Vert, Jaune, Rouge) et la **variation** pour les 4 métriques de performance suivantes :
+Then you will see the **average**, the **grade** (Green, Yellow, Red), and the **variation** for the following 4 performance metrics:
 
 [Hero Time](../performance-analysis/metrics/hero-time.md)
 
-[TTFB (”Time To First Byte”)](../performance-analysis/metrics/time-to-first-byte.md)
+[TTFB (“Time To First Byte”)](../performance-analysis/metrics/time-to-first-byte.md)
 
 [Speed Index](../performance-analysis/metrics/speed-index.md)
 
