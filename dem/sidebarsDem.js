@@ -2,13 +2,13 @@ module.exports = {
   dem: [
     {
       type: 'category',
-      label: 'Getting started with Quanta',
+      label: 'Getting started with Centreon Quanta',
       link: {
-        type: "doc",
-        id: "getting-started/welcome"
+        type: 'generated-index',
+       
       },
       items: [
-        { type: 'doc', id: 'getting-started/quanta-solution' },
+       { type: 'doc', id: 'getting-started/quanta-solution' },
         { type: 'doc', id: 'getting-started/contact-support' },
         { type: 'doc', id: 'getting-started/synthetic-monitoring' },
         { type: 'doc', id: 'getting-started/real-user-monitoring' },
