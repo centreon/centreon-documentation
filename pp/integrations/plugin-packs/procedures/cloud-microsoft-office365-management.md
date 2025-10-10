@@ -9,6 +9,12 @@ Office 365 is a line of online subscription services offered by Microsoft in the
 Office 365 covers document creation and management, emailing, video conferencing and many more collaboration offerings.
 The Centreon Plugin relies on the Office 365 Graph API to collect and monitor the Office 365 information and metrics.
 
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Office 365** connector through the
+**Configuration > Monitoring Connector Manager** menu:
+* [Base Pack](./base-generic.md)
+
 ## Pack assets
 
 ### Templates
@@ -43,7 +49,7 @@ The connector brings the following service templates (sorted by the host templat
 
 ### Collected metrics & status
 
-Here is the list of services for this connector, detailing all metrics linked to each service.
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="App-Credentials" label="App-Credentials">
@@ -58,7 +64,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Service-Status" label="Service-Status">
 
-| Metric name       | Unit  |
+| Name              | Unit  |
 |:------------------|:------|
 | *services*#status | N/A   |
 
@@ -67,7 +73,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Subscriptions" label="Subscriptions">
 
-| Metric name                                   | Unit  |
+| Name                                          | Unit  |
 |:----------------------------------------------|:------|
 | *subscriptions*#status                        | N/A   |
 | *subscriptions*#subscription.usage.count      | count |
@@ -189,7 +195,7 @@ dnf install centreon-pack-cloud-microsoft-office365-management
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-microsoft-office365-management
@@ -236,7 +242,7 @@ dnf install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-microsoft-office365-management-api
@@ -294,12 +300,16 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 </TabItem>
 <TabItem value="Service-Status" label="Service-Status">
 
-| Macro             | Description                                                                                                                                                                                                        | Default value                                       | Mandatory   |
-|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-----------:|
-| FILTERSERVICENAME | Filter services (can be a regexp)                                                                                                                                                                                  |                                                     |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /serviceOperational\|serviceRestored/i'). You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\} | %\{status\} !~ /serviceOperational\|serviceRestored/i |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\}                                                                   |                                                     |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                 |                                                     |             |
+| Macro                 | Description                                                                                                                                                      | Default value                                           | Mandatory   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
+| EXCLUDERESOLVED       | Exclude resolved issues from report (default: 1). Set to 0 to include resolved issues                                                                            | 1                                                       |             |
+| FILTERSERVICENAME     | Filter by service name (can be a regexp)                                                                                                                         |                                                         |             |
+| EXCLUDESERVICENAME    | Exclude by service name (can be a regexp)                                                                                                                        |                                                         |             |
+| INCLUDECLASSIFICATION | Filter by classification (can be a regexp)                                                                                                                       |                                                         |             |
+| EXCLUDECLASSIFICATION | Exclude by classification (can be a regexp)                                                                                                                      |                                                         |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\}           | %\{status\} !~ /serviceOperational\|serviceRestored/i   |             |
+| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\}            |                                                         |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                           |                                                         |             |
 
 </TabItem>
 <TabItem value="Subscriptions" label="Subscriptions">
@@ -469,21 +479,25 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Service-Status" label="Service-Status">
 
-| Option                | Description                                                                                                                                                                                                           |
-|:----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-service-name | Filter services (can be a regexp).                                                                                                                                                                                    |
-| --warning-status      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\}                                                                      |
-| --critical-status     | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /serviceOperational\|serviceRestored/i'). You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\}    |
+| Option                   | Description                                                                                                                                                                                                                    |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --include-service-name   |   Filter by service name (can be a regexp).                                                                                                                                                                                    |
+| --exclude-service-name   |   Exclude by service name (can be a regexp).                                                                                                                                                                                   |
+| --include-classification |   Filter by classification (can be a regexp).                                                                                                                                                                                  |
+| --exclude-classification |   Exclude by classification (can be a regexp).                                                                                                                                                                                 |
+| --exclude-resolved       |   Exclude resolved issues from report (default: 1). Set to 0 to include resolved issues.                                                                                                                                       |
+| --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\}                                                                        |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /serviceOperational\|serviceRestored/i'). You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\}    |
 
 </TabItem>
 <TabItem value="Subscriptions" label="Subscriptions">
 
-| Option                   | Description                                                                                                                                                                    |
-|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-sku-part-number | Filter subscriptions by SKU part number (can be a regexp).                                                                                                                     |
+| Option                   | Description                                                                                                                                                                          |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-sku-part-number | Filter subscriptions by SKU part number (can be a regexp).                                                                                                                           |
 | --warning-status         | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /warning/i'). You can use the following variables: %\{capabilityStatus\}, %\{skuPartNumber\}   |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{capabilityStatus\}, %\{skuPartNumber\}                                       |
-| --warning-* --critical-* | Thresholds. Can be: 'subscription-usage', 'subscription-usage-free', 'subscription-usage-prct'.                                                                                |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{capabilityStatus\}, %\{skuPartNumber\}                                         |
+| --warning-* --critical-* | Thresholds. Can be: 'subscription-usage', 'subscription-usage-free', 'subscription-usage-prct'.                                                                                      |
 
 </TabItem>
 </Tabs>
