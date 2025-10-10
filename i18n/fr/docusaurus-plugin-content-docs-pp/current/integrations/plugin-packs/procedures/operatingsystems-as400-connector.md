@@ -199,6 +199,27 @@ Ce connecteur communique avec les serveurs AS400 sur le port TCP 449.
 update-alternatives --config java
 ```
 
+Voici les instructions pour démarrer et activer le daemon :
+
+```shell
+systemctl status centreon-as400
+```
+
+Cette commande retourne :
+
+```shell
+○ centreon-as400.service - Centreon AS400
+     Loaded: loaded (/usr/lib/systemd/system/centreon-as400.service; disabled; preset: disabled)
+     Active: inactive (dead)
+```
+
+Exécutez ensuite les commandes suivantes: 
+
+```shell
+systemctl start centreon-as400
+systemctl enable centreon-as400
+```
+
 ## Installer le connecteur de supervision
 
 ### Pack

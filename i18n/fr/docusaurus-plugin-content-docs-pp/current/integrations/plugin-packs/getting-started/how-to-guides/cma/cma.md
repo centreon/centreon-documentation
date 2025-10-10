@@ -6,12 +6,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PollerAgentConfiguration from '../_poller-agent-configuration.mdx';
 
-> Utilisateurs de Centreon Cloud: l'agent CMA est encore en phase bêta pour la version Cloud. 
-> Pour obtenir de l'aide ou échanger sur les évolutions de l'agent Centreon, visitez [notre groupe dédié sur The Watch](https://thewatch.centreon.com/groups/opentelemetry-agent-beta-program-61).
-
 ## Introduction
 
-L'agent de supervision Centreon (Centreon Monitoring Agent, CMA) est un logiciel qu'on installe sur les hôtes à superviser : il collecte des métriques et calcule des statuts, et les envoie à Centreon.
+L'agent de supervision Centreon (Centreon Monitoring Agent, CMA) est un logiciel qu'on installe sur les hôtes à superviser : il collecte des métriques et calcule des statuts, et les envoie à Centreon. L'agent peut être utilisé avec Centreon Cloud, ou avec Centreon OnPrem à partir de la version 24.10.
 
 L'agent peut exécuter des contrôles natifs ou utiliser des plugins Centreon pour exécuter des contrôles non natifs. Les contrôles natifs sont exécutés directement par l'agent (contrairement aux contrôles non natifs, qui nécessitent l'installation de plugins locaux sur l'hôte). Les contrôles natifs sont plus performants et ont une meilleure empreinte (réduction de l'utilisation du processeur et de la mémoire).
 
@@ -56,7 +53,7 @@ L'agent peut être installé sur et superviser les OS suivants :
 
 ## Applications supervisables par CMA
 
-* Inclus dans les connecteurs Centreon : [**Veeam**](../../../procedures/applications-veeam-centreon-monitoring-agent.md), [**Active Directory**](../../../procedures/infrastructure-active-directory-centreon-monitoring-agent)
+* Inclus dans les connecteurs Centreon : [**Veeam**](../../../procedures/applications-veeam-centreon-monitoring-agent.md), [**Active Directory**](../../../procedures/infrastructure-active-directory-centreon-monitoring-agent), [**Hyper-V 2012**](../../../procedures/virtualization-hyperv-2012-cma.md).
 * Vous pouvez également [développer vos propres plugins](cma-custom.md).
 
 ## Comment interagissent le collecteur et l'hôte?

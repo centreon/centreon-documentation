@@ -89,7 +89,23 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-No metrics for this service.
+| Name                            | Unit  |
+|:--------------------------------|:------|
+| disk.total                      | count |
+| disk.status                     | N/A   |
+| disk.health                     | N/A   |
+| hardware.disk.bad_sectors.count | count |
+| cpu.fan.status                  | N/A   |
+| system.fan.status               | N/A   |
+| fan.total                       | count |
+| psu.status                      | N/A   |
+| psu.total                       | count |
+| raid.status                     | N/A   |
+| raid.total                      | count |
+| system.status                   | N/A   |
+| system.total                    | count |
+
+> `disk.health` metric is only provided for DSM version 7.1 and higher. 
 
 </TabItem>
 <TabItem value="Load" label="Load">
