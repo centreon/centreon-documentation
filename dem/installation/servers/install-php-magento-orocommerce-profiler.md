@@ -17,7 +17,7 @@ The Quanta PHP module comes as a PHP extension that allows you to collect detail
 
 # Compatibility
 
-[QUANTA PHP Module Compatibility List](Installer%20le%20profiler%20PHP%20Magento%20OroCommerce%2015ba69c7c03f4aad8bd54e10d5ee8d61/QUANTA%20PHP%20Module%20Compatibility%20list%200f42fda5162b4ed7bad011eceab8f586.csv)
+QUANTA PHP Module Compatibility List: soon available.
 
 # Installation
 

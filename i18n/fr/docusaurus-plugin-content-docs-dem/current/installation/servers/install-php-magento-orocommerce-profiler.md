@@ -18,7 +18,7 @@ Le module PHP Quanta se présente sous la forme d'une extension PHP et vous perm
 
 # Compatibilité
 
-[QUANTA PHP Module Compatibility list](Installer%20le%20profiler%20PHP%20Magento%20OroCommerce%2015ba69c7c03f4aad8bd54e10d5ee8d61/QUANTA%20PHP%20Module%20Compatibility%20list%200f42fda5162b4ed7bad011eceab8f586.csv)
+QUANTA PHP Module Compatibility list : bientôt disponible.
 
 # Installation
 

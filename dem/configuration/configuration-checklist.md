@@ -37,7 +37,7 @@ User journeys can be implemented by Quanta support. Ask your sales contact or op
 
 Find the documentation for user journeys here:
 
-[Create a scenario (\"User Journey\")]('./user-journey/create-a-scenario.md')
+[Create a scenario (\"User Journey\")](./user-journey/create-a-scenario.md)
 
 # Alerts and reports
 
