@@ -68,7 +68,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Certificates" label="Certificates">
 
-| Métrique                             | Unité |
+| Nom                                  | Unité |
 |:-------------------------------------|:------|
 | certificates.detected.count          | count |
 | certificate#certificate.expires.days | d     |
@@ -76,7 +76,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="CMA-Health" label="CMA-Health">
 
-| Métrique | Unité |
+| Nom      | Unité |
 |:---------|:------|
 | runtime  | s     |
 | interval | s     |
@@ -84,7 +84,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
 
-| Métrique       | Unité  |
+| Nom            | Unité  |
 |:---------------|:-------|
 | *counter_name* | *unit* |
 | critical-count | count  |
@@ -96,7 +96,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="CPU" label="CPU">
 
-| Métrique                                     | Unité |
+| Nom                                          | Unité |
 |:---------------------------------------------|:------|
 | *core_index*#core.cpu.utilization.percentage | %     |
 | user#cpu.utilization.percentage              | %     |
@@ -104,7 +104,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
 
-| Métrique                                                    | Unité |
+| Nom                                                         | Unité |
 |:------------------------------------------------------------|:------|
 | *core_index*\~user#core.cpu.utilization.percentage          | %     |
 | user#cpu.utilization.percentage                             | %     |
@@ -117,7 +117,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="Eventlog-Nscp" label="Eventlog-Nscp">
 
-| Métrique       | Unité |
+| Nom            | Unité |
 |:---------------|:------|
 | critical-count | count |
 | warning-count  | count |
@@ -125,7 +125,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
 
-| Metric         | Unit  |
+| Nom            | Unité |
 |:---------------|:------|
 | critical_count | count |
 | warning_count  | count |
@@ -134,7 +134,7 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Métrique                | Unité |
+| Nom                     | Unité |
 |:------------------------|:------|
 | memory.usage.bytes      | B     |
 | memory.free.bytes       | B     |
@@ -143,9 +143,9 @@ The counters names and their unit depend on the specified counters.
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Métrique    | Unité |
-|:------------|:------|
-| offset      | s     |
+| Nom    | Unité |
+|:-------|:------|
+| offset | s     |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
@@ -155,14 +155,14 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Process-Generic" label="Process-Generic">
 
-| Métrique      | Unité |
+| Nom           | Unité |
 |:--------------|:------|
 | process.count | count |
 
 </TabItem>
 <TabItem value="Services" label="Services">
 
-| Métrique                  | Unité |
+| Nom                       | Unité |
 |:--------------------------|:------|
 | services.stopped.count    | count |
 | services.starting.count   | count |
@@ -175,7 +175,7 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
 
-| Métrique                  | Unité |
+| Nom                       | Unité |
 |:--------------------------|:------|
 | services.stopped.count    | count |
 | services.starting.count   | count |
@@ -188,7 +188,7 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Métrique                            | Unité |
+| Nom                                 | Unité |
 |:------------------------------------|:------|
 | sessions.created.total.count        | count |
 | sessions.disconnected.total.count   | count |
@@ -201,15 +201,15 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Métrique  | Unité |
-|:----------|:------|
-| used_C:\  | B     |
-| used_D:\  | B     |
+| Nom      | Unité |
+|:---------|:------|
+| used_C:\ | B     |
+| used_D:\ | B     |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Métrique                | Unité |
+| Nom                     | Unité |
 |:------------------------|:------|
 | memory.usage.bytes      | B     |
 | memory.free.bytes       | B     |
@@ -221,7 +221,7 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Task-Global" label="Task-Global">
 
-| Métrique       | Unité     |
+| Nom            | Unité     |
 |:---------------|:----------|
 | *task_name*    | exit_code |
 | ok_count       | count     |
@@ -231,7 +231,7 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Task-Name" label="Task-Name">
 
-| Métrique       | Unité     |
+| Nom            | Unité     |
 |:---------------|:----------|
 | *task_name*    | exit_code |
 | ok_count       | count     |
@@ -241,16 +241,16 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Updates" label="Updates">
 
-| Métrique                      | Unité |
+| Nom                           | Unité |
 |:------------------------------|:------|
 | windows.pending.updates.count | count |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Métrique | Unité |
-|:---------|:------|
-| uptime   | s     |
+| Nom    | Unité |
+|:-------|:------|
+| uptime | s     |
 
 </TabItem>
 </Tabs>
