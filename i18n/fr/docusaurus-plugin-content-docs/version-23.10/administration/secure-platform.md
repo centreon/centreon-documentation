@@ -52,7 +52,7 @@ des composants par le système d'exploitation.
 
 ### Présentation de SELinux
 
-Security Enhanced Linux (SELinux) fournit une couche supplémentaire de sécurité du système. SELinux répond
+Security Enhanced Linux (SELinux) fournit une couche supplémentaire de sécurité du système pour les environnements EL. SELinux répond
 fondamentalement à la question: `Le <suject> peut-il faire cette <action> sur <object> ?`, Par exemple: un serveur Web
 peut-il accéder aux fichiers des répertoires personnels des utilisateurs ?
 
@@ -180,45 +180,7 @@ Suivant le type de serveur, installer les paquets avec la commande suivante :
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-<Tabs groupId="sync">
-<TabItem value="Central / Remote Server" label="Central / Remote Server">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-web-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Poller" label="Poller">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Map server" label="Map server">
-
-   ```shell
-   apt install centreon-map-selinux
-   ```
-
-</TabItem>
-<TabItem value="MBI server" label="MBI server">
-
-   ```shell
-   apt install centreon-mbi-selinux
-   ```
-
-</TabItem>
-</Tabs>
+SELinux ne concerne que les environnements EL.
 
 </TabItem>
 </Tabs>
@@ -1607,6 +1569,29 @@ Vous pouvez [configurer SSL](https://github.com/centreon/centreon-collect/blob/d
 Puis configurez gorgone à la page **Administration > Paramètres > Gorgone**.
 
 Le fichier **/etc/centreon-gorgone/config.d/whitelist.conf.d/centreon.yaml** (sur votre serveur central, vos serveurs distants et vos collecteurs) contient les listes blanches pour Gorgone. Si vous souhaitez personnaliser les commandes autorisées, n'éditez pas ce fichier. Créez un nouveau fichier dans le même dossier, par exemple **/etc/centreon-gorgone/config.d/whitelist.conf.d/custom.yaml**.
+
+## Centreon Gorgone autodiscovery
+
+Par défaut, Gorgone autorise les commandes du module autodiscovery à interpréter les métacaractères bash lorsqu'elles sont exécutées. Cela peut constituer un risque de sécurité si un utilisateur disposant des privilèges nécessaires pour effectuer une découverte d'hôte est compromis.
+
+Pour désactiver ce comportement, vous pouvez définir le paramètre **no_shell_interpolation** à **true** dans le fichier **/etc/centreon-gorgone/config.d/41-autodiscovery.yaml**, comme suit : 
+
+**vi /etc/centreon-gorgone/config.d/41-autodiscovery.yaml**
+
+```yaml
+gorgone:
+  modules:
+    - name: autodiscovery
+      package: "gorgone::modules::centreon::autodiscovery::hooks"
+      enable: true
+      no_shell_interpretation: true
+```
+
+Redémarrez ensuite Gorgone pour que le nouveau paramètre prenne effet :
+
+```shell
+systemctl restart gorgoned
+```
 
 ## Gestion de l'information et des événements de sécurité (SIEM)
 

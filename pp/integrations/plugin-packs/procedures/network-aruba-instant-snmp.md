@@ -5,15 +5,9 @@ title: Aruba Instant SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-## Overview
-
-Aruba Networks is a provider of network access solutions for enterprises.
-
-The Centreon Monitoring Connector *Aruba Instant SNMP* relies on the SNMP protocol to query and collect status and metrics for the Aruba Wireless Access Point devices.
-
-
 ## Pack assets
+
+> Since HP acquired Aruba, some MIBs may have changed. If your Aruba device is no longer correcty monitored by the Aruba connector, use the [HP Procurve SNMP](network-switchs-hp-procurve-snmp.md) connector instead.
 
 ### Templates
 

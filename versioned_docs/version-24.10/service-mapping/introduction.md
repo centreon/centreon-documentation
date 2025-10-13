@@ -18,7 +18,7 @@ Prioritizing and proactively managing IT operations and service delivery for
 the required SLA becomes easier. Centreon BAM contributes to showing that IT counts for
 business operations.
 
-![image](../assets/service-mapping/first_page.gif)
+![image](../assets/service-mapping/New%20BA%20Monitoring%20page.gif)
 
 **Centreon BAM** uses an advanced Business Activities (BA) calculation engine
 based on Key Performance Indicators.
@@ -35,5 +35,3 @@ Definitions:
   - **BV**: Business View: the displayed business activity
   - **KPI**: Key Performance Indicator: the weighted indicator considered in the
     BA calculation.
-
-![image](../assets/service-mapping/about/ba_detailed.png)

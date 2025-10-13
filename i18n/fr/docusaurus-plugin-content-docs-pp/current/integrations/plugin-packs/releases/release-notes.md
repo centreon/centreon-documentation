@@ -8,6 +8,172 @@ import TabItem from '@theme/TabItem';
 
 ## 2025
 
+### Septembre
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Hyper-V 2012 CMA**](../procedures/virtualization-hyperv-2012-cma.md) - Initial release of Hyper-V 2012 CMA.
+- [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - Initial release of VMware8 VM REST API.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Ansible Tower**](../procedures/applications-ansible-tower.md) - Improve UUID generation to make it unique in **host discovery**.
+- [**HP Standard Network SNMP**](../procedures/network-hp-standard-snmp.md) - Added **vrrp-status** mode, from community contribution [PR 4842](https://github.com/centreon/centreon-plugins/pull/4842).
+- [**Linux Centreon Monitoring Agent**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
+- [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
+- [**Linux Telegraf Agent**](../procedures/operatingsystems-linux-telegraf-agent.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
+- [**Proxmox VE Rest API**](../procedures/virtualization-proxmox-ve-restapi.md) - Added option `include-node-name` in **vm-usage** mode, from community contribution [Issue 5642](https://github.com/centreon/centreon-plugins/issues/5642).
+- [**APC UPS SNMP**](../procedures/hardware-ups-apc-snmp.md) - Added support for APC Galaxy in **sensors** mode, based on community contribution [PR 55692](https://github.com/centreon/centreon-plugins/pull/5692).
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Added default values in **API custom** help section.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Quanta by Centreon Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Full rework of the current plugin.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Docker Rest API**](../procedures/applications-docker-restapi.md) - Fixed memory usage calculation in **container-usage** mode.
+- [**Kubernetes w/ Prometheus API**](../procedures/cloud-prometheus-kubernetes-api.md) - Fixed `daemonset-status` incorrect key causing skips in **daemonset-status** mode.
+- [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Fixed total space calculation error and missing snapshot info in **volumes** mode. 
+- [**VTOM Rest API**](../procedures/applications-vtom-restapi.md) - Fixed an issue leading to `Unknown option --token` in **jobs** mode.
+- [**Veeam API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Added Veeam Agent compatibility for job monitoring in **job-status** mode.
+- [**Veeam Centreon Monitoring Agent**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Added Veeam Agent compatibility for job monitoring in **job-status** mode.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Added Veeam Agent compatibility for job monitoring in **job-status** mode.
+- [**Veeam**](../procedures/applications-veeam-nrpe.md) - Added Veeam Agent compatibility for job monitoring in **job-status** mode.
+
+</TabItem>
+</Tabs>
+
+### Août
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Forcepoint SNMP**](../procedures/network-firewalls-forcepoint-sdwan-snmp.md) - Initial release of Forcepoint SNMP, based on community contribution [PR 5512](https://github.com/centreon/centreon-plugins/pull/5512) and a [The Watch idea](https://thewatch.centreon.com/ideas/update-stonesoft-forcepoint-plugin-4169).
+- [**Active Directory Centreon Monitoring Agent**](../procedures/infrastructure-active-directory-centreon-monitoring-agent.md) - Initial release of Active Directory Centreon Monitoring Agent.
+- [**LatenceTech RestAPI**](../procedures/applications-monitoring-latencetech-restapi.md) - Initial release of LatenceTech RestAPI.
+
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Added options to ignore acknowledged messages, from community contribution [PR 5487](https://github.com/centreon/centreon-plugins/pull/5487).
+- [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Added a new authentication method using the `api-key` option.
+- [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - Added OS and IP info retrieval to **host discovery**.
+- [**Redis Database**](../procedures/applications-databases-redis.md) - Added `cert` and `key` options for authentication (available for redis-cli >= 6.x), based on community contribution [PR 5555](https://github.com/centreon/centreon-plugins/pull/5555).
+- [**Redis Sentinel**](../procedures/applications-redis-sentinel.md) - Added `cert` and `key` options for authentication (available for redis-cli >= 6.x), from community contribution [PR 5555](https://github.com/centreon/centreon-plugins/pull/5555).
+- [**Veeam Centreon Monitoring Agent**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Converted into stable and added default timeout service macro, set to 120s.
+- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added native checks for **Process**, **Counter**, **Taskched** and **Files**. Added default timeout service macro, set to 120s.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Converted into stable with the new CMA version leading to breaking changes for earlier versions.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**AIX SNMP**](../procedures/operatingsystems-aix-snmp.md) - Fixed an issue causing a parsing error.
+- [**AWS Billing**](../procedures/cloud-aws-billing.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**AWS ELB**](../procedures/cloud-aws-elb.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**AWS Lambda**](../procedures/cloud-aws-lambda.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**AWS VPN**](../procedures/cloud-aws-vpn.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon API Gateway**](../procedures/cloud-aws-apigateway.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon Backup Vault**](../procedures/cloud-aws-backup.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon CloudFront**](../procedures/cloud-aws-cloudfront.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon Direct Connect**](../procedures/cloud-aws-directconnect.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon EBS**](../procedures/cloud-aws-ebs.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon EFS**](../procedures/cloud-aws-efs.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon ElastiCache**](../procedures/cloud-aws-elasticache.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon Kinesis**](../procedures/cloud-aws-kinesis.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon S3**](../procedures/cloud-aws-s3.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon SNS**](../procedures/cloud-aws-sns.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Amazon SQS**](../procedures/cloud-aws-sqs.md) - Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [**Azure API Management**](../procedures/cloud-azure-management-apimanagement.md) - Fixed host discovery issue.
+- [**Azure App Configuration**](../procedures/cloud-azure-devtools-appconfiguration.md) - Fixed host discovery issue.
+- [**Azure Application Gateway**](../procedures/cloud-azure-network-appgateway.md) - Fixed host discovery issue.
+- [**Azure Application Insights**](../procedures/cloud-azure-management-applicationinsights.md) - Fixed host discovery issue.
+- [**Azure Automation**](../procedures/cloud-azure-management-automation.md) - Fixed host discovery issue.
+- [**Azure CDN**](../procedures/cloud-azure-network-cdn.md) - Fixed host discovery issue.
+- [**Azure Cache for Redis**](../procedures/cloud-azure-database-redis.md) - Fixed host discovery issue.
+- [**Azure Classic Storage**](../procedures/cloud-azure-classicstorage-storageaccount.md) - Fixed host discovery issue.
+- [**Azure Cosmos DB**](../procedures/cloud-azure-database-cosmosdb.md) - Fixed host discovery issue.
+- [**Azure Data Factory**](../procedures/cloud-azure-datafactory-factories.md) - Fixed host discovery issue.
+- [**Azure Database for MariaDB**](../procedures/cloud-azure-database-mariadb.md) - Fixed host discovery issue.
+- [**Azure Discover**](../procedures/cloud-azure-management-discover.md) - Fixed host discovery issue.
+- [**Azure Elastic Pool**](../procedures/cloud-azure-database-elasticpool.md) - Fixed host discovery issue.
+- [**Azure ExpressRoute**](../procedures/cloud-azure-network-expressroute.md) - Fixed host discovery issue.
+- [**Azure Firewall**](../procedures/cloud-azure-network-firewall.md) - Fixed host discovery issue.
+- [**Azure Front Door**](../procedures/cloud-azure-network-frontdoor.md) - Fixed host discovery issue.
+- [**Azure Functions**](../procedures/cloud-azure-compute-functions.md) - Fixed host discovery issue.
+- [**Azure Kubernetes Service**](../procedures/cloud-azure-compute-aks.md) - Fixed host discovery issue.
+- [**Azure Load Balancer**](../procedures/cloud-azure-network-loadbalancer.md) - Fixed host discovery issue.
+- [**Azure Network Interface**](../procedures/cloud-azure-network-networkinterface.md) - Fixed host discovery issue.
+- [**Azure Public IP**](../procedures/cloud-azure-network-publicip.md) - Fixed host discovery issue.
+- [**Azure Recovery**](../procedures/cloud-azure-management-recovery.md) - Fixed host discovery issue.
+- [**Azure Resource**](../procedures/cloud-azure-management-resource.md) - Fixed host discovery issue.
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Fixed host discovery issue.
+- [**Azure SQL Managed Instance**](../procedures/cloud-azure-database-sqlmanagedinstance.md) - Fixed host discovery issue.
+- [**Azure SQL Server**](../procedures/cloud-azure-database-sqlserver.md) - Fixed host discovery issue.
+- [**Azure ServiceBus**](../procedures/cloud-azure-integration-servicebus.md) - Fixed host discovery issue.
+- [**Azure Traffic Manager**](../procedures/cloud-azure-network-trafficmanager.md) - Fixed host discovery issue.
+- [**Azure Virtual Machine Scale Sets**](../procedures/cloud-azure-compute-vmscalesets.md) - Fixed host discovery issue.
+- [**Azure Virtual Machine**](../procedures/cloud-azure-compute-virtualmachine.md) - Fixed host discovery issue.
+- [**Eclipse Mosquitto MQTT**](../procedures/applications-eclipse-mosquitto-mqtt.md) - Fixed a syntax error and an issue with encoding occurring when topic names contained accents.
+- [**HP Ilo Rest API**](../procedures/hardware-servers-hp-ilo-restapi.md) - Fixed an issue with some firmware versions to exclude enclosure.
+- [**Huawei HMM SNMP**](../procedures/hardware-servers-huawei-hmm-snmp.md) - Fixed `no-component` option.
+- [**Hyper-V NSCP REST API**](../procedures/virtualization-hyperv-nscp-restapi.md) - Fixed an issue with **scvmm-discovery** stats.
+- [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - Fixed an issue leading to `Cannot find 'ComputeResource' object` message.
+- [**VMware VM**](../procedures/virtualization-vmware2-vm.md) - Fixed an issue leading to `Cannot find 'ComputeResource' object` message.
+- [**VMware vCenter**](../procedures/virtualization-vmware2-vcenter-generic.md) - Fixed an issue leading to `Cannot find 'ComputeResource' object` message.
+
+</TabItem>
+</Tabs>
+
+### Juillet
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**VMware8 vCenter REST API**](../procedures/applications-virtualization-vmware8-vcenter-restapi.md) - Initial release of VMware8 vCenter REST API.
+- [**HPE Alletra REST API**](../procedures/hardware-storage-hpe-alletra-restapi.md) - Initial release of HPE Alletra REST API, from a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-baie-hp-alletra-mp-3721) and based on community contribution [PR 5174](https://github.com/centreon/centreon-plugins/pull/5174).
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Apache Server**](../procedures/applications-webservers-apache-serverstatus.md) - Reworked **requests** mode and enhanced **slot-states** mode, based on community contribution [PR 4920](https://github.com/centreon/centreon-plugins/pull/4920).
+- [**Azure Management Costs**](../procedures/cloud-azure-management-costs.md) - Added an option to choose `cost-metric`, from community contribution [PR 4756](https://github.com/centreon/centreon-plugins/pull/4756).
+- [**Google Stackdriver**](../procedures/cloud-gcp-management-stackdriver.md) - Allowed compatibility with `distribution` type values in **get-metrics** mode.
+- [**HashiCorp Vault Rest API**](../procedures/applications-hashicorp-vault-restapi.md) - Enhanced standby-status counter and added code parameters options in **health** mode, from community contributions [PR 5522](https://github.com/centreon/centreon-plugins/pull/5522) and [PR 4839](https://github.com/centreon/centreon-plugins/pull/4839).
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Amazon CloudWatch**](../procedures/cloud-aws-cloudwatch.md) - Fixed an issue with the `zeroed` option, occurring when metrics were empty in **get-metrics** mode.
+- [**DenyAll (Rohde & Schwarz) SNMP**](../procedures/network-denyall-snmp.md) - Fixed `FILTERSTORAGE` default macro value.
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Fixed an issue where default value for `timezone` option was empty, leading to an unknown status being returned in **cleaning** mode.
+- [**EMC Unisphere Rest API**](../procedures/hardware-storage-emc-unisphere-restapi.md) - Added missing mandatory parameters for discovery rules and fixed storage discovery rule.
+- [**Huawei HMM**](../procedures/hardware-servers-huawei-hmm-snmp.md) - Removed experimental keys on scalar in **blade** mode components.
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Fixed an issue occurring when a pod IP was empty in the **list-pods** discovery rule.
+- [**Microsoft IIS Server WSMAN**](../procedures/applications-iis-wsman.md) - Fixed typo in `App-Iis-WSMAN-Application-Pools` command.
+- [**Microsoft SCCM**](../procedures/applications-sccm-nsclient.md) - Fixed wrong argument in `App-Sccm-Site-Status` command.
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Fixed an error occurring when retrieving the server version.
+- [**Podman REST API**](../procedures/applications-podman-restapi.md) - Fixed API endpoint for **container-usage** mode.
+- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - Removed `App-Rubrik-Restapi-Agent-Status` discovery rule that didn't exist.
+- [**NetApp Santricity Restapi**](../procedures/hardware-storage-netapp-santricity-restapi.md) - Fixed `cmd` component count in **hardware** mode.
+
+</TabItem>
+</Tabs>
+
 ### Juin
 
 <Tabs groupId="sync">

@@ -27,14 +27,6 @@
     "message": "Configurer les serveurs de supervision",
     "description": "The label for category Configuring monitoring servers in sidebar docs"
   },
-  "sidebar.docs.category.Installation of Centreon HA": {
-    "message": "Installer Centreon HA",
-    "description": "The label for category Installation of Centreon HA in sidebar docs"
-  },
-  "sidebar.docs.category.Installation of a manual Centreon HA": {
-    "message": "Installation de Centreon HA manuelle",
-    "description": "The label for category Installation of a manual Centreon HA in sidebar docs"
-  },
   "sidebar.docs.category.Secure your platform": {
     "message": "Sécuriser la plateforme",
     "description": "The label for category Secure your platform in sidebar docs"
@@ -267,13 +259,17 @@
     "message": "Centreon MAP (Legacy)",
     "description": "The label for category Centreon MAP (Legacy) in sidebar docs"
   },
-  "sidebar.docs.category.Installing Centreon HA": {
+    "sidebar.docs.category.Installing Centreon HA": {
     "message": "Installer Centreon HA",
     "description": "The label for category Installing Centreon HA in sidebar docs"
   },
-  "sidebar.docs.category.Installing a manual Centreon HA": {
-    "message": "Installer un Centreon HA à basculement manuel",
-    "description": "The label for category Installing a manual Centreon HA in sidebar docs"
+  "sidebar.docs.category.Completing your Centreon HA setup": {
+    "message": "Finaliser votre installation Centreon HA",
+    "description": "The label for category Completing your Centreon HA setup in sidebar docs"
+  },
+  "sidebar.docs.category.Completing your Centreon HA setup.link.generated-index.description": {
+    "message": "Votre plateforme HA a été installée par Centreon Professional Services. Que pouvez-vous faire ensuite ?",
+    "description": "The generated-index page description for category Completing your Centreon HA setup in sidebar docs"
   },
   "sidebar.docs.category.Operating Centreon HA": {
     "message": "Faire fonctionner Centreon HA",

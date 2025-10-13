@@ -22,6 +22,64 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 23.10.23
+
+Release date: `October 6, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Config] Fixed an issue where the configure.sh script was not starting the mysql service anymore.
+- [Editor] Fixed an issue that caused links to be positioned differently in the editor when migrating from MAP Legacy to MAP.	
+- [Editor] Fixed issues occurring when copying/pasting elements.
+- [Viewer] Fixed issue that prevented pie chart widgets from being displayed in percentage per status.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Server] Fixed ownership of configuration files.
+- [Vulnerability] Upgraded crypto-js to version 4.2.0.
+- [Vulnerability] Upgraded Tomcat to version 10.1.44.
+
+</details>
+
+### 23.10.22
+
+Release date: `July 24, 2025`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] A new updated version of the API documentation is now available.
+- [Server] Modified SQL user rights to grant only necessary ones.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Avoided possibility to have a rectangle shape with width or height of 0 pixel, which caused error when saving a map.
+- [Editor] Fixed missing host selection when configuring a status link.
+- Fixed naming issue when modifying resources to be displayed.
+- [Installation] Fixed my.cnf path for Debian.
+- [Map list] Fixed pagination.
+- [Map list] Fixed search bar behavior.
+- [Migration] Added multiple information logs when migrating from MAP Legacy.
+- [Server] Fixed an issue preventing resources from being displayed when configuration contained a host without any service associated to it.
+- [Server] Fixed an issue that may prevent user from duplicating a map.
+- [Viewer] Fixed an issue where links to triangle shapes were shifted in view mode.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded axios to version 1.8.4.
+
+</details>
+
 ### 23.10.21
 
 Release date: `June 17, 2025`
@@ -507,6 +565,17 @@ Release date: `October 30, 2023`
 
 ## Centreon MAP Legacy
 
+### 23.10.22
+
+Release date: `July 24, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Migration] Added multiple information logs when migrating from MAP Legacy.
+
+</details>
+
 ### 23.10.21
 
 Release date: `June 17, 2025`
@@ -555,6 +624,17 @@ Release date: `November 22, 2023`
 </details>
 
 ## Centreon BAM
+
+### 23.10.14
+
+Release date: `July 24, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+</details>
 
 ### 23.10.13
 
@@ -699,6 +779,40 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon MBI
+
+### 23.10.15
+
+Release date: `October 6, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ETL] Fixed an issue occurring when metric names exceeded 255 characters.
+- [MBI] Fixed an issue causing ACLs not to be applied to report designs.
+- [MBI] Fixed upload of report templates.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Engine] Fixed ownership of configuration files.
+- [MBI] Fixed an issue causing potential privilege escalation.
+- [Vulnerability] Upgraded JDOM version.
+- [Vulnerability] Upgraded versions of Apache Commons and TemporaryFolder dependencies.
+
+</details>
+
+### 23.10.14
+
+Release date: `July 24, 2025`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dependencies] Added missing dependency of Tie/File.pm on Alma 9.
+
+</details>
 
 ### 23.10.13
 
@@ -888,6 +1002,12 @@ Release date: `October 30, 2023`
 
 ## Centreon Auto Discovery
 
+### 23.10.8
+
+Release date: `July 24, 2025`
+
+- No changes for this module in this version.
+
 ### 23.10.7
 
 Release date: `June 17, 2025`
@@ -1071,6 +1191,17 @@ Release date: `October 30, 2023`
 
 ## Centreon License Manager
 
+### 23.10.6
+
+Release date: `July 24, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded DOMPurify dependency.
+
+</details>
+
 ### 23.10.5
 
 Release date: `June 17, 2025`
@@ -1128,6 +1259,17 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Anomaly Detection
+
+### 23.10.7
+
+Release date: `July 24, 2025`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+</details>
 
 ### 23.10.6
 
