@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Microsoft Active Directory Centreon Monitoring Agent** connector through the
+The following monitoring connectors will be installed when you install the **Microsoft Active Directory CMA** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Mic
 
 ### Templates
 
-The Monitoring Connector **Microsoft Active Directory Centreon Monitoring Agent** brings one host template:
+The Monitoring Connector **Microsoft Active Directory CMA** brings one host template:
 
 * **Infra-ActiveDirectory-Centreon-Monitoring-Agent-custom**
 
@@ -133,7 +133,7 @@ yum install centreon-pack-infrastructure-active-directory-centreon-monitoring-ag
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Microsoft Active Directory Centreon Monitoring Agent** connector through
+2. Whatever the license type (*online* or *offline*), install the **Microsoft Active Directory CMA** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin

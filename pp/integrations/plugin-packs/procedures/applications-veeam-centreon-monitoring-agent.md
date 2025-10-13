@@ -1,13 +1,13 @@
 ---
 id: applications-veeam-centreon-monitoring-agent
-title: Veeam Centreon Monitoring Agent
+title: Veeam CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Veeam Centreon Monitoring Agent** connector through the
+The following monitoring connectors will be installed when you install the **Veeam CMA** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Vee
 
 ### Templates
 
-The Monitoring Connector **Veeam Centreon Monitoring Agent** brings a host template:
+The Monitoring Connector **Veeam CMA** brings a host template:
 
 * **App-Veeam-Centreon-Monitoring-Agent-custom**
 
@@ -171,7 +171,7 @@ yum install centreon-pack-applications-veeam-centreon-monitoring-agent
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Veeam Centreon Monitoring Agent** connector through
+2. Whatever the license type (*online* or *offline*), install the **Veeam CMA** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin

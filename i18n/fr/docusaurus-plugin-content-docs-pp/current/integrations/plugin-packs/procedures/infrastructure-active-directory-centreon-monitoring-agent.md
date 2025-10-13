@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Microsoft Active Directory Centreon Monitoring Agent** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Microsoft Active Directory CMA** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Microsoft Active Directory Centreon Monitoring Agent** apporte 1 modèle d'hôte :
+Le connecteur de supervision **Microsoft Active Directory CMA** apporte 1 modèle d'hôte :
 
 * **Infra-ActiveDirectory-Centreon-Monitoring-Agent-custom**
 
@@ -135,7 +135,7 @@ yum install centreon-pack-infrastructure-active-directory-centreon-monitoring-ag
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Microsoft Active Directory Centreon Monitoring Agent**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Microsoft Active Directory CMA**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
