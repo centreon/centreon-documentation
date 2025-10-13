@@ -214,6 +214,8 @@ In this example:
 
 Your dedicated user is now working and can monitor your Windows server without requiring a local Administrator account.
 
+> Note: The SDDL must be configured for `scmanager` and for all the extra services that you want to monitor.
+
 </TabItem>
 <TabItem value="Domain Configuration" label="Domain Configuration">
 

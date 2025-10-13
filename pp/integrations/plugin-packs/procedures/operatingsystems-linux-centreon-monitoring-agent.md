@@ -7,8 +7,6 @@ import TabItem from '@theme/TabItem';
 
 The **Linux Centreon Monitoring Agent** connector supplies templates and commands to be used with the Centreon Monitoring Agent (this is an observability agent implementing the OpenTelemetry protocol).
 
-> For the moment, this monitoring connector is in **BETA** version. The agent is still in its beta phase for Centreon Cloud users.
-
 Read [this page](../getting-started/how-to-guides/cma/cma.md) for more information about the Centreon Monitoring Agent itself.
 
 ## Pack assets
@@ -563,20 +561,22 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Macro           | Description                                                                                                                                                         | Default value                | Mandatory   |
-|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| NTPCOMMAND      | Default mode for parsing and command: 'ntpq', 'chronyc' or 'all'                                                                                          | all                          |             |
-| FILTERPEERNAME  | Filter peer name (can be a regexp)                                                                                                                                  | .*                           |             |
-| FILTERPEERSTATE | Filter peer state (can be a regexp)                                                                                                                                 | .*                           |             |
-| WARNINGOFFSET   | Warning threshold offset deviation value in milliseconds                                                                                                            |                              |             |
-| CRITICALOFFSET  | Critical threshold offset deviation value in milliseconds                                                                                                           |                              |             |
-| WARNINGPEERS    | Warning threshold minimum amount of NTP-Server                                                                                                                      |                              |             |
-| CRITICALPEERS   | Critical threshold minimum amount of NTP-Server                                                                                                                     |                              |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |             |
+| Macro            | Description                                                                                                                                                         | Default value                | Mandatory   |
+|:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
+| NTPCOMMAND       | Default mode for parsing and command: 'auto', 'ntpq', 'chronyc' or 'all'                                                                                            | auto                         |             |
+| FILTERPEERNAME   | Filter peer name (can be a regexp)                                                                                                                                  | .*                           |             |
+| EXCLUDEPEERNAME  | Exclude by peer name (can be a regexp)                                                                                                                              |                              |             |
+| FILTERPEERSTATE  | Filter peer state (can be a regexp)                                                                                                                                 | .*                           |             |
+| EXCLUDEPEERSTATE | Exclude by peer state (can be a regexp)                                                                                                                             |                              |             |
+| WARNINGOFFSET    | Warning threshold offset deviation value in milliseconds                                                                                                            |                              |             |
+| CRITICALOFFSET   | Critical threshold offset deviation value in milliseconds                                                                                                           |                              |             |
+| WARNINGPEERS     | Warning threshold minimum amount of NTP-Server                                                                                                                      |                              |             |
+| CRITICALPEERS    | Critical threshold minimum amount of NTP-Server                                                                                                                     |                              |             |
+| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |             |
 | CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\} |                              |             |
-| WARNINGSTRATUM  | Warning threshold                                                                                                                                                   |                              |             |
-| CRITICALSTRATUM | Critical threshold                                                                                                                                                  |                              |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  | --use-new-perfdata --verbose |             |
+| WARNINGSTRATUM   | Warning threshold                                                                                                                                                   |                              |             |
+| CRITICALSTRATUM  | Critical threshold                                                                                                                                                  |                              |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  | --use-new-perfdata --verbose |             |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">

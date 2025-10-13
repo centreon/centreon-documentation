@@ -7,8 +7,6 @@ import TabItem from '@theme/TabItem';
 
 Le connecteur **Linux Centreon Monitoring Agent** permet de fournir des modèles et commandes à l'agent de supervision Centreon (Centreon Monitoring Agent). Celui-ci est un agent d'observabilité implémentant le protocole OpenTelemetry.
 
-> Pour le moment, ce connecteur de supervision est en version **BETA**. L'agent est encore dans sa phase beta pour les utilisateurs de Centreon Cloud.
-
 Lisez [cette page](../getting-started/how-to-guides/cma/cma.md) pour plus d'informations sur le fonctionnement de l'agent lui-même.
 
 ## Contenu du pack
@@ -567,20 +565,22 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Macro           | Description                                                                                                                                                         | Valeur par défaut            | Obligatoire |
-|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| NTPCOMMAND      | Default mode for parsing and command: 'ntpq', 'chronyc' or 'all'                                                                                          | all                          |             |
-| FILTERPEERNAME  | Filter peer name (can be a regexp)                                                                                                                                  | .*                           |             |
-| FILTERPEERSTATE | Filter peer state (can be a regexp)                                                                                                                                 | .*                           |             |
-| WARNINGOFFSET   | Warning threshold offset deviation value in milliseconds                                                                                                            |                              |             |
-| CRITICALOFFSET  | Critical threshold offset deviation value in milliseconds                                                                                                           |                              |             |
-| WARNINGPEERS    | Warning threshold minimum amount of NTP-Server                                                                                                                      |                              |             |
-| CRITICALPEERS   | Critical threshold minimum amount of NTP-Server                                                                                                                     |                              |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\} |                              |             |
-| WARNINGSTRATUM  | Warning threshold                                                                                                                                                   |                              |             |
-| CRITICALSTRATUM | Critical threshold                                                                                                                                                  |                              |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                    | --use-new-perfdata --verbose |             |
+| Macro            | Description                                                                                                                                                         | Valeur par défaut            | Obligatoire |
+|:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
+| NTPCOMMAND       | Default mode for parsing and command: 'auto', 'ntpq', 'chronyc' or 'all'                                                                                            | auto                         |             |
+| FILTERPEERNAME   | Filter peer name (can be a regexp)                                                                                                                                  | .*                           |             |
+| EXCLUDEPEERNAME  | Exclude by peer name (can be a regexp)                                                                                                                              |                              |             |
+| FILTERPEERSTATE  | Filter peer state (can be a regexp)                                                                                                                                 | .*                           |             |
+| EXCLUDEPEERSTATE | Exclude by peer state (can be a regexp)                                                                                                                             |                              |             |
+| WARNINGOFFSET    | Warning threshold offset deviation value in milliseconds                                                                                                            |                              |             |
+| CRITICALOFFSET   | Critical threshold offset deviation value in milliseconds                                                                                                           |                              |             |
+| WARNINGPEERS     | Warning threshold minimum amount of NTP-Server                                                                                                                      |                              |             |
+| CRITICALPEERS    | Critical threshold minimum amount of NTP-Server                                                                                                                     |                              |             |
+| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |             |
+| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\} |                              |             |
+| WARNINGSTRATUM   | Warning threshold                                                                                                                                                   |                              |             |
+| CRITICALSTRATUM  | Critical threshold                                                                                                                                                  |                              |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                    | --use-new-perfdata --verbose |             |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">

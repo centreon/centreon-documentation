@@ -140,8 +140,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To use this connector, you must have the login and a password of an account allowed to use the VeloCloud Orchestrator 
-API. 
+To use this connector, you must have the login and password of an account allowed to use the VeloCloud Orchestrator 
+API.
+MSP-type accounts are not supported.
 
 ## Installing the monitoring connector
 

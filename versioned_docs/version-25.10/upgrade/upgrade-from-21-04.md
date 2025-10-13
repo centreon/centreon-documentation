@@ -75,12 +75,9 @@ Centreon 24.10 uses PHP in version 8.2.
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
 
-First, you need to install the **remi** repository:
-
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
@@ -92,18 +89,16 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
-First, you need to install the **remi** repository:
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 ```
 
 Then, you need to change the PHP stream from version 7.3 to 8.2 by executing the following commands and answering **y**
@@ -114,7 +109,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>

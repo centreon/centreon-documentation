@@ -5,14 +5,9 @@ title: Aruba Instant SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Contenu du connecteur
 
-## Vue d'ensemble
-
-Aruba Networks est un fournisseur de solutions d'accès réseau.
-
-Le connecteur de supervision *Aruba Instant SNMP* utilise le protocole SNMP pour se connecter et récupérer des informations et des métriques relatives aux bornes d'accès sans fil de marque Aruba.
-
-## Contenu du pack
+> Depuis le rachat d'Aruba par HP, certaines MIB peuvent avoir changé. Si votre équipement Aruba n'est plus supervisé correctement par le connecteur Aruba, utilisez le connecteur [HP Procurve SNMP](network-switchs-hp-procurve-snmp.md).
 
 ### Modèles
 

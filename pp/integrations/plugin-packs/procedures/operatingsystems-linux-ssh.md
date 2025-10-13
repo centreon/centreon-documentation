@@ -616,9 +616,11 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 
 | Macro           | Description                                                                                                                                                         | Default value     | Mandatory   |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NTPMODE         | Default mode for parsing and command: 'ntpq' (default), 'chronyc' or 'all'                                                                                          | ntpq              |             |
+| NTPMODE         | Default mode for parsing and command: 'auto', 'ntpq', 'chronyc' or 'all'                                                                                            | auto              |             |
 | FILTERNAME      | Filter peer name (can be a regexp)                                                                                                                                  |                   |             |
+| EXCLUDENAME     | Filter by peer name (can be a regexp)                                                                                                                               |                   |             |
 | FILTERSTATE     | Filter peer state (can be a regexp)                                                                                                                                 |                   |             |
+| EXCLUDESTATE    | Filter by peer state (can be a regexp)                                                                                                                              |                   |             |
 | UNKNOWNSTATUS   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                   |             |
 | WARNINGOFFSET   | Warning threshold offset deviation value in milliseconds                                                                                                            |                   |             |
 | CRITICALOFFSET  | Critical threshold offset deviation value in milliseconds                                                                                                           |                   |             |
