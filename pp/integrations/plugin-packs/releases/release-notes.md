@@ -8,6 +8,49 @@ import TabItem from '@theme/TabItem';
 
 ## 2025
 
+### October
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Microsoft WSUS CMA**](../procedures/applications-wsus-cma.md) - Initial release WSUS Microsoft CMA.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**APC UPS**](../procedures/hardware-ups-apc-snmp.md) - Added `timezone` option in **time** mode, based on community contribution [PR 5690](https://github.com/centreon/centreon-plugins/pull/5690).
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Enhanced help information about `hostname` (see [here](https://developer.cisco.com/meraki/api-v1/getting-started/#base-uri) for more information about URI).
+- [**Elasticsearch**](../procedures/applications-databases-elasticsearch.md) - Added new **query** mode.
+- [**Extreme Network SNMP**](../procedures/network-extreme-snmp.md) - Added supported models in documentation. 
+- [**Extreme (formerly Nortel/Avaya) SNMP**](../procedures/network-nortel-standard-snmp.md) - **Nortel standard SNMP** rebranded to Extreme SNMP. 
+- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Now deprecated, please use [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md).
+- [**Office 365 Management**](../procedures/cloud-microsoft-office365-management.md) - Added `filter-classification` option to **service-status** mode.
+- [**Splunk API**](../procedures/applications-monitoring-splunk-api.md) - Extended **query** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-for-splunk-return-value-of-spl-request-3734). 
+- [**pfSense SNMP**](../procedures/network-firewalls-pfsense-snmp.md) - Added new modes: **cpu**, **cpu-detailed**, **load**, **memory**, **swap** and **uptime**.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Added **Disk-Name** service discovery rule.
+- [**VMware8 ESXi REST API**](../procedures/applications-virtualization-vmware8-esx-restapi.md) - Enhanced performance by implementing cache, and handled pagination for **acq-specs**.
+- [**VMware8 vCenter REST API**](../procedures/applications-virtualization-vmware8-vcenter-restapi.md) - Enhanced performance by implementing cache, and handled pagination for **acq-specs**.
+- [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - Added new modes: **disk-io**, **network** and **power**. Enhanced performance by implementing cache, and handled pagination for **acq-specs**.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Elasticsearch**](../procedures/applications-databases-elasticsearch.md) - The `ELASTICSEARCHPROTO` host macro's default value is now `https` to follow Elasticsearch recommendations (see [here](https://www.elastic.co/docs/deploy-manage/security/set-up-minimal-security)).
+- [**VMware8 ESX REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - Changed threshold options and metric names for **power** mode. Changed the way credentials are configured in Host Discovery.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Commvault Commserve Rest API**](../procedures/applications-commvault-commserve-restapi.md) - Fixed an error with **jobs** mode occurring when the output was too long.
+- [**Fortinet Fortigate Rest API**](../procedures/network-fortinet-fortigate-restapi.md) - Fixed an issue with `resources` in **health** mode.
+- [**IBM Storwize SSH**](../procedures/hardware-storage-ibm-storwize-ssh.md) - Fixed an issue occurring while parsing response, from community contribution [PR 5697](https://github.com/centreon/centreon-plugins/pull/5697).
+- [**InfluxDB**](../procedures/applications-databases-influxdb.md) - Fixed an error in **query** mode command.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Fixed an issue where **deadlocks** mode returned false positives.
+- [**Office 365 Management**](../procedures/cloud-microsoft-office365-management.md) - Fixed an issue where each new alert for a service overwrote the previous one, making it impossible to have a global vision in **service-status**.
+
+</TabItem>
+</Tabs>
+
 ### September
 
 <Tabs groupId="sync">
@@ -26,7 +69,7 @@ import TabItem from '@theme/TabItem';
 - [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
 - [**Linux Telegraf Agent**](../procedures/operatingsystems-linux-telegraf-agent.md) - Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
 - [**Proxmox VE Rest API**](../procedures/virtualization-proxmox-ve-restapi.md) - Added option `include-node-name` in **vm-usage** mode, from community contribution [Issue 5642](https://github.com/centreon/centreon-plugins/issues/5642).
-- [**APC UPS SNMP**](../procedures/hardware-ups-apc-snmp.md) - Added support for APC Galaxy in **sensors** mode, based on community contribution [PR 55692](https://github.com/centreon/centreon-plugins/pull/5692).
+- [**APC UPS SNMP**](../procedures/hardware-ups-apc-snmp.md) - Added support for APC Galaxy in **sensors** mode, based on community contribution [PR 5692](https://github.com/centreon/centreon-plugins/pull/5692).
 - [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Added default values in **API custom** help section.
 
 </TabItem>
