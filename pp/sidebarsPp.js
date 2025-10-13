@@ -441,6 +441,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-wsus-cma'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-wsus-nsclient'
         },
         {
