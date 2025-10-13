@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias          | Service Template                                          | Service Description                                   |
 |:-----------------------|:----------------------------------------------------------|:------------------------------------------------------|
-| Computers-Status       | App-Wsus-Computers-Status-NRPE-custom                     | Check computers status count                          |
+| Computers-Status       | App-Wsus-Computers-Status-NRPE-custom                     | Check the number of computers in each status                          |
 | Server-Statistics      | App-Wsus-Server-Statistics-NRPE-custom                    | Check serveral WSUS server statistics                 |
 | Synchronisation-Status | App-Wsus-Synchronisation-Status-NRPE-custom               | Check updates synchronisation with WSUS server status |
 | Update-Status          | App-Wsus-Update-Status-NRPE-custom                        | Check updates status                                  |
@@ -39,7 +39,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias          | Service Template                                          | Service Description                                   |
 |:-----------------------|:----------------------------------------------------------|:------------------------------------------------------|
-| Computers-Status       | App-Wsus-Computers-Status-NSClient05-Restapi-custom       | Check computers status count                          |
+| Computers-Status       | App-Wsus-Computers-Status-NSClient05-Restapi-custom       | Check the number of computers in each status                      |
 | Server-Statistics      | App-Wsus-Server-Statistics-NSClient05-Restapi-custom      | Check serveral WSUS server statistics                 |
 | Synchronisation-Status | App-Wsus-Synchronisation-Status-NSClient05-Restapi-custom | Check updates synchronisation with WSUS server status |
 | Update-Status          | App-Wsus-Update-Status-NSClient05-Restapi-custom          | Check updates status                                  |
