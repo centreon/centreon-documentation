@@ -44,7 +44,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name            | Description                                                                                |
 |:---------------------|:-------------------------------------------------------------------------------------------|
-| VMware ESX vSphere 8 | Discover VMware ESX physical hosts by requesting  vCenter server using vSphere REST API v8 |
+| VMware ESX vSphere 8 | Discover VMware ESX physical hosts by querying a vCenter server using vSphere REST API v8 |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 

@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias     | Modèle de service                        | Description                                                                           |
 |:----------|:-----------------------------------------|:--------------------------------------------------------------------------------------|
 | Vm-Cpu    | Virt-VMWare8-VM-Vm-Cpu-Restapi-custom    | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle     |
-| Vm-Disk-IO            | Virt-VMWare8-VM-Vm-Disk-IO-Restapi-custom            | Supervision des statistiques agrégées d'entrées/sortie disques d'une machine virtuelle |
+| Vm-Disk-IO            | Virt-VMWare8-VM-Vm-Disk-IO-Restapi-custom            | Supervision des statistiques agrégées d'entrées/sorties disque d'une machine virtuelle |
 | Vm-Memory | Virt-VMWare8-VM-Vm-Memory-Restapi-custom | Contrôle permettant de vérifier le taux d'utilisation mémoire d'une machine virtuelle |
 | Vm-Network-Throughput | Virt-VMWare8-VM-Vm-Network-Throughput-Restapi-custom | Supervision des statistiques agrégées de trafic réseau d'une machine virtuelle         |
 | Vm-Power              | Virt-VMWare8-VM-Vm-Power-Restapi-custom              | Supervision de la puissance électrique consommée par une machine virtuelle             |
