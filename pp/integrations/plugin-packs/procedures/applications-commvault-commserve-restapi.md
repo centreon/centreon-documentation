@@ -107,17 +107,17 @@ To control your Commvault CommServe, the Rest API must be configured.
 
 See https://api.commvault.com/
 
-> **Using this connector with Multi-Factor Authentication ( MFA )**
+> **Using this connector with Multi-Factor Authentication (MFA)**
 >
-> When Commvault MFA is enabled it's necessary to create a pair of tokens **Access Token** **Refresh Token** associated with this connector.
+> When Commvault MFA is enabled, you need to create an **Access Token**/**Refresh Token** pair associated with this connector.
 >
 > **Access Token** is used to authenticate to the Commvault API. It is valid for 30 minutes, after this period it is automatically renewed by the connector using **Refresh Token**.
-> When the renewal occurs, a completely new pair of **Access Token** **Refresh Token** is generated and the previous pair is revoked and can no longer be used.
+> When the renewal occurs, a completely new **Access Token**/**Refresh Token** pair is generated and the previous pair is revoked and can no longer be used.
 > The connector saves the latest token pair locally for authentication purposes.
 >
 > Each token should be used by only one connector, it must not have any other use and must not be shared with other applications.
 >
-> Use `--api-token` and `--refresh-token` parameters to set the tokens. Use the `--instance` parameter when multiple plugins are executed on the same poller to identify the token to use.
+> Use the `--api-token` and `--refresh-token` parameters to set the tokens. Use the `--instance` parameter when multiple plugins are executed on the same poller to identify which token to use.
 >
 > Please refer to https://documentation.commvault.com/v11/software/access_tokens_for_rest_apis_01.html for more information.
 

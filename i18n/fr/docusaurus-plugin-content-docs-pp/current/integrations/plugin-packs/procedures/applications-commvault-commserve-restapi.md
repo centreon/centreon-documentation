@@ -108,10 +108,10 @@ Afin de superviser l'application Commvault CommServe, l'API Rest doit être conf
 
 > **Utilisation de ce connecteur avec l’authentification multi-facteurs (MFA)**
 >
-> Lorsque l'authentification MFA de Commvault est activée il est nécessaire de créer une paire de tokens **Access Token** **Refresh Token** associée à ce connecteur.
+> Lorsque l'authentification MFA de Commvault est activée, il est nécessaire de créer une paire de tokens **Access Token**/**Refresh Token** associée à ce connecteur.
 >
 > **Access Token** est utilisé pour s’authentifier auprès de l’API Commvault. Il est valide pendant 30 minutes, à l’issue de cette période il est automatiquement renouvelé par le connecteur à l’aide du **Refresh Token**.
-> Lors du renouvellement une nouvelle paire de **Access Token** **Refresh Token** est générée et la paire précédente est révoquée et ne peut plus être utilisée.
+> Lors du renouvellement une nouvelle paire de **Access Token**/**Refresh Token** est générée et la paire précédente est révoquée et ne peut plus être utilisée.
 > Le connecteur enregistre localement la dernière paire de tokens pour assurer les prochaines authentifications.
 >
 > Chaque token doit être utilisé par un seul connecteur, ne doit avoir aucun autre usage et ne doit pas être partagé avec d’autres applications.
