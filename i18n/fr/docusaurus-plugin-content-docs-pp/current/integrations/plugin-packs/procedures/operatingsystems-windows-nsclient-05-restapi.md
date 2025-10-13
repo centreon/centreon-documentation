@@ -47,7 +47,7 @@ Le connecteur apporte les modèles de service suivants
 | Counter-Generic       | OS-Windows-NSClient05-Counter-Generic-Restapi-custom         | Contrôle permettant de récupérer la valeur d'un compteur de performance |            |
 | Eventlog-Generic      | OS-Windows-NSClient05-Eventlog-Generic-restapi-custom        | Contrôle les événements en erreur dans les eventlogs                    |            |
 | Files-Generic         | OS-Windows-NSClient05-Files-Generic-Restapi-custom           | Contrôle permettant de vérifier des fichiers                            |            |
-| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-Restapi-custom        | Controle les fichiers de logs                                           |            |
+| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-Restapi-custom        | Contrôle les fichiers de logs                                           |            |
 | Ntp                   | OS-Windows-NSClient05-Ntp-Restapi-custom                     | Contrôle la synchronisation avec un serveur NTP                         |            |
 | Pending-Reboot        | OS-Windows-NSClient05-Pending-Reboot-Restapi-custom          | Contrôle si Windows nécessite un redémarrage                            |            |
 | Process-generic       | OS-Windows-NSClient05-Process-Generic-Restapi-custom         | Contrôle des processus                                                  |            |
