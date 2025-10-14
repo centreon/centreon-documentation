@@ -51,7 +51,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 2. Remove the repository files:
 
    ```shell
-   rm /etc/yum.repos.d/centreon-23.10.repo -rf
+   rm /etc/yum.repos.d/centreon-24.04.repo -rf
    rm /etc/yum.repos.d/centreon.repo -rf 
    cd /etc/yum.repos.d/
    ls -lrt
