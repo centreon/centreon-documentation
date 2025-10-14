@@ -20,12 +20,12 @@ import TabItem from '@theme/TabItem';
 
 - [**APC UPS**](../procedures/hardware-ups-apc-snmp.md) - Added `timezone` option in **time** mode, based on community contribution [PR 5690](https://github.com/centreon/centreon-plugins/pull/5690).
 - [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Enhanced help information about `hostname` (see [here](https://developer.cisco.com/meraki/api-v1/getting-started/#base-uri) for more information about URI).
-- [**Elasticsearch**](../procedures/s-databases-elasticsearch.md) - Added new **query** mode.
+- [**Elasticsearch**](../procedures/applications-databases-elasticsearch.md) - Added new **query** mode.
 - [**Extreme Network SNMP**](../procedures/network-extreme-snmp.md) - Added supported models in documentation. 
 - [**Extreme (formerly Nortel/Avaya) SNMP**](../procedures/network-nortel-standard-snmp.md) - **Nortel standard SNMP** rebranded to Extreme SNMP. 
 - [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Now deprecated, please use [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md).
 - [**Office 365 Management**](../procedures/cloud-microsoft-office365-management.md) - Added `filter-classification` option to **service-status** mode.
-- [**Splunk API**](../procedures/s-monitoring-splunk-api.md) - Extended **query** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-for-splunk-return-value-of-spl-request-3734). 
+- [**Splunk API**](../procedures/applications-monitoring-splunk-api.md) - Extended **query** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-for-splunk-return-value-of-spl-request-3734). 
 - [**pfSense SNMP**](../procedures/network-firewalls-pfsense-snmp.md) - Added new modes: **cpu**, **cpu-detailed**, **load**, **memory**, **swap** and **uptime**.
 - [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Added **Disk-Name** service discovery rule.
 - [**VMware8 ESXi REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - Enhanced performance by implementing cache, and handled pagination for **acq-specs**.
