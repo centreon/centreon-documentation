@@ -64,9 +64,6 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
    dnf install -y dnf-plugins-core
    dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
    systemctl stop cbd
-   dnf clean all --enablerepo=*   dnf install -y dnf-plugins-core
-   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
-   systemctl stop cbd
    dnf clean all --enablerepo=*
    ```
 
