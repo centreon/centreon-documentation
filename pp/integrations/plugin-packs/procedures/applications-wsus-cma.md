@@ -122,7 +122,7 @@ The installer can be downloaded from the [centreon-collect's releases page](http
 #### Installing the Centreon Monitoring Agent
 
 The installation and configuration procedure of Centreon Monitoring Agent for Windows is detailed in 
-[this dedicated page](../getting-started/how-to-guides/cma/cma.md#step-2-prepare-the-host).
+[this dedicated page](../getting-started/how-to-guides/cma/cma-setup.md#step-3-prepare-the-host).
 
 ## Installing the monitoring connector
 
