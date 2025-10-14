@@ -48,15 +48,20 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 3. Supprimez le fichier **centreon.repo** :
 
    ```shell
-   rm /etc/yum.repos.d/centreon.repo
+   rm /etc/yum.repos.d/centreon.repo -rf
+   cd /etc/yum.repos.d/
+   ls -lrt
+   rm -rf centreon-*
    ```
 
 4. Installez le nouveau dépôt :
 
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
-```
+   ```shell
+   dnf install -y dnf-plugins-core
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+   systemctl stop cbd
+   dnf clean all --enablerepo=*
+   ```
 
 > Si vous avez une [licence offline](../administration/licenses.md#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
 >
@@ -75,11 +80,18 @@ Vous devez changer le flux PHP de la version 8.0 à 8.2 en exécutant les comman
 pour confirmer :
 
 ```shell
+dnf config-manager --disable remi-modular remi-safe
+dnf module disable composer:2
+dnf module disable php:remi-8.1
+rm -rf /etc/yum.repos.d/remi*
 dnf module reset php
 ```
 
 ```shell
 dnf module install php:8.2
+dnf distro-sync php\* --allowerasing --enablerepo=centreon-24.10-unstable
+su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
+systemctl restart php-fpm
 ```
 
 </TabItem>
