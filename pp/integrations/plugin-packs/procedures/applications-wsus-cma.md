@@ -113,7 +113,7 @@ Only one TCP flow must be open from the host to the poller.
 
 ### Configure Engine
 
-[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma.md#configure-polleragent-communication).
+[Configure how the poller and the agent will communicate](../getting-started/how-to-guides/cma/cma-setup.md#configure-polleragent-communication).
 
 ### System prerequisites on the monitored host
 
