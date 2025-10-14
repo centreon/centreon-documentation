@@ -50,7 +50,11 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 2. Remove the **centreon-22.04.repo** file:
 
    ```shell
-   rm /etc/yum.repos.d/centreon-22.04.repo
+   rm /etc/yum.repos.d/centreon-22.04.repo -rf
+   rm /etc/yum.repos.d/centreon.repo -rf 
+   cd /etc/yum.repos.d/
+   ls -lrt
+   rm -rf centreon-*
    ```
 
 3. Install the new repository:
@@ -58,6 +62,8 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 ```shell
 dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+systemctl stop cbd
+dnf clean all --enablerepo=*
 ```
 
 </TabItem>
@@ -98,11 +104,18 @@ You need to change the PHP stream from version 8.0 to 8.2 by executing the follo
 to confirm:
 
 ```shell
+dnf config-manager --disable remi-modular remi-safe
+dnf module disable composer:2
+dnf module disable php:remi-8.1
+rm -rf /etc/yum.repos.d/remi*
 dnf module reset php
 ```
 
 ```shell
 dnf module install php:8.2
+dnf distro-sync php\* --allowerasing --enablerepo=centreon-24.10-unstable
+su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
+systemctl restart php-fpm
 ```
 
 </TabItem>
