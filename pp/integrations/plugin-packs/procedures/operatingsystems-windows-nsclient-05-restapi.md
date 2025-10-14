@@ -27,40 +27,52 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="OS-Windows-NSClient-05-Restapi-custom" label="OS-Windows-NSClient-05-Restapi-custom">
 
-| Service Alias | Service Template                                   | Service Description                                                                                                                                |
-|:--------------|:---------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | OS-Windows-NSClient05-Cpu-Restapi-custom           | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
-| Disks         | OS-Windows-NSClient05-Disks-Restapi-custom         | Check Windows disk usage                                                                                                                           |
-| Memory        | OS-Windows-NSClient05-Memory-Restapi-custom        | Check the rate of the utilization of memory                                                                                                        |
-| Services-Auto | OS-Windows-NSClient05-Services-Auto-Restapi-custom | Check that all auto-start services are running                                                                                                     |
-| Swap          | OS-Windows-NSClient05-Swap-Restapi-custom          | Check the rate of the utilization of virtual memory                                                                                                |
+| Service Alias | Service Template                                   | Service Description                                                                                                                                 | Discovery |
+|:--------------|:---------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| Cpu           | OS-Windows-NSClient05-Cpu-Restapi-custom           | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |           |
+| Disks         | OS-Windows-NSClient05-Disks-Restapi-custom         | Check Windows disk usage                                                                                                                            | X         |
+| Memory        | OS-Windows-NSClient05-Memory-Restapi-custom        | Check the rate of the utilization of memory                                                                                                         |           |
+| Services-Auto | OS-Windows-NSClient05-Services-Auto-Restapi-custom | Check that all auto-start services are running                                                                                                      |           |
+| Swap          | OS-Windows-NSClient05-Swap-Restapi-custom          | Check the rate of the utilization of virtual memory                                                                                                 |           |
 
 > The services listed above are created automatically when the **OS-Windows-NSClient-05-Restapi-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias         | Service Template                                             | Service Description                          |
-|:----------------------|:-------------------------------------------------------------|:---------------------------------------------|
-| Active-Sessions       | OS-Windows-NSClient05-Counter-Active-Sessions-Restapi-custom | Check active sessions                        |
-| Counter-Generic       | OS-Windows-NSClient05-Counter-Generic-Restapi-custom         | Check the content of a performance counter   |
-| Eventlog-Generic      | OS-Windows-NSClient05-Eventlog-Generic-restapi-custom        | Check event log errors                       |
-| Files-Generic         | OS-Windows-NSClient05-Files-Generic-Restapi-custom           | Check files                                  |
-| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-Restapi-custom        | Check log files                              |
-| Ntp                   | OS-Windows-NSClient05-Ntp-Restapi-custom                     | Check the synchronization with an NTP server |
-| Pending-Reboot        | OS-Windows-NSClient05-Pending-Reboot-Restapi-custom          | Check pending Windows reboot                 |
-| Process-generic       | OS-Windows-NSClient05-Process-Generic-Restapi-custom         | Check processes                             |
-| Services-Generic-Name | OS-Windows-NSClient05-Services-Generic-Name-Restapi-custom   | Check Windows services states                |
-| Sessions              | OS-Windows-NSClient05-Sessions-Restapi-custom                | Check Windows user sessions                  |
-| Task-Generic          | OS-Windows-NSClient05-Task-Generic-Restapi-custom            | Check Windows scheduled tasks                 |
-| Updates               | OS-Windows-NSClient05-Updates-Restapi-custom                 | Check pending Windows 
- updates                |
-| Uptime                | OS-Windows-NSClient05-Uptime-Restapi-custom                  | Check Windows uptime                         |
+| Service Alias         | Service Template                                             | Service Description                          | Discovery |
+|:----------------------|:-------------------------------------------------------------|:---------------------------------------------|:----------|
+| Active-Sessions       | OS-Windows-NSClient05-Counter-Active-Sessions-Restapi-custom | Check active sessions                        |           |
+| Certificates          | OS-Windows-NSClient05-Certificates-Restapi-custom            | Check Windows local certificates             | X         |
+| Counter-Generic       | OS-Windows-NSClient05-Counter-Generic-Restapi-custom         | Check the content of a performance counter   |           |
+| Eventlog-Generic      | OS-Windows-NSClient05-Eventlog-Generic-restapi-custom        | Check event log errors                       |           |
+| Files-Generic         | OS-Windows-NSClient05-Files-Generic-Restapi-custom           | Check files                                  |           |
+| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-Restapi-custom        | Check log files                              |           |
+| Ntp                   | OS-Windows-NSClient05-Ntp-Restapi-custom                     | Check the synchronization with an NTP server |           |
+| Pending-Reboot        | OS-Windows-NSClient05-Pending-Reboot-Restapi-custom          | Check pending Windows reboot                 |           |
+| Process-generic       | OS-Windows-NSClient05-Process-Generic-Restapi-custom         | Check processes                              |           |
+| Services-Generic-Name | OS-Windows-NSClient05-Services-Generic-Name-Restapi-custom   | Check Windows services states                |           |
+| Sessions              | OS-Windows-NSClient05-Sessions-Restapi-custom                | Check Windows user sessions                  |           |
+| Task-Generic          | OS-Windows-NSClient05-Task-Generic-Restapi-custom            | Check Windows scheduled tasks                |           |
+| Updates               | OS-Windows-NSClient05-Updates-Restapi-custom                 | Check pending Windows updates                |           |
+| Uptime                | OS-Windows-NSClient05-Uptime-Restapi-custom                  | Check Windows uptime                         |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
 </TabItem>
 </Tabs>
+
+### Discovery rules
+
+#### Service discovery
+
+| Rule name                                         | Description                                               |
+|:--------------------------------------------------|:----------------------------------------------------------|
+| OS-Windows-NSClient05-Restapi-Certificate-Subject | Discover and monitor Windows local certificates           |
+| OS-Windows-NSClient05-Restapi-Disk-Name           | Discover the disk partitions and monitor space occupation |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
 ### Collected metrics & status
 
@@ -69,52 +81,60 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Active-Sessions" label="Active-Sessions">
 
-| Metric name     | Unit  |
-|:--------------- |:----- |
+| Name            | Unit  |
+|:----------------|:----- |
 | Sessions\_value | count |
+
+</TabItem>
+<TabItem value="Certificates" label="Certificates">
+
+| Name                                 | Unit  |
+|:-------------------------------------|:------|
+| certificates.detected.count          | count |
+| certificate#certificate.expires.days | d     |
 
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
 
-| Metric name    | Unit |
-| :------------- | :---- |
+| Name           | Unit  |
+|:---------------|:------|
 | Counter\_value | count |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name | Unit |
-|:-------- |:----- |
-| total 5m | %     |
-| total 1m | %     |
-| total 5s | %     |
+| Name     | Unit |
+|:---------|:-----|
+| total 5m | %    |
+| total 1m | %    |
+| total 5s | %    |
 
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Metric name | Unit |
-|:----------- |:---- |
-| used        | B    |
+| Name | Unit |
+|:-----|:-----|
+| used | B    |
 
 </TabItem>
 <TabItem value="Eventlog-Generic" label="Eventlog-Generic">
 
-| Metric name  | Unit  |
-|:------------ |:----- |
+| Name         | Unit  |
+|:-------------|:----- |
 | problemCount | count |
 
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
 
-| Metric name | Unit  |
-|:----------- |:----- |
-| count       | count |
+| Name  | Unit  |
+|:------|:----- |
+| count | count |
 
 </TabItem>
 <TabItem value="Logfiles-Generic" label="Logfiles-Generic">
 
-| Metric name         | Unit |
-|:---------------- |:----- |
+| Name             | Unit  |
+|:-----------------|:------|
 | *tag*\_lines     | count |
 | *tag*\_warnings  | count |
 | *tag*\_criticals | count |
@@ -123,30 +143,30 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name | Unit |
-|:----------- |:---- |
-| used        | B    |
+| Name | Unit |
+|:-----|:---- |
+| used | B    |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Metric name | Unit |
-|:----------- |:---- |
-| offset      | s    |
+| Name   | Unit |
+|:-------|:---- |
+| offset | s    |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
 
-| Metric name   | Unit  |
-|:------------- |:----- |
+| Name          | Unit  |
+|:--------------|:----- |
 | pendingreboot | count |
 
 </TabItem>
 <TabItem value="Process-generic" label="Process-generic">
 
-| Metric name | Unit  |
-|:----------- |:----- |
-| exec_name   | count |
+| Name      | Unit  |
+|:----------|:----- |
+| exec_name | count |
 
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
@@ -161,7 +181,7 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Metric name                         | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | sessions.created.total.count        | count |
 | sessions.disconnected.total.count   | count |
@@ -174,30 +194,30 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Metric name | Unit |
-|:----------- |:---- |
-| swap        | B    |
+| Name | Unit |
+|:-----|:---- |
+| swap | B    |
 
 </TabItem>
 <TabItem value="Task-Generic" label="Task-Generic">
 
-| Metric name | Unit  |
-|:----------- |:----- |
-| task_name   | count |
+| Name      | Unit  |
+|:----------|:----- |
+| task_name | count |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
 
-| Metric name                   | Unit  |
+| Name                          | Unit  |
 |:------------------------------|:------|
 | windows.pending.updates.count | count |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Metric name | Unit |
-|:----------- |:---- |
-| uptime      | s    |
+| Name   | Unit |
+|:-------|:---- |
+| uptime | s    |
 
 </TabItem>
 </Tabs>
@@ -214,8 +234,7 @@ and make sure that the **Webserver / RESTApi** configuration is correct.
 
 ### Pack
 
- The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
@@ -301,11 +320,11 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 3. Apply the **OS-Windows-NSClient-05-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                     | Description                                                                                           | Default value     | Mandatory   |
-|:--------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NSCPRESTAPILEGACYPASSWORD | Specify password for old authentification system                                                      |                   |             |
-| NSCPRESTAPIPROTO          | Specify https if needed (Default: 'https')                                                            | https             |             |
-| NSCPRESTAPIPORT           | Port used (Default: 8443)                                                                             | 8443              |             |
+| Macro                     | Description                                                                                                                      | Default value     | Mandatory   |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| NSCPRESTAPILEGACYPASSWORD | Specify password for old authentification system                                                                                 |                   |             |
+| NSCPRESTAPIPROTO          | Specify https if needed                                                                                                          | https             |             |
+| NSCPRESTAPIPORT           | Port used                                                                                                                        | 8443              |             |
 | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -318,152 +337,231 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 <Tabs groupId="sync">
 <TabItem value="Active-Sessions" label="Active-Sessions">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --arg=show-all    |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut                    | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-----------:|
+| COUNTERNAME  | Performance counter to check                                                                                                             | \\Terminal Services\\Active Sessions |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                                 |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none                                 |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                             |             |
+
+</TabItem>
+<TabItem value="Certificates" label="Certificates">
+
+| Macro                        | Description                                                                                                                                                 | Valeur par défaut | Obligatoire |
+|:-----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSUBJECT                | Filter certificate by subject (can be a regexp).                                                                                                            |                   |             |
+| FILTERTHUMBPRINT             | Filter certificate by thumbprint (can be a regexp).                                                                                                         |                   |             |
+| FILTERPATH                   | Filter certificate by path (can be a regexp).                                                                                                               |                   |             |
+| THRESHOLDSUNIT               | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. | s                 |             |
+| WARNINGCERTIFICATEEXPIRES    | Thresholds                                                                                                                                                  |                   |             |
+| CRITICALCERTIFICATEEXPIRES   | Thresholds                                                                                                                                                  |                   |             |
+| WARNINGCERTIFICATESDETECTED  | Thresholds                                                                                                                                                  |                   |             |
+| CRITICALCERTIFICATESDETECTED | Thresholds                                                                                                                                                  |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                    | --verbose         |             |
 
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COUNTERNAME  | Performance counter to check                                                                                                             |                   |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | none              |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none              |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --arg=show-all    |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut         | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
+| WARNING      | Filter which marks items which generates a warning state                                                                                 | time = '5m' and load > 80 |             |
+| CRITICAL     | Filter which marks items which generates a critical state                                                                                | time = '5m' and load > 80 |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                  |             |
 
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut                            | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
+| DRIVE        | The drives to check.                                                                                                                     | *                                            |             |
+| PERFCONFIG   | Performance data generation configuration                                                                                                | used(unit:B)used %(ignored:true)             |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | type = 'fixed' and name not regexp '.*yst.*' |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | total_used>80%                               |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | total_used>90%                               |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                                              |             |
 
 </TabItem>
 <TabItem value="Eventlog-Generic" label="Eventlog-Generic">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --arg="unique=1"  |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut                                | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-----------:|
+| FILE         | The logfile name                                                                                                                         |                                                  |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | written > -60m and level in ('error', 'warning') |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{status}: $\{count} $\{problem_list}           |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{source} $\{id}                                |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | count>0                                          |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | count>5                                          |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | count>5                                          |             |
 
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --arg=show-all    |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut                                                | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:-----------:|
+| PATHS        | The path to search for files under                                                                                                       |                                                                  |             |
+| PATTERN      | The pattern of files to search for (works like a filter but is faster and can be combined with a filter)                                 |                                                                  |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{status}: $\{problem_count}/$\{count} files ($\{problem_list}) |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{name}                                                         |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    |                                                                  |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                |                                                                  |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               |                                                                  |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                                                         |             |
 
 </TabItem>
 <TabItem value="Logfiles-Generic" label="Logfiles-Generic">
 
-| Macro    | Description                            | Default value | Mandatory |
-|:-------- |:-------------------------------------- |:------------- |:---------:|
-| LOGFILE  | Logfile path                           |               |     X     |
-| TAG      | Tag to use in output and perfdata      |               |           |
-| CRITICAL | Pattern that must raise critical alert |               |           |
-| WARNING  | Pattern that must raise warning alert  |               |           |
+| Macro    | Description                                                | Valeur par défaut | Obligatoire |
+|:-------- |:-----------------------------------------------------------|:----------------- |:-----------:|
+| LOGFILE  | Logfile path                                               |                   |      X      |
+| TAG      | Tag to use in output and perfdata                          |                   |             |
+| CRITICAL | Filter which marks items which generates a critical state. |                   |             |
+| WARNING  | Filter which marks items which generates a warning state.  |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro        | Description                                                                                         | Default value            | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --arg="perf-syntax=used" |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut                                  | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-----------:|
+| PERFCONFIG   | Performance data generation configuration                                                                                                | used(unit:B)%(ignored:true)                        |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $%(type) free: %(free) used: %(used) size: %(size) |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | type = 'physical'                                  |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | used > 80%                                         |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | used > 90%                                         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | perf-syntax=used                                   |             |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NTPADDR      | Set the ntp hostname (if not set, we try to find it with w32tm command)                             |                   |             |
-| WARNING      | Warning threshold                                                                                   | -1:1              |             |
-| CRITICAL     | Critical threshold                                                                                  | -2:2              |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| NTPADDR      | Set the ntp hostname (if not set, we try to find it with w32tm command)                                                                  |                   |             |
+| WARNING      | Warning threshold                                                                                                                        | -1:1              |             |
+| CRITICAL     | Critical threshold                                                                                                                       | -2:2              |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
 
-| Macro          | Description                                                                                                                                                                                                                                              | Default value               | Mandatory   |
-|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%\{RebootPending\} =~ /true/i'). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\} | %\{RebootPending\} =~ /true/i |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}                           |                             |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                      |                             |             |
+| Macro          | Description                                                                                                                                                                                                                  | Valeur par défaut             | Obligatoire |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}  | %\{RebootPending\} =~ /true/i |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\} |                               |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                     |                               |             |
 
 </TabItem>
 <TabItem value="Process-generic" label="Process-generic">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --arg="show-all"  |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut            | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
+| PROCESS      | The service to check, set this to * to check all services                                                                                |                              |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{status}: $\{problem_list} |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{exe}=$\{state}            |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | none                         |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                         |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none                         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                     |             |
 
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
 
-| Macro        | Description                                                                                         | Default value            | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --arg="perf-config=none" |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut                      | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|:-----------:|
+| EXCLUDE      | A list of services to ignore (mainly useful in combination with service=*)                                                               |                                        |             |
+| EXCLUDE2     | A list of services to ignore (mainly useful in combination with service=*)                                                               |                                        |             |
+| SERVICE      | The service to check, set this to * to check all services                                                                                | *                                      |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{problem_list}                       |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{name}=$\{state} ($\{start_type})    |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | start_type = 'auto' and is_trigger = 0 |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | not state_is_perfect()                 |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | not state_is_ok()                      |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | 'perf-config=none'                     |             |
 
 </TabItem>
 <TabItem value="Services-Generic-Name" label="Services-Generic-Name">
 
-| Macro        | Description                                                                                         | Default value            | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --arg="perf-config=none" |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut                   | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
+| EXCLUDE      | A list of services to ignore (mainly useful in combination with service=*)                                                               |                                     |             |
+| OK           | Filter which marks items which generates an ok state                                                                                     | state_is_ok()                       |             |
+| SERVICE      | The service to check, set this to * to check all services                                                                                | $\{name}=$\{state} ($\{start_type}) |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{problem_list}                    |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{name}=$\{state} ($\{start_type}) |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | none                                |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                                |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | not state_is_ok()                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | 'perf-config=none'                  |             |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Macro                        | Description                                                                                                                                      | Default value     | Mandatory   |
-|:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| LANGUAGE                     | Set the language used in the config file (default: 'en')                                                                                             | en                |             |
-| FILTERSESSIONNAME            | Filter session name (can be a regexp)                                                                                                            |                   |             |
+| Macro                        | Description                                                                                                                                          | Valeur par défaut | Obligatoire |
+|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| LANGUAGE                     | Set the language used in the config file                                                                                                             | en                |             |
+| FILTERSESSIONNAME            | Filter session name (can be a regexp)                                                                                                                |                   |             |
 | CONFIG                       | The command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file |                   |             |
-| WARNINGSESSIONSACTIVE        | Thresholds                                                                                                                                       |                   |             |
-| CRITICALSESSIONSACTIVE       | Thresholds                                                                                                                                       |                   |             |
-| WARNINGSESSIONSCREATED       | Thresholds                                                                                                                                       |                   |             |
-| CRITICALSESSIONSCREATED      | Thresholds                                                                                                                                       |                   |             |
-| WARNINGSESSIONSDISCONNECTED  | Thresholds                                                                                                                                       |                   |             |
-| CRITICALSESSIONSDISCONNECTED | Thresholds                                                                                                                                       |                   |             |
-| WARNINGSESSIONSRECONNECTED   | Thresholds                                                                                                                                       |                   |             |
-| CRITICALSESSIONSRECONNECTED  | Thresholds                                                                                                                                       |                   |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                              |                   |             |
+| WARNINGSESSIONSACTIVE        | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSACTIVE       | Thresholds                                                                                                                                           |                   |             |
+| WARNINGSESSIONSCREATED       | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSCREATED      | Thresholds                                                                                                                                           |                   |             |
+| WARNINGSESSIONSDISCONNECTED  | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSDISCONNECTED | Thresholds                                                                                                                                           |                   |             |
+| WARNINGSESSIONSRECONNECTED   | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSRECONNECTED  | Thresholds                                                                                                                                           |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)             |                   |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Macro        | Description                                                                                         | Default value            | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --arg="perf-syntax=swap" |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut                         | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------:|
+| PERFCONFIG   | Performance data generation configuration                                                                                                | *(prefix:'used_')*(unit:B)%(ignored:true) |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $$\{name} $\{used} ($\{size})             |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | size > 0 and name = 'total'               |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                                      |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | used > 0                                  |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | perf-syntax=swap                          |             |
 
 </TabItem>
 <TabItem value="Task-Generic" label="Task-Generic">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut                                        | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|:-----------:|
+| PERFCONFIG   | Performance data generation configuration                                                                                                | *(ignored:true)                                          |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | enabled eq 1 and has_run eq 1                            |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | task_status = 'running' and most_recent_run_time < -60m  |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | task_status not in ('running') and exit_code > 0         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                                                          |             |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
 
-| Macro                  | Description                                                                                         | Default value               | Mandatory   |
-|:-----------------------|:----------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
-| FILTERTITLE            | Filter windows updates by title (can be a regexp)                                                   |                             |             |
-| EXCLUDETITLE           | Exclude windows updates by title (regexp can be used)                                               |                             |             |
-| FILTERMANDATORY        |  Filter only mandatory Windows updates. | false                       |             |
-| WARNINGPENDINGUPDATES  | Thresholds                                                                                          |                             |             |
-| CRITICALPENDINGUPDATES | Thresholds                                                                                          |                             |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose --display-updates |             |
+| Macro                  | Description                                                                                                                              | Valeur par défaut           | Obligatoire |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
+| FILTERTITLE            | Filter windows updates by title (can be a regexp)                                                                                        |                             |             |
+| EXCLUDETITLE           | Exclude windows updates by title (regexp can be used)                                                                                    |                             |             |
+| FILTERMANDATORY        | Filter only mandatory Windows updates.                                                                                                   | false                       |             |
+| WARNINGPENDINGUPDATES  | Thresholds                                                                                                                               |                             |             |
+| CRITICALPENDINGUPDATES | Thresholds                                                                                                                               |                             |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose --display-updates |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro        | Description                                                                                         | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | none              |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none              |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 </Tabs>
@@ -566,10 +664,10 @@ The plugin brings the following modes:
 
 | Mode                                                                                                                                | Linked service template                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |:------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/certificates.pm)]          | Not used in this Monitoring Connector                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/certificates.pm)]          | OS-Windows-NSClient05-Certificates-Restapi-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | cmd-return [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/cmdreturn.pm)]               | Not used in this Monitoring Connector                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| list-certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/listcertificates.pm)] | Not used in this Monitoring Connector                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/liststorages.pm)]         | Not used in this Monitoring Connector                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| list-certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/listcertificates.pm)] | Used for service discovery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/liststorages.pm)]         | Used for service discovery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | pending-reboot [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/pendingreboot.pm)]       | OS-Windows-NSClient05-Pending-Reboot-Restapi-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | query [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/nsclient/restapi/mode/query.pm)]                   | OS-Windows-NSClient05-Counter-Active-Sessions-Restapi-custom<br />OS-Windows-NSClient05-Counter-Generic-Restapi-custom<br />OS-Windows-NSClient05-Cpu-Restapi-custom<br />OS-Windows-NSClient05-Disks-Restapi-custom<br />OS-Windows-NSClient05-Eventlog-Generic-restapi-custom<br />OS-Windows-NSClient05-Files-Generic-Restapi-custom<br />OS-Windows-NSClient05-Logfiles-Generic-Restapi-custom<br />OS-Windows-NSClient05-Memory-Restapi-custom<br />OS-Windows-NSClient05-Process-Generic-Restapi-custom<br />OS-Windows-NSClient05-Services-Auto-Restapi-custom<br />OS-Windows-NSClient05-Services-Generic-Name-Restapi-custom<br />OS-Windows-NSClient05-Swap-Restapi-custom<br />OS-Windows-NSClient05-Task-Generic-Restapi-custom<br />OS-Windows-NSClient05-Uptime-Restapi-custom |
 | sessions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/sessions.pm)]                  | OS-Windows-NSClient05-Sessions-Restapi-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -642,6 +740,26 @@ All available options for each service template are listed below:
 | --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
 | --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
 | --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Certificates" label="Certificates">
+
+| Option                           | Description                                                                                                                                                 |
+|:---------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-thumbprint              | Filter certificate by thumbprint (can be a regexp).                                                                                                         |
+| --filter-subject                 | Filter certificate by subject (can be a regexp).                                                                                                            |
+| --filter-path                    | Filter certificate by path (can be a regexp).                                                                                                               |
+| --unit                           | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. |
+| --warning-certificates-detected  | Thresholds.                                                                                                                                                 |
+| --critical-certificates-detected | Thresholds.                                                                                                                                                 |
+| --warning-certificate-expires    | Thresholds.                                                                                                                                                 |
+| --critical-certificate-expires   | Thresholds.                                                                                                                                                 |
+| --no-ps                          | Don't encode powershell. To be used with --command and 'type' command.                                                                                      |
+| --command                        | Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                      |
+| --command-path                   | Command path (default: none).                                                                                                                               |
+| --command-options                | Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                     |
+| --ps-display                     | Display powershell script.                                                                                                                                  |
+| --ps-exec-only                   | Print powershell output.                                                                                                                                    |
 
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
