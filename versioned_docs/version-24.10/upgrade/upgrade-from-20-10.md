@@ -69,15 +69,20 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 3. Remove the **centreon.repo** file:
 
    ```shell
-   rm /etc/yum.repos.d/centreon.repo
+   rm /etc/yum.repos.d/centreon.repo -rf
+   cd /etc/yum.repos.d/
+   ls -lrt
+   rm -rf centreon-*
    ```
 
 4. Install the new repository:
 
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
-```
+   ```shell
+   dnf install -y dnf-plugins-core
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+   systemctl stop cbd
+   dnf clean all --enablerepo=*
+   ```
 
 > If you have an [offline license](../administration/licenses.md#types-of-license), also remove the old Monitoring Connectors repository, then install the new one.
 >
