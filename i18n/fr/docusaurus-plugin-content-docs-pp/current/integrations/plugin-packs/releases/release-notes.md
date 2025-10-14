@@ -36,7 +36,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Breaking changes" label="Breaking changes">
 
 - [**Elasticsearch**](../procedures/applications-databases-elasticsearch.md) - The `ELASTICSEARCHPROTO` host macro's default value is now `https` to follow Elasticsearch recommendations (see [here](https://www.elastic.co/docs/deploy-manage/security/set-up-minimal-security)).
-- [**VMware8 ESX REST API**](../procedures/applications-virtualization-vmware8-esx-restapi.md) - Changed threshold options and metric names for **power** mode. Changed the way credentials are configured in Host Discovery.
+- [**VMware8 ESX REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - Changed threshold options and metric names for **power** mode. Changed the way credentials are configured in Host Discovery.
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
