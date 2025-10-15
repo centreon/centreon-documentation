@@ -69,9 +69,8 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 3. Supprimez le fichier **centreon.repo** :
 
    ```shell
-   rm /etc/yum.repos.d/centreon.repo -rf
    cd /etc/yum.repos.d/
-   rm -rf centreon-*
+   rm -rf centreon*
    ```
 
 4. Installez le nouveau dépôt :
