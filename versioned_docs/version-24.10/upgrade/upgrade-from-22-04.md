@@ -112,7 +112,7 @@ dnf module reset php
 
 ```shell
 dnf module install php:8.2
-dnf distro-sync php\* --allowerasing --enablerepo=centreon-24.10-unstable
+dnf distro-sync php\* --allowerasing
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```
