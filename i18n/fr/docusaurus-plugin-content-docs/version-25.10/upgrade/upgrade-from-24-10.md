@@ -39,30 +39,33 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Mettez à jour votre Centreon 24.04 jusqu'à la dernière version mineure.
+1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 
 2. Supprimez les fichiers des dépôts :
 
    ```shell
-   rm /etc/yum.repos.d/centreon-24.04.repo
-   rm /etc/yum.repos.d/centreon.repo
+   cd /etc/yum.repos.d/
+   rm -rf centreon*
    ```
 
 3. Installez le nouveau dépôt :
 
-```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
-```
+   ```shell
+   dnf install -y dnf-plugins-core
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+   systemctl stop cbd
+   dnf clean all --enablerepo=*
+   ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-1. Mettez à jour votre Centreon 24.04 jusqu'à la dernière version mineure.
+1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 
 2. Supprimez les fichiers des dépôts :
 
    ```shell
-   rm /etc/yum.repos.d/centreon-24.04.repo
+   rm /etc/yum.repos.d/centreon-24.10.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 
@@ -75,7 +78,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-1. Mettez à jour votre Centreon 24.04 jusqu'à la dernière version mineure.
+1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
 2. Exécutez les commandes suivantes :
 
 ```shell

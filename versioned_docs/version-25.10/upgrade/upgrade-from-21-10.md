@@ -48,15 +48,18 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 3. Remove the **centreon.repo** file:
 
    ```shell
-   rm /etc/yum.repos.d/centreon.repo
+   cd /etc/yum.repos.d/
+   rm -rf centreon*
    ```
 
 4. Install the new repository:
 
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
-```
+   ```shell
+   dnf install -y dnf-plugins-core
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+   systemctl stop cbd
+   dnf clean all --enablerepo=*
+   ```
 
 > If you have an [offline license](../administration/licenses.md#types-of-license), also remove the old Monitoring Connectors repository, then install the new one.
 >
@@ -75,11 +78,18 @@ You need to change the PHP stream from version 8.0 to 8.2 by executing the follo
 to confirm:
 
 ```shell
+dnf config-manager --disable remi-modular remi-safe
+dnf module disable composer:2
+dnf module disable php:remi-8.0
+rm -rf /etc/yum.repos.d/remi*
 dnf module reset php
 ```
 
 ```shell
 dnf module install php:8.2
+dnf distro-sync php\* --allowerasing
+su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
+systemctl restart php-fpm
 ```
 
 </TabItem>
@@ -89,11 +99,18 @@ You need to change the PHP stream from version 8.0 to 8.2 by executing the follo
 to confirm:
 
 ```shell
+dnf config-manager --disable remi-modular remi-safe
+dnf module disable composer:2
+dnf module disable php:remi-8.0
+rm -rf /etc/yum.repos.d/remi*
 dnf module reset php
 ```
 
 ```shell
 dnf module install php:8.2
+dnf distro-sync php\* --allowerasing
+su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
+systemctl restart php-fpm
 ```
 
 </TabItem>

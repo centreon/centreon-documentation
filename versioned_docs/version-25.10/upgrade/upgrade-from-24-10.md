@@ -41,16 +41,18 @@ servers:
 2. Remove the repository files:
 
    ```shell
-   rm /etc/yum.repos.d/centreon-24.10.repo
-   rm /etc/yum.repos.d/centreon.repo
+   cd /etc/yum.repos.d/
+   rm -rf centreon*
    ```
 
 3. Install the new repository:
 
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
-```
+   ```shell
+   dnf install -y dnf-plugins-core
+   dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+   systemctl stop cbd
+   dnf clean all --enablerepo=*
+   ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
