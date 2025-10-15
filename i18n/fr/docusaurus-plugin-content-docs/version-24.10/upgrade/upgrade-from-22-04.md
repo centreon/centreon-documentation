@@ -51,10 +51,8 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 2. Supprimez le fichier **centreon-22.04.repo** :
 
    ```shell
-   rm /etc/yum.repos.d/centreon-22.04.repo -rf
-   rm /etc/yum.repos.d/centreon.repo -rf 
    cd /etc/yum.repos.d/
-   rm -rf centreon-*
+   rm -rf centreon*
    ```
 
 3. Installez le nouveau dépôt :
@@ -113,7 +111,7 @@ dnf module reset php
 
 ```shell
 dnf module install php:8.2
-dnf distro-sync php\* --allowerasing --enablerepo=centreon-24.10-unstable
+dnf distro-sync php\* --allowerasing
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```

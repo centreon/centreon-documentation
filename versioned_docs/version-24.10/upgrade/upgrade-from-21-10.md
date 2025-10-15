@@ -48,9 +48,8 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 3. Remove the **centreon.repo** file:
 
    ```shell
-   rm /etc/yum.repos.d/centreon.repo -rf
    cd /etc/yum.repos.d/
-   rm -rf centreon-*
+   rm -rf centreon*
    ```
 
 4. Install the new repository:
@@ -88,7 +87,7 @@ dnf module reset php
 
 ```shell
 dnf module install php:8.2
-dnf distro-sync php\* --allowerasing --enablerepo=centreon-24.10-unstable
+dnf distro-sync php\* --allowerasing
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```

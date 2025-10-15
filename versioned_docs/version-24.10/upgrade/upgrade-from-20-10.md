@@ -69,9 +69,8 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 3. Remove the **centreon.repo** file:
 
    ```shell
-   rm /etc/yum.repos.d/centreon.repo -rf
    cd /etc/yum.repos.d/
-   rm -rf centreon-*
+   rm -rf centreon*
    ```
 
 4. Install the new repository:
