@@ -53,7 +53,6 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
    rm /etc/yum.repos.d/centreon-23.04.repo -rf
    rm /etc/yum.repos.d/centreon.repo -rf 
    cd /etc/yum.repos.d/
-   ls -lrt
    rm -rf centreon-*
    ```
 

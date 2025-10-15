@@ -54,7 +54,6 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis√
    rm /etc/yum.repos.d/centreon-22.04.repo -rf
    rm /etc/yum.repos.d/centreon.repo -rf 
    cd /etc/yum.repos.d/
-   ls -lrt
    rm -rf centreon-*
    ```
 
