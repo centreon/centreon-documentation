@@ -44,7 +44,32 @@ mysql Ver 8.0.x for Linux on x86_64
       "default-authentication-plugin=mysql_native_password"
       ```
 
-      Si vous utilisez MBI, dans le même fichier, ajoutez `log_bin_trust_function_creators=1`.
+   2. Si vous utilisez MBI:
+
+      <Tabs groupId="sync">
+      <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+      Dans le fichier **/etc/my.cnf.d/mysql-server.cnf**, ajoutez `log_bin_trust_function_creators=1`.
+
+      </TabItem>
+      <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+      Dans le fichier **/etc/my.cnf.d/mysql-server.cnf**, ajoutez `log_bin_trust_function_creators=1`.
+
+      </TabItem>
+      <TabItem value="Debian 12" label="Debian 12">
+
+      Dans le fichier `/etc/mysql/mysql.cnf`, ajoutez:
+
+      ```shell
+      [mysqld]
+      log_bin_trust_function_creators=1
+      ```
+
+      </TabItem>
+      </Tabs>
+
+      Puis redémarrez MySQL.
 
    2. Connectez-vous en **root** à votre serveur MySQL et obtenez la liste de tous les utilisateurs Centreon qui utilisent **mysql_native_password** comme plugin d'authentification :
 

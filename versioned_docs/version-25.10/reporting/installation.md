@@ -279,7 +279,34 @@ Make sure you have a **tmp** folder in **/var/lib/mysql**.
 
 > Do not set these MariaDB optimizations on your monitoring server.
 
-If you are using MySQL 8.4, add the `log_bin_trust_function_creators=1` flag in the `/etc/my.cnf.d/mysql-server.cnf` file (`/etc/mysql/conf.d/80-centreon.cnf` for Debian), and restart the MySQL server.
+If you are using MySQL:
+
+1. Perform the following action:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+In the **/etc/my.cnf.d/mysql-server.cnf** file, add `log_bin_trust_function_creators=1`.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+In the **/etc/my.cnf.d/mysql-server.cnf** file, add `log_bin_trust_function_creators=1`.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+In the `/etc/mysql/mysql.cnf` file, add:
+
+```shell
+[mysqld]
+log_bin_trust_function_creators=1
+```
+
+</TabItem>
+</Tabs>
+
+2. Restart MySQL.
 
 Users and groups:
 
