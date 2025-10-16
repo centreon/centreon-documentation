@@ -12,9 +12,7 @@ A l’heure actuelle, il n’est pas possible de rattacher un serveur à plusieu
 La remontée d’information vers l’application QUANTA nécessite l’installation d’un agent sur tous les serveurs que vous souhaitez surveiller. Pour ce faire, vous devez installer l’agent Quanta.
 
 <aside>
-💡
-
-Les agents systèmes doivent pouvoir communiquer avec notre infrastructure. Retrouvez nos adresses IPs sur la page dédiée:
+💡 Les agents systèmes doivent pouvoir communiquer avec notre infrastructure. Retrouvez nos adresses IPs sur la page dédiée :
 
 [Les adresses IP de Quanta](../quanta-ip-addresses.md)
 
@@ -65,9 +63,7 @@ Pour installer l'agent Quanta :
     ### Version `BETA`
     
     <aside>
-    💡
-    
-    Pour utiliser la version **BETA** vous devrez simplement remplacer à la fin de la ligne `main`par `beta`
+    💡 Pour utiliser la version **BETA** vous devrez simplement remplacer à la fin de la ligne `main`par `beta`.
     
     </aside>
     
@@ -118,9 +114,7 @@ Pour installer l'agent Quanta :
     ### Version `BETA`
     
     <aside>
-    💡
-    
-    Pour utiliser la version **BETA** vous devrez simplement remplacer à la fin de la ligne `main`par `beta`
+    💡 Pour utiliser la version **BETA** vous devrez simplement remplacer à la fin de la ligne `main`par `beta`.
     
     </aside>
     
@@ -157,9 +151,7 @@ Pour installer l'agent Quanta :
 1. Créez le fichier de configuration du dépôt dans le fichier **/etc/yum.repos.d/quanta.repo**. Pour ce faire vous pouvez télécharger le fichier de configuration disponible ici: [https://rpm.quanta.io/quanta-centos-repo.txt](https://rpm.quanta.io/quanta-centos-repo.txt)
     
     <aside>
-    💡
-    
-    Pour utiliser la version **BETA** vous devrez simplement remplacer la ligne :
+   💡 Pour utiliser la version **BETA** vous devrez simplement remplacer la ligne :
     
     ```
     baseurl=http://rpm.quanta.io/centos/$releasever/main

@@ -11,13 +11,13 @@ Les tableaux de bord sont un moyen de visualiser en un coup d’oeil des informa
 
 ## 1. Regrouper des informations issues de sites ou d’organisation différentes
 
-Dans Quanta, vous pouvez appartenir à plusieurs organisations, et chaque organisation peut avoir plusieurs sites internet. Les tableaux de bord vous permettent d’afficher n’importe quelles cartes de Quanta auxquelles vous avez accès.
+Dans Quanta, vous pouvez appartenir à plusieurs organisations, et chaque organisation peut contenir l'accès au monitoring de plusieurs applications web. Dans ce contexte, les tableaux de bord vous permettent d’afficher, sur un même écran, n’importe quelles cartes de Quanta auxquelles vous avez accès.
+
+Exemple de cartes issues de 2 sites dans 2 organisations différentes :
 
 ![image](../assets/getting-started/dashboards-1.png)
 
-Exemple de cartes issues de 2 sites dans 2 organisations différentes
-
-Dans cet exemple, les 2 cartes viennent de 2 sites différents, dans 2 organisations différentes. Vous pouvez garder un oeil sur tous vos sites grâce à un tableau de bord
+Dans cet exemple, les 2 cartes viennent de 2 sites différents, dans 2 organisations différentes. Avec les tableaux de bord, vous pouvez donc garder la maitrise de l'ensemble de vos sites d'un seul coup d'oeil !
 
 ## 2. Créer un tableau de bord partagé.
 

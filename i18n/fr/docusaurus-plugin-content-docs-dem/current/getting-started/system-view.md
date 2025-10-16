@@ -5,7 +5,7 @@ title: La vue Système
 
 # La vue Système
 
-Cette section permet l’analyse de **la bonne santé de la plateforme** qui héberge votre application Web. Pour y accéder, rendez-vous dans le menu de gauche, puis ***Système***.
+Cette section permet l’analyse de **la bonne santé de la plateforme** qui héberge votre application Web. Pour y accéder, rendez-vous dans le menu principal, puis **Système**.
 
 ![image](../assets/getting-started/system-view-1.png)
 
@@ -22,8 +22,8 @@ Les **bénéfices clés** apportés par la vue Système sont :
 ![image](../assets/getting-started/system-view-2.png)
     
 - des mesures d’**indicateurs “système”**, soit des états des espaces disques, bande passante réseau ou tout autre élément dont les limites peuvent mener à une potentielle panne du serveur.
-- des mesures spécifiques à des applications installées sur l’architecture et nécessaire au fonctionnement de l’application : Apache, Nginx, MySQL, Redis, Memcached. Pour ces applications, Quanta propose **des indicateurs spécifiques** (ex: nombre de requêtes reçues par Redis, dont % de requêtes en cache ou hors cache, etc.)
+- des mesures spécifiques à des applications installées sur l’architecture et nécessaire au fonctionnement de l’application : Apache, Nginx, MySQL, Redis, Memcached. Pour ces applications, Quanta propose **des indicateurs spécifiques** (ex: nombre de requêtes reçues par Redis, dont % de requêtes en cache ou hors cache, etc.).
     
 ![image](../assets/getting-started/system-view-3.png)
     
-Plutôt dédiée à un publique technique ou technophile, la vue Système se révèle particulièrement utile pour anticiper et comprendre d’éventuels dysfonctionnements de la plateforme d’hébergement. Ces informations système, mises en commun avec les autres mesures de Quanta (temps de réponse des pages, trafic du site, etc.), vont se révéler très utiles pour **effectuer des corrélations** entre un problème sur la plateforme et un impact sur l’expérience du site.
+Plutôt dédiée à un publique technique ou technophile, la vue Système se révèle particulièrement utile pour anticiper et comprendre d’éventuels dysfonctionnements de la plateforme d’hébergement, et pour vérifier que celle-ci est idéalement optimisée pour garantir le bon fonctionnement de votre application web. Ces informations système, mises en commun avec les autres mesures de Quanta (temps de réponse des pages, trafic du site, etc.), vont se révéler très utiles pour **effectuer des corrélations** entre un problème sur la plateforme et un impact sur l’expérience du site.

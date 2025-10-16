@@ -10,7 +10,7 @@ Le module PHP Quanta se présente sous la forme d'une extension PHP et vous perm
 # Pré-requis
 
 <aside>
-⚠️ Le profiler nécessite ****l’installation de l’agent système. Référez-vous à la page dédiée pour installer l’agent.
+⚠️ Le profiler nécessite l’installation de l’agent système. Référez-vous à la page dédiée pour installer l’agent.
 
 [Installer les agents systèmes](./install-system-agents.md)
 
@@ -125,7 +125,7 @@ et là pour Centos:
 
 Cela peut néanmoins varier en fonction de votre installation PHP.
 
-*Par exemple, si l'URL de votre backoffice est***"http://admin.monsite.com/admin_123456/"** vous devez entrer le paramètre suivant:
+Par exemple, si l'URL de votre backoffice est "http://admin.monsite.com/admin_123456/" vous devez entrer le paramètre suivant :
 
 ```
 quanta_mon.admin_url="/admin_123456/"

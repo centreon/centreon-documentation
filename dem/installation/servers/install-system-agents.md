@@ -12,9 +12,7 @@ At this time, it is not possible to link a server to multiple sites, whether wit
 Sending information to the QUANTA application requires installing an agent on all servers you wish to monitor. To do so, you need to install the Quanta agent.
 
 <aside>
-💡
-
-System agents must be able to communicate with our infrastructure. Find our IP addresses on the dedicated page:
+💡 System agents must be able to communicate with our infrastructure. Find our IP addresses on the dedicated page:
 
 [Quanta IP Addresses](../quanta-ip-addresses.md)
 
@@ -62,9 +60,7 @@ To install the Quanta agent:
     ### `BETA` Version
 
     <aside>
-    💡
-
-    To use the **BETA** version, simply replace `main` at the end of the line with `beta`.
+    💡 To use the **BETA** version, simply replace `main` at the end of the line with `beta`.
     </aside>
 
 2. Download and add the **GPG** key for our repository:
@@ -113,9 +109,7 @@ To install the Quanta agent:
     ### `BETA` Version
 
     <aside>
-    💡
-
-    To use the **BETA** version, simply replace `main` at the end of the line with `beta`.
+    💡 To use the **BETA** version, simply replace `main` at the end of the line with `beta`.
     </aside>
 
 2. Download and add the **GPG** key for our repository:
@@ -150,9 +144,7 @@ To install the Quanta agent:
 1. Create the repository configuration file **/etc/yum.repos.d/quanta.repo**. You can download the configuration file available here: [https://rpm.quanta.io/quanta-centos-repo.txt](https://rpm.quanta.io/quanta-centos-repo.txt)
 
     <aside>
-    💡
-
-    To use the **BETA** version, simply replace the line:
+    💡 To use the **BETA** version, simply replace the line:
 
     ```
     baseurl=http://rpm.quanta.io/centos/$releasever/main
