@@ -279,6 +279,8 @@ Make sure you have a **tmp** folder in **/var/lib/mysql**.
 
 > Do not set these MariaDB optimizations on your monitoring server.
 
+If you are using MySQL 8.4, add the `log_bin_trust_function_creators=1` flag in the `/etc/my.cnf.d/mysql-server.cnf` file and restart the MySQL server.
+
 Users and groups:
 
 | User        | Group      |

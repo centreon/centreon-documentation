@@ -45,6 +45,8 @@ mysql Ver 8.0.x for Linux on x86_64
       "default-authentication-plugin=mysql_native_password"
       ```
 
+      If you are using MBI, in the same file, add `log_bin_trust_function_creators=1`.
+
    2. Connect to your MySQL server as **root** and get a list of all Centreon users that are using **mysql_native_password** as authentication plugin:
 
       ```shell
