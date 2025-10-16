@@ -3,7 +3,7 @@
     "message": "Next",
     "description": "The label for version current"
   },
-  "sidebar.dem.category.Getting started": {
+  "sidebar.dem.category.Getting started with Centreon Quanta": {
     "message": "Démarrer avec Quanta",
     "description": "The label for category Getting started in sidebar DEM"
   },
