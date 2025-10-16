@@ -72,6 +72,17 @@ $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode
 > La bonne pratique veut que nous remplacions les arguments par des
 *[macros personnalisées](macros.md#les-macros-personnalisées)*.
 
+## Tester une commande
+
+Pour vous assurer qu'une commande fonctionne, vous pouvez la tester en ligne de commande sur votre collecteur.
+
+1. Sur votre serveur central, dans la page **Statut des ressources**, sélectionnez l'hôte ou le service dont vous souhaitez tester la commande de contrôle.
+2. Copiez la commande de contrôle située en bas du panneau **Détails**.
+3. Connectez-vous à votre collecteur en tant que l'utilisateur **centreon-engine** (`su - centreon-engine`).
+4. Exécutez la commande que vous avez copiée (pour les macros de mot de passe, remplacez *** par le mot de passe réel).
+
+La commande renvoie les mêmes informations que la colonne **Informations** de la page **Statut des ressources** (c'est-à-dire la sortie, les métriques et la sortie étendue fournies par stdout), ainsi que les messages d'erreur (stderr). La solution à tout problème est susceptible d'y être indiquée.
+
 ## Les connecteurs
 
 ### Connecteur SSH
