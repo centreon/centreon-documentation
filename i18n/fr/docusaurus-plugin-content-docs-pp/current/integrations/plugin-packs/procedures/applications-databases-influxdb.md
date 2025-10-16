@@ -24,7 +24,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias                  | Modèle de service                             | Description                                    | Découverte |
 |:-----------------------|:----------------------------------------------|:-----------------------------------------------|:----------:|
 | Connection-Time        | App-DB-Influxdb-Connection-Time-custom        | Contrôle le temps de connexion à l'instance    |            |
-| Database-Statistics    | App-DB-Influxdb-Database-Statistics-custom    | Contrôle les statistiques des bases de données | X          |
+| Database-Statistics    | App-DB-Influxdb-Database-Statistics-custom    | Contrôle les statistiques des bases de données |      X     |
 | Http-Server-Statistics | App-DB-Influxdb-Http-Server-Statistics-custom | Contrôle les statistiques du serveur HTTP      |            |
 | Write-Statistics       | App-DB-Influxdb-Write-Statistics-custom       | Contrôle les statistiques d'écriture           |            |
 
@@ -35,8 +35,8 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias | Modèle de service            | Description                                                                                             |
-|:------|:-----------------------------|:--------------------------------------------------------------------------------------------------------|
+| Alias | Modèle de service            | Description                                                                                            |
+|:------|:-----------------------------|:-------------------------------------------------------------------------------------------------------|
 | Query | App-DB-Influxdb-Query-custom | Contrôle permettant d'exécuter des requêtes et d'utiliser le résultat pour définir des seuils d'alarme |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -212,12 +212,12 @@ yum install centreon-plugin-Applications-Databases-Influxdb
 3. Appliquez le modèle d'hôte **App-DB-Influxdb-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                | Description                                                                                           | Valeur par défaut | Obligatoire |
-|:---------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INFLUXDBUSERNAME     | Specify username for authentication                                                                   |                   |             |
-| INFLUXDBPASSWORD     | Specify password for authentication                                                                   |                   |             |
-| INFLUXDBPROTO        | Specify https if needed (Default: 'http')                                                             | http              |             |
-| INFLUXDBPORT         | Port used (Default: 8086)                                                                             | 8086              |             |
+| Macro                | Description                                                                                                                                | Valeur par défaut | Obligatoire |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INFLUXDBUSERNAME     | Specify username for authentication                                                                                                        |                   |             |
+| INFLUXDBPASSWORD     | Specify password for authentication                                                                                                        |                   |             |
+| INFLUXDBPROTO        | Specify https if needed                                                                                                                    | http              |             |
+| INFLUXDBPORT         | Port used                                                                                                                                  | 8086              |             |
 | INFLUXDBEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -230,78 +230,79 @@ yum install centreon-plugin-Applications-Databases-Influxdb
 <Tabs groupId="sync">
 <TabItem value="Connection-Time" label="Connection-Time">
 
-| Macro                  | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-----------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCONNECTIONTIME  | Warning threshold in milliseconds                                                                   |                   |             |
-| CRITICALCONNECTIONTIME | Critical threshold in milliseconds                                                                  |                   |             |
+| Macro                  | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCONNECTIONTIME  | Warning threshold in milliseconds                                                                                                        |                   |             |
+| CRITICALCONNECTIONTIME | Critical threshold in milliseconds                                                                                                       |                   |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Database-Statistics" label="Database-Statistics">
 
-| Macro                | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:---------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERDATABASE       | Filter database name (Can use regexp)                                                               |                   |             |
-| WARNINGMEASUREMENTS  | Warning threshold                                                                                   |                   |             |
-| CRITICALMEASUREMENTS | Warning threshold                                                                                   |                   |             |
-| WARNINGSERIES        | Warning threshold                                                                                   |                   |             |
-| CRITICALSERIES       | Warning threshold                                                                                   |                   |             |
+| Macro                | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERDATABASE       | Filter database name (Can use regexp)                                                                                                    |                   |             |
+| WARNINGMEASUREMENTS  | Warning threshold                                                                                                                        |                   |             |
+| CRITICALMEASUREMENTS | Warning threshold                                                                                                                        |                   |             |
+| WARNINGSERIES        | Warning threshold                                                                                                                        |                   |             |
+| CRITICALSERIES       | Warning threshold                                                                                                                        |                   |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Http-Server-Statistics" label="Http-Server-Statistics">
 
-| Macro                        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-----------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGERRORSCLIENT          | Warning threshold                                                                                   |                   |             |
-| WARNINGERRORSSERVER          | Warning threshold                                                                                   |                   |             |
-| CRITICALERRORSSERVER         | Critical threshold                                                                                  |                   |             |
-| CRITICALERRRORSCLIENT        | Critical threshold                                                                                  |                   |             |
-| WARNINGREQUESTSACTIVE        | Warning threshold                                                                                   |                   |             |
-| CRITICALREQUESTSACTIVE       | Critical threshold                                                                                  |                   |             |
-| WARNINGREQUESTSPINGCOUNT     | Warning threshold                                                                                   |                   |             |
-| CRITICALREQUESTSPINGCOUNT    | Critical threshold                                                                                  |                   |             |
-| WARNINGREQUESTSQUERYCOUNT    | Warning threshold                                                                                   |                   |             |
-| CRITICALREQUESTSQUERYCOUNT   | Critical threshold                                                                                  |                   |             |
-| WARNINGREQUESTSRESPONSEDATA  | Warning threshold                                                                                   |                   |             |
-| CRITICALREQUESTSRESPONSEDATA | Critical threshold                                                                                  |                   |             |
-| WARNINGREQUESTSSTATUSCOUNT   | Warning threshold                                                                                   |                   |             |
-| CRITICALREQUESTSSTATUSCOUNT  | Critical threshold                                                                                  |                   |             |
-| WARNINGREQUESTSWRITEACTIVE   | Warning threshold                                                                                   |                   |             |
-| CRITICALREQUESTSWRITEACTIVE  | Critical threshold                                                                                  |                   |             |
-| WARNINGREQUESTSWRITECOUNT    | Warning threshold                                                                                   |                   |             |
-| CRITICALREQUESTSWRITECOUNT   | Critical threshold                                                                                  |                   |             |
-| WARNINGREQUESTSWRITEDATA     | Warning threshold                                                                                   |                   |             |
-| CRITICALREQUESTSWRITEDATA    | Critical threshold                                                                                  |                   |             |
+| Macro                        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGERRORSCLIENT          | Warning threshold                                                                                                                        |                   |             |
+| WARNINGERRORSSERVER          | Warning threshold                                                                                                                        |                   |             |
+| CRITICALERRORSSERVER         | Critical threshold                                                                                                                       |                   |             |
+| CRITICALERRRORSCLIENT        | Critical threshold                                                                                                                       |                   |             |
+| WARNINGREQUESTSACTIVE        | Warning threshold                                                                                                                        |                   |             |
+| CRITICALREQUESTSACTIVE       | Critical threshold                                                                                                                       |                   |             |
+| WARNINGREQUESTSPINGCOUNT     | Warning threshold                                                                                                                        |                   |             |
+| CRITICALREQUESTSPINGCOUNT    | Critical threshold                                                                                                                       |                   |             |
+| WARNINGREQUESTSQUERYCOUNT    | Warning threshold                                                                                                                        |                   |             |
+| CRITICALREQUESTSQUERYCOUNT   | Critical threshold                                                                                                                       |                   |             |
+| WARNINGREQUESTSRESPONSEDATA  | Warning threshold                                                                                                                        |                   |             |
+| CRITICALREQUESTSRESPONSEDATA | Critical threshold                                                                                                                       |                   |             |
+| WARNINGREQUESTSSTATUSCOUNT   | Warning threshold                                                                                                                        |                   |             |
+| CRITICALREQUESTSSTATUSCOUNT  | Critical threshold                                                                                                                       |                   |             |
+| WARNINGREQUESTSWRITEACTIVE   | Warning threshold                                                                                                                        |                   |             |
+| CRITICALREQUESTSWRITEACTIVE  | Critical threshold                                                                                                                       |                   |             |
+| WARNINGREQUESTSWRITECOUNT    | Warning threshold                                                                                                                        |                   |             |
+| CRITICALREQUESTSWRITECOUNT   | Critical threshold                                                                                                                       |                   |             |
+| WARNINGREQUESTSWRITEDATA     | Warning threshold                                                                                                                        |                   |             |
+| CRITICALREQUESTSWRITEDATA    | Critical threshold                                                                                                                       |                   |             |
 | EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Query" label="Query">
 
-| Macro          | Description                                                                                                                                                            | Valeur par défaut | Obligatoire |
-|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INSTANCE       | Set the instance label for which the results should be calculated (Example: --instance='name').  The instance label must be the same label as the "GROUP BY" keyword |                   | X           |
-| OUTPUT         | Set the output for each instance (Example: --output='Object %\{instance\} value is \{label\}')                                                                            |                   | X           |
-| MULTIPLEOUTPUT | Set the global output in case everything is fine for multiple instances (Example: --multiple-output='All instance values are ok')                                      |                   |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: '').  Can use special variables like %\{instance\} and any other labels you set through --query    |                   |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '').  Can use special variables like %\{instance\} and any other labels you set through --query   |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                    |                   |             |
+| Macro          | Description                                                                                                                                                                                                                                                                                             | Valeur par défaut | Obligatoire |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INSTANCE       | Set the instance label for which the results should be calculated (Example: --instance='name').  The instance label must be the same label as the "GROUP BY" keyword                                                                                                                                    |                   |      X      |
+| OUTPUT         | Set the output for each instance (Example: --output='Object %\{instance\} value is \{label\}')                                                                                                                                                                                                          |                   |      X      |
+| QUERIES        | Set a InfluxQL query. Query option must be like--query='label,query'. Query must contain an "AS" keyword to rename the column of the selected data, and must match the label. (Example: --query='mymetric,SELECT the_data AS "mymetric" FROM "database"."retention"."measurement" GROUP BY "instance"') |                   |             |
+| MULTIPLEOUTPUT | Set the global output in case everything is fine for multiple instances (Example: --multiple-output='All instance values are ok')                                                                                                                                                                       |                   |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: '').  Can use special variables like %\{instance\} and any other labels you set through --query                                                                                                                                   |                   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '').  Can use special variables like %\{instance\} and any other labels you set through --query                                                                                                                                  |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                                                |                   |             |
 
 </TabItem>
 <TabItem value="Write-Statistics" label="Write-Statistics">
 
-| Macro                 | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:----------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGPOINTSWRITTEN  | Warning threshold                                                                                   |                   |             |
-| CRITICALPOINTSWRITTEN | Critical threshold                                                                                  |                   |             |
-| WARNINGWRITESDROP     | Warning threshold                                                                                   |                   |             |
-| CRITICALWRITESDROP    | Critical threshold                                                                                  |                   |             |
-| WARNINGWRITESERROR    | Warning threshold                                                                                   |                   |             |
-| CRITICALWRITESERROR   | Critical threshold                                                                                  |                   |             |
-| WARNINGWRITESOK       | Warning threshold                                                                                   |                   |             |
-| CRITICALWRITESOK      | Critical threshold                                                                                  |                   |             |
-| WARNINGWRITESTIMEOUT  | Warning threshold                                                                                   |                   |             |
-| CRITICALWRITESTIMEOUT | Critical threshold                                                                                  |                   |             |
+| Macro                 | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGPOINTSWRITTEN  | Warning threshold                                                                                                                        |                   |             |
+| CRITICALPOINTSWRITTEN | Critical threshold                                                                                                                       |                   |             |
+| WARNINGWRITESDROP     | Warning threshold                                                                                                                        |                   |             |
+| CRITICALWRITESDROP    | Critical threshold                                                                                                                       |                   |             |
+| WARNINGWRITESERROR    | Warning threshold                                                                                                                        |                   |             |
+| CRITICALWRITESERROR   | Critical threshold                                                                                                                       |                   |             |
+| WARNINGWRITESOK       | Warning threshold                                                                                                                        |                   |             |
+| CRITICALWRITESOK      | Critical threshold                                                                                                                       |                   |             |
+| WARNINGWRITESTIMEOUT  | Warning threshold                                                                                                                        |                   |             |
+| CRITICALWRITESTIMEOUT | Critical threshold                                                                                                                       |                   |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>

@@ -28,7 +28,10 @@ Le connecteur apporte les modèles de service suivants
 | Alias     | Modèle de service                        | Description                                                                           |
 |:----------|:-----------------------------------------|:--------------------------------------------------------------------------------------|
 | Vm-Cpu    | Virt-VMWare8-VM-Vm-Cpu-Restapi-custom    | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle     |
+| Vm-Disk-IO            | Virt-VMWare8-VM-Vm-Disk-IO-Restapi-custom            | Supervision des statistiques agrégées d'entrées/sorties disque d'une machine virtuelle |
 | Vm-Memory | Virt-VMWare8-VM-Vm-Memory-Restapi-custom | Contrôle permettant de vérifier le taux d'utilisation mémoire d'une machine virtuelle |
+| Vm-Network-Throughput | Virt-VMWare8-VM-Vm-Network-Throughput-Restapi-custom | Supervision des statistiques agrégées de trafic réseau d'une machine virtuelle         |
+| Vm-Power              | Virt-VMWare8-VM-Vm-Power-Restapi-custom              | Supervision de la puissance électrique consommée par une machine virtuelle             |
 | Vm-Tools  | Virt-VMWare8-VM-Vm-Tools-Restapi-custom  | Supervision de l'état des VMware Tools                                                |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-VMware8-VM-Restapi-custom** est utilisé.
@@ -59,12 +62,35 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | cpu.capacity.usage.hertz      | Hz    |
 
 </TabItem>
+<TabItem value="Vm-Disk-IO" label="Vm-Disk-IO">
+
+| Nom                                     | Unité |
+|:----------------------------------------|:------|
+| disk.throughput.usage.bytespersecond    | Bps   |
+| disk.throughput.contention.milliseconds | ms    |
+
+</TabItem>
 <TabItem value="Vm-Memory" label="Vm-Memory">
 
-| Nom                         | Unité |
-|:----------------------------|:------|
-| vms.memory.usage.percentage | %     |
-| vms.memory.usage.bytes      | B     |
+| Nom                     | Unité |
+|:------------------------|:------|
+| memory.usage.percentage | %     |
+| memory.usage.bytes      | B     |
+
+</TabItem>
+<TabItem value="Vm-Network-Throughput" label="Vm-Network-Throughput">
+
+| Nom                                    | Unité |
+|:---------------------------------------|:------|
+| network.throughput.usage.bitspersecond | nps   |
+| network.throughput.contention.count    | count |
+
+</TabItem>
+<TabItem value="Vm-Power" label="Vm-Power">
+
+| Nom                       | Unité |
+|:--------------------------|:------|
+| power.capacity.usage.watt | W     |
 
 </TabItem>
 <TabItem value="Vm-Tools" label="Vm-Tools">
@@ -183,16 +209,17 @@ yum install centreon-plugin-Virtualization-Vmware8-Vm-Restapi
 3. Appliquez le modèle d'hôte **Virt-VMware8-VM-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro               | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
-|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| VMWARE8USERNAME     | Define the username for authentication                                                                                                             | USERNAME          |      X      |
-| VMWARE8PASSWORD     | Define the password for authentication                                                                                                             | PASSWORD          |      X      |
-| VMWARE8PROTO        | Define the protocol to use (default: https)                                                                                                        | https             |             |
-| VMWARE8PORT         | Define the port of the vSphere server (default: 443)                                                                                               | 443               |             |
-| TIMEOUT             | Define the timeout for API requests (default: 10 seconds)                                                                                          |                   |             |
-| VMWARE8VCENTER      | Define the hostname of the vSphere server                                                                                                          |                   |      X      |
-| VMWARE8VMID         | Define which VM to monitor based on its resource ID (example: `vm-16`)                                                                             |                   |             |
-| VMWARE8EXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro               | Description                                                                                                                                               | Valeur par défaut | Obligatoire |
+|:--------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| VMWARE8USERNAME     | Define the username for authentication                                                                                                                    | USERNAME          | X           |
+| VMWARE8PASSWORD     | Define the password for authentication                                                                                                                    | PASSWORD          | X           |
+| VMWARE8PROTO        | Define the protocol to use (default: https)                                                                                                               | https             |             |
+| VMWARE8PORT         | Define the port of the vSphere server (default: 443)                                                                                                      | 443               |             |
+| TIMEOUT             | Define the timeout for API requests (default: 10 seconds)                                                                                                 |                   |             |
+| VMWARE8VCENTER      | Define the hostname of the vSphere server                                                                                                                 |                   | X           |
+| VMWARE8VMID         | Define which VM to monitor based on its resource ID (example: `vm-1234`). **Using this option is mandatory if you have several VMs with the same name.** |                   |             |
+| VMWARE8VMNAME       | Define which VM to monitor based on its name (example: `WEBSERVER01`). When possible, it is recommended to use `--vm-id` instead. **Do not use this option if you have several VMs with the same name.** |                   |             |
+| VMWARE8EXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                      |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -213,6 +240,17 @@ yum install centreon-plugin-Virtualization-Vmware8-Vm-Restapi
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
+<TabItem value="Vm-Disk-IO" label="Vm-Disk-IO">
+
+| Macro                | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCONTENTIONMS  | Threshold in milliseconds                                                                          |                   |             |
+| CRITICALCONTENTIONMS | Threshold in milliseconds                                                                          |                   |             |
+| WARNINGUSAGEBPS      | Threshold in bytes per second                                                                      |                   |             |
+| CRITICALUSAGEBPS     | Threshold in bytes per second                                                                      |                   |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
 <TabItem value="Vm-Memory" label="Vm-Memory">
 
 | Macro              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
@@ -222,6 +260,26 @@ yum install centreon-plugin-Virtualization-Vmware8-Vm-Restapi
 | WARNINGUSAGEPRCT   | Threshold in percentage                                                                                                                          |                   |             |
 | CRITICALUSAGEPRCT  | Threshold in percentage                                                                                                                          |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="Vm-Network-Throughput" label="Vm-Network-Throughput">
+
+| Macro                   | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCONTENTIONCOUNT  | Threshold                                                                                          |                   |             |
+| CRITICALCONTENTIONCOUNT | Threshold                                                                                          |                   |             |
+| WARNINGUSAGEBPS         | Threshold in bytes per second                                                                      |                   |             |
+| CRITICALUSAGEBPS        | Threshold in bytes per second                                                                      |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="Vm-Power" label="Vm-Power">
+
+| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGEWATT  | Threshold in Watts                                                                                 |                   |             |
+| CRITICALUSAGEWATT | Threshold in Watts                                                                                 |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Vm-Tools" label="Vm-Tools">
@@ -307,13 +365,16 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                        | Modèle de service associé                |
-|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/cpu.pm)]             | Virt-VMWare8-VM-Vm-Cpu-Restapi-custom    |
-| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/discovery.pm)] | Used for host discovery                  |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/memory.pm)]       | Virt-VMWare8-VM-Vm-Memory-Restapi-custom |
-| vm-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/vmstatus.pm)]  | Used for the host status                 |
-| vm-tools [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/vmtools.pm)]    | Virt-VMWare8-VM-Vm-Tools-Restapi-custom  |
+| Mode                                                                                                                        | Modèle de service associé                            |
+|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/cpu.pm)]             | Virt-VMWare8-VM-Vm-Cpu-Restapi-custom                |
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/discovery.pm)] | Used for host discovery                              |
+| disk-io [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/diskio.pm)]      | Virt-VMWare8-VM-Vm-Disk-IO-Restapi-custom            |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/memory.pm)]       | Virt-VMWare8-VM-Vm-Memory-Restapi-custom             |
+| network [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/network.pm)]     | Virt-VMWare8-VM-Vm-Network-Throughput-Restapi-custom |
+| power [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/power.pm)]         | Virt-VMWare8-VM-Vm-Power-Restapi-custom              |
+| vm-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/vmstatus.pm)]  | Used for the host status                |
+| vm-tools [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vmware/vsphere8/vm/mode/vmtools.pm)]    | Virt-VMWare8-VM-Vm-Tools-Restapi-custom              |
 
 ### Options disponibles
 
@@ -402,15 +463,44 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-usage-prct       | Threshold in percentage.                                                                                                  |
 | --critical-usage-prct      | Threshold in percentage.                                                                                                  |
 
+
+</TabItem>
+<TabItem value="Vm-Disk-IO" label="Vm-Disk-IO">
+
+| Option                   | Description                         |
+|:-------------------------|:------------------------------------|
+| --warning-contention-ms  | Threshold in milliseconds.        |
+| --critical-contention-ms | Threshold in milliseconds.        |
+| --warning-usage-bps      | Threshold in bytes per second.    |
+| --critical-usage-bps     | Threshold in bytes per second.    |
+
 </TabItem>
 <TabItem value="Vm-Memory" label="Vm-Memory">
 
-| Option                 | Description              |
-|:-----------------------|:-------------------------|
-| --warning-usage-bytes  | Threshold in bytes.      |
-| --critical-usage-bytes | Threshold in bytes.      |
-| --warning-usage-prct   | Threshold in percentage. |
-| --critical-usage-prct  | Threshold in percentage. |
+| Option                 | Description                   |
+|:-----------------------|:------------------------------|
+| --warning-usage-bytes  | Threshold in bytes.         |
+| --critical-usage-bytes | Threshold in bytes.         |
+| --warning-usage-prct   | Threshold in percentage.    |
+| --critical-usage-prct  | Threshold in percentage.    |
+
+</TabItem>
+<TabItem value="Vm-Network-Throughput" label="Vm-Network-Throughput">
+
+| Option                      | Description                         |
+|:----------------------------|:------------------------------------|
+| --warning-contention-count  | Threshold.                        |
+| --critical-contention-count | Threshold.                        |
+| --warning-usage-bps         | Threshold in bytes per second.    |
+| --critical-usage-bps        | Threshold in bytes per second.    |
+
+</TabItem>
+<TabItem value="Vm-Power" label="Vm-Power">
+
+| Option                | Description              |
+|:----------------------|:-------------------------|
+| --warning-usage-watt  | Threshold in Watts.    |
+| --critical-usage-watt | Threshold in Watts.    |
 
 </TabItem>
 <TabItem value="Vm-Tools" label="Vm-Tools">
