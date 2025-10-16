@@ -132,6 +132,7 @@ Release date: `October 31, 2025`
 
 - Added missing French translations.
 - A default Token has been generated and applied to existing agent configuration.
+- [ACL] Fixed issue when cumulating ACLs for a same user.
 - [Configuration] Fixed an issue where export wasn't taking in account macros inherited from indirect template parents.
 - [Configuration] Fixed issue preventing user from disabling a meta-service.
 - [Configuration] The creation of metaservices no longer fails for users with several ACL rules on resources.
@@ -152,7 +153,6 @@ Release date: `October 31, 2025`
 <details>
   <summary>Security fixes</summary>
 
-- [ACL] Fixed issue when cumulating ACLs for a same user.
 - [Administration] Fixed XSS in Administration > ACL > Action Access.
 - [Vulnerability] Custom Views - Fixed XSS in the HTTP Loader widget "Website" field.
 - [Vulnerability] Fixed XSS vulnerability on Hosts templates.
