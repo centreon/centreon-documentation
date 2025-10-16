@@ -3,11 +3,11 @@ id: developer-broker-bbdo-switch-version
 title: Switching versions of BBDO
 ---
 
-BBDO must have the same version for all servers in your architecture (central server, remote servers, pollers).
+From Centreon 25.10, BBDO v2 is deprecated. When you upgrade your Centreon version, the central server automatically switches to BBDO v3. However, here is a procedure for switching versions manually if necessary.
 
-> If you use BBDO v2 with this version of Centreon, you will not be able to use the **Resources Status** page.
+BBDO must have the same version for all servers in your architecture (central server, remote servers, pollers). You must also [use BBDO v3 with your stream connectors](./developer-broker-stream-connector-migration.md).
 
-If you want to switch versions of BBDO (either switch from v3 to v2 or from v2 to v3), follow this procedure:
+## Procedure
 
 1. On the central server, go to **Configuration > Pollers > Broker configuration**.
 2. Select the server you want, and on the **General** tab, in **Advanced options**, select the version of BBDO you want from the **BBDO version** list. Then click **Save**.
@@ -67,5 +67,5 @@ You can check in the logs which version of BBDO is active for a server:
 The following line states which version is used for each server:
 
 ```shell
-[2022-05-17T14:53:44.828+00:00] [bbdo] [info] BBDO: peer is using protocol version 2.0.0, we're using version 2.0.0
+[2025-10-17T14:53:44.828+00:00] [bbdo] [info] BBDO: peer is using protocol version 3.0.0, we're using version 3.0.0
 ```

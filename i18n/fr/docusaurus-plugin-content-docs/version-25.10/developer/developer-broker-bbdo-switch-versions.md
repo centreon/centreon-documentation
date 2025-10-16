@@ -3,11 +3,11 @@ id: developer-broker-bbdo-switch-versions
 title: Changer de version de BBDO
 ---
 
-La version de BBDO doit être la même pour tous les serveurs de votre architecture (serveur central, serveurs distants, collecteurs).
+BBDO v2 est déprécié à partir de Centreon 25.10. Lorsque vous montez de version votre Centreon, le central passe automatiquement en BBDO V3. Cependant, voici une procédure pour changer de version manuellement si besoin.
 
-> Si vous utilisez BBDO v2 avec cette version de Centreon, vous ne pourrez pas utiliser la page **Statut des ressources**.
+La version de BBDO doit être la même pour tous les serveurs de votre architecture (serveur central, serveurs distants, collecteurs). Vous devez également [utiliser BBDO v3 avec vos stream connectors](./developer-broker-stream-connector-migration.md).
 
-Si vous voulez changer de version de BBDO (passer de la v3 à la v2 ou de la v2 à la v3), procédez comme suit :
+## Procédure
 
 1. Sur le serveur central, accédez à **Configuration > Collecteurs > Configuration de Centreon Broker**.
 
@@ -75,5 +75,5 @@ Vous pouvez vérifier dans les journaux quelle version de BBDO est active pour u
 La ligne suivante indique quelle version est utilisée pour chaque serveur :
 
 ```shell
-[2022-05-17T14:53:44.828+00:00] [bbdo] [info] BBDO: peer is using protocol version 2.0.0, we're using version 2.0.0
+[2025-10-17T14:53:44.828+00:00] [bbdo] [info] BBDO: peer is using protocol version 3.0.0, we're using version 3.0.0
 ```
