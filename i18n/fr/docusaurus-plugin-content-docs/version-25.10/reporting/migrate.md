@@ -16,16 +16,22 @@ le dépôt Centreon Business et utiliser la documentation d'[installation](insta
 
 Stopper mysqld sur les **deux** serveurs de reporting:
 
-    service mysql stop
+```shell
+service mysql stop
+```
 
 Copier les fichiers à partir de l'ancien serveur de reporting vers le
 nouveau:
 
-    rsync -avz /var/lib/mysql/* root@IP_New_Reporting_Server:/var/lib/mysql/
+```shell
+rsync -avz /var/lib/mysql/* root@IP_New_Reporting_Server:/var/lib/mysql/
+```
 
 Lancer la commande suivante pour assurer la compatibilité des données:
 
-    mysql_upgrade
+```shell
+mysql_upgrade
+```
 
 -   Si aucune erreur n'apparaît, redémarrez MariaDB/MySQL et continuez à la
     section ci-dessous "Déplacer les rapports générés".
@@ -34,15 +40,19 @@ Lancer la commande suivante pour assurer la compatibilité des données:
     peut être dû à une incompatibilité entre MySQL/MariaDB 5.5 et
     MariaDB 10.11. Dans ce cas, effectuer les actions suivantes:
 
-        service mysql stop
-        cp -a /var/lib/mysql/ /var/lib/mysql.bak
-        cd /var/lib/mysql/mysql/
-        rm innodb_index_stats.frm innodb_index_stats.ibd innodb_table_stats.frm innodb_table_stats.ibd gtid_slave_pos.frm gtid_slave_pos.ibd
-        service mysql start
+    ```shell
+    service mysql stop
+    cp -a /var/lib/mysql/ /var/lib/mysql.bak
+    cd /var/lib/mysql/mysql/
+    rm innodb_index_stats.frm innodb_index_stats.ibd innodb_table_stats.frm innodb_table_stats.ibd gtid_slave_pos.frm gtid_slave_pos.ibd
+    service mysql start
+    ```
 
     Puis recréer les tables manuellement en utilisant la commande suivante:
 
-            mysql mysql < repair_mysql_upgrade.sql
+    ```shell
+    mysql mysql < repair_mysql_upgrade.sql
+    ```
 
     Téléchargez le fichier ici : [repair_mysql_upgrade.sql](../assets/reporting/administrate/repair_mysql_upgrade.sql).
 
@@ -55,7 +65,9 @@ Synchroniser les rapports générés sur votre ancien serveur Centreon vers
 le nouveau pour être en mesure de les consulter via l'interface.
 Connectez vous sur l'ancien serveur Centreon puis:
 
-    rsync -avz /var/lib/centreon/centreon-bi-server/archives/ root@IP_New_Centreon_Server:/var/lib/centreon/centreon-bi-server/archives/
+```shell
+rsync -avz /var/lib/centreon/centreon-bi-server/archives/ root@IP_New_Centreon_Server:/var/lib/centreon/centreon-bi-server/archives/
+```
 
 ## Recréer les vues dans la base de données centrale
 

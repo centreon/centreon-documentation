@@ -40,18 +40,21 @@ mysql_upgrade
     might be caused by an incompatibility between MySQL/MariaDB 5.5 and
     MariaDB 10.11. In that case, follow the procedure below:
 
-        service mysql stop
-        cp -a /var/lib/mysql/ /var/lib/mysql.bak
-        cd /var/lib/mysql/mysql/
-        rm innodb_index_stats.frm innodb_index_stats.ibd innodb_table_stats.frm innodb_table_stats.ibd gtid_slave_pos.frm gtid_slave_pos.ibd
-        service mysql start
+    ```shell
+    service mysql stop
+    cp -a /var/lib/mysql/ /var/lib/mysql.bak
+    cd /var/lib/mysql/mysql/
+    rm innodb_index_stats.frm innodb_index_stats.ibd innodb_table_stats.frm innodb_table_stats.ibd gtid_slave_pos.frm gtid_slave_pos.ibd
+    service mysql start
+    ```
 
     Then manually recreate the tables:
 
+    ```shell
     mysql mysql < repair_mysql_upgrade.sql
+    ```
 
     Download the following file: [repair_mysql_upgrade.sql](../assets/reporting/administrate/repair_mysql_upgrade.sql)
-
 
 > Be sure to copy the the custom report & resources you designed to your
 > new reporting server in the same folders.
