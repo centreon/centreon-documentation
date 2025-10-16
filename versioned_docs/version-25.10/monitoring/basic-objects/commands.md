@@ -81,8 +81,6 @@ The command returns the same information as the **Information column** in the **
 
 ## Command whitelists
 
-## Command whitelist
-
 Centreon allows you to create whitelists that define which commands are allowed to be executed by the monitoring engine of each poller. By default, no whitelists exist and all commands are allowed. However, if you include one command in a whitelist file, all other commands will be blocked. In that case, remember to allow all commands from Centreon plugins (see below). Also, if you create custom plugins with your own custom commands in it, or are using a community plugin, you will have to add their commands to the command whitelist of the poller that will run the plugin.
 
 ### Add a command to the whitelist

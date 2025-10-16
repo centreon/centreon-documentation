@@ -83,14 +83,14 @@ Pour vous assurer qu'une commande fonctionne, vous pouvez la tester en ligne de 
 
 La commande renvoie les mêmes informations que la colonne **Informations** de la page **Statut des ressources** (c'est-à-dire la sortie, les métriques et la sortie étendue fournies par stdout), ainsi que les messages d'erreur (stderr). La solution à tout problème est susceptible d'y être indiquée.
 
-## Liste blanche de commandes
+## Listes blanches de commandes
 
-Centreon vous permet de créer une liste blanche, qui définit quelles commandes sont autorisées à être exécutées par le moteur de supervision de chaque collecteur. Par défaut, aucune liste blanche n'est définie et toutes les commandes sont autorisées. Si vous créez des plugins personnalisés avec vos propres commandes personnalisées, ou bien si vous utilisez un plugin de la communauté, vous devrez ajouter les commandes utilisées par ceux-ci à la liste blanche de commandes du collecteur qui exécutera le plugin.
+Centreon vous permet de créer des listes blanches, qui définissent quelles commandes sont autorisées à être exécutées par le moteur de supervision de chaque collecteur. Par défaut, aucune liste blanche n'est définie et toutes les commandes sont autorisées. Cependant, à partir du moment où vous insérez une commande dans un fichier de liste blanche, toutes les autres commandes seront bloquées. Dans ce cas, assurez-vous d'autoriser toutes les commandes des plugins Centreon (voir ci-dessous). Aussi, si vous créez des plugins personnalisés avec vos propres commandes personnalisées, ou bien si vous utilisez un plugin de la communauté, vous devrez ajouter les commandes utilisées par ceux-ci à la liste blanche de commandes du collecteur qui exécutera le plugin.
 
 ### Ajouter une commande à la liste blanche
 
 1. Connectez-vous en **root** au collecteur qui exécutera la commande.
-2. Éditez (ou créez) le fichier suivant : **/etc/centreon-engine-whitelist/my-whitelist.yml**. (Vous pouvez créer autant de fichiers de whitelists que vous souhaitez dans ce répertoire.)
+2. Créez le répertoire et le fichier suivant : **/etc/centreon-engine-whitelist/my-whitelist.yml**. (Vous pouvez créer autant de fichiers de liste blanche que vous souhaitez dans ce répertoire.)
 3. Assurez-vous que les droits d'accès corrects sont définis sur tous les fichiers de liste blanche :
 
    ```yaml
@@ -102,8 +102,6 @@ Centreon vous permet de créer une liste blanche, qui définit quelles commandes
    
 4. Utilisez une regex pour définir les commandes autorisées. Exemple : 
 
-  ```yaml /etc/centreon-engine-whitelist/my_whitelist.yml
-  ```
   ```text
   whitelist:
       regex:
@@ -121,13 +119,13 @@ Centreon vous permet de créer une liste blanche, qui définit quelles commandes
       - cmd\.exe\s+\/C\s+echo\s+.*
   ```
    
-Le bloc "whitelist" définit les commandes pouvant être exécutées par le Collecteur.
+Le bloc "whitelist" définit les commandes pouvant être exécutées par le collecteur.
 
-> les deux premières lignes doivent toujours être présentes dans le bloc "whitelist", elles correspondent aux commandes Centreon.
+> Les deux premières lignes doivent toujours être présentes dans le bloc **whitelist** : elles correspondent aux commandes Centreon.
 
-Le bloc "cma-whitelist" définit les commandes pouvant être exécutées par l'agent CMA.
+Le bloc **cma-whitelist** définit les commandes pouvant être exécutées par l'agent CMA.
 
-Dans le bloc "cma-whitelist", vous pouvez au besoin spécifier des liste blanches par hôte, la syntaxe sera : 
+Dans le bloc **cma-whitelist**, vous pouvez au besoin spécifier des liste blanches par hôte. La syntaxe sera la suivante :
 
 
 ```text
@@ -157,7 +155,6 @@ cma-whitelist:
 
 Utilisez `.*` afin d'inclure tous les arguments dans la regex.
 Le `.*` à la fin de la regex lui permet de gérer tout argument qu'elle contiendrait. Attention, le format doit être strictement identique à celui ci-dessus (cela inclut les indentations).
-
 
 > Si vous n'avez pas autorisé votre commande dans la liste blanche du collecteur, cela vous sera signalé dans la colonne **Informations** de la page **Statut des ressources**.
 
