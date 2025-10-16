@@ -53,7 +53,7 @@ mysql Ver 8.0.x for Linux on x86_64
       SELECT user, host, plugin from mysql.user WHERE plugin='mysql_native_password';
       ```
 
-      For each of these users, run the folllowing query. **You MUST enter the user's password, otherwise their account will no longer be password-protected.**
+      For each of these users, run the following query. **You MUST enter the user's password, otherwise their account will no longer be password-protected.**
 
       ```shell
       ALTER USER '<USERNAME>'@'<HOST>' IDENTIFIED WITH caching_sha2_password BY '<PASSWORD>';
