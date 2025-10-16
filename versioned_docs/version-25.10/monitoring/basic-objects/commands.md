@@ -79,6 +79,8 @@ To make sure that a command works, you can test it in the command line on your p
 
 The command returns the same information as the **Information column** in the **Resource status** page (i.e., output, metrics and extended output provided by stdout), plus the messages for the error output (stderr). The solution to any problem is likely to be indicated there.
 
+## Command whitelists
+
 ## Connectors
 
 ### SSH connector
