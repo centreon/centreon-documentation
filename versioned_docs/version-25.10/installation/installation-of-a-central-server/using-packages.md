@@ -448,6 +448,14 @@ mariadb-secure-installation
 </TabItem>
 <TabItem value="MySQL" label="MySQL"> 
 
+Retrieve the temporary password created by MySQL:
+
+```shell
+grep 'temporary password' /var/log/mysqld.log
+```
+
+Then change it when prompted by the following command:
+
 ```shell
 mysql_secure_installation
 ```

@@ -441,6 +441,14 @@ mariadb-secure-installation
 </TabItem>
 <TabItem value="MySQL" label="MySQL"> 
 
+Récupérez le mot de passe temporaire créé par MySQL :
+
+```shell
+grep 'temporary password' /var/log/mysqld.log
+```
+
+Puis modifiez-le lorsque la commande suivante vous y invite :
+
 ```shell
 mysql_secure_installation
 ```
