@@ -23,4 +23,4 @@ Quanta provides a clear and unified interface, enhanced by:
 
 **Objective: to help you improve user experience, boost your SEO performance, secure your traffic peaks, and concretely reduce your environmental impact.**
 
-Below you will find a [video presentation of the Quanta interface](https://www.youtube.com/watch?v=ae_8gF-KFG8).
+Watch the [video presentation of the Quanta interface](https://www.youtube.com/watch?v=ae_8gF-KFG8).
