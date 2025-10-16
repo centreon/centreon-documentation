@@ -5,7 +5,7 @@ title: Migrer l'extension
 
 Cette section explique que faire :
 * pour migrer votre serveur de reporting vers un nouveau serveur (par exemple si vous voulez passser à un OS supporté).
-* si vous utilisez MBI et que vous souhaitez migrer votre serveur central: la migration de l'interface se fait en même temps que la [migration du serveur central](../migrate/introduction.md). De plus, si vous utilisez une base de données distante, vous devrez peut-être [recréer les vues dans la base de données centrale](#recreate-views-in-the-central-database).
+* si vous utilisez MBI et que vous souhaitez migrer votre serveur central: la migration de l'interface se fait en même temps que la [migration du serveur central](../migrate/introduction.md). De plus, si vous utilisez une base de données distante, vous devrez peut-être [recréer les vues dans la base de données centrale](#recréer-les-vues-dans-la-base-de-données-centrale).
 
 ## Installer le nouveau serveur de reporting
 
