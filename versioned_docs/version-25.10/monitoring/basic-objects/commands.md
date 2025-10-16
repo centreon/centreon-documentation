@@ -5,7 +5,6 @@ title: Commands
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Definition
 
 A command is the definition of a command line that uses a script or an application to perform an action. It is
