@@ -1,5 +1,5 @@
 ---
-id: developer-broker-bbdo-switch-version
+id: developer-broker-bbdo-switch-versions
 title: Switching versions of BBDO
 ---
 
