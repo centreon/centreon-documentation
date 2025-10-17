@@ -394,7 +394,7 @@ Example:
 
 > Replace **\<IP_TARGET_NODE\>** with the IP of the central server or remote server that you want to link the poller to (IP as seen by the poller)
 
-> The **\<API_ACCOUNT\>** must have access to the configuration API. You can use the default **admin** account.
+> You must use the default **admin** account as the **\<API_ACCOUNT\>**. 
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
 > `HTTPS://<IP_TARGET_NODE>:PORT`
