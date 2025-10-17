@@ -5,7 +5,7 @@ title: Upgrade Centreon HA from Centreon 23.04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon HA platform from version 23.04 to version 24.10.
+This chapter describes how to upgrade your Centreon HA platform from version 23.04 to version 25.10.
 
 ## Prerequisites
 

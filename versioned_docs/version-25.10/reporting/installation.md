@@ -79,7 +79,7 @@ considerations.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 24.10
+- Centreon Web 25.10
 - Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini` or `/etc/php.d/20-timezone.ini`
   file (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
@@ -97,7 +97,7 @@ considerations.
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-- Centreon Web 24.10
+- Centreon Web 25.10
 - Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini` or `/etc/php.d/20-timezone.ini`
   file (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
@@ -115,7 +115,7 @@ considerations.
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-- Centreon Web 24.10
+- Centreon Web 25.10
 - Check that `date.timezone` is correctly configured in the `/etc/php/8.2/mods-available/centreon.ini` or `/etc/php/8.2/mods-available/timezone.ini` file
   (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/mysql/mariadb.cnf`. They interrupt the
@@ -279,6 +279,35 @@ Make sure you have a **tmp** folder in **/var/lib/mysql**.
 
 > Do not set these MariaDB optimizations on your monitoring server.
 
+If you are using MySQL:
+
+1. Perform the following action:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+In the **/etc/my.cnf.d/mysql-server.cnf** file, add `log_bin_trust_function_creators=1`.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+In the **/etc/my.cnf.d/mysql-server.cnf** file, add `log_bin_trust_function_creators=1`.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+In the `/etc/mysql/mysql.cnf` file, add:
+
+```shell
+[mysqld]
+log_bin_trust_function_creators=1
+```
+
+</TabItem>
+</Tabs>
+
+2. Restart MySQL.
+
 Users and groups:
 
 | User        | Group      |
@@ -336,6 +365,15 @@ apt install centreon-bi-server
 
 </TabItem>
 </Tabs>
+
+### Grant rights to the centreon user
+      
+In the central database, grant trigger rights to the **centreon** user:
+
+```shell
+GRANT TRIGGER ON centreon.* TO `centreon`@'%';
+GRANT TRIGGER ON centreon_storage.* TO `centreon`@'%';
+```
 
 ### Enable the extension
 
@@ -480,7 +518,7 @@ You must have the following information before proceeding with the installation 
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -490,7 +528,7 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -501,7 +539,7 @@ dnf update
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard/ bookworm-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -747,7 +785,7 @@ apt install lsb-release ca-certificates apt-transport-https software-properties-
 Install the Centreon repository:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard/ bookworm-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-stable.list
 ```
 
 For an installation based on a blank distribution, install the GPG key:
