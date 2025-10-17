@@ -1104,7 +1104,6 @@ mysql_secure_installation
 </TabItem>
 </Tabs>
 
-> Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
 
 #### Commencer à configurer
 
