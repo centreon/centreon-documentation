@@ -62,5 +62,7 @@ Copiez le plugin sur l'hôte, dans le répertoire de votre choix.
 2. Associez cette commande au connecteur **Centreon Monitoring Agent** (champ **Connectors**).
 
 3. Si ce n'est pas déjà fait, [creéz l'hôte](/docs/monitoring/basic-objects/hosts) correspondant à la ressource à superviser.
-4. Pour chaque modèle de service désiré, sélectionnez la commande que vous venez de créez.
+4. Vous pouvez associer cette commande à un modèle de service existant ou créer un modèle de service dédié.
+Le modèle doit hériter (directement ou via son parent) des modèles **OS-Windows-Centreon-Monitoring-Agent** ou **OS-Linux-Generic-Centreon-Monitoring-Agent**, ou à défaut être configuré avec les contrôles passifs activés et les contrôles actifs désactivés.
+
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
