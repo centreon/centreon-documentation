@@ -533,20 +533,25 @@ The result should look like the code below, and the desired graph image must hav
 
 ### Install the packages
 
-You must have the following information before proceeding with the installation process:
+This step is performed **on the machine that will become your MBI server**.
+
+#### Prerequisites
+
+You must have the following information before proceeding with the installation:
 
 - IP/DNS of the monitoring database
 - IP/DNS of the Centreon web interface
 - IP/DNS of the reporting database (localhost strongly recommended)
 
-- Access (user/password) to the reporting database
-- Define and retrieve the ssh password of the centreonBI user on the Central server (for the availability of reports generated on the interface)
+Define and retrieve the SSH password for the **centreonBI** user on the central server (to make the reports generated on the interface available).
 
-#### Procedure
+During database installation, note the password for the database's **root** account.
 
-1. Install the Centreon repository:
+#### Install the Centreon repositories
 
-<Tabs groupId="sync">
+1. Install the standard repository:
+
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -569,7 +574,13 @@ dnf update
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-To install the Centreon repository, execute the following command:
+Install the required packages:
+
+```shell
+apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+```
+
+Install the Centreon repositories:
 
 ```shell
 echo "deb https://packages.centreon.com/apt-standard-25.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
@@ -586,7 +597,7 @@ apt update
 </TabItem>
 </Tabs>
 
-2. Install the Business repository. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+2. Install the Business repository. You can find its address on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
 3. Ensure a version of Java 17 (or 18) is installed before you start the procedure.
    
@@ -604,38 +615,13 @@ apt update
    sudo update-alternatives --config java
    ```
 
-<Tabs groupId="sync">
-<TabItem value="MariaDB" label="MariaDB">
+#### Install the database repository
 
-4. Install the MariaDB repository:
+<DatabaseRepository />
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+#### Install dependencies
 
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.11"
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
-```
-
-</TabItem>
-</Tabs>
-
-5. Then run the following command:
-
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="RHEL 8" label="RHEL 8">
 
 Install the **epel** repository:
@@ -644,24 +630,10 @@ Install the **epel** repository:
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ```
 
-Enable the **codeready-builder** repository:
+Enable the **codeready-builder** repositories:
 
 ```shell
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-Then launch the installation:
-
-```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
-For an installation based on a blank distribution, install the GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-
 ```
 
 </TabItem>
@@ -673,24 +645,10 @@ Install the **epel** repository:
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ```
 
-Enable codeready-builder repositories:
+Enable the **codeready-builder** repositories:
 
 ```shell
 dnf config-manager --set-enabled ol8_codeready_builder
-```
-
-Then launch the installation:
-
-```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
-For an installation based on a blank distribution, install the GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-
 ```
 
 </TabItem>
@@ -702,26 +660,11 @@ Install the **epel** repository:
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ```
 
-Enable powertools repositories:
+Enable the **powertools** repository:
 
 ```shell
 dnf config-manager --set-enabled 'powertools'
 ```
-
-Then launch the installation:
-
-```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
-For an installation based on a blank distribution, install the GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-
-```
-
 </TabItem>
 <TabItem value="RHEL 9" label="RHEL 9">
 
@@ -731,24 +674,10 @@ Install the **epel** repository:
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
-Enable the **codeready-builder** repository:
+Enable the **codeready-builder** repositories:
 
 ```shell
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
-```
-
-Then launch the installation:
-
-```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
-For an installation based on a blank distribution, install the GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-
 ```
 
 </TabItem>
@@ -760,26 +689,11 @@ Install the **epel** repository:
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
-Enable codeready-builder repositories:
+Enable the **codeready-builder** repositories:
 
 ```shell
 dnf config-manager --set-enabled ol9_codeready_builder
 ```
-
-Then launch the installation:
-
-```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
-For an installation based on a blank distribution, install the GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-
-```
-
 </TabItem>
 <TabItem value="Alma 9" label="Alma 9">
 
@@ -795,50 +709,118 @@ Run the following command:
 dnf config-manager --set-enabled 'crb' 
 ```
 
-Then launch the installation:
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+No dependencies need to be installed.
+
+</TabItem>
+</Tabs>
+
+#### Install the MBI server's database
+
+<Tabs groupId="db">
+<TabItem value="MariaDB" label="MariaDB">
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install centreon-bi-reporting-server mariadb-server MariaDB-client
+dnf install MariaDB-server MariaDB-client
 ```
 
-For an installation based on a blank distribution, install the GPG key:
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-
+dnf install MariaDB-server MariaDB-client
 ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-Install the prerequisite packages:
-
-```shell
-apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
-```
-
-Install the Centreon repository:
-
-```shell
-echo "deb https://packages.centreon.com/apt-standard-25.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-```
-
-For an installation based on a blank distribution, install the GPG key:
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-Then launch the installation:
-
 ```shell
 apt update
-apt install centreon-bi-reporting-server mariadb-server mariadb-client
+apt install mariadb-server mariadb-client
 ```
 
 </TabItem>
 </Tabs>
+
+</TabItem>
+<TabItem value="MySQL 8.4" label="MySQL 8.4">
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm
+dnf config-manager --enable mysql-8.4-lts-community
+dnf module disable mysql
+dnf install mysql-community-server
+systemctl start mysqld
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y mysql-server mysql
+dnf install -y centreon-mysql
+systemctl enable --now mysqld
+echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
+systemctl daemon-reload
+systemctl restart mysqld
+systemctl list-units --type=service | grep -i mysql
+sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld
+sudo systemctl start mysqld
+sudo systemctl status mysqld
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt update
+apt install -y centreon-mysql
+# Sélectionner "Use Legacy Authentication Method"
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+</TabItem>
+<Tabs>
+
+</TabItem>
+</Tabs>
+
+#### Install the MBI module on the MBI server
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-bi-reporting-server
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-bi-reporting-server
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt update
+apt install centreon-bi-reporting-server
+```
+
+</TabItem>
+<Tabs>
+
+#### Enable services
 
 Enable the **cbis** service:
 
@@ -852,11 +834,11 @@ Start and enable **gorgoned**:
 systemctl start gorgoned && systemctl enable gorgoned
 ```
 
-### Configure the reporting server
+### Optimize the database
 
-#### MariaDB Optimizations
-
-<Tabs groupId="sync">
+<Tabs groupId="db">
+<TabItem value="MariaDB" label="MariaDB">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf) provided
@@ -977,14 +959,142 @@ socket=$PATH_TO_SOCKET$
 
 </TabItem>
 </Tabs>
+<TabItem value="MySQL" label="MySQL">
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Ensure that the [optimized configuration file](../assets/reporting/installation/centreon.cnf) provided in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MySQL service:
+
+```shell
+systemctl restart mysql
+```
+
+You must modify the **LimitNOFILE** limitation. Changing this option in `/etc/my.cnf` will NOT work.
+
+```shell
+mkdir -p  /etc/systemd/system/mysql.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+If the MySQL service fails to start, delete the *ib_logfile* files (MySQL MUST be stopped) and then restart MySQL again:
+
+```shell
+rm -f /var/lib/mysql/ib_logfile*
+systemctl start mysql
+```
+
+If you are using a specific socket file for MySQL, edit the `/etc/my.cnf` file and add the following to the [client] section:
+
+```shell
+socket=$PATH_TO_SOCKET$
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Ensure that the [optimized configuration file](../assets/reporting/installation/centreon.cnf) provided in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MySQL service:
+
+
+```shell
+systemctl restart mysql
+```
+
+You must modify the **LimitNOFILE** limitation. Changing this option in `/etc/my.cnf` will NOT work.
+
+```shell
+mkdir -p  /etc/systemd/system/mysql.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+If the MySQL service fails to start, delete the *ib_logfile* files (MySQL MUST be stopped) and then restart MySQL again:
+
+```shell
+rm -f /var/lib/mysql/ib_logfile*
+systemctl start mysql
+```
+
+If you are using a specific socket file for MySQL, edit the `/etc/my.cnf` file and add the following to the [client] section:
+
+```shell
+socket=$PATH_TO_SOCKET$
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+Ensure that the [optimized configuration file](../assets/reporting/installation/centreon.cnf) provided in the prerequisites is present in `/etc/mysql/mysql.conf.d/`.
+
+Rename the file as `80-centreon.cnf`:
+
+```shell
+mv centreon.cnf 80-centreon.cnf
+```
+
+MySQL must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+
+```shell
+/etc/mysql/mysql.conf.d/mysqld.cnf
+```
+
+Set the **bind-address** parameter to **0.0.0.0** and restart mysql.
+
+```shell
+systemctl restart mysql
+```
+
+You must modify the **LimitNOFILE** limitation. Changing this option in `/etc/my.cnf` will NOT work.
+
+```shell
+mkdir -p  /etc/systemd/system/mysql.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+If the MySQL service fails to start, delete the *ib_logfile* files (MySQL MUST be stopped) and then restart MySQL again:
+
+```shell
+rm -f /var/lib/mysql/ib_logfile*
+systemctl start mysql
+```
+
+If you are using a specific socket file for MySQL, edit the `/etc/my.cnf` file and add the following to the [client] section:
+
+```shell
+socket=$PATH_TO_SOCKET$
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
 
 ### Secure the database
+
 It is mandatory to secure the root access of the database before installing Centreon.
 If you use a local database, execute the following command on the central server, otherwise on the database server:
+
+<Tabs groupId="db">
+<TabItem value="MariaDB" label="MariaDB"> 
 
 ```shell
 mariadb-secure-installation
 ```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
+
+```shell
+mysql_secure_installation
+```
+
+</TabItem>
+</Tabs>
 
 - Answer **yes** to all questions except "Disallow root login remotely?"
 - It is mandatory to define a password for the **root** user of the database. You will need this password during the [web-installation](../installation/web-and-post-installation.md).
@@ -992,399 +1102,6 @@ mariadb-secure-installation
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
-
-4. Install the MySQL repository:
-
-Depending on your operating system, you may need to add the MySQL repository:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-You have nothing to do, as MySQL 8.0 is already available in the official repository.
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-You have nothing to do, as MySQL 8.0 is already available in the official repository.
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-wget -P /tmp/ https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
-apt install /tmp/mysql-apt-config_0.8.29-1_all.deb
-```
-
-Select OK to validate the installation of **MySQL Tools & Connectors**. Then enter the following command:
-
-```shell
-apt update
-```
-
-</TabItem>
-</Tabs>
-
-5. Then run the following command:
-
-<Tabs groupId="sync">
-<TabItem value="RHEL 8" label="RHEL 8">
-
-Install the **epel** repository:
-
-```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-```
-
-Enable the **codeready-builder** repository:
-
-```shell
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-Then launch the installation:
-
-```shell
-dnf install centreon-bi-reporting-server
-```
-
-For an installation based on a blank distribution, install the GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-
-```
-
-</TabItem>
-<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
-
-Install the **epel** repository:
-
-```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-```
-
-Enable codeready-builder repositories:
-
-```shell
-dnf config-manager --set-enabled ol8_codeready_builder
-```
-
-Then launch the installation:
-
-```shell
-dnf install centreon-bi-reporting-server
-```
-
-For an installation based on a blank distribution, install the GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-
-```
-
-</TabItem>
-<TabItem value="Alma 8" label="Alma 8">
-
-Install the **epel** repository:
-
-```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-```
-
-Enable powertools repositories:
-
-```shell
-dnf config-manager --set-enabled 'powertools'
-```
-
-Then launch the installation:
-
-```shell
-dnf install centreon-bi-reporting-server
-```
-
-For an installation based on a blank distribution, install the GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-
-```
-
-</TabItem>
-<TabItem value="RHEL 9" label="RHEL 9">
-
-Install the **epel** repository:
-
-```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-```
-
-Enable the **codeready-builder** repository:
-
-```shell
-subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
-```
-
-Then launch the installation:
-
-```shell
-dnf install centreon-bi-reporting-server
-```
-
-For an installation based on a blank distribution, install the GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-
-```
-
-</TabItem>
-<TabItem value="Oracle Linux 9" label="Oracle Linux 9">
-
-Install the **epel** repository:
-
-```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-```
-
-Enable codeready-builder repositories:
-
-```shell
-dnf config-manager --set-enabled ol9_codeready_builder
-```
-
-Then launch the installation:
-
-```shell
-dnf install centreon-bi-reporting-server
-```
-
-For an installation based on a blank distribution, install the GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-
-```
-
-</TabItem>
-<TabItem value="Alma 9" label="Alma 9">
-
-Install the **epel** repository:
-
-```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-```
-
-Run the following command:
-
-```shell
-dnf config-manager --set-enabled 'crb' 
-```
-
-Then launch the installation:
-
-```shell
-dnf install centreon-bi-reporting-server
-```
-
-For an installation based on a blank distribution, install the GPG key:
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-Install the prerequisite packages:
-
-```shell
-apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
-```
-
-Install the Centreon repository:
-
-```shell
-echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-```
-
-For an installation based on a blank distribution, install the GPG key:
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-Then launch the installation:
-
-```shell
-apt update && apt install centreon-bi-reporting-server
-```
-
-</TabItem>
-</Tabs>
-
-Enable the **cbis** service:
-
-```shell
-systemctl enable cbis
-```
-
-Start and enable **gorgoned**:
-
-```shell
-systemctl start gorgoned && systemctl enable gorgoned
-```
-### Configure the reporting server
-
-#### MySQL Optimizations
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf) provided
-in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MySQL service:
-
-```shell
-systemctl restart mysql
-```
-
-It is necessary to change the **LimitNOFILE** limitation. Changing this
-option in `/etc/my.cnf` will NOT work.
-
-```shell (To update)
-mkdir -p  /etc/systemd/system/mysql.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
-systemctl daemon-reload
-systemctl restart mysql
-```
-
-If the MySQL service fails to start, remove the *ib_logfile* files
-(MySQL must absolutely be stopped) and then restart MySQL again:
-
-```shell
-rm -f /var/lib/mysql/ib_logfile*
-systemctl start mysql
-```
-
-If you are using a specific socket file for MySQL, modify the file `/etc/my.cnf` and
-in the [client] section, add:
-
-```shell
-socket=$PATH_TO_SOCKET$
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf) provided
-in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MySQL service:
-
-```shell
-systemctl restart mysql
-```
-
-It is necessary to change the **LimitNOFILE** limitation. Changing this
-option in `/etc/my.cnf` will NOT work.
-
-```shell
-mkdir -p  /etc/systemd/system/mysql.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
-systemctl daemon-reload
-systemctl restart mysql
-```
-
-If the MySQL service fails to start, remove the *ib_logfile* files
-(MySQL must absolutely be stopped) and then restart MySQL again:
-
-```shell
-rm -f /var/lib/mysql/ib_logfile*
-systemctl start mysql
-```
-
-If you are using a specific socket file for MySQL, modify the file `/etc/my.cnf` and
-in the [client] section, add:
-
-```shell
-socket=$PATH_TO_SOCKET$
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf)
-provided in the requirements is present in `/etc/mysql/mysql.conf.d/`.
-
-Rename the file to `80-centreon.cnf`:
-
-```shell
-mv centreon.cnf 80-centreon.cnf
-```
-
-MySQL should listen to all interfaces instead of localhost/127.0.0.1, which is the default.
-Edit the following file:
-
-```shell
-/etc/mysql/mysql.conf.d/mysqld.cnf
-```
-
-Set the **bind-address** parameter to **0.0.0.0** and restart MySQL.
-
-```shell
-systemctl restart mysql
-```
-
-It is necessary to change the **LimitNOFILE** limitation. Changing this option in `/etc/mysql/mysql.cnf` will not work.
-
-```shell
-mkdir -p  /etc/systemd/system/mysql.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
-systemctl daemon-reload
-systemctl restart mysql
-```
-
-If the MySQL service fails at the time of starting, remove the files *ib_logfile*
-(MySQL must absolutely be stopped) and then restart MySQL again:
-
-```shell
-rm -f /var/lib/mysql/ib_logfile*
-systemctl start mysql
-```
-
-If you are using a specific socket file for MySQL, edit the
-file `/etc/mysql/mysql.cnf` and in the [client] section, add:
-
-```shell
-socket=$PATH_TO_SOCKET$
-```
-
-</TabItem>
-</Tabs>
-
-### Secure the database
-
-It is mandatory to secure the root access of the database before installing Centreon.
-If you use a local database, execute the following command on the central server, otherwise on the database server:
-
-```shell
-mysql-secure-installation
-```
-
-- Answer **yes** to all questions except "Disallow root login remotely?"
-- It is mandatory to define a password for the **root** user of the database. You will need this password during the [web-installation](../installation/web-and-post-installation.md).
-
-</TabItem>
-</Tabs>
 
 #### Start configuring
 
