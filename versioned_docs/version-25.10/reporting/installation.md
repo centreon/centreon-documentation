@@ -77,7 +77,7 @@ installing the database on the same server, due to performance and isolation
 considerations.
 
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 - Centreon Web 24.10
@@ -300,7 +300,7 @@ The actions listed in this chapter must be performed on the **Centreon Central S
 
 2. Then run the following commands:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -365,7 +365,7 @@ Download the license sent by the Centreon team to start configuring the general 
 <Tabs groupId="sync">
 <TabItem value="Monitoring database on the central server" label="Monitoring database on the central server">
 
-<Tabs groupId="sync">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
 
 The MariaDB monitoring database is hosted on the central monitoring server.
@@ -400,7 +400,7 @@ If there is no password for the "root" user, do not specify the **root-password*
 </TabItem>
 <TabItem value="Monitoring database on a remote server" label="Monitoring database on a remote server">
 
-<Tabs groupId="sync">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
 
 The MariaDB monitoring database is hosted on a dedicated server.
@@ -435,7 +435,7 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 </TabItem>
 </Tabs>
 
-<Tabs groupId="sync">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
 
 If you use MariaDB replication for your **monitoring databases**, some views
@@ -552,7 +552,7 @@ During database installation, note the password for the database's **root** acco
 
 1. Install the standard repository:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -622,7 +622,7 @@ apt update
 
 #### Install dependencies
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 Install the **epel** repository:
@@ -720,9 +720,9 @@ No dependencies need to be installed.
 
 #### Install the MBI server's database
 
-<Tabs groupId="db">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -751,7 +751,7 @@ apt install mariadb-server mariadb-client
 
 <TabItem value="MySQL 8.4" label="MySQL 8.4">
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -797,7 +797,7 @@ systemctl restart mysql
 
 #### Install the MBI module on the MBI server
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -838,9 +838,9 @@ systemctl start gorgoned && systemctl enable gorgoned
 
 ### Optimize the database
 
-<Tabs groupId="db">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf) provided
@@ -963,7 +963,7 @@ socket=$PATH_TO_SOCKET$
 </Tabs>
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Ensure that the [optimized configuration file](../assets/reporting/installation/centreon.cnf) provided in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MySQL service:
@@ -1082,7 +1082,7 @@ socket=$PATH_TO_SOCKET$
 It is mandatory to secure the root access of the database before installing Centreon.
 If you use a local database, execute the following command on the central server, otherwise on the database server:
 
-<Tabs groupId="db">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 ```shell
@@ -1244,7 +1244,7 @@ on the reporting server, then uncomment the following line:
 Avoid scheduled periods for statistical calculations with Centreon MBI ETL and report generation.
 You can run this cron daily or weekly, depending on the batch execution time and the load generated on the server.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
 
 Restart the cron service:
@@ -1290,7 +1290,7 @@ systemctl restart cron
 
    2. Restart **crond**.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
 
 ```shell
@@ -1357,7 +1357,7 @@ Once the data building process is complete, you can reenable the daily calculati
 
 2. Restart the cron service on the reporting server:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
 
 ```shell
