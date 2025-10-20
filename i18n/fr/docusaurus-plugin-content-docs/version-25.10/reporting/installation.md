@@ -541,9 +541,11 @@ Vous devez disposer des informations suivantes avant de procéder à l'installat
 
 - IP/DNS de la base de données centrale
 - IP/DNS de l'interface web Centreon
-- IP/DNS de la base de données de reporting (localhost fortement recommandé)
-- Accès (utilisateur/mot de passe) à la base de données de reporting
-- Définir puis récupérer le mot de passe ssh de l'utilisateur centreonBI, sur le serveur Central (pour la mise à disposition des rapports générés sur l'interface)
+- IP/DNS de la base de données de reporting (**localhost** fortement recommandé)
+
+Définissez et récupérez le mot de passe SSH de l'utilisateur **centreonBI**, sur le serveur central (pour la mise à disposition des rapports générés sur l'interface).
+
+Pendant l'installation de la base de données, notez le mot de passe du compte **root** de la base.
 
 #### Installer les dépôts Centreon
 
@@ -1091,7 +1093,7 @@ mysql_secure_installation
 
 #### Commencer à configurer
 
-Vérifiez que le MariaDB de reporting est bien démarré puis lancez les
+Vérifiez que la base de reporting est bien démarrée puis lancez les
 commandes ci dessous et répondez aux questions:
 
 ```shell
