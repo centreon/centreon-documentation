@@ -748,6 +748,7 @@ apt install mariadb-server mariadb-client
 </Tabs>
 
 </TabItem>
+
 <TabItem value="MySQL 8.4" label="MySQL 8.4">
 
 <Tabs groupId="os">
@@ -789,7 +790,7 @@ systemctl restart mysql
 ```
 
 </TabItem>
-</TabItem>Tabs>
+</Tabs>
 
 </TabItem>
 </Tabs>
