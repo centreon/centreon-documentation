@@ -788,7 +788,7 @@ systemctl restart mysql
 ```
 
 </TabItem>
-<Tabs>
+</Tabs>
 
 </TabItem>
 </Tabs>
