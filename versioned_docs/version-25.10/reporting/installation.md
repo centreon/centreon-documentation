@@ -820,7 +820,7 @@ apt install centreon-bi-reporting-server
 ```
 
 </TabItem>
-<Tabs>
+</Tabs>
 
 #### Enable services
 
