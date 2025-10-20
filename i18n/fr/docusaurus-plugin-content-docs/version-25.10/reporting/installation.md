@@ -551,7 +551,7 @@ Pendant l'installation de la base de données, notez le mot de passe du compte *
 
 1. Installez le dépôt standard :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -1067,7 +1067,7 @@ socket=$PATH_TO_SOCKET$
 Il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon.
 Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central, sinon sur le serveur de base de données :
 
-<Tabs groupId="sync">
+<Tabs groupId="db">
 <TabItem value="MariaDB" label="MariaDB"> 
 
 ```shell
