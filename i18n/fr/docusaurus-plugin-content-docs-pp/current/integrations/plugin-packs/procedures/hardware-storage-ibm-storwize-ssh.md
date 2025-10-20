@@ -43,7 +43,7 @@ Le connecteur apporte les modèles de service suivants
 
 Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
-Tabs groupId="sync">
+<Tabs groupId="sync">
 <TabItem value="Components" label="Components">
 
 | Nom                                                    | Unité |
