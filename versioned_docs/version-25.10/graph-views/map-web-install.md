@@ -482,7 +482,6 @@ mariadb-secure-installation
 Depending on your operating system, you may need to add the MySQL repository:
 
 <Tabs groupId="os" queryString>
-
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -510,6 +509,9 @@ Select OK to validate the installation of **MySQL Tools & Connectors**. Then ent
 ```shell
 apt update
 ```
+
+</TabItem>
+</Tabs>
 
 <Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -548,12 +550,6 @@ apt install -y centreon-mysql
 systemctl daemon-reload
 systemctl restart mysql
 ```
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-</Tabs>
 
 </TabItem>
 </Tabs>
