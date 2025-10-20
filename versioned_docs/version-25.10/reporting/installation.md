@@ -4,6 +4,7 @@ title: Installing MBI
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DatabaseRepository from '../installation/_database-repository.mdx';
 
 > This page is intended for administrators who will install and configure Centreon MBI.
 
