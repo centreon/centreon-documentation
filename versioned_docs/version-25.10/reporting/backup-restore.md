@@ -70,7 +70,7 @@ By default, retention is set to 8 days, to modify this value, update ```RETENTIO
 > hosting the data storage MariaDB/MySQL DBMS. To check your free
 > space, run the following command by entering the name of the **Volume Group**
 >
->       ```vgdisplay vg_data | grep -i free```
+> ```vgdisplay vg_data | grep -i free```
 
 
 #### Items to back up
@@ -105,27 +105,21 @@ in ```/etc/cron.d/centreon-bi-backup-reporting-server```:
 
 Three types of backup are executed during the week:
 
--   Daily backup of configuration files for the report generation engine. Format: ```centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz```
--   Every Sunday, full ETL backup. Format: ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
--   From Monday to Saturday an incremental ETL backup (all tables and only the last partition of partitioned tables). Format: ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
+- Daily backup of configuration files for the report generation engine. Format: ```centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz```
+- Every Sunday, full ETL backup. Format: ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
+- From Monday to Saturday an incremental ETL backup (all tables and only the last partition of partitioned tables). Format: ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
 
 By default, backups are saved to ```/var/backup```. To modify this folder, update the ```BACKUP_DIR``` value in the backup script (line **83**) located here:
 ```/usr/share/centreon-bi-backup/centreon-bi-backup-reporting-server.sh```
 
-
-
-> **Warning**
-> 
-> During backup of the reporting server, ensure that no ETL scripts are
-> running. No job reports should be running either
-
-
-
-To modify this value, update **RETENTION_AGE** in the backup script
+By default, retention backup is set up to 8 days, to modify this value, update **RETENTION_AGE** in the backup script
 (line **88**) located here:
 ```/usr/share/centreon-bi-backup/centreon-bi-backup-reporting-server.sh```
 
-> We advise exporting backups to another server for even better security.
+> **Warning**
+> 
+> - During backup of the reporting server, ensure that no ETL scripts are running. No job reports should be running either
+> - We advise exporting backups to another server for even better security.
 
 ## Restore Centreon MBI
 
@@ -269,6 +263,8 @@ On the MBI server run the following command:
 ```
 yum install centreon-bi-reporting-server-x.y.z
 ```
+
+***x.y.z** corresponds to the exact version of the saved module.*
 
 if you was up-to-date, you can just execute:
 
