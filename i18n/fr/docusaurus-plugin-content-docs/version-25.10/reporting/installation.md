@@ -4,6 +4,7 @@ title: Installer MBI
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DatabaseRepository from '../installation/_database-repository.mdx';
 
 > Cette page s'adresse aux administrateurs qui vont installer et configurer Centreon MBI.
 
@@ -530,6 +531,10 @@ Le résultat devrait ressembler au code ci-dessous, et l'image du graphe désir�
 
 ### Installer les paquets
 
+Cette étape s'effectue sur la machine qui deviendra votre serveur MBI.
+
+#### Prérequis
+
 Vous devez disposer des informations suivantes avant de procéder au
 processus d'installation :
 
@@ -539,9 +544,13 @@ processus d'installation :
 - Accès (utilisateur/mot de passe) à la base de données de reporting
 - Définir puis récupérer le mot de passe ssh de l'utilisateur centreonBI, sur le serveur Central (pour la mise à disposition des rapports générés sur l'interface)
 
-#### Procédure
+### Prérequis
 
-1. Installez le dépôt Centreon :
+La procédure s'effectue sur la machine qui deviendra votre serveur MBI.
+
+#### Installer les dépôts Centreon
+
+1. Installez le dépôt standard :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -581,7 +590,7 @@ apt update
 </TabItem>
 </Tabs>
 
-2. Installez le dépôt Business. Vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+2. Installez le dépôt Business. Vous pouvez trouver son adresse sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 3. Assurez-vous qu'une version de Java 17 (ou 18) est installée.
    
@@ -599,38 +608,13 @@ apt update
    sudo update-alternatives --config java
    ```
 
-<Tabs groupId="sync">
-<TabItem value="MariaDB" label="MariaDB">
+#### Installer le dépôt de base de données
 
-4. Installez le dépôt MariaDB :
+<DatabaseRepository />
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+#### Installer les dépendances
 
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.11"
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
-```
-
-</TabItem>
-</Tabs>
-
-5. Puis lancez la commande suivante :
-
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="RHEL 8" label="RHEL 8">
 
 Installez le dépôt **epel** :
@@ -643,20 +627,6 @@ Activer les dépôts **codeready-builder** :
 
 ```shell
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-Puis lancer l'installation :
-
-```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
@@ -674,20 +644,6 @@ Activer les dépôts **codeready-builder** :
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
-Puis lancer l'installation :
-
-```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-```
-
 </TabItem>
 <TabItem value="Alma 8" label="Alma 8">
 
@@ -702,21 +658,6 @@ Activez les dépôts powertools :
 ```shell
 dnf config-manager --set-enabled 'powertools'
 ```
-
-Puis lancez l'installation :
-
-```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-```
-
 </TabItem>
 <TabItem value="RHEL 9" label="RHEL 9">
 
@@ -730,20 +671,6 @@ Activer les dépôts **codeready-builder** :
 
 ```shell
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
-```
-
-Puis lancer l'installation :
-
-```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
@@ -760,21 +687,6 @@ Activez les dépôts **codeready-builder** :
 ```shell
 dnf config-manager --set-enabled ol9_codeready_builder
 ```
-
-Puis lancez l'installation :
-
-```shell
-dnf install centreon-bi-reporting-server MariaDB-server MariaDB-client
-```
-
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-```
-
 </TabItem>
 <TabItem value="Alma 9" label="Alma 9">
 
@@ -788,20 +700,6 @@ Exécutez la commande suivante :
 
 ```shell
 dnf config-manager --set-enabled 'crb' 
-```
-
-Puis lancez l'installation :
-
-```shell
-dnf install centreon-bi-reporting-server Mariadb-server MariaDB-client
-```
-
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
@@ -826,15 +724,122 @@ clé GPG :
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
 
-Puis lancez l'installation :
+</TabItem>
+</Tabs>
+
+#### Installer la base de données du serveur MBI
+
+<Tabs groupId="db">
+<TabItem value="MariaDB" label="MariaDB">
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-apt update
-apt install centreon-bi-reporting-server mariadb-server mariadb-client
+dnf install MariaDB-server MariaDB-client
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install MariaDB-server MariaDB-client
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt update
+apt install mariadb-server mariadb-client
+```
+
+</TabItem>
+<Tabs>
+
+</TabItem>
+<TabItem value="MySQL 8.4" label="MySQL 8.4">
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm
+dnf config-manager --enable mysql-8.4-lts-community
+dnf module disable mysql
+dnf install mysql-community-server
+systemctl start mysqld
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y mysql-server mysql
+dnf install -y centreon-mysql
+systemctl enable --now mysqld
+echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
+systemctl daemon-reload
+systemctl restart mysqld
+systemctl list-units --type=service | grep -i mysql
+sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld
+sudo systemctl start mysqld
+sudo systemctl status mysqld
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt update
+apt install -y centreon-mysql
+# Sélectionner "Use Legacy Authentication Method"
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+</TabItem>
+<Tabs>
+
+</TabItem>
 </Tabs>
+
+#### Installer le module MBI sur le serveur MBI
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-bi-reporting-server
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-bi-reporting-server
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt update
+apt install centreon-bi-reporting-server
+```
+
+</TabItem>
+<Tabs>
+
+
+Dans le cas d'une installation basée sur une distribution vierge, installez la
+clé GPG :
+
+```shell
+cd /etc/pki/rpm-gpg/
+wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+```
+
+#### Activer les services
 
 Activez le service **cbis** :
 
@@ -848,11 +853,11 @@ Démarrez et activez **gorgoned** :
 systemctl start gorgoned && systemctl enable gorgoned
 ```
 
-### Configurer le serveur de reporting
+### Optimiser la base de données
 
-#### Optimisations MariaDB
-
-<Tabs groupId="sync">
+<Tabs groupId="db">
+<TabItem value="MariaDB" label="MariaDB">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
@@ -960,12 +965,9 @@ socket=$PATH_TO_SOCKET$
 
 </TabItem>
 </Tabs>
-
-### Configurer le serveur de reporting
-
-#### Optimisations MySQL
-
-<Tabs groupId="sync">
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MySQL :
@@ -1072,6 +1074,9 @@ Si vous utilisez un fichier de socket spécifique pour MySQL, modifiez le fichie
 ```shell
 socket=$PATH_TO_SOCKET$
 ```
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>
