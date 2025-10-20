@@ -744,7 +744,7 @@ apt install mariadb-server mariadb-client
 ```
 
 </TabItem>
-<Tabs>
+</Tabs>
 
 </TabItem>
 <TabItem value="MySQL 8.4" label="MySQL 8.4">
