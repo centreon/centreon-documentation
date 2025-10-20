@@ -76,7 +76,7 @@ performances & d'isolation.
 
 Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiques-des-serveurs).
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 - Centreon Web 24.10
@@ -300,7 +300,7 @@ Les actions listées à cette étape doivent être exécutées **sur le serveur 
 
 2. Puis lancez la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -365,7 +365,7 @@ Téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer 
 <Tabs groupId="sync">
 <TabItem value="Base de supervision locale au central" label="Base de supervision locale au central">
 
-<Tabs groupId="sync">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
 
 La base de données de supervision MariaDB est hébergée sur le serveur de supervision central.
@@ -397,7 +397,7 @@ perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRight
 </TabItem>
 <TabItem value="Base de supervision déportée par rapport au central" label="Base de supervision déportée par rapport au central">
 
-<Tabs groupId="sync">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
 
 La base de données de supervision MariaDB est hébergée sur un serveur dédié.
@@ -433,7 +433,7 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 </TabItem>
 </Tabs>
 
-<Tabs groupId="sync">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
 
 Si vous utilisez la réplication MariaDB pour vos **bases de données de supervision**, certaines vues sont créées lors de l'installation de Centreon MBI. Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le fichier **my.cnf** du serveur esclave ou mariadb.cnf sur Debian 12.
@@ -551,7 +551,7 @@ Pendant l'installation de la base de données, notez le mot de passe du compte *
 
 1. Installez le dépôt standard :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -621,7 +621,7 @@ apt update
 
 #### Installer les dépendances
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 Installez le dépôt **epel** :
@@ -719,9 +719,9 @@ Pas de dépendances requises.
 
 #### Installer la base de données du serveur MBI
 
-<Tabs groupId="db">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -749,7 +749,7 @@ apt install mariadb-server mariadb-client
 </TabItem>
 <TabItem value="MySQL 8.4" label="MySQL 8.4">
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -795,7 +795,7 @@ systemctl restart mysql
 
 #### Installer le module MBI sur le serveur MBI
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -836,9 +836,9 @@ systemctl start gorgoned && systemctl enable gorgoned
 
 ### Optimiser la base de données
 
-<Tabs groupId="db">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
@@ -948,7 +948,7 @@ socket=$PATH_TO_SOCKET$
 </Tabs>
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MySQL :
@@ -1067,7 +1067,7 @@ socket=$PATH_TO_SOCKET$
 Il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon.
 Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central, sinon sur le serveur de base de données :
 
-<Tabs groupId="db">
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 ```shell
@@ -1226,7 +1226,7 @@ Pour activer la purge automatique des anciennes données, modifiez le fichier cr
 
 Vous pouvez exécuter ce cron quotidiennement ou hebdomadairement, en fonction du temps d'exécution du batch et de la charge générée sur le serveur.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
 
 Redémarrez le service cron :
@@ -1275,7 +1275,7 @@ Veuillez passer à la section suivante pour continuer l'installation.
 
    2. Redémarrez **crond**.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
 
 ```shell
@@ -1340,7 +1340,7 @@ Sur le serveur de reporting, éditez le fichier **/etc/cron.d/centreon-bi-engine
 #30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
 ```
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
 
 Redémarrez le service cron sur le serveur de reporting :
