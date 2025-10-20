@@ -960,6 +960,7 @@ socket=$PATH_TO_SOCKET$
 
 </TabItem>
 </Tabs>
+</TabItem>
 <TabItem value="MySQL" label="MySQL">
 <Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -1101,8 +1102,6 @@ mysql_secure_installation
 - It is mandatory to define a password for the **root** user of the database. You will need this password during the [web-installation](../installation/web-and-post-installation.md).
 
 > For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
-</TabItem>
-<TabItem value="MySQL" label="MySQL">
 
 #### Start configuring
 
