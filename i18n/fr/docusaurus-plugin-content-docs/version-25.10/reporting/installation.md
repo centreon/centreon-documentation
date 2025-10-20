@@ -294,7 +294,7 @@ Description des utilisateurs, umask et répertoire utilisateur :
 
 ## Étape 2 : Installez l'interface Centreon MBI dans l'application Centreon
 
-Les actions listées dans ce chapitre doivent être exécutées sur le **serveur Central Centreon**.
+Les actions listées à cette étape doivent être exécutées **sur le serveur central Centreon**.
 
 1. Installez le dépôt Business : vous pouvez le trouver sur le [portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
@@ -358,8 +358,10 @@ MBI, menu **Rapports > Monitoring Business Intelligence > Paramètres globaux** 
 
 \* *Le test de connexion ne fonctionnera pas encore à ce moment de l'installation*
 
-### Accès à la base de données Centrale
+### Accès à la base de données centrale
+
 Téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer à configurer les options générales.
+
 <Tabs groupId="sync">
 <TabItem value="Base de supervision locale au central" label="Base de supervision locale au central">
 
@@ -531,22 +533,17 @@ Le résultat devrait ressembler au code ci-dessous, et l'image du graphe désir�
 
 ### Installer les paquets
 
-Cette étape s'effectue sur la machine qui deviendra votre serveur MBI.
+Cette étape s'effectue **sur la machine qui deviendra votre serveur MBI**.
 
 #### Prérequis
 
-Vous devez disposer des informations suivantes avant de procéder au
-processus d'installation :
+Vous devez disposer des informations suivantes avant de procéder à l'installation :
 
-- IP/DNS de la base de données de supervision
+- IP/DNS de la base de données centrale
 - IP/DNS de l'interface web Centreon
 - IP/DNS de la base de données de reporting (localhost fortement recommandé)
 - Accès (utilisateur/mot de passe) à la base de données de reporting
 - Définir puis récupérer le mot de passe ssh de l'utilisateur centreonBI, sur le serveur Central (pour la mise à disposition des rapports générés sur l'interface)
-
-### Prérequis
-
-La procédure s'effectue sur la machine qui deviendra votre serveur MBI.
 
 #### Installer les dépôts Centreon
 
@@ -574,6 +571,14 @@ dnf update
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
+
+Installez les paquets prérequis :
+
+```shell
+apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+```
+
+Installez les dépôts Centreon :
 
 ```shell
 echo "deb https://packages.centreon.com/apt-standard-25.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
@@ -705,24 +710,7 @@ dnf config-manager --set-enabled 'crb'
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-Installez les paquets prérequis :
-
-```shell
-apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
-```
-
-Installez le dépôt Centreon :
-
-```shell
-echo "deb https://packages.centreon.com/apt-standard-25.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-```
-
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
+Pas de dépendances requises.
 
 </TabItem>
 </Tabs>
@@ -829,15 +817,6 @@ apt install centreon-bi-reporting-server
 
 </TabItem>
 <Tabs>
-
-
-Dans le cas d'une installation basée sur une distribution vierge, installez la
-clé GPG :
-
-```shell
-cd /etc/pki/rpm-gpg/
-wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-```
 
 #### Activer les services
 
