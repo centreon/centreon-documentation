@@ -818,7 +818,7 @@ apt install centreon-bi-reporting-server
 ```
 
 </TabItem>
-<Tabs>
+</Tabs>
 
 #### Activer les services
 
