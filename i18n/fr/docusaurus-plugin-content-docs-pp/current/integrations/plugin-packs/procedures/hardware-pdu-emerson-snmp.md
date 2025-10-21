@@ -298,7 +298,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Total input power : 9 W Total energy : 62 kWh Current neutral : 69 Amp AC RMS All power source lines are ok | '*ps*~powersource.total.input.power.watt'=9W;;;0;'*ps*~powersource.total.accumulated.energy.kilowatthour'=62kWh;;;0;'*ps*~powersource.neutral.current.ampacrms'=69AmpAcRMS;;;0;'*ps*~*line*#line.load.percentage'=%;;;0;100'*ps*~*line*#line.neutral.current.ampere'=A;;;0;
+OK: total input power : 8060 kWh line-to-neutral real power : 19243 W line-to-neutral apparent power : 80863 VA line-to-neutral current : 25011 Amp AC RMS line-to-neutral potential : 38368 VoltRMS All receptacles are ok | 'rb~receptaclebranch.total.accumulated.energy.kilowatthour'=8060kWh;;;0; 'rb~receptaclebranch.line2neutral.real.power.watt'=19243W;;;0; 'rb~receptaclebranch.line2neutral.apparent.power.voltampere'=80863VA;;;0; 'rb~receptaclebranch.line2neutral.current.ampacrms'=25011AmpAcRMS;;;0; 'rb~receptaclebranch.line2neutral.potential.voltrms'=38368VoltRMS;;;0; 
 ```
 
 ### Diagnostic des erreurs communes
