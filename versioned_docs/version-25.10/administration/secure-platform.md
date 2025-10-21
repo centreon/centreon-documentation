@@ -1556,6 +1556,10 @@ systemctl restart apache2
 </TabItem>
 </Tabs>
 
+## Add your certificate to your browser
+
+If you use a certificate that is not provided by a trusted authority, you must import the CA certificate into your browser.
+
 ## User authentication
 
 Centreon offers several methods to authenticate users:
