@@ -6,9 +6,6 @@ title: Develop Plugin
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 This section aims to give an overview of the centreon-plugins philosophy and how
 you can leverage the centreon-plugins perl framework (or not) and create Connectors on top of it.
 
