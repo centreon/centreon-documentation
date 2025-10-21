@@ -195,7 +195,7 @@ CRITICAL: Number of current processes running: 4 | 'nbproc'=4;;5:;0;
 
 ### Ranges of values
 
-In the following example, the service switches to CRITICAL status when the metric is within a range of values (between 0 and 5 **includes**):
+In the following example, the service switches to CRITICAL status when the metric is within a range of values (between 0 and 5 **included**):
 
 Command:
 
@@ -209,7 +209,7 @@ Results:
 CRITICAL: Number of current processes running: 4 | 'nbproc'=4;;@0:5;0;
 ```
 
-And in this case, the service switches to CRITICAL when the metric is outside a range of values (outside of 5 and 15 **includes**):
+And in this case, the service switches to CRITICAL when the metric is outside a range of values (outside of 5 and 15 **included**):
 
 Command:
 
