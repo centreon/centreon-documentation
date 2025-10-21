@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Huawei Standard SNMP** connector through the
-**Configuration > Connectors > Monitoring Connectors** menu:
+**Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
 ## Pack assets
@@ -24,21 +24,21 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Net-Huawei-SNMP-custom" label="Net-Huawei-SNMP-custom">
 
-| Service Alias | Service Template                | Service Description                          |
-|:--------------|:--------------------------------|:---------------------------------------------|
-| Cpu           | Net-Huawei-Cpu-SNMP-custom      | Check the rate of CPU utilization.    |
-| Hardware      | Net-Huawei-Hardware-SNMP-custom | Check the state of hardware components.      |
-| Memory        | Net-Huawei-Memory-SNMP-custom   | Check the rate of memory utilization. |
-| Uptime        | Net-Huawei-Uptime-SNMP-custom   | Check uptime.                                |
+| Service Alias | Service Template                | Service Description                         |
+|:--------------|:--------------------------------|:--------------------------------------------|
+| Cpu           | Net-Huawei-Cpu-SNMP-custom      | Check the rate of the utilization of CPU    |
+| Hardware      | Net-Huawei-Hardware-SNMP-custom | Check the state of hardware components      |
+| Memory        | Net-Huawei-Memory-SNMP-custom   | Check the rate of the utilization of memory |
+| Uptime        | Net-Huawei-Uptime-SNMP-custom   | Check uptime                                |
 
 > The services listed above are created automatically when the **Net-Huawei-SNMP-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                  | Service Description | Discovery  |
-|:--------------|:----------------------------------|:--------------------|:----------:|
-| Interfaces    | Net-Huawei-Interfaces-SNMP-custom | Check interfaces    | X          |
+| Service Alias | Service Template                  | Service Description | Discovery |
+|:--------------|:----------------------------------|:--------------------|:---------:|
+| Interfaces    | Net-Huawei-Interfaces-SNMP-custom | Check interfaces    |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -73,9 +73,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Name        | Unit  |
-|:------------|:------|
-| *cpu*#usage | %     |
+| Name        | Unit |
+|:------------|:-----|
+| *cpu*#usage | %    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -84,38 +84,38 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 | Name                          | Unit |
 |:------------------------------|:-----|
+| hardware.fan.status           | N/A  |
 | hardware.fan.speed.percentage | %    |
 | hardware.temperature.celsius  | C    |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Metric name                                               | Unit  |
-|:----------------------------------------------------------|:------|
-| *interface_name*#status                                   | N/A   |
-| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
-| *interface_name*#interface.packets.in.discard.percentage  | %     |
-| *interface_name*#interface.packets.in.error.percentage    | %     |
-| *interface_name*#interface.packets.out.discard.percentage | %     |
-| *interface_name*#interface.packets.out.error.percentage   | %     |
+| Name                                                      | Unit |
+|:----------------------------------------------------------|:-----|
+| *interface_name*#status                                   | N/A  |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s  |
+| *interface_name*#interface.packets.in.discard.percentage  | %    |
+| *interface_name*#interface.packets.in.error.percentage    | %    |
+| *interface_name*#interface.packets.out.discard.percentage | %    |
+| *interface_name*#interface.packets.out.error.percentage   | %    |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Name           | Unit  |
-|:---------------|:------|
-| *memory1*#used | B     |
-| *memory2*#used | B     |
+| Name          | Unit |
+|:--------------|:-----|
+| *memory*#used | B    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Name                  | Unit  |
-|:----------------------|:------|
-| system.uptime.seconds | s     |
+| Name                  | Unit |
+|:----------------------|:-----|
+| system.uptime.seconds | s    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -139,12 +139,9 @@ SNMP port.
 
 ### Pack
 
- The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
-
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Connectors > Monitoring Connectors** menu.
+**Configuration > Monitoring Connector Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -180,7 +177,7 @@ yum install centreon-pack-network-huawei-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Huawei Standard SNMP** connector through
-the **Configuration > Connectors > Monitoring Connectors** menu.
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
@@ -237,9 +234,9 @@ yum install centreon-plugin-Network-Huawei-Snmp
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                          | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro            | Description                                                                                                                              | Default value | Mandatory |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -251,68 +248,69 @@ yum install centreon-plugin-Network-Huawei-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro         | Description                                                                                        | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGE  | Warning threshold                                                                                  |                   |             |
-| CRITICALUSAGE | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro         | Description                                                                                                                            | Default value | Mandatory |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGUSAGE  | Warning threshold                                                                                                                      |               |           |
+| CRITICALUSAGE | Critical threshold                                                                                                                     |               |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro                     | Description                                                                                                                                                                                                                     | Default value                                             | Mandatory   |
-|:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:-----------:|
-| OIDFILTER                 | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                                      | ifname                                                    |             |
-| OIDDISPLAY                | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                             | ifname                                                    |             |
-| INTERFACENAME             | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                             |                                                           |             |
-| WARNINGBIASCURRENT        | Thresholds in `mA`                                                                                                                                                                                                           |                                                           |             |
-| CRITICALBIASCURRENT       | Thresholds in `mA`                                                                                                                                                                                                           |                                                           |             |
-| WARNINGINDISCARD          | Thresholds                                                                                                                                                                                                                      |                                                           |             |
-| CRITICALINDISCARD         | Thresholds                                                                                                                                                                                                                      |                                                           |             |
-| WARNINGINERROR            | Thresholds                                                                                                                                                                                                                      |                                                           |             |
-| CRITICALINERROR           | Thresholds                                                                                                                                                                                                                      |                                                           |             |
-| WARNINGINPUTPOWER         | Thresholds in `dBm`                                                                                                                                                                                                          |                                                           |             |
-| CRITICALINPUTPOWER        | Thresholds in `dBm`                                                                                                                                                                                                          |                                                           |             |
-| WARNINGINTRAFFIC          | Thresholds                                                                                                                                                                                                                      |                                                           |             |
-| CRITICALINTRAFFIC         | Thresholds                                                                                                                                                                                                                      |                                                           |             |
-| WARNINGMODULETEMPERATURE  | Thresholds in °C                                                                                                                                                                                                                |                                                           |             |
-| CRITICALMODULETEMPERATURE | Thresholds in °C                                                                                                                                                                                                                |                                                           |             |
-| WARNINGOUTDISCARD         | Thresholds                                                                                                                                                                                                                      |                                                           |             |
-| CRITICALOUTDISCARD        | Thresholds                                                                                                                                                                                                                      |                                                           |             |
-| WARNINGOUTERROR           | Thresholds                                                                                                                                                                                                                      |                                                           |             |
-| CRITICALOUTERROR          | Thresholds                                                                                                                                                                                                                      |                                                           |             |
-| WARNINGOUTPUTPOWER        | Thresholds in `dBm`                                                                                                                                                                                                          |                                                           |             |
-| CRITICALOUTPUTPOWER       | Thresholds in `dBm`                                                                                                                                                                                                          |                                                           |             |
-| WARNINGOUTTRAFFIC         | Thresholds                                                                                                                                                                                                                      |                                                           |             |
-| CRITICALOUTTRAFFIC        | Thresholds                                                                                                                                                                                                                      |                                                           |             |
-| CRITICALSTATUS            | Define the conditions to match for the status to be CRITICAL (default: `%{admstatus} eq "up" and %{opstatus} ne "up"`). You can use the following variables: `%{admstatus}`, `%{opstatus}`, `%{duplexstatus}`, `%{display}` | `%{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/` |             |
-| WARNINGSTATUS             | Define the conditions to match for the status to be WARNING. You can use the following variables: `%{admstatus}`, `%{opstatus}`, `%{duplexstatus}`, `%{display}`                                                                |                                                           |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).                                                                                                                              | --verbose --no-skipped-counters                           |             |
+| Macro                     | Description                                                                                                                                                         | Default value                                             | Mandatory |
+|:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:---------:|
+| OIDFILTER                 | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                            | ifname                                                    |           |
+| OIDDISPLAY                | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                   | ifname                                                    |           |
+| INTERFACENAME             | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                                                           |           |
+| WARNINGBIASCURRENT        | Thresholds in C\<mA\>                                                                                                                                               |                                                           |           |
+| CRITICALBIASCURRENT       | Thresholds in C\<mA\>                                                                                                                                               |                                                           |           |
+| WARNINGINDISCARD          | Thresholds                                                                                                                                                          |                                                           |           |
+| CRITICALINDISCARD         | Thresholds                                                                                                                                                          |                                                           |           |
+| WARNINGINERROR            | Thresholds                                                                                                                                                          |                                                           |           |
+| CRITICALINERROR           | Thresholds                                                                                                                                                          |                                                           |           |
+| WARNINGINPUTPOWER         | Thresholds in C\<dBm\>                                                                                                                                              |                                                           |           |
+| CRITICALINPUTPOWER        | Thresholds in C\<dBm\>                                                                                                                                              |                                                           |           |
+| WARNINGINTRAFFIC          | Thresholds                                                                                                                                                          |                                                           |           |
+| CRITICALINTRAFFIC         | Thresholds                                                                                                                                                          |                                                           |           |
+| WARNINGMODULETEMPERATURE  | Thresholds in °C                                                                                                                                                    |                                                           |           |
+| CRITICALMODULETEMPERATURE | Thresholds in °C                                                                                                                                                    |                                                           |           |
+| WARNINGOUTDISCARD         | Thresholds                                                                                                                                                          |                                                           |           |
+| CRITICALOUTDISCARD        | Thresholds                                                                                                                                                          |                                                           |           |
+| WARNINGOUTERROR           | Thresholds                                                                                                                                                          |                                                           |           |
+| CRITICALOUTERROR          | Thresholds                                                                                                                                                          |                                                           |           |
+| WARNINGOUTPUTPOWER        | Thresholds in C\<dBm\>                                                                                                                                              |                                                           |           |
+| CRITICALOUTPUTPOWER       | Thresholds in C\<dBm\>                                                                                                                                              |                                                           |           |
+| WARNINGOUTTRAFFIC         | Thresholds                                                                                                                                                          |                                                           |           |
+| CRITICALOUTTRAFFIC        | Thresholds                                                                                                                                                          |                                                           |           |
+| CRITICALSTATUS            | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}   | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\|dormant/ |           |
+| WARNINGSTATUS             | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}    |                                                           |           |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              | --verbose --no-skipped-counters                           |           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro         | Description                                                                                        | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGE  | Warning threshold (in percent)                                                                     |                   |             |
-| CRITICALUSAGE | Critical threshold (in percent)                                                                    |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro         | Description                                                                                                                            | Default value | Mandatory |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGUSAGE  | Warning threshold (in percent)                                                                                                         |               |           |
+| CRITICALUSAGE | Critical threshold (in percent)                                                                                                        |               |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                  |                   |             |
-| CRITICAL     | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --check-overload  |             |
+| Macro        | Description                                                                                                                                  | Default value    | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------|:-----------------|:---------:|
+| UNIT         | Select the time unit for thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds |                  |           |
+| WARNING      | Warning threshold                                                                                                                            |                  |           |
+| CRITICAL     | Critical threshold                                                                                                                           |                  |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).       | --check-overload |           |
 
 </TabItem>
 </Tabs>
@@ -334,7 +332,6 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--snmp-community='my-snmp-community'  \
 	--warning-usage='' \
 	--critical-usage='' 
-  
 ```
 
 The expected command output is shown below:
@@ -427,6 +424,7 @@ All generic options are listed here:
 | --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -439,7 +437,7 @@ All generic options are listed here:
 | --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
 #### Modes options
 
@@ -450,7 +448,7 @@ All available options for each service template are listed below:
 
 | Option            | Description                                                                                                                   |
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : `--filter-counters='^xxxx\|yyyy$'`   |
+| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
 | --warning-usage   |   Warning threshold.                                                                                                          |
 | --critical-usage  |   Critical threshold.                                                                                                         |
 
@@ -459,15 +457,6 @@ All available options for each service template are listed below:
 
 | Option                 | Description                                                                                                                                                                                                                                     |
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component            |   Which component to check (default: '.*'). Can be: 'fan'.                                                                                                                                                                                      |
-| --filter               |   Exclude the items given as a comma-separated list (example: --filter=fan --filter=psu). You can also exclude items from specific instances: --filter=fan,1.0                                                                                  |
-| --absent-problem       |   Return an error if an entity is not 'present' (default is skipping) (comma separated list) Can be specific or global: --absent-problem=fan,1.0                                                                                                |
-| --no-component         |   Define the expected status if no components are found (default: critical).                                                                                                                                                                    |
-| --threshold-overload   |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='fan,WARNING,abnormal'                           |
-| --warning              |   Set warning threshold for 'fan', 'temperature' (syntax: type,regexp,threshold) Example: --warning='fan,.*,40'                                                                                                                                 |
-| --critical             |   Set critical threshold for 'fan', 'temperature' (syntax: type,regexp,threshold) Example: --critical='fan,.*,45'                                                                                                                               |
-| --warning-count-*      |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                  |
-| --critical-count-*     |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                 |
 | --memcached            |   Memcached server to use (only one server).                                                                                                                                                                                                    |
 | --redis-server         |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
 | --redis-attribute      |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
@@ -480,6 +469,13 @@ All available options for each service template are listed below:
 | --statefile-format     |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key        |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher     |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --component            |   Which component to check (default: '.*'). Can be: 'fan'.                                                                                                                                                                                      |
+| --filter               |   Exclude the items given as a comma-separated list (example: --filter=fan --filter=psu). You can also exclude items from specific instances: --filter=fan,1.0                                                                                  |
+| --absent-problem       |   Return an error if an entity is not 'present' (default is skipping) (comma separated list) Can be specific or global: --absent-problem=fan,1.0                                                                                                |
+| --no-component         |   Define the expected status if no components are found (default: critical).                                                                                                                                                                    |
+| --threshold-overload   |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='fan,WARNING,abnormal'                           |
+| --warning              |   Set warning threshold for 'fan', 'temperature' (syntax: type,regexp,threshold) Example: --warning='fan,.*,40'                                                                                                                                 |
+| --critical             |   Set critical threshold for 'fan', 'temperature' (syntax: type,regexp,threshold) Example: --critical='fan,.*,45'                                                                                                                               |
 | --reload-cache-time    |   Time in seconds before reloading cache file (default: 180). Use '-1' to disable cache reload.                                                                                                                                                 |
 
 </TabItem>
@@ -570,12 +566,12 @@ All available options for each service template are listed below:
 | --add-optical                                   |   Check interfaces' optical metrics.                                                                                                                                                                                                                                                         |
 | --warning-errors                                |   Set warning threshold for all error counters.                                                                                                                                                                                                                                              |
 | --critical-errors                               |   Set critical threshold for all error counters.                                                                                                                                                                                                                                             |
-| --warning-input-power                           |   Thresholds in `dBm`.                                                                                                                                                                                                                                                                    |
-| --critical-input-power                          |   Thresholds in `dBm`.                                                                                                                                                                                                                                                                    |
-| --warning-bias-current                          |   Thresholds in `mA`.                                                                                                                                                                                                                                                                     |
-| --critical-bias-current                         |   Thresholds in `mA`.                                                                                                                                                                                                                                                                     |
-| --warning-output-power                          |   Thresholds in `dBm`.                                                                                                                                                                                                                                                                    |
-| --critical-output-power                         |   Thresholds in `dBm`.                                                                                                                                                                                                                                                                    |
+| --warning-input-power                           |   Thresholds in C\<dBm\>.                                                                                                                                                                                                                                                                    |
+| --critical-input-power                          |   Thresholds in C\<dBm\>.                                                                                                                                                                                                                                                                    |
+| --warning-bias-current                          |   Thresholds in C\<mA\>.                                                                                                                                                                                                                                                                     |
+| --critical-bias-current                         |   Thresholds in C\<mA\>.                                                                                                                                                                                                                                                                     |
+| --warning-output-power                          |   Thresholds in C\<dBm\>.                                                                                                                                                                                                                                                                    |
+| --critical-output-power                         |   Thresholds in C\<dBm\>.                                                                                                                                                                                                                                                                    |
 | --warning-module-temperature                    |   Thresholds in °C.                                                                                                                                                                                                                                                                          |
 | --critical-module-temperature                   |   Thresholds in °C.                                                                                                                                                                                                                                                                          |
 
