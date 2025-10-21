@@ -440,14 +440,14 @@ La configuration des vues métier est réalisée via le menu
 |-------------|--------------------------------------------------------------------------------------|
 | Nom         | Nom de la vue métier                                                                 |
 | Description | Description                                                                          |
-| Affiché     | Affichage ou non de la BV sur les écrans du logiciel **Centreon BAM** *(deprecated)* |
-| Actions     | Liste d'actions pouvant être effectuées sur la vue métier (modification/affichage)   |
+| Etat     | Affichage ou non de la BV sur les écrans du logiciel **Centreon BAM** *(deprecated)* |
 
-Supprimer une vue métier:
+Liste d'actions pouvant être effectuées sur la vue métier (modification/affichage).
 
--   La suppression d'une vue métier ne supprime pas les activités
-    métier qui lui sont rattachées.
--   La suppression d'une BV la supprime définitivement.
+> Supprimer une vue métier:
+> 
+>   - La suppression d'une vue métier ne supprime pas les activités métier qui lui sont rattachées.
+>   - La suppression d'une BV la supprime définitivement.
 
 ### Création d'une vue métier
 
