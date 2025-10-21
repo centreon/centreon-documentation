@@ -25,10 +25,10 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="HW-Server-Dell-iDrac-SNMP-custom" label="HW-Server-Dell-iDrac-SNMP-custom">
 
-| Alias        | Modèle de service                      | Description                               |
-|:-------------|:---------------------------------------|:------------------------------------------|
-| GlobalStatus | HW-Dell-iDrac-GlobalStatus-SNMP-custom | Contrôle l'état globale de l'équipement   |
-| Hardware     | HW-Dell-iDrac-Hardware-SNMP-custom     | 	Contrôle l'état des composants matériels |
+| Alias        | Modèle de service                      | Description                              |
+|:-------------|:---------------------------------------|:-----------------------------------------|
+| GlobalStatus | HW-Dell-iDrac-GlobalStatus-SNMP-custom | Contrôle l'état globale de l'équipement  |
+| Hardware     | HW-Dell-iDrac-Hardware-SNMP-custom     | Contrôle l'état des composants matériels |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Dell-iDrac-SNMP-custom** est utilisé.
 
