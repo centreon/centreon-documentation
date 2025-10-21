@@ -781,7 +781,7 @@ apt install lsb-release ca-certificates apt-transport-https software-properties-
 Installez le dépôt Centreon :
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ bookworm-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la

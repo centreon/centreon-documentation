@@ -668,7 +668,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ bookworm-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
 apt update
 ```
 
