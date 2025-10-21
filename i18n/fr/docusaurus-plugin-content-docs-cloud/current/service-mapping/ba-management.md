@@ -239,8 +239,6 @@ du statut de l'activité métier
 La gestion des activité(s) métier est réalisée via le menu
 `Configuration > Activités métiers > Activités métiers`.
 
-![image](../assets/service-mapping/guide/business-activity-listing.png)
-
 Des actions de duplication, suppression, activation/désactivation ou
 changement massif sont possible lorsque vous cochez une ou plusieurs
 lignes
@@ -336,8 +334,6 @@ vers un formulaire de saisie.
 **Mode avancé** :
 
 Il permet de saisir la valeur des impacts manuellement.
-
-![image](../assets/service-mapping/guide/kpi_advanced.png)
 
 | Paramètre                             | Description                                                                         |
 |---------------------------------------|-------------------------------------------------------------------------------------|

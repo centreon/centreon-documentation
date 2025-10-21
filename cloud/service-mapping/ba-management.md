@@ -252,8 +252,6 @@ status switches.
 The BA is managed through the
 `Configuration > Business Activity > Business Activity` menu.
 
-![image](../assets/service-mapping/guide/business-activity-listing.png)
-
 You have inline actions and global actions to delete, duplicate,
 enable/disable the BA and massively change thresholds.
 
@@ -337,9 +335,7 @@ following form.
 
 **Advanced mode**:
 
-To be able to manually define an impact:
-
-![image](../assets/service-mapping/guide/kpi_advanced.png)
+To be able to manually define an impact.
 
 | Column          | Description                                                                                                          |
 | ------------------------- | ----------------------------------------------------------------------------- |
