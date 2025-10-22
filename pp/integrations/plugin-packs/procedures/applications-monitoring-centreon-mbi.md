@@ -159,7 +159,7 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install nagios-plugins-nrpe centreon-pack-operatingsystems-linux-snmp
+dnf install nagios-plugins-nrpe centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
 </TabItem>
@@ -173,14 +173,14 @@ dnf install nagios-plugins-nrpe centreon-pack-operatingsystems-linux-snmp
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install nagios-plugins-nrpe centreon-pack-operatingsystems-linux-snmp
+apt install nagios-plugins-nrpe centreon-plugin-operatingsystems-linux-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install nagios-plugins-nrpe centreon-pack-operatingsystems-linux-snmp
+yum install nagios-plugins-nrpe centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
 </TabItem>
