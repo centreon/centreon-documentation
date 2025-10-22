@@ -20,7 +20,7 @@ Centreon MBI backup triggers crons to backup all your files:
 #### Backed up items
 
 - Generated reports (pdf, docx, xlsx or other formats).
-- The complete configuration of your MBI module that is stored on your central server (SQL dumps: **dump_centreon.sql**, **dump_centreon_storage.sql**).
+- The complete configuration of your MBI module that is stored on your central server (MBI tables in 2 SQL dumps: **dump_centreon.sql**, **dump_centreon_storage.sql**).
 
 #### Backup frequency
 
@@ -56,22 +56,20 @@ The backup script itself is stored here: **/usr/share/centreon-bi-backup/centreo
 
 > We recommend exporting backups to another server to keep them secure.
 
-The **/usr/share/centreon/www/modules/centreon-bi-server/tools/purgeArchivesFiles.php** script verifies retention configuration and deletes old reports (36 months by default).
+Every day, the **/usr/share/centreon/www/modules/centreon-bi-server/tools/purgeArchivesFiles.php** script checks the retention parameters and deletes the reports that are older than that (36 months by default).
 
 ### Backing up your MBI server
 
-> It is important to have at least 5 GB of free space on the **Volume Group**
-> hosting the data storage MariaDB/MySQL DBMS. To check your free
-> space, run the following command by entering the name of the **Volume Group**
+> For the backup to run smoothly, it is important to have at least 5 GB of free space on the **Volume Group** hosting the MBI database. To check your free
+> space, run the following command (enter the name of the **Volume Group**):
 >
 > ```vgdisplay vg_data | grep -i free```
 
-
 #### Backed up items
 
-- Configuration files (database configuration).
-- Aggregated data (all your datadir folder, ex: /var/lib/mysql).
-- Reports & resources rptidesign/rptlibrary and XML parameters.
+- Database configuration file (**/etc/my.cnf/centreon.cnf**).
+- All data aggregated by the ETL (the contents of your datadir folder, by default: **/var/lib/mysql**).
+- Reports designs and report library, and the corresponding XML parameters.
 
 #### Backup frequency
 
@@ -98,9 +96,9 @@ CRONTAB_EXEC_USER=""
 
 Three types of backup are executed during the week:
 
-- Daily backup of configuration files for the report generation engine. The generated files follow this naming format: ```centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz```
-- Every Sunday, full ETL backup. The generated files follow this naming format: ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
-- From Monday to Saturday, an incremental ETL backup (all tables and only the last partition of partitioned tables). The generated files follow this naming format: ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
+- Daily backup of reports designs and report library, as well as the configuration files for the report generation engine (cbis). The generated files follow this naming format: ```centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz```
+- Every Sunday, full backup of all data aggregated by the ETL. The generated files follow this naming format: ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
+- From Monday to Saturday, an incremental backup of the data aggregated by the ETL for the previous day (only the last partition of each partitioned table, plus all non-partitioned tables). The generated files follow this naming format: ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
 
 The backup script itself is stored here: **/usr/share/centreon-bi-backup/centreon-bi-backup-reporting-server.sh**. You can change some parameters if you like:
 
@@ -109,7 +107,7 @@ The backup script itself is stored here: **/usr/share/centreon-bi-backup/centreo
 | Backup location | **/var/backup** | **BACKUP_DIR**, line 83 |
 | Retention duration | 8 days | **RETENTION_AGE**, line 88 |
 
-> During the MBI server backup, ensure that no ETL scripts or report jobs are running.
+> During the MBI server backup, make sure that no ETL scripts or report jobs are running.
 > We recommend exporting backups to another server to keep them secure.
 
 ## Restore Centreon MBI
