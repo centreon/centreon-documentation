@@ -1,35 +1,30 @@
 ---
 id: backup-restore
-title: Sauvegarde et restauration
+title: Sauvegarder et restaurer MBI
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Sauvegarde de Centreon MBI
+Lorsque vous installez Centreon MBI, des crons sont automatiquement installés pour sauvegarder tous vos fichiers, un sur le serveur central et un sur le serveur MBI.
+Chaque cron sauvegarde les données stockées sur chaque serveur. En fonction du problème rencontré, vous pourrez restaurer le composant concerné (module MBI sur le serveur central, serveur MBI ou données ETL...).
 
-La sauvegarde Centreon MBI déclenche des crons pour sauvegarder tous vos fichiers :
+Chaque script de sauvegarde utilise un mécanisme de purge pour supprimer les anciennes données de sauvegarde.
 
-- sur votre Central pour sauvegarder le module MBI, tous vos rapports et la base de données contenant la configuration ETL.
-- sur votre serveur MBI pour sauvegarder l'entrepôt de données MBI, vos bases de données, les fichiers de configuration CBI et les fichiers BIRT.
+## Sauvegarde de votre serveur Central
 
-> Chaque script de sauvegarde utilise un mécanisme de purge pour supprimer les anciennes données.
-
-### Sauvegarde de votre serveur Central
-
-#### Éléments à sauvegarder
+### Éléments sauvegardés
 
 - Rapports générés (fichiers PDF, docx, xlsx ou autres formats).
-- Dumps SQL (dump_centreon.sql, dump_centreon_storage.sql) représentant l'intégralité de la configuration de vos modules MBI sur votre serveur Central.
+- La configuration complète de votre module MBI stockée sur votre serveur central (tables MBI dans 2 dumps SQL : **dump_centreon.sql**, **dump_centreon_storage.sql**).
 
-#### Fréquence de sauvegarde
+### Fréquence de sauvegarde
 
 - Quotidienne
-- Rotation des purges : 8 jours.
+- Les anciennes sauvegardes sont supprimées après 8 jours.
 
-#### Fonctionnement du script de sauvegarde
+### Fonctionnement du script de sauvegarde sur le serveur central
 
-Le script de sauvegarde est exécuté quotidiennement à l'aide d'une tâche cron située dans:
-```/etc/cron.d/centreon-bi-interface-crons```:
+Le script de sauvegarde est exécuté quotidiennement à l'aide d'une tâche cron située sur votre serveur central, dans : **/etc/cron.d/centreon-bi-interface-crons** :
 
 ```
 #
@@ -45,47 +40,39 @@ CRONTAB_EXEC_USER=""
 0 3 * * * root /usr/bin/php -q /usr/share/centreon/www/modules/centreon-bi-server/tools/purgeArchivesFiles.php >> /var/log/centreon/centreon-bi-archive-retention.log 2>&1
 ```
 
-Le format de sauvegarde est
-```centreon-bi-front-reports-and-custom-conf-aaaa-mm-jj.tar.gz```
+Les fichiers générés respectent le format de nommage suivant : **centreon-bi-front-reports-and-custom-conf-aaaa-mm-jj.tar.gz**.
 
-Par défaut, les sauvegardes sont enregistrées dans « /var/backup ». Pour modifier ce dossier, mettez à jour la valeur « BACKUP_DIR » dans le script de sauvegarde (ligne **63**) situé ici :
-```/usr/share/centreon-bi-backup/centreon-bi-backup-web.sh```
+Le script de sauvegarde lui-même est stocké ici : **/usr/share/centreon-bi-backup/centreon-bi-backup-web.sh**. Vous pouvez modifier certains paramètres si vous le souhaitez :
 
-Par défaut, la rétention est définie sur 8 jours. Pour modifier cette valeur, mettez à jour « RETENTION_AGE » dans le script de sauvegarde (ligne **67**) situé ici :
-```/usr/share/centreon-bi-backup/centreon-bi-backup-web.sh```
+| Paramètre| Valeur par défaut | À modifier dans le script |
+|---|---|---|
+| Emplacement de la sauvegarde | **/var/backup** | **BACKUP_DIR**, ligne 63 |
+| Durée de conservation | 8 jours | **RETENTION_AGE**, ligne 67 |
 
-> **Remarques**
->
-> - Nous vous conseillons d'exporter les sauvegardes vers une autre ressource afin de les sécuriser.
->  
-> - Le script « /usr/share/centreon/www/modules/centreon-bi-server/tools/purgeArchivesFiles.php » vérifie la configuration de la rétention et supprime les anciens rapports (36 mois par défaut).
+> Nous vous recommandons d'exporter les sauvegardes vers un autre serveur afin de les sécuriser.
 
-### Sauvegarde du serveur de reporting dédié
+Chaque jour, le script **/usr/share/centreon/www/modules/centreon-bi-server/tools/purgeArchivesFiles.php** vérifie les paramètres de conservation et supprime les rapports plus anciens que cette durée (36 mois par défaut).
 
-> Il est important de disposer d'au moins 5 Go d'espace libre sur le
-> **Volume Group** hébergeant l'espace de stockage **data** du SGBD
-> MariaDB/MySQL. Pour cela, exécuter la commande suivante en renseignant
-> le nom du **Volume Group** :
+## Sauvegarde du serveur MBI
+
+> Pour que la sauvegarde s'exécute correctement, il est important de disposer d'au moins 5 Go d'espace libre sur le **Volume Group** hébergeant la base de données MBI. Pour vérifier votre espace libre, exécutez la commande suivante (entrez le nom du **Volume Group**) :
 >
 > ```vgdisplay vg_data | grep -i free```
 
+### Éléments sauvegardés
 
-#### Éléments sauvegardés
+<!-- Fichiers de configuration de base de données.-->
+- Toutes les données agrégées par l'ETL (le contenu de votre dossier datadir, par défaut : **/var/lib/mysql**).
+- Les modèles de rapports et la bibliothèque de rapports, ainsi que les paramètres XML correspondants.
 
-- Fichiers de configuration (configuration mariadb).
-- Données agrégées (tout votre dossier datadir, ex : /var/lib/mysql).
-- Rapports et ressources rptidesign/rptlibrary et paramètres XML.
-
-#### Fréquence de sauvegarde
+### Fréquence de sauvegarde
 
 - Quotidienne
-- Rotation : 8 jours.
+- Les anciennes sauvegardes sont supprimées après 8 jours.
 
-#### Fonctionnement du script de sauvegarde sur un serveur central
+### Fonctionnement du script de sauvegarde sur le serveur MBI
 
-Le script de sauvegarde est exécuté de manière journalière via un cron
-défini dans le fichier
-**/etc/cron.d/centreon-bi-backup-reporting-server** :
+Le script de sauvegarde est exécuté quotidiennement à l'aide d'une tâche cron située sur le serveur MBI, dans **/etc/cron.d/centreon-bi-backup-reporting-server** :
 
 ```
     #
@@ -101,94 +88,42 @@ défini dans le fichier
     0 12 * * * root bash /usr/share/centreon-bi-backup/centreon-bi-backup-reporting-server.sh --centreonbifiles >> /var/log/centreon-bi/centreon-bi-backup-reporting-server-files.log 2>&1
 ```
 
-Trois types de sauvegarde sont exécutés chaque semaine :
+Trois types de sauvegarde sont effectués chaque semaine :
 
-- Sauvegarde quotidienne des fichiers de configuration du moteur de génération de rapports. Format : « centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz »
-- Sauvegarde ETL complète tous les dimanches. Format : « mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz »
-- Sauvegarde ETL incrémentielle du lundi au samedi (toutes les tables et uniquement la dernière partition des tables partitionnées). Format : « mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz »
+- Une sauvegarde quotidienne des modèles de rapports et de la bibliothèque de rapports, ainsi que des fichiers de configuration du moteur de génération de rapports (cbis). Les fichiers générés respectent le format de nommage suivant : ```centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz```
+- Chaque dimanche, une sauvegarde complète de toutes les données agrégées par l'ETL. Les fichiers générés respectent le format de nommage suivant  : ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
+- Du lundi au samedi, une sauvegarde incrémentielle des données agrégées par l'ETL pour la veille (uniquement la dernière partition de chaque table partitionnée, plus toutes les tables non partitionnées). Les fichiers générés respectent le format de nommage suivant : ```mysql-centreon_storage-bi-aaaa-mm-jj.tar.gz```
 
-Par défaut, les sauvegardes sont enregistrées dans « /var/backup ». Pour modifier ce dossier, mettez à jour la valeur « BACKUP_DIR » dans le script de sauvegarde (ligne **83**) situé ici :
-```/usr/share/centreon-bi-backup/centreon-bi-backup-reporting-server.sh```
 
-Par défaut, la rétention des sauvegarde est configurée sur 8 jours. Pour modifier cette valeur, mettez à jour **RETENTION_AGE** dans le script de sauvegarde (ligne **88**) situé ici :
-```/usr/share/centreon-bi-backup/centreon-bi-backup-reporting-server.sh```
+Le script de sauvegarde lui-même est stocké ici : **/usr/share/centreon-bi-backup/centreon-bi-backup-reporting-server.sh**. Vous pouvez modifier certains paramètres si vous le souhaitez :
 
-> **Important**
->
-> - Bien s'assurer que pendant la sauvegarde du serveur de reporting, les
-> scripts ETL ne soient pas en cours d'exécution. De plus, aucun
-> rapport ne doit être en cours de génération.
-> - Nous vous conseillons d'exporter les sauvegardes vers un autre serveur pour une sécurité accrue.
-> Il est important d'exporter les sauvegardes sur une autre machine
-> afin d'assurer leurs pérennités.
+| Paramètre| Valeur par défaut | À modifier dans le script |
+|---|---|---|
+| Emplacement de la sauvegarde | **/var/backup** | **BACKUP_DIR**, ligne 83 |
+| Durée de conservation | 8 jours | **RETENTION_AGE**, ligne 88 |
 
+> Pendant la sauvegarde du serveur MBI, assurez-vous qu'aucun script ETL ni aucune tâche de rapport n'est en cours d'exécution.
+> Nous vous recommandons d'exporter les sauvegardes vers un autre serveur afin de les sécuriser.
 
 ## Restauration de Centreon MBI
 
-### Restauration des données de configuration sur le Central
+Si vous devez complètement réinstaller votre MBI à partir d'une sauvegarde, suivez ces étapes. Si vous devez seulement restaurer une partie de votre MBI, effectuez simplement l'étape correspondante.
 
-Le processus de restauration comprend plusieurs étapes :
+### Restauration des données de configuration sur le serveur central
 
-- Réinstallation du module **centreon-bi-server** dans une version
-  identique à celle sauvegardée.
-- Intégration des anciens rapports générés.
-- Intégration des paramètres de rapports personnalisés.
-- Intégration des données de configuration Centreon MBI.
-- Intégration des données MariaDB/MySQL.
-- Supprimer les données extraites de la sauvegarde.
-- Réinstaller la sauvegarde.
+#### Réinstallation du module web Centreon MBI sur le serveur central
 
-#### Réinstallation du module web Centreon MBI
+Voir [la procédure d'installation correspondante](installation.md#étape-2--installez-linterface-centreon-mbi-dans-lapplication-centreon).
 
-Sur le serveur central Centreon, lancer la commande :
+#### Extraire votre sauvegarde dans votre dossier /tmp
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+Prenez la dernière sauvegarde **centreon-bi-front-reports-and-custom-conf-aaaa-mm-jj.tar.gz** et extrayez-la dans le répertoire **/tmp** (par défaut, le dossier de sauvegarde utilisé est **/var/backup**, modifiez-le dans la commande ci-dessous si nécessaire) :
 
 ```shell
-dnf install centreon-bi-server-x.y.z
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install centreon-bi-server-x.y.z
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-IInstallez **gpg** :
-
-```shell
-apt install gpg
-```
-
-Importez la clé du dépôt :
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-Puis installez Centreon MBI :
-
-```shell
-apt update && apt install centreon-bi-server-x.y.z
-```
-
-</TabItem>
-</Tabs>
-
-#### Intégrer les rapports générés
-
-Prenez la dernière sauvegarde de « centreon-bi-front-reports-and-custom-conf-aaaa-mm-jj.tar.gz » et extrayez-la dans le répertoire « /tmp » :
-
-> **Remarques** : Par défaut, le dossier de sauvegarde utilisé est /var/backup. Modifiez le dossier dans la commande ci-dessous si nécessaire.
-
-```
 tar xzf /var/backup/centreon-bi-front-reports-and-custom-conf-YYYY-MM-DD.tar.gz -C /tmp
 ```
+
+#### Restaurer les rapports générés
 
 Copiez ensuite les rapports sauvegardés :
 
@@ -204,9 +139,9 @@ Modifiez les droits d'accès aux fichiers :
 chown -R centreonBI:centreonBI /var/lib/centreon/centreon-bi-server/archives
 ```
 
-#### Intégrer les paramètres de rapport personnalisés (facultatif)
+#### Restaurer les modèles de rapports personnalisés et les bibliothèques (facultatif)
 
-Copiez les paramètres enregistrés :
+Cette étape ne s'applique que si vous utilisiez des modèles de rapports personnalisés. Copiez les paramètres enregistrés depuis votre dossier **/tmp** :
 
 ```
 cp -rf /tmp/usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl/* /usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl
@@ -224,9 +159,9 @@ Modifiez les droits d'accès aux fichiers :
 chown -R apache:apache /usr/share/centreon/www/modules/centreon-bi-server/configuration/generation/xsl
 ```
 
-#### Intégrer les données de configuration de Centreon MBI
+#### Restaurer les données du module MBI de Centreon
 
-Importer la sauvegarde SQL à l'aide de la commande :
+Importez la sauvegarde SQL à l'aide de la commande :
 
 ```
 mysql -u root -p centreon_storage < /tmp/var/backup/dump_centreon_storage.sql
@@ -234,7 +169,7 @@ mysql -u root -p centreon_storage < /tmp/var/backup/dump_centreon_storage.sql
 
 #### Supprimer les données extraites de la sauvegarde
 
-Supprimer les données extraites via les commandes suivantes ::
+Supprimez les données extraites à l'aide des commandes suivantes :
 
 ```
 cd /tmp
@@ -242,46 +177,23 @@ rm -Rf /tmp/usr
 rm -Rf /tmp/var
 ```
 
-### Restauration des paramètres du serveur de reporting Centreon MBI
+### Restauration du serveur MBI
 
-Le processus de restauration comprend plusieurs étapes :
+Le processus complet de restauration se divise en plusieurs étapes (vous pouvez ignorer celles qui ne s'appliquent pas à votre cas).
 
-- Réinstallation du module **centreon-bi-reporting-server** dans une
-    version identique à celle sauvegardée.
-- Intégration de la configuration du moteur CBIS.
-- Intégration des modèles de rapports personnalisés.
-- Intégration des données.
-- Redémarrer le moteur CBIS.
-- Supprimer les données extraites de la sauvegarde.
-- Réinstaller la sauvegarde.
+#### Réinstallation du module Centreon MBI dans la m^me version que celle utilisée précédemment
 
-> Si vous provisionnez un nouveau serveur, suivez les prérequis de configuration du serveur et installez le référentiel Centreon Business
+> Si vous provisionnez un nouveau serveur, suivez [la procédure d'installation correspondante](installation.md#étape-3--installez-le-serveur-de-reporting).
 
-#### Réinstallation du module Centreon MBI
+### Extraire votre sauvegarde dans votre dossier /tmp
 
-Sur le serveur MBI, exécutez la commande suivante :
-
-```
-yum install centreon-bi-reporting-server-x.y.z
-```
-
-***x.y.z** correspond à la version exacte du module sauvegardé.*
-
-Si votre version est à jour, exécutez simplement :
-
-```
-yum install centreon-bi-reporting-server
-```
-#### Intégration de la configuration CBIS
-
-Prenez la dernière sauvegarde **centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz**
-et extrayez-la dans le répertoire **/tmp** :
-
-> **Remarques** : Par défaut, le dossier de sauvegarde utilisé est /var/backup. Modifiez le dossier dans la commande ci-dessous si nécessaire.
+Prenez la dernière sauvegarde **centreon-bin-reports-and-conf-aaaa-mm-jj.tar.gz** et extrayez-la dans le répertoire **/tmp** (par défaut, le dossier de sauvegarde utilisé est /var/backup, modifiez-le dans la commande ci-dessous si nécessaire) :
 
 ```
 tar xzf /var/backup/centreon-bin-reports-and-conf-YYYY-MM-DD.tar.gz -C /tmp
 ```
+
+#### Restaurer la configuration CBIS
 
 Copiez ensuite les paramètres CBIS :
 
@@ -289,7 +201,7 @@ Copiez ensuite les paramètres CBIS :
 cp -rf /tmp/etc/centreon-bi/* /etc/centreon-bi
 ```
 
-#### Intégration des paramètres des rapports personnalisés
+#### Restaurer les paramètres des rapports
 
 Copiez ensuite les modèles de rapport :
 
@@ -300,46 +212,46 @@ cp -rf /tmp/usr/share/centreon-bi/Resources/* /usr/share/centreon-bi/Resources
 chown -R centreonBI:centreonBI /usr/share/centreon-bi/Resources
 ```
 
-### Intégration des données MariaDB/MySQL
+### Restaurer les données de la base
 
-Arrêter le service MariaDB/MySQL :
+Arrêtez le service MariaDB/MySQL :
 
 ```
 systemctl stop mysql
 ```
 
-Supprimer le répertoire */var/lib/mysql* du serveur de reporting :
+Supprimez le répertoire */var/lib/mysql* du serveur de reporting :
 
 ```
 rm -rf /var/lib/mysql
 ```
 
-> **Remarque** : Si vous recevez le message d'erreur « rm: impossible de supprimer '/var/lib/mysql': Périphérique ou ressource occupée », vous devez démonter/monter la partition datadir.
+> Si vous recevez le message d'erreur « rm: impossible de supprimer '/var/lib/mysql': Périphérique ou ressource occupée », vous devez démonter/monter la partition datadir.
 ```
 umount /var/lib/mysql
 rm -rf /var/lib/mysql/*
 mount /var/lib/mysql
 ```
 
-Extraire la dernière sauvegarde complète (créée par défaut le dimanche) :
+Extrayez la dernière sauvegarde complète (créée par défaut le dimanche) :
 
 ```
 tar -xzf /var/backup/mysql-centreon_storage-bi-xxxx-xx-xx.tar.gz -C /var/lib/mysql
 ```
 
-Extraire toutes les sauvegardes incrémentielles créées entre la dernière sauvegarde complète et la date actuelle, de la plus ancienne à la plus récente, via la commande :
+Extrayez toutes les sauvegardes incrémentielles créées entre la dernière sauvegarde complète et la date actuelle, de la plus ancienne à la plus récente, en utilisant la commande suivante :
 
 ```
 tar -xzf /var/backup/mysql-centreon_storage-bi-xxxx-xx-xx.tar.gz -C /var/lib/mysql
 ```
 
-Modifier les droits sur le répertoire */var/lib/mysql* :
+Modifiez les droits sur le répertoire */var/lib/mysql* :
 
 ```
 chown -R mysql:root /var/lib/mysql
 ```
 
-Démarrer le service MariaDB/MySQL :
+Démarrez le service MariaDB/MySQL :
 
 ```
 systemctl start mysql
@@ -359,7 +271,7 @@ Service démarré…
 
 #### Supprimer les données de la sauvegarde extraite
 
-Supprimer les données extraites de la sauvegarde :
+Supprimez les données extraites de la sauvegarde :
 
 ```
 cd /tmp
