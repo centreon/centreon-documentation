@@ -11,19 +11,19 @@ Each cron backs up the data that is stored on each server. According to the prob
 
 Each backup script uses a purge mechanism to delete old backup data.
 
-### Backing up your central server
+## Backing up your central server
 
-#### Backed up items
+### Backed up items
 
 - Generated reports (pdf, docx, xlsx or other formats).
 - The complete configuration of your MBI module that is stored on your central server (MBI tables in 2 SQL dumps: **dump_centreon.sql**, **dump_centreon_storage.sql**).
 
-#### Backup frequency
+### Backup frequency
 
 - Daily
-- Purge Rotation: 8 days.
+- Old backups are deleted after 8 days.
 
-#### How the backup script works on the central server
+### How the backup script works on the central server
 
 The backup script is executed on a daily basis using a cron job located on your central server, in **/etc/cron.d/centreon-bi-interface-crons**:
 
@@ -54,25 +54,25 @@ The backup script itself is stored here: **/usr/share/centreon-bi-backup/centreo
 
 Every day, the **/usr/share/centreon/www/modules/centreon-bi-server/tools/purgeArchivesFiles.php** script checks the retention parameters and deletes the reports that are older than that (36 months by default).
 
-### Backing up your MBI server
+## Backing up your MBI server
 
 > For the backup to run smoothly, it is important to have at least 5 GB of free space on the **Volume Group** hosting the MBI database. To check your free
 > space, run the following command (enter the name of the **Volume Group**):
 >
 > ```vgdisplay vg_data | grep -i free```
 
-#### Backed up items
+### Backed up items
 
 <!--- Database configuration file (**/etc/my.cnf/centreon.cnf**).-->
 - All data aggregated by the ETL (the contents of your datadir folder, by default: **/var/lib/mysql**).
 - Reports designs and report library, and the corresponding XML parameters.
 
-#### Backup frequency
+### Backup frequency
 
 -   Daily
 -   Rotation: 8 days.
 
-#### How the backup script works on the MBI server
+### How the backup script works on the MBI server
 
 The backup script is executed on a daily basis using a cron job located on the MBI server, in **/etc/cron.d/centreon-bi-backup-reporting-server**:
 
@@ -181,14 +181,7 @@ rm -Rf /tmp/var
 
 ### Restore the Centreon MBI server
 
-The full restoration process is divided into several steps (you can skip the ones that don't apply to your case):
-
-- Reinstall **centreon-bi-reporting-server** module in the same version as the one you used before
-- Restore the CBIS configuration
-- Restore the report designs
-- Restore database data
-- Restart the CBIS engine
-- Delete the data from the extracted backup.
+The full restoration process is divided into several steps (you can skip the ones that don't apply to your case).
 
 #### Reinstall the centreon-bi-reporting-server module in the same version as the one saved
 
@@ -235,7 +228,7 @@ Remove the **/var/lib/mysql** directory from the reporting server:
 rm -rf /var/lib/mysql
 ```
 
-> If you receive the error message : "rm: impossible de supprimer '/var/lib/mysql': Périphérique ou ressource occupé", you have to umount/mount the datadir partition.
+> If you receive the error message : "rm: cannot delete ‘/var/lib/mysql’: Device or resource busy", you have to umount/mount the datadir partition.
 ```
 umount /var/lib/mysql 
 rm -rf /var/lib/mysql/*
