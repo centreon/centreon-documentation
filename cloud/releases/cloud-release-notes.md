@@ -12,9 +12,10 @@ title: Centreon Cloud release notes
 It is now easier to keep your dashboards up to date, thanks to support for regular expressions in the Resource Table, Group Monitoring, Status Grid and Top/Bottom widgets dataset configuration.
 
 **User Interface**
+
 Few adjustments have been made on Centreon Monitoring Agent configuration interface. 
 
-Note: More Agent features to come with 25.10 official release of poller. Stay tuned!
+**Note:** More Agent features to come with 25.10 official release of poller. Stay tuned!
 
 ### Centreon Pro Edition
 
