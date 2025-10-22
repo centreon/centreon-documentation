@@ -3,106 +3,27 @@ id: cloud-release-notes
 title: Centreon Cloud - notes de release
 ---
 
-## 25.09.0
+## October XXth, 2025
 
-### Centreon Collect
+### Centreon IT Edition
 
-<details open>
-  <summary>Enhancements</summary>
+**Centreon Dashboards**
 
-- [Credentials encryption] Broker is now able to handle encrypted credentials.
-- [Credentials encryption] Engine is now able to check its encryption readiness.
-- Enhanced configuration generation to handle Insecure TLS.
+It is now easier to keep your dashboards up to date, as regular expressions are supported in the dataset configuration section of the **Resource Table**, **Group Monitoring**, **Status Grid** and **Top/Bottom** widgets.
 
-</details>
+**User interface**
 
-<details>
-  <summary>Bug fixes</summary>
+A few adjustments have been made to the Centreon Monitoring Agent configuration interface. 
 
-- AES 256 encryption keys are now automatically resized (zero-padded if too short, truncated if too long) instead of throwing an error when not exactly 32 bytes.
-- [Broker] Fixed Broker connection issue during MySQL upgrades where prepared statements were not recognized by the new database instance, causing query failures.
-- [CORE] Fixed compatibility of engine with older versions of Linux kernel.
-- [Engine] Fixed an Engine crash when deleting a host during downtime notification.
-- [Engine] Fixed a segmentation fault in Engine that could occur if checks were still running when a shutdown was requested.
-- [Routing] Correctly prefix modules routes.
+**Note:** More agent features to come with the 25.10 official release of the pollers. Stay tuned!
 
-</details>
+### Centreon Pro Edition
 
-### Centreon Monitoring Agent
+**MAP**
 
-<details open>
-  <summary>Enhancements</summary>
-
-- [CMA] Added a native Files check for Windows.
-- CMA installer and CLI wording have been harmonized to fit with new UI labels.
-- CMA now handles forced checks.
-- CMA related TLS connections now require tokens.
-- [credentials encryption] CMA is now able to retrieve encryption key & handle encrypted credentials.
-- Insecure TLS is now available as encryption mode in CMA.
-
-</details>
-
-### Centreon Gorgone
-
-<details>
-  <summary>Bug fixes</summary>
-
-- Fixed a bug where, when a poller didn't connect for a long time to a central, it could not connect anymore until the sqlite database was deleted.
-
-</details>
-
-### Centreon Map
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Library] Added the possibility to select a custom icon representing a Geoview.
-- [MAP API] It is now possible to use MAP API with API Token.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Server] BBDOv2 messages are no longer supported.
-
-</details>
-
-<details>
-  <summary>Security fixes</summary>
-
-- Added authentication for actuator endpoints.
-
-</details>
-
-### Centreon Web
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [ACL] Added Image Folders in Resource Access Management to allow access control to images in MAP.
-- [Administration] Added INFO logs on API&CMA Tokens Add/Delete/Activate/Revoke & API Tokens usage.
-- [Agent configuration] It's now possible to configure both connection direction in the same configuration. The user interface has been improved according to this.
-- [API] Enhanced Agent configuration endpoints documentation.
-- [Authentication Tokens] Added a welcome page when no token exists in the token configuration page.
-- [Configuration] Cleaned up labels in Agent configuration screens.
-- [Configuration] Insecure TLS is now available as encryption mode in Agent configuration.
-- [Credentials encryption] Configuration generation is now able to handle encrypted credentials.
-- [Dashboards] It is now possible to use regex (regular expressions) to filter certain resource types in specific widgets.
-- [UX/UI] Updated forms and pop-ups to improve readability and added a new tab navigation system for quick access to collapsible sub-menus.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Authentication] Fixed an issue that prevented users logged in via OIDC from logging out of the interface.
-- [Configuration] The creation of metaservices no longer fails for users with several RAM rules.
-- Fixed an error in notifications page.
-- [Notification] Fixed erroneous user count in notification rule listing.
- 
-</details>
-
+* This release introduces image folders in Resource Access Management: folder-level access control is now available for images in MAP. Administrators can organize images into folders and manage access permissions in one place.
+* It is now possible to use the MAP API. As for the Centreon web API, use an authentication token to get started and begin automating your MAP usage.
+* You can now customize geographic view tiles in the dashboard homepage by adding a custom image to the tile.
 
 ## September 25th, 2025
 
